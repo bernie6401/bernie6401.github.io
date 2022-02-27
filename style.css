@@ -1,0 +1,116 @@
+p{
+    color: red;
+}
+
+/*class must use '.+<class name>'*/
+.stinky_tofu{
+    color: blue;
+}
+.hot_pot{
+    color:rgba(0, 255, 0, 0.302);
+}
+.food{
+    background-color: coral;
+}
+
+/*id must use '#+<id name>'*/
+#taiwan_food{
+    border: 5px solid blue;
+    border-radius:40px;
+    opacity: 0.2;
+}
+
+/*u can apply multi class or id to the same setting*/
+#id-1, .class-1{
+    background-color: wheat;
+}
+
+/* * means apply the setting to whole page*/
+*{
+    background-color: rgba(245, 222, 179, 0);
+}
+
+/*it means the page will find ul label first and then find if it exist any li label in ul label
+if it exist, then apply*/
+ul li{
+    color: rgb(8, 99, 23);
+    background-color: white;
+}
+ul a{
+    border: 2px solid black;
+}
+
+/*it means it'll apply to the label which use type property*/
+[type]{
+    border: 10px solid sienna;
+}
+
+/*it means when the mouse go through the place in which has class property name class-1, it'll change the background*/
+.class-1:hover{
+    background-color: rgba(128, 128, 128, 0.296);
+    border-radius: 10px;
+}
+
+
+/*flex means it'll make the block that we want to show be be flex*/
+.container{
+    display: flex;
+    flex-wrap: wrap;/*when the # of block out of size, it'll newline automatically*/
+    flex-direction: row;/*it'll change the display direction, default is row*/
+    justify-content: center;/*if direction is row, justify-content is like a x-coord反之就是y-coord(flex-start/flex-end/space-around/space-between/space-evenly)*/
+    align-items: flex-end;/*if direction is row, justify-content is like a y-coord反之就是x-coord*/
+    border: 1px solid blue;
+    height: 300px;
+}
+.container div{
+    border: 1px solid rgba(236, 138, 138, 0.446);
+    padding: 10px;
+    width: 100px;
+}
+/*flex: 1 means it'll take 1/total_width_length_of_page. In this example, the total legnth is 4.
+box-1[1] + box-2[2] + box-3[1] = 4*/
+/* .box-1{
+    flex: 1;
+    order: 2;
+}
+.box-2{
+    flex: 2;
+    order: 1;
+}
+.box-3{
+    flex: 1;
+    order: 3;
+} */
+
+
+@keyframes change-color {
+    from{background-color: black;}
+    to {background-color: saddlebrown;}
+}
+@keyframes change-color-with-percent {
+    /*u also can add position in {} to change its position*/
+    0% {background-color: red;}
+    10% {background-color: blue;}
+    20% {background-color: yellow;}
+    30% {background-color: green;}
+    40% {background-color: blue;}
+    50% {background-color: purple;}
+    60% {background-color: grey;}
+    70% {background-color: white;}
+    80% {background-color: gold;}
+    90% {background-color: silver;}
+    100% {background-color: transparent;}
+}
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: grey;
+}
+/*u also can use hover in the animation*/
+.box-animation{
+    animation-name: change-color-with-percent;
+    animation-duration: 10s;
+    animation-iteration-count: 3;
+    animation-delay: 2s;/*it means when we load the page, it'll delay 2s to start the animation*/
+    animation-name: change-color;
+}

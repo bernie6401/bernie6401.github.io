@@ -8,7 +8,13 @@
         <meta name="keywords" content="web security, html, css, js, ntust" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>NTUSTWS.HW</title>
+
+        <!--import css file-->
+        <!--as we mentioned above, u can write css in another way, u also can write it in a new file
+        and import it when u used it-->
+        <link rel="stylesheet" href="style.css" />
     </head>
+
     <body>
         <!--color-->
         <div style="color: bisque; font-size: large;">
@@ -36,5 +42,104 @@
             <li>About us</li>
             <li>Contact us</li>
         </ul>
+        <p>12345678978464564545412311111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</p>
+        
+        <!--in p label, the default display is block and span label's inline-->
+        <p style="display: inline;">Hello</p>
+        <p style="display: inline;">World</p>
+        <span>test1</span>
+        <span>test2</span>
+
+
+        <!--position-->
+        <!--fixed position
+        <div style="width: 80px; height: 80px; background-color: blue;"></div>
+        <div style="position: fixed; width: 120px; height: 120px; background-color: red;"></div>-->
+
+        <!--relative position
+        <div style="width: 80px; height: 80px; background-color: blue;"></div>
+        <div style="position: relative; width: 120px; height: 120px; background-color: red;"></div>-->
+
+        <!--absolute position
+        <div style="padding: 30px; border: 5px solid red;">
+            <div style="padding: 30px; border: 5px solid red;">
+                <div style="position:absolute; bottom: 0px; width: 40px; height: 40px; background-color: yellow;"></div>
+            </div>
+        </div>
+        <div style="padding: 30px; border: 5px solid red;">
+            <div style="position: relative; padding: 30px; border: 5px solid red;">
+                <div style="position:absolute; bottom: 0px; width: 40px; height: 40px; background-color: yellow;"></div>
+            </div>
+        </div>
+        <div style="position: relative; padding: 30px; border: 5px solid red;">
+            <div style="padding: 30px; border: 5px solid red;">
+                <div style="position:absolute; bottom: 0px; width: 40px; height: 40px; background-color: yellow;"></div>
+            </div>
+        </div>
+        <div style="position: relative; padding: 30px; border: 5px solid red;">
+            <div style="position: relative; padding: 30px; border: 5px solid red;">
+                <div style="position:absolute; bottom: 0px; width: 40px; height: 40px; background-color: yellow;"></div>
+            </div>
+        </div>-->
+
+
+        <!--opacity & border-radius-->
+        <p style="position: relative; top: 65px; left: 25px;">Hello</p>
+        <div style="opacity: 0.2; border-radius:40px ; width: 80px; height: 80px; background-color: gold;"></div>
+
+
+        <!--style-->
+        <!--if u want to change all of the color, u must change it one by one
+        , this is unconvenient. So, u can add it in head label.-->
+        <p>Hot pot is good.</p>
+        <p>Hot pot is good.</p>
+        <p>Hot pot is good.</p>
+        <p>Hot pot is good.</p>
+        <p>Hot pot is good.</p>
+        <p>Hot pot is good.</p>
+
+
+        <!--class & id -- id is unique but class name can be repeated-->
+        <h1 id="taiwan_food">Taiwan's food</h1>
+        <p class="hot_pot food">Hot pot is good.</p>
+        <p class="hot_pot food">Hot pot is bad.</p>
+        <p class="hot_pot food">Hot pot is delicious.</p>
+        <p class="stinky_tofu food">Stinky Tofu is soso.</p>
+        <p class="stinky_tofu food">Stinky Tofu is hot.</p>
+        <p class="stinky_tofu food">Stinky Tofu is the best in Taiwan.</p>
+
+
+        <!--css selector-->
+        <p class="class-1">Paragrach 1</p>
+        <p class="class-1">Paragrach 2</p>
+        <h2 id="id-1">Hello!</h2>
+        <h2>How are u.</h2>
+
+        <ul>
+            <li><a href="https://google.com">google</a></li>
+            <li>facebook</li>
+            <li>ig</li>
+        </ul>
+        <input type="text" />
+        <br/>
+        <input type="password"/>
+
+
+        <!--flex-->
+        <div class="container">
+            <div class="box-1">block1</div>
+            <div class="box-2">block2</div>
+            <div class="box-3">block3</div>
+            <!-- <div class="box-1">block1</div>
+            <div class="box-2">block2</div>
+            <div class="box-3">block3</div>
+            <div class="box-1">block1</div>
+            <div class="box-2">block2</div>
+            <div class="box-3">block3</div> -->
+        </div>
+
+
+        <!--animation-->
+        <div class="box box-animation"></div>
     </body>
 </html>
