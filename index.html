@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style>p{color: blueviolet}</style>
         <title>NTUSTWS.HW</title>
+        <link rel="stylesheet" href="index.css" />
     </head>
     <body>
         <div style="float: left; padding-left: 100px; padding-right: 50px; position: fixed;">
@@ -50,15 +51,23 @@
                 <img src="./img/icon_upload_schedule.png" width="15" height="15"/>
                 <img src="./img/icon_upload_location.png" width="15" height="15"/>
             </div>
+            <br/>
         </div>
         
-        <a href="https://www.instagram.com/tsumugi_daisuki/">かわいい</a><!--href is a property of a label-->
-        <br></br><!--new line or u can just write <br/>-->
-        <hr/><!--horizontal line-->
+        <div style="margin-left: 170px; padding-left: 30px; padding-top: 15px;">
+            <!-- blog implement -->
+            <h1 class="title_name">SBK Blog</h1>
+            <p>title</p>
+            <input type="text" id="title" />
+            <p>content</p>
+            <textarea type="text" id="content" rows="8"></textarea>
+            <button id="btn1" style="color: black; border: 1px solid gold;">Post</button>
+            <div id="list"></div>
+
+            <script src="blog_implement.js"></script>
+        </div>
         
         
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/eN76drmYj-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
         
     </body>
 </html>

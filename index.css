@@ -1,0 +1,28 @@
+/* * means apply the setting to whole page*/
+*{
+    background-color: rgba(245, 222, 179, 0.159);
+}
+
+/*it means the page will find ul label first and then find if it exist any li label in ul label
+if it exist, then apply*/
+ul li{
+    color: rgb(8, 99, 23);
+    background-color: white;
+}
+ul a{
+    border: 2px solid black;
+}
+
+/*it means it'll apply to the label which use type property*/
+[type]{
+    border: 2px solid rgb(0, 0, 0);
+    width: 200px;
+    height: 50px;
+}
+
+/*it means when the mouse go through the place in which has class property name class-1, it'll change the background*/
+.title_name:hover{
+    background-color: rgba(250, 1, 1, 0.227);
+    border-radius: 20px;
+    width: 140px;
+}
