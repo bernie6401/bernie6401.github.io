@@ -1,22 +1,14 @@
 var relearn_searchindex = [
   {
-    "breadcrumb": "My New Hugo Site \u003e  Posts",
-    "content": "",
-    "description": "",
+    "breadcrumb": "SBK Hugo Site \u003e  Posts",
+    "content": "bbb aaa",
+    "description": "bbb aaa",
     "tags": [],
-    "title": "Hello",
+    "title": "Hello123",
     "uri": "/posts/hello/index.html"
   },
   {
-    "breadcrumb": "",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "My New Hugo Site",
-    "uri": "/index.html"
-  },
-  {
-    "breadcrumb": "My New Hugo Site",
+    "breadcrumb": "SBK Hugo Site",
     "content": "",
     "description": "",
     "tags": [],
@@ -24,7 +16,15 @@ var relearn_searchindex = [
     "uri": "/posts/index.html"
   },
   {
-    "breadcrumb": "My New Hugo Site",
+    "breadcrumb": "",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "SBK Hugo Site",
+    "uri": "/index.html"
+  },
+  {
+    "breadcrumb": "SBK Hugo Site",
     "content": "",
     "description": "",
     "tags": [],
@@ -32,7 +32,7 @@ var relearn_searchindex = [
     "uri": "/categories/index.html"
   },
   {
-    "breadcrumb": "My New Hugo Site",
+    "breadcrumb": "SBK Hugo Site",
     "content": "",
     "description": "",
     "tags": [],
