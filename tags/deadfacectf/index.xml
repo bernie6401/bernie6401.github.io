@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DeadFaceCTF :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/deadfacectf/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/deadfacectf/index.xml" rel="self" type="application/rss+xml"/><item><title>DEADFACE CTF 2023</title><link>https://bernie6401.github.io/security/competition/deadface-ctf-2023/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/competition/deadface-ctf-2023/index.html</guid><description>DEADFACE CTF 2023 :::spoiler 比賽成果 :::
-Steganography You’ve Been Ransomwared Description DEADFACE is taunting GlitterCo with their latest ransomware attack. According to our intel, the attackers like to leave a calling card in their attacks. If we can figure out which DEADFACE actor executed this attack, we might be able to figure out a way around paying. Can you find anything in this screenshot that might point to which attacker ran this ransomware attack?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DeadFaceCTF on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/deadfacectf/</link><description>Recent content in DeadFaceCTF on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/deadfacectf/index.xml" rel="self" type="application/rss+xml"/><item><title>DEADFACE CTF 2023</title><link>https://bernie6401.github.io/security/competition/deadface-ctf-2023/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/competition/deadface-ctf-2023/</guid><description>&lt;h1 id="deadface-ctf-2023">
+ DEADFACE CTF 2023
+ &lt;a class="anchor" href="#deadface-ctf-2023">#&lt;/a>
+&lt;/h1>
+&lt;p>:::spoiler 比賽成果
+&lt;img src="https://hackmd.io/_uploads/BkhuIH1QT.png" alt="" />
+:::&lt;/p>
+&lt;h2 id="steganography">
+ Steganography
+ &lt;a class="anchor" href="#steganography">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="youve-been-ransomwared">
+ You&amp;rsquo;ve Been Ransomwared
+ &lt;a class="anchor" href="#youve-been-ransomwared">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="description">
+ Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h4>
+&lt;blockquote>
+&lt;p>DEADFACE is taunting GlitterCo with their latest ransomware attack. According to our intel, the attackers like to leave a calling card in their attacks. If we can figure out which DEADFACE actor executed this attack, we might be able to figure out a way around paying. Can you find anything in this screenshot that might point to which attacker ran this ransomware attack?&lt;/p></description></item></channel></rss>

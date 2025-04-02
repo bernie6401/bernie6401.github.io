@@ -1,0 +1,842 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/tags/ctf/"><meta property="og:site_name" content="SBK Hugo Site"><meta property="og:title" content="CTF"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><title>CTF | SBK Hugo Site</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/tags/ctf/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.acdc41c8d39e6c69d70d8a23779875e0a3733fefead3e428d5344966bb12f562.js integrity="sha256-rNxByNOebGnXDYojd5h14KNzP+/q0+Qo1TRJZrsS9WI=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://bernie6401.github.io/tags/ctf/index.xml title="SBK Hugo Site"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>SBK Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>CTF</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></aside></header><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/disk/picoctf---operation-oni/>PicoCTF - Operation Oni</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---operation-oni>PicoCTF - Operation Oni
+<a class=anchor href=#picoctf---operation-oni>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://www.techrepublic.com/article/how-to-view-your-ssh-keys-in-linux-macos-and-windows/>How to View Your SSH Keys in Linux, macOS and Windows</a></p><p><a href=https://docs.pingcode.com/ask/16621.html>ISO和IMG有哪些區別</a></p><blockquote><h3 id=iso和img的區別>ISO和IMG的區別
+<a class=anchor href=#iso%e5%92%8cimg%e7%9a%84%e5%8d%80%e5%88%a5>#</a></h3><p>ISO和IMG都是操作系統鏡像文件的擴展名，它們的主要區別在以下幾個方面：</p><ol><li>來源不同
+ISO文件通常來自光盤鏡像，例如Windows安裝光盤的ISO鏡像文件。而IMG文件可以來自多種渠道，例如從移動設備制造商下載的Android操作系統鏡像文件，或者是從虛擬機軟件中制作的虛擬機磁盤鏡像文件。</li><li>文件格式不同
+ISO文件使用ISO 9660標準格式，而IMG文件可以使用多種格式，例如RAW、VMDK、VDI等。</li><li>兼容性不同
+ISO文件在各種操作系統和軟件中都有良好的兼容性，而IMG文件在一些操作系統或軟件中可能存在兼容性問題。</li><li>使用範圍不同
+ISO文件主要用於制作光盤或者USB啟動盤，用於安裝操作系統或者救援系統等。而IMG文件主要用於移動設備或者虛擬機等環境下的操作系統安裝或備份。
+總之，ISO和IMG都是操作系統鏡像文件的擴展名，雖然它們在一些方面有類似之處，但在來源、文件格式、兼容性和使用範圍等方面存在差異，應根據具體的需求來選擇使用哪種格式。</li></ol></blockquote><h2 id=description>Description
+<a class=anchor href=#description>#</a></h2><p>Download this disk image, find the key and log into the remote machine. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.</p><a href=/security/practice/picoctf/misc/disk/picoctf---operation-oni/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/disk/picoctf---operation-orchid/>PicoCTF - Operation Orchid</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---operation-orchid>PicoCTF - Operation Orchid
+<a class=anchor href=#picoctf---operation-orchid>#</a></h1><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>這一題過於簡單</p><h2 id=exploit---forensics--openssl>Exploit - Forensics / Openssl
+<a class=anchor href=#exploit---forensics--openssl>#</a></h2><ol><li><p>Find Encryption Flag File(Autopsy)
+可以在/root中找到，然後.ash_history的command紀錄中知道加密的password phrase
+<img src=https://hackmd.io/_uploads/rJdlBhLgp.png alt></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>touch flag.txt
+</span></span><span style=display:flex><span>nano flag.txt 
+</span></span><span style=display:flex><span>apk get nano
+</span></span><span style=display:flex><span>apk --help
+</span></span><span style=display:flex><span>apk add nano
+</span></span><span style=display:flex><span>nano flag.txt 
+</span></span><span style=display:flex><span>openssl
+</span></span><span style=display:flex><span>openssl aes256 -salt -in flag.txt -out flag.txt.enc -k unbreakablepassword1234567
+</span></span><span style=display:flex><span>shred -u flag.txt
+</span></span><span style=display:flex><span>ls -al
+</span></span><span style=display:flex><span>halt
+</span></span></code></pre></div></li><li><p>Script</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ openssl aes-256-cbc -in flag.txt.enc -d
+</span></span><span style=display:flex><span>enter aes-256-cbc decryption password:
+</span></span><span style=display:flex><span>*** WARNING : deprecated key derivation used.
+</span></span><span style=display:flex><span>Using -iter or -pbkdf2 would be better.
+</span></span><span style=display:flex><span>bad decrypt
+</span></span><span style=display:flex><span>140342062343488:error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt:crypto/evp/evp_enc.c:612:
+</span></span><span style=display:flex><span>picoCTF<span style=color:#f92672>{</span>h4un71ng_p457_5113beab<span style=color:#f92672>}</span>%
+</span></span></code></pre></div></li></ol></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/reverse/picoctf---otp-implementation/>PicoCTF - OTP Implementation</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/reverse/>Reverse</a></div><p><h1 id=picoctf---otp-implementation>PicoCTF - OTP Implementation
+<a class=anchor href=#picoctf---otp-implementation>#</a></h1><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler IDA Main Function</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#66d9ef>__cdecl</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>argv, <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>envp)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>char</span> v4; <span style=color:#75715e>// al
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>char</span> v5; <span style=color:#75715e>// dl
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> v6; <span style=color:#75715e>// eax
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>int</span> i; <span style=color:#75715e>// [rsp+18h] [rbp-E8h]
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>int</span> j; <span style=color:#75715e>// [rsp+1Ch] [rbp-E4h]
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>char</span> input_key[<span style=color:#ae81ff>112</span>]; <span style=color:#75715e>// [rsp+20h] [rbp-E0h] BYREF
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>char</span> tmp_key[<span style=color:#ae81ff>104</span>]; <span style=color:#75715e>// [rsp+90h] [rbp-70h] BYREF
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>__int64</span> v11; <span style=color:#75715e>// [rsp+F8h] [rbp-8h]
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  v11 <span style=color:#f92672>=</span> __readfsqword(<span style=color:#ae81ff>0x28u</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> ( argc <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span> )
+</span></span><span style=display:flex><span>  {
+</span></span><span style=display:flex><span>    strncpy(input_key, argv[<span style=color:#ae81ff>1</span>], <span style=color:#ae81ff>0x64uLL</span>);
+</span></span><span style=display:flex><span>    input_key[<span style=color:#ae81ff>100</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> ( i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; valid_char(input_key[i]); <span style=color:#f92672>++</span>i )<span style=color:#75715e>// 確認字元是否在[0-9|a-f]之間
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> ( i )
+</span></span><span style=display:flex><span>      {
+</span></span><span style=display:flex><span>        v4 <span style=color:#f92672>=</span> jumble(input_key[i]);
+</span></span><span style=display:flex><span>        v5 <span style=color:#f92672>=</span> tmp_key[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> v4;
+</span></span><span style=display:flex><span>        v6 <span style=color:#f92672>=</span> ((tmp_key[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> v4) <span style=color:#f92672>&gt;&gt;</span> <span style=color:#ae81ff>31</span>) <span style=color:#f92672>&gt;&gt;</span> <span style=color:#ae81ff>28</span>;
+</span></span><span style=display:flex><span>        tmp_key[i] <span style=color:#f92672>=</span> ((v6 <span style=color:#f92672>+</span> v5) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0xF</span>) <span style=color:#f92672>-</span> v6;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>      {
+</span></span><span style=display:flex><span>        tmp_key[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> jumble(input_key[<span style=color:#ae81ff>0</span>]) <span style=color:#f92672>%</span> <span style=color:#ae81ff>16</span>;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> ( j <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; j <span style=color:#f92672>&lt;</span> i; <span style=color:#f92672>++</span>j )
+</span></span><span style=display:flex><span>      tmp_key[j] <span style=color:#f92672>+=</span> <span style=color:#ae81ff>0x61</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ( i <span style=color:#f92672>==</span> <span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>!</span>strncmp(
+</span></span><span style=display:flex><span>            tmp_key,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;bajbgfapbcclgoejgpakmdilalpomfdlkngkhaljlcpkjgndlgmpdgmnmepfikanepopbapfkdgleilhkfgilgabldofbcaedgfe&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>100uLL</span>) )
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>      puts(<span style=color:#e6db74>&#34;You got the key, congrats! Now xor it with the flag!&#34;</span>);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>      puts(<span style=color:#e6db74>&#34;Invalid key!&#34;</span>);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>  {
+</span></span><span style=display:flex><span>    printf(<span style=color:#e6db74>&#34;USAGE: %s [KEY]</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, <span style=color:#f92672>*</span>argv);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>:::</p><a href=/security/practice/picoctf/reverse/picoctf---otp-implementation/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/reverse/picoctf---picker-iii/>PicoCTF - Picker III</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/reverse/>Reverse</a></div><p><h1 id=picoctf---picker-iii>PicoCTF - Picker III
+<a class=anchor href=#picoctf---picker-iii>#</a></h1><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class=language-python! data-lang=python!>
+import re
+
+
+
+USER_ALIVE = True
+FUNC_TABLE_SIZE = 4
+FUNC_TABLE_ENTRY_SIZE = 32
+CORRUPT_MESSAGE = &#39;Table corrupted. Try entering \&#39;reset\&#39; to fix it&#39;
+
+func_table = &#39;&#39;
+
+def reset_table():
+  global func_table
+
+  # This table is formatted for easier viewing, but it is really one line
+  func_table = \
+&#39;&#39;&#39;\
+print_table                     \
+read_variable                   \
+write_variable                  \
+getRandomNumber                 \
+&#39;&#39;&#39;
+
+def check_table():
+  global func_table
+
+  if( len(func_table) != FUNC_TABLE_ENTRY_SIZE * FUNC_TABLE_SIZE):
+    return False
+
+  return True
+
+
+def get_func(n):
+  global func_table
+
+  # Check table for viability
+  if( not check_table() ):
+    print(CORRUPT_MESSAGE)
+    return
+
+  # Get function name from table
+  func_name = &#39;&#39;
+  func_name_offset = n * FUNC_TABLE_ENTRY_SIZE
+  for i in range(func_name_offset, func_name_offset+FUNC_TABLE_ENTRY_SIZE):
+    if( func_table[i] == &#39; &#39;):
+      func_name = func_table[func_name_offset:i]
+      break
+
+  if( func_name == &#39;&#39; ):
+    func_name = func_table[func_name_offset:func_name_offset+FUNC_TABLE_ENTRY_SIZE]
+  
+  return func_name
+
+
+def print_table():
+  # Check table for viability
+  if( not check_table() ):
+    print(CORRUPT_MESSAGE)
+    return
+
+  for i in range(0, FUNC_TABLE_SIZE):
+    j = i + 1
+    print(str(j)+&#39;: &#39; + get_func(i))
+
+
+def filter_var_name(var_name):
+  r = re.search(&#39;^[a-zA-Z_][a-zA-Z_0-9]*$&#39;, var_name)
+  if r:
+    return True
+  else:
+    return False
+
+
+def read_variable():
+  var_name = input(&#39;Please enter variable name to read: &#39;)
+  if( filter_var_name(var_name) ):
+    eval(&#39;print(&#39;+var_name+&#39;)&#39;)
+  else:
+    print(&#39;Illegal variable name&#39;)
+
+
+def filter_value(value):
+  if &#39;;&#39; in value or &#39;(&#39; in value or &#39;)&#39; in value:
+    return False
+  else:
+    return True
+
+
+def write_variable():
+  var_name = input(&#39;Please enter variable name to write: &#39;)
+  if( filter_var_name(var_name) ):
+    value = input(&#39;Please enter new value of variable: &#39;)
+    if( filter_value(value) ):
+      exec(&#39;global &#39;+var_name+&#39;; &#39;+var_name+&#39; = &#39;+value)
+    else:
+      print(&#39;Illegal value&#39;)
+  else:
+    print(&#39;Illegal variable name&#39;)
+
+
+def call_func(n):
+  &#34;&#34;&#34;
+  Calls the nth function in the function table.
+  Arguments:
+    n: The function to call. The first function is 0.
+  &#34;&#34;&#34;
+
+  # Check table for viability
+  if( not check_table() ):
+    print(CORRUPT_MESSAGE)
+    return
+
+  # Check n
+  if( n &lt; 0 ):
+    print(&#39;n cannot be less than 0. Aborting...&#39;)
+    return
+  elif( n &gt;= FUNC_TABLE_SIZE ):
+    print(&#39;n cannot be greater than or equal to the function table size of &#39;+FUNC_TABLE_SIZE)
+    return
+
+  # Get function name from table
+  func_name = get_func(n)
+
+  # Run the function
+  eval(func_name+&#39;()&#39;)
+
+
+def dummy_func1():
+  print(&#39;in dummy_func1&#39;)
+
+def dummy_func2():
+  print(&#39;in dummy_func2&#39;)
+
+def dummy_func3():
+  print(&#39;in dummy_func3&#39;)
+
+def dummy_func4():
+  print(&#39;in dummy_func4&#39;)
+
+def getRandomNumber():
+  print(4)  # Chosen by fair die roll.
+            # Guaranteed to be random.
+            # (See XKCD)
+
+def win():
+  # This line will not work locally unless you create your own &#39;flag.txt&#39; in
+  #   the same directory as this script
+  flag = open(&#39;flag.txt&#39;, &#39;r&#39;).read()
+  #flag = flag[:-1]
+  flag = flag.strip()
+  str_flag = &#39;&#39;
+  for c in flag:
+    str_flag += str(hex(ord(c))) + &#39; &#39;
+  print(str_flag)
+
+def help_text():
+  print(
+  &#39;&#39;&#39;
+This program fixes vulnerabilities in its predecessor by limiting what
+functions can be called to a table of predefined functions. This still puts
+the user in charge, but prevents them from calling undesirable subroutines.
+
+* Enter &#39;quit&#39; to quit the program.
+* Enter &#39;help&#39; for this text.
+* Enter &#39;reset&#39; to reset the table.
+* Enter &#39;1&#39; to execute the first function in the table.
+* Enter &#39;2&#39; to execute the second function in the table.
+* Enter &#39;3&#39; to execute the third function in the table.
+* Enter &#39;4&#39; to execute the fourth function in the table.
+
+Here&#39;s the current table:
+  &#39;&#39;&#39;
+  )
+  print_table()
+
+
+
+reset_table()
+
+while(USER_ALIVE):
+  choice = input(&#39;==&gt; &#39;)
+  if( choice == &#39;quit&#39; or choice == &#39;exit&#39; or choice == &#39;q&#39; ):
+    USER_ALIVE = False
+  elif( choice == &#39;help&#39; or choice == &#39;?&#39; ):
+    help_text()
+  elif( choice == &#39;reset&#39; ):
+    reset_table()
+  elif( choice == &#39;1&#39; ):
+    call_func(0)
+  elif( choice == &#39;2&#39; ):
+    call_func(1)
+  elif( choice == &#39;3&#39; ):
+    call_func(2)
+  elif( choice == &#39;4&#39; ):
+    call_func(3)
+  else:
+    print(&#39;Did not understand &#34;&#39;+choice+&#39;&#34; Have you tried &#34;help&#34;?&#39;)
+</code></pre><p>:::</p><a href=/security/practice/picoctf/reverse/picoctf---picker-iii/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/disk/picoctf---pitter-patter-platters/>PicoCTF - Pitter, Patter, Platters</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---pitter-patter-platters>PicoCTF - Pitter, Patter, Platters
+<a class=anchor href=#picoctf---pitter-patter-platters>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/87?category=4&amp;page=2">Pitter, Patter, Platters</a></p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://blog.gtwang.org/linux/linux-add-format-mount-harddisk/>sda</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><h2 id=exploit---use-ftk-imager>Exploit - Use FTK Imager
+<a class=anchor href=#exploit---use-ftk-imager>#</a></h2><ul><li>I use Autopsy but find nothing except a txt file
+<img src=https://i.imgur.com/7IXjuMn.png alt>
+So I follow <a href=https://youtu.be/P0wvFs02oKY>write up video</a> to use <code>FTK imager</code> and it can parse files completely.
+<img src=https://i.imgur.com/FdC9k3V.png alt></li></ul><p>ORRRR&mldr;</p><ul><li>Use <code>HxD</code> as auxiliary tool to find flag
+<img src=https://i.imgur.com/RTIOn1G.png alt></li></ul><p>ORRRR&mldr;</p><ul><li>Just use string search<pre tabindex=0><code class=language-bash! data-lang=bash!>$ strings -e l Pitter,\ Patter,\ Platters.sda1 | rev
+picoCTF{b3_5t111_mL|_&lt;3_ba880921}
+...
+</code></pre></li></ul><h2 id=reference>Reference
+<a class=anchor href=#reference>#</a></h2><p><a href=https://github.com/Dvd848/CTFs/blob/master/2020_picoCTF_Mini/Pitter_Patter_Platters.md>Pitter, Patter, Platters write up</a>
+<a href=https://youtu.be/P0wvFs02oKY>pico 2020 mini pitter patter platters</a></p><a href=/security/practice/picoctf/misc/disk/picoctf---pitter-patter-platters/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/>PicoCTF - PowerAnalysis Part 1 / Part 2</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/crypto/>Crypto</a></div><p><h1 id=picoctf---poweranalysis-part-1--part-2>PicoCTF - PowerAnalysis Part 1 / Part 2
+<a class=anchor href=#picoctf---poweranalysis-part-1--part-2>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://hackmd.io/@SBK6401/HJNScTc-T>Simple Welcome 0x13(2023 HW - Power Analysis):two:</a></p><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>這一題幾乎就和上課教的差不多，只是因為有雜訊，所以要慎選trace point，我是直接看第一個trace的分布，決定採用300~400的point，而不管是利用自己刻的correlation coefficient還是用scipy的pearsonr都一樣可以順利解出key但是如果像homework一樣用numpy的corrcoef會有兩個bytes和正解不一樣，超哭，找超久(10/18更新，如果用自己刻的也是要碰用氣，所以如果可以的話，多送幾個trace，或者多用幾個算correlation coefficient的library)
+<img src=https://hackmd.io/_uploads/SJ4YLRnZT.jpg alt></p><ul><li>Part 2的部分幾乎一模一樣，就只是他先幫你紀錄好所有的trace，再讓我們做後續的分析</li></ul><h2 id=exploit>Exploit
+<a class=anchor href=#exploit>#</a></h2><ul><li>首先先把資料從server拉下來，在存成json<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> pwn <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> string <span style=color:#f92672>import</span> ascii_letters, digits
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> json
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> tqdm <span style=color:#f92672>import</span> trange
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>gen_plaintext</span>(length):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>join(random<span style=color:#f92672>.</span>choice(ascii_letters <span style=color:#f92672>+</span> digits) <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(length))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>pt <span style=color:#f92672>=</span> [gen_plaintext(<span style=color:#ae81ff>16</span>) <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>50</span>)]
+</span></span><span style=display:flex><span>print(pt)
+</span></span><span style=display:flex><span>json_file <span style=color:#f92672>=</span> [<span style=color:#66d9ef>None</span>] <span style=color:#f92672>*</span> len(pt)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> trange(len(pt)):
+</span></span><span style=display:flex><span>    r <span style=color:#f92672>=</span> remote(<span style=color:#e6db74>&#39;saturn.picoctf.net&#39;</span>, <span style=color:#ae81ff>52339</span>)
+</span></span><span style=display:flex><span>    r<span style=color:#f92672>.</span>sendlineafter(<span style=color:#e6db74>b</span><span style=color:#e6db74>&#39;hex: &#39;</span>, pt[i]<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#39;utf-8&#39;</span>)<span style=color:#f92672>.</span>hex()<span style=color:#f92672>.</span>encode())
+</span></span><span style=display:flex><span>    r<span style=color:#f92672>.</span>recvuntil(<span style=color:#e6db74>b</span><span style=color:#e6db74>&#39;power measurement result:  &#39;</span>)
+</span></span><span style=display:flex><span>    pm <span style=color:#f92672>=</span> r<span style=color:#f92672>.</span>recvline()<span style=color:#f92672>.</span>decode()<span style=color:#f92672>.</span>strip()
+</span></span><span style=display:flex><span>    json_file[i] <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span>    json_file[i][<span style=color:#e6db74>&#34;pt&#34;</span>] <span style=color:#f92672>=</span> [ord(digit) <span style=color:#66d9ef>for</span> digit <span style=color:#f92672>in</span> pt[i]]
+</span></span><span style=display:flex><span>    json_file[i][<span style=color:#e6db74>&#34;pm&#34;</span>] <span style=color:#f92672>=</span> pm
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    r<span style=color:#f92672>.</span>close()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>json_object <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>dumps(json_file)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#34;./Crypto/PowerAnalysis- Part 1/trace.json&#34;</span>, <span style=color:#e6db74>&#39;w&#39;</span>) <span style=color:#66d9ef>as</span> outfile:
+</span></span><span style=display:flex><span>    outfile<span style=color:#f92672>.</span>write(json_object)
+</span></span></code></pre></div></li><li>然後再去解析AES key<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> json
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> tqdm <span style=color:#f92672>import</span> trange
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> copy
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> string <span style=color:#f92672>import</span> ascii_letters, digits
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> numpy <span style=color:#f92672>import</span> corrcoef
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> matplotlib.pyplot <span style=color:#66d9ef>as</span> plt
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> scipy.stats <span style=color:#f92672>import</span> pearsonr
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>jsonFile <span style=color:#f92672>=</span> open(<span style=color:#e6db74>&#39;./PicoCTF/Crypto/PowerAnalysis- Part 1/trace.json&#39;</span>, <span style=color:#e6db74>&#39;r&#39;</span>)
+</span></span><span style=display:flex><span>j <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>load(jsonFile)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>s_box <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0x63</span>, <span style=color:#ae81ff>0x7C</span>, <span style=color:#ae81ff>0x77</span>, <span style=color:#ae81ff>0x7B</span>, <span style=color:#ae81ff>0xF2</span>, <span style=color:#ae81ff>0x6B</span>, <span style=color:#ae81ff>0x6F</span>, <span style=color:#ae81ff>0xC5</span>, <span style=color:#ae81ff>0x30</span>, <span style=color:#ae81ff>0x01</span>, <span style=color:#ae81ff>0x67</span>, <span style=color:#ae81ff>0x2B</span>, <span style=color:#ae81ff>0xFE</span>, <span style=color:#ae81ff>0xD7</span>, <span style=color:#ae81ff>0xAB</span>, <span style=color:#ae81ff>0x76</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0xCA</span>, <span style=color:#ae81ff>0x82</span>, <span style=color:#ae81ff>0xC9</span>, <span style=color:#ae81ff>0x7D</span>, <span style=color:#ae81ff>0xFA</span>, <span style=color:#ae81ff>0x59</span>, <span style=color:#ae81ff>0x47</span>, <span style=color:#ae81ff>0xF0</span>, <span style=color:#ae81ff>0xAD</span>, <span style=color:#ae81ff>0xD4</span>, <span style=color:#ae81ff>0xA2</span>, <span style=color:#ae81ff>0xAF</span>, <span style=color:#ae81ff>0x9C</span>, <span style=color:#ae81ff>0xA4</span>, <span style=color:#ae81ff>0x72</span>, <span style=color:#ae81ff>0xC0</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0xB7</span>, <span style=color:#ae81ff>0xFD</span>, <span style=color:#ae81ff>0x93</span>, <span style=color:#ae81ff>0x26</span>, <span style=color:#ae81ff>0x36</span>, <span style=color:#ae81ff>0x3F</span>, <span style=color:#ae81ff>0xF7</span>, <span style=color:#ae81ff>0xCC</span>, <span style=color:#ae81ff>0x34</span>, <span style=color:#ae81ff>0xA5</span>, <span style=color:#ae81ff>0xE5</span>, <span style=color:#ae81ff>0xF1</span>, <span style=color:#ae81ff>0x71</span>, <span style=color:#ae81ff>0xD8</span>, <span style=color:#ae81ff>0x31</span>, <span style=color:#ae81ff>0x15</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0x04</span>, <span style=color:#ae81ff>0xC7</span>, <span style=color:#ae81ff>0x23</span>, <span style=color:#ae81ff>0xC3</span>, <span style=color:#ae81ff>0x18</span>, <span style=color:#ae81ff>0x96</span>, <span style=color:#ae81ff>0x05</span>, <span style=color:#ae81ff>0x9A</span>, <span style=color:#ae81ff>0x07</span>, <span style=color:#ae81ff>0x12</span>, <span style=color:#ae81ff>0x80</span>, <span style=color:#ae81ff>0xE2</span>, <span style=color:#ae81ff>0xEB</span>, <span style=color:#ae81ff>0x27</span>, <span style=color:#ae81ff>0xB2</span>, <span style=color:#ae81ff>0x75</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0x09</span>, <span style=color:#ae81ff>0x83</span>, <span style=color:#ae81ff>0x2C</span>, <span style=color:#ae81ff>0x1A</span>, <span style=color:#ae81ff>0x1B</span>, <span style=color:#ae81ff>0x6E</span>, <span style=color:#ae81ff>0x5A</span>, <span style=color:#ae81ff>0xA0</span>, <span style=color:#ae81ff>0x52</span>, <span style=color:#ae81ff>0x3B</span>, <span style=color:#ae81ff>0xD6</span>, <span style=color:#ae81ff>0xB3</span>, <span style=color:#ae81ff>0x29</span>, <span style=color:#ae81ff>0xE3</span>, <span style=color:#ae81ff>0x2F</span>, <span style=color:#ae81ff>0x84</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0x53</span>, <span style=color:#ae81ff>0xD1</span>, <span style=color:#ae81ff>0x00</span>, <span style=color:#ae81ff>0xED</span>, <span style=color:#ae81ff>0x20</span>, <span style=color:#ae81ff>0xFC</span>, <span style=color:#ae81ff>0xB1</span>, <span style=color:#ae81ff>0x5B</span>, <span style=color:#ae81ff>0x6A</span>, <span style=color:#ae81ff>0xCB</span>, <span style=color:#ae81ff>0xBE</span>, <span style=color:#ae81ff>0x39</span>, <span style=color:#ae81ff>0x4A</span>, <span style=color:#ae81ff>0x4C</span>, <span style=color:#ae81ff>0x58</span>, <span style=color:#ae81ff>0xCF</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0xD0</span>, <span style=color:#ae81ff>0xEF</span>, <span style=color:#ae81ff>0xAA</span>, <span style=color:#ae81ff>0xFB</span>, <span style=color:#ae81ff>0x43</span>, <span style=color:#ae81ff>0x4D</span>, <span style=color:#ae81ff>0x33</span>, <span style=color:#ae81ff>0x85</span>, <span style=color:#ae81ff>0x45</span>, <span style=color:#ae81ff>0xF9</span>, <span style=color:#ae81ff>0x02</span>, <span style=color:#ae81ff>0x7F</span>, <span style=color:#ae81ff>0x50</span>, <span style=color:#ae81ff>0x3C</span>, <span style=color:#ae81ff>0x9F</span>, <span style=color:#ae81ff>0xA8</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0x51</span>, <span style=color:#ae81ff>0xA3</span>, <span style=color:#ae81ff>0x40</span>, <span style=color:#ae81ff>0x8F</span>, <span style=color:#ae81ff>0x92</span>, <span style=color:#ae81ff>0x9D</span>, <span style=color:#ae81ff>0x38</span>, <span style=color:#ae81ff>0xF5</span>, <span style=color:#ae81ff>0xBC</span>, <span style=color:#ae81ff>0xB6</span>, <span style=color:#ae81ff>0xDA</span>, <span style=color:#ae81ff>0x21</span>, <span style=color:#ae81ff>0x10</span>, <span style=color:#ae81ff>0xFF</span>, <span style=color:#ae81ff>0xF3</span>, <span style=color:#ae81ff>0xD2</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0xCD</span>, <span style=color:#ae81ff>0x0C</span>, <span style=color:#ae81ff>0x13</span>, <span style=color:#ae81ff>0xEC</span>, <span style=color:#ae81ff>0x5F</span>, <span style=color:#ae81ff>0x97</span>, <span style=color:#ae81ff>0x44</span>, <span style=color:#ae81ff>0x17</span>, <span style=color:#ae81ff>0xC4</span>, <span style=color:#ae81ff>0xA7</span>, <span style=color:#ae81ff>0x7E</span>, <span style=color:#ae81ff>0x3D</span>, <span style=color:#ae81ff>0x64</span>, <span style=color:#ae81ff>0x5D</span>, <span style=color:#ae81ff>0x19</span>, <span style=color:#ae81ff>0x73</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0x60</span>, <span style=color:#ae81ff>0x81</span>, <span style=color:#ae81ff>0x4F</span>, <span style=color:#ae81ff>0xDC</span>, <span style=color:#ae81ff>0x22</span>, <span style=color:#ae81ff>0x2A</span>, <span style=color:#ae81ff>0x90</span>, <span style=color:#ae81ff>0x88</span>, <span style=color:#ae81ff>0x46</span>, <span style=color:#ae81ff>0xEE</span>, <span style=color:#ae81ff>0xB8</span>, <span style=color:#ae81ff>0x14</span>, <span style=color:#ae81ff>0xDE</span>, <span style=color:#ae81ff>0x5E</span>, <span style=color:#ae81ff>0x0B</span>, <span style=color:#ae81ff>0xDB</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0xE0</span>, <span style=color:#ae81ff>0x32</span>, <span style=color:#ae81ff>0x3A</span>, <span style=color:#ae81ff>0x0A</span>, <span style=color:#ae81ff>0x49</span>, <span style=color:#ae81ff>0x06</span>, <span style=color:#ae81ff>0x24</span>, <span style=color:#ae81ff>0x5C</span>, <span style=color:#ae81ff>0xC2</span>, <span style=color:#ae81ff>0xD3</span>, <span style=color:#ae81ff>0xAC</span>, <span style=color:#ae81ff>0x62</span>, <span style=color:#ae81ff>0x91</span>, <span style=color:#ae81ff>0x95</span>, <span style=color:#ae81ff>0xE4</span>, <span style=color:#ae81ff>0x79</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0xE7</span>, <span style=color:#ae81ff>0xC8</span>, <span style=color:#ae81ff>0x37</span>, <span style=color:#ae81ff>0x6D</span>, <span style=color:#ae81ff>0x8D</span>, <span style=color:#ae81ff>0xD5</span>, <span style=color:#ae81ff>0x4E</span>, <span style=color:#ae81ff>0xA9</span>, <span style=color:#ae81ff>0x6C</span>, <span style=color:#ae81ff>0x56</span>, <span style=color:#ae81ff>0xF4</span>, <span style=color:#ae81ff>0xEA</span>, <span style=color:#ae81ff>0x65</span>, <span style=color:#ae81ff>0x7A</span>, <span style=color:#ae81ff>0xAE</span>, <span style=color:#ae81ff>0x08</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0xBA</span>, <span style=color:#ae81ff>0x78</span>, <span style=color:#ae81ff>0x25</span>, <span style=color:#ae81ff>0x2E</span>, <span style=color:#ae81ff>0x1C</span>, <span style=color:#ae81ff>0xA6</span>, <span style=color:#ae81ff>0xB4</span>, <span style=color:#ae81ff>0xC6</span>, <span style=color:#ae81ff>0xE8</span>, <span style=color:#ae81ff>0xDD</span>, <span style=color:#ae81ff>0x74</span>, <span style=color:#ae81ff>0x1F</span>, <span style=color:#ae81ff>0x4B</span>, <span style=color:#ae81ff>0xBD</span>, <span style=color:#ae81ff>0x8B</span>, <span style=color:#ae81ff>0x8A</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0x70</span>, <span style=color:#ae81ff>0x3E</span>, <span style=color:#ae81ff>0xB5</span>, <span style=color:#ae81ff>0x66</span>, <span style=color:#ae81ff>0x48</span>, <span style=color:#ae81ff>0x03</span>, <span style=color:#ae81ff>0xF6</span>, <span style=color:#ae81ff>0x0E</span>, <span style=color:#ae81ff>0x61</span>, <span style=color:#ae81ff>0x35</span>, <span style=color:#ae81ff>0x57</span>, <span style=color:#ae81ff>0xB9</span>, <span style=color:#ae81ff>0x86</span>, <span style=color:#ae81ff>0xC1</span>, <span style=color:#ae81ff>0x1D</span>, <span style=color:#ae81ff>0x9E</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0xE1</span>, <span style=color:#ae81ff>0xF8</span>, <span style=color:#ae81ff>0x98</span>, <span style=color:#ae81ff>0x11</span>, <span style=color:#ae81ff>0x69</span>, <span style=color:#ae81ff>0xD9</span>, <span style=color:#ae81ff>0x8E</span>, <span style=color:#ae81ff>0x94</span>, <span style=color:#ae81ff>0x9B</span>, <span style=color:#ae81ff>0x1E</span>, <span style=color:#ae81ff>0x87</span>, <span style=color:#ae81ff>0xE9</span>, <span style=color:#ae81ff>0xCE</span>, <span style=color:#ae81ff>0x55</span>, <span style=color:#ae81ff>0x28</span>, <span style=color:#ae81ff>0xDF</span>],
+</span></span><span style=display:flex><span>    [<span style=color:#ae81ff>0x8C</span>, <span style=color:#ae81ff>0xA1</span>, <span style=color:#ae81ff>0x89</span>, <span style=color:#ae81ff>0x0D</span>, <span style=color:#ae81ff>0xBF</span>, <span style=color:#ae81ff>0xE6</span>, <span style=color:#ae81ff>0x42</span>, <span style=color:#ae81ff>0x68</span>, <span style=color:#ae81ff>0x41</span>, <span style=color:#ae81ff>0x99</span>, <span style=color:#ae81ff>0x2D</span>, <span style=color:#ae81ff>0x0F</span>, <span style=color:#ae81ff>0xB0</span>, <span style=color:#ae81ff>0x54</span>, <span style=color:#ae81ff>0xBB</span>, <span style=color:#ae81ff>0x16</span>]
+</span></span><span style=display:flex><span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>data_preprocess</span>(json_data):
+</span></span><span style=display:flex><span>    pt_col <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#75715e># ct_col = []</span>
+</span></span><span style=display:flex><span>    trace_col <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> bytes <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>16</span>):
+</span></span><span style=display:flex><span>        tmp_pt_col <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>        <span style=color:#75715e># tmp_ct_col = []</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> trace_idx <span style=color:#f92672>in</span> range(len(json_data)):
+</span></span><span style=display:flex><span>            tmp_pt_col<span style=color:#f92672>.</span>append(json_data[trace_idx][<span style=color:#e6db74>&#39;pt&#39;</span>][bytes])
+</span></span><span style=display:flex><span>            <span style=color:#75715e># tmp_ct_col.append(json_data[trace_idx][&#39;ct&#39;][bytes])</span>
+</span></span><span style=display:flex><span>        pt_col<span style=color:#f92672>.</span>append(tmp_pt_col)
+</span></span><span style=display:flex><span>        <span style=color:#75715e># ct_col.append(tmp_ct_col)</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> point <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>300</span>, <span style=color:#ae81ff>400</span>):<span style=color:#75715e>#len(json_data[0][&#39;pm&#39;])</span>
+</span></span><span style=display:flex><span>        tmp_trace_col <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> trace_idx <span style=color:#f92672>in</span> range(len(json_data)):
+</span></span><span style=display:flex><span>            tmp_trace_col<span style=color:#f92672>.</span>append(json_data[trace_idx][<span style=color:#e6db74>&#39;pm&#39;</span>][point])
+</span></span><span style=display:flex><span>        trace_col<span style=color:#f92672>.</span>append(tmp_trace_col)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> pt_col, trace_col
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sbox_preprocess</span>(pt_col):
+</span></span><span style=display:flex><span>    sbox_result_tmp <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> sbox_key <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>256</span>): <span style=color:#75715e># 總共有256個sbox key</span>
+</span></span><span style=display:flex><span>        tmp <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> trace <span style=color:#f92672>in</span> range(len(pt_col)): <span style=color:#75715e># 有50個trace</span>
+</span></span><span style=display:flex><span>            tmp<span style=color:#f92672>.</span>append(pt_col[trace] <span style=color:#f92672>^</span> sbox_key)
+</span></span><span style=display:flex><span>        sbox_result_tmp<span style=color:#f92672>.</span>append(tmp)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> sbox_result_tmp
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>choose_sbox</span>(sbox_result_tmp):
+</span></span><span style=display:flex><span>    sbox_result <span style=color:#f92672>=</span> copy<span style=color:#f92672>.</span>deepcopy(sbox_result_tmp)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> sbox_key <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>256</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> trace <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>50</span>):
+</span></span><span style=display:flex><span>            hex_value <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{0:0&gt;2x}</span><span style=color:#e6db74>&#39;</span><span style=color:#f92672>.</span>format(sbox_result_tmp[sbox_key][trace])
+</span></span><span style=display:flex><span>            x, y <span style=color:#f92672>=</span> hex_value[<span style=color:#ae81ff>0</span>], hex_value[<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>            sbox_result[sbox_key][trace] <span style=color:#f92672>=</span> s_box[int(x, <span style=color:#ae81ff>16</span>)][int(y, <span style=color:#ae81ff>16</span>)]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> sbox_result
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>cal_hamming_weight</span>(sbox_result_col):
+</span></span><span style=display:flex><span>    hw_model <span style=color:#f92672>=</span> copy<span style=color:#f92672>.</span>deepcopy(sbox_result_col)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(sbox_result_col)):   <span style=color:#75715e># 256</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(len(sbox_result_col[i])):    <span style=color:#75715e># 50</span>
+</span></span><span style=display:flex><span>            hw_model[i][j] <span style=color:#f92672>=</span> bin(sbox_result_col[i][j])<span style=color:#f92672>.</span>count(<span style=color:#e6db74>&#39;1&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> hw_model
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>cal_correlation</span>(hw_model_col_result, trace_col):
+</span></span><span style=display:flex><span>    correlation_result <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> trange(len(hw_model_col_result)):<span style=color:#75715e>#(ascii_letters + digits).encode():</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(biggest_length):<span style=color:#75715e>#len(trace_col)</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># correlation_result.append(corrcoef(hw_model_col_result[i], trace_col[j])[0, -1])</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># correlation_result.append(pearsonr(hw_model_col_result[i], trace_col[j])[0])</span>
+</span></span><span style=display:flex><span>            correlation_result<span style=color:#f92672>.</span>append(run_pearson_correlation(hw_model_col_result[i], trace_col[j]))
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> correlation_result
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>run_pearson_correlation</span>(x, y):
+</span></span><span style=display:flex><span>    mean_x <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>mean(x)
+</span></span><span style=display:flex><span>    mean_y <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>mean(y)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    covariance <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sum((x <span style=color:#f92672>-</span> mean_x) <span style=color:#f92672>*</span> (y <span style=color:#f92672>-</span> mean_y))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    std_dev_x <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sqrt(np<span style=color:#f92672>.</span>sum((x <span style=color:#f92672>-</span> mean_x)<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>))
+</span></span><span style=display:flex><span>    std_dev_y <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sqrt(np<span style=color:#f92672>.</span>sum((y <span style=color:#f92672>-</span> mean_y)<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    correlation <span style=color:#f92672>=</span> covariance <span style=color:#f92672>/</span> (std_dev_x <span style=color:#f92672>*</span> std_dev_y)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> correlation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>display_pt</span>(offset:int, data_offset <span style=color:#f92672>=</span> (<span style=color:#ae81ff>0</span>, len(j[<span style=color:#ae81ff>0</span>][<span style=color:#e6db74>&#34;pm&#34;</span>]))):
+</span></span><span style=display:flex><span>    plt<span style=color:#f92672>.</span>plot(range(data_offset[<span style=color:#ae81ff>0</span>], data_offset[<span style=color:#ae81ff>1</span>]), j[offset][<span style=color:#e6db74>&#34;pm&#34;</span>][data_offset[<span style=color:#ae81ff>0</span>]:data_offset[<span style=color:#ae81ff>1</span>]])
+</span></span><span style=display:flex><span>    plt<span style=color:#f92672>.</span>savefig(fname<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;./PicoCTF/Crypto/PowerAnalysis- Part 1/pt_&#34;</span> <span style=color:#f92672>+</span> str(offset) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;.jpg&#34;</span>)
+</span></span><span style=display:flex><span>    plt<span style=color:#f92672>.</span>clf()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># display_pt(1, (0, 700))</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># display_pt(1)</span>
+</span></span><span style=display:flex><span>pt_col, trace_col <span style=color:#f92672>=</span> data_preprocess(j)
+</span></span><span style=display:flex><span>flag <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
+</span></span><span style=display:flex><span>biggest_length <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span><span style=color:#75715e>#len(trace_col)</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> idx <span style=color:#f92672>in</span> trange(<span style=color:#ae81ff>16</span>):
+</span></span><span style=display:flex><span>    sbox_preprocess_result <span style=color:#f92672>=</span> sbox_preprocess(pt_col[idx])
+</span></span><span style=display:flex><span>    choose_sbox_result <span style=color:#f92672>=</span> choose_sbox(sbox_preprocess_result)
+</span></span><span style=display:flex><span>    hw_model_col_result <span style=color:#f92672>=</span> cal_hamming_weight(choose_sbox_result)
+</span></span><span style=display:flex><span>    correlation_result <span style=color:#f92672>=</span> cal_correlation(hw_model_col_result, trace_col)
+</span></span><span style=display:flex><span>    key_idx <span style=color:#f92672>=</span> correlation_result<span style=color:#f92672>.</span>index(max(correlation_result))
+</span></span><span style=display:flex><span>    <span style=color:#75715e># flag += (ascii_letters + digits)[key_idx // biggest_length]</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>from</span> Crypto.Util.number <span style=color:#f92672>import</span> long_to_bytes
+</span></span><span style=display:flex><span>    flag <span style=color:#f92672>+=</span> long_to_bytes(key_idx <span style=color:#f92672>//</span> biggest_length)<span style=color:#f92672>.</span>hex()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#39;The key of AES is: &#39;</span> <span style=color:#f92672>+</span> flag )
+</span></span></code></pre></div></li></ul><p>Flag: <code>picoCTF{4999139026d84bf20427eb48d4edec53}</code></p><a href=/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/reverse/picoctf---powershelly/>PicoCTF - Powershelly</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/reverse/>Reverse</a></div><p><h1 id=picoctf---powershelly>PicoCTF - Powershelly
+<a class=anchor href=#picoctf---powershelly>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://zh.wikipedia.org/zh-tw/PowerShell#%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83%E6%AF%94%E8%BE%83>Powershell 命令提示字元比較</a>
+<a href=https://stackoverflow.com/questions/56965510/what-is-meaning-in-powershell>What is &lsquo;@{}&rsquo; meaning in PowerShell</a>
+<a href=https://stackoverflow.com/questions/28732025/what-does-mean-in-powershell>What does @() mean in Powershell?</a>
+<a href=https://wenyuangg.github.io/posts/python3/python-set.html>[Python] 學習使用集合 (Set)</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-bash=" data-lang="bash=">$input = &#34;.\input.txt&#34;
+
+$out = Get-Content -Path $input
+$enc = [System.IO.File]::ReadAllBytes(&#34;$input&#34;)
+$encoding = [system.Text.Encoding]::UTF8
+$total = 264
+$t = ($total + 1) * 5 #1325
+$numLength = ($total * 30 ) + $t # 9245
+if ($out.Length -gt 5 -or $enc.count -ne $numLength)
+{
+  Write-Output &#34;Wrong format 5&#34;
+  Exit
+}
+
+else
+{
+  for($i=0; $i -lt $enc.count ; $i++)
+  {
+    if (($enc[$i] -ne 49) -and ($enc[$i] -ne 48) -and ($enc[$i] -ne 10) -and ($enc[$i] -ne 13) -and ($enc[$i] -ne 32))
+    {
+      Write-Output &#34;Wrong format 1/0/&#34;
+      Exit
+    }
+  }
+}
+
+$blocks = @{}
+for ($i=0; $i -lt $out.Length ; $i++)
+{
+  $r = $out[$i].Split(&#34; &#34;)
+  if ($i -gt 0)
+  {
+    for ($j=0; $j -lt $r.Length ; $j++)
+    {
+      if ($r[$j].Length -ne 6)
+      {
+        Write-Output &#34;Wrong Format 6&#34; $r[$j].Length
+        Exit
+      }
+      $blocks[$j] += $r[$j]
+    }
+  }
+  else
+  {
+    for ($j=0; $j -lt $r.Length ; $j++)
+    {
+      if ($r[$j].Length -ne 6)
+      {
+        Write-Output &#34;Wrong Format 6&#34; $r[$j].Length
+        Exit
+      }
+      $blocks[$j] = @()
+      $blocks[$j] += $r[$j]
+    }
+  }
+
+}
+
+
+function Exit  {
+  exit
+}
+
+
+function Random-Gen {
+  $list1 = @()
+  for ($i=1; $i -lt ($blocks.count + 1); $i++)
+  {
+    $y = ((($i * 327) % 681 ) + 344) % 313
+    $list1 += $y
+  }
+  return $list1
+}
+
+
+function Scramble {
+    param (
+        $block,
+        $seed
+    )
+    $raw = [system.String]::Join(&#34;&#34;, $block)
+    $bm = &#34;10 &#34; * $raw.Length
+    $bm = $bm.Split(&#34; &#34;)
+    for ($i=0; $i -lt $raw.Length ; $i++)
+    {
+
+      $y = ($i * $seed) % $raw.Length
+      $n = $bm[$y]
+      while ($n -ne &#34;10&#34;)
+      {
+        $y = ($y + 1) % $raw.Length
+        $n = $bm[$y]
+      }
+      if ($raw[$i] -eq &#34;1&#34; )
+      {
+        $n = &#34;11&#34;
+      }
+      else
+      {
+        $n = &#34;00&#34;
+      }
+      $bm[$y] = $n
+    }
+    $raw2 = [system.String]::Join(&#34;&#34;, $bm)
+    $b = [convert]::ToInt64($raw2,2)
+    return $b
+}
+
+
+$result = 0
+$seeds = @()
+for ($i=1; $i -lt ($blocks.count +1); $i++)
+{
+  $seeds += ($i * 127) % 500
+}
+
+$randoms = Random-Gen
+$output_file = @()
+for ($i=0; $i -lt $blocks.count ; $i++)
+{
+
+  $fun = Scramble -block $blocks[$i] -seed $seeds[$i]
+  if($i -eq 263)
+  {
+    Write-Output $seeds[$i]
+    Write-Output $randoms[$i]
+    Write-Output $fun
+  }
+  $result = $fun -bxor $result -bxor $randoms[$i]
+  $output_file += $result
+}
+Add-Content -Path output_test.txt -Value $output_file
+</code></pre><p>:::</p><a href=/security/practice/picoctf/reverse/picoctf---powershelly/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/general-skills/picoctf---pw-crack-4/>PicoCTF - PW Crack 4</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/general-skill/>General Skill</a></div><p><h1 id=picoctf---pw-crack-4>PicoCTF - PW Crack 4
+<a class=anchor href=#picoctf---pw-crack-4>#</a></h1><h6 id=tags-picoctf-ctf-general-skills>tags: <code>PicoCTF</code> <code>CTF</code> <code>General Skills</code>
+<a class=anchor href=#tags-picoctf-ctf-general-skills>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/248?category=5&amp;page=2">PW Crack 4</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler source code</p><pre tabindex=0><code class="language-python=" data-lang="python=">import hashlib
+
+### THIS FUNCTION WILL NOT HELP YOU FIND THE FLAG --LT ########################
+def str_xor(secret, key):
+    #extend key to secret length
+    new_key = key
+    i = 0
+    while len(new_key) &lt; len(secret):
+        new_key = new_key + key[i]
+        i = (i + 1) % len(key)        
+    return &#34;&#34;.join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(secret,new_key)])
+###############################################################################
+
+flag_enc = open(&#39;level4.flag.txt.enc&#39;, &#39;rb&#39;).read()
+correct_pw_hash = open(&#39;level4.hash.bin&#39;, &#39;rb&#39;).read()
+
+
+def hash_pw(pw_str):
+    pw_bytes = bytearray()
+    pw_bytes.extend(pw_str.encode())
+    m = hashlib.md5()
+    m.update(pw_bytes)
+    return m.digest()
+
+
+def level_4_pw_check():
+    user_pw = input(&#34;Please enter correct password for flag: &#34;)
+    user_pw_hash = hash_pw(user_pw)
+    
+    if( user_pw_hash == correct_pw_hash ):
+        print(&#34;Welcome back... your flag, user:&#34;)
+        decryption = str_xor(flag_enc.decode(), user_pw)
+        print(decryption)
+        return
+    print(&#34;That password is incorrect&#34;)
+
+
+
+level_4_pw_check()
+
+
+
+# The strings below are 100 possibilities for the correct password. 
+#   (Only 1 is correct)
+pos_pw_list = [&#34;6288&#34;, &#34;6152&#34;, &#34;4c7a&#34;, &#34;b722&#34;, &#34;9a6e&#34;, &#34;6717&#34;, &#34;4389&#34;, &#34;1a28&#34;, &#34;37ac&#34;, &#34;de4f&#34;, &#34;eb28&#34;, &#34;351b&#34;, &#34;3d58&#34;, &#34;948b&#34;, &#34;231b&#34;, &#34;973a&#34;, &#34;a087&#34;, &#34;384a&#34;, &#34;6d3c&#34;, &#34;9065&#34;, &#34;725c&#34;, &#34;fd60&#34;, &#34;4d4f&#34;, &#34;6a60&#34;, &#34;7213&#34;, &#34;93e6&#34;, &#34;8c54&#34;, &#34;537d&#34;, &#34;a1da&#34;, &#34;c718&#34;, &#34;9de8&#34;, &#34;ebe3&#34;, &#34;f1c5&#34;, &#34;a0bf&#34;, &#34;ccab&#34;, &#34;4938&#34;, &#34;8f97&#34;, &#34;3327&#34;, &#34;8029&#34;, &#34;41f2&#34;, &#34;a04f&#34;, &#34;c7f9&#34;, &#34;b453&#34;, &#34;90a5&#34;, &#34;25dc&#34;, &#34;26b0&#34;, &#34;cb42&#34;, &#34;de89&#34;, &#34;2451&#34;, &#34;1dd3&#34;, &#34;7f2c&#34;, &#34;8919&#34;, &#34;f3a9&#34;, &#34;b88f&#34;, &#34;eaa8&#34;, &#34;776a&#34;, &#34;6236&#34;, &#34;98f5&#34;, &#34;492b&#34;, &#34;507d&#34;, &#34;18e8&#34;, &#34;cfb5&#34;, &#34;76fd&#34;, &#34;6017&#34;, &#34;30de&#34;, &#34;bbae&#34;, &#34;354e&#34;, &#34;4013&#34;, &#34;3153&#34;, &#34;e9cc&#34;, &#34;cba9&#34;, &#34;25ea&#34;, &#34;c06c&#34;, &#34;a166&#34;, &#34;faf1&#34;, &#34;2264&#34;, &#34;2179&#34;, &#34;cf30&#34;, &#34;4b47&#34;, &#34;3446&#34;, &#34;b213&#34;, &#34;88a3&#34;, &#34;6253&#34;, &#34;db88&#34;, &#34;c38c&#34;, &#34;a48c&#34;, &#34;3e4f&#34;, &#34;7208&#34;, &#34;9dcb&#34;, &#34;fc77&#34;, &#34;e2cf&#34;, &#34;8552&#34;, &#34;f6f8&#34;, &#34;7079&#34;, &#34;42ef&#34;, &#34;391e&#34;, &#34;8a6d&#34;, &#34;2154&#34;, &#34;d964&#34;, &#34;49ec&#34;]
+</code></pre><p>:::</p><a href=/security/practice/picoctf/general-skills/picoctf---pw-crack-4/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---ropfu/>PicoCTF - ropfu</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---ropfu>PicoCTF - ropfu
+<a class=anchor href=#picoctf---ropfu>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>ROP Chain
+x86 Calling Convention:
+<a href=https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit>Linux System Call Table</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+
+#define BUFSIZE 16
+
+void vuln() {
+  char buf[16];
+  printf(&#34;How strong is your ROP-fu? Snatch the shell from my hand, grasshopper!\n&#34;);
+  return gets(buf);
+
+}
+
+int main(int argc, char **argv){
+
+  setvbuf(stdout, NULL, _IONBF, 0);
+  
+
+  // Set the gid to the effective gid
+  // this prevents /bin/sh from dropping the privileges
+  gid_t gid = getegid();
+  setresgid(gid, gid, gid);
+  vuln();
+  
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---ropfu/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---rps/>PicoCTF - RPS</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---rps>PicoCTF - RPS
+<a class=anchor href=#picoctf---rps>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://www.geeksforgeeks.org/strstr-in-ccpp/>strstr() in C/C++</a></p><blockquote><p>In C++, std::strstr() is a predefined function used for string handling. string.h is the header file required for string functions. This function takes two strings s1 and s2 as an argument and finds the first occurrence of the sub-string s2 in the string s1. The process of matching does not include the terminating null-characters(‘\0’), but function stops there.
+Syntax:</p><a href=/security/practice/picoctf/pwn/picoctf---rps/>...</a></p></article><ul class="pagination pagination-default"><li class=page-item><a href=/tags/ctf/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a></li><li class=page-item><a href=/tags/ctf/page/10/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a></li><li class=page-item><a href=/tags/ctf/page/9/ aria-label="Page 9" class=page-link role=button>9</a></li><li class=page-item><a href=/tags/ctf/page/10/ aria-label="Page 10" class=page-link role=button>10</a></li><li class="page-item active"><a aria-current=page aria-label="Page 11" class=page-link role=button>11</a></li><li class=page-item><a href=/tags/ctf/page/12/ aria-label="Page 12" class=page-link role=button>12</a></li><li class=page-item><a href=/tags/ctf/page/13/ aria-label="Page 13" class=page-link role=button>13</a></li><li class=page-item><a href=/tags/ctf/page/12/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/tags/ctf/page/27/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></div></aside></main></body></html>

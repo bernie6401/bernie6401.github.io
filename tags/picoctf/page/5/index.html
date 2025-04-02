@@ -1,0 +1,445 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/tags/picoctf/"><meta property="og:site_name" content="SBK Hugo Site"><meta property="og:title" content="PicoCTF"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><title>PicoCTF | SBK Hugo Site</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/tags/picoctf/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.acdc41c8d39e6c69d70d8a23779875e0a3733fefead3e428d5344966bb12f562.js integrity="sha256-rNxByNOebGnXDYojd5h14KNzP+/q0+Qo1TRJZrsS9WI=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://bernie6401.github.io/tags/picoctf/index.xml title="SBK Hugo Site"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>SBK Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>PicoCTF</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></aside></header><article class="markdown book-post"><h2><a href=/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/>PicoCTF - It's Not My Fault 1</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/crypto/>Crypto</a></div><p><h1 id=picoctf---its-not-my-fault-1>PicoCTF - It&rsquo;s Not My Fault 1
+<a class=anchor href=#picoctf---its-not-my-fault-1>#</a></h1><h6 id=tags-picoctf-ctf-crypto>tags: <code>PicoCTF</code> <code>CTF</code> <code>Crypto</code>
+<a class=anchor href=#tags-picoctf-ctf-crypto>#</a></h6><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source code</p><pre tabindex=0><code class="language-python=" data-lang="python=">#!/usr/bin/python3 -u
+import random
+import string
+import hashlib
+import time
+
+from Crypto.Util.number import inverse, getPrime, bytes_to_long, GCD
+from sympy.ntheory.modular import solve_congruence
+
+FLAG = open(&#39;flag.txt&#39;, &#39;r&#39;).read()
+
+def CRT(a, m, b, n):
+	val, mod = solve_congruence((a, m), (b, n))
+	return val
+
+def gen_key():
+	while True:
+		p = getPrime(512)
+		q = getPrime(512)
+		if GCD(p-1, q-1) == 2:
+			return p, q
+
+def get_clue(p, q, BITS):
+	while True:
+		d_p = random.randint(1, 1 &lt;&lt; BITS)
+		d_q = random.randint(1, q - 1)
+		if d_p % 2 == d_q % 2:
+			d = CRT(d_p, p - 1, d_q, q - 1)
+			e = inverse(d, (p - 1) * (q - 1))
+			print(&#34;Clue : &#34;, e)
+			return
+
+def get_flag(p, q):
+	start = time.time()
+	ans = int(input())
+	if (time.time() - start) &gt; (15 * 60):
+		print(&#34;Too long!&#34;)
+		exit()
+	else:
+		if ans == p + q:
+			print(FLAG)
+		else:
+			print(&#34;oops...&#34;)
+
+
+#PoW
+
+vals1 = &#34;&#34;.join([random.choice(string.digits) for _ in range(5)])
+vals2 = &#34;&#34;.join([random.choice(string.hexdigits.lower()) for _ in range(6)])
+user_input = input(&#34;Enter a string that starts with \&#34;{}\&#34; (no quotes) which creates an md5 hash that ends in these six hex digits: {}\n&#34;.format(vals1, vals2))
+user_hash = hashlib.md5(user_input.encode()).hexdigest()
+
+if user_input[:5] == vals1 and user_hash[-6:] == vals2:
+	p, q = gen_key()
+	n = p * q
+	print(&#34;Public Modulus : &#34;, n)
+	get_clue(p, q, 20)
+	get_flag(p, q)
+</code></pre><p>:::</p><a href=/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---jauth/>PicoCTF - JAUTH</a></h2><div class=text-small><a href=/tags/web/>Web</a>,
+<a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a></div><p><h1 id=picoctf---jauth>PicoCTF - JAUTH
+<a class=anchor href=#picoctf---jauth>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://hackmd.io/JO7xByQgQWK67eU0goHMeA?view#c>NTUCNS - HW3 - JWT Authentication</a></p><h2 id=exploit---jwr--none>Exploit - JWR + None
+<a class=anchor href=#exploit---jwr--none>#</a></h2><p>其實這一題有一點奇怪，應該說之前在解CNS作業的驗證時，TA說目前應該是不行以Alg=None的形式進行驗證的設計，我以為是後端的框架都不支援了，但應該說是不建議這樣的做法，所以這一題比想像中簡單，我還以為要把公鑰找出來，再進行sign</p><ol><li>用類似jwt.io的網站(<a href=https://token.dev/>online tool</a>)，但支援alg=none的編碼
+Payload: <code>eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdXRoIjoxNjg3NzY0MjM1MTAzLCJhZ2VudCI6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQ7IHJ2OjEwOS4wKSBHZWNrby8yMDEwMDEwMSBGaXJlZm94LzExNC4wIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg3NzY0MjM1fQ</code>
+<img src=https://hackmd.io/_uploads/B1vcsALOn.png alt></li></ol><p>Flag: <code>picoCTF{succ3ss_@u7h3nt1c@710n_72bf8bd5}</code></p><h2 id=reference>Reference
+<a class=anchor href=#reference>#</a></h2><p><a href=https://youtu.be/njsjTVcwGwY>picoCTF : JAUTH (Challenge 8)</a></p></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---java-code-analysis_/>PicoCTF - Java Code Analysis!?!</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---java-code-analysis>PicoCTF - Java Code Analysis!?!
+<a class=anchor href=#picoctf---java-code-analysis>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>JWT</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>Too Much to list</p><h2 id=hint>Hint
+<a class=anchor href=#hint>#</a></h2><ul><li>Maybe try to find the JWT Signing Key (&ldquo;secret key&rdquo;) in the source code? Maybe it&rsquo;s hardcoded somewhere? Or maybe try to crack it?</li><li>The &lsquo;role&rsquo; and &lsquo;userId&rsquo; fields in the JWT can be of interest to you!</li><li>The &lsquo;controllers&rsquo;, &lsquo;services&rsquo; and &lsquo;security&rsquo; java packages in the given source code might need your attention. We&rsquo;ve provided a README.md file that contains some documentation.</li><li>Upgrade your &lsquo;role&rsquo; with the new (cracked) JWT. And re-login for the new role to get reflected in browser&rsquo;s localStorage.</li></ul><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>這一題在AIS3 pre-exam的時候也有看到，但當時根本沒想法，只要題目看起來一複雜我就沒辦法分析了，所以還是看了Martin大的WP才知道解法，但有時候真的很考驗耐心，先看hint發現應該是考跟JWT有關</p><a href=/security/practice/picoctf/web/picoctf---java-code-analysis_/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---java-script-kiddie/>PicoCTF - Java Script Kiddie</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---java-script-kiddie>PicoCTF - Java Script Kiddie
+<a class=anchor href=#picoctf---java-script-kiddie>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://www.w3schools.com/jsref/jsref_slice_array.asp>JavaScript Array slice()</a></p><blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>fruits</span> <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;Banana&#34;</span>, <span style=color:#e6db74>&#34;Orange&#34;</span>, <span style=color:#e6db74>&#34;Lemon&#34;</span>, <span style=color:#e6db74>&#34;Apple&#34;</span>, <span style=color:#e6db74>&#34;Mango&#34;</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>citrus</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fruits</span>.<span style=color:#a6e22e>slice</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>#</span> <span style=color:#a6e22e>output</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>Orange</span>,<span style=color:#a6e22e>Lemon</span>
+</span></span></code></pre></div></blockquote><p><a href=https://www.geeksforgeeks.org/javascript-uint8array-from-method/>JavaScript Uint8Array.from() Method</a></p><blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>array</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Uint8Array</span>.<span style=color:#a6e22e>from</span>(<span style=color:#e6db74>&#39;45465768654323456&#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>array</span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>#</span> <span style=color:#a6e22e>output</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>Uint8Array</span>(<span style=color:#ae81ff>17</span>) [
+</span></span><span style=display:flex><span><span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>7</span>, <span style=color:#ae81ff>6</span>,
+</span></span><span style=display:flex><span><span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span><span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>
+</span></span><span style=display:flex><span>]
+</span></span></code></pre></div></blockquote><p><a href=https://www.w3schools.com/jsref/jsref_fromcharcode.asp>JavaScript String.fromCharCode()</a></p><blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>text</span> <span style=color:#f92672>=</span> String.<span style=color:#a6e22e>fromCharCode</span>(<span style=color:#ae81ff>65</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>text</span>)
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>#</span> <span style=color:#a6e22e>output</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>A</span>
+</span></span></code></pre></div></blockquote><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-htmlmixed=" data-lang="htmlmixed=">&lt;html&gt;
+	&lt;head&gt;    
+		&lt;script src=&#34;jquery-3.3.1.min.js&#34;&gt;&lt;/script&gt;
+		&lt;script&gt;
+			var bytes = [];
+			$.get(&#34;bytes&#34;, function(resp) {
+				bytes = Array.from(resp.split(&#34; &#34;), x =&gt; Number(x));
+			});
+
+			function assemble_png(u_in){
+				var LEN = 16;
+				var key = &#34;0000000000000000&#34;;
+				var shifter;
+				if(u_in.length == LEN){
+					key = u_in;
+				}
+				var result = [];
+				for(var i = 0; i &lt; LEN; i++){
+					shifter = key.charCodeAt(i) - 48;
+					for(var j = 0; j &lt; (bytes.length / LEN); j ++){
+						result[(j * LEN) + i] = bytes[(((j + shifter) * LEN) % bytes.length) + i]
+					}
+				}
+				while(result[result.length-1] == 0){
+					result = result.slice(0,result.length-1);
+				}
+				document.getElementById(&#34;Area&#34;).src = &#34;data:image/png;base64,&#34; + btoa(String.fromCharCode.apply(null, new Uint8Array(result)));
+				return false;
+			}
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+
+		&lt;center&gt;
+			&lt;form action=&#34;#&#34; onsubmit=&#34;assemble_png(document.getElementById(&#39;user_in&#39;).value)&#34;&gt;
+				&lt;input type=&#34;text&#34; id=&#34;user_in&#34;&gt;
+				&lt;input type=&#34;submit&#34; value=&#34;Submit&#34;&gt;
+			&lt;/form&gt;
+			&lt;img id=&#34;Area&#34; src=&#34;&#34;/&gt;
+		&lt;/center&gt;
+
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>:::</p><a href=/security/practice/picoctf/web/picoctf---java-script-kiddie/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---jawt-scratchpad/>PicoCTF - JaWT Scratchpad</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---jawt-scratchpad>PicoCTF - JaWT Scratchpad
+<a class=anchor href=#picoctf---jawt-scratchpad>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://hackmd.io/JO7xByQgQWK67eU0goHMeA?view#c>NTUCNS - HW3 - JWT Authentication</a></p><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>這一題蠻有趣的，有結合其他東西當作解題的基礎，先看JWT的token，decode過後的結果表示：
+<img src=https://hackmd.io/_uploads/S1B-01POh.png alt></p><p>也就是說，token只會隨著payload而變動，所以也沒有辦法用解public key的方式重新簽署文件，另外用alg=none也會出現Authentication failed，不過作者有在網頁中有給出提示，用<a href=https://github.com/magnumripper/JohnTheRipper>John</a>，看起來就是用john-the-ripper解出token password</p><h2 id=exploit---brute-force>Exploit - Brute Force
+<a class=anchor href=#exploit---brute-force>#</a></h2><ol><li><p>Brute Force Password</p><pre tabindex=0><code class=language-bash! data-lang=bash!>$ cat jwt.txt
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiaGhoIn0.j1yd-PJbjNraLhhBAxZBD2C1EVIyHqlnvKh_l-iVKG8%
+$ ./john.exe ../jwt.txt --wordlist=../rockyou.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (HMAC-SHA256 [password is key, SHA256 256/256 AVX2 8x])
+Will run 8 OpenMP threads
+Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+ilovepico        (?)
+1g 0:00:00:02 DONE (2023-06-26 18:42) 0.3673g/s 2720Kp/s 2720Kc/s 2720KC/s ilovetitoelbambino..ilovejesus71
+Use the &#34;--show&#34; option to display all of the cracked passwords reliably
+Session completed
+</code></pre><p>Token Password: <code>ilovepico</code></p><a href=/security/practice/picoctf/web/picoctf---jawt-scratchpad/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/>PicoCTF - john_pollard</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/crypto/>Crypto</a></div><p><h1 id=picoctf---john_pollard>PicoCTF - john_pollard
+<a class=anchor href=#picoctf---john_pollard>#</a></h1><h6 id=tags-picoctf-ctf-crypto>tags: <code>PicoCTF</code> <code>CTF</code> <code>Crypto</code>
+<a class=anchor href=#tags-picoctf-ctf-crypto>#</a></h6><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://www.mkssoftware.com/docs/man1/openssl_rsa.1.asp>openssl - rsa</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><pre tabindex=0><code>-----BEGIN CERTIFICATE-----
+MIIB6zCB1AICMDkwDQYJKoZIhvcNAQECBQAwEjEQMA4GA1UEAxMHUGljb0NURjAe
+Fw0xOTA3MDgwNzIxMThaFw0xOTA2MjYxNzM0MzhaMGcxEDAOBgNVBAsTB1BpY29D
+VEYxEDAOBgNVBAoTB1BpY29DVEYxEDAOBgNVBAcTB1BpY29DVEYxEDAOBgNVBAgT
+B1BpY29DVEYxCzAJBgNVBAYTAlVTMRAwDgYDVQQDEwdQaWNvQ1RGMCIwDQYJKoZI
+hvcNAQEBBQADEQAwDgIHEaTUUhKxfwIDAQABMA0GCSqGSIb3DQEBAgUAA4IBAQAH
+al1hMsGeBb3rd/Oq+7uDguueopOvDC864hrpdGubgtjv/hrIsph7FtxM2B4rkkyA
+eIV708y31HIplCLruxFdspqvfGvLsCynkYfsY70i6I/dOA6l4Qq/NdmkPDx7edqO
+T/zK4jhnRafebqJucXFH8Ak+G6ASNRWhKfFZJTWj5CoyTMIutLU9lDiTXng3rDU1
+BhXg04ei1jvAf0UrtpeOA6jUyeCLaKDFRbrOm35xI79r28yO8ng1UAzTRclvkORt
+b8LMxw7e+vdIntBGqf7T25PLn/MycGPPvNXyIsTzvvY/MXXJHnAqpI5DlqwzbRHz
+q16/S1WLvzg4PsElmv1f
+-----END CERTIFICATE-----
+</code></pre><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><ul><li>Hint 1: The flag is in the format picoCTF{p,q}</li><li>Hint 2: Try swapping p and q if it does not work
+這一題就只是把certificate解出來，發現n超小，所以就直接</li></ul><h2 id=exploit---openssl>Exploit - openssl
+<a class=anchor href=#exploit---openssl>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ openssl openssl x509 -in cert -pubkey -noout &gt; public.pem
+</span></span><span style=display:flex><span>-----BEGIN PUBLIC KEY-----
+</span></span><span style=display:flex><span>MCIwDQYJKoZIhvcNAQEBBQADEQAwDgIHEaTUUhKxfwIDAQAB
+</span></span><span style=display:flex><span>-----END PUBLIC KEY-----
+</span></span><span style=display:flex><span>$ openssl rsa -pubin -in public.pem -text
+</span></span><span style=display:flex><span>RSA Public-Key: <span style=color:#f92672>(</span><span style=color:#ae81ff>53</span> bit<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>Modulus: <span style=color:#ae81ff>4966306421059967</span> <span style=color:#f92672>(</span>0x11a4d45212b17f<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>Exponent: <span style=color:#ae81ff>65537</span> <span style=color:#f92672>(</span>0x10001<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>writing RSA key
+</span></span><span style=display:flex><span>-----BEGIN PUBLIC KEY-----
+</span></span><span style=display:flex><span>MCIwDQYJKoZIhvcNAQEBBQADEQAwDgIHEaTUUhKxfwIDAQAB
+</span></span><span style=display:flex><span>-----END PUBLIC KEY-----
+</span></span></code></pre></div><p>Use <a href=https://www.alpertron.com/ECM.HTM>online tool</a> to factor
+p = <code>67867967</code>
+q = <code>73176001</code></p><a href=/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---kit-engine/>PicoCTF - Kit Engine</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---kit-engine>PicoCTF - Kit Engine
+<a class=anchor href=#picoctf---kit-engine>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://ithelp.ithome.com.tw/articles/10216397>Google V8 Engine</a></p><blockquote><p>V8 引擎是 Google 做出來讓 JS 跟瀏覽器溝通的的開源專案，這個引擎被使用的非常廣泛，在 Chrome 瀏覽器跟 Node.js ，以及桌面應用程式框架 Electron 之中都有他的身影。而在 V8 出現前，最早最早的 JavaScript 引擎，叫做 SpiderMonkey ，同時也是另一個知名瀏覽器 FireFox 的渲染引擎。</p></blockquote><p><a href=https://v8.dev/docs/d8>Using d8</a></p><blockquote><p>d8 is V8’s own developer shell.</p><p>d8 is useful for running some JavaScript locally or debugging changes you have made to V8. Building V8 using GN for x64 outputs a d8 binary in out.gn/x64.optdebug/d8. You can call d8 with the &ndash;help argument for more information about usage and flags.</p><a href=/security/practice/picoctf/pwn/picoctf---kit-engine/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/reverse/picoctf---lets-get-dynamic/>PicoCTF - Let's get dynamic</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/reverse/>Reverse</a></div><p><h1 id=picoctf---lets-get-dynamic>PicoCTF - Let&rsquo;s get dynamic
+<a class=anchor href=#picoctf---lets-get-dynamic>#</a></h1><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler IDA Main Function</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  int i; // [rsp+1Ch] [rbp-114h]
+  char s2[64]; // [rsp+20h] [rbp-110h] BYREF
+  char s[64]; // [rsp+60h] [rbp-D0h] BYREF
+  char v7[8]; // [rsp+A0h] [rbp-90h] BYREF
+  __int64 v8; // [rsp+A8h] [rbp-88h]
+  __int64 v9; // [rsp+B0h] [rbp-80h]
+  __int64 v10; // [rsp+B8h] [rbp-78h]
+  __int64 v11; // [rsp+C0h] [rbp-70h]
+  __int64 v12; // [rsp+C8h] [rbp-68h]
+  __int16 v13; // [rsp+D0h] [rbp-60h]
+  __int64 v14[6]; // [rsp+E0h] [rbp-50h]
+  __int16 v15; // [rsp+110h] [rbp-20h]
+  unsigned __int64 v16; // [rsp+118h] [rbp-18h]
+
+  v16 = __readfsqword(0x28u);
+  *v7 = 0xFD872AC7CA737102LL;
+  v8 = 0x4915F12BF9F82DCBLL;
+  v9 = 0xA7EF0D4C54003C10LL;
+  v10 = 0x9399CCF74D02A843LL;
+  v11 = 0x2AC6F818989688D7LL;
+  v12 = 0x9F51EBCA33584C85LL;
+  v13 = 231;
+  v14[0] = 0x92D46893B5010A61LL;
+  v14[1] = 0xA6BDE59D58F4EB4LL;
+  v14[2] = 0xFC993A3238355027LL;
+  v14[3] = 0xEDA7B28D7054D179LL;
+  v14[4] = 0x419FBB499BD4CFBBLL;
+  v14[5] = 0x935AE3903F554688LL;
+  v15 = 185;
+  fgets(s, 49, _bss_start);
+  for ( i = 0; i &lt; strlen(v7); ++i )
+    s2[i] = *(v14 + i) ^ v7[i] ^ i ^ 0x13;
+  if ( !memcmp(s, s2, 49uLL) )
+  {
+    puts(&#34;No, that&#39;s not right.&#34;);
+    return 1;
+  }
+  else
+  {
+    puts(&#34;Correct! You entered the flag.&#34;);
+    return 0;
+  }
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/reverse/picoctf---lets-get-dynamic/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/general/picoctf---like1000/>PicoCTF - like1000</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---like1000>PicoCTF - like1000
+<a class=anchor href=#picoctf---like1000>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href>like1000</a></p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://stackoverflow.com/questions/2778153/how-to-extract-nested-tar-gz-files-easily>How to extract nested tar.gz files easily?</a>
+<a href=https://ithelp.ithome.com.tw/articles/10132603>Shell Script - While</a></p><h2 id=exploit---untar-1000-times>Exploit - Untar 1000 times
+<a class=anchor href=#exploit---untar-1000-times>#</a></h2><ul><li>For untar folders<pre tabindex=0><code class=language-bash! data-lang=bash!>#! /bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+file_name=1000
+for next in ${file_name}.tar
+while [ $file_name &gt; 1 ]
+    do
+        echo &#34;Untaring - $file_name&#34;
+        tar -xvf ${file_name}.tar #-C ./
+        file_name=$(($file_name-1))
+        mkdir ./$file_name
+        mv ${file_name}.tar ./$file_name
+        cd ./${file_name}
+    done
+</code></pre></li><li>For getting flag<pre tabindex=0><code class=language-bash! data-lang=bash!>#! /bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+file_name=999
+while [ &#34;$file_name&#34; &gt; &#34;0&#34; ]
+    do
+        cd ./${file_name}
+        file_name=$(($file_name-1))
+        if [ &#34;$file_name&#34; == &#34;0&#34; ]
+            then ls -al
+            cat filler.txt
+            mv flag.png ~/CTF/PicoCTF/Misc/like1000
+        fi
+    done
+exit 0
+</code></pre></li></ul><h2 id=reference>Reference
+<a class=anchor href=#reference>#</a></h2><p><a href=https://shengyu7697.github.io/shell-script-arithmetic/>Shell Script 變數相加</a>
+<a href=https://linuxhint.com/solve-gzip-stdin-not-gzip-format-error/>How to solve gzip: stdin: not in gzip format error</a>
+<a href=https://blog.csdn.net/cp_panda_5/article/details/79192688>解压缩报错tar: Error is not recoverable: exiting now</a>
+<a href=https://unix.stackexchange.com/questions/47584/in-a-bash-script-using-the-conditional-or-in-an-if-statement>In a bash script, using the conditional &ldquo;or&rdquo; in an &ldquo;if&rdquo; statement</a></p><a href=/security/practice/picoctf/misc/general/picoctf---like1000/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk/>PicoCTF - m00nwalk</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---m00nwalk>PicoCTF - m00nwalk
+<a class=anchor href=#picoctf---m00nwalk>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/26?category=4&amp;page=3">m00nwalk</a></p><h2 id=description--hint>Description & Hint
+<a class=anchor href=#description--hint>#</a></h2><p>Decode this <a href=https://jupiter.challenges.picoctf.org/static/fc1edf07742e98a480c6aff7d2546107/message.wav>message</a> from the moon.
+Hint:</p><ul><li>How did pictures from the moon landing get sent back to Earth?</li><li>What is the CMU mascot?, that might help select a RX option</li></ul><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://zh.wikipedia.org/wiki/%E6%85%A2%E6%89%AB%E6%8F%8F%E7%94%B5%E8%A7%86#%E5%9C%A8%E8%88%AA%E5%A4%A9%E9%A2%86%E5%9F%9F%E7%9A%84%E6%97%A9%E6%9C%9F%E5%BA%94%E7%94%A8>慢掃描電視 - slow-scan television(sstv)</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><h2 id=exploit---qsstv->Exploit - qsstv +
+<a class=anchor href=#exploit---qsstv->#</a></h2><ol><li>First, I thought it might be a <code>mp3stego</code> problem but found nothing. So, I tried to find the write up about this question.</li><li>Use QSSTV<pre tabindex=0><code class=language-bash! data-lang=bash!>$ sudo apt-get install pavucontrol
+$ sudo apt-get install qsstv
+$ pactl load-module module-null-sink sink_name=virtual-cable
+22
+</code></pre></li><li>The Setting</li></ol><ul><li><p><code>pavucontrol</code></p><a href=/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk/>...</a></p></article><ul class="pagination pagination-default"><li class=page-item><a href=/tags/picoctf/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a></li><li class=page-item><a href=/tags/picoctf/page/4/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a></li><li class=page-item><a href=/tags/picoctf/page/3/ aria-label="Page 3" class=page-link role=button>3</a></li><li class=page-item><a href=/tags/picoctf/page/4/ aria-label="Page 4" class=page-link role=button>4</a></li><li class="page-item active"><a aria-current=page aria-label="Page 5" class=page-link role=button>5</a></li><li class=page-item><a href=/tags/picoctf/page/6/ aria-label="Page 6" class=page-link role=button>6</a></li><li class=page-item><a href=/tags/picoctf/page/7/ aria-label="Page 7" class=page-link role=button>7</a></li><li class=page-item><a href=/tags/picoctf/page/6/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/tags/picoctf/page/12/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></div></aside></main></body></html>

@@ -1,0 +1,593 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/tags/picoctf/"><meta property="og:site_name" content="SBK Hugo Site"><meta property="og:title" content="PicoCTF"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><title>PicoCTF | SBK Hugo Site</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/tags/picoctf/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.acdc41c8d39e6c69d70d8a23779875e0a3733fefead3e428d5344966bb12f562.js integrity="sha256-rNxByNOebGnXDYojd5h14KNzP+/q0+Qo1TRJZrsS9WI=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://bernie6401.github.io/tags/picoctf/index.xml title="SBK Hugo Site"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>SBK Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>PicoCTF</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></aside></header><article class="markdown book-post"><h2><a href=/security/practice/picoctf/reverse/picoctf---powershelly/>PicoCTF - Powershelly</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/reverse/>Reverse</a></div><p><h1 id=picoctf---powershelly>PicoCTF - Powershelly
+<a class=anchor href=#picoctf---powershelly>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://zh.wikipedia.org/zh-tw/PowerShell#%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83%E6%AF%94%E8%BE%83>Powershell 命令提示字元比較</a>
+<a href=https://stackoverflow.com/questions/56965510/what-is-meaning-in-powershell>What is &lsquo;@{}&rsquo; meaning in PowerShell</a>
+<a href=https://stackoverflow.com/questions/28732025/what-does-mean-in-powershell>What does @() mean in Powershell?</a>
+<a href=https://wenyuangg.github.io/posts/python3/python-set.html>[Python] 學習使用集合 (Set)</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-bash=" data-lang="bash=">$input = &#34;.\input.txt&#34;
+
+$out = Get-Content -Path $input
+$enc = [System.IO.File]::ReadAllBytes(&#34;$input&#34;)
+$encoding = [system.Text.Encoding]::UTF8
+$total = 264
+$t = ($total + 1) * 5 #1325
+$numLength = ($total * 30 ) + $t # 9245
+if ($out.Length -gt 5 -or $enc.count -ne $numLength)
+{
+  Write-Output &#34;Wrong format 5&#34;
+  Exit
+}
+
+else
+{
+  for($i=0; $i -lt $enc.count ; $i++)
+  {
+    if (($enc[$i] -ne 49) -and ($enc[$i] -ne 48) -and ($enc[$i] -ne 10) -and ($enc[$i] -ne 13) -and ($enc[$i] -ne 32))
+    {
+      Write-Output &#34;Wrong format 1/0/&#34;
+      Exit
+    }
+  }
+}
+
+$blocks = @{}
+for ($i=0; $i -lt $out.Length ; $i++)
+{
+  $r = $out[$i].Split(&#34; &#34;)
+  if ($i -gt 0)
+  {
+    for ($j=0; $j -lt $r.Length ; $j++)
+    {
+      if ($r[$j].Length -ne 6)
+      {
+        Write-Output &#34;Wrong Format 6&#34; $r[$j].Length
+        Exit
+      }
+      $blocks[$j] += $r[$j]
+    }
+  }
+  else
+  {
+    for ($j=0; $j -lt $r.Length ; $j++)
+    {
+      if ($r[$j].Length -ne 6)
+      {
+        Write-Output &#34;Wrong Format 6&#34; $r[$j].Length
+        Exit
+      }
+      $blocks[$j] = @()
+      $blocks[$j] += $r[$j]
+    }
+  }
+
+}
+
+
+function Exit  {
+  exit
+}
+
+
+function Random-Gen {
+  $list1 = @()
+  for ($i=1; $i -lt ($blocks.count + 1); $i++)
+  {
+    $y = ((($i * 327) % 681 ) + 344) % 313
+    $list1 += $y
+  }
+  return $list1
+}
+
+
+function Scramble {
+    param (
+        $block,
+        $seed
+    )
+    $raw = [system.String]::Join(&#34;&#34;, $block)
+    $bm = &#34;10 &#34; * $raw.Length
+    $bm = $bm.Split(&#34; &#34;)
+    for ($i=0; $i -lt $raw.Length ; $i++)
+    {
+
+      $y = ($i * $seed) % $raw.Length
+      $n = $bm[$y]
+      while ($n -ne &#34;10&#34;)
+      {
+        $y = ($y + 1) % $raw.Length
+        $n = $bm[$y]
+      }
+      if ($raw[$i] -eq &#34;1&#34; )
+      {
+        $n = &#34;11&#34;
+      }
+      else
+      {
+        $n = &#34;00&#34;
+      }
+      $bm[$y] = $n
+    }
+    $raw2 = [system.String]::Join(&#34;&#34;, $bm)
+    $b = [convert]::ToInt64($raw2,2)
+    return $b
+}
+
+
+$result = 0
+$seeds = @()
+for ($i=1; $i -lt ($blocks.count +1); $i++)
+{
+  $seeds += ($i * 127) % 500
+}
+
+$randoms = Random-Gen
+$output_file = @()
+for ($i=0; $i -lt $blocks.count ; $i++)
+{
+
+  $fun = Scramble -block $blocks[$i] -seed $seeds[$i]
+  if($i -eq 263)
+  {
+    Write-Output $seeds[$i]
+    Write-Output $randoms[$i]
+    Write-Output $fun
+  }
+  $result = $fun -bxor $result -bxor $randoms[$i]
+  $output_file += $result
+}
+Add-Content -Path output_test.txt -Value $output_file
+</code></pre><p>:::</p><a href=/security/practice/picoctf/reverse/picoctf---powershelly/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/general-skills/picoctf---pw-crack-4/>PicoCTF - PW Crack 4</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/general-skill/>General Skill</a></div><p><h1 id=picoctf---pw-crack-4>PicoCTF - PW Crack 4
+<a class=anchor href=#picoctf---pw-crack-4>#</a></h1><h6 id=tags-picoctf-ctf-general-skills>tags: <code>PicoCTF</code> <code>CTF</code> <code>General Skills</code>
+<a class=anchor href=#tags-picoctf-ctf-general-skills>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/248?category=5&amp;page=2">PW Crack 4</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler source code</p><pre tabindex=0><code class="language-python=" data-lang="python=">import hashlib
+
+### THIS FUNCTION WILL NOT HELP YOU FIND THE FLAG --LT ########################
+def str_xor(secret, key):
+    #extend key to secret length
+    new_key = key
+    i = 0
+    while len(new_key) &lt; len(secret):
+        new_key = new_key + key[i]
+        i = (i + 1) % len(key)        
+    return &#34;&#34;.join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(secret,new_key)])
+###############################################################################
+
+flag_enc = open(&#39;level4.flag.txt.enc&#39;, &#39;rb&#39;).read()
+correct_pw_hash = open(&#39;level4.hash.bin&#39;, &#39;rb&#39;).read()
+
+
+def hash_pw(pw_str):
+    pw_bytes = bytearray()
+    pw_bytes.extend(pw_str.encode())
+    m = hashlib.md5()
+    m.update(pw_bytes)
+    return m.digest()
+
+
+def level_4_pw_check():
+    user_pw = input(&#34;Please enter correct password for flag: &#34;)
+    user_pw_hash = hash_pw(user_pw)
+    
+    if( user_pw_hash == correct_pw_hash ):
+        print(&#34;Welcome back... your flag, user:&#34;)
+        decryption = str_xor(flag_enc.decode(), user_pw)
+        print(decryption)
+        return
+    print(&#34;That password is incorrect&#34;)
+
+
+
+level_4_pw_check()
+
+
+
+# The strings below are 100 possibilities for the correct password. 
+#   (Only 1 is correct)
+pos_pw_list = [&#34;6288&#34;, &#34;6152&#34;, &#34;4c7a&#34;, &#34;b722&#34;, &#34;9a6e&#34;, &#34;6717&#34;, &#34;4389&#34;, &#34;1a28&#34;, &#34;37ac&#34;, &#34;de4f&#34;, &#34;eb28&#34;, &#34;351b&#34;, &#34;3d58&#34;, &#34;948b&#34;, &#34;231b&#34;, &#34;973a&#34;, &#34;a087&#34;, &#34;384a&#34;, &#34;6d3c&#34;, &#34;9065&#34;, &#34;725c&#34;, &#34;fd60&#34;, &#34;4d4f&#34;, &#34;6a60&#34;, &#34;7213&#34;, &#34;93e6&#34;, &#34;8c54&#34;, &#34;537d&#34;, &#34;a1da&#34;, &#34;c718&#34;, &#34;9de8&#34;, &#34;ebe3&#34;, &#34;f1c5&#34;, &#34;a0bf&#34;, &#34;ccab&#34;, &#34;4938&#34;, &#34;8f97&#34;, &#34;3327&#34;, &#34;8029&#34;, &#34;41f2&#34;, &#34;a04f&#34;, &#34;c7f9&#34;, &#34;b453&#34;, &#34;90a5&#34;, &#34;25dc&#34;, &#34;26b0&#34;, &#34;cb42&#34;, &#34;de89&#34;, &#34;2451&#34;, &#34;1dd3&#34;, &#34;7f2c&#34;, &#34;8919&#34;, &#34;f3a9&#34;, &#34;b88f&#34;, &#34;eaa8&#34;, &#34;776a&#34;, &#34;6236&#34;, &#34;98f5&#34;, &#34;492b&#34;, &#34;507d&#34;, &#34;18e8&#34;, &#34;cfb5&#34;, &#34;76fd&#34;, &#34;6017&#34;, &#34;30de&#34;, &#34;bbae&#34;, &#34;354e&#34;, &#34;4013&#34;, &#34;3153&#34;, &#34;e9cc&#34;, &#34;cba9&#34;, &#34;25ea&#34;, &#34;c06c&#34;, &#34;a166&#34;, &#34;faf1&#34;, &#34;2264&#34;, &#34;2179&#34;, &#34;cf30&#34;, &#34;4b47&#34;, &#34;3446&#34;, &#34;b213&#34;, &#34;88a3&#34;, &#34;6253&#34;, &#34;db88&#34;, &#34;c38c&#34;, &#34;a48c&#34;, &#34;3e4f&#34;, &#34;7208&#34;, &#34;9dcb&#34;, &#34;fc77&#34;, &#34;e2cf&#34;, &#34;8552&#34;, &#34;f6f8&#34;, &#34;7079&#34;, &#34;42ef&#34;, &#34;391e&#34;, &#34;8a6d&#34;, &#34;2154&#34;, &#34;d964&#34;, &#34;49ec&#34;]
+</code></pre><p>:::</p><a href=/security/practice/picoctf/general-skills/picoctf---pw-crack-4/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---ropfu/>PicoCTF - ropfu</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---ropfu>PicoCTF - ropfu
+<a class=anchor href=#picoctf---ropfu>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>ROP Chain
+x86 Calling Convention:
+<a href=https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit>Linux System Call Table</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+
+#define BUFSIZE 16
+
+void vuln() {
+  char buf[16];
+  printf(&#34;How strong is your ROP-fu? Snatch the shell from my hand, grasshopper!\n&#34;);
+  return gets(buf);
+
+}
+
+int main(int argc, char **argv){
+
+  setvbuf(stdout, NULL, _IONBF, 0);
+  
+
+  // Set the gid to the effective gid
+  // this prevents /bin/sh from dropping the privileges
+  gid_t gid = getegid();
+  setresgid(gid, gid, gid);
+  vuln();
+  
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---ropfu/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---rps/>PicoCTF - RPS</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---rps>PicoCTF - RPS
+<a class=anchor href=#picoctf---rps>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://www.geeksforgeeks.org/strstr-in-ccpp/>strstr() in C/C++</a></p><blockquote><p>In C++, std::strstr() is a predefined function used for string handling. string.h is the header file required for string functions. This function takes two strings s1 and s2 as an argument and finds the first occurrence of the sub-string s2 in the string s1. The process of matching does not include the terminating null-characters(‘\0’), but function stops there.
+Syntax:</p><a href=/security/practice/picoctf/pwn/picoctf---rps/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---saas/>PicoCTF - SaaS</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---saas>PicoCTF - SaaS
+<a class=anchor href=#picoctf---saas>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>seccomp-tool</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">#include &lt;errno.h&gt;
+#include &lt;error.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;seccomp.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/mman.h&gt;
+#include &lt;sys/syscall.h&gt;
+#include &lt;unistd.h&gt;
+
+#define SIZE 0x100
+
+// http://shell-storm.org/online/Online-Assembler-and-Disassembler/?inst=xor+rax%2C+rax%0D%0Amov+rdi%2C+rsp%0D%0Aand+rdi%2C+0xfffffffffffff000%0D%0Asub+rdi%2C+0x2000%0D%0Amov+rcx%2C+0x600%0D%0Arep+stosq%0D%0Axor+rbx%2C+rbx%0D%0Axor+rcx%2C+rcx%0D%0Axor+rdx%2C+rdx%0D%0Axor+rsp%2C+rsp%0D%0Axor+rbp%2C+rbp%0D%0Axor+rsi%2C+rsi%0D%0Axor+rdi%2C+rdi%0D%0Axor+r8%2C+r8%0D%0Axor+r9%2C+r9%0D%0Axor+r10%2C+r10%0D%0Axor+r11%2C+r11%0D%0Axor+r12%2C+r12%0D%0Axor+r13%2C+r13%0D%0Axor+r14%2C+r14%0D%0Axor+r15%2C+r15%0D%0A&amp;arch=x86-64&amp;as_format=inline#assembly
+#define HEADER &#34;\x48\x31\xc0\x48\x89\xe7\x48\x81\xe7\x00\xf0\xff\xff\x48\x81\xef\x00\x20\x00\x00\x48\xc7\xc1\x00\x06\x00\x00\xf3\x48\xab\x48\x31\xdb\x48\x31\xc9\x48\x31\xd2\x48\x31\xe4\x48\x31\xed\x48\x31\xf6\x48\x31\xff\x4d\x31\xc0\x4d\x31\xc9\x4d\x31\xd2\x4d\x31\xdb\x4d\x31\xe4\x4d\x31\xed\x4d\x31\xf6\x4d\x31\xff&#34;
+
+#define FLAG_SIZE 64
+
+char flag[FLAG_SIZE];
+
+void load_flag() {
+  int fd;
+  if ((fd = open(&#34;flag.txt&#34;, O_RDONLY)) == -1)
+    error(EXIT_FAILURE, errno, &#34;open flag&#34;);
+  if (read(fd, flag, FLAG_SIZE) == -1)
+    error(EXIT_FAILURE, errno, &#34;read flag&#34;);
+  if (close(fd) == -1)
+    error(EXIT_FAILURE, errno, &#34;close flag&#34;);
+}
+
+void setup() {
+  scmp_filter_ctx ctx;
+  ctx = seccomp_init(SCMP_ACT_KILL);
+  int ret = 0;
+  if (ctx != NULL) {
+    ret |= seccomp_rule_add(ctx, SCMP_ACT_ALLOW, SCMP_SYS(write), 1,
+      SCMP_A0(SCMP_CMP_EQ, STDOUT_FILENO));
+    ret |= seccomp_rule_add(ctx, SCMP_ACT_ALLOW, SCMP_SYS(exit), 0);
+    ret |= seccomp_rule_add(ctx, SCMP_ACT_ALLOW, SCMP_SYS(exit_group), 0);
+    ret |= seccomp_load(ctx);
+  }
+  seccomp_release(ctx);
+  if (ctx == NULL || ret)
+    error(EXIT_FAILURE, 0, &#34;seccomp&#34;);
+}
+
+int main()
+{
+  setbuf(stdout, NULL);
+  setbuf(stdin, NULL);
+  setbuf(stderr, NULL);
+
+  load_flag();
+  puts(&#34;Welcome to Shellcode as a Service!&#34;);
+
+  void* addr = mmap(NULL, 0x1000, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
+  memcpy(addr, HEADER, sizeof(HEADER));
+  read(0, addr + sizeof(HEADER) - 1, SIZE);
+
+  setup();
+  goto *addr;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---saas/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---scavenger-hunt/>PicoCTF - Scavenger Hunt</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---scavenger-hunt>PicoCTF - Scavenger Hunt
+<a class=anchor href=#picoctf---scavenger-hunt>#</a></h1><h6 id=tags-picoctf-ctf-web>tags: <code>PicoCTF</code> <code>CTF</code> <code>Web</code>
+<a class=anchor href=#tags-picoctf-ctf-web>#</a></h6><p>Challenge: <a href=http://mercury.picoctf.net:55079/>Scavenger Hunt</a></p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://icodding.blogspot.com/2015/10/htaccess.html>.htaccess 使用技巧彙整</a></p><blockquote><p>.htaccess文件(或者」分佈式配置文件」）提供了針對目錄改變配置的方法， 即，在一個特定的文件目錄中放置一個包含一個或多個指令的文件， 以作用於此目錄及其所有子目錄。作為用戶，所能使用的命令受到限制。管理員可以通過Apache的AllowOverride指令來設置。
+概述來說，htaccess文件是Apache伺服器中的一個配置文件，它負責相關目錄下的網頁配置。通過htaccess文件，可以幫我們實現：網頁301重定向、自定義404錯誤頁面、改變文件擴展名、允許/阻止特定的用戶或者目錄的訪問、禁止目錄列表、配置預設文件等功能。
+.htaccess 詳解</p></blockquote><h2 id=exploit---insp3ct0r--htaccess--ds_store>Exploit - <a href=/gYsHjI-rSD6Lce-7eF6DyA>Insp3ct0r</a> + <code>htaccess</code> + <code>DS_Store</code>
+<a class=anchor href=#exploit---insp3ct0r--htaccess--ds_store>#</a></h2><ol><li><p>HTML + CSS +JS
+These files keeps one fragment flag each. Especially <code>js</code> file&rsquo;s hint: <code>/* How can I keep Google from indexing my website? */</code>
+<img src=https://i.imgur.com/wuX9KLT.png alt></p></li><li><p>Apache server $\to$ <code>.htaccess</code> file
+<img src=https://i.imgur.com/li2z8l4.png alt></p></li><li><p>Mac computer $\to$ <code>.DS_Store</code> file
+<img src=https://i.imgur.com/iZfLWZ3.png alt></p><a href=/security/practice/picoctf/web/picoctf---scavenger-hunt/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/flow/picoctf---scrambled-bytes/>PicoCTF - scrambled-bytes</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---scrambled-bytes>PicoCTF - scrambled-bytes
+<a class=anchor href=#picoctf---scrambled-bytes>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://www.readfog.com/a/1635090435931213824>盤點一款 Python 發包收包利器 - scapy</a></p><blockquote><h3 id=只發不收>只發不收
+<a class=anchor href=#%e5%8f%aa%e7%99%bc%e4%b8%8d%e6%94%b6>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>send(pkt, inter<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>, loop<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>, count<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, iface<span style=color:#f92672>=</span>N) 
+</span></span><span style=display:flex><span>pkt:數據包
+</span></span><span style=display:flex><span>inter<span style=color:#960050;background-color:#1e0010>：</span>發包間隔時間
+</span></span><span style=display:flex><span>count<span style=color:#960050;background-color:#1e0010>：</span>發包數量
+</span></span><span style=display:flex><span>iface<span style=color:#960050;background-color:#1e0010>：</span>網卡接口名稱
+</span></span><span style=display:flex><span>send()<span style=color:#960050;background-color:#1e0010>，</span>在第三層發包<span style=color:#960050;background-color:#1e0010>，</span>沒有接收功能<span style=color:#960050;background-color:#1e0010>；</span>send(IP(dst<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;www.baidu.com&#34;</span>,ttl<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>)<span style=color:#f92672>/</span>ICMP())
+</span></span><span style=display:flex><span>sendp()<span style=color:#960050;background-color:#1e0010>，</span>在第二層發包<span style=color:#960050;background-color:#1e0010>，</span>沒有接收功能<span style=color:#960050;background-color:#1e0010>。</span>sr(Ether()<span style=color:#f92672>/</span>IP(dst<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;www.baidu.com&#34;</span>))
+</span></span></code></pre></div></blockquote><p><a href=https://docs.python.org/zh-tw/3/library/time.html#time.time>time-時間的訪問和轉換</a>
+<a href=https://zhuanlan.zhihu.com/p/602431298>python 的pyshark庫如何使用</a>
+<a href=https://segmentfault.com/a/1190000006064442>PyShark入門(2)：FileCapture和LiveCapture模塊</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-python=" data-lang="python=">#!/usr/bin/env python3
+
+import argparse
+from progress.bar import IncrementalBar
+
+from scapy.all import *
+import ipaddress
+
+import random
+from time import time
+
+def check_ip(ip):
+  try:
+    return ipaddress.ip_address(ip)
+  except:
+    raise argparse.ArgumentTypeError(f&#39;{ip} is an invalid address&#39;)
+
+def check_port(port):
+  try:
+    port = int(port)
+    if port &lt; 1 or port &gt; 65535:
+      raise ValueError
+    return port
+  except:
+    raise argparse.ArgumentTypeError(f&#39;{port} is an invalid port&#39;)
+
+def main(args):
+  with open(args.input, &#39;rb&#39;) as f:
+    payload = bytearray(f.read())
+  random.seed(int(time()))
+  random.shuffle(payload)
+  with IncrementalBar(&#39;Sending&#39;, max=len(payload)) as bar:
+    for b in payload:
+      send(
+        IP(dst=str(args.destination)) /
+        UDP(sport=random.randrange(65536), dport=args.port) /
+        Raw(load=bytes([b^random.randrange(256)])),
+      verbose=False)
+      bar.next()
+
+if __name__==&#39;__main__&#39;:
+  parser = argparse.ArgumentParser()
+  parser.add_argument(&#39;destination&#39;, help=&#39;destination IP address&#39;, type=check_ip)
+  parser.add_argument(&#39;port&#39;, help=&#39;destination port number&#39;, type=check_port)
+  parser.add_argument(&#39;input&#39;, help=&#39;input file&#39;)
+  main(parser.parse_args())
+</code></pre><p>:::</p><a href=/security/practice/picoctf/misc/flow/picoctf---scrambled-bytes/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/>PicoCTF - Scrambled: RSA</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/crypto/>Crypto</a></div><p><h1 id=picoctf---scrambled-rsa>PicoCTF - Scrambled: RSA
+<a class=anchor href=#picoctf---scrambled-rsa>#</a></h1><h6 id=tags-picoctf-ctf-crypto>tags: <code>PicoCTF</code> <code>CTF</code> <code>Crypto</code>
+<a class=anchor href=#tags-picoctf-ctf-crypto>#</a></h6><h2 id=hint>Hint
+<a class=anchor href=#hint>#</a></h2><ul><li>Look at the ciphertext, anything fishy, maybe a little bit long?</li><li>What happens if you encrypt the same input multiple times?</li><li>Is RSA deterministic, why would outputs vary?</li></ul><h2 id=recon---通靈>Recon - <font color=FF0000>通靈</font>
+<a class=anchor href=#recon---%e9%80%9a%e9%9d%88>#</a></h2><p>這一題也是頗有趣但要通靈，可以先亂Try</p><pre tabindex=0><code class=language-bash! data-lang=bash!>$ nc mercury.picoctf.net 61477
+flag = ...
+I will encrypt whatever you give me: b
+Here you go: 26990049735578409030682378965549085676344091481060419655306695078226500400679435180914414853843456517959269938025436462371813167477339887511293320498195667717320879617653974074204687042294887795784122711621510485951142842770951325298677811102706200275406899117894241145575602912451443892687252208402011904237
+I will encrypt whatever you give me: ba
+Here you go: 2699004973557840903068237896554908567634409148106041965530669507822650040067943518091441485384345651795926993802543646237181316747733988751129332049819566771732087961765397407420468704229488779578412271162151048595114284277095132529867781110270620027540689911789424114557560291245144389268725220840201190423748281433709412944662646587136176334777506529508638551296181668932027523016538393747587852449462326357575277427356480410273494280971757044562513629423400967407332448126388859817313684399195291279961899276921240210270110225654310423792352532266414306766344869066386142998118001891330035563388790707576505068944
+I will encrypt whatever you give me: bac
+Here you go: 482814337094129446626465871361763347775065295086385512961816689320275230165383937475878524494623263575752774273564804102734942809717570445625136294234009674073324481263888598173136843991952912799618992769212402102701102256543104237923525322664143067663448690663861429981180018913300355633887907075765050689449619429085627210113794723864117161956939961066630142420889676674025917593454737310140819887001206562193281145515990410131903949359211712425034234736366286462137700473579439657314154736719868903719111785858132034797052503447042089004862886989401543635700329455353580959453911569277021402998961166474045310601826990049735578409030682378965549085676344091481060419655306695078226500400679435180914414853843456517959269938025436462371813167477339887511293320498195667717320879617653974074204687042294887795784122711621510485951142842770951325298677811102706200275406899117894241145575602912451443892687252208402011904237
+...
+</code></pre><p>一開始加密的<code>b</code>是<code>269900...904237</code>，第二個加密的<code>ba</code>是<code>26990...5068944</code>，但如果仔細看其實第一個加密的密文其實也存在其中，他其實是<code>269900...904237+482814...5068944</code>，可以加密第三個<code>bac</code>試看看，也會發現是<code>482814...5068944+961942...3106018+269900...904237</code>
+所以我們可以再往這個方向測試一下，我們知道一開始的flag一定是<code>picoCTF{</code>，我們加密<code>p</code>會發現密文其實存在原始的flag密文當中，因此我們可以寫一個腳本，像上一題一樣暴力破解，如果加密的密文有存在原本的flag ciphertext中的話，就代表我們猜對了，反之就繼續找</p><a href=/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---secrets/>PicoCTF - Secrets</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---secrets>PicoCTF - Secrets
+<a class=anchor href=#picoctf---secrets>#</a></h1><h6 id=tags-picoctf-ctf-web>tags: <code>PicoCTF</code> <code>CTF</code> <code>Web</code>
+<a class=anchor href=#tags-picoctf-ctf-web>#</a></h6><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><ul><li>Description: We have several pages hidden. Can you find the one with the flag?</li><li>Hint: folders folders folders</li></ul><p>這一題也是蠻有趣的</p><h2 id=exploit---通靈>Exploit - <font color=FF0000>通靈</font>
+<a class=anchor href=#exploit---%e9%80%9a%e9%9d%88>#</a></h2><ol><li><p>首先看一下網頁的source code，沒什麼特別的地方，但有看到<code>secret/assets/index.css</code>，所以有一個route是secrets，試看看有甚麼東西
+<img src=https://hackmd.io/_uploads/HywRa08_n.png alt></p></li><li><p>發現這樣的想法是對的，陸續看一下source code有甚麼其他route，就繼續加在URL就對了
+<img src=https://hackmd.io/_uploads/HyumC0U_2.png alt></p></li></ol><p>Payload: <code>view-source:http://saturn.picoctf.net:65352/secret/hidden/superhidden/</code>
+Flag: <code>picoCTF{succ3ss_@h3n1c@10n_790d2615}</code></p><h2 id=reference>Reference
+<a class=anchor href=#reference>#</a></h2><p><a href=https://youtu.be/40DYCMInk5E>secrets | picoCTF 2022</a></p></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---seed-spring/>PicoCTF - seed-sPRiNG</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---seed-spring>PicoCTF - seed-sPRiNG
+<a class=anchor href=#picoctf---seed-spring>#</a></h1><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler IDA Main Function</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  int guess_height; // [esp+0h] [ebp-18h] BYREF
+  int ans; // [esp+4h] [ebp-14h]
+  unsigned int seed; // [esp+8h] [ebp-10h]
+  int i; // [esp+Ch] [ebp-Ch]
+  int *p_argc; // [esp+10h] [ebp-8h]
+
+  p_argc = &amp;argc;
+  puts(&amp;unk_A50);
+  puts(&amp;unk_A50);
+  puts(&#34;                                                                             &#34;);
+  puts(&#34;                          #                mmmmm  mmmmm    \&#34;    mm   m   mmm &#34;);
+  puts(&#34;  mmm    mmm    mmm    mmm#          mmm   #   \&#34;# #   \&#34;# mmm    #\&#34;m  # m\&#34;   \&#34;&#34;);
+  puts(&#34; #   \&#34;  #\&#34;  #  #\&#34;  #  #\&#34; \&#34;#         #   \&#34;  #mmm#\&#34; #mmmm\&#34;   #    # #m # #   mm&#34;);
+  puts(&#34;  \&#34;\&#34;\&#34;m  #\&#34;\&#34;\&#34;\&#34;  #\&#34;\&#34;\&#34;\&#34;  #   #          \&#34;\&#34;\&#34;m  #      #   \&#34;m   #    #  # # #    #&#34;);
+  puts(&#34; \&#34;mmm\&#34;  \&#34;#mm\&#34;  \&#34;#mm\&#34;  \&#34;#m##         \&#34;mmm\&#34;  #      #    \&#34; mm#mm  #   ##  \&#34;mmm\&#34;&#34;);
+  puts(&#34;                                                                             &#34;);
+  puts(&amp;unk_A50);
+  puts(&amp;unk_A50);
+  puts(&#34;Welcome! The game is easy: you jump on a sPRiNG.&#34;);
+  puts(&#34;How high will you fly?&#34;);
+  puts(&amp;unk_A50);
+  fflush(stdout);
+  seed = time(0);
+  srand(seed);
+  for ( i = 1; i &lt;= 30; ++i )
+  {
+    printf(&#34;LEVEL (%d/30)\n&#34;, i);
+    puts(&amp;unk_A50);
+    LOBYTE(ans) = rand() &amp; 0xF;
+    ans = ans;
+    printf(&#34;Guess the height: &#34;);
+    fflush(stdout);
+    __isoc99_scanf(&#34;%d&#34;, &amp;guess_height);
+    fflush(stdin);
+    if ( ans != guess_height )
+    {
+      puts(&#34;WRONG! Sorry, better luck next time!&#34;);
+      fflush(stdout);
+      exit(-1);
+    }
+  }
+  puts(&#34;Congratulation! You&#39;ve won! Here is your flag:\n&#34;);
+  fflush(stdout);
+  get_flag();
+  fflush(stdout);
+  return 0;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---seed-spring/>...</a></p></article><ul class="pagination pagination-default"><li class=page-item><a href=/tags/picoctf/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a></li><li class=page-item><a href=/tags/picoctf/page/7/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a></li><li class=page-item><a href=/tags/picoctf/page/6/ aria-label="Page 6" class=page-link role=button>6</a></li><li class=page-item><a href=/tags/picoctf/page/7/ aria-label="Page 7" class=page-link role=button>7</a></li><li class="page-item active"><a aria-current=page aria-label="Page 8" class=page-link role=button>8</a></li><li class=page-item><a href=/tags/picoctf/page/9/ aria-label="Page 9" class=page-link role=button>9</a></li><li class=page-item><a href=/tags/picoctf/page/10/ aria-label="Page 10" class=page-link role=button>10</a></li><li class=page-item><a href=/tags/picoctf/page/9/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/tags/picoctf/page/12/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></div></aside></main></body></html>

@@ -1,9 +1,67 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSC :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/csc/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/csc/index.xml" rel="self" type="application/rss+xml"/><item><title>CSC 2023 決賽</title><link>https://bernie6401.github.io/security/competition/csc-2023-%E6%B1%BA%E8%B3%BD/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/competition/csc-2023-%E6%B1%BA%E8%B3%BD/index.html</guid><description>CSC CTF 2023 決賽 隊伍名稱: 名字好難想RRRRRRRRRRRRRRR
-教學題 Q4 題目敘述 成為「admin」並取得Flag
-[連線IP/連結資訊] http://192.168.100.71
-[備註] 答題系統Flag輸入格式：CSC{FLAG_最多長度25可包含數字、英文大小寫、特殊字元及底線}
-Exploit 這一題太難了，看了教學檔案還是沒辦法在有效時間內解出來，所以放棄 學長自述:
-Q5 題目敘述 壞壞恐怖組織要對這邊進行恐攻，丟了一顆定時炸彈，拆彈專家4你???拆彈成功領取豐沛的獎勵吧!
-[備註] 答題系統Flag輸入格式：CSC{FLAG_最多長度25可包含數字、英文大小寫、特殊字元及底線}
-Exploit 測驗智商用的，直接pwntools就可以了
-from pwn import * r = process('./Bomb.exe') r.recvuntil(b'P1ease count A(') A = r.recvuntil(b')')[:-1].decode() sign = r.recv(3).decode() B = r.recvline()[2:-2].decode() log.info(f'A({A}) {sign} B({B}) = {eval(A + sign + B)}') r.sendlineafter(b'Enter your answer: ', str(eval(A + sign + B)).encode()) r.interactive() $ python exp.py [+] Starting local process './Bomb.exe': pid 8143 [*] A(1507886) + B(7372399) = 8880285 [*] Switching to interactive mode Good job!\(^^)/ CSC{FLAG_54v3th3d4y7777777}Time's up! (っ•O•)╮ =͟͟͞͞●~* [*] Got EOF while reading in interactive Flag: CSC{FLAG_54v3th3d4y7777777}</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSC on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/csc/</link><description>Recent content in CSC on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/csc/index.xml" rel="self" type="application/rss+xml"/><item><title>CSC 2023 決賽</title><link>https://bernie6401.github.io/security/competition/csc-2023-%E6%B1%BA%E8%B3%BD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/competition/csc-2023-%E6%B1%BA%E8%B3%BD/</guid><description>&lt;h1 id="csc-ctf-2023-決賽">
+ CSC CTF 2023 決賽
+ &lt;a class="anchor" href="#csc-ctf-2023-%e6%b1%ba%e8%b3%bd">#&lt;/a>
+&lt;/h1>
+&lt;p>隊伍名稱: 名字好難想RRRRRRRRRRRRRRR&lt;/p>
+&lt;h2 id="教學題">
+ 教學題
+ &lt;a class="anchor" href="#%e6%95%99%e5%ad%b8%e9%a1%8c">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="q4">
+ Q4
+ &lt;a class="anchor" href="#q4">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="題目敘述">
+ 題目敘述
+ &lt;a class="anchor" href="#%e9%a1%8c%e7%9b%ae%e6%95%98%e8%bf%b0">#&lt;/a>
+&lt;/h4>
+&lt;blockquote>
+&lt;p>成為「admin」並取得Flag&lt;/p>
+&lt;p>[連線IP/連結資訊]
+http://192.168.100.71&lt;/p>
+&lt;p>[備註]
+答題系統Flag輸入格式：CSC{FLAG_最多長度25可包含數字、英文大小寫、特殊字元及底線}&lt;/p>&lt;/blockquote>
+&lt;h4 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h4>
+&lt;p>這一題太難了，看了教學檔案還是沒辦法在有效時間內解出來，所以放棄
+學長自述:&lt;/p>
+&lt;h3 id="q5">
+ Q5
+ &lt;a class="anchor" href="#q5">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="題目敘述-1">
+ 題目敘述
+ &lt;a class="anchor" href="#%e9%a1%8c%e7%9b%ae%e6%95%98%e8%bf%b0-1">#&lt;/a>
+&lt;/h4>
+&lt;blockquote>
+&lt;p>壞壞恐怖組織要對這邊進行恐攻，丟了一顆定時炸彈，拆彈專家4你???拆彈成功領取豐沛的獎勵吧!&lt;/p>
+&lt;p>[備註]
+答題系統Flag輸入格式：CSC{FLAG_最多長度25可包含數字、英文大小寫、特殊字元及底線}&lt;/p>&lt;/blockquote>
+&lt;h4 id="exploit-1">
+ Exploit
+ &lt;a class="anchor" href="#exploit-1">#&lt;/a>
+&lt;/h4>
+&lt;p>測驗智商用的，直接pwntools就可以了&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python!" data-lang="python!">from pwn import *
+
+r = process(&amp;#39;./Bomb.exe&amp;#39;)
+r.recvuntil(b&amp;#39;P1ease count A(&amp;#39;)
+A = r.recvuntil(b&amp;#39;)&amp;#39;)[:-1].decode()
+sign = r.recv(3).decode()
+B = r.recvline()[2:-2].decode()
+
+log.info(f&amp;#39;A({A}) {sign} B({B}) = {eval(A + sign + B)}&amp;#39;)
+r.sendlineafter(b&amp;#39;Enter your answer: &amp;#39;, str(eval(A + sign + B)).encode())
+
+r.interactive()
+&lt;/code>&lt;/pre>&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ python exp.py
+[+] Starting local process &amp;#39;./Bomb.exe&amp;#39;: pid 8143
+[*] A(1507886) + B(7372399) = 8880285
+[*] Switching to interactive mode
+
+Good job!\(^^)/
+CSC{FLAG_54v3th3d4y7777777}Time&amp;#39;s up! (っ•O•)╮ =͟͟͞͞●~*
+[*] Got EOF while reading in interactive
+&lt;/code>&lt;/pre>&lt;p>Flag: &lt;code>CSC{FLAG_54v3th3d4y7777777}&lt;/code>&lt;/p></description></item></channel></rss>

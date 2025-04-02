@@ -1,5 +1,520 @@
-<!doctype html><html lang=en-us dir=ltr itemscope itemtype=http://schema.org/Article data-r-output-format=html><head><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.145.0"><meta name=generator content="Relearn 7.6.0+b932d301d7838f3c1a50e318e216b55ce5cc9148"><meta name=description content><meta name=author content><meta name=twitter:card content="summary"><meta name=twitter:title content="PicoCTF :: Tag :: SBK Hugo Site"><meta property="og:url" content="https://bernie6401.github.io/tags/picoctf/index.html"><meta property="og:site_name" content="SBK Hugo Site"><meta property="og:title" content="PicoCTF :: Tag :: SBK Hugo Site"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><meta itemprop=name content="PicoCTF :: Tag :: SBK Hugo Site"><title>PicoCTF :: Tag :: SBK Hugo Site</title>
-<link href=/tags/picoctf/index.xml rel=alternate type=application/rss+xml title="PicoCTF :: Tag :: SBK Hugo Site"><link href=/fonts/fontawesome/css/fontawesome-all.min.css?1743619851 rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/fonts/fontawesome/css/fontawesome-all.min.css?1743619851 rel=stylesheet></noscript><link href=/css/perfect-scrollbar/perfect-scrollbar.min.css?1743619851 rel=stylesheet><link href=/css/theme.min.css?1743619851 rel=stylesheet><link href=/css/format-html.min.css?1743619851 rel=stylesheet id=R-format-style><link href=/css/auto-complete/auto-complete.min.css?1743619851 rel=stylesheet><script src=/js/auto-complete/auto-complete.min.js?1743619851 defer></script><script src=/js/lunr/lunr.min.js?1743619851 defer></script><script src=/js/lunr/lunr.stemmer.support.min.js?1743619851 defer></script><script src=/js/lunr/lunr.multi.min.js?1743619851 defer></script><script src=/js/lunr/lunr.en.min.js?1743619851 defer></script><script src=/js/search.min.js?1743619851 defer></script><script>window.relearn=window.relearn||{},window.relearn.min=`.min`,window.relearn.path="/tags/picoctf/index.html",window.relearn.relBasePath="../..",window.relearn.relBaseUri="../..",window.relearn.absBaseUri="https://bernie6401.github.io",window.relearn.contentLangs=["en"],window.relearn.index_js_url="/searchindex.en.js?1743619851",window.relearn.disableAnchorCopy=!1,window.relearn.disableAnchorScrolling=!1,window.relearn.disableInlineCopyToClipboard=!1,window.relearn.enableBlockCodeWrap=!0,window.relearn.getItem=(e,t)=>e.getItem(t),window.relearn.setItem=(e,t,n)=>e.setItem(t,n),window.relearn.removeItem=(e,t)=>e.removeItem(t),window.relearn.themevariants=["auto"],window.relearn.customvariantname="my-custom-variant",window.relearn.changeVariant=function(e){var t=document.documentElement.dataset.rThemeVariant;window.relearn.setItem(window.localStorage,window.relearn.absBaseUri+"/variant",e),document.documentElement.dataset.rThemeVariant=e,t!=e&&(document.dispatchEvent(new CustomEvent("themeVariantLoaded",{detail:{variant:e,oldVariant:t}})),window.relearn.markVariant())},window.relearn.markVariant=function(){var e=window.relearn.getItem(window.localStorage,window.relearn.absBaseUri+"/variant");document.querySelectorAll(".R-variantswitcher select").forEach(t=>{t.value=e})},window.relearn.initVariant=function(){var e=window.relearn.getItem(window.localStorage,window.relearn.absBaseUri+"/variant")??"";e==window.relearn.customvariantname||(!e||!window.relearn.themevariants.includes(e))&&(e=window.relearn.themevariants[0],window.relearn.setItem(window.localStorage,window.relearn.absBaseUri+"/variant",e)),document.documentElement.dataset.rThemeVariant=e},window.relearn.initVariant(),window.relearn.markVariant(),window.T_Copy_to_clipboard=`Copy to clipboard`,window.T_Copied_to_clipboard=`Copied to clipboard!`,window.T_Copy_link_to_clipboard=`Copy link to clipboard`,window.T_Link_copied_to_clipboard=`Copied link to clipboard!`,window.T_Reset_view=`Reset view`,window.T_View_reset=`View reset!`,window.T_No_results_found=`No results found for "{0}"`,window.T_N_results_found=`{1} results found for "{0}"`</script></head><body class="mobile-support html" data-url=/tags/picoctf/index.html><div id=R-body class=default-animation><div id=R-body-overlay></div><nav id=R-topbar><div class=topbar-wrapper><div class=topbar-sidebar-divider></div><div class="topbar-area topbar-area-start" data-area=start><div class="topbar-button topbar-button-sidebar" data-content-empty=disable data-width-s=show data-width-m=hide data-width-l=hide><button class=topbar-control onclick=toggleNav() type=button title="Menu (CTRL+ALT+n)"><i class="fa-fw fas fa-bars"></i></button></div><div class="topbar-button topbar-button-toc" data-content-empty=hide data-width-s=show data-width-m=show data-width-l=show><button class=topbar-control onclick=toggleTopbarFlyout(this) type=button title="Table of Contents (CTRL+ALT+t)"><i class="fa-fw fas fa-list-alt"></i></button><div class=topbar-content><div class=topbar-content-wrapper><nav class=TableOfContents><ul><li><a href=#p>P</a></li></ul></nav></div></div></div></div><ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype=http://schema.org/BreadcrumbList><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><a itemprop=item href=/index.html><span itemprop=name>SBK Hugo Site</span></a><meta itemprop=position content="1">&nbsp;>&nbsp;</li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><a itemprop=item href=/tags/index.html><span itemprop=name>Tags</span></a><meta itemprop=position content="2">&nbsp;>&nbsp;</li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><span itemprop=name>PicoCTF</span><meta itemprop=position content="3"></li></ol><div class="topbar-area topbar-area-end" data-area=end><div class="topbar-button topbar-button-prev" data-content-empty=disable data-width-s=show data-width-m=show data-width-l=show><a class=topbar-control href=/tags/nycu/index.html title="Tag :: NYCU (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a></div><div class="topbar-button topbar-button-next" data-content-empty=disable data-width-s=show data-width-m=show data-width-l=show><a class=topbar-control href=/tags/portswigger-web-security-academy/index.html title="Tag :: Portswigger Web Security Academy (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a></div><div class="topbar-button topbar-button-more" data-content-empty=hide data-width-s=show data-width-m=show data-width-l=show><button class=topbar-control onclick=toggleTopbarFlyout(this) type=button title=More><i class="fa-fw fas fa-ellipsis-v"></i></button><div class=topbar-content><div class=topbar-content-wrapper><div class="topbar-area topbar-area-more" data-area=more></div></div></div></div></div></div></nav><div id=R-main-overlay></div><main id=R-body-inner class="highlightable tags" tabindex=-1><div class=flex-block-wrapper><article><header class=headline></header><h1 id=tag--picoctf>Tag :: PicoCTF</h1><h2 id=p>P</h2><ul class=columnize><li><a href=/toc/picoctf/index.html>PicoCTF</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  TOCs">SBK Hugo Site >  TOCs</div></li><li><a href=/security/practice/picoctf/misc/image-stego/picoctf---tunn3l-v1s10n/index.html>PicoCTF - `tunn3l v1s10n`</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/flow/picoctf---wireshark-doo-dooo-do-doo.../index.html>PicoCTF - `Wireshark doo dooo do doo...`</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/image-stego/picoctf---advanced-potion-making/index.html>PicoCTF - advanced-potion-making</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/index.html>PicoCTF - AES-ABC</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---armssembly-0/index.html>PicoCTF - ARMssembly 0</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---asm4/index.html>PicoCTF - asm4</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---babygame01/index.html>PicoCTF - babygame01</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---babygame02/index.html>PicoCTF - babygame02</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/index.html>PicoCTF - buffer overflow 2</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/image-stego/picoctf---c0rrupt/index.html>PicoCTF - c0rrupt</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---caas/index.html>PicoCTF - caas</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/picoctf---compress-and-attack/index.html>PicoCTF - Compress and Attack</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---cookies/index.html>PicoCTF - Cookies</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---corrupt-key-1/index.html>PicoCTF - corrupt-key-1</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---dachshund-attacks/index.html>PicoCTF - Dachshund Attacks</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/disk/picoctf---disk-disk-sleuth-ii/index.html>PicoCTF - Disk, disk, sleuth! II</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---dont-use-client-side/index.html>PicoCTF - dont-use-client-side</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/des-aes/picoctf---double-des/index.html>PicoCTF - Double DES</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---droids1/index.html>PicoCTF - droids1</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---droids3/index.html>PicoCTF - droids3</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---droids4/index.html>PicoCTF - droids4</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---easy-as-gdb/index.html>PicoCTF - Easy as GDB</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/index.html>PicoCTF - Easy Peasy</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/bad-questions/picoctf---easy-peasy-or-bad-questions/index.html>PicoCTF - Easy Peasy Or Bad Questions</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/flow/picoctf---eavesdrop/index.html>PicoCTF - Eavesdrop</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---fermat-strings/index.html>PicoCTF - fermat-strings</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/general/picoctf---file-types/index.html>PicoCTF - File types</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---filtered-shellcode/index.html>PicoCTF - filtered-shellcode</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---flag-leak/index.html>PicoCTF - flag leak</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/general-skills/picoctf---flag_shop/index.html>PicoCTF - flag_shop</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---forky/index.html>PicoCTF - Forky</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---function-overwrite/index.html>PicoCTF - function overwrite</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---gogo/index.html>PicoCTF - gogo</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---guessing-game-1/index.html>PicoCTF - Guessing Game 1</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---guessing-game-2/index.html>PicoCTF - Guessing Game 2</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---hijacking/index.html>PicoCTF - hijacking</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/picoctf---information/index.html>PicoCTF - information</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---insp3ct0r/index.html>PicoCTF - Insp3ct0r</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/general/picoctf---investigative-reversing-0/index.html>PicoCTF - Investigative Reversing 0</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---it-is-my-birthday/index.html>PicoCTF - It is my Birthday</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/index.html>PicoCTF - It's Not My Fault 1</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---jauth/index.html>PicoCTF - JAUTH</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---java-code-analysis_/index.html>PicoCTF - Java Code Analysis!?!</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---java-script-kiddie/index.html>PicoCTF - Java Script Kiddie</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---jawt-scratchpad/index.html>PicoCTF - JaWT Scratchpad</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/index.html>PicoCTF - john_pollard</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---kit-engine/index.html>PicoCTF - Kit Engine</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---lets-get-dynamic/index.html>PicoCTF - Let's get dynamic</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/general/picoctf---like1000/index.html>PicoCTF - like1000</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk/index.html>PicoCTF - m00nwalk</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk2/index.html>PicoCTF - m00nwalk2</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/general/picoctf---macrohard-weakedge/index.html>PicoCTF - MacroHard WeakEdge</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/general/picoctf---matryoshka-doll/index.html>PicoCTF - Matryoshka doll</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---mind-your-ps-and-qs/index.html>PicoCTF - Mind your Ps and Qs</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---mini-rsa/index.html>PicoCTF - Mini RSA</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---more-sqli/index.html>PicoCTF - More SQLi</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---most-cookies/index.html>PicoCTF - Most Cookies</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/general-skills/picoctf---mus1c/index.html>PicoCTF - mus1c</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/classic/picoctf---new-caesar/index.html>PicoCTF - New Caesar</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---no-padding-no-problem/index.html>PicoCTF - No Padding, No Problem</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---no-way-out/index.html>PicoCTF - No way out</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---not-crypto/index.html>PicoCTF - not crypto</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---notepad/index.html>PicoCTF - notepad</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---nsa-backdoor/index.html>PicoCTF - NSA Backdoor</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/disk/picoctf---operation-oni/index.html>PicoCTF - Operation Oni</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/disk/picoctf---operation-orchid/index.html>PicoCTF - Operation Orchid</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---otp-implementation/index.html>PicoCTF - OTP Implementation</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---picker-iii/index.html>PicoCTF - Picker III</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/disk/picoctf---pitter-patter-platters/index.html>PicoCTF - Pitter, Patter, Platters</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/index.html>PicoCTF - PowerAnalysis Part 1 / Part 2</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---powershelly/index.html>PicoCTF - Powershelly</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/general-skills/picoctf---pw-crack-4/index.html>PicoCTF - PW Crack 4</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---ropfu/index.html>PicoCTF - ropfu</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---rps/index.html>PicoCTF - RPS</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---saas/index.html>PicoCTF - SaaS</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---scavenger-hunt/index.html>PicoCTF - Scavenger Hunt</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/flow/picoctf---scrambled-bytes/index.html>PicoCTF - scrambled-bytes</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/index.html>PicoCTF - Scrambled: RSA</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---secrets/index.html>PicoCTF - Secrets</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---seed-spring/index.html>PicoCTF - seed-sPRiNG</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/classic/picoctf---sequences/index.html>PicoCTF - Sequences</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-1/index.html>PicoCTF - shark on wire 1</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-2/index.html>PicoCTF - shark on wire 2</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/general/picoctf---sidechannel/index.html>PicoCTF - SideChannel</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/disk/picoctf---sleuthkit-intro/index.html>PicoCTF - Sleuthkit Intro</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---some-assembly-required-1/index.html>PicoCTF - Some Assembly Required 1</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---some-assembly-required-2/index.html>PicoCTF - Some Assembly Required 2</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---some-assembly-required-3/index.html>PicoCTF - Some Assembly Required 3</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/general-skills/picoctf---special--specialer/index.html>PicoCTF - Special & Specialer</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---sqlilite/index.html>PicoCTF - SQLiLite</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---sra/index.html>PicoCTF - SRA</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---stack-cache/index.html>PicoCTF - stack cache</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---stonk-market/index.html>PicoCTF - Stonk Market</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---super-serial/index.html>PicoCTF - Super Serial</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/audio/picoctf---surfing-the-waves/index.html>PicoCTF - Surfing the Waves</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---tic-tac/index.html>PicoCTF - tic-tac</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/flow/picoctf---torrent-analyze/index.html>PicoCTF - Torrent Analyze</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---transformation/index.html>PicoCTF - Transformation</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/flow/picoctf---trivial-flag-transfer-protocol/index.html>PicoCTF - Trivial Flag Transfer Protocol</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---two-sum/index.html>PicoCTF - two-sum</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/index.html>PicoCTF - Unsubscriptions Are Free</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/index.html>PicoCTF - Very Smooth</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---vne/index.html>PicoCTF - VNE</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/flow/picoctf---webnet0/index.html>PicoCTF - WebNet0</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/general/picoctf---whitepages/index.html>PicoCTF - WhitePages</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/web/picoctf---who-are-you_/index.html>PicoCTF - Who are you?</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/flow/picoctf---wireshark-twoo-twooo-two-twoo_/index.html>PicoCTF - Wireshark twoo twooo two twoo...</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/reverse/picoctf---wizardlike/index.html>PicoCTF - Wizardlike</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/misc/flow/picoctf---wpa-ing-out/index.html>PicoCTF - WPA-ing Out</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/pwn/picoctf---x-sixty-what/index.html>PicoCTF - x-sixty-what</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/index.html>PicoCTF - XtraORdinary</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li><li><a href=/security/competition/picoctf-2023/index.html>PicoCTF 2023</a><div class="breadcrumbs highlightable" title="SBK Hugo Site >  Securities">SBK Hugo Site >  Securities</div></li></ul><footer class=footline></footer></article></div></main></div><aside id=R-sidebar class=default-animation><div id=R-header-topbar class=default-animation></div><div id=R-header-wrapper class=default-animation><div id=R-header class=default-animation><a id=R-logo class=R-default href=/index.html><div class=logo-title>SBK Hugo Site</div></a></div><search><form action=/search/index.html method=get><div class="searchbox default-animation"><button class=search-detail type=submit title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
-<label class=a11y-only for=R-search-by>Search</label>
-<input data-search-input id=R-search-by name=search-by class=search-by type=search placeholder=Search...>
-<button class=search-clear type=button data-search-clear title="Clear search"><i class="fas fa-times" title="Clear search"></i></button></div></form></search></div><div id=R-homelinks class="default-animation homelinks"><div class="R-menu-divider default-animation"><hr class=padding></div><div class="R-sidebarmenu R-shortcutmenu-homelinks"><ul class="space collapsible-menu"><li data-nav-id=/index.html><a class=padding href=/index.html><i class="fa-fw fas fa-home"></i> Home</a></li></ul></div><div class="R-menu-divider default-animation"><hr class=padding></div><div class="R-sidebarmenu R-shortcutmenu-headercontrols"><ul></ul></div><div class="R-menu-divider default-animation"><hr class=padding></div></div><div id=R-content-wrapper class=highlightable><div class="R-sidebarmenu R-shortcutmenu-main"><ul class="enlarge morespace collapsible-menu"><li data-nav-id=/books-notes/index.html><a class=padding href=/books-notes/index.html>Books Notes</a><ul id=R-subsections-0771445a148f63eb6cc1a9b7ad45a36a class=collapsible-menu></ul></li><li data-nav-id=/data-structure/index.html><a class=padding href=/data-structure/index.html>Data Structures</a><ul id=R-subsections-58892abc7cea06bf1839098c82b3eb4d class=collapsible-menu></ul></li><li data-nav-id=/job/index.html><a class=padding href=/job/index.html>Jobs</a><ul id=R-subsections-0fce2c1f4d6d23f49b605855a82f55aa class=collapsible-menu></ul></li><li data-nav-id=/knowledge/index.html><a class=padding href=/knowledge/index.html>Knowledges</a><ul id=R-subsections-0bdb754d722e03f187f2117c1ef8015d class=collapsible-menu></ul></li><li data-nav-id=/leetcode/index.html><a class=padding href=/leetcode/index.html>LeetCodes</a><ul id=R-subsections-76e85062179d09303530c47eb73fc667 class=collapsible-menu></ul></li><li data-nav-id=/problem-solutions/index.html><a class=padding href=/problem-solutions/index.html>Problem Solutions</a><ul id=R-subsections-4f9e0f3095337026c1723515d5409f89 class=collapsible-menu></ul></li><li data-nav-id=/security/index.html><a class=padding href=/security/index.html>Securities</a><ul id=R-subsections-66815ecaaecfc1c209e5637d03b258b2 class=collapsible-menu></ul></li><li data-nav-id=/side-project/index.html><a class=padding href=/side-project/index.html>Side Projects</a><ul id=R-subsections-3295de6e89859c4cf23a4292e734c881 class=collapsible-menu></ul></li><li data-nav-id=/survey-papers/index.html><a class=padding href=/survey-papers/index.html>Survey Papers</a><ul id=R-subsections-baa5a308e222e800d6e93248dad73a11 class=collapsible-menu></ul></li><li data-nav-id=/terminology/index.html><a class=padding href=/terminology/index.html>Terminologies</a><ul id=R-subsections-a19bf87a9a9aaf0a4146b803a35492f8 class=collapsible-menu></ul></li><li data-nav-id=/toc/index.html><a class=padding href=/toc/index.html>TOCs</a><ul id=R-subsections-451d3779340ac1afa8683c0232808cbf class=collapsible-menu></ul></li><li data-nav-id=/tools/index.html><a class=padding href=/tools/index.html>Tools</a><ul id=R-subsections-bf1399820dde3dd110e03ace4147ff86 class=collapsible-menu></ul></li></ul></div><div class="R-sidebarmenu R-shortcutmenu-shortcuts"><ul class="space collapsible-menu"></ul></div><div id=R-footer-margin></div><div class="R-menu-divider default-animation"><hr class=padding></div><div class="R-sidebarmenu R-shortcutmenu-footercontrols"><ul></ul></div><div id=R-footer><p>Built with <a href=https://github.com/McShelby/hugo-theme-relearn title=love><i class="fas fa-heart"></i></a> by <a href=https://gohugo.io/>Hugo</a></p></div></div></aside><script src=/js/clipboard/clipboard.min.js?1743619851 defer></script><script src=/js/perfect-scrollbar/perfect-scrollbar.min.js?1743619851 defer></script><script src=/js/theme.min.js?1743619851 defer></script></body></html>
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/tags/picoctf/"><meta property="og:site_name" content="SBK Hugo Site"><meta property="og:title" content="PicoCTF"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><title>PicoCTF | SBK Hugo Site</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/tags/picoctf/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.acdc41c8d39e6c69d70d8a23779875e0a3733fefead3e428d5344966bb12f562.js integrity="sha256-rNxByNOebGnXDYojd5h14KNzP+/q0+Qo1TRJZrsS9WI=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://bernie6401.github.io/tags/picoctf/index.xml title="SBK Hugo Site"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>SBK Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>PicoCTF</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></aside></header><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/image-stego/picoctf---tunn3l-v1s10n/>PicoCTF - `tunn3l v1s10n`</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---tunn3l-v1s10n>PicoCTF - <code>tunn3l v1s10n</code>
+<a class=anchor href=#picoctf---tunn3l-v1s10n>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/112?category=4&amp;page=1">tunn3l v1s10n</a></p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://www.jinnsblog.com/2009/08/bmp-format-graphic-illustration.html>[筆記] BMP點陣圖格式說明</a></p><h2 id=exploit---recover-file>Exploit - Recover file
+<a class=anchor href=#exploit---recover-file>#</a></h2><ol><li>Analyze<pre tabindex=0><code class=language-bash! data-lang=bash!>$ exiftool tunn3l_v1s10n
+ExifTool Version Number         : 11.88
+File Name                       : tunn3l_v1s10n
+Directory                       : .
+File Size                       : 2.8 MB
+File Modification Date/Time     : 2023:02:17 04:11:33+08:00
+File Access Date/Time           : 2023:02:17 04:12:37+08:00
+File Inode Change Date/Time     : 2023:02:17 04:11:35+08:00
+File Permissions                : rw-r--r--
+File Type                       : BMP
+File Type Extension             : bmp
+MIME Type                       : image/bmp
+BMP Version                     : Unknown (53434)
+Image Width                     : 1134
+Image Height                    : 306
+Planes                          : 1
+Bit Depth                       : 24
+Compression                     : None
+Image Length                    : 2893400
+Pixels Per Meter X              : 5669
+Pixels Per Meter Y              : 5669
+Num Colors                      : Use BitDepth
+Num Important Colors            : All
+Red Mask                        : 0x27171a23
+Green Mask                      : 0x20291b1e
+Blue Mask                       : 0x1e212a1d
+Alpha Mask                      : 0x311a1d26
+Color Space                     : Unknown (,5%()
+Rendering Intent                : Unknown (826103054)
+Image Size                      : 1134x306
+Megapixels                      : 0.347
+</code></pre>It seems a <code>bmp</code> file and check the file signature of the 2 bytes is <code>42 4D</code> :heavy_check_mark:</li><li>Check file headers
+According to <a href=https://en.wikipedia.org/wiki/BMP_file_format>BMP_file_format</a> and <a href=https://www.jinnsblog.com/2009/08/bmp-format-graphic-illustration.html>BMP點陣圖格式說明</a>
+<img src=https://i.imgur.com/YU6exro.png alt><ul><li>:heavy_check_mark:size: <code>8E 26 2C 00</code> $\to$ <code>0x2C268E</code> $\to$ <code>2893454 bytes</code>
+<img src=https://i.imgur.com/H6G44kT.png alt></li><li>:heavy_check_mark:reserved1: <code>00 00</code></li><li>:heavy_check_mark:reserved2: <code>00 00</code></li><li>:negative_squared_cross_mark:offset: <code>BA D0 00 00</code> $\to$ <code>0xD0BA</code> $\to$ <code>53434</code> means it&rsquo;ll read the bitmap data from offset 53434 bytes. But actually, the data of bitmap is just connect with the header. So, we just need to shift 14 bytes for file header + 40 bytes for info header = 54 bytes $\to$ <code>0x36</code>
+<img src=https://i.imgur.com/crETYOD.png alt></li></ul></li></ol><hr><p>We can peek the data first&mldr;
+<img src=https://i.imgur.com/DWesnDl.png alt>
+It said <code>notaflag{sorry}</code>, means we need to recover other parts.</p><a href=/security/practice/picoctf/misc/image-stego/picoctf---tunn3l-v1s10n/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/flow/picoctf---wireshark-doo-dooo-do-doo.../>PicoCTF - `Wireshark doo dooo do doo...`</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---wireshark-doo-dooo-do-doo>PicoCTF - <code>Wireshark doo dooo do doo...</code>
+<a class=anchor href=#picoctf---wireshark-doo-dooo-do-doo>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/115?category=4&amp;page=1">https://play.picoctf.org/practice/challenge/115?category=4&page=1</a></p><h2 id=exploit---strings--rot13>Exploit - strings + rot13
+<a class=anchor href=#exploit---strings--rot13>#</a></h2><pre tabindex=0><code class=language-bash! data-lang=bash!>$ strings shark1.pcapng | grep &#34;{&#34;
+...
+Gur synt vf cvpbPGS{c33xno00_1_f33_h_qrnqorrs}
+...
+</code></pre><p>Obviously a encrypted flag $\to$ use rot13
+flag: <code>picoCTF{p33kab00_1_s33_u_deadbeef}</code></p></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/image-stego/picoctf---advanced-potion-making/>PicoCTF - advanced-potion-making</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---advanced-potion-making>PicoCTF - advanced-potion-making
+<a class=anchor href=#picoctf---advanced-potion-making>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/205?bookmarked=0&amp;category=4&amp;page=1&amp;search=&amp;solved=0">advanced-potion-making</a></p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://blog.mythsman.com/post/5d2d62b4a2005d74040ef7eb/>PNG文件格式详解</a>
+<a href=https://zhuanlan.zhihu.com/p/599657891>隐写分析(2) PNG图片隐写</a></p><h2 id=exploit---recover--stegsolve>Exploit - Recover + StegSolve
+<a class=anchor href=#exploit---recover--stegsolve>#</a></h2><p>Modify the file signature and length to the right value.
+<code>89 50 42 11 0D 0A 1A 0A 00 12 13 14 49 48 44 52</code>
+$\to$
+<code>89 50 4E 47 0D 0A 1A 0A 00 00 00 0D 49 48 44 52</code></p><ul><li><img src=https://i.imgur.com/Pv1ojSN.png alt></li><li><img src=https://i.imgur.com/vLgguSp.png alt></li></ul><p><img src=https://i.imgur.com/ZT4PsQ5.png alt></p><a href=/security/practice/picoctf/misc/image-stego/picoctf---advanced-potion-making/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/>PicoCTF - AES-ABC</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/crypto/>Crypto</a></div><p><h1 id=picoctf---aes-abc>PicoCTF - AES-ABC
+<a class=anchor href=#picoctf---aes-abc>#</a></h1><h6 id=tags-picoctf-ctf-crypto>tags: <code>PicoCTF</code> <code>CTF</code> <code>Crypto</code>
+<a class=anchor href=#tags-picoctf-ctf-crypto>#</a></h6><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://www.adobe.com/tw/creativecloud/file-types/image/raster/ppm-file.html>What is PPM file?</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-python=" data-lang="python=">#!/usr/bin/env python
+
+from Crypto.Cipher import AES
+from key import KEY
+import os
+import math
+
+BLOCK_SIZE = 16
+UMAX = int(math.pow(256, BLOCK_SIZE))
+
+
+def to_bytes(n):
+    s = hex(n)
+    s_n = s[2:]
+    if &#39;L&#39; in s_n:
+        s_n = s_n.replace(&#39;L&#39;, &#39;&#39;)
+    if len(s_n) % 2 != 0:
+        s_n = &#39;0&#39; + s_n
+    decoded = s_n.decode(&#39;hex&#39;)
+
+    pad = (len(decoded) % BLOCK_SIZE)
+    if pad != 0: 
+        decoded = &#34;\0&#34; * (BLOCK_SIZE - pad) + decoded
+    return decoded
+
+
+def remove_line(s):
+    # returns the header line, and the rest of the file
+    return s[:s.index(&#39;\n&#39;) + 1], s[s.index(&#39;\n&#39;)+1:]
+
+
+def parse_header_ppm(f):
+    data = f.read()
+
+    header = &#34;&#34;
+
+    for i in range(3):
+        header_i, data = remove_line(data)
+        header += header_i
+
+    return header, data
+        
+
+def pad(pt):
+    padding = BLOCK_SIZE - len(pt) % BLOCK_SIZE
+    return pt + (chr(padding) * padding)
+
+
+def aes_abc_encrypt(pt):
+    cipher = AES.new(KEY, AES.MODE_ECB)
+    ct = cipher.encrypt(pad(pt))
+
+    blocks = [ct[i * BLOCK_SIZE:(i+1) * BLOCK_SIZE] for i in range(len(ct) / BLOCK_SIZE)]
+    iv = os.urandom(16)
+    blocks.insert(0, iv)
+    
+    for i in range(len(blocks) - 1):
+        prev_blk = int(blocks[i].encode(&#39;hex&#39;), 16)
+        curr_blk = int(blocks[i+1].encode(&#39;hex&#39;), 16)
+
+        n_curr_blk = (prev_blk + curr_blk) % UMAX
+        blocks[i+1] = to_bytes(n_curr_blk)
+
+    ct_abc = &#34;&#34;.join(blocks)
+ 
+    return iv, ct_abc, ct
+
+
+if __name__==&#34;__main__&#34;:
+    with open(&#39;flag.ppm&#39;, &#39;rb&#39;) as f:
+        header, data = parse_header_ppm(f)
+    
+    iv, c_img, ct = aes_abc_encrypt(data)
+
+    with open(&#39;body.enc.ppm&#39;, &#39;wb&#39;) as fw:
+        fw.write(header)
+        fw.write(c_img)
+</code></pre><p>:::</p><a href=/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/reverse/picoctf---armssembly-0/>PicoCTF - ARMssembly 0</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/reverse/>Reverse</a></div><p><h1 id=picoctf---armssembly-0>PicoCTF - ARMssembly 0
+<a class=anchor href=#picoctf---armssembly-0>#</a></h1><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler ARM assembly code</p><pre tabindex=0><code>	.arch armv8-a
+	.file	&#34;chall.c&#34;
+	.text
+	.align	2
+	.global	func1
+	.type	func1, %function
+func1:
+	sub	sp, sp, #16
+	str	w0, [sp, 12]
+	str	w1, [sp, 8]
+	ldr	w1, [sp, 12]
+	ldr	w0, [sp, 8]
+	cmp	w1, w0
+	bls	.L2
+	ldr	w0, [sp, 12]
+	b	.L3
+.L2:
+	ldr	w0, [sp, 8]
+.L3:
+	add	sp, sp, 16
+	ret
+	.size	func1, .-func1
+	.section	.rodata
+	.align	3
+.LC0:
+	.string	&#34;Result: %ld\n&#34;
+	.text
+	.align	2
+	.global	main
+	.type	main, %function
+main:
+	stp	x29, x30, [sp, -48]!
+	add	x29, sp, 0
+	str	x19, [sp, 16]
+	str	w0, [x29, 44]
+	str	x1, [x29, 32]
+	ldr	x0, [x29, 32]
+	add	x0, x0, 8
+	ldr	x0, [x0]
+	bl	atoi
+	mov	w19, w0
+	ldr	x0, [x29, 32]
+	add	x0, x0, 16
+	ldr	x0, [x0]
+	bl	atoi
+	mov	w1, w0
+	mov	w0, w19
+	bl	func1
+	mov	w1, w0
+	adrp	x0, .LC0
+	add	x0, x0, :lo12:.LC0
+	bl	printf
+	mov	w0, 0
+	ldr	x19, [sp, 16]
+	ldp	x29, x30, [sp], 48
+	ret
+	.size	main, .-main
+	.ident	&#34;GCC: (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) 7.5.0&#34;
+	.section	.note.GNU-stack,&#34;&#34;,@progbits
+</code></pre><p>:::</p><a href=/security/practice/picoctf/reverse/picoctf---armssembly-0/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/reverse/picoctf---asm4/>PicoCTF - asm4</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/reverse/>Reverse</a></div><p><h1 id=picoctf---asm4>PicoCTF - asm4
+<a class=anchor href=#picoctf---asm4>#</a></h1><h2 id=description>Description
+<a class=anchor href=#description>#</a></h2><blockquote><p>What will asm4(&ldquo;picoCTF_f97bb&rdquo;) return? Submit the flag as a hexadecimal value (starting with &lsquo;0x&rsquo;). NOTE: Your submission for this question will NOT be in the normal flag format.</p></blockquote><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class=language-assembly data-lang=assembly>asm4:
+	&lt;+0&gt;:	push   ebp
+	&lt;+1&gt;:	mov    ebp,esp
+	&lt;+3&gt;:	push   ebx
+	&lt;+4&gt;:	sub    esp,0x10
+	&lt;+7&gt;:	mov    DWORD PTR [ebp-0x10],0x27a
+	&lt;+14&gt;:	mov    DWORD PTR [ebp-0xc],0x0
+	&lt;+21&gt;:	jmp    0x518 &lt;asm4+27&gt;
+	&lt;+23&gt;:	add    DWORD PTR [ebp-0xc],0x1
+	&lt;+27&gt;:	mov    edx,DWORD PTR [ebp-0xc]
+	&lt;+30&gt;:	mov    eax,DWORD PTR [ebp+0x8]
+	&lt;+33&gt;:	add    eax,edx
+	&lt;+35&gt;:	movzx  eax,BYTE PTR [eax]
+	&lt;+38&gt;:	test   al,al
+	&lt;+40&gt;:	jne    0x514 &lt;asm4+23&gt;
+	&lt;+42&gt;:	mov    DWORD PTR [ebp-0x8],0x1
+	&lt;+49&gt;:	jmp    0x587 &lt;asm4+138&gt;
+	&lt;+51&gt;:	mov    edx,DWORD PTR [ebp-0x8]
+	&lt;+54&gt;:	mov    eax,DWORD PTR [ebp+0x8]
+	&lt;+57&gt;:	add    eax,edx
+	&lt;+59&gt;:	movzx  eax,BYTE PTR [eax]
+	&lt;+62&gt;:	movsx  edx,al
+	&lt;+65&gt;:	mov    eax,DWORD PTR [ebp-0x8]
+	&lt;+68&gt;:	lea    ecx,[eax-0x1]
+	&lt;+71&gt;:	mov    eax,DWORD PTR [ebp+0x8]
+	&lt;+74&gt;:	add    eax,ecx
+	&lt;+76&gt;:	movzx  eax,BYTE PTR [eax]
+	&lt;+79&gt;:	movsx  eax,al
+	&lt;+82&gt;:	sub    edx,eax
+	&lt;+84&gt;:	mov    eax,edx
+	&lt;+86&gt;:	mov    edx,eax
+	&lt;+88&gt;:	mov    eax,DWORD PTR [ebp-0x10]
+	&lt;+91&gt;:	lea    ebx,[edx+eax*1]
+	&lt;+94&gt;:	mov    eax,DWORD PTR [ebp-0x8]
+	&lt;+97&gt;:	lea    edx,[eax+0x1]
+	&lt;+100&gt;:	mov    eax,DWORD PTR [ebp+0x8]
+	&lt;+103&gt;:	add    eax,edx
+	&lt;+105&gt;:	movzx  eax,BYTE PTR [eax]
+	&lt;+108&gt;:	movsx  edx,al
+	&lt;+111&gt;:	mov    ecx,DWORD PTR [ebp-0x8]
+	&lt;+114&gt;:	mov    eax,DWORD PTR [ebp+0x8]
+	&lt;+117&gt;:	add    eax,ecx
+	&lt;+119&gt;:	movzx  eax,BYTE PTR [eax]
+	&lt;+122&gt;:	movsx  eax,al
+	&lt;+125&gt;:	sub    edx,eax
+	&lt;+127&gt;:	mov    eax,edx
+	&lt;+129&gt;:	add    eax,ebx
+	&lt;+131&gt;:	mov    DWORD PTR [ebp-0x10],eax
+	&lt;+134&gt;:	add    DWORD PTR [ebp-0x8],0x1
+	&lt;+138&gt;:	mov    eax,DWORD PTR [ebp-0xc]
+	&lt;+141&gt;:	sub    eax,0x1
+	&lt;+144&gt;:	cmp    DWORD PTR [ebp-0x8],eax
+	&lt;+147&gt;:	jl     0x530 &lt;asm4+51&gt;
+	&lt;+149&gt;:	mov    eax,DWORD PTR [ebp-0x10]
+	&lt;+152&gt;:	add    esp,0x10
+	&lt;+155&gt;:	pop    ebx
+	&lt;+156&gt;:	pop    ebp
+	&lt;+157&gt;:	ret    
+</code></pre><p>:::</p><a href=/security/practice/picoctf/reverse/picoctf---asm4/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---babygame01/>PicoCTF - babygame01</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---babygame01>PicoCTF - babygame01
+<a class=anchor href=#picoctf---babygame01>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>Bof</p><h2 id=description--hint>Description & Hint
+<a class=anchor href=#description--hint>#</a></h2><blockquote><p>Get the flag and reach the exit. Welcome to BabyGame! Navigate around the map and see what you can find! The game is available to download here. There is no source available, so you&rsquo;ll have to figure your way around the map. You can connect with it using nc saturn.picoctf.net 50227.
+Hint 1: Use &lsquo;w&rsquo;,&lsquo;a&rsquo;,&rsquo;s&rsquo;,&rsquo;d&rsquo; to move around.
+Hint 2: There may be secret commands to make your life easy.</p><a href=/security/practice/picoctf/pwn/picoctf---babygame01/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---babygame02/>PicoCTF - babygame02</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---babygame02>PicoCTF - babygame02
+<a class=anchor href=#picoctf---babygame02>#</a></h1><h2 id=source>Source
+<a class=anchor href=#source>#</a></h2><p>:::spoiler IDA Main Function</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#66d9ef>__cdecl</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>argv, <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>envp)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> position[<span style=color:#ae81ff>2</span>]; <span style=color:#75715e>// [esp+0h] [ebp-AA0h] BYREF
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>char</span> map[<span style=color:#ae81ff>2700</span>]; <span style=color:#75715e>// [esp+Bh] [ebp-A95h] BYREF
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>char</span> input; <span style=color:#75715e>// [esp+A97h] [ebp-9h]
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>int</span> <span style=color:#f92672>*</span>p_argc; <span style=color:#75715e>// [esp+A98h] [ebp-8h]
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  p_argc <span style=color:#f92672>=</span> <span style=color:#f92672>&amp;</span>argc;
+</span></span><span style=display:flex><span>  init_player(position);
+</span></span><span style=display:flex><span>  init_map(map, position);
+</span></span><span style=display:flex><span>  print_map(map);
+</span></span><span style=display:flex><span>  signal(<span style=color:#ae81ff>2</span>, sigint_handler);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span>  {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>      input <span style=color:#f92672>=</span> getchar();
+</span></span><span style=display:flex><span>      move_player(position, input, map);
+</span></span><span style=display:flex><span>      print_map(map);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> ( position[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>!=</span> <span style=color:#ae81ff>29</span> );                <span style=color:#75715e>// y座標
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>while</span> ( position[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>!=</span> <span style=color:#ae81ff>89</span> );                  <span style=color:#75715e>// x座標
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  puts(<span style=color:#e6db74>&#34;You win!&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>:::
+:::spoiler IDA Win Function</p><a href=/security/practice/picoctf/pwn/picoctf---babygame02/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/>PicoCTF - buffer overflow 2</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---buffer-overflow-2>PicoCTF - buffer overflow 2
+<a class=anchor href=#picoctf---buffer-overflow-2>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>Bof</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+
+#define BUFSIZE 100
+#define FLAGSIZE 64
+
+void win(unsigned int arg1, unsigned int arg2) {
+  char buf[FLAGSIZE];
+  FILE *f = fopen(&#34;flag.txt&#34;,&#34;r&#34;);
+  if (f == NULL) {
+    printf(&#34;%s %s&#34;, &#34;Please create &#39;flag.txt&#39; in this directory with your&#34;,
+                    &#34;own debugging flag.\n&#34;);
+    exit(0);
+  }
+
+  fgets(buf,FLAGSIZE,f);
+  if (arg1 != 0xCAFEF00D)
+    return;
+  if (arg2 != 0xF00DF00D)
+    return;
+  printf(buf);
+}
+
+void vuln(){
+  char buf[BUFSIZE];
+  gets(buf);
+  puts(buf);
+}
+
+int main(int argc, char **argv){
+
+  setvbuf(stdout, NULL, _IONBF, 0);
+  
+  gid_t gid = getegid();
+  setresgid(gid, gid, gid);
+
+  puts(&#34;Please enter your string: &#34;);
+  vuln();
+  return 0;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/image-stego/picoctf---c0rrupt/>PicoCTF - c0rrupt</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---c0rrupt>PicoCTF - c0rrupt
+<a class=anchor href=#picoctf---c0rrupt>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/53?category=4&amp;page=3">c0rrupt</a></p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=/uwox6r5hQ6St_8G-4mv1_g>advanced-potion-making:two::+1:</a></p><h2 id=exploit---recover-png-file>Exploit - Recover PNG file
+<a class=anchor href=#exploit---recover-png-file>#</a></h2><ol><li>Analyze</li></ol><ul><li><p>Header
+<code>89 65 4E 34 0D 0A B0 AA</code>
+$\to$
+<code>89 50 4E 47 0D 0A 1A 0A</code></p></li><li><p>IHDR
+<code>43 22 44 52</code>
+$\to$
+<code>49 48 44 52</code>
+Then use <code>pngcheck</code> to analyze the file. It said the header still have some error.</p><pre tabindex=0><code class=language-bash! data-lang=bash!>$ pngcheck mystery
+mystery  CRC error in chunk pHYs (computed 38d82c82, expected 495224f0)
+ERROR: mystery
+</code></pre></li><li><p>Revise <code>pHYs</code>
+You can open an arbitrary png file and observe <code>pHYs</code> part.</p><a href=/security/practice/picoctf/misc/image-stego/picoctf---c0rrupt/>...</a></p></article><ul class="pagination pagination-default"><li class="page-item disabled"><a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a></li><li class="page-item disabled"><a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a></li><li class="page-item active"><a aria-current=page aria-label="Page 1" class=page-link role=button>1</a></li><li class=page-item><a href=/tags/picoctf/page/2/ aria-label="Page 2" class=page-link role=button>2</a></li><li class=page-item><a href=/tags/picoctf/page/3/ aria-label="Page 3" class=page-link role=button>3</a></li><li class=page-item><a href=/tags/picoctf/page/4/ aria-label="Page 4" class=page-link role=button>4</a></li><li class=page-item><a href=/tags/picoctf/page/5/ aria-label="Page 5" class=page-link role=button>5</a></li><li class=page-item><a href=/tags/picoctf/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/tags/picoctf/page/12/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></div></aside></main></body></html>

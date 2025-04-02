@@ -1,5 +1,144 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Side Projects :: SBK Hugo Site</title><link>https://bernie6401.github.io/side-project/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/side-project/index.xml" rel="self" type="application/rss+xml"/><item><title>A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation</title><link>https://bernie6401.github.io/side-project/a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/side-project/a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation/index.html</guid><description>A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation tags: NTUST Emotional Recognition Openpose PyTorch Special Topic :::spoiler [TOC] :::
-Author JING-MING GUO1, (Senior Member, IEEE), CHIH-HSIEN HSIA2, (Member, IEEE), PING-HSUEH HO1, (Bachelor), YANG-CHEN CHANG1, (Bachelor)</description></item><item><title>side_project_lightbulb_control</title><link>https://bernie6401.github.io/side-project/side_project_lightbulb_control/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/side-project/side_project_lightbulb_control/index.html</guid><description>side_project_lightbulb_control tags: Side Project Arduino :::spoiler [TOC] :::
-Project Purpose In order to deal with the inconvenient experiment on lightbulb of bathroom, I decided to write some code and implent the circuit. Specifically speaking about the inconvenient, I wish exhaust fan in bathroom can always work without switch control it. But unfortunately, it has connected with lightbulb circuit at the beginning, and the circuit hided in the wall that I can’t change the circuit directly. The original circuit diagram is as the bottom left and the revised circuit diagram v1 is as the bottom right Arduino Circuit Diagram Version 1</description></item><item><title>side_project_weibo_hot</title><link>https://bernie6401.github.io/side-project/side_project_weibo_hot/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/side-project/side_project_weibo_hot/index.html</guid><description>side_project_weibo_hot tags: Side Project Browser Automation Selenium :::spoiler [TOC] :::
-Side Project Background Inspired by Bilingual Podcast is the best podcast channel in Taiwan that introduces interesting news happening around the world. They said they had a problem that they can not get the hot news from Weibo immediately before Xi made it disappear. For instance, Shuai Peng(彭帥) and Zhang Gaoli(張高麗) event. So, I wrote a side project about an automatic web system that can refresh the web page and download it automatically and keep the data safe. Installation pip install pyautogui pip install selenium Some Set-Up Make sure your web driver is the latest version. You can download it here(https://chromedriver.chromium.org/) Make sure your desktop is the idle one in your home that you’ll not use it for a while. Make sure your desktop language keyboard is for English. Something can solve in the future The content data you download may not be the same as the latest because I just verify the hot news title before downloading.(Solved, I refresh the news_list.txt every day and then the page with the same title will download again.)</description></item><item><title>Special Topic of Tzu-Chi at TCIVS</title><link>https://bernie6401.github.io/side-project/special-topic-of-tzu-chi-at-tcivs/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/side-project/special-topic-of-tzu-chi-at-tcivs/index.html</guid><description>Special Topic of Tzu-Chi at TCIVS tags: TCIVS Side Project Special Topic :::spoiler [TOC] :::
-Purpose of this file I just want to write up some problems while I set up the environment and hardware of this project Hardware info. Spec. Raspberry Pi 3 Model B+ CPU ARM Cortex-A53 1.4GHz RAM 1GB SRAM Wi-Fi 2.4GHz and 5GHz Ethernet speed 300Mbps Bluetooth 4..2 Set up sequence(Ideal) Install OS to Raspberry pi You can just check this page</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Side Projects on SBK Hugo Site</title><link>https://bernie6401.github.io/side-project/</link><description>Recent content in Side Projects on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/side-project/index.xml" rel="self" type="application/rss+xml"/><item><title>A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation</title><link>https://bernie6401.github.io/side-project/a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/side-project/a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation/</guid><description>&lt;h1 id="a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation">
+ A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation
+ &lt;a class="anchor" href="#a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntust-emotional-recognition-openpose-pytorch-special-topic">
+ tags: &lt;code>NTUST&lt;/code> &lt;code>Emotional Recognition&lt;/code> &lt;code>Openpose&lt;/code> &lt;code>PyTorch&lt;/code> &lt;code>Special Topic&lt;/code>
+ &lt;a class="anchor" href="#tags-ntust-emotional-recognition-openpose-pytorch-special-topic">#&lt;/a>
+&lt;/h6>
+&lt;p>:::spoiler
+[TOC]
+:::&lt;/p>
+&lt;h2 id="author">
+ Author
+ &lt;a class="anchor" href="#author">#&lt;/a>
+&lt;/h2>
+&lt;p>JING-MING GUO&lt;sup>1&lt;/sup>, (Senior Member, IEEE), CHIH-HSIEN HSIA&lt;sup>2&lt;/sup>, (Member, IEEE), PING-HSUEH HO&lt;sup>1&lt;/sup>, (Bachelor), YANG-CHEN CHANG&lt;sup>1&lt;/sup>, (Bachelor)&lt;/p>
+&lt;p>&lt;sup>1&lt;/sup>Department of Electrical Engineering, National Taiwan University of Science and Technology
+Taipei City 106, Taipei County, Taiwan
+&lt;sup>2&lt;/sup>Department of Computer Science and Information Engineering, National Ilan University, Yilan City 260, Yilan County, Taiwan&lt;/p></description></item><item><title>side_project_lightbulb_control</title><link>https://bernie6401.github.io/side-project/side_project_lightbulb_control/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/side-project/side_project_lightbulb_control/</guid><description>&lt;h1 id="side_project_lightbulb_control">
+ side_project_lightbulb_control
+ &lt;a class="anchor" href="#side_project_lightbulb_control">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-side-project-arduino">
+ tags: &lt;code>Side Project&lt;/code> &lt;code>Arduino&lt;/code>
+ &lt;a class="anchor" href="#tags-side-project-arduino">#&lt;/a>
+&lt;/h6>
+&lt;p>:::spoiler
+[TOC]
+:::&lt;/p>
+&lt;h2 id="project-purpose">
+ Project Purpose
+ &lt;a class="anchor" href="#project-purpose">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>In order to deal with the inconvenient experiment on lightbulb of bathroom, I decided to write some code and implent the circuit. Specifically speaking about the inconvenient, I wish exhaust fan in bathroom can always work without switch control it. But unfortunately, it has connected with lightbulb circuit at the beginning, and the circuit hided in the wall that I can&amp;rsquo;t change the circuit directly.&lt;/li>
+&lt;li>The original circuit diagram is as the bottom left and the revised circuit diagram v1 is as the bottom right
+&lt;img src="./img/origin_circuit.png" alt="origin_circuit" style="zoom: 50%;" />&lt;img src="./img/rev_v1_circuit.png" alt="rev_v1_circuit" style="zoom: 50%;" />&lt;/li>
+&lt;/ul>
+&lt;h2 id="arduino-circuit-diagram">
+ Arduino Circuit Diagram
+ &lt;a class="anchor" href="#arduino-circuit-diagram">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Version 1
+&lt;img src="./img/arduino_circuit_diagram.png" alt="arduino_circuit_diagram" />&lt;/p></description></item><item><title>side_project_weibo_hot</title><link>https://bernie6401.github.io/side-project/side_project_weibo_hot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/side-project/side_project_weibo_hot/</guid><description>&lt;h1 id="side_project_weibo_hot">
+ side_project_weibo_hot
+ &lt;a class="anchor" href="#side_project_weibo_hot">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-side-project-browser-automation-selenium">
+ tags: &lt;code>Side Project&lt;/code> &lt;code>Browser Automation&lt;/code> &lt;code>Selenium&lt;/code>
+ &lt;a class="anchor" href="#tags-side-project-browser-automation-selenium">#&lt;/a>
+&lt;/h6>
+&lt;p>:::spoiler
+[TOC]
+:::&lt;/p>
+&lt;h2 id="side-project-background">
+ Side Project Background
+ &lt;a class="anchor" href="#side-project-background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Inspired by Bilingual Podcast is the best podcast channel in Taiwan that introduces interesting news happening around the world. They said they had a problem that they can not get the hot news from Weibo immediately before Xi made it disappear. For instance, Shuai Peng(彭帥) and Zhang Gaoli(張高麗) event. So, I wrote a side project about an automatic web system that can refresh the web page and download it automatically and keep the data safe.&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">
+ Installation
+ &lt;a class="anchor" href="#installation">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pip install pyautogui
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pip install selenium
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="some-set-up">
+ Some Set-Up
+ &lt;a class="anchor" href="#some-set-up">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Make sure your web driver is the latest version. You can download it here(&lt;a href="https://chromedriver.chromium.org/">https://chromedriver.chromium.org/&lt;/a>)&lt;/li>
+&lt;li>Make sure your desktop is the idle one in your home that you&amp;rsquo;ll not use it for a while.&lt;/li>
+&lt;li>Make sure your desktop language keyboard is for English.&lt;/li>
+&lt;/ol>
+&lt;h2 id="something-can-solve-in-the-future">
+ Something can solve in the future
+ &lt;a class="anchor" href="#something-can-solve-in-the-future">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>The content data you download may not be the same as the latest because I just verify the hot news title before downloading.(Solved, I refresh the news_list.txt every day and then the page with the same title will download again.)&lt;/p></description></item><item><title>Special Topic of Tzu-Chi at TCIVS</title><link>https://bernie6401.github.io/side-project/special-topic-of-tzu-chi-at-tcivs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/side-project/special-topic-of-tzu-chi-at-tcivs/</guid><description>&lt;h1 id="special-topic-of-tzu-chi-at-tcivs">
+ Special Topic of Tzu-Chi at TCIVS
+ &lt;a class="anchor" href="#special-topic-of-tzu-chi-at-tcivs">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-tcivs-side-project-special-topic">
+ tags: &lt;code>TCIVS&lt;/code> &lt;code>Side Project&lt;/code> &lt;code>Special Topic&lt;/code>
+ &lt;a class="anchor" href="#tags-tcivs-side-project-special-topic">#&lt;/a>
+&lt;/h6>
+&lt;p>:::spoiler
+[TOC]
+:::&lt;/p>
+&lt;h2 id="purpose-of-this-file">
+ Purpose of this file
+ &lt;a class="anchor" href="#purpose-of-this-file">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>I just want to write up some problems while I set up the environment and hardware of this project&lt;/li>
+&lt;/ul>
+&lt;h2 id="hardware-info">
+ Hardware info.
+ &lt;a class="anchor" href="#hardware-info">#&lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">Spec.&lt;/th>
+ &lt;th style="text-align: center">Raspberry Pi 3 Model B+&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">CPU&lt;/td>
+ &lt;td style="text-align: center">ARM Cortex-A53 1.4GHz&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">RAM&lt;/td>
+ &lt;td style="text-align: center">1GB SRAM&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">Wi-Fi&lt;/td>
+ &lt;td style="text-align: center">2.4GHz and 5GHz&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">Ethernet speed&lt;/td>
+ &lt;td style="text-align: center">300Mbps&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">Bluetooth&lt;/td>
+ &lt;td style="text-align: center">4..2&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="set-up-sequenceideal">
+ Set up sequence(Ideal)
+ &lt;a class="anchor" href="#set-up-sequenceideal">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Install OS to Raspberry pi
+&lt;blockquote>
+&lt;p>You can just check this &lt;a href="https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#4-boot-ubuntu-server">page&lt;/a>&lt;/p></description></item></channel></rss>

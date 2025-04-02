@@ -1,8 +1,370 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU_ST :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntu_st/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntu_st/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Software Testing Notes</title><link>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes-1/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes-1/index.html</guid><description>NTU Software Testing Notes tags: NTU_ST Software Testing All content in this presentation is refer to Pro. Farn Wang Website
-:::spoiler Click to open TOC [TOC] :::
-6.1 Regression Testing Definition The process of re-testing software that has been modified 重複執行既有的全部或部分的相同測試 - by Esther
-Note that: Most of our testing effort is regression testing Regression tests must be automated
-Type of tools Capture / Replay: Capture values entered into a GUI and replay those values on new versions(抓取輸入到GUI的value並replay到新的版本) Version control: 追踪測試集合、預期結果、測試來源、使用的標準及其過去的有效性(Keeps track of collections of tests, expected results, where the tests came from, the criterion used, and their past effectiveness) Scripting software: 管理以下流程，包含獲取測試輸入、執行軟體、獲取輸出、比較結果和生成測試報告等等(Manages the process of obtaining test inputs, executing the software, obtaining the outputs, comparing the results, and generating test reports Tools are plentiful and cheap</description></item><item><title>NTU Software Testing Notes</title><link>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes/index.html</guid><description>NTU Software Testing Notes tags: NTU_ST Software Testing All content in this presentation is refer to Pro. Farn Wang Website
-:::spoiler Click to open TOC [TOC] :::
-2.5 Graph Coverage for Specifications Design Spec. What is design specification? 描述軟體應該有的行為(可見或不可見都有可能) What is different between requirement and specification requirement: 顧客端 / specification: 技術端 Sequence就是一連串的行為和狀態->script Testing就是在看script有發生該發生的事情 Two types of description are used in this chapter Sequencing constraints State behavior Sequencing constraints Constraint有可能是document的一些潛規則或是method上順序的限制，e.g. stack data structure在沒有push前不能pop Queue Example: precondiction就是這個例子的sequence constraint File ADT Example ADT: Abstract Data Type其實就是早期的class sequence constraint about example 寫之前要先打開file 關閉之前要先打開file 在close file之後除非再open file，不然不可以write file close file前一定要write file，不然就浪費這個procedure Static Checking: 先不跑test input，先針對畫出來的graph做checking</description></item><item><title>Unit Test Practice</title><link>https://bernie6401.github.io/security/course/ntu-st/unit-test-practice/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-st/unit-test-practice/index.html</guid><description>Unit Test Practice tags: NTU_ST Software Testing :::spoiler Click to open TOC [TOC] :::
-Install the environment Install Visual Studio with .NET that we can use C# language to implement unit test properly. Create a project to test Create a new project and choose C# as your language and named the project Bank. Rename Program.cs as BankAccount.cs and replace all content by the following code. using System; namespace BankAccountNS public class BankAccount { private readonly string m_customerName; private double m_balance; private BankAccount() { } public BankAccount(string customerName, double balance) { m_customerName = customerName; m_balance = balance; } public string CustomerName { get { return m_customerName; } } public double Balance { get { return m_balance; } } public void Debit(double amount) { if (amount > m_balance) { throw new ArgumentOutOfRangeException("amount"); } if (amount &lt; 0) { throw new ArgumentOutOfRangeException("amount"); } m_balance += amount; // intentionally incorrect code } public void Credit(double amount) { if (amount &lt; 0) { throw new ArgumentOutOfRangeException("amount"); } m_balance += amount; } public static void Main() { BankAccount ba = new BankAccount("Mr. Bryan Walton", 11.99); ba.Credit(5.77); ba.Debit(11.22); Console.WriteLine("Current balance is ${0}", ba.Balance); } } } Build it by clicking Build Solution in Build menu. Create a unit test project Create a new project at solution explorer and named it BankTests. The other part just maintain default setup. Select MSTest Test Project &lt;-This is important. Add reference by selecting Add Reference at BankTests/Dependencies In the Reference Manager dialog box, expand Projects, select Solution, and then check the Bank item. Create the test class Rename UnitTest1.cs to BankAccountTests.cs and replace the original code with the following section and add using statement at the top of the class file. using Microsoft.VisualStudio.TestTools.UnitTesting; namespace BankTests { [TestClass] public class BankAccountTests { [TestMethod] public void TestMethod1() { } } } BTW, the default class part can be ignored. Create the first test method Replace the default class with the following code [TestMethod] public void Debit_WithValidAmount_UpdatesBalance() { // Arrange double beginningBalance = 11.99; double debitAmount = 4.55; double expected = 7.44; BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance); // Act account.Debit(debitAmount); // Assert double actual = account.Balance; Assert.AreEqual(expected, actual, 0.001, "Account not debited correctly"); } Analyze this part: Assert.AreEqual method will catch the exception when expected value unequal actual value or their difference larger than delta(0.001). Comparing with BankAccount.cs, the truly process of Debit function is $beginningBalance - debitAmount = expected$ -> $11.99 - 4.55 = 7.44$ Build and run the test On the Build menu, choose Build Solution (or press Ctrl + SHIFT + B) and press Ctrl + E, T to open Test Explorer, then Run All. You’ll find that all Test are failed, so you must modify somewhere incorrect. Fix your code and rerun your tests Return to BankAccount.cs and observe Debit() function. Must change m_balance += amount; to m_balance -= amount; Build and Run the code again and you’ll find the test is correct this time Create and run new test methods Add the following program in test class and rebuild it. [TestMethod] public void Debit_WhenAmountIsLessThanZero_ShouldThrowArgumentOutOfRange() { // Arrange double beginningBalance = 11.99; double debitAmount = -100.00; BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance); // Act and assert Assert.ThrowsException&lt;System.ArgumentOutOfRangeException>(() => account.Debit(debitAmount)); } [TestMethod] public void Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange() { // Arrange double beginningBalance = 11.99; double debitAmount = 200.00; BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance); // Act and assert Assert.ThrowsException&lt;System.ArgumentOutOfRangeException>(() => account.Debit(debitAmount)); } Analyze: you’ll find out that the debitAmout in the 1st test method is less than zero and the debitAmount in 2nd test method is larger than beginningBalance. After runing test explorer, these 2 code block are working properly, but you don’t know what kind of exception is(amount > m_balance or amount &lt; 0), we just know somewhere throw back an exception message. Revise BankAccount.cs Trace back to BankAccount.Debit and you’ll notice that they used the same exception, so you can determine to use ArgumentOutOfRangeException(String, Object, String) to contain the name of the argument, the argument value, and a user-defined message. if (amount > m_balance) { throw new ArgumentOutOfRangeException("amount"); } if (amount &lt; 0) { throw new ArgumentOutOfRangeException("amount"); } Refactor the code under test Define 2 constants for the error message at class scope, put the following code block in the class under test, BankAccout. public const string DebitAmountExceedsBalanceMessage = "Debit amount exceeds balance"; public const string DebitAmountLessThanZeroMessage = "Debit amount is less than zero"; Then modify the 2 conditional statements in the Debit method. if (amount > m_balance) { throw new System.ArgumentOutOfRangeException("amount", amount, DebitAmountExceedsBalanceMessage); } if (amount &lt; 0) { throw new System.ArgumentOutOfRangeException("amount", amount, DebitAmountLessThanZeroMessage); } Refactor test method like this. Replacing Assert.ThrowsException with using try/catch method to catch unexpected exception situation. [TestMethod] public void Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange() { // Arrange double beginningBalance = 11.99; double debitAmount = 20.0; BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance); // Act try { account.Debit(debitAmount); } catch (System.ArgumentOutOfRangeException e) { // Assert StringAssert.Contains(e.Message, BankAccount.DebitAmountExceedsBalanceMessage); } } The last part Not really understatnd about adding Assert.Fail at the end of the test method. Final Result</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU_ST on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntu_st/</link><description>Recent content in NTU_ST on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntu_st/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Software Testing Notes</title><link>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes-1/</guid><description>&lt;h1 id="ntu-software-testing-notes">
+ NTU Software Testing Notes
+ &lt;a class="anchor" href="#ntu-software-testing-notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_st-software-testing">
+ tags: &lt;code>NTU_ST&lt;/code> &lt;code>Software Testing&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_st-software-testing">#&lt;/a>
+&lt;/h6>
+&lt;p>&lt;strong>All content in this presentation is refer to &lt;a href="http://cc.ee.ntu.edu.tw/~farn/courses/ST/2021.Spring/">Pro. Farn Wang Website&lt;/a>&lt;/strong>&lt;/p>
+&lt;p>:::spoiler Click to open TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="61-regression-testing">
+ 6.1 Regression Testing
+ &lt;a class="anchor" href="#61-regression-testing">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Definition
+&lt;blockquote>
+&lt;p>The process of re-testing software that has been modified
+重複執行既有的全部或部分的相同測試 - by &lt;a href="https://medium.com/@esther.tsai/%E5%9B%9E%E6%AD%B8%E6%B8%AC%E8%A9%A6-regression-testing-35d69b996481">Esther&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>Note that:
+&lt;blockquote>
+&lt;p>Most of our testing effort is regression testing
+Regression tests must be automated&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>Type of tools
+&lt;ul>
+&lt;li>Capture / Replay: Capture values entered into a GUI and replay those values on new versions(抓取輸入到GUI的value並replay到新的版本)&lt;/li>
+&lt;li>Version control: 追踪測試集合、預期結果、測試來源、使用的標準及其過去的有效性(Keeps track of collections of tests, expected results, where the tests came from, the criterion used, and their past effectiveness)&lt;/li>
+&lt;li>Scripting software: 管理以下流程，包含獲取測試輸入、執行軟體、獲取輸出、比較結果和生成測試報告等等(Manages the process of obtaining test inputs, executing the software, obtaining the outputs, comparing the results, and generating test reports&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Tools are plentiful and cheap&lt;/p></description></item><item><title>NTU Software Testing Notes</title><link>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes/</guid><description>&lt;h1 id="ntu-software-testing-notes">
+ NTU Software Testing Notes
+ &lt;a class="anchor" href="#ntu-software-testing-notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_st-software-testing">
+ tags: &lt;code>NTU_ST&lt;/code> &lt;code>Software Testing&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_st-software-testing">#&lt;/a>
+&lt;/h6>
+&lt;p>&lt;strong>All content in this presentation is refer to &lt;a href="http://cc.ee.ntu.edu.tw/~farn/courses/ST/2021.Spring/">Pro. Farn Wang Website&lt;/a>&lt;/strong>&lt;/p>
+&lt;p>:::spoiler Click to open TOC
+[TOC]
+:::&lt;/p>
+&lt;h1 id="25-graph-coverage-for-specifications">
+ 2.5 Graph Coverage for Specifications
+ &lt;a class="anchor" href="#25-graph-coverage-for-specifications">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="design-spec">
+ Design Spec.
+ &lt;a class="anchor" href="#design-spec">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>What is design specification?
+&lt;ul>
+&lt;li>描述軟體應該有的行為(可見或不可見都有可能)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>What is different between requirement and specification
+&lt;ul>
+&lt;li>requirement: 顧客端 / specification: 技術端&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Sequence就是一連串的行為和狀態-&amp;gt;script&lt;/li>
+&lt;li>Testing就是在看script有發生該發生的事情&lt;/li>
+&lt;li>Two types of description are used in this chapter
+&lt;ul>
+&lt;li>&lt;strong>Sequencing constraints&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>State behavior&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="sequencing-constraints">
+ Sequencing constraints
+ &lt;a class="anchor" href="#sequencing-constraints">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Constraint有可能是document的一些潛規則或是method上順序的限制，e.g. stack data structure在沒有push前不能pop&lt;/li>
+&lt;li>Queue Example: precondiction就是這個例子的sequence constraint
+&lt;img src="https://i.imgur.com/3RaZRfK.png" alt="Queue Example" />&lt;/li>
+&lt;li>File ADT Example
+&lt;ul>
+&lt;li>ADT: Abstract Data Type其實就是早期的class&lt;/li>
+&lt;li>sequence constraint about example&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>寫之前要先打開file&lt;/li>
+&lt;li>關閉之前要先打開file&lt;/li>
+&lt;li>在close file之後除非再open file，不然不可以write file&lt;/li>
+&lt;li>close file前一定要write file，不然就浪費這個procedure
+&lt;img src="https://imgur.com/1NYVCj1.png" alt="File ADT Example" />&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>Static Checking: 先不跑test input，先針對畫出來的graph做checking&lt;/p></description></item><item><title>Unit Test Practice</title><link>https://bernie6401.github.io/security/course/ntu-st/unit-test-practice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-st/unit-test-practice/</guid><description>&lt;h1 id="unit-test-practice">
+ Unit Test Practice
+ &lt;a class="anchor" href="#unit-test-practice">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_st-software-testing">
+ tags: &lt;code>NTU_ST&lt;/code> &lt;code>Software Testing&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_st-software-testing">#&lt;/a>
+&lt;/h6>
+&lt;p>:::spoiler Click to open TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="install-the-environment">
+ Install the environment
+ &lt;a class="anchor" href="#install-the-environment">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Install Visual Studio with .NET that we can use C# language to implement unit test properly.&lt;img src="https://imgur.com/VwMKdZM.png" alt="install c#" />&lt;/li>
+&lt;/ul>
+&lt;h2 id="create-a-project-to-test">
+ Create a project to test
+ &lt;a class="anchor" href="#create-a-project-to-test">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Create a new project and choose C# as your language and named the project &lt;strong>Bank&lt;/strong>.&lt;img src="https://imgur.com/bPDga9p.png" alt="create project" />&lt;/li>
+&lt;li>Rename Program.cs as BankAccount.cs and replace all content by the following code.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c#" data-lang="c#">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">namespace&lt;/span> BankAccountNS
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">BankAccount&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> m_customerName;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">double&lt;/span> m_balance;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> BankAccount() { }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> BankAccount(&lt;span style="color:#66d9ef">string&lt;/span> customerName, &lt;span style="color:#66d9ef">double&lt;/span> balance)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> m_customerName = customerName;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> m_balance = balance;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> CustomerName
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">get&lt;/span> { &lt;span style="color:#66d9ef">return&lt;/span> m_customerName; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">double&lt;/span> Balance
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">get&lt;/span> { &lt;span style="color:#66d9ef">return&lt;/span> m_balance; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Debit(&lt;span style="color:#66d9ef">double&lt;/span> amount)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (amount &amp;gt; m_balance)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> ArgumentOutOfRangeException(&lt;span style="color:#e6db74">&amp;#34;amount&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (amount &amp;lt; &lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> ArgumentOutOfRangeException(&lt;span style="color:#e6db74">&amp;#34;amount&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> m_balance += amount; &lt;span style="color:#75715e">// intentionally incorrect code&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Credit(&lt;span style="color:#66d9ef">double&lt;/span> amount)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (amount &amp;lt; &lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> ArgumentOutOfRangeException(&lt;span style="color:#e6db74">&amp;#34;amount&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> m_balance += amount;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Main()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> BankAccount ba = &lt;span style="color:#66d9ef">new&lt;/span> BankAccount(&lt;span style="color:#e6db74">&amp;#34;Mr. Bryan Walton&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">11.99&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ba.Credit(&lt;span style="color:#ae81ff">5.77&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ba.Debit(&lt;span style="color:#ae81ff">11.22&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Current balance is ${0}&amp;#34;&lt;/span>, ba.Balance);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Build it by clicking &lt;strong>Build Solution&lt;/strong> in Build menu.&lt;/li>
+&lt;/ul>
+&lt;h2 id="create-a-unit-test-project">
+ Create a unit test project
+ &lt;a class="anchor" href="#create-a-unit-test-project">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Create a new project at solution explorer and named it &lt;strong>BankTests&lt;/strong>. The other part just maintain default setup.&lt;img src="https://imgur.com/ryriCen.png" alt="" />&lt;/li>
+&lt;li>Select &lt;strong>MSTest Test Project&lt;/strong>&lt;img src="https://imgur.com/dI5h4T0.png" alt="" />&amp;lt;-This is important.&lt;/li>
+&lt;li>&lt;strong>Add reference&lt;/strong> by selecting &lt;strong>Add Reference&lt;/strong> at &lt;strong>BankTests/Dependencies&lt;/strong>&lt;img src="https://imgur.com/9Miqs7p.png" alt="" />&lt;/li>
+&lt;li>In the &lt;strong>Reference Manager&lt;/strong> dialog box, expand &lt;strong>Projects&lt;/strong>, select &lt;strong>Solution&lt;/strong>, and then check the Bank item.&lt;img src="https://imgur.com/ZBOR73N.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;h2 id="create-the-test-class">
+ Create the test class
+ &lt;a class="anchor" href="#create-the-test-class">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Rename UnitTest1.cs to BankAccountTests.cs and replace the original code with the following section and add using statement at the top of the class file.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c#" data-lang="c#">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> Microsoft.VisualStudio.TestTools.UnitTesting;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">namespace&lt;/span> BankTests
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e"> [TestClass]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">BankAccountTests&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e"> [TestMethod]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> TestMethod1()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>BTW, the default class part can be ignored.&lt;/li>
+&lt;/ul>
+&lt;h2 id="create-the-first-test-method">
+ Create the first test method
+ &lt;a class="anchor" href="#create-the-first-test-method">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Replace the default class with the following code&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c#" data-lang="c#">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[TestMethod]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Debit_WithValidAmount_UpdatesBalance()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Arrange&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> beginningBalance = &lt;span style="color:#ae81ff">11.99&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> debitAmount = &lt;span style="color:#ae81ff">4.55&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> expected = &lt;span style="color:#ae81ff">7.44&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> BankAccount account = &lt;span style="color:#66d9ef">new&lt;/span> BankAccount(&lt;span style="color:#e6db74">&amp;#34;Mr. Bryan Walton&amp;#34;&lt;/span>, beginningBalance);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Act&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> account.Debit(debitAmount);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Assert&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> actual = account.Balance;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Assert.AreEqual(expected, actual, &lt;span style="color:#ae81ff">0.001&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Account not debited correctly&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Analyze this part: Assert.AreEqual method will catch the exception when &lt;strong>expected value&lt;/strong> unequal &lt;strong>actual value&lt;/strong> or their difference larger than &lt;strong>delta&lt;/strong>(0.001).&lt;/li>
+&lt;li>Comparing with BankAccount.cs, the truly process of &lt;strong>Debit&lt;/strong> function is $beginningBalance - debitAmount = expected$ -&amp;gt; $11.99 - 4.55 = 7.44$&lt;/li>
+&lt;/ul>
+&lt;h2 id="build-and-run-the-test">
+ Build and run the test
+ &lt;a class="anchor" href="#build-and-run-the-test">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>On the Build menu, choose Build Solution (or press Ctrl + SHIFT + B) and press &lt;strong>Ctrl + E, T&lt;/strong> to open &lt;strong>Test Explorer&lt;/strong>, then &lt;strong>Run All&lt;/strong>.&lt;img src="https://imgur.com/ljNqXiS.png" alt="" />&lt;/li>
+&lt;li>You&amp;rsquo;ll find that all Test are failed, so you must modify somewhere incorrect.&lt;/li>
+&lt;/ul>
+&lt;h2 id="fix-your-code-and-rerun-your-tests">
+ Fix your code and rerun your tests
+ &lt;a class="anchor" href="#fix-your-code-and-rerun-your-tests">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Return to BankAccount.cs and observe Debit() function.
+&lt;img src="https://imgur.com/sGGMxu7.png" alt="" />&lt;/li>
+&lt;li>Must change &lt;code>m_balance += amount;&lt;/code> to &lt;code>m_balance -= amount;&lt;/code>&lt;/li>
+&lt;li>Build and Run the code again and you&amp;rsquo;ll find the test is correct this time&lt;img src="https://imgur.com/BNKS05j.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;h2 id="create-and-run-new-test-methods">
+ Create and run new test methods
+ &lt;a class="anchor" href="#create-and-run-new-test-methods">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Add the following program in test class and rebuild it.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c#" data-lang="c#">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[TestMethod]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Debit_WhenAmountIsLessThanZero_ShouldThrowArgumentOutOfRange()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Arrange&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> beginningBalance = &lt;span style="color:#ae81ff">11.99&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> debitAmount = -&lt;span style="color:#ae81ff">100.00&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> BankAccount account = &lt;span style="color:#66d9ef">new&lt;/span> BankAccount(&lt;span style="color:#e6db74">&amp;#34;Mr. Bryan Walton&amp;#34;&lt;/span>, beginningBalance);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Act and assert&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Assert.ThrowsException&amp;lt;System.ArgumentOutOfRangeException&amp;gt;(() =&amp;gt; account.Debit(debitAmount));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[TestMethod]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Arrange&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> beginningBalance = &lt;span style="color:#ae81ff">11.99&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> debitAmount = &lt;span style="color:#ae81ff">200.00&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> BankAccount account = &lt;span style="color:#66d9ef">new&lt;/span> BankAccount(&lt;span style="color:#e6db74">&amp;#34;Mr. Bryan Walton&amp;#34;&lt;/span>, beginningBalance);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Act and assert&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Assert.ThrowsException&amp;lt;System.ArgumentOutOfRangeException&amp;gt;(() =&amp;gt; account.Debit(debitAmount));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Analyze: you&amp;rsquo;ll find out that the &lt;strong>debitAmout&lt;/strong> in the &lt;strong>1st test method&lt;/strong> is less than zero and the &lt;strong>debitAmount&lt;/strong> in &lt;strong>2nd test method&lt;/strong> is larger than &lt;strong>beginningBalance&lt;/strong>.&lt;/li>
+&lt;li>After runing test explorer, these 2 code block are working properly, but you don&amp;rsquo;t know what kind of exception is(amount &amp;gt; m_balance or amount &amp;lt; 0), we just know somewhere throw back an exception message.&lt;/li>
+&lt;/ul>
+&lt;h2 id="revise-bankaccountcs">
+ Revise BankAccount.cs
+ &lt;a class="anchor" href="#revise-bankaccountcs">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Trace back to BankAccount.Debit and you&amp;rsquo;ll notice that they used the same exception, so you can determine to use ArgumentOutOfRangeException(String, Object, String) to contain the name of the argument, the argument value, and a user-defined message.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c#" data-lang="c#">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (amount &amp;gt; m_balance)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> ArgumentOutOfRangeException(&lt;span style="color:#e6db74">&amp;#34;amount&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (amount &amp;lt; &lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> ArgumentOutOfRangeException(&lt;span style="color:#e6db74">&amp;#34;amount&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="refactor-the-code-under-test">
+ Refactor the code under test
+ &lt;a class="anchor" href="#refactor-the-code-under-test">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Define 2 constants for the error message at class scope, put the following code block in the class under test, BankAccout.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c#" data-lang="c#">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> DebitAmountExceedsBalanceMessage = &lt;span style="color:#e6db74">&amp;#34;Debit amount exceeds balance&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> DebitAmountLessThanZeroMessage = &lt;span style="color:#e6db74">&amp;#34;Debit amount is less than zero&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Then modify the 2 conditional statements in the Debit method.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c#" data-lang="c#">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (amount &amp;gt; m_balance)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> System.ArgumentOutOfRangeException(&lt;span style="color:#e6db74">&amp;#34;amount&amp;#34;&lt;/span>, amount, DebitAmountExceedsBalanceMessage);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (amount &amp;lt; &lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> System.ArgumentOutOfRangeException(&lt;span style="color:#e6db74">&amp;#34;amount&amp;#34;&lt;/span>, amount, DebitAmountLessThanZeroMessage);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Refactor test method like this. Replacing Assert.ThrowsException with using try/catch method to catch unexpected exception situation.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C#" data-lang="C#">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[TestMethod]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Arrange&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> beginningBalance = &lt;span style="color:#ae81ff">11.99&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> debitAmount = &lt;span style="color:#ae81ff">20.0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> BankAccount account = &lt;span style="color:#66d9ef">new&lt;/span> BankAccount(&lt;span style="color:#e6db74">&amp;#34;Mr. Bryan Walton&amp;#34;&lt;/span>, beginningBalance);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Act&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> account.Debit(debitAmount);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">catch&lt;/span> (System.ArgumentOutOfRangeException e)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Assert&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> StringAssert.Contains(e.Message, BankAccount.DebitAmountExceedsBalanceMessage);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="the-last-part">
+ The last part
+ &lt;a class="anchor" href="#the-last-part">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Not really understatnd about adding Assert.Fail at the end of the test method.&lt;/li>
+&lt;/ul>
+&lt;h2 id="final-result">
+ Final Result
+ &lt;a class="anchor" href="#final-result">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://imgur.com/5NtqEKr.png" alt="" />&lt;/p></description></item></channel></rss>

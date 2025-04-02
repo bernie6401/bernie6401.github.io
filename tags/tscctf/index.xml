@@ -1,2 +1,99 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TSCCTF :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/tscctf/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/tscctf/index.xml" rel="self" type="application/rss+xml"/><item><title>TSCCTF 2024</title><link>https://bernie6401.github.io/security/competition/tscctf-2024/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/competition/tscctf-2024/index.html</guid><description>TSCCTF 2024 Misc AKA Source Code :::spoiler IDA
-__int64 flag_function() { // [COLLAPSED LOCAL DECLARATIONS. PRESS KEYPAD CTRL-"+" TO EXPAND] num_of_files = 0; sub_14000A6C0(); here_dll = LoadLibraryA("here.dll"); flag_dll = LoadLibraryA("flag.dll"); ghost_dll = LoadLibraryA("ghost.dll"); strcpy(FileName, ".\\*.*"); FirstFileA = FindFirstFileA(FileName, &amp;FindFileData); while ( FindNextFileA(FirstFileA, &amp;FindFileData) ) { while ( *(_WORD *)FindFileData.cFileName != 46 &amp;&amp; (*(_WORD *)FindFileData.cFileName != 11822 || FindFileData.cFileName[2]) ) { num_of_files += (GetFileAttributesA(FindFileData.cFileName) &amp; 0x10) == 0; if ( !FindNextFileA(FirstFileA, &amp;FindFileData) ) goto LABEL_6; } } LABEL_6: FindClose(FirstFileA); if ( num_of_files > 2 ) { v6 = strcpy(buf, "We don't want too many files here."); puts(v6); v7 = strcpy(buf, "Files &lt;= 2. You have "); v8 = (char *)sub_140071880(v7, (unsigned int)num_of_files); v9 = strcpy(v8, " file(s)."); puts(v9); v10 = strcpy(buf, "Hint: Did you have short name?"); puts(v10); return 0i64; } if ( !here_dll ) { if ( !ghost_dll ) { if ( !flag_dll ) { v12 = strcpy(buf, "DLL load failed."); puts(v12); goto LABEL_12; } hint = (void (*)(void))GetProcAddress(flag_dll, "hint"); if ( !hint ) goto LABEL_12; goto LABEL_11; } goto LABEL_16; } if ( ghost_dll ) { LABEL_16: hint = (void (*)(void))GetProcAddress(ghost_dll, "Roflcopter"); if ( !hint ) goto LABEL_12; goto LABEL_11; } if ( !flag_dll ) { hint = (void (*)(void))GetProcAddress(here_dll, "hint"); if ( !hint ) { LABEL_12: FreeLibrary(here_dll); FreeLibrary(flag_dll); FreeLibrary(ghost_dll); return 0i64; } LABEL_11: hint(); goto LABEL_12; } flag = (void (*)(void))GetProcAddress(flag_dll, "flag"); if ( flag ) flag(); return 0i64; } :::</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TSCCTF on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/tscctf/</link><description>Recent content in TSCCTF on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/tscctf/index.xml" rel="self" type="application/rss+xml"/><item><title>TSCCTF 2024</title><link>https://bernie6401.github.io/security/competition/tscctf-2024/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/competition/tscctf-2024/</guid><description>&lt;h1 id="tscctf-2024">
+ TSCCTF 2024
+ &lt;a class="anchor" href="#tscctf-2024">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/BJLmu63Y6.png" alt="image" />&lt;/p>
+&lt;h2 id="misc">
+ Misc
+ &lt;a class="anchor" href="#misc">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="aka">
+ AKA
+ &lt;a class="anchor" href="#aka">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h4>
+&lt;p>:::spoiler IDA&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-cpp=" data-lang="cpp=">__int64 flag_function()
+{
+ // [COLLAPSED LOCAL DECLARATIONS. PRESS KEYPAD CTRL-&amp;#34;+&amp;#34; TO EXPAND]
+
+ num_of_files = 0;
+ sub_14000A6C0();
+ here_dll = LoadLibraryA(&amp;#34;here.dll&amp;#34;);
+ flag_dll = LoadLibraryA(&amp;#34;flag.dll&amp;#34;);
+ ghost_dll = LoadLibraryA(&amp;#34;ghost.dll&amp;#34;);
+ strcpy(FileName, &amp;#34;.\\*.*&amp;#34;);
+ FirstFileA = FindFirstFileA(FileName, &amp;amp;FindFileData);
+ while ( FindNextFileA(FirstFileA, &amp;amp;FindFileData) )
+ {
+ while ( *(_WORD *)FindFileData.cFileName != 46
+ &amp;amp;&amp;amp; (*(_WORD *)FindFileData.cFileName != 11822 || FindFileData.cFileName[2]) )
+ {
+ num_of_files += (GetFileAttributesA(FindFileData.cFileName) &amp;amp; 0x10) == 0;
+ if ( !FindNextFileA(FirstFileA, &amp;amp;FindFileData) )
+ goto LABEL_6;
+ }
+ }
+LABEL_6:
+ FindClose(FirstFileA);
+ if ( num_of_files &amp;gt; 2 )
+ {
+ v6 = strcpy(buf, &amp;#34;We don&amp;#39;t want too many files here.&amp;#34;);
+ puts(v6);
+ v7 = strcpy(buf, &amp;#34;Files &amp;lt;= 2. You have &amp;#34;);
+ v8 = (char *)sub_140071880(v7, (unsigned int)num_of_files);
+ v9 = strcpy(v8, &amp;#34; file(s).&amp;#34;);
+ puts(v9);
+ v10 = strcpy(buf, &amp;#34;Hint: Did you have short name?&amp;#34;);
+ puts(v10);
+ return 0i64;
+ }
+ if ( !here_dll )
+ {
+ if ( !ghost_dll )
+ {
+ if ( !flag_dll )
+ {
+ v12 = strcpy(buf, &amp;#34;DLL load failed.&amp;#34;);
+ puts(v12);
+ goto LABEL_12;
+ }
+ hint = (void (*)(void))GetProcAddress(flag_dll, &amp;#34;hint&amp;#34;);
+ if ( !hint )
+ goto LABEL_12;
+ goto LABEL_11;
+ }
+ goto LABEL_16;
+ }
+ if ( ghost_dll )
+ {
+LABEL_16:
+ hint = (void (*)(void))GetProcAddress(ghost_dll, &amp;#34;Roflcopter&amp;#34;);
+ if ( !hint )
+ goto LABEL_12;
+ goto LABEL_11;
+ }
+ if ( !flag_dll )
+ {
+ hint = (void (*)(void))GetProcAddress(here_dll, &amp;#34;hint&amp;#34;);
+ if ( !hint )
+ {
+LABEL_12:
+ FreeLibrary(here_dll);
+ FreeLibrary(flag_dll);
+ FreeLibrary(ghost_dll);
+ return 0i64;
+ }
+LABEL_11:
+ hint();
+ goto LABEL_12;
+ }
+ flag = (void (*)(void))GetProcAddress(flag_dll, &amp;#34;flag&amp;#34;);
+ if ( flag )
+ flag();
+ return 0i64;
+}
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item></channel></rss>

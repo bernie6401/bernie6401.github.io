@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Welcome :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/welcome/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/welcome/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU CS HW0 Write Up</title><link>https://bernie6401.github.io/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/index.html</guid><description>NTU CS HW0 Write Up :::spoiler TOC [TOC] :::
-Easy C2 Flag: FLAG{C2_cmd_in_http_header} Description 我們獵捕到一隻惡意程式，它似乎有與 C2 進行互動的行為。請找出它發送給 C2 的訊息。Flag 格式為：FLAG{…}。 此題模仿惡意程式與 C2 進行溝通的行為，期望能在對不熟悉逆向的同學而言不過度困難的情況下，讓同學對惡意程式行為有初步的認識。題目本身並沒有實際的惡意或影響系統運作的行為，因此可以安心執行。建議同學可以先嘗試執行程式，觀察程式的行為，嘗試找出 C2 位址以及如何與其溝通。
-Google 關鍵字：IDA freeware、Ghidra、malware C2
-解題思路 Simple 解題思路 $ file easy-c2 easy-c2: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=8fa6ee42a706cfc93d97d04b3ff5e300b9f8ae02, for GNU/Linux 3.2.0, with debug_info, not stripped IDA int __cdecl main(int argc, const char **argv, const char **envp) { int sockfd; // [rsp+1Ch] [rbp-24h] char *flag; // [rsp+20h] [rbp-20h] BYREF char *enc_flag; // [rsp+28h] [rbp-18h] char *host; // [rsp+30h] [rbp-10h] unsigned __int64 v8; // [rsp+38h] [rbp-8h] v8 = __readfsqword(0x28u); enc_flag = byte_20F0; host = "127.0.0.1"; sockfd = socket_connect("127.0.0.1", 11187); decode_flag(&amp;flag, byte_20F0); send_msg(sockfd, flag); puts("Message sent."); sleep(1u); free(flag); close(sockfd); return 0; } 可以看得出來他會連localhost:11187，然後把decode過後的flag給送出去，所以只要會nc的都可以直接聽該port的訊息 Exploit $ nc -lvp 11187 Listening on 0.0.0.0 11187 Connection received on localhost 54028 GET / HTTP/1.0 User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko, FLAG{C2_cmd_in_http_header}) Chrome/51.0.2704.103 Safari/537.36 Baby Crackme Flag: FLAG{r0ll1ng_4nd_3xtr4ct_t0_m3m0ry} Description 透過此題目希望學生們可以先自行摸索過各種 SRE(Software Reverse-Engineering) 的工具與流程。 給你一些關鍵字用: IDA Freeware, Ghidra, gdb (GNU Debugger), Dynamic Analysis</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Welcome on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/welcome/</link><description>Recent content in Welcome on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/welcome/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU CS HW0 Write Up</title><link>https://bernie6401.github.io/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/</guid><description>&lt;h1 id="ntu-cs-hw0-write-up">
+ NTU CS HW0 Write Up
+ &lt;a class="anchor" href="#ntu-cs-hw0-write-up">#&lt;/a>
+&lt;/h1>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="easy-c2">
+ Easy C2
+ &lt;a class="anchor" href="#easy-c2">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Flag: &lt;code>FLAG{C2_cmd_in_http_header}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="description">
+ Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h3>
+&lt;p>我們獵捕到一隻惡意程式，它似乎有與 C2 進行互動的行為。請找出它發送給 C2 的訊息。Flag 格式為：FLAG{&amp;hellip;}。
+此題模仿惡意程式與 C2 進行溝通的行為，期望能在對不熟悉逆向的同學而言不過度困難的情況下，讓同學對惡意程式行為有初步的認識。題目本身並沒有實際的惡意或影響系統運作的行為，因此可以安心執行。建議同學可以先嘗試執行程式，觀察程式的行為，嘗試找出 C2 位址以及如何與其溝通。&lt;/p>
+&lt;p>Google 關鍵字：IDA freeware、Ghidra、malware C2&lt;/p>
+&lt;h3 id="解題思路">
+ 解題思路
+ &lt;a class="anchor" href="#%e8%a7%a3%e9%a1%8c%e6%80%9d%e8%b7%af">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>Simple 解題思路
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ file easy-c2
+easy-c2: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=8fa6ee42a706cfc93d97d04b3ff5e300b9f8ae02, for GNU/Linux 3.2.0, with debug_info, not stripped
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>IDA
+&lt;pre tabindex="0">&lt;code class="language-cpp!" data-lang="cpp!">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+ int sockfd; // [rsp+1Ch] [rbp-24h]
+ char *flag; // [rsp+20h] [rbp-20h] BYREF
+ char *enc_flag; // [rsp+28h] [rbp-18h]
+ char *host; // [rsp+30h] [rbp-10h]
+ unsigned __int64 v8; // [rsp+38h] [rbp-8h]
+
+ v8 = __readfsqword(0x28u);
+ enc_flag = byte_20F0;
+ host = &amp;#34;127.0.0.1&amp;#34;;
+ sockfd = socket_connect(&amp;#34;127.0.0.1&amp;#34;, 11187);
+ decode_flag(&amp;amp;flag, byte_20F0);
+ send_msg(sockfd, flag);
+ puts(&amp;#34;Message sent.&amp;#34;);
+ sleep(1u);
+ free(flag);
+ close(sockfd);
+ return 0;
+}
+&lt;/code>&lt;/pre>可以看得出來他會連localhost:11187，然後把decode過後的flag給送出去，所以只要會nc的都可以直接聽該port的訊息&lt;/li>
+&lt;/ol>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ nc -lvp 11187
+Listening on 0.0.0.0 11187
+Connection received on localhost 54028
+GET / HTTP/1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko, FLAG{C2_cmd_in_http_header}) Chrome/51.0.2704.103 Safari/537.36
+&lt;/code>&lt;/pre>&lt;h2 id="baby-crackme">
+ Baby Crackme
+ &lt;a class="anchor" href="#baby-crackme">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Flag: &lt;code>FLAG{r0ll1ng_4nd_3xtr4ct_t0_m3m0ry}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="description-1">
+ Description
+ &lt;a class="anchor" href="#description-1">#&lt;/a>
+&lt;/h3>
+&lt;p>透過此題目希望學生們可以先自行摸索過各種 SRE(Software Reverse-Engineering) 的工具與流程。 給你一些關鍵字用: IDA Freeware, Ghidra, gdb (GNU Debugger), Dynamic Analysis&lt;/p></description></item></channel></rss>

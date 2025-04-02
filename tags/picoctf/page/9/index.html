@@ -1,0 +1,425 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/tags/picoctf/"><meta property="og:site_name" content="SBK Hugo Site"><meta property="og:title" content="PicoCTF"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><title>PicoCTF | SBK Hugo Site</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/tags/picoctf/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.acdc41c8d39e6c69d70d8a23779875e0a3733fefead3e428d5344966bb12f562.js integrity="sha256-rNxByNOebGnXDYojd5h14KNzP+/q0+Qo1TRJZrsS9WI=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://bernie6401.github.io/tags/picoctf/index.xml title="SBK Hugo Site"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>SBK Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>PicoCTF</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></aside></header><article class="markdown book-post"><h2><a href=/security/practice/picoctf/crypto/classic/picoctf---sequences/>PicoCTF - Sequences</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/crypto/>Crypto</a></div><p><h1 id=picoctf---sequences>PicoCTF - Sequences
+<a class=anchor href=#picoctf---sequences>#</a></h1><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-python=" data-lang="python=">import math
+import hashlib
+import sys
+from tqdm import tqdm
+import functools
+
+ITERS = int(2e7)
+VERIF_KEY = &#34;96cc5f3b460732b442814fd33cf8537c&#34;
+ENCRYPTED_FLAG = bytes.fromhex(&#34;42cbbce1487b443de1acf4834baed794f4bbd0dfe2d6046e248ff7962b&#34;)
+
+# This will overflow the stack, it will need to be significantly optimized in order to get the answer :)
+@functools.cache
+def m_func(i):
+    if i == 0: return 1
+    if i == 1: return 2
+    if i == 2: return 3
+    if i == 3: return 4
+
+    return 55692*m_func(i-4) - 9549*m_func(i-3) + 301*m_func(i-2) + 21*m_func(i-1)
+
+
+# Decrypt the flag
+def decrypt_flag(sol):
+    sol = sol % (10**10000)
+    sol = str(sol)
+    sol_md5 = hashlib.md5(sol.encode()).hexdigest()
+
+    if sol_md5 != VERIF_KEY:
+        print(&#34;Incorrect solution&#34;)
+        sys.exit(1)
+
+    key = hashlib.sha256(sol.encode()).digest()
+    flag = bytearray([char ^ key[i] for i, char in enumerate(ENCRYPTED_FLAG)]).decode()
+
+    print(flag)
+
+if __name__ == &#34;__main__&#34;:
+    sol = m_func(ITERS)
+    decrypt_flag(sol)
+</code></pre><p>:::</p><a href=/security/practice/picoctf/crypto/classic/picoctf---sequences/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-1/>PicoCTF - shark on wire 1</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---shark-on-wire-1>PicoCTF - shark on wire 1
+<a class=anchor href=#picoctf---shark-on-wire-1>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/30?category=4&amp;page=2">shark on wire 1</a></p><h2 id=exploit---analyze-udp-stream>Exploit - Analyze UDP stream
+<a class=anchor href=#exploit---analyze-udp-stream>#</a></h2><p>It transfer the single character by UDP protocol.
+<img src=https://i.imgur.com/ff5CsGr.png alt>
+Follow the UDP stream and you&rsquo;ll get the flag
+<img src=https://i.imgur.com/EfK83gj.png alt></p></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-2/>PicoCTF - shark on wire 2</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---shark-on-wire-2>PicoCTF - shark on wire 2
+<a class=anchor href=#picoctf---shark-on-wire-2>#</a></h1><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>這一提出的很硬要，誰知道會把flag藏在這種地方，也沒有任何的提示，如果不是看<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>根本不知道這題要表達甚麼，也可能是我太蔡</p><ol><li>Simple Recon
+首先做一些基本的recon，諸如dump files/string search/follow tcp or udp之類的，會發現UDP packets會有一些訊息出現，其中出現Start和一些a/b最後接著end
+<img src=https://hackmd.io/_uploads/rkASlUD02.png alt>
+<img src=https://hackmd.io/_uploads/BkxFgLPRn.png alt></li><li>Set filter as <code>udp.port==22</code>
+會發現其中所有的len都一樣，就只有source port不一樣，同樣都是5xxx開頭，而後三位數就是flag
+<img src=https://hackmd.io/_uploads/BJq71UvC2.png alt></li><li>Extract Flag
+所以只要把所有的port擷取出來拚在一起，就可以拿到flag了</li></ol><h2 id=exploit>Exploit
+<a class=anchor href=#exploit>#</a></h2><pre tabindex=0><code class=language-python! data-lang=python!>import pyshark
+
+capture = pyshark.FileCapture(&#39;./PicoCTF/Misc/shark on wire 2/capture.pcap&#39;, display_filter=&#39;udp.port == 22&#39;)
+
+data = []
+for pkt in capture:
+    if pkt.udp.port != &#39;5000&#39;:
+        data.append(chr(int(pkt.udp.port[1:])))
+print(&#34;&#34;.join(data))
+</code></pre><p>Flag: <code>picoCTF{p1LLf3r3d_data_v1a_st3g0}</code></p><h2 id=reference>Reference
+<a class=anchor href=#reference>#</a></h2><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://zomry1.github.io/shark-on-wire-2/>PicoCTF 2019 - shark on wire 2:-1:</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p><a href=/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-2/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/general/picoctf---sidechannel/>PicoCTF - SideChannel</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---sidechannel>PicoCTF - SideChannel
+<a class=anchor href=#picoctf---sidechannel>#</a></h1><h2 id=description>Description
+<a class=anchor href=#description>#</a></h2><blockquote><p>There&rsquo;s something fishy about this PIN-code checker, can you figure out the PIN and get the flag? Download the PIN checker program here pin_checker Once you&rsquo;ve figured out the PIN (and gotten the checker program to accept it), connect to the master server using nc saturn.picoctf.net 50364 and provide it the PIN to get your flag.</p><p>Hint 1: Read about &ldquo;timing-based side-channel attacks.&rdquo;
+Hint 2: Attempting to reverse-engineer or exploit the binary won&rsquo;t help you, you can figure out the PIN just by interacting with it and measuring certain properties about it.
+Hint 3: Don&rsquo;t run your attacks against the master server, it is secured against them. The PIN code you get from the pin_checker binary is the same as the one for the master server.</p><a href=/security/practice/picoctf/misc/general/picoctf---sidechannel/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/disk/picoctf---sleuthkit-intro/>PicoCTF - Sleuthkit Intro</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---sleuthkit-intro>PicoCTF - Sleuthkit Intro
+<a class=anchor href=#picoctf---sleuthkit-intro>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/301?category=4&amp;page=2">Sleuthkit Intro</a></p><h2 id=description>Description
+<a class=anchor href=#description>#</a></h2><blockquote><p>Download the disk image and use <font color=FF0000>mmls</font> on it to find the size of the Linux partition. Connect to the remote checker service to check your answer and get the flag. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.</p></blockquote><pre><code>Download disk image
+Access checker program: nc saturn.picoctf.net 52279
+</code></pre><p><a href="https://blog.csdn.net/qq_40399982/article/details/114882879?spm=1001.2014.3001.5506">最新kali之mmls</a></p><a href=/security/practice/picoctf/misc/disk/picoctf---sleuthkit-intro/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---some-assembly-required-1/>PicoCTF - Some Assembly Required 1</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---some-assembly-required-1>PicoCTF - Some Assembly Required 1
+<a class=anchor href=#picoctf---some-assembly-required-1>#</a></h1><h6 id=tags-picoctf-ctf-web>tags: <code>PicoCTF</code> <code>CTF</code> <code>Web</code>
+<a class=anchor href=#tags-picoctf-ctf-web>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/152?category=1&amp;page=1">Some Assembly Required 1</a></p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://blog.techbridge.cc/2017/06/17/webassembly-js-future/>了解 WebAssembly 的基礎使用方法</a></p><h2 id=source-code---after-beautify>Source code - After <a href=https://beautifier.io/>Beautify</a>
+<a class=anchor href=#source-code---after-beautify>#</a></h2><p>:::spoiler source code</p><pre tabindex=0><code class="language-javascript=" data-lang="javascript=">const strings = [&#39;value&#39;, &#39;2wfTpTR&#39;, &#39;instantiate&#39;, &#39;275341bEPcme&#39;, &#39;innerHTML&#39;, &#39;1195047NznhZg&#39;, &#39;1qfevql&#39;, &#39;input&#39;, &#39;1699808QuoWhA&#39;, &#39;Correct!&#39;, &#39;check_flag&#39;, &#39;Incorrect!&#39;, &#39;./JIFxzHyW8W&#39;, &#39;23SMpAuA&#39;, &#39;802698XOMSrr&#39;, &#39;charCodeAt&#39;, &#39;474547vVoGDO&#39;, &#39;getElementById&#39;, &#39;instance&#39;, &#39;copy_char&#39;, &#39;43591XxcWUl&#39;, &#39;504454llVtzW&#39;, &#39;arrayBuffer&#39;, &#39;2NIQmVj&#39;, &#39;result&#39;];
+
+const search_string1 = function(id1, _0x53c021) {
+    id1 = id1 - 470;
+    let strings6f = strings[id1];
+    return strings6f;
+};
+
+(function(id1, id2) {
+    const search_string = search_string1;
+    while (!![]) {
+        try {
+            const secret_key = -parseInt(search_string(0x1eb)) + parseInt(search_string(0x1ed)) + -parseInt(search_string(0x1db)) * -parseInt(search_string(0x1d9)) + -parseInt(search_string(0x1e2)) * -parseInt(search_string(0x1e3)) + -parseInt(search_string(0x1de)) * parseInt(search_string(0x1e0)) + parseInt(search_string(0x1d8)) * parseInt(search_string(0x1ea)) + -parseInt(search_string(0x1e5));
+            if (secret_key === id2) break;
+            else id1[&#39;push&#39;](id1[&#39;shift&#39;]());
+        } catch (_0x41d31a) {
+            id1[&#39;push&#39;](id1[&#39;shift&#39;]());
+        }
+    }
+}(strings, 627907));
+let exports;
+(async () =&gt; {
+    const search_string = search_string1;
+    let _0x5f0229 = await fetch(search_string(489)),
+        _0x1d99e9 = await WebAssembly[search_string(479)](await _0x5f0229[search_string(474)]()),
+        _0x1f8628 = _0x1d99e9[search_string(470)];
+    exports = _0x1f8628[&#39;exports&#39;];
+})();
+
+function onButtonPress() {
+    const search_string = search_string1;
+    let input_value = document[&#39;getElementById&#39;](search_string(484))[search_string(477)]; // document[&#39;getElementById&#39;](input)[value]
+    for (let i = 0; i &lt; input_value[&#39;length&#39;]; i++) {
+        exports[search_string(471)](input_value[search_string(492)](i), i);
+    }
+    exports[&#39;copy_char&#39;](0, input_value[&#39;length&#39;]), exports[search_string(487)]() == 1 ? document[search_string(494)](search_string(0x1dc))[search_string(0x1e1)] = search_string(0x1e6) : document[search_string(0x1ee)](search_string(0x1dc))[search_string(0x1e1)] = search_string(0x1e8);
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/web/picoctf---some-assembly-required-1/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---some-assembly-required-2/>PicoCTF - Some Assembly Required 2</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---some-assembly-required-2>PicoCTF - Some Assembly Required 2
+<a class=anchor href=#picoctf---some-assembly-required-2>#</a></h1><h6 id=tags-picoctf-ctf-web>tags: <code>PicoCTF</code> <code>CTF</code> <code>Web</code>
+<a class=anchor href=#tags-picoctf-ctf-web>#</a></h6><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler source</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>list_str</span> <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;copy_char&#39;</span>, <span style=color:#e6db74>&#39;value&#39;</span>, <span style=color:#e6db74>&#39;207aLjBod&#39;</span>, <span style=color:#e6db74>&#39;1301420SaUSqf&#39;</span>, <span style=color:#e6db74>&#39;233ZRpipt&#39;</span>, <span style=color:#e6db74>&#39;2224QffgXU&#39;</span>, <span style=color:#e6db74>&#39;check_flag&#39;</span>, <span style=color:#e6db74>&#39;408533hsoVYx&#39;</span>, <span style=color:#e6db74>&#39;instance&#39;</span>, <span style=color:#e6db74>&#39;278338GVFUrH&#39;</span>, <span style=color:#e6db74>&#39;Correct!&#39;</span>, <span style=color:#e6db74>&#39;549933ZVjkwI&#39;</span>, <span style=color:#e6db74>&#39;innerHTML&#39;</span>, <span style=color:#e6db74>&#39;charCodeAt&#39;</span>, <span style=color:#e6db74>&#39;./aD8SvhyVkb&#39;</span>, <span style=color:#e6db74>&#39;result&#39;</span>, <span style=color:#e6db74>&#39;977AzKzwq&#39;</span>, <span style=color:#e6db74>&#39;Incorrect!&#39;</span>, <span style=color:#e6db74>&#39;exports&#39;</span>, <span style=color:#e6db74>&#39;length&#39;</span>, <span style=color:#e6db74>&#39;getElementById&#39;</span>, <span style=color:#e6db74>&#39;1jIrMBu&#39;</span>, <span style=color:#e6db74>&#39;input&#39;</span>, <span style=color:#e6db74>&#39;615361geljRK&#39;</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>func1_cal</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span>(<span style=color:#a6e22e>var_a</span>, <span style=color:#a6e22e>var_b</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>var_a</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>var_a</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>195</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>list_strc4</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>list_str</span>[<span style=color:#a6e22e>var_a</span>];
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>list_strc4</span>;
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>(<span style=color:#66d9ef>function</span>(<span style=color:#a6e22e>var_a</span>, <span style=color:#a6e22e>var_b</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>func1_cal</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>func1_cal</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> (<span style=color:#f92672>!!</span>[]) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>var_c</span> <span style=color:#f92672>=</span> <span style=color:#f92672>-</span>parseInt(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>200</span>)) <span style=color:#f92672>*</span> <span style=color:#f92672>-</span>parseInt(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>201</span>)) <span style=color:#f92672>+</span> <span style=color:#f92672>-</span>parseInt(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>205</span>)) <span style=color:#f92672>+</span> parseInt(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>207</span>)) <span style=color:#f92672>+</span> parseInt(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>195</span>)) <span style=color:#f92672>+</span> <span style=color:#f92672>-</span>parseInt(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>198</span>)) <span style=color:#f92672>*</span> parseInt(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>212</span>)) <span style=color:#f92672>+</span> parseInt(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>203</span>)) <span style=color:#f92672>+</span> <span style=color:#f92672>-</span>parseInt(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>217</span>)) <span style=color:#f92672>*</span> parseInt(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>199</span>));
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>var_c</span> <span style=color:#f92672>===</span> <span style=color:#a6e22e>var_b</span>) <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span> <span style=color:#a6e22e>var_a</span>[<span style=color:#e6db74>&#39;push&#39;</span>](<span style=color:#a6e22e>var_a</span>[<span style=color:#e6db74>&#39;shift&#39;</span>]());
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>_0x4f8a</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>var_a</span>[<span style=color:#e6db74>&#39;push&#39;</span>](<span style=color:#a6e22e>var_a</span>[<span style=color:#e6db74>&#39;shift&#39;</span>]());
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}(<span style=color:#a6e22e>list_str</span>, <span style=color:#ae81ff>310022</span>));
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>exports</span>;
+</span></span><span style=display:flex><span>(<span style=color:#66d9ef>async</span> () =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>func1_cal</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>func1_cal</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>res_1</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>210</span>)),
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>res_2</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>WebAssembly</span>[<span style=color:#e6db74>&#39;instantiate&#39;</span>](<span style=color:#66d9ef>await</span> <span style=color:#a6e22e>res_1</span>[<span style=color:#e6db74>&#39;arrayBuffer&#39;</span>]()),
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>res_3</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>res_2</span>[<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>204</span>)];
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>exports</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>res_3</span>[<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>214</span>)];
+</span></span><span style=display:flex><span>})();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>onButtonPress</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>func1_cal</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>func1_cal</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>res_1</span> <span style=color:#f92672>=</span> document[<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>216</span>)](<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>218</span>))[<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>197</span>)];
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>idx</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>idx</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>res_1</span>[<span style=color:#e6db74>&#39;length&#39;</span>]; <span style=color:#a6e22e>idx</span><span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>exports</span>[<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>196</span>)](<span style=color:#a6e22e>res_1</span>[<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>209</span>)](<span style=color:#a6e22e>idx</span>), <span style=color:#a6e22e>idx</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>exports</span>[<span style=color:#e6db74>&#39;copy_char&#39;</span>](<span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>res_1</span>[<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>215</span>)]), <span style=color:#a6e22e>exports</span>[<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>202</span>)]() <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>?</span> document[<span style=color:#e6db74>&#39;getElementById&#39;</span>](<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>211</span>))[<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>208</span>)] <span style=color:#f92672>=</span> <span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>206</span>) <span style=color:#f92672>:</span> document[<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>216</span>)](<span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>211</span>))[<span style=color:#e6db74>&#39;innerHTML&#39;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>func1_cal</span>(<span style=color:#ae81ff>213</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>:::</p><a href=/security/practice/picoctf/web/picoctf---some-assembly-required-2/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---some-assembly-required-3/>PicoCTF - Some Assembly Required 3</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---some-assembly-required-3>PicoCTF - Some Assembly Required 3
+<a class=anchor href=#picoctf---some-assembly-required-3>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://github.com/WebAssembly/wabt>WebAssembly/wabt</a></p><pre tabindex=0><code class=language-bash! data-lang=bash!>$ ./build/wasm2c qCCYI0ajpD.wasm -o dump.c
+</code></pre><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler rTEuOmSfG3.js</p><pre tabindex=0><code class="language-javascript=" data-lang="javascript=">&#39;use strict&#39;;
+const str_list = [&#34;exports&#34;, &#34;270328ewawLo&#34;, &#34;instantiate&#34;, &#34;1OsuamQ&#34;, &#34;Incorrect!&#34;, &#34;length&#34;, &#34;copy_char&#34;, &#34;value&#34;, &#34;1512517ESezaM&#34;, &#34;innerHTML&#34;, &#34;check_flag&#34;, &#34;result&#34;, &#34;1383842SQRPPf&#34;, &#34;924408cukzgO&#34;, &#34;getElementById&#34;, &#34;418508cLDohp&#34;, &#34;input&#34;, &#34;Correct!&#34;, &#34;573XsMMHp&#34;, &#34;arrayBuffer&#34;, &#34;183RUQBDE&#34;, &#34;38934oMACea&#34;];
+const tranfer_fn = function(url, whensCollection) {
+  /** @type {number} */
+  url = url - 285;
+  let _0x143f7d = str_list[url];
+  return _0x143f7d;
+};
+(function(data, oldPassword) {
+  const tranfer_fn = tranfer_fn;
+  for (; !![];) {
+    try {
+      const userPsd = -parseInt(&#34;length&#34;) + -parseInt(&#34;573XsMMHp&#34;) + -parseInt(&#34;innerHTML&#34;) * -parseInt(&#34;getElementById&#34;) + -parseInt(&#34;38934oMACea&#34;) + parseInt(&#34;value&#34;) + -parseInt(&#34;Incorrect!&#34;) * -parseInt(&#34;instantiate&#34;) + parseInt(&#34;arrayBuffer&#34;);
+      if (userPsd === oldPassword) {
+        break;
+      } else {
+        data[&#34;push&#34;](data[&#34;shift&#34;]());
+      }
+    } catch (_0x289152) {
+      data[&#34;push&#34;](data[&#34;shift&#34;]());
+    }
+  }
+})(str_list, 970828);
+let exports;
+(async() =&gt; {
+  const tranfer_fn = tranfer_fn;
+  let rpm_traffic = await fetch(&#34;./qCCYI0ajpD&#34;);
+  let m = await WebAssembly[&#34;1512517ESezaM&#34;](await rpm_traffic[&#34;1OsuamQ&#34;]());
+  let updatedEdgesById = m[&#34;instance&#34;];
+  exports = updatedEdgesById[&#34;copy_char&#34;];
+})();
+/**
+ * @return {undefined}
+ */
+function onButtonPress() {
+  const tranfer_fn = tranfer_fn;
+  let data = document[&#34;183RUQBDE&#34;](&#34;exports&#34;)[&#34;924408cukzgO&#34;];
+  for (let i = 0; i &lt; data[&#34;result&#34;]; i++) {
+    exports[&#34;1383842SQRPPf&#34;](data[&#34;charCodeAt&#34;](i), i);
+  }
+  exports[&#34;1383842SQRPPf&#34;](0, data[&#34;result&#34;]);
+  if (exports[&#34;input&#34;]() == 1) {
+    document[&#34;183RUQBDE&#34;](&#34;Correct!&#34;)[&#34;418508cLDohp&#34;] = &#34;270328ewawLo&#34;;
+  } else {
+    document[&#34;183RUQBDE&#34;](&#34;Correct!&#34;)[&#34;innerHTML&#34;] = &#34;check_flag&#34;;
+  }
+}
+;
+</code></pre><p>:::</p><a href=/security/practice/picoctf/web/picoctf---some-assembly-required-3/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/general-skills/picoctf---special--specialer/>PicoCTF - Special & Specialer</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/general-skill/>General Skill</a></div><p><h1 id=picoctf---special--specialer>PicoCTF - Special & Specialer
+<a class=anchor href=#picoctf---special--specialer>#</a></h1><h6 id=tags-picoctf-ctf-general-skill>tags: <code>PicoCTF</code> <code>CTF</code> <code>General Skill</code>
+<a class=anchor href=#tags-picoctf-ctf-general-skill>#</a></h6><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>這兩題都蠻有趣的，感覺打提權應該會用到，所以一起紀錄，第一題是要get shell，關於這一題我是直接看學長之前解題的WP，payload是<code>${0}</code>就直接拿到shell了，詳細的原理我也不清楚，第二題比較簡單，就直接用網路的資源替換一下<code>ls, cat</code>這兩個指令就拿到flag了</p><h2 id=exploit>Exploit
+<a class=anchor href=#exploit>#</a></h2><ul><li><p>代替<code>cat</code>的方法：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Method 1</span>
+</span></span><span style=display:flex><span>$ <span style=color:#66d9ef>while</span> read line; <span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span>&gt; echo $line;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span>&gt; <span style=color:#66d9ef>done</span> &lt;<span style=color:#f92672>{</span>filename<span style=color:#f92672>}}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 2</span>
+</span></span><span style=display:flex><span>$ exec 3&lt;<span style=color:#f92672>{</span>filename<span style=color:#f92672>}}</span> <span style=color:#75715e># Assign file descriptor 3 for reading</span>
+</span></span><span style=display:flex><span>$ <span style=color:#66d9ef>while</span> read -u <span style=color:#ae81ff>3</span> line; <span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span>&gt; echo $line
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span>&gt; <span style=color:#66d9ef>done</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 3</span>
+</span></span><span style=display:flex><span>$ echo <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>&lt;<span style=color:#f92672>{</span>filename<span style=color:#f92672>}</span><span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+</span></span></code></pre></div></li><li><p>代替<code>ls</code>的方法</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Method 1</span>
+</span></span><span style=display:flex><span>$ echo *
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 2</span>
+</span></span><span style=display:flex><span>$ echo */*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 3</span>
+</span></span><span style=display:flex><span>$ echo * .*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 4</span>
+</span></span><span style=display:flex><span>$ dir
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 5</span>
+</span></span><span style=display:flex><span>$ printf <span style=color:#e6db74>&#39;%s\n&#39;</span> *
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 6</span>
+</span></span><span style=display:flex><span>$ grep -l <span style=color:#e6db74>&#39;.*&#39;</span> ./*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 7</span>
+</span></span><span style=display:flex><span>$ find .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 8</span>
+</span></span><span style=display:flex><span>$ stat -c <span style=color:#e6db74>&#39;%s %A %n&#39;</span> *
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 9</span>
+</span></span><span style=display:flex><span>$ lsattr ./*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Method 10</span>
+</span></span><span style=display:flex><span>$ vim .
+</span></span></code></pre></div></li></ul><h2 id=reference>Reference
+<a class=anchor href=#reference>#</a></h2><p><a href=https://jarv.org/posts/cat-without-cat/>Cat without cat on the commandline</a>
+<a href=https://ubunlog.com/en/alternativas-al-comando-ls/>Alternatives to the &rsquo;ls&rsquo; command to list the contents of a directory</a></p><a href=/security/practice/picoctf/general-skills/picoctf---special--specialer/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---sqlilite/>PicoCTF - SQLiLite</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---sqlilite>PicoCTF - SQLiLite
+<a class=anchor href=#picoctf---sqlilite>#</a></h1><h6 id=tags-picoctf-ctf-web>tags: <code>PicoCTF</code> <code>CTF</code> <code>Web</code>
+<a class=anchor href=#tags-picoctf-ctf-web>#</a></h6><p>Challenge: <a href=http://saturn.picoctf.net:55837/>http://saturn.picoctf.net:55837/</a></p><h2 id=exploit---sqli>Exploit - sqli
+<a class=anchor href=#exploit---sqli>#</a></h2><p>Payload:
+<code>admin' or '1'='1' -- #</code>
+<img src=https://i.imgur.com/yNgpTiY.png alt></p></p></article><ul class="pagination pagination-default"><li class=page-item><a href=/tags/picoctf/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a></li><li class=page-item><a href=/tags/picoctf/page/8/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a></li><li class=page-item><a href=/tags/picoctf/page/7/ aria-label="Page 7" class=page-link role=button>7</a></li><li class=page-item><a href=/tags/picoctf/page/8/ aria-label="Page 8" class=page-link role=button>8</a></li><li class="page-item active"><a aria-current=page aria-label="Page 9" class=page-link role=button>9</a></li><li class=page-item><a href=/tags/picoctf/page/10/ aria-label="Page 10" class=page-link role=button>10</a></li><li class=page-item><a href=/tags/picoctf/page/11/ aria-label="Page 11" class=page-link role=button>11</a></li><li class=page-item><a href=/tags/picoctf/page/10/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/tags/picoctf/page/12/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></div></aside></main></body></html>

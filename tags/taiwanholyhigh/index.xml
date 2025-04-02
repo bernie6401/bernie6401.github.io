@@ -1,31 +1,589 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TaiwanHolyHigh :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/taiwanholyhigh/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/taiwanholyhigh/index.xml" rel="self" type="application/rss+xml"/><item><title>TaiwanHolyHigh - SoC基礎維運 - ArcSight教學</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B/taiwanholyhigh---soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B---arcsight%E6%95%99%E5%AD%B8/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B/taiwanholyhigh---soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B---arcsight%E6%95%99%E5%AD%B8/index.html</guid><description>TaiwanHolyHigh - SoC基礎維運 - ArcSight教學 Set Up 先進到https://bit.ly/44IFecN下載ArcSight Console，並且全部default下一步
-(editor需要admin權限)進入localhost host DNS解析 -> C:\Windows\System32\drivers\etc\host 新增 211.75.237.80 chtpoc 打開ArcSight Console，用之前提供的帳密以及最後打chtpoc，進行登入 登入之後的狀態 ArcSight預設有分大小寫</description></item><item><title>TaiwanHolyHigh - SoC基礎維運 - HW2</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B/taiwanholyhigh---soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B---hw2/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B/taiwanholyhigh---soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B---hw2/index.html</guid><description>TaiwanHolyHigh - SoC基礎維運 - HW2 Background Sysmon Event ID 事件識別碼 1：處理程序建立 處理程序建立事件會提供新建立處理程序的延伸資訊。 完整的命令列提供處理程序執行的內容。 ProcessGUID 欄位是跨定義域此處理程式的唯一值，可讓事件相互關聯更容易。 雜湊是檔案的完整雜湊，具有 HashType 欄位中的演算法。
-事件識別碼 8：CreateRemoteThread CreateRemoteThread 事件會偵測處理程序何時在另一個處理程序中建立執行緒。 惡意程式碼會使用這項技術來插入程式碼，並隱藏在其他處理程序中。 事件表示來源和目標處理程序。 其會提供將在新執行緒中執行之程式碼的資訊：StartAddress、StartModule 和 StartFunction。 請注意，系統會推斷 StartModule 和 StartFunction 欄位，如果起始位址位於載入的模組或已知的匯出函式之外，這些欄位可能會是空的。
-事件識別碼 11：FileCreate 建立或覆寫檔案時，系統會記錄檔案建立作業。 此事件適用於監視自動啟動位置，例如開機資料夾，以及暫存和下載目錄，這是初始感染期間惡意程式碼放置的常見位置。
-事件識別碼 13：RegistryEvent (值已設定) 此登錄事件類型會識別登錄值修改。 事件會記錄針對類型為 DWORD 和 QWORD 的登錄值所寫入的值。
-Recon - Event Log呈現的攻擊順序 Event ID: 8 → CreateRemoteThread 首先看到23/12/17 15:1024的時候，由==NT AUTHORITY\SYSTEM==發起的新的thread，從原本的Process(ID: 820)幫另外一個Process(ID: 7464)建立，誠如MSDN上的說明這應該是惡意程式為了不要被砍掉 比較經典的案例是類似NTU CS助教 - @Ice1187 在Window Malware講到的reflective dll injection，也就是Mitre紀載的==T1055.001==，其本質上就是利用CreateRemoteThread在一個正常的process開一個thread，然後做一些惡意的事情，這樣的話defender也不會把它砍掉，因為從外部看，就只是一個正常的process</description></item><item><title>TaiwanHolyHigh - Windows Forensics - $MFT Background</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-background/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-background/index.html</guid><description>TaiwanHolyHigh - Windows Forensics - $MFT Background :::spoiler TOC [TOC] ::: :::info 以下引用若無特別說明皆來自於講師的上課簡報 :::
-Background $在windows代表系統檔案 $MFT(Master File Table): FAT(File Allocation Table): Fat 檔案系統，簡稱 File Allocation Table，是微軟和 Caldera 開發組為 Windows 電腦開發的檔案系統 雖然它主要是電腦磁區類型，但在過去幾年中它已作為主要檔案系統格式用於各種手機裝置中。此外，由於它是一個 8 位檔案系統，因此簇數會隨著磁碟容量的增加而增加。 FAT12 - 12 位 FAT16 - 16 位 FAT32 - 32 位 我們還應該澄清，FAT 檔案系統從 1977 年開始使用，但 FAT32 是在 1996 年引入的
-BIOS(Basic Input Output System) POST(Power On Self Test) POST自檢測過程大致為：加電－CPU－ROM－BIOS－System Clock－DMA－64KB RAM－IRQ－顯卡等。檢測顯卡以前的過程稱過關鍵部件測試，如果關鍵部件有問題，計算機會處於掛起狀態，習慣上稱為核心故障。另一類故障稱為非關鍵性故障，檢測完顯卡後，計算機將對64KB以上內存、I／O口、軟硬盤驅動器、鍵盤、即插即用設備、CMOS設置等進行檢測，並在屏幕上顯示各種信息和出錯報告。在正常情況下，POST過程進行得非常快，我們幾乎無法感覺到這個過程。 POST自檢測代碼含義是什麼？ 當系統檢測到相應的錯誤時，會以兩種方式進行報告，即在屏幕上顯示出錯信息或以報警聲響次數的方式來指出檢測到的故障。
-MBR(Master Boot Record) MBR 代表主開機記錄。它是一小段代碼，負責在您的電腦上加載作業系統。 MBR 還包含有關硬碟上的分割區及佈局的資訊。如果您曾經安裝過作業系統，您可能會看到詢問您是否要以 MBR 或 GPT 模式安裝它的提示。這是指硬碟上使用的分割區類型。</description></item><item><title>TaiwanHolyHigh - Windows Forensics - $MFT Resident / Non-Resident File</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-resident-_-non-resident-file/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-resident-_-non-resident-file/index.html</guid><description>TaiwanHolyHigh - Windows Forensics - $MFT Resident / Non-Resident File :::spoiler TOC [TOC] :::
-Background $MFT儲存的內容
-==Status== ==$MFT Record==(File Identify/Location) ==Timestamp== Standard Info Filename ==Resident== 特性如下: $SO\ne 0$: 意思就是resident file的前面一定有其他檔案，而他一定不會是$MFT的開頭 No File Slack: 沒有檔案暫存區，意味著他會住在一個剛剛好的大小的房間中 Physical Size = Logical Size: 這個就和前一個有相關，logical size就是實際住進去房間的檔案大小，而physical size就是飯店給予我們房間的大小，所以$physical_size\ge logical_size$ 如果resident file因為駭客的攻擊(injection/trojan/backdoor…)使得檔案大小變大，而失去原本resident file的身分，則該檔案就會被搬出目前的地方，就算之後檔案大小變回來，還是無法再住回原本的地方，這就是攻擊方所遺留的攻擊痕跡 如何判斷?如果檔名後面接的是18 00 00 00 01 00就是resident file，例如： :::spoiler 範例 ::: 或者是看18 00 00 00 10 00的前面第二個byte(就是non-resident flag)，是00代表不是non-resident file，反之就是 :::spoiler flag範例 ::: 檔案大小 18 00 00 00 10 00後面接著的四個bytes就是檔案大小$\to$換成10禁制就對了，另外如果此檔案是resident file，則檔案大小後面除了固定的18 00 00 00以外，後面還會有該檔案原本的file signature，以此為例就是89 50 4E 47也就是png的magical header :::spoiler flag範例 此範例就是02 02$\to$514 bytes ::: ==non-Resident File== 如果是non-resident file，檔名的後面一點會接的是80 00 00 00 48 00 00 00，再後面就是non-resident flag 另外，檔案的大小會在flag往後數40個bytes的地方，以底下範例來說就是F6 09 00 00 Lab - Resident File Lab - Offset 43208704(d) 先找檔名，後面會跟著18 00 00 00 01 00，前面會有non-resident flag(前面第二個byte)，再後面會跟著檔案大小D0 01，再後面一點會跟著原本這個file的signature</description></item><item><title>TaiwanHolyHigh - Windows Forensics - $MFT 基本實作</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-%E5%9F%BA%E6%9C%AC%E5%AF%A6%E4%BD%9C/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-%E5%9F%BA%E6%9C%AC%E5%AF%A6%E4%BD%9C/index.html</guid><description>TaiwanHolyHigh - Windows Forensics - $MFT 基本實作 :::spoiler TOC [TOC] ::: :::info 以下引用若無特別說明皆來自於講師的上課簡報 :::
-Background $MFT儲存的內容 ==Status==: SO=22, LE=2，也就是目前此檔案的狀態，分為以下四種 0000: Delete File 0100: File 0200: Delete Folder 0300: Folder ==$MFT Record==(File Identify/Location): SO=44, LE=4，也就是此檔案在record在$MFT的位置在哪邊 ==Timestamp== Standard Info: SO=80, LE=32(Creat+Modified+$MFT Modified+Access)，很容易就可以更改，如果要更改，可以參考New Filetime這個工具 Filename: SO=184, LE=32(Creat+Modified+$MFT Modified+Access) 很難被更改(但還是可以更改) ==Resident / non-Resident File== 下一篇詳細說明 :::info 以下三個練習都是Resident File :::
-Lab - Offset 43110400(d) $MFT長度一段就是1024 Bytes，我把結束的位址減掉開頭的位置就知道了，或是可以直接用HxD底下看長度(0x400) >>> 0x291D400-0x291D000 1024 從上圖也可以看到magical word就是FILE0$\to$46 49 4C 45 30 Overview(從上到下)</description></item><item><title>TaiwanHolyHigh - Windows Forensics - Background</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---background/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---background/index.html</guid><description>TaiwanHolyHigh - Windows Forensics - Background [TOC]
-Background ==資安事件的流程== Prepare 建立Infra 購買ISO(e.g. ISO 27001) SPA(資安健診) Predict Threat Intelligence(威脅情資) Recon(情蒐) Monitor(監控) 搜尋Pattern Identify(識別): 有興趣可以看這一篇論文筆記DeepCase SOC(資安監控中心) IDS: 入侵偵測系統（Intrusion Detection System，IDS）是用來偵測資訊系統或網路上潛在的惡意破壞活動 IPS: IThelp - Active Defense Audit: AD常常遇到 EDR Code Review Prevent: 防禦攻擊 Firewall(Layer 4 - Transport) WAF(Layer 7 - Application) DLP(資料外洩防護) Incident Profile: 這個項目比較能夠得到一些惡意的行為，而該行為一定脫離不了下面三點 Purpose/Payload(有可能是Data, Source, 或金錢等等) Path(透過甚麼途徑達成目的，有可能是USB, 社交工程, 0-day) Behavior(建立帳戶/開service/與C&amp;C連線等等) Incident Response Restore(主動) Recovery(被動) Isolate Deter: 主動式的阻絕 Inside Outside(就是找外援通常是執法單位) law enforcement(執法單位) Forensics Triage: 做分流的動作 揮發性資料(RAM…) Network Process System Artifacts(registry/log/temp…) Duplicate(Image): 製作證據的映像檔$\to$非揮發性的資料 RAW Image Evidence File Forensics Analysis 已知項目(Known) Keyword Hash Baseline Recovery Signature Sorting Artifact LNK Prefetch SPL Thumbnail Registry(非揮發性) Log Recycle Bin ==網路攻擊鍊(Cyber Kill Chain)== 詳細資料: TeamT5 - Cyber Kill Chain</description></item><item><title>TaiwanHolyHigh - Windows Forensics - LNK Lab</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---lnk-lab/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---lnk-lab/index.html</guid><description>TaiwanHolyHigh - Windows Forensics - LNK Lab [TOC]
-:::info 以下引用若無特別說明皆來自於講師的上課簡報 :::
-Background What is .LNK? LNK 檔為 Windows 系統中，執行程式或開啟檔案後會留存的捷徑檔，該檔案內會有相當多的資訊
-Where is .LNK? 預設 LNK 檔案會放在使用者目錄下，可透過以下指令檢視：$ dir c:\Users\{username}\*.lnk /b /s :::spoiler 執行結果
-$ dir c:\Users\Bernie\*.lnk /b /s c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group1\1 - Desktop.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group2\1 - Run.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group2\2 - Search.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group2\3 - Windows Explorer.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group2\4 - Control Panel.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group2\5 - Task Manager.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\01a - Windows PowerShell.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\02a - Windows PowerShell.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\03 - Computer Management.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\04 - Disk Management.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\04-1 - NetworkStatus.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\05 - Device Manager.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\06 - SystemAbout.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\07 - Event Viewer.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\08 - PowerAndSleep.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\09 - Mobility Center.lnk c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\10 - AppsAndFeatures.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\Chromium.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\File Shredder.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\Google Chrome.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\Microsoft Edge.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\Oracle VM VirtualBox.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\Shows Desktop.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\Window Switcher.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\AnyDesk.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Discord.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Excel.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\File Explorer.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Firefox.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\LINE (2).lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\PowerPoint.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Sublime Text 3.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Task Manager.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\The Interactive Disassembler (2).lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\The Interactive Disassembler.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Visual Studio Code.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\VMware Workstation Pro.lnk c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Word.lnk c:\Users\Bernie\Desktop\Test-Dragon.lnk c:\Users\Bernie\Links\Desktop.lnk c:\Users\Bernie\Links\Downloads.lnk c:\Users\Bernie\OneDrive\Personal Vault.lnk ::: Lab 可以先到這邊下載lnk_parser_cmd.exe</description></item><item><title>TaiwanHolyHigh - Windows Forensics - Windows Artifacts</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---windows-artifacts/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---windows-artifacts/index.html</guid><description>TaiwanHolyHigh - Windows Forensics - Windows Artifacts [TOC]
-:::info 以下引用若無特別說明皆來自於講師的上課簡報 :::
-Artifacts Background 使用者操作 Windows 作業系統時會在系統中留下或產生許多行為紀錄，稱之為 Artifacts
-Artifacts種類 特定路徑或資料夾: Program Files/Program Data Download Temp$\to$這在玩分析memory中很常出現 電腦特定檔案: LNK Email$\to$這在玩分析memory中也很常出現 系統還原檔(VSS, volume shadow copy): 站在藍隊的角度可以藉此知道受害者的遭到入侵的一些證據；站在紅隊的角度可以藉此撈到一些受害者的基敏資料 Artifacts分析面向 檔案Metadata: Timestamp(一般檔案的MAC time至少有兩個, Modify/Access/Create Time)可以藉此知道檔案的異動時間 應用程式: 記憶體: volatility可以針對某個PID dump出執行該process的memory，也是常見的技巧 Prefetch File 一般位於C槽windows文件夾下（C:\Windows\Prefetch），主要是用來存放系統已訪問的文件預讀信息；一開始創建此文件夾主要是為了加快系統的啟動過程。
-使用者的操作行為 Audit(AD很常碰到的event ID: 4662…) Volatility的console可以看到駭客的command Volatility的malfind可以看到惡意注入的payload… 網路行為 Volatility的netscan Most Recently Used(MRU) Background 就是泛指各種windows存取使用者最近access過的檔案、路徑或網路位置，是一種行為，攻防兩端都會注意的地方
-Overview 攻擊者會留下的足跡: .lnk, Jump List, User Assist Registry, Prefetch，如果攻擊者想要植入惡意程式，鑑識可以從以上四個地方看出這個intention Jump List就有點像是一個shortcut，可以跳到某個地方執行或開啟something</description></item><item><title>TaiwanHolyHigh - Windows Forensics - Windows檔案系統與還原</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---windows%E6%AA%94%E6%A1%88%E7%B3%BB%E7%B5%B1%E8%88%87%E9%82%84%E5%8E%9F/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---windows%E6%AA%94%E6%A1%88%E7%B3%BB%E7%B5%B1%E8%88%87%E9%82%84%E5%8E%9F/index.html</guid><description>TaiwanHolyHigh - Windows Forensics - Windows檔案系統與還原 :::spoiler TOC [TOC] :::
-Background What is cluster or sector?
-基本磁碟結構 磁碟儲存最小單位為sector，每一個sector包含了512bytes的資訊內容。但用sector當單位來儲存效率會很差，一般不會以一個sector當作存取檔案的單位，而是以cluster為一基本檔案單位，每一個cluster是架構在sector的2次方倍數上。假定連續的8個sector所構成一個cluster，其大小就為512×8=4096bytes(4K)，如此在存取資料時會以8個sector連續讀取而提升了相對效率。但並不是讓單位cluster越大越好，因為cluster越大相對的可能會浪費許多磁碟空間，例如設定以4K為一個cluster而要儲存的檔案內容只有1K，但這個小檔案還是佔用掉一個cluster的空間，其他3K就浪費掉了。所在考慮cluster的規劃時，需要同時考慮到檔案讀取的效能與檔案大小是否會浪費硬碟空間。
-File Slack 舉例來說如果一個檔案A，大小是4個sector(2048 bytes)，現在將其刪除後又存入一個檔案B在同一位置，但其大小只有1.5個sector(768 bytes)，則後面沒有被填滿的2.5個sector事實上還殘留檔案A的一些資訊，尚未填滿的該sector(Ram Slack)+完整的兩個sector(Disk/Residual Slack)就是file slack
-會有一點小複雜，反正file slack就是一個完整cluster(如果按照中FAT16來格式化128MB來說就是4個sectors)沒有被填滿的部分就對了，而ran slack或是disk(residual) slack只是在區分這些沒有被填滿的區塊而已
-==比較表格==
-稍微解釋一下為甚麼FAT16是單一cluster的sector數量比較多，因為按照他自己的定義，最大的cluster數量不能超過65526，也就是說如果硬碟的容量變大，單一cluster所除下來的sector數量就越多，舉例: 若一張記憶卡的大小是128MB$\to$134217728 bytes，單一cluster最少需要4個sectors $$ 134217728/512/65526\approx 4 $$ 所以如果記憶卡大小是512MB$\to$，536870912 bytes，單一cluster最少需要16個sectors $$ 536870912/512/65526\approx 16 $$ 當然，這樣的空間使用率是很差的，因為一個cluster就意味著一間總統套房，若所有的檔案不分大小都住進總統套房，就會造成很多浪費，或甚至是有很多file slack產生，試想如果像512MB一樣，一個cluster有16個sector，代表該總統套房可以容納$16*512=8192 bytes$，如果電腦中都是小檔案居多(1kB之類的)，那有很多空間就會浪費掉，但對於鑑識來說遺留的東西越多越能夠還原很多真相
-以攻擊者或一般使用者來說，如何達到真正的毀屍滅跡?
-Encryption: 工具veracrypt File Wipe: 工具file shredder Partition Wipe: 工具 Windows Format Fast: 快速格式化 Non-Fast: 完整格式化 差別就是 儲存檔案的時候， 除了在儲存區寫入檔案資料以外，也會在開頭一個小區塊的"檔案表"輸入相關資訊;快速格式化是只把開頭的檔案表重寫，真正儲存檔案資訊的部份則沒有更動，但是系統讀到檔案表顯示是"空白"，就會把這張片子當成是空片，就不管儲存區有沒有資料，直接覆蓋過去；換句話說，若是檔案表有標明某區存有某資料，則儲存時就會跳過這區不覆蓋 完整格式化會對格式化的區域進行讀寫測試，就是確定壞軌。快速格式化沒有</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TaiwanHolyHigh on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/taiwanholyhigh/</link><description>Recent content in TaiwanHolyHigh on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/taiwanholyhigh/index.xml" rel="self" type="application/rss+xml"/><item><title>TaiwanHolyHigh - SoC基礎維運 - ArcSight教學</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B/taiwanholyhigh---soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B---arcsight%E6%95%99%E5%AD%B8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B/taiwanholyhigh---soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B---arcsight%E6%95%99%E5%AD%B8/</guid><description>&lt;h1 id="taiwanholyhigh---soc基礎維運---arcsight教學">
+ TaiwanHolyHigh - SoC基礎維運 - ArcSight教學
+ &lt;a class="anchor" href="#taiwanholyhigh---soc%e5%9f%ba%e7%a4%8e%e7%b6%ad%e9%81%8b---arcsight%e6%95%99%e5%ad%b8">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="set-up">
+ Set Up
+ &lt;a class="anchor" href="#set-up">#&lt;/a>
+&lt;/h2>
+&lt;p>先進到https://bit.ly/44IFecN下載ArcSight Console，並且全部default下一步&lt;/p>
+&lt;ol>
+&lt;li>(editor需要admin權限)進入localhost host DNS解析 -&amp;gt; C:\Windows\System32\drivers\etc\host
+新增 211.75.237.80 chtpoc&lt;/li>
+&lt;li>打開ArcSight Console，用之前提供的帳密以及最後打chtpoc，進行登入
+&lt;img src="https://hackmd.io/_uploads/B1_MkKc8p.png" alt="圖片" />&lt;/li>
+&lt;li>登入之後的狀態
+&lt;img src="https://hackmd.io/_uploads/BJNleKc8p.png" alt="圖片" />&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/Hy8IUYqIa.png" alt="圖片" />
+&lt;img src="https://hackmd.io/_uploads/Syx6UK986.png" alt="圖片" />
+&lt;img src="https://hackmd.io/_uploads/S1vRUKcUp.png" alt="圖片" />
+ArcSight預設有分大小寫
+&lt;img src="https://hackmd.io/_uploads/SJrXPY5UT.png" alt="圖片" />&lt;/p>
+&lt;p>活動頻道可以儲存0
+&lt;img src="https://hackmd.io/_uploads/SJCEqt9Up.png" alt="圖片" />
+&lt;img src="https://hackmd.io/_uploads/HkSr5t5La.png" alt="圖片" />&lt;/p>
+&lt;h2 id="規則">
+ 規則
+ &lt;a class="anchor" href="#%e8%a6%8f%e5%89%87">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>WAF規則
+&lt;img src="https://hackmd.io/_uploads/B1Ljrc9UT.png" alt="圖片" />&lt;/li>
+&lt;li>Firewall規則
+&lt;img src="https://hackmd.io/_uploads/rJY6S55IT.png" alt="圖片" />&lt;/li>
+&lt;li>IPS
+&lt;img src="https://hackmd.io/_uploads/Bykw2m3Ia.png" alt="image" />&lt;/li>
+&lt;li>Firewall-BotNet
+&lt;img src="https://hackmd.io/_uploads/HkZK2QnIT.png" alt="image" />&lt;/li>
+&lt;li>Snort
+&lt;img src="https://hackmd.io/_uploads/rJ3onmnUp.png" alt="image" />&lt;/li>
+&lt;li>Trojan
+&lt;img src="https://hackmd.io/_uploads/BkPhnX2U6.png" alt="image" />&lt;/li>
+&lt;li>WineventLog
+&lt;img src="https://hackmd.io/_uploads/SkSan7hUT.png" alt="image" />&lt;/li>
+&lt;/ul>
+&lt;h2 id="清單">
+ 清單
+ &lt;a class="anchor" href="#%e6%b8%85%e5%96%ae">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>抑制清單
+&lt;img src="https://hackmd.io/_uploads/rkPcT7hL6.png" alt="image" />&lt;/li>
+&lt;li>弱掃清單
+&lt;img src="https://hackmd.io/_uploads/HJNlNSnU6.png" alt="image" />&lt;/li>
+&lt;/ul>
+&lt;h2 id="規則-1">
+ 規則
+ &lt;a class="anchor" href="#%e8%a6%8f%e5%89%87-1">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>即時規則
+&lt;img src="https://hackmd.io/_uploads/BJFeaX2La.png" alt="image" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>中繼站監控
+&lt;img src="https://hackmd.io/_uploads/HyqNaX3Lp.png" alt="image" />
+&lt;img src="https://hackmd.io/_uploads/H1mr672Up.png" alt="image" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>中繼站監控持續連線
+&lt;img src="https://hackmd.io/_uploads/Sk4wpm28T.png" alt="image" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>WAF弱掃
+&lt;img src="https://hackmd.io/_uploads/H1kMNHhL6.png" alt="image" />
+&lt;img src="https://hackmd.io/_uploads/rJ6GEHnUp.png" alt="image" />
+&lt;img src="https://hackmd.io/_uploads/HymmES386.png" alt="image" />&lt;/p></description></item><item><title>TaiwanHolyHigh - SoC基礎維運 - HW2</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B/taiwanholyhigh---soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B---hw2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B/taiwanholyhigh---soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B---hw2/</guid><description>&lt;h1 id="taiwanholyhigh---soc基礎維運---hw2">
+ TaiwanHolyHigh - SoC基礎維運 - HW2
+ &lt;a class="anchor" href="#taiwanholyhigh---soc%e5%9f%ba%e7%a4%8e%e7%b6%ad%e9%81%8b---hw2">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://learn.microsoft.com/zh-tw/sysinternals/downloads/sysmon">Sysmon Event ID&lt;/a>
+&lt;blockquote>
+&lt;h3 id="事件識別碼-1處理程序建立">
+ 事件識別碼 1：處理程序建立
+ &lt;a class="anchor" href="#%e4%ba%8b%e4%bb%b6%e8%ad%98%e5%88%a5%e7%a2%bc-1%e8%99%95%e7%90%86%e7%a8%8b%e5%ba%8f%e5%bb%ba%e7%ab%8b">#&lt;/a>
+&lt;/h3>
+&lt;p>處理程序建立事件會提供新建立處理程序的延伸資訊。 完整的命令列提供處理程序執行的內容。 &lt;code>ProcessGUID&lt;/code> 欄位是跨定義域此處理程式的唯一值，可讓事件相互關聯更容易。 雜湊是檔案的完整雜湊，具有 &lt;code>HashType&lt;/code> 欄位中的演算法。&lt;/p>
+&lt;hr>
+&lt;h3 id="事件識別碼-8createremotethread">
+ 事件識別碼 8：CreateRemoteThread
+ &lt;a class="anchor" href="#%e4%ba%8b%e4%bb%b6%e8%ad%98%e5%88%a5%e7%a2%bc-8createremotethread">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;code>CreateRemoteThread&lt;/code> 事件會偵測處理程序何時在另一個處理程序中建立執行緒。 惡意程式碼會使用這項技術來插入程式碼，並隱藏在其他處理程序中。 事件表示來源和目標處理程序。 其會提供將在新執行緒中執行之程式碼的資訊：StartAddress、&lt;code>StartModule&lt;/code> 和 &lt;code>StartFunction&lt;/code>。 請注意，系統會推斷 &lt;code>StartModule&lt;/code> 和 &lt;code>StartFunction&lt;/code> 欄位，如果起始位址位於載入的模組或已知的匯出函式之外，這些欄位可能會是空的。&lt;/p>
+&lt;hr>
+&lt;h3 id="事件識別碼-11filecreate">
+ 事件識別碼 11：FileCreate
+ &lt;a class="anchor" href="#%e4%ba%8b%e4%bb%b6%e8%ad%98%e5%88%a5%e7%a2%bc-11filecreate">#&lt;/a>
+&lt;/h3>
+&lt;p>建立或覆寫檔案時，系統會記錄檔案建立作業。 此事件適用於監視自動啟動位置，例如開機資料夾，以及暫存和下載目錄，這是初始感染期間惡意程式碼放置的常見位置。&lt;/p>
+&lt;hr>
+&lt;h3 id="事件識別碼-13registryevent-值已設定">
+ 事件識別碼 13：RegistryEvent (值已設定)
+ &lt;a class="anchor" href="#%e4%ba%8b%e4%bb%b6%e8%ad%98%e5%88%a5%e7%a2%bc-13registryevent-%e5%80%bc%e5%b7%b2%e8%a8%ad%e5%ae%9a">#&lt;/a>
+&lt;/h3>
+&lt;p>此登錄事件類型會識別登錄值修改。 事件會記錄針對類型為 &lt;code>DWORD&lt;/code> 和 &lt;code>QWORD&lt;/code> 的登錄值所寫入的值。&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon---event-log呈現的攻擊順序">
+ Recon - Event Log呈現的攻擊順序
+ &lt;a class="anchor" href="#recon---event-log%e5%91%88%e7%8f%be%e7%9a%84%e6%94%bb%e6%93%8a%e9%a0%86%e5%ba%8f">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Event ID: 8 → CreateRemoteThread
+首先看到23/12/17 15:1024的時候，由==NT AUTHORITY\SYSTEM==發起的新的thread，從原本的Process(ID: 820)幫另外一個Process(ID: 7464)建立，誠如MSDN上的說明這應該是惡意程式為了不要被砍掉
+&lt;img src="https://hackmd.io/_uploads/rJjOTA-wa.png" alt="圖片" />
+比較經典的案例是類似NTU CS助教 - @Ice1187 在Window Malware講到的&lt;a href="https://attack.mitre.org/techniques/T1055/001/">reflective dll injection&lt;/a>，也就是Mitre紀載的==T1055.001==，其本質上就是利用CreateRemoteThread在一個正常的process開一個thread，然後做一些惡意的事情，這樣的話defender也不會把它砍掉，因為從外部看，就只是一個正常的process
+&lt;img src="https://hackmd.io/_uploads/Hy9wgyfPp.png" alt="圖片" />&lt;/p></description></item><item><title>TaiwanHolyHigh - Windows Forensics - $MFT Background</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-background/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-background/</guid><description>&lt;h1 id="taiwanholyhigh---windows-forensics---mft-background">
+ TaiwanHolyHigh - Windows Forensics - $MFT Background
+ &lt;a class="anchor" href="#taiwanholyhigh---windows-forensics---mft-background">#&lt;/a>
+&lt;/h1>
+&lt;p>:::spoiler TOC
+[TOC]
+:::
+:::info
+以下引用若無特別說明皆來自於講師的上課簡報
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>$&lt;/code>在windows代表系統檔案&lt;/li>
+&lt;li>&lt;code>$MFT&lt;/code>(Master File Table):&lt;/li>
+&lt;li>&lt;a href="https://tw.easeus.com/partition-manager-tips/fat-file-system-format.html">&lt;code>FAT&lt;/code>(File Allocation Table)&lt;/a>:
+&lt;blockquote>
+&lt;p>Fat 檔案系統，簡稱 File Allocation Table，是微軟和 Caldera 開發組為 Windows 電腦開發的檔案系統
+雖然它主要是電腦磁區類型，但在過去幾年中它已作為主要檔案系統格式用於各種手機裝置中。此外，由於它是一個 8 位檔案系統，因此簇數會隨著磁碟容量的增加而增加。
+FAT12 - 12 位
+FAT16 - 16 位
+FAT32 - 32 位
+我們還應該澄清，FAT 檔案系統從 1977 年開始使用，但 FAT32 是在 1996 年引入的&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>&lt;code>BIOS&lt;/code>(Basic Input Output System)&lt;/li>
+&lt;li>&lt;a href="https://bbs.pigoo.com/thread-16131-1-1.html">&lt;code>POST&lt;/code>(Power On Self Test)&lt;/a>
+&lt;blockquote>
+&lt;p>POST自檢測過程大致為：加電－CPU－ROM－BIOS－System Clock－DMA－64KB RAM－IRQ－顯卡等。檢測顯卡以前的過程稱過關鍵部件測試，如果關鍵部件有問題，計算機會處於掛起狀態，習慣上稱為核心故障。另一類故障稱為非關鍵性故障，檢測完顯卡後，計算機將對64KB以上內存、I／O口、軟硬盤驅動器、鍵盤、即插即用設備、CMOS設置等進行檢測，並在屏幕上顯示各種信息和出錯報告。在正常情況下，POST過程進行得非常快，我們幾乎無法感覺到這個過程。
+POST自檢測代碼含義是什麼？
+當系統檢測到相應的錯誤時，會以兩種方式進行報告，即在屏幕上顯示出錯信息或以報警聲響次數的方式來指出檢測到的故障。&lt;/p></description></item><item><title>TaiwanHolyHigh - Windows Forensics - $MFT Resident / Non-Resident File</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-resident-_-non-resident-file/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-resident-_-non-resident-file/</guid><description>&lt;h1 id="taiwanholyhigh---windows-forensics---mft-resident--non-resident-file">
+ TaiwanHolyHigh - Windows Forensics - $MFT Resident / Non-Resident File
+ &lt;a class="anchor" href="#taiwanholyhigh---windows-forensics---mft-resident--non-resident-file">#&lt;/a>
+&lt;/h1>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>$MFT儲存的內容&lt;/p>
+&lt;ol>
+&lt;li>==Status==&lt;/li>
+&lt;li>==$MFT Record==(File Identify/Location)&lt;/li>
+&lt;li>==Timestamp==
+&lt;ul>
+&lt;li>Standard Info&lt;/li>
+&lt;li>Filename&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>==Resident==
+&lt;ul>
+&lt;li>特性如下:
+&lt;ul>
+&lt;li>$SO\ne 0$: 意思就是resident file的前面一定有其他檔案，而他一定不會是$MFT的開頭&lt;/li>
+&lt;li>No File Slack: 沒有檔案暫存區，意味著他會住在一個剛剛好的大小的房間中&lt;/li>
+&lt;li>Physical Size = Logical Size: 這個就和前一個有相關，logical size就是實際住進去房間的檔案大小，而physical size就是飯店給予我們房間的大小，所以$physical_size\ge logical_size$&lt;/li>
+&lt;li>如果resident file因為駭客的攻擊(injection/trojan/backdoor&amp;hellip;)使得檔案大小變大，而失去原本resident file的身分，則該檔案就會被搬出目前的地方，就算之後檔案大小變回來，還是無法再住回原本的地方，這就是攻擊方所遺留的攻擊痕跡&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>如何判斷?如果檔名後面接的是&lt;code>18 00 00 00 01 00&lt;/code>就是resident file，例如：
+:::spoiler 範例
+&lt;img src="https://hackmd.io/_uploads/rynQ2dFGp.png" alt="" />
+:::
+或者是看&lt;code>18 00 00 00 10 00&lt;/code>的前面第二個byte(就是non-resident flag)，是&lt;code>00&lt;/code>代表不是non-resident file，反之就是
+:::spoiler flag範例
+&lt;img src="https://hackmd.io/_uploads/HkAy6_tMa.png" alt="" />
+:::&lt;/li>
+&lt;li>檔案大小
+&lt;code>18 00 00 00 10 00&lt;/code>後面接著的四個bytes就是檔案大小$\to$換成10禁制就對了，另外如果此檔案是resident file，則檔案大小後面除了固定的&lt;code>18 00 00 00&lt;/code>以外，後面還會有該檔案原本的file signature，以此為例就是&lt;code>89 50 4E 47&lt;/code>也就是png的magical header
+:::spoiler flag範例
+&lt;img src="https://hackmd.io/_uploads/SkwzAOtGa.png" alt="" />
+此範例就是&lt;code>02 02&lt;/code>$\to$514 bytes
+:::&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>==non-Resident File==
+如果是non-resident file，檔名的後面一點會接的是&lt;code>80 00 00 00 48 00 00 00&lt;/code>，再後面就是non-resident flag
+&lt;img src="https://hackmd.io/_uploads/HJk7NFtf6.png" alt="" />
+另外，檔案的大小會在flag往後數40個bytes的地方，以底下範例來說就是&lt;code>F6 09 00 00&lt;/code>
+&lt;img src="https://hackmd.io/_uploads/BJWMBtKMT.png" alt="" />&lt;/li>
+&lt;/ol>
+&lt;h2 id="lab---resident-file">
+ Lab - Resident File
+ &lt;a class="anchor" href="#lab---resident-file">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="lab---offset-43208704d">
+ Lab - Offset 43208704(d)
+ &lt;a class="anchor" href="#lab---offset-43208704d">#&lt;/a>
+&lt;/h3>
+&lt;p>先找檔名，後面會跟著&lt;code>18 00 00 00 01 00&lt;/code>，前面會有non-resident flag(前面第二個byte)，再後面會跟著檔案大小&lt;code>D0 01&lt;/code>，再後面一點會跟著原本這個file的signature&lt;/p></description></item><item><title>TaiwanHolyHigh - Windows Forensics - $MFT 基本實作</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-%E5%9F%BA%E6%9C%AC%E5%AF%A6%E4%BD%9C/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-%E5%9F%BA%E6%9C%AC%E5%AF%A6%E4%BD%9C/</guid><description>&lt;h1 id="taiwanholyhigh---windows-forensics---mft-基本實作">
+ TaiwanHolyHigh - Windows Forensics - $MFT 基本實作
+ &lt;a class="anchor" href="#taiwanholyhigh---windows-forensics---mft-%e5%9f%ba%e6%9c%ac%e5%af%a6%e4%bd%9c">#&lt;/a>
+&lt;/h1>
+&lt;p>:::spoiler TOC
+[TOC]
+:::
+:::info
+以下引用若無特別說明皆來自於講師的上課簡報
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>$MFT儲存的內容
+&lt;ol>
+&lt;li>==Status==: SO=22, LE=2，也就是目前此檔案的狀態，分為以下四種
+&lt;ul>
+&lt;li>&lt;code>0000&lt;/code>: Delete File&lt;/li>
+&lt;li>&lt;code>0100&lt;/code>: File&lt;/li>
+&lt;li>&lt;code>0200&lt;/code>: Delete Folder&lt;/li>
+&lt;li>&lt;code>0300&lt;/code>: Folder&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>==$MFT Record==(File Identify/Location): SO=44, LE=4，也就是此檔案在record在$MFT的位置在哪邊&lt;/li>
+&lt;li>==Timestamp==
+&lt;ul>
+&lt;li>Standard Info: SO=80, LE=32(Creat+Modified+$MFT Modified+Access)，很容易就可以更改，如果要更改，可以參考&lt;a href="https://newfiletime.en.softonic.com/?ex=RAMP-1462.1">New Filetime&lt;/a>這個工具&lt;/li>
+&lt;li>Filename: SO=184, LE=32(Creat+Modified+$MFT Modified+Access)
+很難被更改(但還是可以更改)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>==Resident / non-Resident File==
+下一篇詳細說明&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;p>:::info
+以下三個練習都是Resident File
+:::&lt;/p>
+&lt;h2 id="lab---offset-43110400d">
+ Lab - Offset 43110400(d)
+ &lt;a class="anchor" href="#lab---offset-43110400d">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>$MFT長度一段就是1024 Bytes，我把結束的位址減掉開頭的位置就知道了，或是可以直接用HxD底下看長度(0x400)
+&lt;img src="https://hackmd.io/_uploads/rk0s7QKza.png" alt="" />
+&lt;img src="https://hackmd.io/_uploads/rJjnQ7tfT.png" alt="" />
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0x291D400&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">0x291D000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">1024&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>從上圖也可以看到magical word就是&lt;code>FILE0&lt;/code>$\to$&lt;code>46 49 4C 45 30&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="overview從上到下">
+ Overview(從上到下)
+ &lt;a class="anchor" href="#overview%e5%be%9e%e4%b8%8a%e5%88%b0%e4%b8%8b">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/S1l-DgEtzp.png" alt="" />&lt;/p></description></item><item><title>TaiwanHolyHigh - Windows Forensics - Background</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---background/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---background/</guid><description>&lt;h1 id="taiwanholyhigh---windows-forensics---background">
+ TaiwanHolyHigh - Windows Forensics - Background
+ &lt;a class="anchor" href="#taiwanholyhigh---windows-forensics---background">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="資安事件的流程">
+ ==資安事件的流程==
+ &lt;a class="anchor" href="#%e8%b3%87%e5%ae%89%e4%ba%8b%e4%bb%b6%e7%9a%84%e6%b5%81%e7%a8%8b">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/BkbVWYmz6.png" alt="" />&lt;/p>
+&lt;ul>
+&lt;li>Prepare
+&lt;ul>
+&lt;li>建立Infra&lt;/li>
+&lt;li>購買ISO(e.g. &lt;a href="https://www.tsg.com.tw/blog-detail10-248-0-iso27001.htm">ISO 27001&lt;/a>)&lt;/li>
+&lt;li>SPA(&lt;a href="https://www.issdu.com.tw/service/9-shc">資安健診&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Predict
+&lt;ul>
+&lt;li>&lt;a href="https://www.informationsecurity.com.tw/article/article_detail.aspx?aid=8376">Threat Intelligence(威脅情資)&lt;/a>&lt;/li>
+&lt;li>Recon(情蒐)&lt;/li>
+&lt;li>Monitor(監控)&lt;/li>
+&lt;li>搜尋Pattern&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Identify(識別): 有興趣可以看這一篇論文筆記&lt;a href="https://hackmd.io/@SBK6401/BJuCGSnAo">DeepCase&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://www.freedom.net.tw/ict-insight/security/siem-vs-soc.html">SOC(資安監控中心)&lt;/a>
+&lt;blockquote>
+&lt;p>&lt;img src="https://www.freedom.net.tw/images/article/caption/siem%20vs%20soc.jpg" alt="" />&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>IDS: 入侵偵測系統（Intrusion Detection System，IDS）是用來偵測資訊系統或網路上潛在的惡意破壞活動&lt;/li>
+&lt;li>IPS: &lt;a href="https://www.ithome.com.tw/tech/28712">IThelp - Active Defense&lt;/a>&lt;/li>
+&lt;li>Audit: AD常常遇到&lt;/li>
+&lt;li>EDR&lt;/li>
+&lt;li>Code Review&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Prevent: 防禦攻擊
+&lt;ul>
+&lt;li>Firewall(Layer 4 - Transport)&lt;/li>
+&lt;li>&lt;a href="https://www.oracle.com/tw/security/cloud-security/what-is-waf/">WAF(Layer 7 - Application)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.mikotek.com.tw/dlp/">DLP(資料外洩防護)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Incident Profile: 這個項目比較能夠得到一些惡意的行為，而該行為一定脫離不了下面三點
+&lt;ol>
+&lt;li>Purpose/Payload(有可能是Data, Source, 或金錢等等)&lt;/li>
+&lt;li>Path(透過甚麼途徑達成目的，有可能是USB, 社交工程, 0-day)&lt;/li>
+&lt;li>Behavior(建立帳戶/開service/與C&amp;amp;C連線等等)&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Incident Response
+&lt;ul>
+&lt;li>Restore(主動)&lt;/li>
+&lt;li>Recovery(被動)&lt;/li>
+&lt;li>Isolate&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Deter: 主動式的阻絕
+&lt;ul>
+&lt;li>Inside&lt;/li>
+&lt;li>Outside(就是找外援通常是執法單位)
+&lt;ul>
+&lt;li>law enforcement(執法單位)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Forensics Triage: 做分流的動作
+&lt;ul>
+&lt;li>揮發性資料(RAM&amp;hellip;)&lt;/li>
+&lt;li>Network&lt;/li>
+&lt;li>Process&lt;/li>
+&lt;li>System&lt;/li>
+&lt;li>Artifacts(registry/log/temp&amp;hellip;)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Duplicate(Image): 製作證據的映像檔$\to$非揮發性的資料
+&lt;ul>
+&lt;li>RAW Image&lt;/li>
+&lt;li>Evidence File&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Forensics Analysis
+&lt;ul>
+&lt;li>已知項目(Known)
+&lt;ul>
+&lt;li>Keyword&lt;/li>
+&lt;li>Hash&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Baseline
+&lt;ul>
+&lt;li>Recovery&lt;/li>
+&lt;li>Signature&lt;/li>
+&lt;li>Sorting&lt;/li>
+&lt;li>Artifact
+&lt;ul>
+&lt;li>LNK&lt;/li>
+&lt;li>Prefetch&lt;/li>
+&lt;li>SPL&lt;/li>
+&lt;li>Thumbnail&lt;/li>
+&lt;li>Registry(非揮發性)&lt;/li>
+&lt;li>Log&lt;/li>
+&lt;li>Recycle Bin&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="網路攻擊鍊cyber-kill-chain">
+ ==網路攻擊鍊(Cyber Kill Chain)==
+ &lt;a class="anchor" href="#%e7%b6%b2%e8%b7%af%e6%94%bb%e6%93%8a%e9%8d%8acyber-kill-chain">#&lt;/a>
+&lt;/h3>
+&lt;p>詳細資料: &lt;a href="https://teamt5.org/tw/posts/what-is-cyber-kill-chain/">TeamT5 - Cyber Kill Chain&lt;/a>&lt;/p></description></item><item><title>TaiwanHolyHigh - Windows Forensics - LNK Lab</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---lnk-lab/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---lnk-lab/</guid><description>&lt;h1 id="taiwanholyhigh---windows-forensics---lnk-lab">
+ TaiwanHolyHigh - Windows Forensics - LNK Lab
+ &lt;a class="anchor" href="#taiwanholyhigh---windows-forensics---lnk-lab">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>:::info
+以下引用若無特別說明皆來自於講師的上課簡報
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>What is .LNK?
+&lt;blockquote>
+&lt;p>LNK 檔為 Windows 系統中，執行程式或開啟檔案後會留存的捷徑檔，該檔案內會有相當多的資訊&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>Where is .LNK?
+&lt;blockquote>
+&lt;p>預設 LNK 檔案會放在使用者目錄下，可透過以下指令檢視：&lt;code>$ dir c:\Users\{username}\*.lnk /b /s&lt;/code>
+:::spoiler 執行結果&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ dir c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\*&lt;/span>.lnk /b /s
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup1&lt;span style="color:#ae81ff">\1&lt;/span> - Desktop.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup2&lt;span style="color:#ae81ff">\1&lt;/span> - Run.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup2&lt;span style="color:#ae81ff">\2&lt;/span> - Search.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup2&lt;span style="color:#ae81ff">\3&lt;/span> - Windows Explorer.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup2&lt;span style="color:#ae81ff">\4&lt;/span> - Control Panel.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup2&lt;span style="color:#ae81ff">\5&lt;/span> - Task Manager.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\0&lt;/span>1a - Windows PowerShell.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\0&lt;/span>2a - Windows PowerShell.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\0&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> - Computer Management.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\0&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span> - Disk Management.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\0&lt;/span>4-1 - NetworkStatus.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\0&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span> - Device Manager.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\0&lt;/span>&lt;span style="color:#ae81ff">6&lt;/span> - SystemAbout.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\0&lt;/span>&lt;span style="color:#ae81ff">7&lt;/span> - Event Viewer.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\0&lt;/span>&lt;span style="color:#ae81ff">8&lt;/span> - PowerAndSleep.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\0&lt;/span>&lt;span style="color:#ae81ff">9&lt;/span> - Mobility Center.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\W&lt;/span>inX&lt;span style="color:#ae81ff">\G&lt;/span>roup3&lt;span style="color:#ae81ff">\1&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span> - AppsAndFeatures.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\C&lt;/span>hromium.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\F&lt;/span>ile Shredder.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\G&lt;/span>oogle Chrome.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft Edge.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\O&lt;/span>racle VM VirtualBox.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\S&lt;/span>hows Desktop.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\W&lt;/span>indow Switcher.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\A&lt;/span>nyDesk.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\D&lt;/span>iscord.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\E&lt;/span>xcel.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\F&lt;/span>ile Explorer.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\F&lt;/span>irefox.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\L&lt;/span>INE &lt;span style="color:#f92672">(&lt;/span>2&lt;span style="color:#f92672">)&lt;/span>.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\P&lt;/span>owerPoint.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\S&lt;/span>ublime Text 3.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\T&lt;/span>ask Manager.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\T&lt;/span>he Interactive Disassembler &lt;span style="color:#f92672">(&lt;/span>2&lt;span style="color:#f92672">)&lt;/span>.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\T&lt;/span>he Interactive Disassembler.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\V&lt;/span>isual Studio Code.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\V&lt;/span>Mware Workstation Pro.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\R&lt;/span>oaming&lt;span style="color:#ae81ff">\M&lt;/span>icrosoft&lt;span style="color:#ae81ff">\I&lt;/span>nternet Explorer&lt;span style="color:#ae81ff">\Q&lt;/span>uick Launch&lt;span style="color:#ae81ff">\U&lt;/span>ser Pinned&lt;span style="color:#ae81ff">\T&lt;/span>askBar&lt;span style="color:#ae81ff">\W&lt;/span>ord.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\D&lt;/span>esktop&lt;span style="color:#ae81ff">\T&lt;/span>est-Dragon.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\L&lt;/span>inks&lt;span style="color:#ae81ff">\D&lt;/span>esktop.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\L&lt;/span>inks&lt;span style="color:#ae81ff">\D&lt;/span>ownloads.lnk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\O&lt;/span>neDrive&lt;span style="color:#ae81ff">\P&lt;/span>ersonal Vault.lnk
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>:::&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;p>可以先到&lt;a href="https://code.google.com/archive/p/lnk-parser/downloads">這邊&lt;/a>下載&lt;code>lnk_parser_cmd.exe&lt;/code>&lt;/p></description></item><item><title>TaiwanHolyHigh - Windows Forensics - Windows Artifacts</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---windows-artifacts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---windows-artifacts/</guid><description>&lt;h1 id="taiwanholyhigh---windows-forensics---windows-artifacts">
+ TaiwanHolyHigh - Windows Forensics - Windows Artifacts
+ &lt;a class="anchor" href="#taiwanholyhigh---windows-forensics---windows-artifacts">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>:::info
+以下引用若無特別說明皆來自於講師的上課簡報
+:::&lt;/p>
+&lt;h2 id="artifacts-background">
+ Artifacts Background
+ &lt;a class="anchor" href="#artifacts-background">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>使用者操作 Windows 作業系統時會在系統中留下或產生許多行為紀錄，稱之為 Artifacts&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>Artifacts種類
+&lt;ul>
+&lt;li>特定路徑或資料夾:
+&lt;ul>
+&lt;li>Program Files/Program Data&lt;/li>
+&lt;li>Download&lt;/li>
+&lt;li>Temp$\to$這在玩分析memory中很常出現&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>電腦特定檔案:
+&lt;ul>
+&lt;li>LNK&lt;/li>
+&lt;li>Email$\to$這在玩分析memory中也很常出現&lt;/li>
+&lt;li>系統還原檔(VSS, &lt;a href="https://learn.microsoft.com/zh-tw/windows-server/storage/file-server/volume-shadow-copy-service">volume shadow copy&lt;/a>): 站在藍隊的角度可以藉此知道受害者的遭到入侵的一些證據；站在紅隊的角度可以藉此撈到一些受害者的基敏資料&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Artifacts分析面向
+&lt;ul>
+&lt;li>檔案Metadata: Timestamp(一般檔案的MAC time至少有兩個, Modify/Access/Create Time)可以藉此知道檔案的異動時間&lt;/li>
+&lt;li>應用程式:
+&lt;ul>
+&lt;li>記憶體: volatility可以針對某個PID dump出執行該process的memory，也是常見的技巧&lt;/li>
+&lt;li>&lt;a href="https://read01.com/zh-tw/6nOOGaj.html">Prefetch File&lt;/a>
+&lt;blockquote>
+&lt;p>一般位於C槽windows文件夾下（&lt;code>C:\Windows\Prefetch&lt;/code>），主要是用來存放系統已訪問的文件預讀信息；一開始創建此文件夾主要是為了加快系統的啟動過程。&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>使用者的操作行為
+&lt;ul>
+&lt;li>Audit(AD很常碰到的event ID: 4662&amp;hellip;)&lt;/li>
+&lt;li>Volatility的console可以看到駭客的command&lt;/li>
+&lt;li>Volatility的malfind可以看到惡意注入的payload&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>網路行為
+&lt;ul>
+&lt;li>Volatility的netscan&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="most-recently-usedmru-background">
+ Most Recently Used(MRU) Background
+ &lt;a class="anchor" href="#most-recently-usedmru-background">#&lt;/a>
+&lt;/h2>
+&lt;p>就是泛指各種windows存取使用者最近access過的檔案、路徑或網路位置，是一種行為，攻防兩端都會注意的地方&lt;/p>
+&lt;ul>
+&lt;li>Overview
+&lt;img src="https://hackmd.io/_uploads/rk1zs9mfT.png" alt="" />&lt;/li>
+&lt;li>攻擊者會留下的足跡: &lt;code>.lnk&lt;/code>, &lt;code>Jump List&lt;/code>, &lt;code>User Assist Registry&lt;/code>, &lt;code>Prefetch&lt;/code>，如果攻擊者想要植入惡意程式，鑑識可以從以上四個地方看出這個intention
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>Jump List&lt;/code>就有點像是一個shortcut，可以跳到某個地方執行或開啟something&lt;/p></description></item><item><title>TaiwanHolyHigh - Windows Forensics - Windows檔案系統與還原</title><link>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---windows%E6%AA%94%E6%A1%88%E7%B3%BB%E7%B5%B1%E8%88%87%E9%82%84%E5%8E%9F/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---windows%E6%AA%94%E6%A1%88%E7%B3%BB%E7%B5%B1%E8%88%87%E9%82%84%E5%8E%9F/</guid><description>&lt;h1 id="taiwanholyhigh---windows-forensics---windows檔案系統與還原">
+ TaiwanHolyHigh - Windows Forensics - Windows檔案系統與還原
+ &lt;a class="anchor" href="#taiwanholyhigh---windows-forensics---windows%e6%aa%94%e6%a1%88%e7%b3%bb%e7%b5%b1%e8%88%87%e9%82%84%e5%8e%9f">#&lt;/a>
+&lt;/h1>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>What is cluster or sector?&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;a href="https://www.pcdvd.com.tw/showthread.php?t=674854">基本磁碟結構&lt;/a>
+磁碟儲存最小單位為sector，每一個sector包含了512bytes的資訊內容。但用sector當單位來儲存效率會很差，一般不會以一個sector當作存取檔案的單位，而是以cluster為一基本檔案單位，每一個cluster是架構在sector的2次方倍數上。假定連續的8個sector所構成一個cluster，其大小就為512×8=4096bytes(4K)，如此在存取資料時會以8個sector連續讀取而提升了相對效率。但並不是讓單位cluster越大越好，因為cluster越大相對的可能會浪費許多磁碟空間，例如設定以4K為一個cluster而要儲存的檔案內容只有1K，但這個小檔案還是佔用掉一個cluster的空間，其他3K就浪費掉了。所在考慮cluster的規劃時，需要同時考慮到檔案讀取的效能與檔案大小是否會浪費硬碟空間。&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>File Slack
+舉例來說如果一個檔案A，大小是4個sector(2048 bytes)，現在將其刪除後又存入一個檔案B在同一位置，但其大小只有1.5個sector(768 bytes)，則後面沒有被填滿的2.5個sector事實上還殘留檔案A的一些資訊，尚未填滿的該sector(Ram Slack)+完整的兩個sector(Disk/Residual Slack)就是file slack&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/rk9GlEcG6.png" alt="" />&lt;/p>&lt;/blockquote>
+&lt;p>會有一點小複雜，反正file slack就是一個完整cluster(如果按照中FAT16來格式化128MB來說就是4個sectors)沒有被填滿的部分就對了，而ran slack或是disk(residual) slack只是在區分這些沒有被填滿的區塊而已&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>==比較表格==&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/S1XGzEcfp.png" alt="" />&lt;/p>&lt;/blockquote>
+&lt;p>稍微解釋一下為甚麼FAT16是單一cluster的sector數量比較多，因為按照他自己的定義，最大的cluster數量不能超過65526，也就是說如果硬碟的容量變大，單一cluster所除下來的sector數量就越多，舉例:
+若一張記憶卡的大小是128MB$\to$134217728 bytes，單一cluster最少需要4個sectors
+$$
+134217728/512/65526\approx 4
+$$
+所以如果記憶卡大小是512MB$\to$，536870912 bytes，單一cluster最少需要16個sectors
+$$
+536870912/512/65526\approx 16
+$$
+當然，這樣的空間使用率是很差的，因為一個cluster就意味著一間總統套房，若所有的檔案不分大小都住進總統套房，就會造成很多浪費，或甚至是有很多file slack產生，試想如果像512MB一樣，一個cluster有16個sector，代表該總統套房可以容納$16*512=8192 bytes$，如果電腦中都是小檔案居多(1kB之類的)，那有很多空間就會浪費掉，但對於鑑識來說遺留的東西越多越能夠還原很多真相&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>以攻擊者或一般使用者來說，如何達到真正的毀屍滅跡?&lt;/p>
+&lt;ol>
+&lt;li>Encryption: 工具&lt;a href="https://sourceforge.net/projects/veracrypt/">veracrypt&lt;/a>&lt;/li>
+&lt;li>File Wipe: 工具&lt;a href="https://www.fileshredder.org/">file shredder&lt;/a>&lt;/li>
+&lt;li>Partition Wipe: 工具 Windows Format
+&lt;ul>
+&lt;li>Fast: 快速格式化&lt;/li>
+&lt;li>Non-Fast: 完整格式化
+&lt;a href="https://www.pcdvd.com.tw/showthread.php?t=294869">差別就是&lt;/a>
+&lt;blockquote>
+&lt;p>儲存檔案的時候， 除了在儲存區寫入檔案資料以外，也會在開頭一個小區塊的&amp;quot;檔案表&amp;quot;輸入相關資訊;快速格式化是只把開頭的檔案表重寫，真正儲存檔案資訊的部份則沒有更動，但是系統讀到檔案表顯示是&amp;quot;空白&amp;quot;，就會把這張片子當成是空片，就不管儲存區有沒有資料，直接覆蓋過去；換句話說，若是檔案表有標明某區存有某資料，則儲存時就會跳過這區不覆蓋
+完整格式化會對格式化的區域進行讀寫測試，就是確定壞軌。快速格式化沒有&lt;/p></description></item></channel></rss>

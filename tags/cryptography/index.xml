@@ -1,18 +1,197 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cryptography :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/cryptography/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Cryptography and Network Security - Final Project</title><link>https://bernie6401.github.io/security/course/ntu-cns/cryptography-and-network-security---final-project/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cns/cryptography-and-network-security---final-project/index.html</guid><description>Cryptography and Network Security - Final Project Threshold HE Description With a designed scheme in place for threshold homomorphic encryption, private keys are divided into various shares among participating individuals who then work together to collaborate on computations without revealing plaintext material.
-Decryption requires collaboration from at least the minimum requirement, e.g. $(t,n)$ means there’re $n$ participate parties but need at least $t$ parties’ granting to decrypt the secret just like secret sharing scheme proposed by Shamir. Threshold homomorphic’s primary objective is secure computation involving confidential information with lesser exposure or accessibility risks for single individuals - due to a shared understanding by several stakeholders.</description></item><item><title>Cryptography Lec 1(Overview) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-1overview---notes/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-1overview---notes/index.html</guid><description>Cryptography Lec 1(Overview) - Notes tags: Cryptography NTU Background Chosen Plaintext Attack(CPA security) Attacker只可以拿到plaintext相對應的ciphertext，通常是在同一把key重複使用的情況下
-Chosen Cipnertext Attack(CCA security) Attacker不只可以拿到plaintext相對應的ciphertext，他也可以知道ciphertext相對應的plaintext，進而得知很多額外的資訊
-Mode of Operation e.g. ECB, CBC, CTR, GCM…(Nonsecure $\to$ Secure) 選擇甚麼樣的mode和選擇麼加密演算法是完全獨立的事情，也可以每一個block都使用完全不同的加密演算法</description></item><item><title>Cryptography Lec 2(Historical Ciphers) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-2historical-ciphers---notes/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-2historical-ciphers---notes/index.html</guid><description>Cryptography Lec 2(Historical Ciphers) - Notes tags: Cryptography NTU :::spoiler 資訊安全筆記2 The Vigenere Cipher
-The Vigenere Cipher是一種"polyalphabetic cipher"用一串的 Key 不斷地重複！例如 abcabcabcabc 計算方法： 例如key = d 代表a會變成d所以 w 會變成 Z
-課本上的例子： :::
-:::spoiler Playfair Cipher
-The Playfair Cipher Encryption Algorithm: The Algorithm consists of 2 steps:
-Generate the key Square(5×5): Algorithm to encrypt the plain text: The plaintext is split into pairs of two letters (digraphs). If there is an odd number of letters, a Z is added to the last letter. > For example: PlainText: "instruments" After Split: 'in' 'st' 'ru' 'me' 'nt' 'sz' :::info Note that: Pair cannot be made with same letter. Break the letter in single and add a bogus letter to the previous letter. :::</description></item><item><title>Cryptography Lec 3(Mathematical Background) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-3mathematical-background---notes/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-3mathematical-background---notes/index.html</guid><description>Cryptography Lec 3(Mathematical Background) - Notes tags: Cryptography NTU Background :::spoiler Euclidean Algorithm(輾轉相除法) Given $a$ and $b$ with $a \ge b$ Compute $gcd(a,\ b)=gcd(b,\ a\ mod\ b)$, $gcd(a,\ 0)=a$ For example $$ Compute\ gcd(140,\ 297)\ 297=2140+17 \ 140=817+4 \ 17=44+1 \ 4=44+0 $$ Then we found the $gcd(140,\ 297)=1$
-Another Example: $$ Compute\ gcd(270,\ 192)\ 270=1192+78\ 192=278+36\ 78=236+6\ 36=66+0 $$ Then we found $gcd(270,\ 192)=6$ :::
-:::spoiler Extended Euclidean Algorithm 其實就只是把原本用Euclidean Algorithm算出來的$gdc(a,\ b)$，變成Linear Combination的形式而已 For example above: As we know $gcd(270,\ 192)=6$, then… $$ 6=78-362\ 36=192-278\ 78=270-1192 $$ $$\downarrow$$ $$ \begin{aligned} 6&amp;=78-(192-278)2\ &amp;=78-[192-2(270-1192)]2\ &amp;=78-[1923-2270]2\ &amp;=270-1192-1926+4270\ &amp;=2705-7192 \end{aligned} $$ Then we know the linear combination coefficient of $gcd(270,\ 192)$ is $+5$ and $-7$ :::</description></item><item><title>Cryptography Lec 4(Information Theory) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-4information-theory---notes/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-4information-theory---notes/index.html</guid><description>Cryptography Lec 4(Information Theory) - Notes tags: Cryptography NTU Background :::spoiler Shannon’s Theorem 假設：$(P,\ C,\ K,\ e_k(\cdot),\ d_k(\cdot))$是一個cryptosystem，且$P,\ C,\ K$各自集合的數量都是一樣的 則： $$此cryptosystem具有perfect\ secrecy\ iff\ 每一把key被使用的機率都相同，i.e.{1 \over #K}，且對於每個m\in P和c\in C都有一個獨立的key\ k使得e_k(m)=c $$</description></item><item><title>Cryptography Lec 5(Symmetric Key Cryptography) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-5symmetric-key-cryptography---notes/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-5symmetric-key-cryptography---notes/index.html</guid><description>Cryptography Lec 5(Symmetric Key Cryptography) - Notes tags: Cryptography NTU Background What is MDC and MAC? - 【CN007】数据安全笔记8 —— MDC 和 MAC
-MDC 是一種用於驗證數據完整性的摘要信息，保證數據沒有被更改。 MAC 在 MDC 的基礎上增加了 Key 的使用。同時驗證數據完整性和發送者，保證發送者是特定人並且傳輸過程中數據沒有被更改。MAC 函數又稱為 Key 哈希函數（Keyed Hash Function） :::spoiler About RC4
-第一部分 前置作業
-建立一個 S-box（寫作 S） 決定密鑰 建立密鑰列表 K 第二部分 把 S 打亂
-第三部分 加密
-S = [0,1,2,3,4,5,6,7] K = [1,2,3,1,2,3,1,2] P = [5,3,6,7] j = 0 for i in range(8): j = ( j + S[i] + K[i] ) %8 S[i], S[j] = S[j], S[i] i, j = 0, 0 flag = 0 c_list = [] while flag &lt; len(P): i = (i + 1) % 8 j = (j +S[i]) % 8 S[i], S[j] = S[j], S[i] t = (S[i] + S[j] ) % 8 k = S[t] k = '{:03b}'.format(k) p = '{:03b}'.format(P[flag]) c = '' for n in range(3): c += str(int(k[n])^int(p[n])) c_list.append(int(c, 2)) flag += 1 print(c_list) Drawback RC4在後來被指出他所產生的密鑰並不隨機，存在統計上的偏誤，並且密文有洩漏明文資訊的可能， 因此已不再被建議使用。 :::</description></item><item><title>Cryptography Lec 6(Key Agreement Protocol) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-6key-agreement-protocol---notes/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-6key-agreement-protocol---notes/index.html</guid><description>Cryptography Lec 6(Key Agreement Protocol) - Notes tags: Cryptography NTU Background About HSM(Hardware Security Module) - 什麼是硬體安全模組？
-What is Wide-Mouth Frog?
-The Wide Mouth Frog Protocol is a computer network verification protocol typically used on unsecured networks. It permits people communicating over a network to verify their identity to each other, it also helps in preventing replay attacks, or snooping and offers detection of any alteration and the prevention of any unwanted reading. This can be demonstrated by means of BAN (Burrows–Abadi–Needham) logic. However, to avoid active attacks, some form of message authentication or authenticated encryption must be used.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cryptography on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/cryptography/</link><description>Recent content in Cryptography on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Cryptography and Network Security - Final Project</title><link>https://bernie6401.github.io/security/course/ntu-cns/cryptography-and-network-security---final-project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cns/cryptography-and-network-security---final-project/</guid><description>&lt;h1 id="cryptography-and-network-security---final-project">
+ Cryptography and Network Security - Final Project
+ &lt;a class="anchor" href="#cryptography-and-network-security---final-project">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="threshold-he-description">
+ Threshold HE Description
+ &lt;a class="anchor" href="#threshold-he-description">#&lt;/a>
+&lt;/h2>
+&lt;p>With a designed scheme in place for threshold homomorphic encryption, private keys are divided into various shares among participating individuals who then work together to collaborate on computations without revealing plaintext material.&lt;/p>
+&lt;p>Decryption requires collaboration from at least the minimum requirement, e.g. $(t,n)$ means there&amp;rsquo;re $n$ participate parties but need at least $t$ parties&amp;rsquo; granting to decrypt the secret just like secret sharing scheme proposed by Shamir. Threshold homomorphic&amp;rsquo;s primary objective is secure computation involving confidential information with lesser exposure or accessibility risks for single individuals - due to a shared understanding by several stakeholders.&lt;/p></description></item><item><title>Cryptography Lec 1(Overview) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-1overview---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-1overview---notes/</guid><description>&lt;h1 id="cryptography-lec-1overview---notes">
+ Cryptography Lec 1(Overview) - Notes
+ &lt;a class="anchor" href="#cryptography-lec-1overview---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-cryptography-ntu">
+ tags: &lt;code>Cryptography&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-cryptography-ntu">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Chosen Plaintext Attack(CPA security)
+Attacker只可以拿到plaintext相對應的ciphertext，通常是在同一把key重複使用的情況下&lt;/p>
+&lt;p>Chosen Cipnertext Attack(CCA security)
+Attacker不只可以拿到plaintext相對應的ciphertext，他也可以知道ciphertext相對應的plaintext，進而得知很多額外的資訊&lt;/p>
+&lt;p>Mode of Operation
+e.g. ECB, CBC, CTR, GCM&amp;hellip;(Nonsecure $\to$ Secure)
+選擇甚麼樣的mode和選擇麼加密演算法是完全獨立的事情，也可以每一個block都使用完全不同的加密演算法&lt;/p></description></item><item><title>Cryptography Lec 2(Historical Ciphers) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-2historical-ciphers---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-2historical-ciphers---notes/</guid><description>&lt;h1 id="cryptography-lec-2historical-ciphers---notes">
+ Cryptography Lec 2(Historical Ciphers) - Notes
+ &lt;a class="anchor" href="#cryptography-lec-2historical-ciphers---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-cryptography-ntu">
+ tags: &lt;code>Cryptography&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-cryptography-ntu">#&lt;/a>
+&lt;/h6>
+&lt;p>:::spoiler &lt;a href="https://ithelp.ithome.com.tw/articles/10160406">資訊安全筆記2 The Vigenere Cipher&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>The Vigenere Cipher是一種&amp;quot;polyalphabetic cipher&amp;quot;用一串的 Key 不斷地重複！例如 abcabcabcabc
+計算方法：
+例如key = d 代表a會變成d所以 w 會變成 Z&lt;/p>
+&lt;p>課本上的例子：
+&lt;img src="http://ithelp.ithome.com.tw/upload/images/20141017/201410172334255441370129a1a_resize_600.png" alt="" />
+:::&lt;/p>&lt;/blockquote>
+&lt;p>:::spoiler &lt;a href="https://www.geeksforgeeks.org/playfair-cipher-with-examples/">Playfair Cipher&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>The Playfair Cipher Encryption Algorithm:
+The Algorithm consists of 2 steps:&lt;/p>
+&lt;ol>
+&lt;li>Generate the key Square(5×5):&lt;/li>
+&lt;li>Algorithm to encrypt the plain text: The plaintext is split into pairs of two letters (digraphs). If there is an odd number of letters, a Z is added to the last letter.
+&amp;gt; For example:
+&lt;code>PlainText: &amp;quot;instruments&amp;quot; After Split: 'in' 'st' 'ru' 'me' 'nt' 'sz'&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>:::info
+Note that: Pair cannot be made with same letter. Break the letter in single and add a bogus letter to the previous letter.
+:::&lt;/p></description></item><item><title>Cryptography Lec 3(Mathematical Background) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-3mathematical-background---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-3mathematical-background---notes/</guid><description>&lt;h1 id="cryptography-lec-3mathematical-background---notes">
+ Cryptography Lec 3(Mathematical Background) - Notes
+ &lt;a class="anchor" href="#cryptography-lec-3mathematical-background---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-cryptography-ntu">
+ tags: &lt;code>Cryptography&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-cryptography-ntu">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler &lt;a href="https://youtu.be/qym5D5bhoQs">Euclidean Algorithm(輾轉相除法)&lt;/a>
+Given $a$ and $b$ with $a \ge b$
+Compute $gcd(a,\ b)=gcd(b,\ a\ mod\ b)$, $gcd(a,\ 0)=a$
+For example
+$$
+Compute\ gcd(140,\ 297)\
+297=2&lt;em>140+17 \
+140=8&lt;/em>17+4 \
+17=4&lt;em>4+1 \
+4=4&lt;/em>4+0
+$$
+Then we found the $gcd(140,\ 297)=1$&lt;/p>
+&lt;hr>
+&lt;p>Another Example:
+$$
+Compute\ gcd(270,\ 192)\
+270=1&lt;em>192+78\
+192=2&lt;/em>78+36\
+78=2&lt;em>36+6\
+36=6&lt;/em>6+0
+$$
+Then we found $gcd(270,\ 192)=6$
+:::&lt;/p></description></item><item><title>Cryptography Lec 4(Information Theory) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-4information-theory---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-4information-theory---notes/</guid><description>&lt;h1 id="cryptography-lec-4information-theory---notes">
+ Cryptography Lec 4(Information Theory) - Notes
+ &lt;a class="anchor" href="#cryptography-lec-4information-theory---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-cryptography-ntu">
+ tags: &lt;code>Cryptography&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-cryptography-ntu">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Shannon&amp;rsquo;s Theorem
+假設：$(P,\ C,\ K,\ e_k(\cdot),\ d_k(\cdot))$是一個cryptosystem，且$P,\ C,\ K$各自集合的數量都是一樣的
+則：
+$$此cryptosystem具有perfect\ secrecy\
+iff\
+每一把key被使用的機率都相同，i.e.{1 \over #K}，且對於每個m\in P和c\in C都有一個獨立的key\ k使得e_k(m)=c
+$$&lt;/p></description></item><item><title>Cryptography Lec 5(Symmetric Key Cryptography) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-5symmetric-key-cryptography---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-5symmetric-key-cryptography---notes/</guid><description>&lt;h1 id="cryptography-lec-5symmetric-key-cryptography---notes">
+ Cryptography Lec 5(Symmetric Key Cryptography) - Notes
+ &lt;a class="anchor" href="#cryptography-lec-5symmetric-key-cryptography---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-cryptography-ntu">
+ tags: &lt;code>Cryptography&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-cryptography-ntu">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.csdn.net/qq_42950838/article/details/117536583#Modification_Detection_Code_MDC_9">What is MDC and MAC? - 【CN007】数据安全笔记8 —— MDC 和 MAC&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;h2 id="">
+ MDC 是一種用於驗證數據完整性的摘要信息，保證數據沒有被更改。
+&lt;img src="https://img-blog.csdnimg.cn/20210603231335485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyOTUwODM4,size_16,color_FFFFFF,t_70" alt="" />
+ &lt;a class="anchor" href="#">#&lt;/a>
+&lt;/h2>
+&lt;p>MAC 在 MDC 的基礎上增加了 Key 的使用。同時驗證數據完整性和發送者，保證發送者是特定人並且傳輸過程中數據沒有被更改。MAC 函數又稱為 Key 哈希函數（Keyed Hash Function）
+&lt;img src="https://img-blog.csdnimg.cn/20210603225822420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyOTUwODM4,size_16,color_FFFFFF,t_70" alt="" />&lt;/p>&lt;/blockquote>
+&lt;p>:::spoiler &lt;a href="https://ithelp.ithome.com.tw/articles/10263124">About RC4&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>第一部分 前置作業&lt;/p>
+&lt;ol>
+&lt;li>建立一個 S-box（寫作 S）&lt;/li>
+&lt;li>決定密鑰&lt;/li>
+&lt;li>建立密鑰列表 K&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>第二部分 把 S 打亂&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>第三部分 加密&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>S &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>,&lt;span style="color:#ae81ff">7&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>K &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>P &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>,&lt;span style="color:#ae81ff">7&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>j &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">8&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> j &lt;span style="color:#f92672">=&lt;/span> ( j &lt;span style="color:#f92672">+&lt;/span> S[i] &lt;span style="color:#f92672">+&lt;/span> K[i] ) &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#ae81ff">8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> S[i], S[j] &lt;span style="color:#f92672">=&lt;/span> S[j], S[i]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>i, j &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>flag &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c_list &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span> flag &lt;span style="color:#f92672">&amp;lt;&lt;/span> len(P):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i &lt;span style="color:#f92672">=&lt;/span> (i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> j &lt;span style="color:#f92672">=&lt;/span> (j &lt;span style="color:#f92672">+&lt;/span>S[i]) &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> S[i], S[j] &lt;span style="color:#f92672">=&lt;/span> S[j], S[i]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> t &lt;span style="color:#f92672">=&lt;/span> (S[i] &lt;span style="color:#f92672">+&lt;/span> S[j] ) &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> k &lt;span style="color:#f92672">=&lt;/span> S[t]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> k &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#e6db74">{:03b}&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(k)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#e6db74">{:03b}&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(P[flag])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> n &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">3&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c &lt;span style="color:#f92672">+=&lt;/span> str(int(k[n])&lt;span style="color:#f92672">^&lt;/span>int(p[n]))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c_list&lt;span style="color:#f92672">.&lt;/span>append(int(c, &lt;span style="color:#ae81ff">2&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> flag &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(c_list)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Drawback&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>RC4在後來被指出他所產生的密鑰並不隨機，存在統計上的偏誤，並且密文有洩漏明文資訊的可能，
+因此已不再被建議使用。
+:::&lt;/p></description></item><item><title>Cryptography Lec 6(Key Agreement Protocol) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-6key-agreement-protocol---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-6key-agreement-protocol---notes/</guid><description>&lt;h1 id="cryptography-lec-6key-agreement-protocol---notes">
+ Cryptography Lec 6(Key Agreement Protocol) - Notes
+ &lt;a class="anchor" href="#cryptography-lec-6key-agreement-protocol---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-cryptography-ntu">
+ tags: &lt;code>Cryptography&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-cryptography-ntu">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/2LOnp3Tw-Uo">About HSM(Hardware Security Module) - 什麼是硬體安全模組？&lt;/a>&lt;/p>
+&lt;hr>
+&lt;p>&lt;a href="https://www.geeksforgeeks.org/what-is-wide-mouth-frog/">What is Wide-Mouth Frog?&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>The Wide Mouth Frog Protocol is a computer network verification protocol typically used on unsecured networks. It permits people communicating over a network to verify their identity to each other, it also helps in preventing replay attacks, or snooping and offers detection of any alteration and the prevention of any unwanted reading. This can be demonstrated by means of BAN (Burrows–Abadi–Needham) logic. However, to avoid active attacks, some form of message authentication or authenticated encryption must be used.&lt;/p></description></item></channel></rss>

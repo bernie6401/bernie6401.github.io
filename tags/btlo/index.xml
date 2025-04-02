@@ -1,37 +1,259 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BTLO :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/btlo/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/btlo/index.xml" rel="self" type="application/rss+xml"/><item><title>BTLO - Bruteforce</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---bruteforce/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---bruteforce/index.html</guid><description>BTLO - Bruteforce Challenge: https://blueteamlabs.online/home/challenge/bruteforce-16629bf9a2
-:::spoiler TOC [TOC] :::
-Scenario Can you analyze logs from an attempted RDP bruteforce attack?
-One of our system administrators identified a large number of Audit Failure events in the Windows Security Event log.
-There are a number of different ways to approach the analysis of these logs! Consider the suggested tools, but there are many others out there!
-==Q1== How many Audit Failure events are there? (Format: Count of Events)</description></item><item><title>BTLO - Follina</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---follina/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---follina/index.html</guid><description>BTLO - Follina Challenge: https://blueteamlabs.online/home/challenge/follina-f1a3452f34
-:::spoiler TOC [TOC] ::: :::danger 因為給予的題目是真實的樣本，所以盡量在乾淨的環境或是reliable的sandbox進行測試 :::
-Scenario On a Friday evening when you were in a mood to celebrate your weekend, your team was alerted with a new RCE vulnerability actively being exploited in the wild. You have been tasked with analyzing and researching the sample to collect information for the weekend team.
-Tools VirusTotal Any.Run OSINT
-==Q1== What is the SHA1 hash value of the sample? (Format: SHA1Hash)</description></item><item><title>BTLO - Log Analysis -Compromised WordPress</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---log-analysis--compromised-wordpress/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---log-analysis--compromised-wordpress/index.html</guid><description>BTLO - Log Analysis -Compromised WordPress Challenge: https://blueteamlabs.online/home/challenge/log-analysis-compromised-wordpress-ce000f5b59
-:::spoiler TOC [TOC] :::
-Scenario One of our WordPress sites has been compromised but we’re currently unsure how. The primary hypothesis is that an installed plugin was vulnerable to a remote code execution vulnerability which gave an attacker access to the underlying operating system of the server.
-Tools Grep Sort Uniq Apache Log Analyzer
-==Q1== Identify the URI of the admin login panel that the attacker gained access to (include the token)</description></item><item><title>BTLO - Meta</title><link>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---meta/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---meta/index.html</guid><description>BTLO - Meta Challenge: https://blueteamlabs.online/home/challenge/meta-b976cec9e2
-:::spoiler TOC [TOC] :::
-Scenario The attached images were posted by a criminal on the run, with the caption “I’m roaming free. You will never catch me”. We believe you can assist us in proving him wrong.
-==Q1== What is the camera model?
-Recon 問有關圖片相關的forensics直覺就是利用exiftool幫忙parse其中的內容，之後再慢慢extract出有用的資訊，或是直接丟到chatgpt幫忙extract問題的答案
-Exploit $ sudo apt install exiftool -y $ exiftool uploaded_1.JPG > uploaded1_exiftool.txt $ exiftool uploaded_2.png > uploaded2_exiftool.txt chatgpt紀錄</description></item><item><title>BTLO - Paranoid</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---paranoid/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---paranoid/index.html</guid><description>BTLO - Paranoid Challenge: https://blueteamlabs.online/home/challenge/paranoid-e5e164befb
-:::spoiler TOC [TOC] ::: :::info 此lab大部分是參考1的說明，因為本身第一次接觸aureport，所以不太清楚指令或者是注意的地方 :::
-Tool AUReport: $ sudo apt install auditd Linux CLI
-Background aureport --help usage: aureport [options] -a,--avc Avc report -au,--auth Authentication report --comm Commands run report -c,--config Config change report -cr,--crypto Crypto report --debug Write malformed events that are skipped to stderr --eoe-timeout secs End of Event Timeout -e,--event Event report --escape option Escape output -f,--file File name report --failed only failed events in report -h,--host Remote Host name report --help help -i,--interpret Interpretive mode -if,--input &lt;Input File name> use this file as input --input-logs Use the logs even if stdin is a pipe --integrity Integrity event report -k,--key Key report -l,--login Login report -m,--mods Modification to accounts report -ma,--mac Mandatory Access Control (MAC) report -n,--anomaly aNomaly report -nc,--no-config Don''t include config events --node &lt;node name> Only events from a specific node -p,--pid Pid report -r,--response Response to anomaly report -s,--syscall Syscall report --success only success events in report --summary sorted totals for main object in report -t,--log Log time range report -te,--end [end date] [end time] ending date &amp; time for reports -tm,--terminal TerMinal name report -ts,--start [start date] [start time] starting data &amp; time for reports --tty Report about tty keystrokes -u,--user User name report -v,--version Version --virt Virtualization report -x,--executable eXecutable name report If no report is given, the summary report will be displayed</description></item><item><title>BTLO - Phishing Analysis</title><link>https://bernie6401.github.io/security/practice/btlo/security-operation/btlo---phishing-analysis/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/security-operation/btlo---phishing-analysis/index.html</guid><description>BTLO - Phishing Analysis Challenge: https://blueteamlabs.online/home/challenge/phishing-analysis-f92ef500ce
-:::spoiler TOC [TOC] :::
-Scenario A user has received a phishing email and forwarded it to the SOC. Can you investigate the email and attachment to collect useful artifacts?
-Tools Text Editor Mozilla Thunderbird URL2PNG WHOis
-==Q1== Who is the primary recipient of this email?
-Recon 這一題可以直接用線上工具 - EML Viewer把eml file轉成pdf，不過風險就是有很多的資訊會流失掉，所以比較好的方式就是直接裝Mozilla Thunderbird查看 :::spoiler Flag Flag: kinnar1975@yahoo.co.uk :::</description></item><item><title>BTLO - Secrets</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---secrets/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---secrets/index.html</guid><description>BTLO - Secrets Challenge: https://blueteamlabs.online/home/challenge/secrets-85aa2bb3a9
-:::spoiler TOC [TOC] :::
-Scenario You’re a senior cyber security engineer and during your shift, we have intercepted/noticed a high privilege actions from unknown source that could be identified as malicious. We have got you the ticket that made these actions. You are the one who created the secret for these tickets. Please fix this and submit the low privilege ticket so we can make sure that you deserve this position. Here is the ticket:</description></item><item><title>BTLO - Shiba Insider</title><link>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---shiba-insider/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---shiba-insider/index.html</guid><description>BTLO - Shiba Insider Challenge: https://blueteamlabs.online/home/challenge/shiba-insider-5b48123711
-:::spoiler TOC [TOC] :::
-Tools Wireshark CyberChef Steghide Command Line Exiftool
-==Q1== What is the response message obtained from the PCAP file?
-Recon 這一題首先看到一個pcap file，以及zip file，不過zip file需要密碼才能unzip，所以先看pcap file有沒有相關訊息
-這個流量紀錄非常簡單，就是一個簡單的tcp connection，包含前面的三向交握以及get packet，交換完訊息之後當然就是要finish conversation，所以重點在中間他們交換的訊息 傳回來的訊息說: use your own password，其實也就是該題的答案
-:::spoiler Flag Flag: use your own password :::
-==Q2== What is the password of the ZIP file?
-Recon 呈上題，我們看到他給的提示後，往上看他的Authorization其實是個base64 encode的可疑資訊，decode之後發現是個username:password的資訊→==fakeblue:redforever==</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BTLO on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/btlo/</link><description>Recent content in BTLO on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/btlo/index.xml" rel="self" type="application/rss+xml"/><item><title>BTLO - Bruteforce</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---bruteforce/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---bruteforce/</guid><description>&lt;h1 id="btlo---bruteforce">
+ BTLO - Bruteforce
+ &lt;a class="anchor" href="#btlo---bruteforce">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://blueteamlabs.online/home/challenge/bruteforce-16629bf9a2">https://blueteamlabs.online/home/challenge/bruteforce-16629bf9a2&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Can you analyze logs from an attempted RDP bruteforce attack?&lt;/p>
+&lt;p>One of our system administrators identified a large number of Audit Failure events in the Windows Security Event log.&lt;/p>
+&lt;p>There are a number of different ways to approach the analysis of these logs! Consider the suggested tools, but there are many others out there!&lt;/p>&lt;/blockquote>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>How many Audit Failure events are there? (Format: Count of Events)&lt;/p></description></item><item><title>BTLO - Follina</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---follina/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---follina/</guid><description>&lt;h1 id="btlo---follina">
+ BTLO - Follina
+ &lt;a class="anchor" href="#btlo---follina">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://blueteamlabs.online/home/challenge/follina-f1a3452f34">https://blueteamlabs.online/home/challenge/follina-f1a3452f34&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::
+:::danger
+因為給予的題目是真實的樣本，所以盡量在乾淨的環境或是reliable的sandbox進行測試
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>On a Friday evening when you were in a mood to celebrate your weekend, your team was alerted with a new RCE vulnerability actively being exploited in the wild. You have been tasked with analyzing and researching the sample to collect information for the weekend team.&lt;/p>&lt;/blockquote>
+&lt;h2 id="tools">
+ Tools
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;p>VirusTotal
+Any.Run
+OSINT&lt;/p>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What is the SHA1 hash value of the sample? (Format: SHA1Hash)&lt;/p></description></item><item><title>BTLO - Log Analysis -Compromised WordPress</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---log-analysis--compromised-wordpress/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---log-analysis--compromised-wordpress/</guid><description>&lt;h1 id="btlo---log-analysis--compromised-wordpress">
+ BTLO - Log Analysis -Compromised WordPress
+ &lt;a class="anchor" href="#btlo---log-analysis--compromised-wordpress">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://blueteamlabs.online/home/challenge/log-analysis-compromised-wordpress-ce000f5b59">https://blueteamlabs.online/home/challenge/log-analysis-compromised-wordpress-ce000f5b59&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>One of our WordPress sites has been compromised but we&amp;rsquo;re currently unsure how. The primary hypothesis is that an installed plugin was vulnerable to a remote code execution vulnerability which gave an attacker access to the underlying operating system of the server.&lt;/p>&lt;/blockquote>
+&lt;h2 id="tools">
+ Tools
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;p>Grep
+Sort
+Uniq
+Apache Log Analyzer&lt;/p>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Identify the URI of the admin login panel that the attacker gained access to (include the token)&lt;/p></description></item><item><title>BTLO - Meta</title><link>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---meta/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---meta/</guid><description>&lt;h1 id="btlo---meta">
+ BTLO - Meta
+ &lt;a class="anchor" href="#btlo---meta">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://blueteamlabs.online/home/challenge/meta-b976cec9e2">https://blueteamlabs.online/home/challenge/meta-b976cec9e2&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>The attached images were posted by a criminal on the run, with the caption &amp;ldquo;I&amp;rsquo;m roaming free. You will never catch me&amp;rdquo;. We believe you can assist us in proving him wrong.&lt;/p>&lt;/blockquote>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What is the camera model?&lt;/p>&lt;/blockquote>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>問有關圖片相關的forensics直覺就是利用exiftool幫忙parse其中的內容，之後再慢慢extract出有用的資訊，&lt;del>或是直接丟到chatgpt幫忙extract問題的答案&lt;/del>&lt;/p>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt install exiftool -y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exiftool uploaded_1.JPG &amp;gt; uploaded1_exiftool.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exiftool uploaded_2.png &amp;gt; uploaded2_exiftool.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://chat.openai.com/share/6b38b409-1dec-4245-bb14-6a6fe98160af">chatgpt紀錄&lt;/a>&lt;/p></description></item><item><title>BTLO - Paranoid</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---paranoid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---paranoid/</guid><description>&lt;h1 id="btlo---paranoid">
+ BTLO - Paranoid
+ &lt;a class="anchor" href="#btlo---paranoid">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://blueteamlabs.online/home/challenge/paranoid-e5e164befb">https://blueteamlabs.online/home/challenge/paranoid-e5e164befb&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::
+:::info
+此lab大部分是參考&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>的說明，因為本身第一次接觸aureport，所以不太清楚指令或者是注意的地方
+:::&lt;/p>
+&lt;h2 id="tool">
+ Tool
+ &lt;a class="anchor" href="#tool">#&lt;/a>
+&lt;/h2>
+&lt;p>AUReport: &lt;code>$ sudo apt install auditd&lt;/code>
+Linux CLI&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>aureport --help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>usage: aureport &lt;span style="color:#f92672">[&lt;/span>options&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -a,--avc Avc report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -au,--auth Authentication report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --comm Commands run report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -c,--config Config change report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -cr,--crypto Crypto report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --debug Write malformed events that are skipped to stderr
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --eoe-timeout secs End of Event Timeout
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -e,--event Event report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --escape option Escape output
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -f,--file File name report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --failed only failed events in report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -h,--host Remote Host name report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --help help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -i,--interpret Interpretive mode
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -if,--input &amp;lt;Input File name&amp;gt; use this file as input
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --input-logs Use the logs even &lt;span style="color:#66d9ef">if&lt;/span> stdin is a pipe
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --integrity Integrity event report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -k,--key Key report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -l,--login Login report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -m,--mods Modification to accounts report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -ma,--mac Mandatory Access Control &lt;span style="color:#f92672">(&lt;/span>MAC&lt;span style="color:#f92672">)&lt;/span> report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -n,--anomaly aNomaly report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -nc,--no-config Don&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>t include config events
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --node &amp;lt;node name&amp;gt; Only events from a specific node
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -p,--pid Pid report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -r,--response Response to anomaly report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -s,--syscall Syscall report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --success only success events in report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --summary sorted totals &lt;span style="color:#66d9ef">for&lt;/span> main object in report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -t,--log Log time range report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -te,--end &lt;span style="color:#f92672">[&lt;/span>end date&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">[&lt;/span>end time&lt;span style="color:#f92672">]&lt;/span> ending date &amp;amp; time &lt;span style="color:#66d9ef">for&lt;/span> reports
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -tm,--terminal TerMinal name report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -ts,--start &lt;span style="color:#f92672">[&lt;/span>start date&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">[&lt;/span>start time&lt;span style="color:#f92672">]&lt;/span> starting data &amp;amp; time &lt;span style="color:#66d9ef">for&lt;/span> reports
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --tty Report about tty keystrokes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -u,--user User name report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -v,--version Version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --virt Virtualization report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -x,--executable eXecutable name report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> If no report is given, the summary report will be displayed
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://hackmd.io/_uploads/B17xQgJOa.png" alt="圖片" />&lt;/p></description></item><item><title>BTLO - Phishing Analysis</title><link>https://bernie6401.github.io/security/practice/btlo/security-operation/btlo---phishing-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/security-operation/btlo---phishing-analysis/</guid><description>&lt;h1 id="btlo---phishing-analysis">
+ BTLO - Phishing Analysis
+ &lt;a class="anchor" href="#btlo---phishing-analysis">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://blueteamlabs.online/home/challenge/phishing-analysis-f92ef500ce">https://blueteamlabs.online/home/challenge/phishing-analysis-f92ef500ce&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>A user has received a phishing email and forwarded it to the SOC. Can you investigate the email and attachment to collect useful artifacts?&lt;/p>&lt;/blockquote>
+&lt;h2 id="tools">
+ Tools
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;p>Text Editor
+Mozilla Thunderbird
+URL2PNG
+WHOis&lt;/p>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Who is the primary recipient of this email?&lt;/p>&lt;/blockquote>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>這一題可以直接用&lt;a href="https://products.groupdocs.app/zh-hant/viewer/eml">線上工具 - EML Viewer&lt;/a>把eml file轉成pdf，不過風險就是有很多的資訊會流失掉，所以比較好的方式就是直接裝Mozilla Thunderbird查看
+&lt;img src="https://hackmd.io/_uploads/Bk2fj8ldT.png" alt="圖片" />&lt;/p></description></item><item><title>BTLO - Secrets</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---secrets/</guid><description>&lt;h1 id="btlo---secrets">
+ BTLO - Secrets
+ &lt;a class="anchor" href="#btlo---secrets">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://blueteamlabs.online/home/challenge/secrets-85aa2bb3a9">https://blueteamlabs.online/home/challenge/secrets-85aa2bb3a9&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>You’re a senior cyber security engineer and during your shift, we have intercepted/noticed a high privilege actions from unknown source that could be identified as malicious. We have got you the ticket that made these actions.
+You are the one who created the secret for these tickets. Please fix this and submit the low privilege ticket so we can make sure that you deserve this position.
+Here is the ticket:&lt;/p></description></item><item><title>BTLO - Shiba Insider</title><link>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---shiba-insider/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---shiba-insider/</guid><description>&lt;h1 id="btlo---shiba-insider">
+ BTLO - Shiba Insider
+ &lt;a class="anchor" href="#btlo---shiba-insider">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://blueteamlabs.online/home/challenge/shiba-insider-5b48123711">https://blueteamlabs.online/home/challenge/shiba-insider-5b48123711&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="tools">
+ Tools
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;p>Wireshark
+CyberChef
+Steghide
+Command Line
+Exiftool&lt;/p>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What is the response message obtained from the PCAP file?&lt;/p>&lt;/blockquote>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>這一題首先看到一個pcap file，以及zip file，不過zip file需要密碼才能unzip，所以先看pcap file有沒有相關訊息&lt;/p>
+&lt;p>這個流量紀錄非常簡單，就是一個簡單的tcp connection，包含前面的三向交握以及get packet，交換完訊息之後當然就是要finish conversation，所以重點在中間他們交換的訊息
+&lt;img src="https://hackmd.io/_uploads/S1rZCIpPT.png" alt="圖片" />&lt;/p>
+&lt;p>傳回來的訊息說: &lt;code>use your own password&lt;/code>，其實也就是該題的答案&lt;/p>
+&lt;p>:::spoiler Flag
+Flag: &lt;code>use your own password&lt;/code>
+:::&lt;/p>
+&lt;h2 id="q2">
+ ==Q2==
+ &lt;a class="anchor" href="#q2">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What is the password of the ZIP file?&lt;/p></description></item></channel></rss>

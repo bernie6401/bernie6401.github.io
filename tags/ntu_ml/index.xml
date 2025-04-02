@@ -1,5 +1,255 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU_ML :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntu_ml/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntu_ml/index.xml" rel="self" type="application/rss+xml"/><item><title>Machine Learning Hand-write Homework &amp; Answer</title><link>https://bernie6401.github.io/security/course/ntu-ml/machine-learning-hand-write-homework--answer/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ml/machine-learning-hand-write-homework--answer/index.html</guid><description>Machine Learning Hand-write Homework &amp; Answer tags: NTU_ML Machine Learning HW1 HW1-Ans HW2 HW2-Ans HW3 HW3-Ans HW4 HW4-Ans</description></item><item><title>NTU Machine Learning Final Project Proposal Notes</title><link>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-final-project-proposal-notes-1/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-final-project-proposal-notes-1/index.html</guid><description>NTU Machine Learning Final Project Proposal Notes tags: NTU_ML Machine Learning Paper Used Technique / Ingenuity Suitable / Unsuitable Reason Replace to [1] Models overview3D maps of gray and/or white matter (deep learning models: six layer CNN, ResNet, and Inception V1)vertex wise measurements from the surface-based processing (models BLUP and SVM)Model 1: Best Linear Unbiased Predictor(BLUP)Model 2: Support Vector RegressionModel 3: Six-Layer Convolutional Neural NetworksModel 4: Specialized Six-Layer Convolutional Neural Networks for Younger and Older SubjectsModel 5: ResNetModel 6: Inception V1 Additional ExperimentsDifferent Types of Model Combination: Linear Regression vs. Random ForestCombining Seven (Identical) Convolutional Neural Networks or the Seven Best EpochsInfluence of the Type of Brain Features on Prediction Accuracy Suitable:In this field, it’s very clearly on comparing 6 variety models which can help us to know the implementation what we learned in class.Also can aware of the result between high level model and custom level modelFor linear regression and random forest, they trained the ensemble algorithms on a random subset. They repeated this process 500 times to get a bootstrap estimate of the SE of the MAE. N/A [2] 2D and 3D-CNN on age estimationFor 2D-CNN, we consider the features as an image of size 168×60 (DH×M) ignoring the days as temporal information.However, for 3D-CNN, we consider the features as a 3D volume with temporal information across the days, where each day has 24 hours and an hour is 60 minutes. So to break it down, we represent the features as a three dimensional information of 7×24×60 (D×H×M) minutes. Unsuitable: Though the topic is interesting, the technique content is less then expectation and the . No Idea Yet [3] Model for classification:Random Forest, GLMNet, SVM(including e1071, which is a package of LibSVM in R language, LiblinearR, kernlab, Rgtsvm), and xgboostCalibration Algorithm(i.e. post-processing):logistic regression(GLM function), BRGLM, GLMNetPerformance evaluation: HandTill2001 Suitable:The reason is as the same as [1] which also used various methods and compare it to other papers detailed. N/A Appendix The custom model in [1]</description></item><item><title>NTU Machine Learning Final Project Proposal Notes</title><link>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-final-project-proposal-notes/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-final-project-proposal-notes/index.html</guid><description>NTU Machine Learning Final Project Proposal Notes tags: NTU_ML Machine Learning Deep6mAPred: A CNN and Bi-LSTM-based deep learning method for predicting DNA N6-methyladenosine sites across plant species Introduction &amp; Motivation DNA methylation alters activities of DNA segments without changing the sequence, which thus yields a wide variety of roles in the cellular processes across organisms or tissues DNA methylation is widely distributed both in prokaryote and in eukaryote, but the proportion of methylated residues differs greatly with species DNA methylation is essential for normal development DNA methylation is increasingly attracting attentions from biologists Related works Even Luo et al.[41] - proposed the DNA 6mA as a new epigenetic mark in eukaryotes</description></item><item><title>NTU Machine Learning Homework 1</title><link>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-homework-1/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-homework-1/index.html</guid><description>NTU Machine Learning Homework 1 tags: NTU_ML Machine Learning How to choose features of data After observing the training data visualized image, you can be aware of the relationship between the PM2.5 feature and the others. For instance, the CO image, NO image, NO2 image, and NOx image are much more correlated with PM2.5. I also choose PM10, WS_HR, RAINFALL, RH, WIND_SPEED, and PM2.5 which you can see here I used Zscore normalization to implement in my project and can see as below You can see the different result of using or unusing normalization with the same config. Epoch Regression LR Feats Batch Size Loss Fn. Opti. RMSE Data Filter Norm. Data 200 1st-order 0.015 [1-4, 6-9, 13, 14] 1024 MSE Adam 2.44623 Yes Yes 200 1st-order 0.015 [1-4, 6-9, 13, 14] 1024 MSE Adam 2.44623 Yes No Hyperparameter and Preprocessing All my testing config can be found in Training Result.xlsx I used a filter to choose valid data and set a threshold by observing the visualized figure of all features. My takeaway **(Solved->See the last paragraph)**Using normalization is not like what I thought. Practically speaking, using normalization can gather all data to a specific area that the model can converge much more rapidly. But, in this case, the result is worse and also appear negative value of the PM2.5 result. According to this page, maybe the normalization method is not suitable in my case. **(Solved->See the last paragraph)**I also figured that using the stored weight and bias by my pretrained model is not the right way. I used pickle to store the dump parameters during the training and used the best one as my pretrained parameter. But it’s still not that good enough. The better way in this project to enhance your accuracy is tuning your training config and select good features. After discussing with my friend, I figured out the problem and tried to solve it successfully by fitting numpy random seed. Then, the parameter will truly fix but normalization is still not working to help model converging. Update 2022/12/06 update - Refer to 相關 taught by Dr.李柏堅, I use Pearson Correlation to compute the correlation of each factor and PM2.5 and the result is shown as below. According to the video, |r| &lt; 0.4 is low correlation, 0.4 ≦ |r| &lt; 0.7is medium correlation, and 0.7 ≦ |r| &lt; 1 is high correlation. So, the factor CO, NO, NO2, NOx, PM10, and SO2 are quite suitable as our input data to address this regression problem. Factor AMB_TEMP CO NO NO2 NOx O3 PM10 WS_HR RAINFALL RH SO2 WD_HR WIND_DIREC WIND_SPEED r -0.176147465 0.659147668 0.227219147 0.554273687 0.51365014 0.233923944 0.818868214 -0.102047405 -0.060801221 -0.081576429 0.361333416 0.171932397 0.137658351 -0.10119696</description></item><item><title>NTU Machine Learning Homework 2</title><link>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-homework-2/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-homework-2/index.html</guid><description>NTU Machine Learning Homework 2 tags: NTU_ML Machine Learning :::spoiler Click to open TOC [TOC] :::
-Objective We’d like to classify human-being emotion by using CNN model that self-construct or others ready-made such as ResNet or VGG model.
-Data We used emotional dataset from FER2013 that were preprocessed by lecture TA.
-Models Originial
-self.conv_0 = nn.Sequential( nn.Conv2d(1, 64, kernel_size=3, padding=1), nn.BatchNorm2d(64, eps=1e-05, affine=True), nn.LeakyReLU(negative_slope=0.05), nn.MaxPool2d((2, 2)), ) I’ve used 3-level model for training but not have good result</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU_ML on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntu_ml/</link><description>Recent content in NTU_ML on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntu_ml/index.xml" rel="self" type="application/rss+xml"/><item><title>Machine Learning Hand-write Homework &amp; Answer</title><link>https://bernie6401.github.io/security/course/ntu-ml/machine-learning-hand-write-homework--answer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ml/machine-learning-hand-write-homework--answer/</guid><description>&lt;h1 id="machine-learning-hand-write-homework--answer">
+ Machine Learning Hand-write Homework &amp;amp; Answer
+ &lt;a class="anchor" href="#machine-learning-hand-write-homework--answer">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ml-machine-learning">
+ tags: &lt;code>NTU_ML&lt;/code> &lt;code>Machine Learning&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ml-machine-learning">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>&lt;a href="https://hackmd.io/@lH2AB7kCSAS3NPw2FffsGg/Sk1n8xPWo">HW1&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hackmd.io/@lH2AB7kCSAS3NPw2FffsGg/ByMEkRdVi">HW1-Ans&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hackmd.io/@lH2AB7kCSAS3NPw2FffsGg/r1otQp7Gi">HW2&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hackmd.io/@lH2AB7kCSAS3NPw2FffsGg/H1K9vmYVi">HW2-Ans&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hackmd.io/@lH2AB7kCSAS3NPw2FffsGg/Hy3kRxTMs">HW3&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hackmd.io/@lH2AB7kCSAS3NPw2FffsGg/BJod1Djro">HW3-Ans&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hackmd.io/@lH2AB7kCSAS3NPw2FffsGg/H1ucYOpNo">HW4&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hackmd.io/@lH2AB7kCSAS3NPw2FffsGg/H1P8BI2Dj">HW4-Ans&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>NTU Machine Learning Final Project Proposal Notes</title><link>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-final-project-proposal-notes-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-final-project-proposal-notes-1/</guid><description>&lt;h1 id="ntu-machine-learning-final-project-proposal-notes">
+ NTU Machine Learning Final Project Proposal Notes
+ &lt;a class="anchor" href="#ntu-machine-learning-final-project-proposal-notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ml-machine-learning">
+ tags: &lt;code>NTU_ML&lt;/code> &lt;code>Machine Learning&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ml-machine-learning">#&lt;/a>
+&lt;/h6>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">Paper&lt;/th>
+ &lt;th style="text-align: left">Used Technique / Ingenuity&lt;/th>
+ &lt;th style="text-align: left">Suitable / Unsuitable Reason&lt;/th>
+ &lt;th style="text-align: center">Replace to&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">[1]&lt;/td>
+ &lt;td style="text-align: left">Models overview&lt;br>&lt;li>3D maps of gray and/or white matter (deep learning models: six layer CNN, ResNet, and Inception V1)&lt;/li>&lt;li>vertex wise measurements from the surface-based processing (models BLUP and SVM)&lt;/li>&lt;br />Model 1: Best Linear Unbiased Predictor(BLUP)&lt;/br>Model 2: Support Vector Regression&lt;/br>Model 3: Six-Layer Convolutional Neural Networks&lt;/br>Model 4: Specialized Six-Layer Convolutional Neural Networks for Younger and Older Subjects&lt;/br>Model 5: ResNet&lt;/br>Model 6: Inception V1&lt;/br>&lt;/br> Additional Experiments&lt;li>Different Types of Model Combination: Linear Regression vs. Random Forest&lt;/li>&lt;li>Combining Seven (Identical) Convolutional Neural Networks or the Seven Best Epochs&lt;/li>&lt;li>Influence of the Type of Brain Features on Prediction Accuracy&lt;/li>&lt;/td>
+ &lt;td style="text-align: left">Suitable:&lt;/br>In this field, it&amp;rsquo;s very clearly on comparing 6 variety models which can help us to know the implementation what we learned in class.&lt;/br>Also can aware of the result between high level model and custom level model&lt;/br>&lt;/br>For linear regression and random forest, they trained the &lt;strong>ensemble algorithms&lt;/strong> on a random subset. They repeated this process 500 times to get a bootstrap estimate of the SE of the MAE.&lt;/td>
+ &lt;td style="text-align: center">N/A&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">[2]&lt;/td>
+ &lt;td style="text-align: left">2D and 3D-CNN on age estimation&lt;li>For 2D-CNN, we consider the features as an image of size 168×60 (DH×M) ignoring the days as temporal information.&lt;/li>&lt;li>However, for 3D-CNN, we consider the features as a 3D volume with temporal information across the days, where each day has 24 hours and an hour is 60 minutes. So to break it down, we represent the features as a three dimensional information of 7×24×60 (D×H×M) minutes.&lt;/li>&lt;/td>
+ &lt;td style="text-align: left">Unsuitable:&lt;/br> Though the topic is interesting, the technique content is less then expectation and the .&lt;/td>
+ &lt;td style="text-align: center">No Idea Yet&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">[3]&lt;/td>
+ &lt;td style="text-align: left">Model for classification:&lt;/br>Random Forest, GLMNet, SVM(including e1071, which is a package of LibSVM in R language, LiblinearR, kernlab, Rgtsvm), and xgboost&lt;/br>&lt;/br>Calibration Algorithm(i.e. post-processing):logistic regression(GLM function), BRGLM, GLMNet&lt;/br>&lt;/br>Performance evaluation: HandTill2001&lt;/td>
+ &lt;td style="text-align: left">Suitable:&lt;/br>The reason is as the same as [1] which also used various methods and compare it to other papers detailed.&lt;/td>
+ &lt;td style="text-align: center">N/A&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="appendix">
+ Appendix
+ &lt;a class="anchor" href="#appendix">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>The custom model in &lt;font color=Red>[1]&lt;/font>
+&lt;img src="https://imgur.com/JXPDeLS.png" alt="proposed six-layer CNN" />&lt;/p></description></item><item><title>NTU Machine Learning Final Project Proposal Notes</title><link>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-final-project-proposal-notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-final-project-proposal-notes/</guid><description>&lt;h1 id="ntu-machine-learning-final-project-proposal-notes">
+ NTU Machine Learning Final Project Proposal Notes
+ &lt;a class="anchor" href="#ntu-machine-learning-final-project-proposal-notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ml-machine-learning">
+ tags: &lt;code>NTU_ML&lt;/code> &lt;code>Machine Learning&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ml-machine-learning">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="deep6mapred-a-cnn-and-bi-lstm-based-deep-learning-method-for-predicting-dna-n6-methyladenosine-sites-across-plant-species">
+ Deep6mAPred: A CNN and Bi-LSTM-based deep learning method for predicting DNA N6-methyladenosine sites across plant species
+ &lt;a class="anchor" href="#deep6mapred-a-cnn-and-bi-lstm-based-deep-learning-method-for-predicting-dna-n6-methyladenosine-sites-across-plant-species">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="introduction--motivation">
+ Introduction &amp;amp; Motivation
+ &lt;a class="anchor" href="#introduction--motivation">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>DNA methylation alters activities of DNA segments without changing the sequence, which thus yields a wide variety of roles in the cellular processes across organisms or tissues&lt;/li>
+&lt;li>DNA methylation is widely distributed both in prokaryote and in eukaryote, but the proportion of methylated residues differs greatly with species&lt;/li>
+&lt;li>DNA methylation is essential for normal development&lt;/li>
+&lt;li>DNA methylation is increasingly attracting attentions from biologists&lt;/li>
+&lt;/ul>
+&lt;h3 id="related-works">
+ Related works
+ &lt;a class="anchor" href="#related-works">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Even Luo et al.[41] - proposed the DNA 6mA as a new epigenetic mark in eukaryotes&lt;/p></description></item><item><title>NTU Machine Learning Homework 1</title><link>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-homework-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-homework-1/</guid><description>&lt;h1 id="ntu-machine-learning-homework-1">
+ NTU Machine Learning Homework 1
+ &lt;a class="anchor" href="#ntu-machine-learning-homework-1">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ml-machine-learning">
+ tags: &lt;code>NTU_ML&lt;/code> &lt;code>Machine Learning&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ml-machine-learning">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="how-to-choose-features-of-data">
+ How to choose features of data
+ &lt;a class="anchor" href="#how-to-choose-features-of-data">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>After observing the training data visualized image, you can be aware of the relationship between the PM2.5 feature and the others.&lt;/li>
+&lt;li>For instance, the CO image, NO image, NO2 image, and NOx image are much more correlated with PM2.5.
+&lt;img src="https://imgur.com/73t0b9Q.png" alt="co" />&lt;img src="https://imgur.com/tSGtNe9.png" alt="no" />&lt;img src="https://imgur.com/IobYzpN.png" alt="no2" />&lt;img src="https://imgur.com/vyz8COx.png" alt="nox" />&lt;img src="https://imgur.com/acbWSvK.png" alt="pm2.5" />&lt;/li>
+&lt;li>I also choose PM10, WS_HR, RAINFALL, RH, WIND_SPEED, and PM2.5 which you can see &lt;a href="https://bernie6401.github.io/HW1/Programming/train_data_img/">here&lt;/a>&lt;/li>
+&lt;li>I used Zscore normalization to implement in my project and can see as below&lt;img src="https://imgur.com/BTmhmRm.png" alt="zscore_CO" />&lt;img src="https://imgur.com/7mz2uHW.png" alt="zscore_NO" />&lt;img src="https://imgur.com/NiF1vxl.png" alt="zscore_NO2" />&lt;img src="https://imgur.com/gW6xij3.png" alt="zscore_NOx" />&lt;/li>
+&lt;li>You can see the different result of using or unusing normalization with the same config.
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">Epoch&lt;/th>
+ &lt;th style="text-align: center">Regression&lt;/th>
+ &lt;th>LR&lt;/th>
+ &lt;th style="text-align: center">Feats&lt;/th>
+ &lt;th style="text-align: center">Batch Size&lt;/th>
+ &lt;th style="text-align: center">Loss Fn.&lt;/th>
+ &lt;th style="text-align: center">Opti.&lt;/th>
+ &lt;th style="text-align: center">RMSE&lt;/th>
+ &lt;th style="text-align: center">Data Filter&lt;/th>
+ &lt;th style="text-align: center">Norm. Data&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">200&lt;/td>
+ &lt;td style="text-align: center">1st-order&lt;/td>
+ &lt;td>0.015&lt;/td>
+ &lt;td style="text-align: center">[1-4, 6-9, 13, 14]&lt;/td>
+ &lt;td style="text-align: center">1024&lt;/td>
+ &lt;td style="text-align: center">MSE&lt;/td>
+ &lt;td style="text-align: center">Adam&lt;/td>
+ &lt;td style="text-align: center">2.44623&lt;/td>
+ &lt;td style="text-align: center">Yes&lt;/td>
+ &lt;td style="text-align: center">Yes&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">200&lt;/td>
+ &lt;td style="text-align: center">1st-order&lt;/td>
+ &lt;td>0.015&lt;/td>
+ &lt;td style="text-align: center">[1-4, 6-9, 13, 14]&lt;/td>
+ &lt;td style="text-align: center">1024&lt;/td>
+ &lt;td style="text-align: center">MSE&lt;/td>
+ &lt;td style="text-align: center">Adam&lt;/td>
+ &lt;td style="text-align: center">2.44623&lt;/td>
+ &lt;td style="text-align: center">Yes&lt;/td>
+ &lt;td style="text-align: center">No&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="hyperparameter-and-preprocessing">
+ Hyperparameter and Preprocessing
+ &lt;a class="anchor" href="#hyperparameter-and-preprocessing">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>All my testing config can be found in Training Result.xlsx&lt;/li>
+&lt;li>I used a filter to choose valid data and set a threshold by observing the visualized figure of all features.&lt;/li>
+&lt;/ul>
+&lt;h2 id="my-takeaway">
+ My takeaway
+ &lt;a class="anchor" href="#my-takeaway">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>**(Solved-&amp;gt;See the last paragraph)**Using normalization is not like what I thought. Practically speaking, using normalization can gather all data to a specific area that the model can converge much more rapidly. But, in this case, the result is worse and also appear negative value of the PM2.5 result. According to &lt;a href="https://blog.csdn.net/u010947534/article/details/86632819?spm=1001.2014.3001.5506">this page&lt;/a>, maybe the normalization method is not suitable in my case.&lt;/li>
+&lt;li>**(Solved-&amp;gt;See the last paragraph)**I also figured that using the stored weight and bias by my pretrained model is not the right way. I used pickle to store the dump parameters during the training and used the best one as my pretrained parameter. But it&amp;rsquo;s still not that good enough.&lt;/li>
+&lt;li>The better way in this project to enhance your accuracy is tuning your training config and select good features.&lt;/li>
+&lt;li>After discussing with my friend, I figured out the problem and tried to solve it successfully by fitting numpy random seed. Then, the parameter will truly fix but normalization &lt;strong>is still not working&lt;/strong> to help model converging.&lt;/li>
+&lt;/ul>
+&lt;h2 id="update">
+ Update
+ &lt;a class="anchor" href="#update">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>2022/12/06 update - Refer to &lt;a href="https://www.youtube.com/watch?v=z-21v0EoFh4&amp;amp;ab_channel=CUSTCourses">相關&lt;/a> taught by Dr.李柏堅, I use &lt;code>Pearson Correlation&lt;/code> to compute the correlation of each factor and PM2.5 and the result is shown as below. According to the &lt;a href="https://www.youtube.com/watch?v=z-21v0EoFh4&amp;amp;ab_channel=CUSTCourses">video&lt;/a>, &lt;code>|r| &amp;lt; 0.4&lt;/code> is low correlation, &lt;code>0.4 ≦ |r| &amp;lt; 0.7&lt;/code>is medium correlation, and &lt;code>0.7 ≦ |r| &amp;lt; 1&lt;/code> is high correlation. So, the factor &lt;strong>&lt;font color=#FF0000>&lt;/strong>&lt;code>CO&lt;/code>, &lt;code>NO&lt;/code>, &lt;code>NO2&lt;/code>, &lt;code>NOx&lt;/code>, &lt;code>PM10&lt;/code>, and &lt;code>SO2&lt;/code>&lt;strong>&lt;/font>&lt;/strong> are quite suitable as our input data to address this regression problem.
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">Factor&lt;/th>
+ &lt;th style="text-align: center">AMB_TEMP&lt;/th>
+ &lt;th style="text-align: center">CO&lt;/th>
+ &lt;th style="text-align: center">NO&lt;/th>
+ &lt;th style="text-align: center">NO2&lt;/th>
+ &lt;th style="text-align: center">NOx&lt;/th>
+ &lt;th style="text-align: left">O3&lt;/th>
+ &lt;th style="text-align: left">PM10&lt;/th>
+ &lt;th style="text-align: center">WS_HR&lt;/th>
+ &lt;th style="text-align: center">RAINFALL&lt;/th>
+ &lt;th style="text-align: center">RH&lt;/th>
+ &lt;th style="text-align: center">SO2&lt;/th>
+ &lt;th style="text-align: center">WD_HR&lt;/th>
+ &lt;th style="text-align: center">WIND_DIREC&lt;/th>
+ &lt;th style="text-align: center">WIND_SPEED&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">r&lt;/td>
+ &lt;td style="text-align: center">-0.176147465&lt;/td>
+ &lt;td style="text-align: center">0.659147668&lt;/td>
+ &lt;td style="text-align: center">0.227219147&lt;/td>
+ &lt;td style="text-align: center">0.554273687&lt;/td>
+ &lt;td style="text-align: center">0.51365014&lt;/td>
+ &lt;td style="text-align: left">0.233923944&lt;/td>
+ &lt;td style="text-align: left">0.818868214&lt;/td>
+ &lt;td style="text-align: center">-0.102047405&lt;/td>
+ &lt;td style="text-align: center">-0.060801221&lt;/td>
+ &lt;td style="text-align: center">-0.081576429&lt;/td>
+ &lt;td style="text-align: center">0.361333416&lt;/td>
+ &lt;td style="text-align: center">0.171932397&lt;/td>
+ &lt;td style="text-align: center">0.137658351&lt;/td>
+ &lt;td style="text-align: center">-0.10119696&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;/li>
+&lt;/ul></description></item><item><title>NTU Machine Learning Homework 2</title><link>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-homework-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ml/ntu-machine-learning-homework-2/</guid><description>&lt;h1 id="ntu-machine-learning-homework-2">
+ NTU Machine Learning Homework 2
+ &lt;a class="anchor" href="#ntu-machine-learning-homework-2">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ml-machine-learning">
+ tags: &lt;code>NTU_ML&lt;/code> &lt;code>Machine Learning&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ml-machine-learning">#&lt;/a>
+&lt;/h6>
+&lt;p>:::spoiler Click to open TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="objective">
+ Objective
+ &lt;a class="anchor" href="#objective">#&lt;/a>
+&lt;/h2>
+&lt;p>We&amp;rsquo;d like to classify human-being emotion by using CNN model that self-construct or others ready-made such as ResNet or VGG model.&lt;/p>
+&lt;h2 id="data">
+ Data
+ &lt;a class="anchor" href="#data">#&lt;/a>
+&lt;/h2>
+&lt;p>We used emotional dataset from &lt;a href="https://www.kaggle.com/datasets/msambare/fer2013?datasetId=786787&amp;amp;sortBy=dateRun&amp;amp;tab=profile">FER2013&lt;/a> that were preprocessed by lecture TA.&lt;/p>
+&lt;h2 id="models">
+ Models
+ &lt;a class="anchor" href="#models">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Originial&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>self&lt;span style="color:#f92672">.&lt;/span>conv_0 &lt;span style="color:#f92672">=&lt;/span> nn&lt;span style="color:#f92672">.&lt;/span>Sequential(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nn&lt;span style="color:#f92672">.&lt;/span>Conv2d(&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">64&lt;/span>, kernel_size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>, padding&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nn&lt;span style="color:#f92672">.&lt;/span>BatchNorm2d(&lt;span style="color:#ae81ff">64&lt;/span>, eps&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e-05&lt;/span>, affine&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">True&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nn&lt;span style="color:#f92672">.&lt;/span>LeakyReLU(negative_slope&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.05&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nn&lt;span style="color:#f92672">.&lt;/span>MaxPool2d((&lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>I&amp;rsquo;ve used 3-level model for training but not have good result&lt;/p></description></item></channel></rss>

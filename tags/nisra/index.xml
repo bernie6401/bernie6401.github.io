@@ -1,17 +1,278 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NISRA :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/nisra/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/nisra/index.xml" rel="self" type="application/rss+xml"/><item><title>Background</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra---%E7%9C%8B%E4%B8%8D%E8%A6%8B%E7%9A%84%E5%9C%B0%E6%96%B9/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra---%E7%9C%8B%E4%B8%8D%E8%A6%8B%E7%9A%84%E5%9C%B0%E6%96%B9/index.html</guid><description>NISRA - 看不見的地方 Background advanced-potion-making:two::+1:
-Recon 這題出的不錯，我用了所有方法都沒看到甚麼奇怪的東西，除了pngcheck
-$ pngcheck flag.png flag.png CRC error in chunk IHDR (computed 68ff0ded, expected 8c5880da) ERROR: flag.png 代表檔案可能有一些問題 原圖： Exploit - Recover PNG File 參考UP主的腳本，可以直接寫出長寬
-import zlib import struct import sys filename = sys.argv[1] with open(filename, 'rb') as f: all_b = f.read() crc32key = int(all_b[29:33].hex(),16) data = bytearray(all_b[12:29]) n = 4095 for w in range(n): width = bytearray(struct.pack('>i', w)) for h in range(n): height = bytearray(struct.pack('>i', h)) for x in range(4): data[x+4] = width[x] data[x+8] = height[x] crc32result = zlib.crc32(data) if crc32result == crc32key: print("寬為：{}(hex), {}(int)".format(width.hex(), int(width.hex(), 16))) print("高為：{}(hex), {}(int)".format(height.hex(), int(height.hex(), 16))) exit(0) $ python exp.py flag.png 寬為：00000258(hex), 600(int) 高為：00000148(hex), 328(int) 可以看得出來高的數值不一樣</description></item><item><title>NISRA - different places</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---different-places/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---different-places/index.html</guid><description>NISRA - different places tags: NISRA CTF Web Challenge: different places
-Exploit - Integrate Fragments Flags View Page Sources base64 decode dXNlcm5hbWU6YWRtaW5fcGFzc3dvcmQ6bmlzcmE= $\to$ username:admin_password:nisra
-Observe the form It uses get method to fetch the parameters. So we can peek login.php first. Then we could use the username and password we got at previous step. Payload: view-source:http://chall2.nisra.net:41025/login.php?username=admin&amp;password=nisra Then we got the last fragment flag.</description></item><item><title>NISRA - Hidden?</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra---hidden_/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra---hidden_/index.html</guid><description>NISRA - Hidden? Background advanced-potion-making:two::+1:
-Recon 這一題也是蠻巧妙的，用pngcheck可以看到檔案有問題
-$ pngcheck haha.png haha.png additional data after IEND chunk ERROR: haha.png Exploit - Recover + Unzip Recover PNG File 先找文件尾（00 00 00 00 49 45 4E 44 AE 42 60 82） 發現後續還有其他bytes，用list signature追查後面是甚麼， 發現應該是個zip file，所以獨立出來後解壓縮
-Unzip 解壓縮後有一些文件，從裡面撈了一下flag就在./word/document.xml中 Flag: NISRA{Oop5!_yoU_fOuNd_1t}</description></item><item><title>NISRA - MD5_1</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_1/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_1/index.html</guid><description>NISRA - MD5_1 tags: NISRA CTF Web Challenge: MD5_1
-Source code &lt;?php highlight_file(__FILE__); $FROM_INCLUDE = true; include("flag.php"); $msg = ""; if (isset($_GET['user']) &amp;&amp; isset($_GET['password'])) { $user = $_GET['user']; $password = $_GET['password']; $check = "QNKCDZO"; // the md5 of "QNKCDZO" is 0e830400451993494058024219903391 if ($user == "admin" &amp;&amp; $password != $check &amp;&amp; md5($password) == md5($check)) { $msg = "Flag: ".$flag; } else { $msg = "Keep trying!"; } } echo $msg; ?> Exploit - MD5 Collision Payload: http://chall2.nisra.net:41022/?user=admin&amp;password=240610708 :::spoiler flag Flag: NISRA{PhP_is_th3_BeST_laNgUA9E} :::</description></item><item><title>NISRA - MD5_2</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_2/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_2/index.html</guid><description>NISRA - MD5_2 Exploit Payload: curl http://chall2.nisra.net:41023/ -H "Content-Type: application/x-www-form-urlencoded" -X POST -d "user=240610708&amp;password=QNKCDZO" Flag: NISRA{S3CuR17y_1ssuEs_Of_pHP_@ND_Md5}
-Reference md5(‘240610708’) == md5(‘QNKCDZO’)</description></item><item><title>NISRA 2023 Enlightened - Jack的flag</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---jack%E7%9A%84flag/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---jack%E7%9A%84flag/index.html</guid><description>NISRA 2023 Enlightened - Jack的flag Background Microsoft Word Forensics
-Recon 這是第一次寫到有關word的隱寫，蠻特別的就紀錄一下，但看得出來應該是考古古古古古古題了ㄅ
-Exploit 有兩種方法
-強制解壓縮 直接把副檔名改成.zip，然後用解壓縮軟體解壓縮，接著就可以在Final-Jack\word\document.xml中可以找到flag 把隱藏設定打開 直接在word中的檔案/選項/顯示/隱藏文字的方塊打勾，就可以直接在下面看到flag了 Flag: NISRA{Word'$_h1Dden_7eXT_reVEaLed}</description></item><item><title>NISRA 2023 Enlightened - Magic Function</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---magic-function/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---magic-function/index.html</guid><description>NISRA 2023 Enlightened - Magic Function Background Magic Function of Python
-Source Code class Test(): def __init__(self, email='test@nisra.net'): self.info = 'test' self.email = email class Secret(): flag = open("./NISRA-Enlightened-2023/flag.txt", "r").read().strip() if __name__ == '__main__': email = input('Your email: ') if email: test = Test(email) else: test = Test() msg = ('this is for {test.info}, please contact ' + email + '.').format(test=test) print(msg) Recon 這一題真的很有趣，但也是算通靈的奇淫怪招，仔細看了一下直覺應該是跟format string有關係，比賽的時候的確有想到，但我當時想的payload有點偏掉了，當時的payload是: {test.email}.format(test=Test(Secret().flag))，也就是先傳入Secret().flag給Test這個class，然後再利用format傳入給
-Exploit $ echo "{test.__init__.__globals__[Secret].flag}" | nc chall2.nisra.net 43001 Your email: this is for test, please contact NISRA{Ma9ic_pY3h0n_!!???}. Flag: NISRA{Ma9ic_pY3h0n_!!???}</description></item><item><title>NISRA 2023 Enlightened - Pixel</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---pixel/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---pixel/index.html</guid><description>NISRA 2023 Enlightened - Pixel Source Code Recon 這一題真的很難，應該說有想過，不過很麻煩就是了，每一個色塊都有一組RGB的數值，然後只要把它轉換成ASCII，再把每一個字元串起來，就會是一組base64的code，轉換之後就拿到一組ciphertext，接著就丟到cyberchef看看一般的工具可不可以解，最後是用rot13解出來，除了最一開始的地方需要一點通靈之外，其他都很簡單，但…寫script頗麻煩
-Exploit from PIL import Image from base64 import b64decode img = Image.open("./NISRA-Enlightened-2023/Misc/Final-Pixel.png") pixels = [] for row in range(8):	# 8 rows for col in range(8):	# 8 columns r, g, b = img.getpixel((row * 64 + 1, col * 64 + 1))	# each grid: 64 x 64 if r == 255 and g == 255 and b == 255: break else: pixels.append((chr(r), chr(g), chr(b))) if r == 255 and g == 255 and b == 255: break flag = "" print(pixels) for r, g, b in pixels: flag += r + g + b print(flag) print(b64decode(flag.encode())) $ python exp.py [('c', '3', 'l'), ('u', 'd', 'D'), ('o', 'g', 'Q'), ('V', 'Z', 'G'), ('R', 'U', '5'), ('7', 'T', 'l'), ('9', 'l', 'T'), ('m', 'Y', '3'), ('U', 'k', 'V'), ('f', 'N', 'k'), ('U', '0', 'Q'), ('1', 'U', 'x'), ('U', 'F', '9'), ('l', 'U', 'm'), ('N', 'F', 'U'), ('m', 'Z', 'S'), ('Q', 'W', 'c'), ('k', 'X', '0'), ('5', 'f', 'R'), ('2', 'o', 'w'), ('L', 'V', 'E'), ('x', 'W', 'j'), ('N', 'h', 'Z'), ('j', 'E', 'w'), ('Y', 'T', 'Q'), ('x', 'X', '2'), ('N', '2', 'c'), ('G', 'd', 'o'), ('R', 'X', 'J'), ('f', 'T', 'm'), ('Z', 'f', 'N'), ('F', '9', 'l'), ('U', 'n', 'B'), ('H', 'b', 'm'), ('E', '2', 'S'), ('D', 'F', 'O'), ('R', 'V', '9'), ('a', 'b', 'j'), ('d', 'l', 'd'), ('m', 't', 'f'), ('Y', 'm', 'V'), ('f', 'd', 'G'), ('V', 'W', 'c'), ('V', '9', 'i'), ('U', '1', '9'), ('G', 'Z', 'E'), ('h', 'A', 'Z'), ('V', 'J', 'f'), ('Q', '1', 'Z'), ('L', 'c', 'n'), ('l', 'm', 'f'), ('Q', '=', '=')] c3ludDogQVZGRU57Tl9lTmY3UkVfNkU0Q1UxUF9lUmNFUmZSQWckX05fR2owLVExWjNhZjEwYTQxX2N2cGdoRXJfTmZfNF9lUnBHbmE2SDFORV9abjdldmtfYmVfdGVWcV9iU19GZEhAZVJfQ1ZLcnlmfQ== b'synt: AVFEN{N_eNf7RE_6E4CU1P_eRcERfRAg$_N_Gj0-Q1Z3af10a41_cvpghEr_Nf_4_eRpGna6H1NE_Zn7evk_be_teVq_bS_FdH@eR_CVKryf}' Flag: NISRA{A_rAs7ER_6R4PH1C_rEpREsENt$_A_Tw0-D1M3ns10n41_pictuRe_As_4_rEcTan6U1AR_Ma7rix_or_grId_oF_SqU@rE_PIXels}</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NISRA on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/nisra/</link><description>Recent content in NISRA on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/nisra/index.xml" rel="self" type="application/rss+xml"/><item><title>Background</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra---%E7%9C%8B%E4%B8%8D%E8%A6%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra---%E7%9C%8B%E4%B8%8D%E8%A6%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</guid><description>&lt;h1 id="nisra---看不見的地方">
+ NISRA - 看不見的地方
+ &lt;a class="anchor" href="#nisra---%e7%9c%8b%e4%b8%8d%e8%a6%8b%e7%9a%84%e5%9c%b0%e6%96%b9">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/uwox6r5hQ6St_8G-4mv1_g">advanced-potion-making:two::+1:&lt;/a>&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這題出的不錯，我用了所有方法都沒看到甚麼奇怪的東西，除了pngcheck&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ pngcheck flag.png
+flag.png CRC error in chunk IHDR (computed 68ff0ded, expected 8c5880da)
+ERROR: flag.png 
+&lt;/code>&lt;/pre>&lt;p>代表檔案可能有一些問題
+原圖：
+&lt;img src="https://hackmd.io/_uploads/SkwQ2IPu3.png" alt="" />&lt;/p>
+&lt;h2 id="exploit---recover-png-file">
+ Exploit - Recover PNG File
+ &lt;a class="anchor" href="#exploit---recover-png-file">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>參考&lt;a href="https://zhuanlan.zhihu.com/p/599657891">UP主的腳本&lt;/a>，可以直接寫出長寬&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python!" data-lang="python!">import zlib
+import struct
+import sys
+
+filename = sys.argv[1]
+with open(filename, &amp;#39;rb&amp;#39;) as f:
+ all_b = f.read()
+ crc32key = int(all_b[29:33].hex(),16)
+ data = bytearray(all_b[12:29])
+ n = 4095
+ for w in range(n): 
+ width = bytearray(struct.pack(&amp;#39;&amp;gt;i&amp;#39;, w))
+ for h in range(n):
+ height = bytearray(struct.pack(&amp;#39;&amp;gt;i&amp;#39;, h))
+ for x in range(4):
+ data[x+4] = width[x]
+ data[x+8] = height[x]
+ crc32result = zlib.crc32(data)
+ if crc32result == crc32key:
+ print(&amp;#34;寬為：{}(hex), {}(int)&amp;#34;.format(width.hex(), int(width.hex(), 16)))
+ print(&amp;#34;高為：{}(hex), {}(int)&amp;#34;.format(height.hex(), int(height.hex(), 16)))
+ exit(0)
+&lt;/code>&lt;/pre>&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ python exp.py flag.png
+寬為：00000258(hex), 600(int)
+高為：00000148(hex), 328(int)
+&lt;/code>&lt;/pre>&lt;p>&lt;img src="https://hackmd.io/_uploads/rkLuiLwuh.png" alt="" />
+可以看得出來高的數值不一樣&lt;/p></description></item><item><title>NISRA - different places</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---different-places/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---different-places/</guid><description>&lt;h1 id="nisra---different-places">
+ NISRA - different places
+ &lt;a class="anchor" href="#nisra---different-places">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-nisra-ctf-web">
+ tags: &lt;code>NISRA&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-nisra-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://chall2.nisra.net:41025/">different places&lt;/a>&lt;/p>
+&lt;h2 id="exploit---integrate-fragments-flags">
+ Exploit - Integrate Fragments Flags
+ &lt;a class="anchor" href="#exploit---integrate-fragments-flags">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>View Page Sources
+&lt;img src="https://i.imgur.com/q3tSKo5.png" alt="" />
+&lt;img src="https://i.imgur.com/yrKjnyr.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>base64 decode
+&lt;code>dXNlcm5hbWU6YWRtaW5fcGFzc3dvcmQ6bmlzcmE=&lt;/code> $\to$ &lt;code>username:admin_password:nisra&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Observe the form
+It uses get method to fetch the parameters. So we can peek &lt;code>login.php&lt;/code> first.
+&lt;img src="https://i.imgur.com/oGFwOoA.png" alt="" />
+Then we could use the username and password we got at previous step.
+Payload: &lt;code>view-source:http://chall2.nisra.net:41025/login.php?username=admin&amp;amp;password=nisra&lt;/code>
+Then we got the last fragment flag.&lt;/p></description></item><item><title>NISRA - Hidden?</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra---hidden_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra---hidden_/</guid><description>&lt;h1 id="nisra---hidden">
+ NISRA - Hidden?
+ &lt;a class="anchor" href="#nisra---hidden">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/uwox6r5hQ6St_8G-4mv1_g">advanced-potion-making:two::+1:&lt;/a>&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題也是蠻巧妙的，用pngcheck可以看到檔案有問題&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ pngcheck haha.png
+haha.png additional data after IEND chunk
+ERROR: haha.png
+&lt;/code>&lt;/pre>&lt;h2 id="exploit---recover--unzip">
+ Exploit - Recover + Unzip
+ &lt;a class="anchor" href="#exploit---recover--unzip">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Recover PNG File
+先找文件尾（00 00 00 00 49 45 4E 44 AE 42 60 82）
+&lt;img src="https://hackmd.io/_uploads/SySm_6DO3.png" alt="" />
+發現後續還有其他bytes，用&lt;a href="https://en.wikipedia.org/wiki/List_of_file_signatures">list signature&lt;/a>追查後面是甚麼，&lt;img src="https://hackmd.io/_uploads/Hy-5OpPOh.png" alt="" />
+發現應該是個zip file，所以獨立出來後解壓縮&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Unzip
+解壓縮後有一些文件，從裡面撈了一下flag就在./word/document.xml中
+Flag: &lt;code>NISRA{Oop5!_yoU_fOuNd_1t}&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/BkLoDTwO3.png" alt="" />&lt;/p></description></item><item><title>NISRA - MD5_1</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_1/</guid><description>&lt;h1 id="nisra---md5_1">
+ NISRA - MD5_1
+ &lt;a class="anchor" href="#nisra---md5_1">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-nisra-ctf-web">
+ tags: &lt;code>NISRA&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-nisra-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://chall2.nisra.net:41022/">MD5_1&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php="> &amp;lt;?php
+ highlight_file(__FILE__);
+ $FROM_INCLUDE = true;
+ include(&amp;#34;flag.php&amp;#34;);
+ $msg = &amp;#34;&amp;#34;;
+ if (isset($_GET[&amp;#39;user&amp;#39;]) &amp;amp;&amp;amp; isset($_GET[&amp;#39;password&amp;#39;])) {
+ $user = $_GET[&amp;#39;user&amp;#39;];
+ $password = $_GET[&amp;#39;password&amp;#39;];
+ $check = &amp;#34;QNKCDZO&amp;#34;;
+ // the md5 of &amp;#34;QNKCDZO&amp;#34; is 0e830400451993494058024219903391
+
+ if ($user == &amp;#34;admin&amp;#34; &amp;amp;&amp;amp; $password != $check &amp;amp;&amp;amp; md5($password) == md5($check)) {
+ $msg = &amp;#34;Flag: &amp;#34;.$flag;
+ } else {
+ $msg = &amp;#34;Keep trying!&amp;#34;;
+ }
+ }
+
+ echo $msg;
+?&amp;gt; 
+&lt;/code>&lt;/pre>&lt;h2 id="exploit---md5-collision">
+ Exploit - MD5 Collision
+ &lt;a class="anchor" href="#exploit---md5-collision">#&lt;/a>
+&lt;/h2>
+&lt;p>Payload: &lt;code>http://chall2.nisra.net:41022/?user=admin&amp;amp;password=240610708&lt;/code>
+:::spoiler flag
+&lt;code>Flag: NISRA{PhP_is_th3_BeST_laNgUA9E}&lt;/code>
+:::&lt;/p></description></item><item><title>NISRA - MD5_2</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_2/</guid><description>&lt;h1 id="nisra---md5_2">
+ NISRA - MD5_2
+ &lt;a class="anchor" href="#nisra---md5_2">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;p>Payload: &lt;code>curl http://chall2.nisra.net:41023/ -H &amp;quot;Content-Type: application/x-www-form-urlencoded&amp;quot; -X POST -d &amp;quot;user=240610708&amp;amp;password=QNKCDZO&amp;quot;&lt;/code>
+Flag: &lt;code>NISRA{S3CuR17y_1ssuEs_Of_pHP_@ND_Md5}&lt;/code>&lt;/p>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://news.ycombinator.com/item?id=9484757">md5(&amp;lsquo;240610708&amp;rsquo;) == md5(&amp;lsquo;QNKCDZO&amp;rsquo;)&lt;/a>&lt;/p></description></item><item><title>NISRA 2023 Enlightened - Jack的flag</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---jack%E7%9A%84flag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---jack%E7%9A%84flag/</guid><description>&lt;h1 id="nisra-2023-enlightened---jack的flag">
+ NISRA 2023 Enlightened - Jack的flag
+ &lt;a class="anchor" href="#nisra-2023-enlightened---jack%e7%9a%84flag">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Microsoft Word Forensics&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這是第一次寫到有關word的隱寫，蠻特別的就紀錄一下，但看得出來應該是考古古古古古古題了ㄅ&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;p>有兩種方法&lt;/p>
+&lt;ol>
+&lt;li>強制解壓縮
+直接把副檔名改成.zip，然後用解壓縮軟體解壓縮，接著就可以在&lt;code>Final-Jack\word\document.xml&lt;/code>中可以找到flag&lt;/li>
+&lt;li>把隱藏設定打開
+直接在word中的&lt;code>檔案/選項/顯示/隱藏文字&lt;/code>的方塊打勾，就可以直接在下面看到flag了&lt;/li>
+&lt;/ol>
+&lt;p>Flag: &lt;code>NISRA{Word'$_h1Dden_7eXT_reVEaLed}&lt;/code>&lt;/p></description></item><item><title>NISRA 2023 Enlightened - Magic Function</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---magic-function/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---magic-function/</guid><description>&lt;h1 id="nisra-2023-enlightened---magic-function">
+ NISRA 2023 Enlightened - Magic Function
+ &lt;a class="anchor" href="#nisra-2023-enlightened---magic-function">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://hacktricks.boitatech.com.br/misc/basic-python/magic-methods">Magic Function of Python&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">class Test():
+	def __init__(self, email=&amp;#39;test@nisra.net&amp;#39;):
+		self.info = &amp;#39;test&amp;#39;
+		self.email = email
+
+class Secret():
+	flag = open(&amp;#34;./NISRA-Enlightened-2023/flag.txt&amp;#34;, &amp;#34;r&amp;#34;).read().strip()
+
+
+if __name__ == &amp;#39;__main__&amp;#39;:
+	email = input(&amp;#39;Your email: &amp;#39;)
+
+	if email:
+		test = Test(email)
+	else:
+		test = Test()
+
+	msg = (&amp;#39;this is for {test.info}, please contact &amp;#39; + email + &amp;#39;.&amp;#39;).format(test=test)
+
+	print(msg)
+&lt;/code>&lt;/pre>&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題真的很有趣，但也是算通靈的奇淫怪招，仔細看了一下直覺應該是跟format string有關係，比賽的時候的確有想到，但我當時想的payload有點偏掉了，當時的payload是: &lt;code>{test.email}.format(test=Test(Secret().flag))&lt;/code>，也就是先傳入Secret().flag給Test這個class，然後再利用format傳入給&lt;/p></description></item><item><title>NISRA 2023 Enlightened - Pixel</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---pixel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---pixel/</guid><description>&lt;h1 id="nisra-2023-enlightened---pixel">
+ NISRA 2023 Enlightened - Pixel
+ &lt;a class="anchor" href="#nisra-2023-enlightened---pixel">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/HkF8f_702.png" alt="" />&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題真的很難，應該說有想過，不過很麻煩就是了，每一個色塊都有一組RGB的數值，然後只要把它轉換成ASCII，再把每一個字元串起來，就會是一組base64的code，轉換之後就拿到一組ciphertext，接著就丟到cyberchef看看一般的工具可不可以解，最後是用rot13解出來，除了最一開始的地方需要一點通靈之外，其他都很簡單，但&amp;hellip;寫script頗麻煩&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> PIL &lt;span style="color:#f92672">import&lt;/span> Image
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> base64 &lt;span style="color:#f92672">import&lt;/span> b64decode
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>img &lt;span style="color:#f92672">=&lt;/span> Image&lt;span style="color:#f92672">.&lt;/span>open(&lt;span style="color:#e6db74">&amp;#34;./NISRA-Enlightened-2023/Misc/Final-Pixel.png&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pixels &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> row &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">8&lt;/span>):	&lt;span style="color:#75715e"># 8 rows&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">for&lt;/span> col &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">8&lt;/span>):	&lt;span style="color:#75715e"># 8 columns&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		r, g, b &lt;span style="color:#f92672">=&lt;/span> img&lt;span style="color:#f92672">.&lt;/span>getpixel((row &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">64&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>, col &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">64&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>))	&lt;span style="color:#75715e"># each grid: 64 x 64&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#66d9ef">if&lt;/span> r &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span> &lt;span style="color:#f92672">and&lt;/span> g &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span> &lt;span style="color:#f92672">and&lt;/span> b &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&lt;span style="color:#66d9ef">break&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			pixels&lt;span style="color:#f92672">.&lt;/span>append((chr(r), chr(g), chr(b)))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">if&lt;/span> r &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span> &lt;span style="color:#f92672">and&lt;/span> g &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span> &lt;span style="color:#f92672">and&lt;/span> b &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#66d9ef">break&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>flag &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(pixels)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> r, g, b &lt;span style="color:#f92672">in&lt;/span> pixels:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	flag &lt;span style="color:#f92672">+=&lt;/span> r &lt;span style="color:#f92672">+&lt;/span> g &lt;span style="color:#f92672">+&lt;/span> b
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(flag)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(b64decode(flag&lt;span style="color:#f92672">.&lt;/span>encode()))
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ python exp.py
+[(&amp;#39;c&amp;#39;, &amp;#39;3&amp;#39;, &amp;#39;l&amp;#39;), (&amp;#39;u&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;D&amp;#39;), (&amp;#39;o&amp;#39;, &amp;#39;g&amp;#39;, &amp;#39;Q&amp;#39;), (&amp;#39;V&amp;#39;, &amp;#39;Z&amp;#39;, &amp;#39;G&amp;#39;), (&amp;#39;R&amp;#39;, &amp;#39;U&amp;#39;, &amp;#39;5&amp;#39;), (&amp;#39;7&amp;#39;, &amp;#39;T&amp;#39;, &amp;#39;l&amp;#39;), (&amp;#39;9&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;T&amp;#39;), (&amp;#39;m&amp;#39;, &amp;#39;Y&amp;#39;, &amp;#39;3&amp;#39;), (&amp;#39;U&amp;#39;, &amp;#39;k&amp;#39;, &amp;#39;V&amp;#39;), (&amp;#39;f&amp;#39;, &amp;#39;N&amp;#39;, &amp;#39;k&amp;#39;), (&amp;#39;U&amp;#39;, &amp;#39;0&amp;#39;, &amp;#39;Q&amp;#39;), (&amp;#39;1&amp;#39;, &amp;#39;U&amp;#39;, &amp;#39;x&amp;#39;), (&amp;#39;U&amp;#39;, &amp;#39;F&amp;#39;, &amp;#39;9&amp;#39;), (&amp;#39;l&amp;#39;, &amp;#39;U&amp;#39;, &amp;#39;m&amp;#39;), (&amp;#39;N&amp;#39;, &amp;#39;F&amp;#39;, &amp;#39;U&amp;#39;), (&amp;#39;m&amp;#39;, &amp;#39;Z&amp;#39;, &amp;#39;S&amp;#39;), (&amp;#39;Q&amp;#39;, &amp;#39;W&amp;#39;, &amp;#39;c&amp;#39;), (&amp;#39;k&amp;#39;, &amp;#39;X&amp;#39;, &amp;#39;0&amp;#39;), (&amp;#39;5&amp;#39;, &amp;#39;f&amp;#39;, &amp;#39;R&amp;#39;), (&amp;#39;2&amp;#39;, &amp;#39;o&amp;#39;, &amp;#39;w&amp;#39;), (&amp;#39;L&amp;#39;, &amp;#39;V&amp;#39;, &amp;#39;E&amp;#39;), (&amp;#39;x&amp;#39;, &amp;#39;W&amp;#39;, &amp;#39;j&amp;#39;), (&amp;#39;N&amp;#39;, &amp;#39;h&amp;#39;, &amp;#39;Z&amp;#39;), (&amp;#39;j&amp;#39;, &amp;#39;E&amp;#39;, &amp;#39;w&amp;#39;), (&amp;#39;Y&amp;#39;, &amp;#39;T&amp;#39;, &amp;#39;Q&amp;#39;), (&amp;#39;x&amp;#39;, &amp;#39;X&amp;#39;, &amp;#39;2&amp;#39;), (&amp;#39;N&amp;#39;, &amp;#39;2&amp;#39;, &amp;#39;c&amp;#39;), (&amp;#39;G&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;o&amp;#39;), (&amp;#39;R&amp;#39;, &amp;#39;X&amp;#39;, &amp;#39;J&amp;#39;), (&amp;#39;f&amp;#39;, &amp;#39;T&amp;#39;, &amp;#39;m&amp;#39;), (&amp;#39;Z&amp;#39;, &amp;#39;f&amp;#39;, &amp;#39;N&amp;#39;), (&amp;#39;F&amp;#39;, &amp;#39;9&amp;#39;, &amp;#39;l&amp;#39;), (&amp;#39;U&amp;#39;, &amp;#39;n&amp;#39;, &amp;#39;B&amp;#39;), (&amp;#39;H&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;m&amp;#39;), (&amp;#39;E&amp;#39;, &amp;#39;2&amp;#39;, &amp;#39;S&amp;#39;), (&amp;#39;D&amp;#39;, &amp;#39;F&amp;#39;, &amp;#39;O&amp;#39;), (&amp;#39;R&amp;#39;, &amp;#39;V&amp;#39;, &amp;#39;9&amp;#39;), (&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;j&amp;#39;), (&amp;#39;d&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;d&amp;#39;), (&amp;#39;m&amp;#39;, &amp;#39;t&amp;#39;, &amp;#39;f&amp;#39;), (&amp;#39;Y&amp;#39;, &amp;#39;m&amp;#39;, &amp;#39;V&amp;#39;), (&amp;#39;f&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;G&amp;#39;), (&amp;#39;V&amp;#39;, &amp;#39;W&amp;#39;, &amp;#39;c&amp;#39;), (&amp;#39;V&amp;#39;, &amp;#39;9&amp;#39;, &amp;#39;i&amp;#39;), (&amp;#39;U&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;9&amp;#39;), (&amp;#39;G&amp;#39;, &amp;#39;Z&amp;#39;, &amp;#39;E&amp;#39;), (&amp;#39;h&amp;#39;, &amp;#39;A&amp;#39;, &amp;#39;Z&amp;#39;), (&amp;#39;V&amp;#39;, &amp;#39;J&amp;#39;, &amp;#39;f&amp;#39;), (&amp;#39;Q&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;Z&amp;#39;), (&amp;#39;L&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;n&amp;#39;), (&amp;#39;l&amp;#39;, &amp;#39;m&amp;#39;, &amp;#39;f&amp;#39;), (&amp;#39;Q&amp;#39;, &amp;#39;=&amp;#39;, &amp;#39;=&amp;#39;)]
+c3ludDogQVZGRU57Tl9lTmY3UkVfNkU0Q1UxUF9lUmNFUmZSQWckX05fR2owLVExWjNhZjEwYTQxX2N2cGdoRXJfTmZfNF9lUnBHbmE2SDFORV9abjdldmtfYmVfdGVWcV9iU19GZEhAZVJfQ1ZLcnlmfQ==
+b&amp;#39;synt: AVFEN{N_eNf7RE_6E4CU1P_eRcERfRAg$_N_Gj0-Q1Z3af10a41_cvpghEr_Nf_4_eRpGna6H1NE_Zn7evk_be_teVq_bS_FdH@eR_CVKryf}&amp;#39;
+&lt;/code>&lt;/pre>&lt;p>Flag: &lt;code>NISRA{A_rAs7ER_6R4PH1C_rEpREsENt$_A_Tw0-D1M3ns10n41_pictuRe_As_4_rEcTan6U1AR_Ma7rix_or_grId_oF_SqU@rE_PIXels}&lt;/code>&lt;/p></description></item></channel></rss>

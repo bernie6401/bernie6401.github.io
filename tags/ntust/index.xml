@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTUST :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntust/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntust/index.xml" rel="self" type="application/rss+xml"/><item><title>A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation</title><link>https://bernie6401.github.io/side-project/a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/side-project/a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation/index.html</guid><description>A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation tags: NTUST Emotional Recognition Openpose PyTorch Special Topic :::spoiler [TOC] :::
-Author JING-MING GUO1, (Senior Member, IEEE), CHIH-HSIEN HSIA2, (Member, IEEE), PING-HSUEH HO1, (Bachelor), YANG-CHEN CHANG1, (Bachelor)</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTUST on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntust/</link><description>Recent content in NTUST on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntust/index.xml" rel="self" type="application/rss+xml"/><item><title>A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation</title><link>https://bernie6401.github.io/side-project/a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/side-project/a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation/</guid><description>&lt;h1 id="a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation">
+ A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation
+ &lt;a class="anchor" href="#a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntust-emotional-recognition-openpose-pytorch-special-topic">
+ tags: &lt;code>NTUST&lt;/code> &lt;code>Emotional Recognition&lt;/code> &lt;code>Openpose&lt;/code> &lt;code>PyTorch&lt;/code> &lt;code>Special Topic&lt;/code>
+ &lt;a class="anchor" href="#tags-ntust-emotional-recognition-openpose-pytorch-special-topic">#&lt;/a>
+&lt;/h6>
+&lt;p>:::spoiler
+[TOC]
+:::&lt;/p>
+&lt;h2 id="author">
+ Author
+ &lt;a class="anchor" href="#author">#&lt;/a>
+&lt;/h2>
+&lt;p>JING-MING GUO&lt;sup>1&lt;/sup>, (Senior Member, IEEE), CHIH-HSIEN HSIA&lt;sup>2&lt;/sup>, (Member, IEEE), PING-HSUEH HO&lt;sup>1&lt;/sup>, (Bachelor), YANG-CHEN CHANG&lt;sup>1&lt;/sup>, (Bachelor)&lt;/p>
+&lt;p>&lt;sup>1&lt;/sup>Department of Electrical Engineering, National Taiwan University of Science and Technology
+Taipei City 106, Taipei County, Taiwan
+&lt;sup>2&lt;/sup>Department of Computer Science and Information Engineering, National Ilan University, Yilan City 260, Yilan County, Taiwan&lt;/p></description></item></channel></rss>

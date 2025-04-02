@@ -1,0 +1,710 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/tags/picoctf/"><meta property="og:site_name" content="SBK Hugo Site"><meta property="og:title" content="PicoCTF"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><title>PicoCTF | SBK Hugo Site</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/tags/picoctf/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.acdc41c8d39e6c69d70d8a23779875e0a3733fefead3e428d5344966bb12f562.js integrity="sha256-rNxByNOebGnXDYojd5h14KNzP+/q0+Qo1TRJZrsS9WI=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://bernie6401.github.io/tags/picoctf/index.xml title="SBK Hugo Site"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>SBK Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>PicoCTF</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></aside></header><article class="markdown book-post"><h2><a href=/security/practice/picoctf/crypto/rsa/picoctf---sra/>PicoCTF - SRA</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/crypto/>Crypto</a></div><p><h1 id=picoctf---sra>PicoCTF - SRA
+<a class=anchor href=#picoctf---sra>#</a></h1><h6 id=tags-picoctf-ctf-crypto>tags: <code>PicoCTF</code> <code>CTF</code> <code>Crypto</code>
+<a class=anchor href=#tags-picoctf-ctf-crypto>#</a></h6><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-python=" data-lang="python=">from Crypto.Util.number import getPrime, inverse, bytes_to_long
+from string import ascii_letters, digits
+from random import choice
+
+pride = &#34;&#34;.join(choice(ascii_letters + digits) for _ in range(16))
+gluttony = getPrime(128)
+greed = getPrime(128)
+lust = gluttony * greed
+sloth = 65537
+envy = inverse(sloth, (gluttony - 1) * (greed - 1))
+
+anger = pow(bytes_to_long(pride.encode()), sloth, lust)
+
+print(f&#34;{anger = }&#34;)
+print(f&#34;{envy = }&#34;)
+
+print(&#34;vainglory?&#34;)
+vainglory = input(&#34;&gt; &#34;).strip()
+
+if vainglory == pride:
+    print(&#34;Conquered!&#34;)
+    with open(&#34;/challenge/flag.txt&#34;) as f:
+        print(f.read())
+else:
+    print(&#34;Hubris!&#34;)
+</code></pre><p>:::</p><a href=/security/practice/picoctf/crypto/rsa/picoctf---sra/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---stack-cache/>PicoCTF - stack cache</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---stack-cache>PicoCTF - stack cache
+<a class=anchor href=#picoctf---stack-cache>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>BoF</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler</p><pre tabindex=0><code class=language-cpp! data-lang=cpp!>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;wchar.h&gt;
+#include &lt;locale.h&gt;
+
+#define BUFSIZE 16
+#define FLAGSIZE 64
+#define INPSIZE 10
+
+/*
+This program is compiled statically with clang-12
+without any optimisations.
+*/
+
+void win() {
+  char buf[FLAGSIZE];
+  char filler[BUFSIZE];
+  FILE *f = fopen(&#34;flag.txt&#34;,&#34;r&#34;);
+  if (f == NULL) {
+    printf(&#34;%s %s&#34;, &#34;Please create &#39;flag.txt&#39; in this directory with your&#34;,
+                    &#34;own debugging flag.\n&#34;);
+    exit(0);
+  }
+
+  fgets(buf,FLAGSIZE,f); // size bound read
+}
+
+void UnderConstruction() {
+        // this function is under construction
+        char consideration[BUFSIZE];
+        char *demographic, *location, *identification, *session, *votes, *dependents;
+	char *p,*q, *r;
+	// *p = &#34;Enter names&#34;;
+	// *q = &#34;Name 1&#34;;
+	// *r = &#34;Name 2&#34;;
+        unsigned long *age;
+	printf(&#34;User information : %p %p %p %p %p %p\n&#34;,demographic, location, identification, session, votes, dependents);
+	printf(&#34;Names of user: %p %p %p\n&#34;, p,q,r);
+        printf(&#34;Age of user: %p\n&#34;,age);
+        fflush(stdout);
+}
+
+void vuln(){
+   char buf[INPSIZE];
+   printf(&#34;Give me a string that gets you the flag\n&#34;);
+   gets(buf);
+   printf(&#34;%s\n&#34;,buf);
+   return;
+}
+
+int main(int argc, char **argv){
+
+  setvbuf(stdout, NULL, _IONBF, 0);
+  // Set the gid to the effective gid
+  // this prevents /bin/sh from dropping the privileges
+  gid_t gid = getegid();
+  setresgid(gid, gid, gid);
+  vuln();
+  printf(&#34;Bye!&#34;);
+  return 0;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---stack-cache/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---stonk-market/>PicoCTF - Stonk Market</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---stonk-market>PicoCTF - Stonk Market
+<a class=anchor href=#picoctf---stonk-market>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>FMT</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+
+#define FLAG_BUFFER 128
+#define MAX_SYM_LEN 4
+
+typedef struct Stonks {
+	int shares;
+	char symbol[MAX_SYM_LEN + 1];
+	struct Stonks *next;
+} Stonk;
+
+typedef struct Portfolios {
+	int money;
+	Stonk *head;
+} Portfolio;
+
+int view_portfolio(Portfolio *p) {
+	if (!p) {
+		return 1;
+	}
+	printf(&#34;\nPortfolio as of &#34;);
+	fflush(stdout);
+	system(&#34;date&#34;); // TODO: implement this in C
+	fflush(stdout);
+
+	printf(&#34;\n\n&#34;);
+	Stonk *head = p-&gt;head;
+	if (!head) {
+		printf(&#34;You don&#39;t own any stonks!\n&#34;);
+	}
+	while (head) {
+		printf(&#34;%d shares of %s\n&#34;, head-&gt;shares, head-&gt;symbol);
+		head = head-&gt;next;
+	}
+	return 0;
+}
+
+Stonk *pick_symbol_with_AI(int shares) {
+	if (shares &lt; 1) {
+		return NULL;
+	}
+	Stonk *stonk = malloc(sizeof(Stonk));
+	stonk-&gt;shares = shares;
+
+	int AI_symbol_len = (rand() % MAX_SYM_LEN) + 1;
+	for (int i = 0; i &lt;= MAX_SYM_LEN; i++) {
+		if (i &lt; AI_symbol_len) {
+			stonk-&gt;symbol[i] = &#39;A&#39; + (rand() % 26);
+		} else {
+			stonk-&gt;symbol[i] = &#39;\0&#39;;
+		}
+	}
+
+	stonk-&gt;next = NULL;
+
+	return stonk;
+}
+
+int buy_stonks(Portfolio *p) {
+	if (!p) {
+		return 1;
+	}
+	/*
+	char api_buf[FLAG_BUFFER];
+	FILE *f = fopen(&#34;api&#34;,&#34;r&#34;);
+	if (!f) {
+		printf(&#34;Flag file not found\n&#34;);
+		exit(1);
+	}
+	fgets(api_buf, FLAG_BUFFER, f);
+	*/
+	int money = p-&gt;money;
+	int shares = 0;
+	Stonk *temp = NULL;
+	printf(&#34;Using patented AI algorithms to buy stonks\n&#34;);
+	while (money &gt; 0) {
+		shares = (rand() % money) + 1;
+		temp = pick_symbol_with_AI(shares);
+		temp-&gt;next = p-&gt;head;
+		p-&gt;head = temp;
+		money -= shares;
+	}
+	printf(&#34;Stonks chosen\n&#34;);
+
+	char *user_buf = malloc(300 + 1);
+	printf(&#34;What is your API token?\n&#34;);
+	scanf(&#34;%300s&#34;, user_buf);
+	printf(&#34;Buying stonks with token:\n&#34;);
+	printf(user_buf);
+
+	// TODO: Actually use key to interact with API
+
+	view_portfolio(p);
+
+	return 0;
+}
+
+Portfolio *initialize_portfolio() {
+	Portfolio *p = malloc(sizeof(Portfolio));
+	p-&gt;money = (rand() % 2018) + 1;
+	p-&gt;head = NULL;
+	return p;
+}
+
+void free_portfolio(Portfolio *p) {
+	Stonk *current = p-&gt;head;
+	Stonk *next = NULL;
+	while (current) {
+		next = current-&gt;next;
+		free(current);
+		current = next;
+	}
+	free(p);
+}
+
+int main(int argc, char *argv[])
+{
+	setbuf(stdout, NULL);
+	srand(time(NULL));
+	Portfolio *p = initialize_portfolio();
+	if (!p) {
+		printf(&#34;Memory failure\n&#34;);
+		exit(1);
+	}
+
+	int resp = 0;
+
+	printf(&#34;Welcome back to the trading app!\n\n&#34;);
+	printf(&#34;What would you like to do?\n&#34;);
+	printf(&#34;1) Buy some stonks!\n&#34;);
+	printf(&#34;2) View my portfolio\n&#34;);
+	scanf(&#34;%d&#34;, &amp;resp);
+
+	if (resp == 1) {
+		buy_stonks(p);
+	} else if (resp == 2) {
+		view_portfolio(p);
+	}
+
+	free_portfolio(p);
+	printf(&#34;Goodbye!\n&#34;);
+
+	exit(0);
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---stonk-market/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/web/picoctf---super-serial/>PicoCTF - Super Serial</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/web/>Web</a></div><p><h1 id=picoctf---super-serial>PicoCTF - Super Serial
+<a class=anchor href=#picoctf---super-serial>#</a></h1><h6 id=tags-picoctf-ctf-web>tags: <code>PicoCTF</code> <code>CTF</code> <code>Web</code>
+<a class=anchor href=#tags-picoctf-ctf-web>#</a></h6><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://hackmd.io/@SBK6401/B1I5n1pns>php unserialization</a></p><h2 id=hint>Hint
+<a class=anchor href=#hint>#</a></h2><ul><li>The flag is at ../flag</li></ul><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>這一題設了太多套路了，但從題目的Title可以猜到應該要用不安全的反序列化</p><ol><li><p>robot.txt
+一開始會從這邊開始著手就是因為假的source code啥都沒有，本來也以為是<code>sqli</code>，但也沒收穫，看了WP才知道要從這邊開始，可以看到以下訊息，但副檔名居然不是一般的php而是phps(而且<code>/admin.phps</code>沒有任何東西)，可見php是個幌子，則前面的source code就要重新分析
+<img src=https://hackmd.io/_uploads/BkcThh0Pn.png alt></p></li><li><p>index.phps
+用index.phps查看source code發現有一些其他怪東西，包括<code>authentication.phps</code>和<code>cookie.php</code>
+:::spoiler Real Source Code</p><pre tabindex=0><code class="language-php=" data-lang="php=">&lt;?php
+require_once(&#34;cookie.php&#34;);
+
+if(isset($_POST[&#34;user&#34;]) &amp;&amp; isset($_POST[&#34;pass&#34;])){
+    $con = new SQLite3(&#34;../users.db&#34;);
+    $username = $_POST[&#34;user&#34;];
+    $password = $_POST[&#34;pass&#34;];
+    $perm_res = new permissions($username, $password);
+    if ($perm_res-&gt;is_guest() || $perm_res-&gt;is_admin()) {
+        setcookie(&#34;login&#34;, urlencode(base64_encode(serialize($perm_res))), time() + (86400 * 30), &#34;/&#34;);
+        header(&#34;Location: authentication.php&#34;);
+        die();
+    } else {
+        $msg = &#39;&lt;h6 class=&#34;text-center&#34; style=&#34;color:red&#34;&gt;Invalid Login.&lt;/h6&gt;&#39;;
+    }
+}
+?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;link href=&#34;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34; integrity=&#34;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&#34; crossorigin=&#34;anonymous&#34;&gt;
+&lt;link href=&#34;style.css&#34; rel=&#34;stylesheet&#34;&gt;
+&lt;script src=&#34;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js&#34; integrity=&#34;sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&#34;container&#34;&gt;
+            &lt;div class=&#34;row&#34;&gt;
+                &lt;div class=&#34;col-sm-9 col-md-7 col-lg-5 mx-auto&#34;&gt;
+                    &lt;div class=&#34;card card-signin my-5&#34;&gt;
+                        &lt;div class=&#34;card-body&#34;&gt;
+                            &lt;h5 class=&#34;card-title text-center&#34;&gt;Sign In&lt;/h5&gt;
+                            &lt;?php if (isset($msg)) echo $msg; ?&gt;
+                            &lt;form class=&#34;form-signin&#34; action=&#34;index.php&#34; method=&#34;post&#34;&gt;
+                                &lt;div class=&#34;form-label-group&#34;&gt;
+                                    &lt;input type=&#34;text&#34; id=&#34;user&#34; name=&#34;user&#34; class=&#34;form-control&#34; placeholder=&#34;Username&#34; required autofocus&gt;
+                                    &lt;label for=&#34;user&#34;&gt;Username&lt;/label&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class=&#34;form-label-group&#34;&gt;
+                                    &lt;input type=&#34;password&#34; id=&#34;pass&#34; name=&#34;pass&#34; class=&#34;form-control&#34; placeholder=&#34;Password&#34; required&gt;
+                                    &lt;label for=&#34;pass&#34;&gt;Password&lt;/label&gt;
+                                &lt;/div&gt;
+
+                                &lt;button class=&#34;btn btn-lg btn-primary btn-block text-uppercase&#34; type=&#34;submit&#34;&gt;Sign in&lt;/button&gt;
+                            &lt;/form&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>:::</p><a href=/security/practice/picoctf/web/picoctf---super-serial/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/audio/picoctf---surfing-the-waves/>PicoCTF - Surfing the Waves</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---surfing-the-waves>PicoCTF - Surfing the Waves
+<a class=anchor href=#picoctf---surfing-the-waves>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/117?category=4&amp;page=3">Surfing the Waves</a></p><h2 id=description--hint>Description & Hint
+<a class=anchor href=#description--hint>#</a></h2><p>While you&rsquo;re going through the FBI&rsquo;s servers, you stumble across their incredible taste in music. One <a href=https://mercury.picoctf.net/static/cf917a179937f814d966e53bb1fd4b90/main.wav>main.wav</a> you found is particularly interesting, see if you can find the flag!
+Hint:</p><ul><li>Music is cool, but what other kinds of waves are there?</li><li>Look deep below the surface</li></ul><h2 id=exploit---通靈>Exploit - <font color=FF0000>通靈</font>
+<a class=anchor href=#exploit---%e9%80%9a%e9%9d%88>#</a></h2><ol><li>Audacity to Analyze
+The sound seems quite normal but when you zoom in the audio track, it looks like something encode.
+<img src=https://i.imgur.com/D1H1jpU.png alt></li><li>Read it - <code>scipy.io</code>
+Use <code>scipy.io</code> library to read it and print the data out.<pre tabindex=0><code class=language-python! data-lang=python!>&gt;&gt;&gt; from scipy.io.wavfile import read
+&gt;&gt;&gt; rate, data = read(&#34;./main.wav&#34;)
+&gt;&gt;&gt; print(data)
+[2007 2503 2005 ... 4503 4501 7501]
+&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; print(np.unique(data))
+[1000 1001 1002 1003 1004 1005 1006 1007 1008 1009 1500 1501 1502 1503
+ 1504 1505 1506 1507 1508 1509 2000 2001 2002 2003 2004 2005 2006 2007
+ 2008 2009 2500 2501 2502 2503 2504 2505 2506 2507 2508 2509 3000 3001
+ 3002 3003 3004 3005 3006 3007 3008 3009 3500 3501 3502 3503 3504 3505
+ 3506 3507 3508 3509 4000 4001 4002 4003 4004 4005 4006 4007 4008 4009
+ 4500 4501 4502 4503 4504 4505 4506 4507 4508 4509 5000 5001 5002 5003
+ 5004 5005 5006 5007 5008 5009 5500 5501 5502 5503 5504 5505 5506 5507
+ 5508 5509 6000 6001 6002 6003 6004 6005 6006 6007 6008 6009 6500 6501
+ 6502 6503 6504 6505 6506 6507 6508 6509 7000 7001 7002 7003 7004 7005
+ 7006 7007 7008 7009 7500 7501 7502 7503 7504 7505 7506 7507 7508 7509
+ 8000 8001 8002 8003 8004 8005 8006 8007 8008 8009 8500 8501 8502 8503
+ 8504 8505 8506 8507 8508 8509]
+</code></pre>Seems it has some rule $\to$
+<code>1000 ~ 1009</code>
+<code>1500 ~ 1509</code>
+<code>2000 ~ 2009</code>
+&mldr;
+<code>8500 ~ 8509</code>
+It has exactly 16 intervals $\to$ hex value</li><li>Let&rsquo;s try to exploit it</li></ol><ul><li>Whole exploit
+:::spoiler exploit<pre tabindex=0><code class=language-python! data-lang=python!>from scipy.io.wavfile import read
+from tqdm import trange
+
+path = &#39;.&#39;
+rate, data = read(path + &#34;/main.wav&#34;)
+
+decode_dic = {
+    10 : &#34;0&#34;,
+    15 : &#34;1&#34;,
+    20 : &#34;2&#34;,
+    25 : &#34;3&#34;,
+    30 : &#34;4&#34;,
+    35 : &#34;5&#34;,
+    40 : &#34;6&#34;,
+    45 : &#34;7&#34;,
+    50 : &#34;8&#34;,
+    55 : &#34;9&#34;,
+    60 : &#34;A&#34;,
+    65 : &#34;B&#34;,
+    70 : &#34;C&#34;,
+    75 : &#34;D&#34;,
+    80 : &#34;E&#34;,
+    85 : &#34;F&#34;,
+}
+
+message = &#39;&#39;
+for i in trange(len(data)):
+    message += decode_dic[data[i] // 100]
+
+print(bytes.fromhex(message).decode())
+</code></pre>:::
+Then you can get the source code and flag&mldr;</li></ul><h2 id=reference>Reference
+<a class=anchor href=#reference>#</a></h2><p><a href=https://youtu.be/tDPetapjm74>picoCTF 2021 Surfing the Waves</a></p><a href=/security/practice/picoctf/misc/audio/picoctf---surfing-the-waves/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---tic-tac/>PicoCTF - tic-tac</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---tic-tac>PicoCTF - tic-tac
+<a class=anchor href=#picoctf---tic-tac>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://myapollo.com.tw/blog/interview-question-race-condition/>後端工程師面試考什麼 - Race Condition 篇</a>
+<a href=https://ithelp.ithome.com.tw/articles/10208763>[Day24]攻擊篇</a></p><blockquote><p>TOCTTOU</p><p>Time of check to time of use
+在檢查和使用之間影響資源狀態的攻擊</p><p>這種攻擊可能發生在共享資源中。
+可能導致程式在資源處於意外狀態時執行無效操作。</p></blockquote><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source code</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/stat.h&gt;
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    std::cerr &lt;&lt; &#34;Usage: &#34; &lt;&lt; argv[0] &lt;&lt; &#34; &lt;filename&gt;&#34; &lt;&lt; std::endl;
+    return 1;
+  }
+
+  std::string filename = argv[1];
+  std::ifstream file(filename);
+  struct stat statbuf;
+
+  // Check the file&#39;s status information.
+  if (stat(filename.c_str(), &amp;statbuf) == -1) {
+    std::cerr &lt;&lt; &#34;Error: Could not retrieve file information&#34; &lt;&lt; std::endl;
+    return 1;
+  }
+
+  // Check the file&#39;s owner.
+  if (statbuf.st_uid != getuid()) {
+    std::cerr &lt;&lt; &#34;Error: you don&#39;t own this file&#34; &lt;&lt; std::endl;
+    return 1;
+  }
+
+  // Read the contents of the file.
+  if (file.is_open()) {
+    std::string line;
+    while (getline(file, line)) {
+      std::cout &lt;&lt; line &lt;&lt; std::endl;
+    }
+  } else {
+    std::cerr &lt;&lt; &#34;Error: Could not open file&#34; &lt;&lt; std::endl;
+    return 1;
+  }
+
+  return 0;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---tic-tac/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/flow/picoctf---torrent-analyze/>PicoCTF - Torrent Analyze</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---torrent-analyze>PicoCTF - Torrent Analyze
+<a class=anchor href=#picoctf---torrent-analyze>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://www.techworm.net/2017/03/seeds-peers-leechers-torrents-language.html>What are seeds, peers and leechers in Torrents’ language?</a>
+<a href="https://www.mobile01.com/topicdetail.php?f=507&amp;t=1365797">慎選peer，是加速BT下載的王道！</a></p><blockquote><ol><li>seed個數：seed（即一般所說的「種子」）意指擁有完整檔案的BT參與者，是主要的檔案提供者。seed越多，可用的BT分享頻寬就越多，速度當然就快。</li><li>seed與peer的比例：雖然peer（指尚未取得完整檔案的BT參與者）可同時自seed與其他peer下載檔案，但peer間會彼此競爭，以爭取有限的BT下載頻寬。因此，peer個數越多，分配後的BT分享頻寬就越少，速度自然就受影響。</li></ol></blockquote><p><a href=http://zfly9.blogspot.com/2014/10/hashmethod.html>教你該如何使用bt的info hash特徵碼，下載BT之torrent種子檔</a></p><h2 id=description--hint>Description & Hint
+<a class=anchor href=#description--hint>#</a></h2><blockquote><p>SOS, someone is torrenting on our network. One of your colleagues has been using torrent to download some files on the company’s network. Can you identify the file(s) that were downloaded? The file name will be the flag, like picoCTF{filename}.
+Hint 1: Download and open the file with a packet analyzer like <a href=https://www.wireshark.org/>Wireshark</a>.
+Hint 2: You may want to enable BitTorrent protocol (BT-DHT, etc.) on Wireshark. Analyze -> Enabled Protocols
+Hint 3: Try to understand peers, leechers and seeds. <a href=https://www.techworm.net/2017/03/seeds-peers-leechers-torrents-language.html>Article</a>
+Hint 4: The file name ends with <code>.iso</code></p><a href=/security/practice/picoctf/misc/flow/picoctf---torrent-analyze/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/reverse/picoctf---transformation/>PicoCTF - Transformation</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/reverse/>Reverse</a></div><p><h1 id=picoctf---transformation>PicoCTF - Transformation
+<a class=anchor href=#picoctf---transformation>#</a></h1><h6 id=tags-picoctf-ctf-reverse>tags: <code>PicoCTF</code> <code>CTF</code> <code>Reverse</code>
+<a class=anchor href=#tags-picoctf-ctf-reverse>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/104?category=3&amp;page=1">Transformation</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>enc file content: <code>灩捯䍔䙻ㄶ形楴獟楮獴㌴摟潦弸彥㜰㍢㐸㙽</code>
+Transformation Code</p><pre tabindex=0><code class=language-python! data-lang=python!>&#39;&#39;.join([chr((ord(flag[i]) &lt;&lt; 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+</code></pre><p>Seems it shift the first character with 8 bits and concatenate the 2nd character then go through <code>len(flag)</code></p><h2 id=exploit>Exploit
+<a class=anchor href=#exploit>#</a></h2><p>My perspective is just recover the strings
+:::spoiler</p><pre tabindex=0><code class="language-python=" data-lang="python=">flag = &#39;灩捯䍔䙻ㄶ形楴獟楮獴㌴摟潦弸彥㜰㍢㐸㙽&#39;
+enc = &#39;&#39;
+
+def decimalToBinary(n):
+    return bin(n).replace(&#34;0b&#34;, &#34;&#34;)
+
+def binToHexa(n):
+    bnum = int(n)
+    temp = 0
+    mul = 1
+    count = 1
+    hexaDeciNum = [&#39;0&#39;] * 100
+    i = 0
+    while bnum != 0:
+        rem = bnum % 10
+        temp = temp + (rem*mul)
+        if count % 4 == 0:
+            if temp &lt; 10:
+                hexaDeciNum[i] = chr(temp+48)
+            else:
+                hexaDeciNum[i] = chr(temp+55)
+            mul = 1
+            temp = 0
+            count = 1
+            i = i+1
+        else:
+            mul = mul*2
+            count = count+1
+        bnum = int(bnum/10)
+    if count != 1:
+        hexaDeciNum[i] = chr(temp+48)
+    if count == 1:
+        i = i-1
+    hex_string = &#39;&#39;
+    while i &gt;= 0:
+        hex_string += hexaDeciNum[i]
+        i = i-1
+    return hex_string
+
+
+for i in range(0, len(flag)):
+    plaintext1 = decimalToBinary(ord(flag[i]))
+    while(len(plaintext1) != 16):
+        plaintext1 = &#39;0&#39; + plaintext1
+    plaintext2 = plaintext1[-8:]
+    plaintext1 = plaintext1[0:8]
+    enc += binToHexa(plaintext1)
+    enc += binToHexa(plaintext2)
+print(bytes.fromhex(enc).decode(&#39;utf-8&#39;))
+</code></pre><p>:::</p><a href=/security/practice/picoctf/reverse/picoctf---transformation/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/misc/flow/picoctf---trivial-flag-transfer-protocol/>PicoCTF - Trivial Flag Transfer Protocol</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/misc/>Misc</a></div><p><h1 id=picoctf---trivial-flag-transfer-protocol>PicoCTF - Trivial Flag Transfer Protocol
+<a class=anchor href=#picoctf---trivial-flag-transfer-protocol>#</a></h1><h6 id=tags-picoctf-ctf-misc>tags: <code>PicoCTF</code> <code>CTF</code> <code>Misc</code>
+<a class=anchor href=#tags-picoctf-ctf-misc>#</a></h6><p>Challenge: <a href="https://play.picoctf.org/practice/challenge/103?bookmarked=0&amp;category=4&amp;page=1&amp;search=&amp;solved=0">Trivial Flag Transfer Protocol</a></p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><ul><li><p><a href=https://tw511.com/a/01/2927.html>TFTP協定是什麼？</a></p></li><li><p><a href="https://www.mobile01.com/topicdetail.php?f=110&amp;t=921577">Wireless router中的UPnP是做什麼用的?</a></p><blockquote><p>UPnP 是一種通訊協定，其主要功能是供家中的設備可以輕易的且自動的連結到網路並完成網路相關設定。
+不需要您本人手動去設定就可以使用的意思。
+所以你的 router 有支援並打開這項功能後，您家中的視訊設備（大部分都是支援UPnP）接上網路、打開電源。
+接著你的 作業系統也支援的話，以winodws 為例，「我的電腦」中就會看到您新增的設備，如無線router、media server等等。</p></blockquote></li><li><p><a href=https://ithelp.ithome.com.tw/questions/10002825>SSDP - 通訊協定 ?</a></p><blockquote><p>SSDP的全寫是「Simple Service Discovery Protocol」，使用在Universal Plug and Play (UPnP)網絡環境中。SSDP使用UDP1900連接埠搜尋互聯網上的數據。當SSDP開啟時，其他設置會曝露自己到所有UPnP的用戶端中。</p></blockquote></li><li><p><a href=https://ithelp.ithome.com.tw/articles/10278964><code>steghide</code> instruction</a></p></li></ul><h2 id=exploit---tftp--steghide>Exploit - TFTP + steghide
+<a class=anchor href=#exploit---tftp--steghide>#</a></h2><ol><li><p>Save files
+According to the article: <a href=https://tw511.com/a/01/2927.html>TFTP協定是什麼？</a>, we can aware that this protocol is aim to transfer the data without authentication. So, we can download the files using wireshark.
+<img src=https://i.imgur.com/rETlGmm.png alt></p><a href=/security/practice/picoctf/misc/flow/picoctf---trivial-flag-transfer-protocol/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---two-sum/>PicoCTF - two-sum</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---two-sum>PicoCTF - two-sum
+<a class=anchor href=#picoctf---two-sum>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>BoF</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler</p><pre tabindex=0><code class=language-cpp! data-lang=cpp!>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+static int addIntOvf(int result, int a, int b) {
+    result = a + b;
+    if(a &gt; 0 &amp;&amp; b &gt; 0 &amp;&amp; result &lt; 0)
+        return -1;
+    if(a &lt; 0 &amp;&amp; b &lt; 0 &amp;&amp; result &gt; 0)
+        return -1;
+    return 0;
+}
+
+int main() {
+    int num1, num2, sum;
+    FILE *flag;
+    char c;
+
+    printf(&#34;n1 &gt; n1 + n2 OR n2 &gt; n1 + n2 \n&#34;);
+    fflush(stdout);
+    printf(&#34;What two positive numbers can make this possible: \n&#34;);
+    fflush(stdout);
+    
+    if (scanf(&#34;%d&#34;, &amp;num1) &amp;&amp; scanf(&#34;%d&#34;, &amp;num2)) {
+        printf(&#34;You entered %d and %d\n&#34;, num1, num2);
+        fflush(stdout);
+        sum = num1 + num2;
+        if (addIntOvf(sum, num1, num2) == 0) {
+            printf(&#34;No overflow\n&#34;);
+            fflush(stdout);
+            exit(0);
+        } else if (addIntOvf(sum, num1, num2) == -1) {
+            printf(&#34;You have an integer overflow\n&#34;);
+            fflush(stdout);
+        }
+
+        if (num1 &gt; 0 || num2 &gt; 0) {
+            flag = fopen(&#34;flag.txt&#34;,&#34;r&#34;);
+            if(flag == NULL){
+                printf(&#34;flag not found: please run this on the server\n&#34;);
+                fflush(stdout);
+                exit(0);
+            }
+            char buf[60];
+            fgets(buf, 59, flag);
+            printf(&#34;YOUR FLAG IS: %s\n&#34;, buf);
+            fflush(stdout);
+            exit(0);
+        }
+    }
+    return 0;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---two-sum/>...</a></p></article><ul class="pagination pagination-default"><li class=page-item><a href=/tags/picoctf/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a></li><li class=page-item><a href=/tags/picoctf/page/9/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a></li><li class=page-item><a href=/tags/picoctf/page/8/ aria-label="Page 8" class=page-link role=button>8</a></li><li class=page-item><a href=/tags/picoctf/page/9/ aria-label="Page 9" class=page-link role=button>9</a></li><li class="page-item active"><a aria-current=page aria-label="Page 10" class=page-link role=button>10</a></li><li class=page-item><a href=/tags/picoctf/page/11/ aria-label="Page 11" class=page-link role=button>11</a></li><li class=page-item><a href=/tags/picoctf/page/12/ aria-label="Page 12" class=page-link role=button>12</a></li><li class=page-item><a href=/tags/picoctf/page/11/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/tags/picoctf/page/12/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></div></aside></main></body></html>

