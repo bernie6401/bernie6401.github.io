@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NYCU on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/nycu/</link><description>Recent content in NYCU on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/nycu/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Structure</title><link>https://bernie6401.github.io/data-structure/data-structure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/data-structure/data-structure/</guid><description>&lt;h1 id="data-structure">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NYCU on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/nycu/</link><description>Recent content in NYCU on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/nycu/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Structure</title><link>https://bernie6401.github.io/docs/data-structure/data-structure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/data-structure/data-structure/</guid><description>&lt;h1 id="data-structure">
  Data Structure
  &lt;a class="anchor" href="#data-structure">#&lt;/a>
 &lt;/h1>
@@ -16,7 +16,7 @@
 &lt;li>&lt;a href="https://bernie6401.github.io/@S7deXzLKQkGUhZX374ALMg/Hkl511BBn">Lecture 7&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://hackmd.io/@SBK6401/SJpGh4mSh">Lecture 8&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://hackmd.io/@SBK6401/rkNBMLk83">Lecture 10&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Lecture 10</title><link>https://bernie6401.github.io/data-structure/lecture-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/data-structure/lecture-10/</guid><description>&lt;h1 id="lecture-10">
+&lt;/ul></description></item><item><title>Lecture 10</title><link>https://bernie6401.github.io/docs/data-structure/lecture-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/data-structure/lecture-10/</guid><description>&lt;h1 id="lecture-10">
  Lecture 10
  &lt;a class="anchor" href="#lecture-10">#&lt;/a>
 &lt;/h1>
@@ -58,7 +58,7 @@
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>Example&lt;/p></description></item><item><title>Lecture 2</title><link>https://bernie6401.github.io/data-structure/lecture-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/data-structure/lecture-2/</guid><description>&lt;h1 id="lecture-2">
+&lt;p>Example&lt;/p></description></item><item><title>Lecture 2</title><link>https://bernie6401.github.io/docs/data-structure/lecture-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/data-structure/lecture-2/</guid><description>&lt;h1 id="lecture-2">
  Lecture 2
  &lt;a class="anchor" href="#lecture-2">#&lt;/a>
 &lt;/h1>
@@ -111,7 +111,7 @@ Detailed description can browse the &lt;a href="https://youtu.be/0J2eLvkuF8k">or
 &lt;img src="https://i.imgur.com/hGNBo0t.png" alt="" />&lt;/p>
 &lt;p>&lt;img src="https://i.imgur.com/oU1sF0H.png" alt="" />
 在這個例子中boundary condition就是只剩下一個字元需要做排列的時候
-:::&lt;/p></description></item><item><title>Lecture 4</title><link>https://bernie6401.github.io/data-structure/lecture-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/data-structure/lecture-4/</guid><description>&lt;h1 id="lecture-4">
+:::&lt;/p></description></item><item><title>Lecture 4</title><link>https://bernie6401.github.io/docs/data-structure/lecture-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/data-structure/lecture-4/</guid><description>&lt;h1 id="lecture-4">
  Lecture 4
  &lt;a class="anchor" href="#lecture-4">#&lt;/a>
 &lt;/h1>
@@ -170,7 +170,7 @@ How to implement? Refer to original video at timestamp &lt;code>5:30&lt;/code>
  Matrix
  &lt;a class="anchor" href="#matrix">#&lt;/a>
 &lt;/h3>
-&lt;p>最簡單的就是直接declare一個2-dim的陣列，存放矩陣的element，缺點也和上面提到的sparse array一樣會有sparse matrix，如果太多index沒有存放東西，就會很浪費&lt;/p></description></item><item><title>Lecture 6</title><link>https://bernie6401.github.io/data-structure/lecture-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/data-structure/lecture-6/</guid><description>&lt;h1 id="lecture-6">
+&lt;p>最簡單的就是直接declare一個2-dim的陣列，存放矩陣的element，缺點也和上面提到的sparse array一樣會有sparse matrix，如果太多index沒有存放東西，就會很浪費&lt;/p></description></item><item><title>Lecture 6</title><link>https://bernie6401.github.io/docs/data-structure/lecture-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/data-structure/lecture-6/</guid><description>&lt;h1 id="lecture-6">
  Lecture 6
  &lt;a class="anchor" href="#lecture-6">#&lt;/a>
 &lt;/h1>
@@ -226,7 +226,7 @@ How to implement? Refer to original video at timestamp &lt;code>5:30&lt;/code>
 Prefix (Failure) Function can refer to &lt;code>1:05:00&lt;/code>
 KMP Matcher can refer to orignal video at timestamp &lt;code>1:14:00&lt;/code>
 實際操作：&lt;code>1:14:10&lt;/code>
-:::&lt;/p></description></item><item><title>Lecture 8</title><link>https://bernie6401.github.io/data-structure/lecture-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/data-structure/lecture-8/</guid><description>&lt;h1 id="lecture-8">
+:::&lt;/p></description></item><item><title>Lecture 8</title><link>https://bernie6401.github.io/docs/data-structure/lecture-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/data-structure/lecture-8/</guid><description>&lt;h1 id="lecture-8">
  Lecture 8
  &lt;a class="anchor" href="#lecture-8">#&lt;/a>
 &lt;/h1>

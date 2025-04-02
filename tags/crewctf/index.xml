@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CrewCTF on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/crewctf/</link><description>Recent content in CrewCTF on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/crewctf/index.xml" rel="self" type="application/rss+xml"/><item><title>CrewCTF - :-1: Questions</title><link>https://bernie6401.github.io/security/practice/crewctf/bad/crewctf---_-1_-questions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/crewctf/bad/crewctf---_-1_-questions/</guid><description>&lt;h1 id="challenge-findme">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CrewCTF on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/crewctf/</link><description>Recent content in CrewCTF on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/crewctf/index.xml" rel="self" type="application/rss+xml"/><item><title>CrewCTF - :-1: Questions</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/bad/crewctf---_-1_-questions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/bad/crewctf---_-1_-questions/</guid><description>&lt;h1 id="challenge-findme">
  Challenge: findme
  &lt;a class="anchor" href="#challenge-findme">#&lt;/a>
 &lt;/h1>
@@ -18,7 +18,7 @@
  Exploit
  &lt;a class="anchor" href="#exploit">#&lt;/a>
 &lt;/h2>
-&lt;p>Flag: &lt;code>crew{35.6682,138.5699}&lt;/code>&lt;/p></description></item><item><title>CrewCTF - Attaaaaack 1-13</title><link>https://bernie6401.github.io/security/practice/crewctf/misc/crewctf---attaaaaack-1-13/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/crewctf/misc/crewctf---attaaaaack-1-13/</guid><description>&lt;h1 id="crewctf---attaaaaack-1-13">
+&lt;p>Flag: &lt;code>crew{35.6682,138.5699}&lt;/code>&lt;/p></description></item><item><title>CrewCTF - Attaaaaack 1-13</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---attaaaaack-1-13/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---attaaaaack-1-13/</guid><description>&lt;h1 id="crewctf---attaaaaack-1-13">
  CrewCTF - Attaaaaack 1-13
  &lt;a class="anchor" href="#crewctf---attaaaaack-1-13">#&lt;/a>
 &lt;/h1>
@@ -51,7 +51,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> KUSER_SHARED_DATA : 0xffdf0000L
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Image date and time : 2023-02-20 19:10:54 UTC+0000
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Image local date and time : 2023-02-20 21:10:54 +0200
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Flag: &lt;code>crew{Win7SP1x86_23418}&lt;/code>&lt;/p></description></item><item><title>CrewCTF - Encrypt10n(Part 1)</title><link>https://bernie6401.github.io/security/practice/crewctf/misc/crewctf---encrypt10npart-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/crewctf/misc/crewctf---encrypt10npart-1/</guid><description>&lt;h1 id="crewctf---encrypt10npart-1">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Flag: &lt;code>crew{Win7SP1x86_23418}&lt;/code>&lt;/p></description></item><item><title>CrewCTF - Encrypt10n(Part 1)</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---encrypt10npart-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---encrypt10npart-1/</guid><description>&lt;h1 id="crewctf---encrypt10npart-1">
  CrewCTF - Encrypt10n(Part 1)
  &lt;a class="anchor" href="#crewctf---encrypt10npart-1">#&lt;/a>
 &lt;/h1>
@@ -146,7 +146,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>重點：&lt;code>0x85c596c0 TrueCrypt.exe 3196 1384 2 67 1 0 2023-02-16 12:02:07 UTC+0000&lt;/code>
 &lt;a href="https://zh.wikipedia.org/zh-tw/TrueCrypt">TrueCrypt - Wiki&lt;/a>
 &lt;blockquote>
-&lt;p>TrueCrypt是一款已停止開發的動態（On-the-fly）磁碟加密軟體，支援Windows、macOS和Linux作業系統。它可在單個檔案和磁碟分割區中建立加密區，也可以加密整個作業系統，解密後使用者即可像普通分割區一樣使用其中的檔案。TrueCrypt支援使用密碼、金鑰檔案作為解密憑據。&lt;/p></description></item><item><title>CrewCTF - Encrypt10n(Part 2)</title><link>https://bernie6401.github.io/security/practice/crewctf/misc/crewctf---encrypt10npart-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/crewctf/misc/crewctf---encrypt10npart-2/</guid><description>&lt;h1 id="crewctf---encrypt10npart-2">
+&lt;p>TrueCrypt是一款已停止開發的動態（On-the-fly）磁碟加密軟體，支援Windows、macOS和Linux作業系統。它可在單個檔案和磁碟分割區中建立加密區，也可以加密整個作業系統，解密後使用者即可像普通分割區一樣使用其中的檔案。TrueCrypt支援使用密碼、金鑰檔案作為解密憑據。&lt;/p></description></item><item><title>CrewCTF - Encrypt10n(Part 2)</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---encrypt10npart-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---encrypt10npart-2/</guid><description>&lt;h1 id="crewctf---encrypt10npart-2">
  CrewCTF - Encrypt10n(Part 2)
  &lt;a class="anchor" href="#crewctf---encrypt10npart-2">#&lt;/a>
 &lt;/h1>
@@ -181,7 +181,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brw-rw---- &lt;span style="color:#ae81ff">1&lt;/span> root disk 252, &lt;span style="color:#ae81ff">3&lt;/span> Jul &lt;span style="color:#ae81ff">12&lt;/span> 21:44 flag_dec
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
-&lt;p>再來就要把這個container掛起來，要掛起來才能讀取裡面的資料&lt;/p></description></item><item><title>CrewCTF - ez rev</title><link>https://bernie6401.github.io/security/practice/crewctf/reverse/crewctf---ez-rev/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/crewctf/reverse/crewctf---ez-rev/</guid><description>&lt;h1 id="crewctf---ez-rev">
+&lt;p>再來就要把這個container掛起來，要掛起來才能讀取裡面的資料&lt;/p></description></item><item><title>CrewCTF - ez rev</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/reverse/crewctf---ez-rev/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/reverse/crewctf---ez-rev/</guid><description>&lt;h1 id="crewctf---ez-rev">
  CrewCTF - ez rev
  &lt;a class="anchor" href="#crewctf---ez-rev">#&lt;/a>
 &lt;/h1>
@@ -234,7 +234,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>+&lt;span style="color:#f92672">]&lt;/span> Another flag checker...
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">123456&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>-&lt;span style="color:#f92672">]&lt;/span> Why you still here
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>這是因為他和這隻程式執行的過程有關係&lt;/p></description></item><item><title>CrewCTF - sequence_gallery</title><link>https://bernie6401.github.io/security/practice/crewctf/web/crewctf---sequence_gallery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/crewctf/web/crewctf---sequence_gallery/</guid><description>&lt;h1 id="crewctf---sequence_gallery">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>這是因為他和這隻程式執行的過程有關係&lt;/p></description></item><item><title>CrewCTF - sequence_gallery</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/web/crewctf---sequence_gallery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/web/crewctf---sequence_gallery/</guid><description>&lt;h1 id="crewctf---sequence_gallery">
  CrewCTF - sequence_gallery
  &lt;a class="anchor" href="#crewctf---sequence_gallery">#&lt;/a>
 &lt;/h1>

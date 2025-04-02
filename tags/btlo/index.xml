@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BTLO on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/btlo/</link><description>Recent content in BTLO on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/btlo/index.xml" rel="self" type="application/rss+xml"/><item><title>BTLO - Bruteforce</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---bruteforce/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---bruteforce/</guid><description>&lt;h1 id="btlo---bruteforce">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BTLO on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/btlo/</link><description>Recent content in BTLO on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/btlo/index.xml" rel="self" type="application/rss+xml"/><item><title>BTLO - Bruteforce</title><link>https://bernie6401.github.io/docs/security/practice/btlo/incident-response/btlo---bruteforce/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/btlo/incident-response/btlo---bruteforce/</guid><description>&lt;h1 id="btlo---bruteforce">
  BTLO - Bruteforce
  &lt;a class="anchor" href="#btlo---bruteforce">#&lt;/a>
 &lt;/h1>
@@ -19,7 +19,7 @@
  &lt;a class="anchor" href="#q1">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>How many Audit Failure events are there? (Format: Count of Events)&lt;/p></description></item><item><title>BTLO - Follina</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---follina/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---follina/</guid><description>&lt;h1 id="btlo---follina">
+&lt;p>How many Audit Failure events are there? (Format: Count of Events)&lt;/p></description></item><item><title>BTLO - Follina</title><link>https://bernie6401.github.io/docs/security/practice/btlo/incident-response/btlo---follina/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/btlo/incident-response/btlo---follina/</guid><description>&lt;h1 id="btlo---follina">
  BTLO - Follina
  &lt;a class="anchor" href="#btlo---follina">#&lt;/a>
 &lt;/h1>
@@ -48,7 +48,7 @@ OSINT&lt;/p>
  &lt;a class="anchor" href="#q1">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>What is the SHA1 hash value of the sample? (Format: SHA1Hash)&lt;/p></description></item><item><title>BTLO - Log Analysis -Compromised WordPress</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---log-analysis--compromised-wordpress/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---log-analysis--compromised-wordpress/</guid><description>&lt;h1 id="btlo---log-analysis--compromised-wordpress">
+&lt;p>What is the SHA1 hash value of the sample? (Format: SHA1Hash)&lt;/p></description></item><item><title>BTLO - Log Analysis -Compromised WordPress</title><link>https://bernie6401.github.io/docs/security/practice/btlo/incident-response/btlo---log-analysis--compromised-wordpress/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/btlo/incident-response/btlo---log-analysis--compromised-wordpress/</guid><description>&lt;h1 id="btlo---log-analysis--compromised-wordpress">
  BTLO - Log Analysis -Compromised WordPress
  &lt;a class="anchor" href="#btlo---log-analysis--compromised-wordpress">#&lt;/a>
 &lt;/h1>
@@ -75,7 +75,7 @@ Apache Log Analyzer&lt;/p>
  &lt;a class="anchor" href="#q1">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>Identify the URI of the admin login panel that the attacker gained access to (include the token)&lt;/p></description></item><item><title>BTLO - Meta</title><link>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---meta/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---meta/</guid><description>&lt;h1 id="btlo---meta">
+&lt;p>Identify the URI of the admin login panel that the attacker gained access to (include the token)&lt;/p></description></item><item><title>BTLO - Meta</title><link>https://bernie6401.github.io/docs/security/practice/btlo/digital-forensic/btlo---meta/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/btlo/digital-forensic/btlo---meta/</guid><description>&lt;h1 id="btlo---meta">
  BTLO - Meta
  &lt;a class="anchor" href="#btlo---meta">#&lt;/a>
 &lt;/h1>
@@ -107,7 +107,7 @@ Apache Log Analyzer&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt install exiftool -y
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exiftool uploaded_1.JPG &amp;gt; uploaded1_exiftool.txt
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exiftool uploaded_2.png &amp;gt; uploaded2_exiftool.txt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://chat.openai.com/share/6b38b409-1dec-4245-bb14-6a6fe98160af">chatgpt紀錄&lt;/a>&lt;/p></description></item><item><title>BTLO - Paranoid</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---paranoid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---paranoid/</guid><description>&lt;h1 id="btlo---paranoid">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://chat.openai.com/share/6b38b409-1dec-4245-bb14-6a6fe98160af">chatgpt紀錄&lt;/a>&lt;/p></description></item><item><title>BTLO - Paranoid</title><link>https://bernie6401.github.io/docs/security/practice/btlo/incident-response/btlo---paranoid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/btlo/incident-response/btlo---paranoid/</guid><description>&lt;h1 id="btlo---paranoid">
  BTLO - Paranoid
  &lt;a class="anchor" href="#btlo---paranoid">#&lt;/a>
 &lt;/h1>
@@ -169,7 +169,7 @@ Linux CLI&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --virt Virtualization report
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -x,--executable eXecutable name report
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> If no report is given, the summary report will be displayed
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://hackmd.io/_uploads/B17xQgJOa.png" alt="圖片" />&lt;/p></description></item><item><title>BTLO - Phishing Analysis</title><link>https://bernie6401.github.io/security/practice/btlo/security-operation/btlo---phishing-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/security-operation/btlo---phishing-analysis/</guid><description>&lt;h1 id="btlo---phishing-analysis">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://hackmd.io/_uploads/B17xQgJOa.png" alt="圖片" />&lt;/p></description></item><item><title>BTLO - Phishing Analysis</title><link>https://bernie6401.github.io/docs/security/practice/btlo/security-operation/btlo---phishing-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/btlo/security-operation/btlo---phishing-analysis/</guid><description>&lt;h1 id="btlo---phishing-analysis">
  BTLO - Phishing Analysis
  &lt;a class="anchor" href="#btlo---phishing-analysis">#&lt;/a>
 &lt;/h1>
@@ -202,7 +202,7 @@ WHOis&lt;/p>
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h3>
 &lt;p>這一題可以直接用&lt;a href="https://products.groupdocs.app/zh-hant/viewer/eml">線上工具 - EML Viewer&lt;/a>把eml file轉成pdf，不過風險就是有很多的資訊會流失掉，所以比較好的方式就是直接裝Mozilla Thunderbird查看
-&lt;img src="https://hackmd.io/_uploads/Bk2fj8ldT.png" alt="圖片" />&lt;/p></description></item><item><title>BTLO - Secrets</title><link>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/incident-response/btlo---secrets/</guid><description>&lt;h1 id="btlo---secrets">
+&lt;img src="https://hackmd.io/_uploads/Bk2fj8ldT.png" alt="圖片" />&lt;/p></description></item><item><title>BTLO - Secrets</title><link>https://bernie6401.github.io/docs/security/practice/btlo/incident-response/btlo---secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/btlo/incident-response/btlo---secrets/</guid><description>&lt;h1 id="btlo---secrets">
  BTLO - Secrets
  &lt;a class="anchor" href="#btlo---secrets">#&lt;/a>
 &lt;/h1>
@@ -217,7 +217,7 @@ WHOis&lt;/p>
 &lt;blockquote>
 &lt;p>You’re a senior cyber security engineer and during your shift, we have intercepted/noticed a high privilege actions from unknown source that could be identified as malicious. We have got you the ticket that made these actions.
 You are the one who created the secret for these tickets. Please fix this and submit the low privilege ticket so we can make sure that you deserve this position.
-Here is the ticket:&lt;/p></description></item><item><title>BTLO - Shiba Insider</title><link>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---shiba-insider/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---shiba-insider/</guid><description>&lt;h1 id="btlo---shiba-insider">
+Here is the ticket:&lt;/p></description></item><item><title>BTLO - Shiba Insider</title><link>https://bernie6401.github.io/docs/security/practice/btlo/digital-forensic/btlo---shiba-insider/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/btlo/digital-forensic/btlo---shiba-insider/</guid><description>&lt;h1 id="btlo---shiba-insider">
  BTLO - Shiba Insider
  &lt;a class="anchor" href="#btlo---shiba-insider">#&lt;/a>
 &lt;/h1>

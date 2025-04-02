@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PWN on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/pwn/</link><description>Recent content in PWN on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/pwn/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU CS 2023 HW3 Write Up</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/ntu-cs-2023-hw3-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/ntu-cs-2023-hw3-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw3-write-up">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PWN on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/pwn/</link><description>Recent content in PWN on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/pwn/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU CS 2023 HW3 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/ntu-cs-2023-hw3-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/ntu-cs-2023-hw3-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw3-write-up">
  NTU CS 2023 HW3 Write Up
  &lt;a class="anchor" href="#ntu-cs-2023-hw3-write-up">#&lt;/a>
 &lt;/h1>
@@ -58,7 +58,7 @@ r.interactive()
  Lab-Shellcode
  &lt;a class="anchor" href="#lab-shellcode">#&lt;/a>
 &lt;/h2>
-&lt;p>Flag: &lt;code>flag{How_you_do0o0o0o_sysca1111111}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - babygame01</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---babygame01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---babygame01/</guid><description>&lt;h1 id="picoctf---babygame01">
+&lt;p>Flag: &lt;code>flag{How_you_do0o0o0o_sysca1111111}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - babygame01</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---babygame01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---babygame01/</guid><description>&lt;h1 id="picoctf---babygame01">
  PicoCTF - babygame01
  &lt;a class="anchor" href="#picoctf---babygame01">#&lt;/a>
 &lt;/h1>
@@ -74,7 +74,7 @@ r.interactive()
 &lt;blockquote>
 &lt;p>Get the flag and reach the exit. Welcome to BabyGame! Navigate around the map and see what you can find! The game is available to download here. There is no source available, so you&amp;rsquo;ll have to figure your way around the map. You can connect with it using nc saturn.picoctf.net 50227.
 Hint 1: Use &amp;lsquo;w&amp;rsquo;,&amp;lsquo;a&amp;rsquo;,&amp;rsquo;s&amp;rsquo;,&amp;rsquo;d&amp;rsquo; to move around.
-Hint 2: There may be secret commands to make your life easy.&lt;/p></description></item><item><title>PicoCTF - babygame02</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---babygame02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---babygame02/</guid><description>&lt;h1 id="picoctf---babygame02">
+Hint 2: There may be secret commands to make your life easy.&lt;/p></description></item><item><title>PicoCTF - babygame02</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---babygame02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---babygame02/</guid><description>&lt;h1 id="picoctf---babygame02">
  PicoCTF - babygame02
  &lt;a class="anchor" href="#picoctf---babygame02">#&lt;/a>
 &lt;/h1>
@@ -110,7 +110,7 @@ Hint 2: There may be secret commands to make your life easy.&lt;/p></description
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
-:::spoiler IDA Win Function&lt;/p></description></item><item><title>PicoCTF - buffer overflow 2</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/</guid><description>&lt;h1 id="picoctf---buffer-overflow-2">
+:::spoiler IDA Win Function&lt;/p></description></item><item><title>PicoCTF - buffer overflow 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/</guid><description>&lt;h1 id="picoctf---buffer-overflow-2">
  PicoCTF - buffer overflow 2
  &lt;a class="anchor" href="#picoctf---buffer-overflow-2">#&lt;/a>
 &lt;/h1>
@@ -167,7 +167,7 @@ int main(int argc, char **argv){
  vuln();
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - fermat-strings</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---fermat-strings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---fermat-strings/</guid><description>&lt;h1 id="picoctf---fermat-strings">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - fermat-strings</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---fermat-strings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---fermat-strings/</guid><description>&lt;h1 id="picoctf---fermat-strings">
  PicoCTF - fermat-strings
  &lt;a class="anchor" href="#picoctf---fermat-strings">#&lt;/a>
 &lt;/h1>
@@ -242,7 +242,7 @@ int main(void)
 
  if(answer != -1) printf(&amp;#34;Found the answer: %d\n&amp;#34;, answer);
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - filtered-shellcode</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---filtered-shellcode/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---filtered-shellcode/</guid><description>&lt;h1 id="picoctf---filtered-shellcode">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - filtered-shellcode</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---filtered-shellcode/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---filtered-shellcode/</guid><description>&lt;h1 id="picoctf---filtered-shellcode">
  PicoCTF - filtered-shellcode
  &lt;a class="anchor" href="#picoctf---filtered-shellcode">#&lt;/a>
 &lt;/h1>
@@ -306,7 +306,7 @@ int main(int argc, char *argv[]) {
  execute(buf, length);
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - flag leak</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---flag-leak/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---flag-leak/</guid><description>&lt;h1 id="picoctf---flag-leak">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - flag leak</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---flag-leak/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---flag-leak/</guid><description>&lt;h1 id="picoctf---flag-leak">
  PicoCTF - flag leak
  &lt;a class="anchor" href="#picoctf---flag-leak">#&lt;/a>
 &lt;/h1>
@@ -368,7 +368,7 @@ int main(int argc, char **argv){
  vuln();
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - function overwrite</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---function-overwrite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---function-overwrite/</guid><description>&lt;h1 id="picoctf---function-overwrite">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - function overwrite</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---function-overwrite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---function-overwrite/</guid><description>&lt;h1 id="picoctf---function-overwrite">
  PicoCTF - function overwrite
  &lt;a class="anchor" href="#picoctf---function-overwrite">#&lt;/a>
 &lt;/h1>
@@ -483,7 +483,7 @@ int main(int argc, char **argv)
  vuln();
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Guessing Game 1</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---guessing-game-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---guessing-game-1/</guid><description>&lt;h1 id="picoctf---guessing-game-1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Guessing Game 1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---guessing-game-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---guessing-game-1/</guid><description>&lt;h1 id="picoctf---guessing-game-1">
  PicoCTF - Guessing Game 1
  &lt;a class="anchor" href="#picoctf---guessing-game-1">#&lt;/a>
 &lt;/h1>
@@ -565,7 +565,7 @@ int main(int argc, char **argv)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Guessing Game 2</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---guessing-game-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---guessing-game-2/</guid><description>&lt;h1 id="picoctf---guessing-game-2">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Guessing Game 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---guessing-game-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---guessing-game-2/</guid><description>&lt;h1 id="picoctf---guessing-game-2">
  PicoCTF - Guessing Game 2
  &lt;a class="anchor" href="#picoctf---guessing-game-2">#&lt;/a>
 &lt;/h1>
@@ -666,7 +666,7 @@ int main(int argc, char **argv){
 	
 	return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - hijacking</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---hijacking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---hijacking/</guid><description>&lt;h1 id="picoctf---hijacking">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - hijacking</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---hijacking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---hijacking/</guid><description>&lt;h1 id="picoctf---hijacking">
  PicoCTF - hijacking
  &lt;a class="anchor" href="#picoctf---hijacking">#&lt;/a>
 &lt;/h1>
@@ -739,7 +739,7 @@ Hint 2: No place like Home:)&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> File &lt;span style="color:#e6db74">&amp;#34;/home/picoctf/.server.py&amp;#34;&lt;/span>, line 7, in &amp;lt;module&amp;gt;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> host_info &lt;span style="color:#f92672">=&lt;/span> socket.gethostbyaddr&lt;span style="color:#f92672">(&lt;/span>ip&lt;span style="color:#f92672">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>socket.gaierror: &lt;span style="color:#f92672">[&lt;/span>Errno -5&lt;span style="color:#f92672">]&lt;/span> No address associated with hostname
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Flag: &lt;code>picoCTF{pYth0nn_libraryH!j@CK!n9_566dbbb7}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Kit Engine</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---kit-engine/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---kit-engine/</guid><description>&lt;h1 id="picoctf---kit-engine">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Flag: &lt;code>picoCTF{pYth0nn_libraryH!j@CK!n9_566dbbb7}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Kit Engine</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---kit-engine/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---kit-engine/</guid><description>&lt;h1 id="picoctf---kit-engine">
  PicoCTF - Kit Engine
  &lt;a class="anchor" href="#picoctf---kit-engine">#&lt;/a>
 &lt;/h1>
@@ -753,7 +753,7 @@ Hint 2: No place like Home:)&lt;/p>
 &lt;p>&lt;a href="https://v8.dev/docs/d8">Using d8&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>d8 is V8’s own developer shell.&lt;/p>
-&lt;p>d8 is useful for running some JavaScript locally or debugging changes you have made to V8. Building V8 using GN for x64 outputs a d8 binary in out.gn/x64.optdebug/d8. You can call d8 with the &amp;ndash;help argument for more information about usage and flags.&lt;/p></description></item><item><title>PicoCTF - ropfu</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---ropfu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---ropfu/</guid><description>&lt;h1 id="picoctf---ropfu">
+&lt;p>d8 is useful for running some JavaScript locally or debugging changes you have made to V8. Building V8 using GN for x64 outputs a d8 binary in out.gn/x64.optdebug/d8. You can call d8 with the &amp;ndash;help argument for more information about usage and flags.&lt;/p></description></item><item><title>PicoCTF - ropfu</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---ropfu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---ropfu/</guid><description>&lt;h1 id="picoctf---ropfu">
  PicoCTF - ropfu
  &lt;a class="anchor" href="#picoctf---ropfu">#&lt;/a>
 &lt;/h1>
@@ -796,7 +796,7 @@ int main(int argc, char **argv){
  vuln();
  
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - RPS</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---rps/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---rps/</guid><description>&lt;h1 id="picoctf---rps">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - RPS</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---rps/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---rps/</guid><description>&lt;h1 id="picoctf---rps">
  PicoCTF - RPS
  &lt;a class="anchor" href="#picoctf---rps">#&lt;/a>
 &lt;/h1>
@@ -807,7 +807,7 @@ int main(int argc, char **argv){
 &lt;p>&lt;a href="https://www.geeksforgeeks.org/strstr-in-ccpp/">strstr() in C/C++&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>In C++, std::strstr() is a predefined function used for string handling. string.h is the header file required for string functions. This function takes two strings s1 and s2 as an argument and finds the first occurrence of the sub-string s2 in the string s1. The process of matching does not include the terminating null-characters(‘\0’), but function stops there.
-Syntax:&lt;/p></description></item><item><title>PicoCTF - SaaS</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---saas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---saas/</guid><description>&lt;h1 id="picoctf---saas">
+Syntax:&lt;/p></description></item><item><title>PicoCTF - SaaS</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---saas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---saas/</guid><description>&lt;h1 id="picoctf---saas">
  PicoCTF - SaaS
  &lt;a class="anchor" href="#picoctf---saas">#&lt;/a>
 &lt;/h1>
@@ -883,7 +883,7 @@ int main()
  setup();
  goto *addr;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - seed-sPRiNG</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---seed-spring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---seed-spring/</guid><description>&lt;h1 id="picoctf---seed-spring">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - seed-sPRiNG</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---seed-spring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---seed-spring/</guid><description>&lt;h1 id="picoctf---seed-spring">
  PicoCTF - seed-sPRiNG
  &lt;a class="anchor" href="#picoctf---seed-spring">#&lt;/a>
 &lt;/h1>
@@ -941,7 +941,7 @@ int main()
  fflush(stdout);
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - stack cache</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---stack-cache/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---stack-cache/</guid><description>&lt;h1 id="picoctf---stack-cache">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - stack cache</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---stack-cache/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---stack-cache/</guid><description>&lt;h1 id="picoctf---stack-cache">
  PicoCTF - stack cache
  &lt;a class="anchor" href="#picoctf---stack-cache">#&lt;/a>
 &lt;/h1>
@@ -1019,7 +1019,7 @@ int main(int argc, char **argv){
  printf(&amp;#34;Bye!&amp;#34;);
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Stonk Market</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---stonk-market/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---stonk-market/</guid><description>&lt;h1 id="picoctf---stonk-market">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Stonk Market</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---stonk-market/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---stonk-market/</guid><description>&lt;h1 id="picoctf---stonk-market">
  PicoCTF - Stonk Market
  &lt;a class="anchor" href="#picoctf---stonk-market">#&lt;/a>
 &lt;/h1>
@@ -1180,7 +1180,7 @@ int main(int argc, char *argv[])
 
 	exit(0);
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - tic-tac</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---tic-tac/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---tic-tac/</guid><description>&lt;h1 id="picoctf---tic-tac">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - tic-tac</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---tic-tac/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---tic-tac/</guid><description>&lt;h1 id="picoctf---tic-tac">
  PicoCTF - tic-tac
  &lt;a class="anchor" href="#picoctf---tic-tac">#&lt;/a>
 &lt;/h1>
@@ -1241,7 +1241,7 @@ int main(int argc, char *argv[]) {
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - two-sum</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---two-sum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---two-sum/</guid><description>&lt;h1 id="picoctf---two-sum">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - two-sum</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---two-sum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---two-sum/</guid><description>&lt;h1 id="picoctf---two-sum">
  PicoCTF - two-sum
  &lt;a class="anchor" href="#picoctf---two-sum">#&lt;/a>
 &lt;/h1>
@@ -1306,7 +1306,7 @@ int main() {
  }
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Unsubscriptions Are Free</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/</guid><description>&lt;h1 id="picoctf---unsubscriptions-are-free">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Unsubscriptions Are Free</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/</guid><description>&lt;h1 id="picoctf---unsubscriptions-are-free">
  PicoCTF - Unsubscriptions Are Free
  &lt;a class="anchor" href="#picoctf---unsubscriptions-are-free">#&lt;/a>
 &lt;/h1>
@@ -1473,7 +1473,7 @@ int main() {
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>	}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - VNE</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---vne/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---vne/</guid><description>&lt;h1 id="picoctf---vne">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - VNE</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---vne/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---vne/</guid><description>&lt;h1 id="picoctf---vne">
  PicoCTF - VNE
  &lt;a class="anchor" href="#picoctf---vne">#&lt;/a>
 &lt;/h1>
@@ -1496,7 +1496,7 @@ Command Injection&lt;/p>
  Source Code
  &lt;a class="anchor" href="#source-code">#&lt;/a>
 &lt;/h2>
-&lt;p>:::spoiler IDA Main Function&lt;/p></description></item><item><title>PicoCTF - x-sixty-what</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---x-sixty-what/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---x-sixty-what/</guid><description>&lt;h1 id="picoctf---x-sixty-what">
+&lt;p>:::spoiler IDA Main Function&lt;/p></description></item><item><title>PicoCTF - x-sixty-what</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---x-sixty-what/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---x-sixty-what/</guid><description>&lt;h1 id="picoctf---x-sixty-what">
  PicoCTF - x-sixty-what
  &lt;a class="anchor" href="#picoctf---x-sixty-what">#&lt;/a>
 &lt;/h1>
@@ -1554,7 +1554,7 @@ r.interactive()
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>&lt;a href="https://ctftime.org/writeup/33199">x-sixty-what WP&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>PWN Overview</title><link>https://bernie6401.github.io/tools/ctf/pwn-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/tools/ctf/pwn-overview/</guid><description>&lt;h1 id="pwn-overview">
+&lt;p>&lt;a href="https://ctftime.org/writeup/33199">x-sixty-what WP&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>PWN Overview</title><link>https://bernie6401.github.io/docs/tools/ctf/pwn-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/pwn-overview/</guid><description>&lt;h1 id="pwn-overview">
  PWN Overview
  &lt;a class="anchor" href="#pwn-overview">#&lt;/a>
 &lt;/h1>
@@ -1621,7 +1621,7 @@ $ sudo ./radare2/sys/install.sh
  gdb
  &lt;a class="anchor" href="#gdb">#&lt;/a>
 &lt;/h3>
-&lt;p>:::spoiler 常用語法(&lt;a href="https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf">cheat&lt;/a>)&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x00</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x00/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x00/</guid><description>&lt;h1 id="simple-buffer-overflow---0x00">
+&lt;p>:::spoiler 常用語法(&lt;a href="https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf">cheat&lt;/a>)&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x00</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x00/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x00/</guid><description>&lt;h1 id="simple-buffer-overflow---0x00">
  Simple Buffer Overflow - 0x00
  &lt;a class="anchor" href="#simple-buffer-overflow---0x00">#&lt;/a>
 &lt;/h1>
@@ -1654,7 +1654,7 @@ int main()
 &lt;ul>
 &lt;li>
 &lt;p>This is the original entry point of this program.
-&lt;img src="https://imgur.com/DWOL9Hy.png" alt="" />&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x01</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x01/</guid><description>&lt;h1 id="simple-buffer-overflow---0x01">
+&lt;img src="https://imgur.com/DWOL9Hy.png" alt="" />&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x01</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x01/</guid><description>&lt;h1 id="simple-buffer-overflow---0x01">
  Simple Buffer Overflow - 0x01
  &lt;a class="anchor" href="#simple-buffer-overflow---0x01">#&lt;/a>
 &lt;/h1>
@@ -1686,7 +1686,7 @@ int main()
  return 0;
 }
 &lt;/code>&lt;/pre>&lt;p>The secret function is aim to create a shell, therefore, our main purpose is try to get the shell by using buffer overflow.
-We can check &lt;code>bof&lt;/code> in the main function that it read the string with length &lt;code>0x30&lt;/code> that bigger than &lt;code>buf&lt;/code> size.&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x02</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x02/</guid><description>&lt;h1 id="simple-buffer-overflow---0x02">
+We can check &lt;code>bof&lt;/code> in the main function that it read the string with length &lt;code>0x30&lt;/code> that bigger than &lt;code>buf&lt;/code> size.&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x02</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x02/</guid><description>&lt;h1 id="simple-buffer-overflow---0x02">
  Simple Buffer Overflow - 0x02
  &lt;a class="anchor" href="#simple-buffer-overflow---0x02">#&lt;/a>
 &lt;/h1>
@@ -1703,7 +1703,7 @@ We can check &lt;code>bof&lt;/code> in the main function that it read the string
  How to create a shellcode in BOF?
  &lt;a class="anchor" href="#how-to-create-a-shellcode-in-bof">#&lt;/a>
 &lt;/h2>
-&lt;p>In lecture &lt;a href="https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/HJm5x_Ocs">0x01&lt;/a>, we can see sub-function that create a shell using command:&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x04</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x04/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x04/</guid><description>&lt;h1 id="simple-buffer-overflow---0x04">
+&lt;p>In lecture &lt;a href="https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/HJm5x_Ocs">0x01&lt;/a>, we can see sub-function that create a shell using command:&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x04</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x04/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x04/</guid><description>&lt;h1 id="simple-buffer-overflow---0x04">
  Simple Buffer Overflow - 0x04
  &lt;a class="anchor" href="#simple-buffer-overflow---0x04">#&lt;/a>
 &lt;/h1>
@@ -1736,7 +1736,7 @@ int main()
 &lt;p>Actually, this is a variant of the &lt;a href="https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/HJm5x_Ocs">lecture 0x01&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;font color="F0000">Note that&lt;/font>, the global variable has its own address, instead of local variable that push to stack that we don&amp;rsquo;t know at first.&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x05(Leak Canary)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x05leak-canary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x05leak-canary/</guid><description>&lt;h1 id="simple-buffer-overflow---0x05leak-canary">
+&lt;p>&lt;font color="F0000">Note that&lt;/font>, the global variable has its own address, instead of local variable that push to stack that we don&amp;rsquo;t know at first.&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x05(Leak Canary)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x05leak-canary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x05leak-canary/</guid><description>&lt;h1 id="simple-buffer-overflow---0x05leak-canary">
  Simple Buffer Overflow - 0x05(Leak Canary)
  &lt;a class="anchor" href="#simple-buffer-overflow---0x05leak-canary">#&lt;/a>
 &lt;/h1>
@@ -1791,7 +1791,7 @@ int main()
 &lt;ul>
 &lt;li>
 &lt;p>First, we can use &lt;code>objdump -d -M Intel {filename}&lt;/code> to check the address of backdoor → &lt;code>0x4011b6&lt;/code>
-&lt;img src="https://imgur.com/d30qIvL.png" alt="" />&lt;/p></description></item><item><title>Simple PWN - 0x06(GOT hijacking/Lab - `got2win`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x06got-hijacking_lab---got2win/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x06got-hijacking_lab---got2win/</guid><description>&lt;h1 id="simple-pwn---0x06got-hijackinglab---got2win">
+&lt;img src="https://imgur.com/d30qIvL.png" alt="" />&lt;/p></description></item><item><title>Simple PWN - 0x06(GOT hijacking/Lab - `got2win`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x06got-hijacking_lab---got2win/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x06got-hijacking_lab---got2win/</guid><description>&lt;h1 id="simple-pwn---0x06got-hijackinglab---got2win">
  Simple PWN - 0x06(GOT hijacking/Lab - &lt;code>got2win&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn---0x06got-hijackinglab---got2win">#&lt;/a>
 &lt;/h1>
@@ -1843,7 +1843,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x07(ROP)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x07rop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x07rop/</guid><description>&lt;h1 id="simple-pwn---0x07rop">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x07(ROP)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x07rop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x07rop/</guid><description>&lt;h1 id="simple-pwn---0x07rop">
  Simple PWN - 0x07(ROP)
  &lt;a class="anchor" href="#simple-pwn---0x07rop">#&lt;/a>
 &lt;/h1>
@@ -1957,7 +1957,7 @@ r.interactive()
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://youtu.be/iA4Hrr17ooI?t=1239">NTUSTISC - Pwn Basic 3 [2019.03.26]&lt;/a>
-&lt;a href="https://youtu.be/ktoVQB99Gj4?t=6712">Pwn week1&lt;/a>&lt;/p></description></item><item><title>Simple PWN - 0x08(one_gadget with ROP)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x08one_gadget-with-rop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x08one_gadget-with-rop/</guid><description>&lt;h1 id="simple-pwn---0x08one_gadget-with-rop">
+&lt;a href="https://youtu.be/ktoVQB99Gj4?t=6712">Pwn week1&lt;/a>&lt;/p></description></item><item><title>Simple PWN - 0x08(one_gadget with ROP)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x08one_gadget-with-rop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x08one_gadget-with-rop/</guid><description>&lt;h1 id="simple-pwn---0x08one_gadget-with-rop">
  Simple PWN - 0x08(one_gadget with ROP)
  &lt;a class="anchor" href="#simple-pwn---0x08one_gadget-with-rop">#&lt;/a>
 &lt;/h1>
@@ -2068,7 +2068,7 @@ r.interactivae()
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://shengyu7697.github.io/linux-ldd/">Linux ldd 查看執行檔執行時需要哪些 library&lt;/a>
-&lt;a href="https://youtu.be/ktoVQB99Gj4">Pwn week1&lt;/a>&lt;/p></description></item><item><title>Simple PWN - 0x09(stack pivoting)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x09stack-pivoting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x09stack-pivoting/</guid><description>&lt;h1 id="simple-pwn---0x09stack-pivoting">
+&lt;a href="https://youtu.be/ktoVQB99Gj4">Pwn week1&lt;/a>&lt;/p></description></item><item><title>Simple PWN - 0x09(stack pivoting)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x09stack-pivoting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x09stack-pivoting/</guid><description>&lt;h1 id="simple-pwn---0x09stack-pivoting">
  Simple PWN - 0x09(stack pivoting)
  &lt;a class="anchor" href="#simple-pwn---0x09stack-pivoting">#&lt;/a>
 &lt;/h1>
@@ -2128,7 +2128,7 @@ mprotect(0x403000, 0x1000, PROT_READ|PROT_WRITE|PROT_EXEC);
 &lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Construct &lt;code>ROP&lt;/code> chain&lt;/p></description></item><item><title>Simple PWN - 0x10(`seccomp`/Lab - `rop2win`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x10seccomp_lab---rop2win/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x10seccomp_lab---rop2win/</guid><description>&lt;h1 id="simple-pwn---0x10seccomplab---rop2win">
+&lt;p>Construct &lt;code>ROP&lt;/code> chain&lt;/p></description></item><item><title>Simple PWN - 0x10(`seccomp`/Lab - `rop2win`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x10seccomp_lab---rop2win/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x10seccomp_lab---rop2win/</guid><description>&lt;h1 id="simple-pwn---0x10seccomplab---rop2win">
  Simple PWN - 0x10(&lt;code>seccomp&lt;/code>/Lab - &lt;code>rop2win&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn---0x10seccomplab---rop2win">#&lt;/a>
 &lt;/h1>
@@ -2185,7 +2185,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x11(format string bug)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x11format-string-bug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x11format-string-bug/</guid><description>&lt;h1 id="simple-pwn---0x11format-string-bug">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x11(format string bug)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x11format-string-bug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x11format-string-bug/</guid><description>&lt;h1 id="simple-pwn---0x11format-string-bug">
  Simple PWN - 0x11(format string bug)
  &lt;a class="anchor" href="#simple-pwn---0x11format-string-bug">#&lt;/a>
 &lt;/h1>
@@ -2240,7 +2240,7 @@ Unfortunately, it appeared before 2nd read function, because 2nd &lt;code>read&l
  Exploit - GOT hijacking + format string bug
  &lt;a class="anchor" href="#exploit---got-hijacking--format-string-bug">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;strong>Our goal is hijack &lt;code>puts GOT&lt;/code> to &lt;code>system plt&lt;/code>&lt;/strong>&lt;/p></description></item><item><title>Simple PWN - 0x12(Lab - `rop++`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x12lab---rop++/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x12lab---rop++/</guid><description>&lt;h1 id="simple-pwn---0x12lab---rop">
+&lt;p>&lt;strong>Our goal is hijack &lt;code>puts GOT&lt;/code> to &lt;code>system plt&lt;/code>&lt;/strong>&lt;/p></description></item><item><title>Simple PWN - 0x12(Lab - `rop++`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x12lab---rop++/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x12lab---rop++/</guid><description>&lt;h1 id="simple-pwn---0x12lab---rop">
  Simple PWN - 0x12(Lab - &lt;code>rop++&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn---0x12lab---rop">#&lt;/a>
 &lt;/h1>
@@ -2288,7 +2288,7 @@ int main()
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;li>
 &lt;p>Preliminary idea is using &lt;code>ROP&lt;/code> chain and get shell, but the problem is where can I write &lt;code>/bin/sh\x00&lt;/code>? We can use &lt;code>vmmap&lt;/code> to observe where section is writable and readable → &lt;code>0x4c5000~0x4c800&lt;/code>
-&lt;img src="https://imgur.com/018Nk8F.png" alt="" />&lt;/p></description></item><item><title>Simple PWN - 0x13(Lab - `how2know`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x13lab---how2know/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x13lab---how2know/</guid><description>&lt;h1 id="simple-pwn---0x13lab---how2know">
+&lt;img src="https://imgur.com/018Nk8F.png" alt="" />&lt;/p></description></item><item><title>Simple PWN - 0x13(Lab - `how2know`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x13lab---how2know/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x13lab---how2know/</guid><description>&lt;h1 id="simple-pwn---0x13lab---how2know">
  Simple PWN - 0x13(Lab - &lt;code>how2know&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn---0x13lab---how2know">#&lt;/a>
 &lt;/h1>
@@ -2341,7 +2341,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x14(Simple HEAP)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x14simple-heap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x14simple-heap/</guid><description>&lt;h1 id="simple-pwn---0x14simple-heap">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x14(Simple HEAP)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x14simple-heap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x14simple-heap/</guid><description>&lt;h1 id="simple-pwn---0x14simple-heap">
  Simple PWN - 0x14(Simple HEAP)
  &lt;a class="anchor" href="#simple-pwn---0x14simple-heap">#&lt;/a>
 &lt;/h1>
@@ -2381,7 +2381,7 @@ int main()
 &lt;ul>
 &lt;li>
 &lt;p>Before executing &lt;code>malloc&lt;/code>, there is no &lt;code>heap&lt;/code> space in memory layout
-&lt;img src="https://imgur.com/h9ibSyk.png" alt="" />&lt;/p></description></item><item><title>Simple PWN - 0x15(Lab - `heapmath`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x15lab---heapmath/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x15lab---heapmath/</guid><description>&lt;h1 id="simple-pwn---0x15lab---heapmath">
+&lt;img src="https://imgur.com/h9ibSyk.png" alt="" />&lt;/p></description></item><item><title>Simple PWN - 0x15(Lab - `heapmath`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x15lab---heapmath/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x15lab---heapmath/</guid><description>&lt;h1 id="simple-pwn---0x15lab---heapmath">
  Simple PWN - 0x15(Lab - &lt;code>heapmath&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn---0x15lab---heapmath">#&lt;/a>
 &lt;/h1>
@@ -2584,7 +2584,7 @@ int main()
  exit(0);
  }
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x16(simple_smallbin)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x16simple_smallbin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x16simple_smallbin/</guid><description>&lt;h1 id="simple-pwn-0x16simple_smallbin">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x16(simple_smallbin)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x16simple_smallbin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x16simple_smallbin/</guid><description>&lt;h1 id="simple-pwn-0x16simple_smallbin">
  Simple PWN 0x16(simple_smallbin)
  &lt;a class="anchor" href="#simple-pwn-0x16simple_smallbin">#&lt;/a>
 &lt;/h1>
@@ -2629,7 +2629,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x17(UAF - leak information)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x17uaf---leak-information/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x17uaf---leak-information/</guid><description>&lt;h1 id="simple-pwn-0x17uaf---leak-information">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x17(UAF - leak information)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x17uaf---leak-information/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x17uaf---leak-information/</guid><description>&lt;h1 id="simple-pwn-0x17uaf---leak-information">
  Simple PWN 0x17(UAF - leak information)
  &lt;a class="anchor" href="#simple-pwn-0x17uaf---leak-information">#&lt;/a>
 &lt;/h1>
@@ -2663,7 +2663,7 @@ int main()
 
  puts(p2);
 }
-&lt;/code>&lt;/pre>&lt;p>If we set the pointer to &lt;code>NULL&lt;/code> after it was freed, then we can get some vital info. from this chunk.&lt;/p></description></item><item><title>Simple PWN 0x18(Lab - `babynote`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x18lab---babynote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x18lab---babynote/</guid><description>&lt;h1 id="simple-pwn-0x18lab---babynote">
+&lt;/code>&lt;/pre>&lt;p>If we set the pointer to &lt;code>NULL&lt;/code> after it was freed, then we can get some vital info. from this chunk.&lt;/p></description></item><item><title>Simple PWN 0x18(Lab - `babynote`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x18lab---babynote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x18lab---babynote/</guid><description>&lt;h1 id="simple-pwn-0x18lab---babynote">
  Simple PWN 0x18(Lab - &lt;code>babynote&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn-0x18lab---babynote">#&lt;/a>
 &lt;/h1>
@@ -2803,7 +2803,7 @@ int main()
  
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x19(Lab - `babyums` - flag 1)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x19lab---babyums---flag-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x19lab---babyums---flag-1/</guid><description>&lt;h1 id="simple-pwn-0x19lab---babyums---flag-1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x19(Lab - `babyums` - flag 1)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x19lab---babyums---flag-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x19lab---babyums---flag-1/</guid><description>&lt;h1 id="simple-pwn-0x19lab---babyums---flag-1">
  Simple PWN 0x19(Lab - &lt;code>babyums&lt;/code> - flag 1)
  &lt;a class="anchor" href="#simple-pwn-0x19lab---babyums---flag-1">#&lt;/a>
 &lt;/h1>
@@ -2952,7 +2952,7 @@ int main()
  
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x20(Lab - `babyums` - flag 2)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x20lab---babyums---flag-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x20lab---babyums---flag-2/</guid><description>&lt;h1 id="simple-pwn-0x20lab---babyums---flag-2">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x20(Lab - `babyums` - flag 2)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x20lab---babyums---flag-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x20lab---babyums---flag-2/</guid><description>&lt;h1 id="simple-pwn-0x20lab---babyums---flag-2">
  Simple PWN 0x20(Lab - &lt;code>babyums&lt;/code> - flag 2)
  &lt;a class="anchor" href="#simple-pwn-0x20lab---babyums---flag-2">#&lt;/a>
 &lt;/h1>
@@ -3039,7 +3039,7 @@ edit_data(2, 0x8, p64(libc_sys_addr))
 del_user(1)
 
 r.interactive()
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x21(fopen, fread, fwrite, fclose)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x21fopen-fread-fwrite-fclose/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x21fopen-fread-fwrite-fclose/</guid><description>&lt;h1 id="simple-pwn-0x21fopen-fread-fwrite-fclose">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x21(fopen, fread, fwrite, fclose)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x21fopen-fread-fwrite-fclose/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x21fopen-fread-fwrite-fclose/</guid><description>&lt;h1 id="simple-pwn-0x21fopen-fread-fwrite-fclose">
  Simple PWN 0x21(fopen, fread, fwrite, fclose)
  &lt;a class="anchor" href="#simple-pwn-0x21fopen-fread-fwrite-fclose">#&lt;/a>
 &lt;/h1>
@@ -3096,7 +3096,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x22(Lab - `AAR`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x22lab---aar/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x22lab---aar/</guid><description>&lt;h1 id="simple-pwn-0x22lab---aar">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x22(Lab - `AAR`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x22lab---aar/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x22lab---aar/</guid><description>&lt;h1 id="simple-pwn-0x22lab---aar">
  Simple PWN 0x22(Lab - &lt;code>AAR&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn-0x22lab---aar">#&lt;/a>
 &lt;/h1>
@@ -3158,7 +3158,7 @@ payload = flat(
 r.send(payload)
 
 r.interactive()
-&lt;/code>&lt;/pre></description></item><item><title>Simple PWN 0x23(Lab - `AAW`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x23lab---aaw/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x23lab---aaw/</guid><description>&lt;h1 id="simple-pwn-0x23lab---aaw">
+&lt;/code>&lt;/pre></description></item><item><title>Simple PWN 0x23(Lab - `AAW`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x23lab---aaw/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x23lab---aaw/</guid><description>&lt;h1 id="simple-pwn-0x23lab---aaw">
  Simple PWN 0x23(Lab - &lt;code>AAW&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn-0x23lab---aaw">#&lt;/a>
 &lt;/h1>
@@ -3196,7 +3196,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x31(2023 HW - Notepad - Stage - 1)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x312023-hw---notepad---stage---1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x312023-hw---notepad---stage---1/</guid><description>&lt;h1 id="simple-pwn-0x312023-hw---notepad---stage---1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x31(2023 HW - Notepad - Stage - 1)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x312023-hw---notepad---stage---1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x312023-hw---notepad---stage---1/</guid><description>&lt;h1 id="simple-pwn-0x312023-hw---notepad---stage---1">
  Simple PWN 0x31(2023 HW - Notepad - Stage - 1)
  &lt;a class="anchor" href="#simple-pwn-0x312023-hw---notepad---stage---1">#&lt;/a>
 &lt;/h1>
@@ -3209,7 +3209,7 @@ int main()
 &lt;p>You should solve the PoW to invoke a new instance.
 You can use the pow_solver.py script in the released zip to solve the PoW.
 After you solve the PoW, the service will create a new container and show &amp;gt;you the port. Connect it to play this challenge!
-The container will be destroy at 5 minutes. So you should debug your exploit in your environment.&lt;/p></description></item><item><title>Simple PWN 0x32(2023 HW - Notepad-Stage 2)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x322023-hw---notepad-stage-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x322023-hw---notepad-stage-2/</guid><description>&lt;h1 id="simple-pwn-0x322023-hw---notepad-stage-2">
+The container will be destroy at 5 minutes. So you should debug your exploit in your environment.&lt;/p></description></item><item><title>Simple PWN 0x32(2023 HW - Notepad-Stage 2)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x322023-hw---notepad-stage-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x322023-hw---notepad-stage-2/</guid><description>&lt;h1 id="simple-pwn-0x322023-hw---notepad-stage-2">
  Simple PWN 0x32(2023 HW - Notepad-Stage 2)
  &lt;a class="anchor" href="#simple-pwn-0x322023-hw---notepad-stage-2">#&lt;/a>
 &lt;/h1>
@@ -3255,7 +3255,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
 &lt;ol>
 &lt;li>
 &lt;p>==漏洞發想==
-透過@cs-otaku的WP，了解到如果可以做到任意讀取有甚麼厲害的地方呢?那我們就可以想辦法用該題提供的write_note的功能以及lseek的功能，寫入==/proc/self/mem==這個檔案，這是甚麼東西呢?可以看一下&lt;a href="http://blog.coderhuo.tech/2017/10/12/Virtual_Memory_C_strings_proc/">虛擬內存探究 &amp;ndash; 第一篇:C strings &amp;amp; /proc&lt;/a>，要做的事情和我們的幾乎一樣，簡單說就是&lt;/p></description></item><item><title>Simple PWN 0x33(2023 Lab - ROP_RW)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x332023-lab---rop_rw/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x332023-lab---rop_rw/</guid><description>&lt;h1 id="simple-pwn-0x332023-lab---rop_rw">
+透過@cs-otaku的WP，了解到如果可以做到任意讀取有甚麼厲害的地方呢?那我們就可以想辦法用該題提供的write_note的功能以及lseek的功能，寫入==/proc/self/mem==這個檔案，這是甚麼東西呢?可以看一下&lt;a href="http://blog.coderhuo.tech/2017/10/12/Virtual_Memory_C_strings_proc/">虛擬內存探究 &amp;ndash; 第一篇:C strings &amp;amp; /proc&lt;/a>，要做的事情和我們的幾乎一樣，簡單說就是&lt;/p></description></item><item><title>Simple PWN 0x33(2023 Lab - ROP_RW)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x332023-lab---rop_rw/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x332023-lab---rop_rw/</guid><description>&lt;h1 id="simple-pwn-0x332023-lab---rop_rw">
  Simple PWN 0x33(2023 Lab - ROP_RW)
  &lt;a class="anchor" href="#simple-pwn-0x332023-lab---rop_rw">#&lt;/a>
 &lt;/h1>
@@ -3316,7 +3316,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x34 (2023 Lab - ret2plt)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x34-2023-lab---ret2plt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x34-2023-lab---ret2plt/</guid><description>&lt;h1 id="simple-pwn-0x34-2023-lab---ret2plt">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x34 (2023 Lab - ret2plt)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x34-2023-lab---ret2plt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x34-2023-lab---ret2plt/</guid><description>&lt;h1 id="simple-pwn-0x34-2023-lab---ret2plt">
  Simple PWN 0x34 (2023 Lab - ret2plt)
  &lt;a class="anchor" href="#simple-pwn-0x34-2023-lab---ret2plt">#&lt;/a>
 &lt;/h1>
@@ -3439,7 +3439,7 @@ puts plt
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>r&lt;span style="color:#f92672">.&lt;/span>sendline(p64(libc&lt;span style="color:#f92672">.&lt;/span>symbols[&lt;span style="color:#e6db74">&amp;#39;system&amp;#39;&lt;/span>]))
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>r&lt;span style="color:#f92672">.&lt;/span>interactive()
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Simple PWN 0x35(2023 Lab - Stack Pivot)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x352023-lab---stack-pivot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x352023-lab---stack-pivot/</guid><description>&lt;h1 id="simple-pwn-0x352023-lab---stack-pivot">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Simple PWN 0x35(2023 Lab - Stack Pivot)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x352023-lab---stack-pivot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x352023-lab---stack-pivot/</guid><description>&lt;h1 id="simple-pwn-0x352023-lab---stack-pivot">
  Simple PWN 0x35(2023 Lab - Stack Pivot)
  &lt;a class="anchor" href="#simple-pwn-0x352023-lab---stack-pivot">#&lt;/a>
 &lt;/h1>
@@ -3579,7 +3579,7 @@ puts plt
 &lt;/li>
 &lt;/ol>
 &lt;p>:::danger
-執行的時候如果遇到local端可以run但server爛掉的情況，有可能是raw_input()造成的，可以先註解掉這些東西，如果還是遇到一樣的問題，可以開docker在裡面執行&lt;/p></description></item><item><title>Simple PWN 0x36(2023 HW - Notepad-Stage 3)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x362023-hw---notepad-stage-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x362023-hw---notepad-stage-3/</guid><description>&lt;h1 id="simple-pwn-0x362023-hw---notepad-stage-3">
+執行的時候如果遇到local端可以run但server爛掉的情況，有可能是raw_input()造成的，可以先註解掉這些東西，如果還是遇到一樣的問題，可以開docker在裡面執行&lt;/p></description></item><item><title>Simple PWN 0x36(2023 HW - Notepad-Stage 3)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x362023-hw---notepad-stage-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x362023-hw---notepad-stage-3/</guid><description>&lt;h1 id="simple-pwn-0x362023-hw---notepad-stage-3">
  Simple PWN 0x36(2023 HW - Notepad-Stage 3)
  &lt;a class="anchor" href="#simple-pwn-0x362023-hw---notepad-stage-3">#&lt;/a>
 &lt;/h1>
@@ -3597,7 +3597,7 @@ puts plt
 &lt;li>首先，後端有一個洞，就是在login的write，他的buf仔細和其他有call到write做對比會發現，他並沒有清掉buf的內容，這代表他會完完整整的把裡面的內容送到前端，但為甚麼前面兩題都沒有這個問題呢?因為前端並沒有把buf的內容印出來，所以首要目標是找到一個方法可以leak出內容的shellcode之類的，這樣我們就可以抓到text / libc base address&lt;/li>
 &lt;li>知道這些事情可以幹嘛呢?check token有一個bof的洞，我們可以利用這個洞來傳送rop，所以需要ret2libc抓到base address之後在蓋rop&lt;/li>
 &lt;li>ROP具體的內容是甚麼呢?有兩種方法可以拿到flag，一個是拿到shell之後setuid(0)，因為backend 有 suid 權限，所以我們才可以用 setuid(0) 以root 執行，然後cat /flag_root；第二種是直接ORW，看flag是啥這樣&lt;/li>
-&lt;/ol></description></item><item><title>Simple PWN 0x37(2023 HW - HACHAMA)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x372023-hw---hachama/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x372023-hw---hachama/</guid><description>&lt;h1 id="simple-pwn-0x372023-hw---hachama">
+&lt;/ol></description></item><item><title>Simple PWN 0x37(2023 HW - HACHAMA)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x372023-hw---hachama/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x372023-hw---hachama/</guid><description>&lt;h1 id="simple-pwn-0x372023-hw---hachama">
  Simple PWN 0x37(2023 HW - HACHAMA)
  &lt;a class="anchor" href="#simple-pwn-0x372023-hw---hachama">#&lt;/a>
 &lt;/h1>
@@ -3689,7 +3689,7 @@ bof&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x38(Lab - UAF)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x38lab---uaf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x38lab---uaf/</guid><description>&lt;h1 id="simple-pwn-0x38lab---uaf">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x38(Lab - UAF)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x38lab---uaf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x38lab---uaf/</guid><description>&lt;h1 id="simple-pwn-0x38lab---uaf">
  Simple PWN 0x38(Lab - UAF)
  &lt;a class="anchor" href="#simple-pwn-0x38lab---uaf">#&lt;/a>
 &lt;/h1>
@@ -3832,7 +3832,7 @@ bof&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x39(Lab - Double Free)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x39lab---double-free/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x39lab---double-free/</guid><description>&lt;h1 id="simple-pwn-0x39lab---double-free">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x39(Lab - Double Free)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x39lab---double-free/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x39lab---double-free/</guid><description>&lt;h1 id="simple-pwn-0x39lab---double-free">
  Simple PWN 0x39(Lab - Double Free)
  &lt;a class="anchor" href="#simple-pwn-0x39lab---double-free">#&lt;/a>
 &lt;/h1>
@@ -3964,7 +3964,7 @@ bof&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x40(2023 HW - UAF++)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x402023-hw---uaf++/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x402023-hw---uaf++/</guid><description>&lt;h1 id="simple-pwn-0x402023-hw---uaf">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x40(2023 HW - UAF++)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x402023-hw---uaf++/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x402023-hw---uaf++/</guid><description>&lt;h1 id="simple-pwn-0x402023-hw---uaf">
  Simple PWN 0x40(2023 HW - UAF++)
  &lt;a class="anchor" href="#simple-pwn-0x402023-hw---uaf">#&lt;/a>
 &lt;/h1>

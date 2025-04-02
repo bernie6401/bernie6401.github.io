@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adworld on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/adworld/</link><description>Recent content in Adworld on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/adworld/index.xml" rel="self" type="application/rss+xml"/><item><title>Adworld - 3-1</title><link>https://bernie6401.github.io/security/practice/adworld/misc/adworld---3-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/adworld/misc/adworld---3-1/</guid><description>&lt;h1 id="adworld---3-1">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adworld on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/adworld/</link><description>Recent content in Adworld on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/adworld/index.xml" rel="self" type="application/rss+xml"/><item><title>Adworld - 3-1</title><link>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---3-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---3-1/</guid><description>&lt;h1 id="adworld---3-1">
  Adworld - 3-1
  &lt;a class="anchor" href="#adworld---3-1">#&lt;/a>
 &lt;/h1>
@@ -58,7 +58,7 @@
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://blog.csdn.net/yoyoko_chan/article/details/117660494">【攻防世界AD】Misc进阶区：3-1&lt;/a>&lt;/p></description></item><item><title>Adworld - miao~</title><link>https://bernie6401.github.io/security/practice/adworld/misc/adworld---miao~/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/adworld/misc/adworld---miao~/</guid><description>&lt;h1 id="adworld---miao">
+&lt;p>&lt;a href="https://blog.csdn.net/yoyoko_chan/article/details/117660494">【攻防世界AD】Misc进阶区：3-1&lt;/a>&lt;/p></description></item><item><title>Adworld - miao~</title><link>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---miao~/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---miao~/</guid><description>&lt;h1 id="adworld---miao">
  Adworld - miao~
  &lt;a class="anchor" href="#adworld---miao">#&lt;/a>
 &lt;/h1>
@@ -102,7 +102,7 @@ rif:= 1
 ------------------------------------------------------------------
 
 Foremost finished at Sat Jul 15 15:21:29 2023
-&lt;/code>&lt;/pre>&lt;p>可以看到抓到其中有一個&lt;code>.wav&lt;/code>檔案&lt;/p></description></item><item><title>Adworld - Misc文件類型</title><link>https://bernie6401.github.io/security/practice/adworld/misc/adworld---misc%E6%96%87%E4%BB%B6%E9%A1%9E%E5%9E%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/adworld/misc/adworld---misc%E6%96%87%E4%BB%B6%E9%A1%9E%E5%9E%8B/</guid><description>&lt;h1 id="adworld---misc文件類型">
+&lt;/code>&lt;/pre>&lt;p>可以看到抓到其中有一個&lt;code>.wav&lt;/code>檔案&lt;/p></description></item><item><title>Adworld - Misc文件類型</title><link>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---misc%E6%96%87%E4%BB%B6%E9%A1%9E%E5%9E%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---misc%E6%96%87%E4%BB%B6%E9%A1%9E%E5%9E%8B/</guid><description>&lt;h1 id="adworld---misc文件類型">
  Adworld - Misc文件類型
  &lt;a class="anchor" href="#adworld---misc%e6%96%87%e4%bb%b6%e9%a1%9e%e5%9e%8b">#&lt;/a>
 &lt;/h1>
@@ -166,7 +166,7 @@ Foremost finished at Sat Jul 15 15:21:29 2023
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://juejin.cn/post/7166166845395828772">XCTF-MISC-Misc文件類型&lt;/a>&lt;/p></description></item><item><title>Adworld - pure_color</title><link>https://bernie6401.github.io/security/practice/adworld/misc/adworld---pure_color/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/adworld/misc/adworld---pure_color/</guid><description>&lt;h1 id="adworld---pure_color">
+&lt;p>&lt;a href="https://juejin.cn/post/7166166845395828772">XCTF-MISC-Misc文件類型&lt;/a>&lt;/p></description></item><item><title>Adworld - pure_color</title><link>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---pure_color/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---pure_color/</guid><description>&lt;h1 id="adworld---pure_color">
  Adworld - pure_color
  &lt;a class="anchor" href="#adworld---pure_color">#&lt;/a>
 &lt;/h1>
@@ -186,7 +186,7 @@ Foremost finished at Sat Jul 15 15:21:29 2023
  Exploit - Basic Steganography
  &lt;a class="anchor" href="#exploit---basic-steganography">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;img src="https://i.imgur.com/YnqxcmS.png" alt="" />&lt;/p></description></item><item><title>Adworld - 心儀的公司</title><link>https://bernie6401.github.io/security/practice/adworld/misc/adworld---%E5%BF%83%E5%84%80%E7%9A%84%E5%85%AC%E5%8F%B8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/adworld/misc/adworld---%E5%BF%83%E5%84%80%E7%9A%84%E5%85%AC%E5%8F%B8/</guid><description>&lt;h1 id="adworld---心儀的公司">
+&lt;p>&lt;img src="https://i.imgur.com/YnqxcmS.png" alt="" />&lt;/p></description></item><item><title>Adworld - 心儀的公司</title><link>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---%E5%BF%83%E5%84%80%E7%9A%84%E5%85%AC%E5%8F%B8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---%E5%BF%83%E5%84%80%E7%9A%84%E5%85%AC%E5%8F%B8/</guid><description>&lt;h1 id="adworld---心儀的公司">
  Adworld - 心儀的公司
  &lt;a class="anchor" href="#adworld---%e5%bf%83%e5%84%80%e7%9a%84%e5%85%ac%e5%8f%b8">#&lt;/a>
 &lt;/h1>
@@ -207,7 +207,7 @@ fl4g:{ftop_Is_Waiting_4_y}
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://www.cnblogs.com/Flat-White/p/13526539.html">心仪的公司writeup&lt;/a>
-&lt;a href="https://www.bilibili.com/video/BV1r5411h7aw/?p=2&amp;amp;share_source=copy_web&amp;amp;vd_source=31529c2d248aba29c9cc1e3cbd720cb6&amp;amp;t=294">【CTF视频合辑】MISC-流量分析题大集合(第一辑)&lt;/a>&lt;/p></description></item><item><title>Adworld - 適合作為桌面</title><link>https://bernie6401.github.io/security/practice/adworld/misc/adworld---%E9%81%A9%E5%90%88%E4%BD%9C%E7%82%BA%E6%A1%8C%E9%9D%A2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/adworld/misc/adworld---%E9%81%A9%E5%90%88%E4%BD%9C%E7%82%BA%E6%A1%8C%E9%9D%A2/</guid><description>&lt;h1 id="adworld---適合作為桌面">
+&lt;a href="https://www.bilibili.com/video/BV1r5411h7aw/?p=2&amp;amp;share_source=copy_web&amp;amp;vd_source=31529c2d248aba29c9cc1e3cbd720cb6&amp;amp;t=294">【CTF视频合辑】MISC-流量分析题大集合(第一辑)&lt;/a>&lt;/p></description></item><item><title>Adworld - 適合作為桌面</title><link>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---%E9%81%A9%E5%90%88%E4%BD%9C%E7%82%BA%E6%A1%8C%E9%9D%A2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/adworld/misc/adworld---%E9%81%A9%E5%90%88%E4%BD%9C%E7%82%BA%E6%A1%8C%E9%9D%A2/</guid><description>&lt;h1 id="adworld---適合作為桌面">
  Adworld - 適合作為桌面
  &lt;a class="anchor" href="#adworld---%e9%81%a9%e5%90%88%e4%bd%9c%e7%82%ba%e6%a1%8c%e9%9d%a2">#&lt;/a>
 &lt;/h1>

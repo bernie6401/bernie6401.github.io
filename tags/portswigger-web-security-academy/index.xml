@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Portswigger Web Security Academy on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/portswigger-web-security-academy/</link><description>Recent content in Portswigger Web Security Academy on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/portswigger-web-security-academy/index.xml" rel="self" type="application/rss+xml"/><item><title>CSRF - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</guid><description>&lt;h1 id="csrf---apprentice">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Portswigger Web Security Academy on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/portswigger-web-security-academy/</link><description>Recent content in Portswigger Web Security Academy on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/portswigger-web-security-academy/index.xml" rel="self" type="application/rss+xml"/><item><title>CSRF - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</guid><description>&lt;h1 id="csrf---apprentice">
  CSRF - APPRENTICE
  &lt;a class="anchor" href="#csrf---apprentice">#&lt;/a>
 &lt;/h1>
@@ -23,7 +23,7 @@ You can log in to your own account using the following credentials: &lt;code>wie
 &lt;/h2>
 &lt;p>:::spoiler
 &lt;a href="https://medium.com/@Tommmmm/csrf-%e6%94%bb%e6%93%8a%e5%8e%9f%e7%90%86-d0f2a51810ca">CSRF 攻擊原理&lt;/a>
-&lt;a href="https://ithelp.ithome.com.tw/articles/10251769">[Day25]- 新手的Web系列CSRF&lt;/a>&lt;/p></description></item><item><title>Deserialization - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</guid><description>&lt;h1 id="deserialization---apprentice">
+&lt;a href="https://ithelp.ithome.com.tw/articles/10251769">[Day25]- 新手的Web系列CSRF&lt;/a>&lt;/p></description></item><item><title>Deserialization - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</guid><description>&lt;h1 id="deserialization---apprentice">
  Deserialization - APPRENTICE
  &lt;a class="anchor" href="#deserialization---apprentice">#&lt;/a>
 &lt;/h1>
@@ -68,7 +68,7 @@ Each package may contain the session that should be modified. So, pay attention 
 &lt;/ol>
 &lt;p>:::spoiler Success Screenshot
 &lt;img src="https://i.imgur.com/eQEfiaw.png" alt="" />
-:::&lt;/p></description></item><item><title>Lab: Arbitrary object injection in PHP</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</guid><description>&lt;h1 id="lab-arbitrary-object-injection-in-php">
+:::&lt;/p></description></item><item><title>Lab: Arbitrary object injection in PHP</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</guid><description>&lt;h1 id="lab-arbitrary-object-injection-in-php">
  Lab: Arbitrary object injection in PHP
  &lt;a class="anchor" href="#lab-arbitrary-object-injection-in-php">#&lt;/a>
 &lt;/h1>
@@ -88,7 +88,7 @@ You can log in to your own account using the following credentials: wiener:peter
 &lt;/h2>
 &lt;p>&lt;a href="https://tw511.com/a/01/26451.html">Python建構函式與解構函式（&lt;strong>init&lt;/strong>()和__del__()）&lt;/a>
 其實概念就是Python的&lt;code>__init()__&lt;/code> function，在instanciate一個class的時候扮演初始化的功能而已
-而deconstructor就是Python中的&lt;code>__del__()&lt;/code> function用來回收不需要的class，以達到降低記憶體的使用量&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction">
+而deconstructor就是Python中的&lt;code>__del__()&lt;/code> function用來回收不需要的class，以達到降低記憶體的使用量&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction">
  Lab: Blind XXE with out-of-band interaction
  &lt;a class="anchor" href="#lab-blind-xxe-with-out-of-band-interaction">#&lt;/a>
 &lt;/h1>
@@ -107,7 +107,7 @@ You can detect the blind XXE vulnerability by triggering out-of-band interaction
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>有兩種廣泛的方法可以找到和利用Blind XXE 漏洞：&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction via XML parameter entities</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities">
+&lt;p>有兩種廣泛的方法可以找到和利用Blind XXE 漏洞：&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction via XML parameter entities</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities">
  Lab: Blind XXE with out-of-band interaction via XML parameter entities
  &lt;a class="anchor" href="#lab-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities">#&lt;/a>
 &lt;/h1>
@@ -124,7 +124,7 @@ You can detect the blind XXE vulnerability by triggering out-of-band interaction
  Background
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
-&lt;p>這一題會用到Parameter Entity，也就是當server端擋掉外部的entity輸入時，可以直接在&lt;code>DOCTYPE&lt;/code>中直接Reference，也就是利用&lt;code>%&lt;/code>這個字元達到這個效果&lt;/p></description></item><item><title>Lab: CSRF where token is not tied to user session</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</guid><description>&lt;h1 id="lab-csrf-where-token-is-not-tied-to-user-session">
+&lt;p>這一題會用到Parameter Entity，也就是當server端擋掉外部的entity輸入時，可以直接在&lt;code>DOCTYPE&lt;/code>中直接Reference，也就是利用&lt;code>%&lt;/code>這個字元達到這個效果&lt;/p></description></item><item><title>Lab: CSRF where token is not tied to user session</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</guid><description>&lt;h1 id="lab-csrf-where-token-is-not-tied-to-user-session">
  Lab: CSRF where token is not tied to user session
  &lt;a class="anchor" href="#lab-csrf-where-token-is-not-tied-to-user-session">#&lt;/a>
 &lt;/h1>
@@ -143,7 +143,7 @@ You have two accounts on the application that you can use to help design your at
  Background
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
-&lt;p>CSRF token should tied to user session otherwise, it&amp;rsquo;ll exploited by attacker.&lt;/p></description></item><item><title>Lab: CSRF where token is tied to non-session cookie</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</guid><description>&lt;h1 id="lab-csrf-where-token-is-tied-to-non-session-cookie">
+&lt;p>CSRF token should tied to user session otherwise, it&amp;rsquo;ll exploited by attacker.&lt;/p></description></item><item><title>Lab: CSRF where token is tied to non-session cookie</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</guid><description>&lt;h1 id="lab-csrf-where-token-is-tied-to-non-session-cookie">
  Lab: CSRF where token is tied to non-session cookie
  &lt;a class="anchor" href="#lab-csrf-where-token-is-tied-to-non-session-cookie">#&lt;/a>
 &lt;/h1>
@@ -159,7 +159,7 @@ You have two accounts on the application that you can use to help design your at
 &lt;p>Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer&amp;rsquo;s email address.
 You have two accounts on the application that you can use to help design your attack. The credentials are as follows:
 &lt;code>wiener:peter&lt;/code>
-&lt;code>carlos:montoya&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on request method</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-request-method">
+&lt;code>carlos:montoya&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on request method</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-request-method">
  Lab: CSRF where token validation depends on request method
  &lt;a class="anchor" href="#lab-csrf-where-token-validation-depends-on-request-method">#&lt;/a>
 &lt;/h1>
@@ -181,7 +181,7 @@ You can log in to your own account using the following credentials: &lt;code>wie
 &lt;p>Login and update email to trace the package
 Like the previous lab, we first login to the website and update the email. At the same time, we can trace update email package shown below:
 &lt;img src="https://i.imgur.com/ju0fDUQ.png" alt="" />
-We can notice that the carried data including &lt;code>csrf_token&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on token being present</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-token-being-present">
+We can notice that the carried data including &lt;code>csrf_token&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on token being present</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-token-being-present">
  Lab: CSRF where token validation depends on token being present
  &lt;a class="anchor" href="#lab-csrf-where-token-validation-depends-on-token-being-present">#&lt;/a>
 &lt;/h1>
@@ -202,7 +202,7 @@ You can log in to your own account using the following credentials: &lt;code>wie
 &lt;li>
 &lt;p>Login and update email to trace the package
 It&amp;rsquo;s very similar with previous lab $\to$ it contained &lt;code>CSRF_token&lt;/code> as its carried data:
-&lt;img src="https://i.imgur.com/69FaW1R.png" alt="" />&lt;/p></description></item><item><title>Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/</guid><description>&lt;h1 id="lab-dom-xss-in-documentwrite-sink-using-source-locationsearch-inside-a-select-element">
+&lt;img src="https://i.imgur.com/69FaW1R.png" alt="" />&lt;/p></description></item><item><title>Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/</guid><description>&lt;h1 id="lab-dom-xss-in-documentwrite-sink-using-source-locationsearch-inside-a-select-element">
  Lab: DOM XSS in &lt;code>document.write&lt;/code> sink using source &lt;code>location.search&lt;/code> inside a select element
  &lt;a class="anchor" href="#lab-dom-xss-in-documentwrite-sink-using-source-locationsearch-inside-a-select-element">#&lt;/a>
 &lt;/h1>
@@ -253,7 +253,7 @@ You can see that this is a perfect injection place&lt;/li>
 &lt;p>Payload: &lt;code>/product?productId=1&amp;amp;storeId=&amp;lt;script&amp;gt;alert(123);&amp;lt;/script&amp;gt;&lt;/code>
 :::spoiler Success Screenshot
 &lt;img src="https://i.imgur.com/bjEoUzh.png" alt="" />
-:::&lt;/p></description></item><item><title>Lab: Exploiting `XInclude` to retrieve files</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</guid><description>&lt;h1 id="lab-exploiting-xinclude-to-retrieve-files">
+:::&lt;/p></description></item><item><title>Lab: Exploiting `XInclude` to retrieve files</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</guid><description>&lt;h1 id="lab-exploiting-xinclude-to-retrieve-files">
  Lab: Exploiting &lt;code>XInclude&lt;/code> to retrieve files
  &lt;a class="anchor" href="#lab-exploiting-xinclude-to-retrieve-files">#&lt;/a>
 &lt;/h1>
@@ -272,7 +272,7 @@ Because you don&amp;rsquo;t control the entire XML document you can&amp;rsquo;t 
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>XInclude is a part of the XML specification that allows an XML document to be built from sub documents You can place an XInclude attack within any data value in an XML document, so the attack can be performed in situations where you only control a single item of data that is placed into a server side XML document&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd">
+&lt;p>XInclude is a part of the XML specification that allows an XML document to be built from sub documents You can place an XInclude attack within any data value in an XML document, so the attack can be performed in situations where you only control a single item of data that is placed into a server side XML document&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd">
  Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD
  &lt;a class="anchor" href="#lab-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd">#&lt;/a>
 &lt;/h1>
@@ -292,7 +292,7 @@ Because you don&amp;rsquo;t control the entire XML document you can&amp;rsquo;t 
 &lt;ol>
 &lt;li>
 &lt;p>Use the previous method
-:::spoiler Payload&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to retrieve data via error messages</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-retrieve-data-via-error-messages">
+:::spoiler Payload&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to retrieve data via error messages</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-retrieve-data-via-error-messages">
  Lab: Exploiting blind XXE to retrieve data via error messages
  &lt;a class="anchor" href="#lab-exploiting-blind-xxe-to-retrieve-data-via-error-messages">#&lt;/a>
 &lt;/h1>
@@ -309,7 +309,7 @@ The lab contains a link to an exploit server on a different domain where you can
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>This is very similar to the previous lab(Exploiting blind XXE to exfiltrate data using a malicious external DTD)&lt;/p></description></item><item><title>Lab: Exploiting Java deserialization with Apache Commons</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</guid><description>&lt;h1 id="lab-exploiting-java-deserialization-with-apache-commons">
+&lt;p>This is very similar to the previous lab(Exploiting blind XXE to exfiltrate data using a malicious external DTD)&lt;/p></description></item><item><title>Lab: Exploiting Java deserialization with Apache Commons</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</guid><description>&lt;h1 id="lab-exploiting-java-deserialization-with-apache-commons">
  Lab: Exploiting Java deserialization with Apache Commons
  &lt;a class="anchor" href="#lab-exploiting-java-deserialization-with-apache-commons">#&lt;/a>
 &lt;/h1>
@@ -326,7 +326,7 @@ You can log in to your own account using the following credentials: wiener:peter
  Background
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://ccship.cn/2021/10/21/ysoserial%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">ysoserial使用方法&lt;/a>&lt;/p></description></item><item><title>Lab: Exploiting XXE via image file upload</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</guid><description>&lt;h1 id="lab-exploiting-xxe-via-image-file-upload">
+&lt;p>&lt;a href="https://ccship.cn/2021/10/21/ysoserial%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">ysoserial使用方法&lt;/a>&lt;/p></description></item><item><title>Lab: Exploiting XXE via image file upload</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</guid><description>&lt;h1 id="lab-exploiting-xxe-via-image-file-upload">
  Lab: Exploiting XXE via image file upload
  &lt;a class="anchor" href="#lab-exploiting-xxe-via-image-file-upload">#&lt;/a>
 &lt;/h1>
@@ -342,7 +342,7 @@ You can log in to your own account using the following credentials: wiener:peter
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>In this lab, we can upload an exploited file which contained malicious xml data. Then we can fetch some sensitive information.&lt;/p></description></item><item><title>Lab: Modifying serialized data types</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</guid><description>&lt;h1 id="lab-modifying-serialized-data-types">
+&lt;p>In this lab, we can upload an exploited file which contained malicious xml data. Then we can fetch some sensitive information.&lt;/p></description></item><item><title>Lab: Modifying serialized data types</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</guid><description>&lt;h1 id="lab-modifying-serialized-data-types">
  Lab: Modifying serialized data types
  &lt;a class="anchor" href="#lab-modifying-serialized-data-types">#&lt;/a>
 &lt;/h1>
@@ -359,7 +359,7 @@ You can log in to your own account using the following credentials: wiener:peter
  Background
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
-&lt;p>Loose Comparison Operator in &lt;code>PHP&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-four">
+&lt;p>Loose Comparison Operator in &lt;code>PHP&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-four">
  Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:
  &lt;a class="anchor" href="#lab-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-four">#&lt;/a>
 &lt;/h1>
@@ -379,7 +379,7 @@ The application has a login function, and the database contains a table that hol
 &lt;ol>
 &lt;li>
 &lt;p>Determine # of columns
-Payload: &lt;code>?category=Gifts' union select NULL,NULL --&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on Oracle</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-oracle">
+Payload: &lt;code>?category=Gifts' union select NULL,NULL --&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on Oracle</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-oracle">
  Lab: SQL injection attack, listing the database contents on Oracle
  &lt;a class="anchor" href="#lab-sql-injection-attack-listing-the-database-contents-on-oracle">#&lt;/a>
 &lt;/h1>
@@ -400,7 +400,7 @@ The application has a login function, and the database contains a table that hol
 &lt;ol>
 &lt;li>
 &lt;p>Determine # of columns
-Payload: &lt;code>?category=Lifestyle' union select NULL,NULL from dual--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft">
+Payload: &lt;code>?category=Lifestyle' union select NULL,NULL from dual--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft">
  Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft
  &lt;a class="anchor" href="#lab-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft">#&lt;/a>
 &lt;/h1>
@@ -431,7 +431,7 @@ Payload: &lt;code>?category=Accessories' union select 'abc',@@version -- #&lt;/c
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>Lab: SQL injection attack, querying the database type and version on Oracle</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-oracle">
+&lt;/h2></description></item><item><title>Lab: SQL injection attack, querying the database type and version on Oracle</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-oracle">
  Lab: SQL injection attack, querying the database type and version on Oracle
  &lt;a class="anchor" href="#lab-sql-injection-attack-querying-the-database-type-and-version-on-oracle">#&lt;/a>
 &lt;/h1>
@@ -451,7 +451,7 @@ Payload: &lt;code>?category=Accessories' union select 'abc',@@version -- #&lt;/c
 &lt;img src="https://i.imgur.com/Qxtgz5u.png" alt="" />
 :::warning
 Before the recon, the hint told you that this database is created by &lt;code>Oracle&lt;/code>. So, you must contained &lt;code>From&lt;/code> preserved word in each query, e.g. &lt;code>SELECT 'abc' FROM dual&lt;/code>
-:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, determining the number of columns returned by the query</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query">
+:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, determining the number of columns returned by the query</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query">
  Lab: SQL injection UNION attack, determining the number of columns returned by the query
  &lt;a class="anchor" href="#lab-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query">#&lt;/a>
 &lt;/h1>
@@ -470,7 +470,7 @@ Before the recon, the hint told you that this database is created by &lt;code>Or
 &lt;p>Payload: &lt;code>https://0ab2008b04e96b8f8057358e008d00d0.web-security-academy.net/filter?category=%27%20UNION%20SELECT%20NULL,NULL,NULL--&lt;/code>
 :::spoiler Success Screenshot
 &lt;img src="https://i.imgur.com/yZ3QPPF.png" alt="" />
-:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, finding a column containing text</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-finding-a-column-containing-text">
+:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, finding a column containing text</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-finding-a-column-containing-text">
  Lab: SQL injection UNION attack, finding a column containing text
  &lt;a class="anchor" href="#lab-sql-injection-union-attack-finding-a-column-containing-text">#&lt;/a>
 &lt;/h1>
@@ -490,7 +490,7 @@ Before the recon, the hint told you that this database is created by &lt;code>Or
 &lt;li>
 &lt;p>Determine how many columns it has
 You can use the technique from previous question.
-Payload: &lt;code>?category=' UNION SELECT NULL,NULL,NULL--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, retrieving data from other tables</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-data-from-other-tables">
+Payload: &lt;code>?category=' UNION SELECT NULL,NULL,NULL--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, retrieving data from other tables</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-data-from-other-tables">
  Lab: SQL injection UNION attack, retrieving data from other tables
  &lt;a class="anchor" href="#lab-sql-injection-union-attack-retrieving-data-from-other-tables">#&lt;/a>
 &lt;/h1>
@@ -523,7 +523,7 @@ Password: &lt;code>5kg73b7jinl9plif82d3&lt;/code>
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>Lab: SQL injection UNION attack, retrieving multiple values in a single column</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column">
+&lt;/h2></description></item><item><title>Lab: SQL injection UNION attack, retrieving multiple values in a single column</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column">
  Lab: SQL injection UNION attack, retrieving multiple values in a single column
  &lt;a class="anchor" href="#lab-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column">#&lt;/a>
 &lt;/h1>
@@ -563,7 +563,7 @@ Payload: &lt;code>?category=Gifts' UNION SELECT NULL,username||'~'||password FRO
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>Lab: Stored DOM XSS</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/</guid><description>&lt;h1 id="lab-stored-dom-xss">
+&lt;/h2></description></item><item><title>Lab: Stored DOM XSS</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/</guid><description>&lt;h1 id="lab-stored-dom-xss">
  Lab: Stored DOM XSS
  &lt;a class="anchor" href="#lab-stored-dom-xss">#&lt;/a>
 &lt;/h1>
@@ -582,7 +582,7 @@ Payload: &lt;code>?category=Gifts' UNION SELECT NULL,username||'~'||password FRO
 &lt;ol>
 &lt;li>
 &lt;p>Find the injected place
-According to the description, we know that the comment place of each post has some problems. So, we can try to inject something.&lt;/p></description></item><item><title>Lab: Using application functionality to exploit insecure deserialization</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</guid><description>&lt;h1 id="lab-using-application-functionality-to-exploit-insecure-deserialization">
+According to the description, we know that the comment place of each post has some problems. So, we can try to inject something.&lt;/p></description></item><item><title>Lab: Using application functionality to exploit insecure deserialization</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</guid><description>&lt;h1 id="lab-using-application-functionality-to-exploit-insecure-deserialization">
  Lab: Using application functionality to exploit insecure deserialization
  &lt;a class="anchor" href="#lab-using-application-functionality-to-exploit-insecure-deserialization">#&lt;/a>
 &lt;/h1>
@@ -597,7 +597,7 @@ According to the description, we know that the comment place of each post has so
 &lt;li>
 &lt;p>Goal: To solve the lab, edit the serialized object in the session cookie and use it to delete the morale.txt file from Carlos&amp;rsquo;s home directory.&lt;/p>
 &lt;p>You can log in to your own account using the following credentials: wiener:peter
-You also have access to a backup account: gregg:rosebud&lt;/p></description></item><item><title>SQLi - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</guid><description>&lt;h1 id="sqli---apprentice">
+You also have access to a backup account: gregg:rosebud&lt;/p></description></item><item><title>SQLi - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</guid><description>&lt;h1 id="sqli---apprentice">
  SQLi - APPRENTICE
  &lt;a class="anchor" href="#sqli---apprentice">#&lt;/a>
 &lt;/h1>
@@ -620,7 +620,7 @@ You also have access to a backup account: gregg:rosebud&lt;/p></description></it
 &lt;p>Payload: &lt;code>https://0a2700a903496ccd807a2626001400e3.web-security-academy.net/filter?category=%27%20or%20%271%27=%271%27%20--%20#&lt;/code>
 :::spoiler Success Screenshot
 &lt;img src="https://i.imgur.com/pPKFYKj.png" alt="" />
-:::&lt;/p></description></item><item><title>XSS - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/xss---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/xss---apprentice/</guid><description>&lt;h1 id="xss---apprentice">
+:::&lt;/p></description></item><item><title>XSS - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/xss---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/xss---apprentice/</guid><description>&lt;h1 id="xss---apprentice">
  XSS - APPRENTICE
  &lt;a class="anchor" href="#xss---apprentice">#&lt;/a>
 &lt;/h1>
@@ -662,7 +662,7 @@ You also have access to a backup account: gregg:rosebud&lt;/p></description></it
 Payload: &lt;code>&amp;lt;script&amp;gt;alert(123)&amp;lt;/script&amp;gt;&lt;/code>
 :::spoiler Success Screenshot
 &lt;img src="https://i.imgur.com/aArBCbN.png" alt="" />
-:::&lt;/p></description></item><item><title>XXE - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/</guid><description>&lt;h1 id="xxe---apprentice">
+:::&lt;/p></description></item><item><title>XXE - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/</guid><description>&lt;h1 id="xxe---apprentice">
  XXE - APPRENTICE
  &lt;a class="anchor" href="#xxe---apprentice">#&lt;/a>
 &lt;/h1>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU_OS on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntu_os/</link><description>Recent content in NTU_OS on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntu_os/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Operating System Project 1</title><link>https://bernie6401.github.io/security/course/ntu-os/ntu-operating-system-project-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-os/ntu-operating-system-project-1/</guid><description>&lt;h1 id="ntu-operating-system-project-1">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU_OS on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntu_os/</link><description>Recent content in NTU_OS on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntu_os/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Operating System Project 1</title><link>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-1/</guid><description>&lt;h1 id="ntu-operating-system-project-1">
  NTU Operating System Project 1
  &lt;a class="anchor" href="#ntu-operating-system-project-1">#&lt;/a>
 &lt;/h1>
@@ -90,7 +90,7 @@ code/userprog/addrspace.h
 &lt;/ul>
 &lt;ol>
 &lt;li>
-&lt;p>Add the code in addrspace.cc at the beginning to stored the usage of all physical pages and stored how many free pages can be used now.&lt;/p></description></item><item><title>NTU Operating System Project 2</title><link>https://bernie6401.github.io/security/course/ntu-os/ntu-operating-system-project-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-os/ntu-operating-system-project-2/</guid><description>&lt;h1 id="ntu-operating-system-project-2">
+&lt;p>Add the code in addrspace.cc at the beginning to stored the usage of all physical pages and stored how many free pages can be used now.&lt;/p></description></item><item><title>NTU Operating System Project 2</title><link>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-2/</guid><description>&lt;h1 id="ntu-operating-system-project-2">
  NTU Operating System Project 2
  &lt;a class="anchor" href="#ntu-operating-system-project-2">#&lt;/a>
 &lt;/h1>
@@ -117,7 +117,7 @@ code/userprog/addrspace.h
 &lt;/h3>
 &lt;ol>
 &lt;li>
-&lt;p>First of all, we need to define a new token, SC_Sleep, that compiler(scanner) can recognize in &lt;code>code/userprog/syscall.h&lt;/code>.&lt;/p></description></item><item><title>NTU Operating System Project 3</title><link>https://bernie6401.github.io/security/course/ntu-os/ntu-operating-system-project-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-os/ntu-operating-system-project-3/</guid><description>&lt;h1 id="ntu-operating-system-project-3">
+&lt;p>First of all, we need to define a new token, SC_Sleep, that compiler(scanner) can recognize in &lt;code>code/userprog/syscall.h&lt;/code>.&lt;/p></description></item><item><title>NTU Operating System Project 3</title><link>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-3/</guid><description>&lt;h1 id="ntu-operating-system-project-3">
  NTU Operating System Project 3
  &lt;a class="anchor" href="#ntu-operating-system-project-3">#&lt;/a>
 &lt;/h1>
@@ -130,7 +130,7 @@ code/userprog/addrspace.h
  Description First
  &lt;a class="anchor" href="#description-first">#&lt;/a>
 &lt;/h2>
-&lt;p>I used the code from &lt;code>Project2&lt;/code> directly and obtained the correct value, 1 and 7220, by the command &lt;code>./nachos -e ../test/sort -e ../test/matmult&lt;/code> respectively. After debugging a while, I knew what&amp;rsquo;s the matter. In &lt;code>project2&lt;/code>, I set &lt;code>const unsigned int NumPhysPages = 256;&lt;/code> so that it can handle huge computing resource. In order to address this project, we must change it back to 32.&lt;/p></description></item><item><title>NTU Operating System Review Notes</title><link>https://bernie6401.github.io/security/course/ntu-os/ntu-operating-system-review-notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-os/ntu-operating-system-review-notes/</guid><description>&lt;h1 id="ntu-operating-system-review-notes">
+&lt;p>I used the code from &lt;code>Project2&lt;/code> directly and obtained the correct value, 1 and 7220, by the command &lt;code>./nachos -e ../test/sort -e ../test/matmult&lt;/code> respectively. After debugging a while, I knew what&amp;rsquo;s the matter. In &lt;code>project2&lt;/code>, I set &lt;code>const unsigned int NumPhysPages = 256;&lt;/code> so that it can handle huge computing resource. In order to address this project, we must change it back to 32.&lt;/p></description></item><item><title>NTU Operating System Review Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-review-notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-review-notes/</guid><description>&lt;h1 id="ntu-operating-system-review-notes">
  NTU Operating System Review Notes
  &lt;a class="anchor" href="#ntu-operating-system-review-notes">#&lt;/a>
 &lt;/h1>

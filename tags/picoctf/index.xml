@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PicoCTF on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/picoctf/</link><description>Recent content in PicoCTF on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/picoctf/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - `tunn3l v1s10n`</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/image-stego/picoctf---tunn3l-v1s10n/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/image-stego/picoctf---tunn3l-v1s10n/</guid><description>&lt;h1 id="picoctf---tunn3l-v1s10n">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PicoCTF on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/picoctf/</link><description>Recent content in PicoCTF on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/picoctf/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - `tunn3l v1s10n`</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---tunn3l-v1s10n/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---tunn3l-v1s10n/</guid><description>&lt;h1 id="picoctf---tunn3l-v1s10n">
  PicoCTF - &lt;code>tunn3l v1s10n&lt;/code>
  &lt;a class="anchor" href="#picoctf---tunn3l-v1s10n">#&lt;/a>
 &lt;/h1>
@@ -66,7 +66,7 @@ According to &lt;a href="https://en.wikipedia.org/wiki/BMP_file_format">BMP_file
 &lt;hr>
 &lt;p>We can peek the data first&amp;hellip;
 &lt;img src="https://i.imgur.com/DWesnDl.png" alt="" />
-It said &lt;code>notaflag{sorry}&lt;/code>, means we need to recover other parts.&lt;/p></description></item><item><title>PicoCTF - `Wireshark doo dooo do doo...`</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---wireshark-doo-dooo-do-doo.../</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---wireshark-doo-dooo-do-doo.../</guid><description>&lt;h1 id="picoctf---wireshark-doo-dooo-do-doo">
+It said &lt;code>notaflag{sorry}&lt;/code>, means we need to recover other parts.&lt;/p></description></item><item><title>PicoCTF - `Wireshark doo dooo do doo...`</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wireshark-doo-dooo-do-doo.../</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wireshark-doo-dooo-do-doo.../</guid><description>&lt;h1 id="picoctf---wireshark-doo-dooo-do-doo">
  PicoCTF - &lt;code>Wireshark doo dooo do doo...&lt;/code>
  &lt;a class="anchor" href="#picoctf---wireshark-doo-dooo-do-doo">#&lt;/a>
 &lt;/h1>
@@ -84,7 +84,7 @@ It said &lt;code>notaflag{sorry}&lt;/code>, means we need to recover other parts
 Gur synt vf cvpbPGS{c33xno00_1_f33_h_qrnqorrs}
 ...
 &lt;/code>&lt;/pre>&lt;p>Obviously a encrypted flag $\to$ use rot13
-flag: &lt;code>picoCTF{p33kab00_1_s33_u_deadbeef}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - advanced-potion-making</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/image-stego/picoctf---advanced-potion-making/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/image-stego/picoctf---advanced-potion-making/</guid><description>&lt;h1 id="picoctf---advanced-potion-making">
+flag: &lt;code>picoCTF{p33kab00_1_s33_u_deadbeef}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - advanced-potion-making</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---advanced-potion-making/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---advanced-potion-making/</guid><description>&lt;h1 id="picoctf---advanced-potion-making">
  PicoCTF - advanced-potion-making
  &lt;a class="anchor" href="#picoctf---advanced-potion-making">#&lt;/a>
 &lt;/h1>
@@ -111,7 +111,7 @@ $\to$
 &lt;li>&lt;img src="https://i.imgur.com/Pv1ojSN.png" alt="" />&lt;/li>
 &lt;li>&lt;img src="https://i.imgur.com/vLgguSp.png" alt="" />&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://i.imgur.com/ZT4PsQ5.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - AES-ABC</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/</guid><description>&lt;h1 id="picoctf---aes-abc">
+&lt;p>&lt;img src="https://i.imgur.com/ZT4PsQ5.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - AES-ABC</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/</guid><description>&lt;h1 id="picoctf---aes-abc">
  PicoCTF - AES-ABC
  &lt;a class="anchor" href="#picoctf---aes-abc">#&lt;/a>
 &lt;/h1>
@@ -206,7 +206,7 @@ if __name__==&amp;#34;__main__&amp;#34;:
  with open(&amp;#39;body.enc.ppm&amp;#39;, &amp;#39;wb&amp;#39;) as fw:
  fw.write(header)
  fw.write(c_img)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - ARMssembly 0</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---armssembly-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---armssembly-0/</guid><description>&lt;h1 id="picoctf---armssembly-0">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - ARMssembly 0</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---armssembly-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---armssembly-0/</guid><description>&lt;h1 id="picoctf---armssembly-0">
  PicoCTF - ARMssembly 0
  &lt;a class="anchor" href="#picoctf---armssembly-0">#&lt;/a>
 &lt;/h1>
@@ -274,7 +274,7 @@ main:
 	.size	main, .-main
 	.ident	&amp;#34;GCC: (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) 7.5.0&amp;#34;
 	.section	.note.GNU-stack,&amp;#34;&amp;#34;,@progbits
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - asm4</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---asm4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---asm4/</guid><description>&lt;h1 id="picoctf---asm4">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - asm4</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---asm4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---asm4/</guid><description>&lt;h1 id="picoctf---asm4">
  PicoCTF - asm4
  &lt;a class="anchor" href="#picoctf---asm4">#&lt;/a>
 &lt;/h1>
@@ -347,7 +347,7 @@ main:
 	&amp;lt;+155&amp;gt;:	pop ebx
 	&amp;lt;+156&amp;gt;:	pop ebp
 	&amp;lt;+157&amp;gt;:	ret 
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - babygame01</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---babygame01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---babygame01/</guid><description>&lt;h1 id="picoctf---babygame01">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - babygame01</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---babygame01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---babygame01/</guid><description>&lt;h1 id="picoctf---babygame01">
  PicoCTF - babygame01
  &lt;a class="anchor" href="#picoctf---babygame01">#&lt;/a>
 &lt;/h1>
@@ -363,7 +363,7 @@ main:
 &lt;blockquote>
 &lt;p>Get the flag and reach the exit. Welcome to BabyGame! Navigate around the map and see what you can find! The game is available to download here. There is no source available, so you&amp;rsquo;ll have to figure your way around the map. You can connect with it using nc saturn.picoctf.net 50227.
 Hint 1: Use &amp;lsquo;w&amp;rsquo;,&amp;lsquo;a&amp;rsquo;,&amp;rsquo;s&amp;rsquo;,&amp;rsquo;d&amp;rsquo; to move around.
-Hint 2: There may be secret commands to make your life easy.&lt;/p></description></item><item><title>PicoCTF - babygame02</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---babygame02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---babygame02/</guid><description>&lt;h1 id="picoctf---babygame02">
+Hint 2: There may be secret commands to make your life easy.&lt;/p></description></item><item><title>PicoCTF - babygame02</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---babygame02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---babygame02/</guid><description>&lt;h1 id="picoctf---babygame02">
  PicoCTF - babygame02
  &lt;a class="anchor" href="#picoctf---babygame02">#&lt;/a>
 &lt;/h1>
@@ -399,7 +399,7 @@ Hint 2: There may be secret commands to make your life easy.&lt;/p></description
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
-:::spoiler IDA Win Function&lt;/p></description></item><item><title>PicoCTF - buffer overflow 2</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/</guid><description>&lt;h1 id="picoctf---buffer-overflow-2">
+:::spoiler IDA Win Function&lt;/p></description></item><item><title>PicoCTF - buffer overflow 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/</guid><description>&lt;h1 id="picoctf---buffer-overflow-2">
  PicoCTF - buffer overflow 2
  &lt;a class="anchor" href="#picoctf---buffer-overflow-2">#&lt;/a>
 &lt;/h1>
@@ -456,7 +456,7 @@ int main(int argc, char **argv){
  vuln();
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - c0rrupt</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/image-stego/picoctf---c0rrupt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/image-stego/picoctf---c0rrupt/</guid><description>&lt;h1 id="picoctf---c0rrupt">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - c0rrupt</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---c0rrupt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---c0rrupt/</guid><description>&lt;h1 id="picoctf---c0rrupt">
  PicoCTF - c0rrupt
  &lt;a class="anchor" href="#picoctf---c0rrupt">#&lt;/a>
 &lt;/h1>
@@ -496,7 +496,7 @@ ERROR: mystery
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;li>
 &lt;p>Revise &lt;code>pHYs&lt;/code>
-You can open an arbitrary png file and observe &lt;code>pHYs&lt;/code> part.&lt;/p></description></item><item><title>PicoCTF - caas</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---caas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---caas/</guid><description>&lt;h1 id="picoctf---caas">
+You can open an arbitrary png file and observe &lt;code>pHYs&lt;/code> part.&lt;/p></description></item><item><title>PicoCTF - caas</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---caas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---caas/</guid><description>&lt;h1 id="picoctf---caas">
  PicoCTF - caas
  &lt;a class="anchor" href="#picoctf---caas">#&lt;/a>
 &lt;/h1>
@@ -539,7 +539,7 @@ app.listen(3000, () =&amp;gt; {
  &lt;a class="anchor" href="#exploit---easy-command-injection">#&lt;/a>
 &lt;/h2>
 &lt;p>Payload: &lt;code>/cowsay/123;ls;cat falg.txt&lt;/code>
-Flag: &lt;code>picoCTF{moooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo0o}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Compress and Attack</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/picoctf---compress-and-attack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/picoctf---compress-and-attack/</guid><description>&lt;h1 id="picoctf---compress-and-attack">
+Flag: &lt;code>picoCTF{moooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo0o}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Compress and Attack</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/picoctf---compress-and-attack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/picoctf---compress-and-attack/</guid><description>&lt;h1 id="picoctf---compress-and-attack">
  PicoCTF - Compress and Attack
  &lt;a class="anchor" href="#picoctf---compress-and-attack">#&lt;/a>
 &lt;/h1>
@@ -603,7 +603,7 @@ def main():
 
 if __name__ == &amp;#39;__main__&amp;#39;:
  main()
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Cookies</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---cookies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---cookies/</guid><description>&lt;h1 id="picoctf---cookies">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Cookies</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---cookies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---cookies/</guid><description>&lt;h1 id="picoctf---cookies">
  PicoCTF - Cookies
  &lt;a class="anchor" href="#picoctf---cookies">#&lt;/a>
 &lt;/h1>
@@ -639,7 +639,7 @@ if __name__ == &amp;#39;__main__&amp;#39;:
 When I input something, it&amp;rsquo;ll redirect to another page
 &lt;img src="https://i.imgur.com/Pq7XpNZ.png" alt="" />
 &lt;img src="https://i.imgur.com/pKZJWfd.png" alt="" />
-I tried to change cookie to different number and also modify the different value of &lt;code>name&lt;/code> parameter however, still got wrong information.&lt;/p></description></item><item><title>PicoCTF - corrupt-key-1</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---corrupt-key-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---corrupt-key-1/</guid><description>&lt;h1 id="picoctf---corrupt-key-1">
+I tried to change cookie to different number and also modify the different value of &lt;code>name&lt;/code> parameter however, still got wrong information.&lt;/p></description></item><item><title>PicoCTF - corrupt-key-1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---corrupt-key-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---corrupt-key-1/</guid><description>&lt;h1 id="picoctf---corrupt-key-1">
  PicoCTF - corrupt-key-1
  &lt;a class="anchor" href="#picoctf---corrupt-key-1">#&lt;/a>
 &lt;/h1>
@@ -684,7 +684,7 @@ I tried to change cookie to different number and also modify the different value
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>可見private.key的內文被corrupted了，必須要修復才能夠解密ciphertext，但看來看去也找不到相關的write up，或是修復的方法，從&lt;a href="https://connor-mccartney.github.io/cryptography/rsa/corrupt-key-1-picoMini">連結&lt;/a>這篇write up也看不懂如何修復，雖然他有附上code，但是很多error也無法debug(主要是看不懂)，總而言之我們的目標就是找出$p$為何&lt;/p></description></item><item><title>PicoCTF - Dachshund Attacks</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---dachshund-attacks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---dachshund-attacks/</guid><description>&lt;h1 id="picoctf---dachshund-attacks">
+&lt;p>可見private.key的內文被corrupted了，必須要修復才能夠解密ciphertext，但看來看去也找不到相關的write up，或是修復的方法，從&lt;a href="https://connor-mccartney.github.io/cryptography/rsa/corrupt-key-1-picoMini">連結&lt;/a>這篇write up也看不懂如何修復，雖然他有附上code，但是很多error也無法debug(主要是看不懂)，總而言之我們的目標就是找出$p$為何&lt;/p></description></item><item><title>PicoCTF - Dachshund Attacks</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---dachshund-attacks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---dachshund-attacks/</guid><description>&lt;h1 id="picoctf---dachshund-attacks">
  PicoCTF - Dachshund Attacks
  &lt;a class="anchor" href="#picoctf---dachshund-attacks">#&lt;/a>
 &lt;/h1>
@@ -744,7 +744,7 @@ Put the exploit file in this repo.&lt;/li>
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/76228394">CTF_RSA解密学习指南(三) - 低解密指数攻击&lt;/a>&lt;/p></description></item><item><title>PicoCTF - Disk, disk, sleuth! II</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/disk/picoctf---disk-disk-sleuth-ii/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/disk/picoctf---disk-disk-sleuth-ii/</guid><description>&lt;h1 id="picoctf---disk-disk-sleuth-ii">
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/76228394">CTF_RSA解密学习指南(三) - 低解密指数攻击&lt;/a>&lt;/p></description></item><item><title>PicoCTF - Disk, disk, sleuth! II</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---disk-disk-sleuth-ii/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---disk-disk-sleuth-ii/</guid><description>&lt;h1 id="picoctf---disk-disk-sleuth-ii">
  PicoCTF - Disk, disk, sleuth! II
  &lt;a class="anchor" href="#picoctf---disk-disk-sleuth-ii">#&lt;/a>
 &lt;/h1>
@@ -760,7 +760,7 @@ Put the exploit file in this repo.&lt;/li>
 &lt;p>All we know is the file with the flag is named &lt;code>down-at-the-bottom.txt&lt;/code>&amp;hellip; Disk image: &lt;code>dds2-alpine.flag.img.gz&lt;/code>
 Hint 1: The sleuthkit has some great tools for this challenge as well.
 Hint 2: Sleuthkit docs here are so helpful: &lt;a href="http://wiki.sleuthkit.org/index.php?title=TSK_Tool_Overview">TSK Tool Overview&lt;/a>
-Hint 3: This disk can also be booted with &lt;a href="https://idobest.pixnet.net/blog/post/22040213">qemu&lt;/a>!&lt;/p></description></item><item><title>PicoCTF - dont-use-client-side</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---dont-use-client-side/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---dont-use-client-side/</guid><description>&lt;h1 id="picoctf---dont-use-client-side">
+Hint 3: This disk can also be booted with &lt;a href="https://idobest.pixnet.net/blog/post/22040213">qemu&lt;/a>!&lt;/p></description></item><item><title>PicoCTF - dont-use-client-side</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---dont-use-client-side/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---dont-use-client-side/</guid><description>&lt;h1 id="picoctf---dont-use-client-side">
  PicoCTF - dont-use-client-side
  &lt;a class="anchor" href="#picoctf---dont-use-client-side">#&lt;/a>
 &lt;/h1>
@@ -774,7 +774,7 @@ Hint 3: This disk can also be booted with &lt;a href="https://idobest.pixnet.net
  &lt;a class="anchor" href="#exploit---page-source-code">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;img src="https://i.imgur.com/UBYEt6F.png" alt="" />
-&lt;code>picoCTF{no_clients_plz_b706c5}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Double DES</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/des-aes/picoctf---double-des/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/des-aes/picoctf---double-des/</guid><description>&lt;h1 id="picoctf---double-des">
+&lt;code>picoCTF{no_clients_plz_b706c5}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Double DES</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---double-des/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---double-des/</guid><description>&lt;h1 id="picoctf---double-des">
  PicoCTF - Double DES
  &lt;a class="anchor" href="#picoctf---double-des">#&lt;/a>
 &lt;/h1>
@@ -842,7 +842,7 @@ while True:
  print(double_encrypt(inputs))
  else:
  print(&amp;#34;Invalid input.&amp;#34;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - droids1</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---droids1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---droids1/</guid><description>&lt;h1 id="picoctf---droids1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - droids1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids1/</guid><description>&lt;h1 id="picoctf---droids1">
  PicoCTF - droids1
  &lt;a class="anchor" href="#picoctf---droids1">#&lt;/a>
 &lt;/h1>
@@ -894,7 +894,7 @@ while True:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Copying original files...
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果有按照上面的guide把apktool裝起來，就可以直接下指令，參數&lt;code>d&lt;/code>代表decode，對於比較熟Android架構的人來說應該綽綽有餘，畢竟要到哪邊找code/strings之類的，通常都會是那幾個地方，例如：
 Code會放在&lt;code>./smali/com/hellocmu/picoctf/&lt;/code>(PS: 只不過code很醜，畢竟是smali)
-Strings會放在&lt;code>./res/values/strings.xml&lt;/code>&lt;/p></description></item><item><title>PicoCTF - droids3</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---droids3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---droids3/</guid><description>&lt;h1 id="picoctf---droids3">
+Strings會放在&lt;code>./res/values/strings.xml&lt;/code>&lt;/p></description></item><item><title>PicoCTF - droids3</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids3/</guid><description>&lt;h1 id="picoctf---droids3">
  PicoCTF - droids3
  &lt;a class="anchor" href="#picoctf---droids3">#&lt;/a>
 &lt;/h1>
@@ -934,7 +934,7 @@ public class FlagstaffHill {
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
 &lt;p>利用前一題學到的工具(JADX)，先decompiler一下原本的程式在幹嘛(source code如上)，會發現getFlag這個method所呼叫的nope只會吐出&lt;code>don't wanna&lt;/code>，而真正會print出flag的是yep這個method，所以我們可以修改一下，不過修改之前還是要知道一下流程
-Apktool decode apk file$\to$修改必要的地方$\to$Apktool重新打包$\to$簽名$\to$Align$\to$Done，這一個部分在&lt;a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-2/"> Android App 逆向入門之二：修改 smali 程式碼 &lt;/a>有詳細的說明&lt;/p></description></item><item><title>PicoCTF - droids4</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---droids4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---droids4/</guid><description>&lt;h1 id="picoctf---droids4">
+Apktool decode apk file$\to$修改必要的地方$\to$Apktool重新打包$\to$簽名$\to$Align$\to$Done，這一個部分在&lt;a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-2/"> Android App 逆向入門之二：修改 smali 程式碼 &lt;/a>有詳細的說明&lt;/p></description></item><item><title>PicoCTF - droids4</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids4/</guid><description>&lt;h1 id="picoctf---droids4">
  PicoCTF - droids4
  &lt;a class="anchor" href="#picoctf---droids4">#&lt;/a>
 &lt;/h1>
@@ -981,7 +981,7 @@ Apktool decode apk file$\to$修改必要的地方$\to$Apktool重新打包$\to$�
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>基本上用眼睛看應該看的出來password是啥，不過他最後只會print出&lt;code>call it&lt;/code>或是&lt;code>NOPE&lt;/code>，所以我們要像上一題一樣改造一下smali，可以對照一下前一題的smali是怎麼call的&lt;/p></description></item><item><title>PicoCTF - Easy as GDB</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---easy-as-gdb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---easy-as-gdb/</guid><description>&lt;h1 id="picoctf---easy-as-gdb">
+&lt;p>基本上用眼睛看應該看的出來password是啥，不過他最後只會print出&lt;code>call it&lt;/code>或是&lt;code>NOPE&lt;/code>，所以我們要像上一題一樣改造一下smali，可以對照一下前一題的smali是怎麼call的&lt;/p></description></item><item><title>PicoCTF - Easy as GDB</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---easy-as-gdb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---easy-as-gdb/</guid><description>&lt;h1 id="picoctf---easy-as-gdb">
  PicoCTF - Easy as GDB
  &lt;a class="anchor" href="#picoctf---easy-as-gdb">#&lt;/a>
 &lt;/h1>
@@ -1011,7 +1011,7 @@ Apktool decode apk file$\to$修改必要的地方$\to$Apktool重新打包$\to$�
  puts(&amp;#34;Incorrect.&amp;#34;);
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Easy Peasy</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/</guid><description>&lt;h1 id="picoctf---easy-peasy">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Easy Peasy</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/</guid><description>&lt;h1 id="picoctf---easy-peasy">
  PicoCTF - Easy Peasy
  &lt;a class="anchor" href="#picoctf---easy-peasy">#&lt;/a>
 &lt;/h1>
@@ -1079,7 +1079,7 @@ print(&amp;#34;******************Welcome to our OTP implementation!*************
 c = startup(0)
 while c &amp;gt;= 0:
 	c = encrypt(c)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Easy Peasy Or Bad Questions</title><link>https://bernie6401.github.io/security/practice/picoctf/bad-questions/picoctf---easy-peasy-or-bad-questions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/bad-questions/picoctf---easy-peasy-or-bad-questions/</guid><description>&lt;h1 id="picoctf---easy-peasy-or-bad-questions">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Easy Peasy Or Bad Questions</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/bad-questions/picoctf---easy-peasy-or-bad-questions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/bad-questions/picoctf---easy-peasy-or-bad-questions/</guid><description>&lt;h1 id="picoctf---easy-peasy-or-bad-questions">
  PicoCTF - Easy Peasy Or Bad Questions
  &lt;a class="anchor" href="#picoctf---easy-peasy-or-bad-questions">#&lt;/a>
 &lt;/h1>
@@ -1145,7 +1145,7 @@ ffffffff820adb46 t pico_router_probe
  Exploit - FTK Imager
  &lt;a class="anchor" href="#exploit---ftk-imager">#&lt;/a>
 &lt;/h3>
-&lt;p>&lt;img src="https://i.imgur.com/4iZjRu6.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - Eavesdrop</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---eavesdrop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---eavesdrop/</guid><description>&lt;h1 id="picoctf---eavesdrop">
+&lt;p>&lt;img src="https://i.imgur.com/4iZjRu6.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - Eavesdrop</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---eavesdrop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---eavesdrop/</guid><description>&lt;h1 id="picoctf---eavesdrop">
  PicoCTF - Eavesdrop
  &lt;a class="anchor" href="#picoctf---eavesdrop">#&lt;/a>
 &lt;/h1>
@@ -1192,7 +1192,7 @@ Note2: 也可以用&lt;code>tcpflow&lt;/code>的方式把資料download下來
 Using -iter or -pbkdf2 would be better.
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;/ol>
-&lt;p>Flag: &lt;code>picoCTF{nc_73115_411_dd54ab67}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - fermat-strings</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---fermat-strings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---fermat-strings/</guid><description>&lt;h1 id="picoctf---fermat-strings">
+&lt;p>Flag: &lt;code>picoCTF{nc_73115_411_dd54ab67}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - fermat-strings</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---fermat-strings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---fermat-strings/</guid><description>&lt;h1 id="picoctf---fermat-strings">
  PicoCTF - fermat-strings
  &lt;a class="anchor" href="#picoctf---fermat-strings">#&lt;/a>
 &lt;/h1>
@@ -1267,7 +1267,7 @@ int main(void)
 
  if(answer != -1) printf(&amp;#34;Found the answer: %d\n&amp;#34;, answer);
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - File types</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---file-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---file-types/</guid><description>&lt;h1 id="picoctf---file-types">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - File types</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---file-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---file-types/</guid><description>&lt;h1 id="picoctf---file-types">
  PicoCTF - File types
  &lt;a class="anchor" href="#picoctf---file-types">#&lt;/a>
 &lt;/h1>
@@ -1307,7 +1307,7 @@ int main(void)
  Source code
  &lt;a class="anchor" href="#source-code">#&lt;/a>
 &lt;/h2>
-&lt;p>:::spoiler Flag.pdf&lt;/p></description></item><item><title>PicoCTF - filtered-shellcode</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---filtered-shellcode/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---filtered-shellcode/</guid><description>&lt;h1 id="picoctf---filtered-shellcode">
+&lt;p>:::spoiler Flag.pdf&lt;/p></description></item><item><title>PicoCTF - filtered-shellcode</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---filtered-shellcode/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---filtered-shellcode/</guid><description>&lt;h1 id="picoctf---filtered-shellcode">
  PicoCTF - filtered-shellcode
  &lt;a class="anchor" href="#picoctf---filtered-shellcode">#&lt;/a>
 &lt;/h1>
@@ -1371,7 +1371,7 @@ int main(int argc, char *argv[]) {
  execute(buf, length);
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - flag leak</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---flag-leak/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---flag-leak/</guid><description>&lt;h1 id="picoctf---flag-leak">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - flag leak</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---flag-leak/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---flag-leak/</guid><description>&lt;h1 id="picoctf---flag-leak">
  PicoCTF - flag leak
  &lt;a class="anchor" href="#picoctf---flag-leak">#&lt;/a>
 &lt;/h1>
@@ -1433,7 +1433,7 @@ int main(int argc, char **argv){
  vuln();
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - flag_shop</title><link>https://bernie6401.github.io/security/practice/picoctf/general-skills/picoctf---flag_shop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/general-skills/picoctf---flag_shop/</guid><description>&lt;h1 id="picoctf---flag_shop">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - flag_shop</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---flag_shop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---flag_shop/</guid><description>&lt;h1 id="picoctf---flag_shop">
  PicoCTF - flag_shop
  &lt;a class="anchor" href="#picoctf---flag_shop">#&lt;/a>
 &lt;/h1>
@@ -1540,7 +1540,7 @@ int main()
  }
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Forky</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---forky/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---forky/</guid><description>&lt;h1 id="picoctf---forky">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Forky</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---forky/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---forky/</guid><description>&lt;h1 id="picoctf---forky">
  PicoCTF - Forky
  &lt;a class="anchor" href="#picoctf---forky">#&lt;/a>
 &lt;/h1>
@@ -1586,7 +1586,7 @@ int main()
 | | | | | | | | | | | | | | | | 
 O O O O O O O O O O O O O O O O 
 &lt;/code>&lt;/pre>&lt;/blockquote>
-&lt;p>而且他們所操作的外部記憶體對象都會是一樣的，代表*v4最終會被加16次，只是我沒有考慮到負號的問題，因為該題是32bits，代表加到一定程度會overflow，所以都沒解出來&lt;/p></description></item><item><title>PicoCTF - function overwrite</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---function-overwrite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---function-overwrite/</guid><description>&lt;h1 id="picoctf---function-overwrite">
+&lt;p>而且他們所操作的外部記憶體對象都會是一樣的，代表*v4最終會被加16次，只是我沒有考慮到負號的問題，因為該題是32bits，代表加到一定程度會overflow，所以都沒解出來&lt;/p></description></item><item><title>PicoCTF - function overwrite</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---function-overwrite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---function-overwrite/</guid><description>&lt;h1 id="picoctf---function-overwrite">
  PicoCTF - function overwrite
  &lt;a class="anchor" href="#picoctf---function-overwrite">#&lt;/a>
 &lt;/h1>
@@ -1701,7 +1701,7 @@ int main(int argc, char **argv)
  vuln();
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - gogo</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---gogo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---gogo/</guid><description>&lt;h1 id="picoctf---gogo">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - gogo</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---gogo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---gogo/</guid><description>&lt;h1 id="picoctf---gogo">
  PicoCTF - gogo
  &lt;a class="anchor" href="#picoctf---gogo">#&lt;/a>
 &lt;/h1>
@@ -1773,7 +1773,7 @@ void __cdecl main_main()
  }
  runtime_deferreturn(typ[0].array);
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Guessing Game 1</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---guessing-game-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---guessing-game-1/</guid><description>&lt;h1 id="picoctf---guessing-game-1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Guessing Game 1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---guessing-game-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---guessing-game-1/</guid><description>&lt;h1 id="picoctf---guessing-game-1">
  PicoCTF - Guessing Game 1
  &lt;a class="anchor" href="#picoctf---guessing-game-1">#&lt;/a>
 &lt;/h1>
@@ -1855,7 +1855,7 @@ void __cdecl main_main()
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Guessing Game 2</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---guessing-game-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---guessing-game-2/</guid><description>&lt;h1 id="picoctf---guessing-game-2">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Guessing Game 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---guessing-game-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---guessing-game-2/</guid><description>&lt;h1 id="picoctf---guessing-game-2">
  PicoCTF - Guessing Game 2
  &lt;a class="anchor" href="#picoctf---guessing-game-2">#&lt;/a>
 &lt;/h1>
@@ -1956,7 +1956,7 @@ int main(int argc, char **argv){
 	
 	return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - hijacking</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---hijacking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---hijacking/</guid><description>&lt;h1 id="picoctf---hijacking">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - hijacking</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---hijacking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---hijacking/</guid><description>&lt;h1 id="picoctf---hijacking">
  PicoCTF - hijacking
  &lt;a class="anchor" href="#picoctf---hijacking">#&lt;/a>
 &lt;/h1>
@@ -2029,7 +2029,7 @@ Hint 2: No place like Home:)&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> File &lt;span style="color:#e6db74">&amp;#34;/home/picoctf/.server.py&amp;#34;&lt;/span>, line 7, in &amp;lt;module&amp;gt;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> host_info &lt;span style="color:#f92672">=&lt;/span> socket.gethostbyaddr&lt;span style="color:#f92672">(&lt;/span>ip&lt;span style="color:#f92672">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>socket.gaierror: &lt;span style="color:#f92672">[&lt;/span>Errno -5&lt;span style="color:#f92672">]&lt;/span> No address associated with hostname
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Flag: &lt;code>picoCTF{pYth0nn_libraryH!j@CK!n9_566dbbb7}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - information</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/picoctf---information/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/picoctf---information/</guid><description>&lt;h1 id="picoctf---information">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Flag: &lt;code>picoCTF{pYth0nn_libraryH!j@CK!n9_566dbbb7}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - information</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/picoctf---information/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/picoctf---information/</guid><description>&lt;h1 id="picoctf---information">
  PicoCTF - information
  &lt;a class="anchor" href="#picoctf---information">#&lt;/a>
 &lt;/h1>
@@ -2078,7 +2078,7 @@ Y Cb Cr Sub Sampling : YCbCr4:2:0 (2 2)
 Image Size : 2560x1598
 Megapixels : 4.1
 &lt;/code>&lt;/pre>&lt;p>In License row, it&amp;rsquo;s obviously a base64 encoding string
-&lt;code>picoCTF{the_m3tadata_1s_modified}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Insp3ct0r</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---insp3ct0r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---insp3ct0r/</guid><description>&lt;h1 id="picoctf---insp3ct0r">
+&lt;code>picoCTF{the_m3tadata_1s_modified}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Insp3ct0r</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---insp3ct0r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---insp3ct0r/</guid><description>&lt;h1 id="picoctf---insp3ct0r">
  PicoCTF - Insp3ct0r
  &lt;a class="anchor" href="#picoctf---insp3ct0r">#&lt;/a>
 &lt;/h1>
@@ -2134,7 +2134,7 @@ Megapixels : 4.1
  &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
 &lt;/code>&lt;/pre>&lt;p>CSS
-Download it and search specific string&lt;/p></description></item><item><title>PicoCTF - Investigative Reversing 0</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---investigative-reversing-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---investigative-reversing-0/</guid><description>&lt;h1 id="picoctf---investigative-reversing-0">
+Download it and search specific string&lt;/p></description></item><item><title>PicoCTF - Investigative Reversing 0</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---investigative-reversing-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---investigative-reversing-0/</guid><description>&lt;h1 id="picoctf---investigative-reversing-0">
  PicoCTF - Investigative Reversing 0
  &lt;a class="anchor" href="#picoctf---investigative-reversing-0">#&lt;/a>
 &lt;/h1>
@@ -2190,7 +2190,7 @@ Download it and search specific string&lt;/p></description></item><item><title>P
  fclose(stream);
  return __readfsqword(40u) ^ v10;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - It is my Birthday</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---it-is-my-birthday/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---it-is-my-birthday/</guid><description>&lt;h1 id="picoctf---it-is-my-birthday">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - It is my Birthday</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---it-is-my-birthday/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---it-is-my-birthday/</guid><description>&lt;h1 id="picoctf---it-is-my-birthday">
  PicoCTF - It is my Birthday
  &lt;a class="anchor" href="#picoctf---it-is-my-birthday">#&lt;/a>
 &lt;/h1>
@@ -2215,7 +2215,7 @@ Note that, you must notice the file size you uploaded can not too large.&lt;/p>
  Source code - After Exploit
  &lt;a class="anchor" href="#source-code---after-exploit">#&lt;/a>
 &lt;/h2>
-&lt;p>:::spoiler after exploit you can get the source code &amp;amp; flag&lt;/p></description></item><item><title>PicoCTF - It's Not My Fault 1</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/</guid><description>&lt;h1 id="picoctf---its-not-my-fault-1">
+&lt;p>:::spoiler after exploit you can get the source code &amp;amp; flag&lt;/p></description></item><item><title>PicoCTF - It's Not My Fault 1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/</guid><description>&lt;h1 id="picoctf---its-not-my-fault-1">
  PicoCTF - It&amp;rsquo;s Not My Fault 1
  &lt;a class="anchor" href="#picoctf---its-not-my-fault-1">#&lt;/a>
 &lt;/h1>
@@ -2290,7 +2290,7 @@ if user_input[:5] == vals1 and user_hash[-6:] == vals2:
 	print(&amp;#34;Public Modulus : &amp;#34;, n)
 	get_clue(p, q, 20)
 	get_flag(p, q)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - JAUTH</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---jauth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---jauth/</guid><description>&lt;h1 id="picoctf---jauth">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - JAUTH</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jauth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jauth/</guid><description>&lt;h1 id="picoctf---jauth">
  PicoCTF - JAUTH
  &lt;a class="anchor" href="#picoctf---jauth">#&lt;/a>
 &lt;/h1>
@@ -2314,7 +2314,7 @@ Payload: &lt;code>eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdXRoIjoxNjg3NzY0MjM1MT
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://youtu.be/njsjTVcwGwY"> picoCTF : JAUTH (Challenge 8) &lt;/a>&lt;/p></description></item><item><title>PicoCTF - Java Code Analysis!?!</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---java-code-analysis_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---java-code-analysis_/</guid><description>&lt;h1 id="picoctf---java-code-analysis">
+&lt;p>&lt;a href="https://youtu.be/njsjTVcwGwY"> picoCTF : JAUTH (Challenge 8) &lt;/a>&lt;/p></description></item><item><title>PicoCTF - Java Code Analysis!?!</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-code-analysis_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-code-analysis_/</guid><description>&lt;h1 id="picoctf---java-code-analysis">
  PicoCTF - Java Code Analysis!?!
  &lt;a class="anchor" href="#picoctf---java-code-analysis">#&lt;/a>
 &lt;/h1>
@@ -2342,7 +2342,7 @@ Payload: &lt;code>eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdXRoIjoxNjg3NzY0MjM1MT
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>這一題在AIS3 pre-exam的時候也有看到，但當時根本沒想法，只要題目看起來一複雜我就沒辦法分析了，所以還是看了Martin大的WP才知道解法，但有時候真的很考驗耐心，先看hint發現應該是考跟JWT有關&lt;/p></description></item><item><title>PicoCTF - Java Script Kiddie</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---java-script-kiddie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---java-script-kiddie/</guid><description>&lt;h1 id="picoctf---java-script-kiddie">
+&lt;p>這一題在AIS3 pre-exam的時候也有看到，但當時根本沒想法，只要題目看起來一複雜我就沒辦法分析了，所以還是看了Martin大的WP才知道解法，但有時候真的很考驗耐心，先看hint發現應該是考跟JWT有關&lt;/p></description></item><item><title>PicoCTF - Java Script Kiddie</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-script-kiddie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-script-kiddie/</guid><description>&lt;h1 id="picoctf---java-script-kiddie">
  PicoCTF - Java Script Kiddie
  &lt;a class="anchor" href="#picoctf---java-script-kiddie">#&lt;/a>
 &lt;/h1>
@@ -2420,7 +2420,7 @@ Payload: &lt;code>eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdXRoIjoxNjg3NzY0MjM1MT
 
 	&amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - JaWT Scratchpad</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---jawt-scratchpad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---jawt-scratchpad/</guid><description>&lt;h1 id="picoctf---jawt-scratchpad">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - JaWT Scratchpad</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jawt-scratchpad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jawt-scratchpad/</guid><description>&lt;h1 id="picoctf---jawt-scratchpad">
  PicoCTF - JaWT Scratchpad
  &lt;a class="anchor" href="#picoctf---jawt-scratchpad">#&lt;/a>
 &lt;/h1>
@@ -2454,7 +2454,7 @@ ilovepico (?)
 1g 0:00:00:02 DONE (2023-06-26 18:42) 0.3673g/s 2720Kp/s 2720Kc/s 2720KC/s ilovetitoelbambino..ilovejesus71
 Use the &amp;#34;--show&amp;#34; option to display all of the cracked passwords reliably
 Session completed
-&lt;/code>&lt;/pre>&lt;p>Token Password: &lt;code>ilovepico&lt;/code>&lt;/p></description></item><item><title>PicoCTF - john_pollard</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/</guid><description>&lt;h1 id="picoctf---john_pollard">
+&lt;/code>&lt;/pre>&lt;p>Token Password: &lt;code>ilovepico&lt;/code>&lt;/p></description></item><item><title>PicoCTF - john_pollard</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/</guid><description>&lt;h1 id="picoctf---john_pollard">
  PicoCTF - john_pollard
  &lt;a class="anchor" href="#picoctf---john_pollard">#&lt;/a>
 &lt;/h1>
@@ -2511,7 +2511,7 @@ q16/S1WLvzg4PsElmv1f
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-----END PUBLIC KEY-----
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Use &lt;a href="https://www.alpertron.com/ECM.HTM">online tool&lt;/a> to factor
 p = &lt;code>67867967&lt;/code>
-q = &lt;code>73176001&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Kit Engine</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---kit-engine/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---kit-engine/</guid><description>&lt;h1 id="picoctf---kit-engine">
+q = &lt;code>73176001&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Kit Engine</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---kit-engine/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---kit-engine/</guid><description>&lt;h1 id="picoctf---kit-engine">
  PicoCTF - Kit Engine
  &lt;a class="anchor" href="#picoctf---kit-engine">#&lt;/a>
 &lt;/h1>
@@ -2525,7 +2525,7 @@ q = &lt;code>73176001&lt;/code>&lt;/p></description></item><item><title>PicoCTF 
 &lt;p>&lt;a href="https://v8.dev/docs/d8">Using d8&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>d8 is V8’s own developer shell.&lt;/p>
-&lt;p>d8 is useful for running some JavaScript locally or debugging changes you have made to V8. Building V8 using GN for x64 outputs a d8 binary in out.gn/x64.optdebug/d8. You can call d8 with the &amp;ndash;help argument for more information about usage and flags.&lt;/p></description></item><item><title>PicoCTF - Let's get dynamic</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---lets-get-dynamic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---lets-get-dynamic/</guid><description>&lt;h1 id="picoctf---lets-get-dynamic">
+&lt;p>d8 is useful for running some JavaScript locally or debugging changes you have made to V8. Building V8 using GN for x64 outputs a d8 binary in out.gn/x64.optdebug/d8. You can call d8 with the &amp;ndash;help argument for more information about usage and flags.&lt;/p></description></item><item><title>PicoCTF - Let's get dynamic</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---lets-get-dynamic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---lets-get-dynamic/</guid><description>&lt;h1 id="picoctf---lets-get-dynamic">
  PicoCTF - Let&amp;rsquo;s get dynamic
  &lt;a class="anchor" href="#picoctf---lets-get-dynamic">#&lt;/a>
 &lt;/h1>
@@ -2579,7 +2579,7 @@ q = &lt;code>73176001&lt;/code>&lt;/p></description></item><item><title>PicoCTF 
  return 0;
  }
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - like1000</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---like1000/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---like1000/</guid><description>&lt;h1 id="picoctf---like1000">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - like1000</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---like1000/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---like1000/</guid><description>&lt;h1 id="picoctf---like1000">
  PicoCTF - like1000
  &lt;a class="anchor" href="#picoctf---like1000">#&lt;/a>
 &lt;/h1>
@@ -2640,7 +2640,7 @@ exit 0
 &lt;p>&lt;a href="https://shengyu7697.github.io/shell-script-arithmetic/">Shell Script 變數相加&lt;/a>
 &lt;a href="https://linuxhint.com/solve-gzip-stdin-not-gzip-format-error/">How to solve gzip: stdin: not in gzip format error&lt;/a>
 &lt;a href="https://blog.csdn.net/cp_panda_5/article/details/79192688">解压缩报错tar: Error is not recoverable: exiting now&lt;/a>
-&lt;a href="https://unix.stackexchange.com/questions/47584/in-a-bash-script-using-the-conditional-or-in-an-if-statement">In a bash script, using the conditional &amp;ldquo;or&amp;rdquo; in an &amp;ldquo;if&amp;rdquo; statement&lt;/a>&lt;/p></description></item><item><title>PicoCTF - m00nwalk</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk/</guid><description>&lt;h1 id="picoctf---m00nwalk">
+&lt;a href="https://unix.stackexchange.com/questions/47584/in-a-bash-script-using-the-conditional-or-in-an-if-statement">In a bash script, using the conditional &amp;ldquo;or&amp;rdquo; in an &amp;ldquo;if&amp;rdquo; statement&lt;/a>&lt;/p></description></item><item><title>PicoCTF - m00nwalk</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk/</guid><description>&lt;h1 id="picoctf---m00nwalk">
  PicoCTF - m00nwalk
  &lt;a class="anchor" href="#picoctf---m00nwalk">#&lt;/a>
 &lt;/h1>
@@ -2684,7 +2684,7 @@ $ pactl load-module module-null-sink sink_name=virtual-cable
 &lt;/ol>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;code>pavucontrol&lt;/code>&lt;/p></description></item><item><title>PicoCTF - m00nwalk2</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk2/</guid><description>&lt;h1 id="picoctf---m00nwalk2">
+&lt;p>&lt;code>pavucontrol&lt;/code>&lt;/p></description></item><item><title>PicoCTF - m00nwalk2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk2/</guid><description>&lt;h1 id="picoctf---m00nwalk2">
  PicoCTF - m00nwalk2
  &lt;a class="anchor" href="#picoctf---m00nwalk2">#&lt;/a>
 &lt;/h1>
@@ -2716,7 +2716,7 @@ $ pactl load-module module-null-sink sink_name=virtual-cable
 &lt;p>Follow the write up of m00nwalk then you&amp;rsquo;ll get 3 images from 3 clues respectively.
 &lt;img src="https://i.imgur.com/Vq8ciM2.png" alt="" />
 &lt;img src="https://i.imgur.com/Y5nS8wS.png" alt="" />
-&lt;img src="https://i.imgur.com/C0xk8YL.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - MacroHard WeakEdge</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---macrohard-weakedge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---macrohard-weakedge/</guid><description>&lt;h1 id="picoctf---macrohard-weakedge">
+&lt;img src="https://i.imgur.com/C0xk8YL.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - MacroHard WeakEdge</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---macrohard-weakedge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---macrohard-weakedge/</guid><description>&lt;h1 id="picoctf---macrohard-weakedge">
  PicoCTF - MacroHard WeakEdge
  &lt;a class="anchor" href="#picoctf---macrohard-weakedge">#&lt;/a>
 &lt;/h1>
@@ -2732,7 +2732,7 @@ $ pactl load-module module-null-sink sink_name=virtual-cable
 &lt;p>&lt;a href="https://fileinfo.com/extension/pptm">What is a PPTM file?&lt;/a>
 &lt;font color="FF0000">It&amp;rsquo;s a zip format file&lt;/font>&lt;/p>
 &lt;blockquote>
-&lt;p>A PPTM file is a macro-enabled presentation created by Microsoft PowerPoint, an application used to create presentations and slide shows. It contains a collection of slides, which typically includes text, layout, images, and embedded macros. PPTM files are commonly used to store business, marketing, and academic presentations.&lt;/p></description></item><item><title>PicoCTF - Matryoshka doll</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---matryoshka-doll/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---matryoshka-doll/</guid><description>&lt;h1 id="picoctf---matryoshka-doll">
+&lt;p>A PPTM file is a macro-enabled presentation created by Microsoft PowerPoint, an application used to create presentations and slide shows. It contains a collection of slides, which typically includes text, layout, images, and embedded macros. PPTM files are commonly used to store business, marketing, and academic presentations.&lt;/p></description></item><item><title>PicoCTF - Matryoshka doll</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---matryoshka-doll/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---matryoshka-doll/</guid><description>&lt;h1 id="picoctf---matryoshka-doll">
  PicoCTF - Matryoshka doll
  &lt;a class="anchor" href="#picoctf---matryoshka-doll">#&lt;/a>
 &lt;/h1>
@@ -2759,7 +2759,7 @@ And it can be uncompressed
 &lt;img src="https://i.imgur.com/sNfhE2J.png" alt="" />&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Repeat until find &lt;code>flag.txt&lt;/code>&amp;hellip;&lt;/p></description></item><item><title>PicoCTF - Mind your Ps and Qs</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---mind-your-ps-and-qs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---mind-your-ps-and-qs/</guid><description>&lt;h1 id="picoctf---mind-your-ps-and-qs">
+&lt;p>Repeat until find &lt;code>flag.txt&lt;/code>&amp;hellip;&lt;/p></description></item><item><title>PicoCTF - Mind your Ps and Qs</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---mind-your-ps-and-qs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---mind-your-ps-and-qs/</guid><description>&lt;h1 id="picoctf---mind-your-ps-and-qs">
  PicoCTF - Mind your Ps and Qs
  &lt;a class="anchor" href="#picoctf---mind-your-ps-and-qs">#&lt;/a>
 &lt;/h1>
@@ -2793,7 +2793,7 @@ p $\to$ 1461849912200000206276283741896701133693
 q $\to$ 431899300006243611356963607089521499045809&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Write exploit&lt;/p></description></item><item><title>PicoCTF - Mini RSA</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---mini-rsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---mini-rsa/</guid><description>&lt;h1 id="picoctf---mini-rsa">
+&lt;p>Write exploit&lt;/p></description></item><item><title>PicoCTF - Mini RSA</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---mini-rsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---mini-rsa/</guid><description>&lt;h1 id="picoctf---mini-rsa">
  PicoCTF - Mini RSA
  &lt;a class="anchor" href="#picoctf---mini-rsa">#&lt;/a>
 &lt;/h1>
@@ -2834,7 +2834,7 @@ while True:
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/76228394">CTF_RSA解密学习指南(三) - e=3 小明文攻击&lt;/a>&lt;/p></description></item><item><title>PicoCTF - More SQLi</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---more-sqli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---more-sqli/</guid><description>&lt;h1 id="picoctf---more-sqli">
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/76228394">CTF_RSA解密学习指南(三) - e=3 小明文攻击&lt;/a>&lt;/p></description></item><item><title>PicoCTF - More SQLi</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---more-sqli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---more-sqli/</guid><description>&lt;h1 id="picoctf---more-sqli">
  PicoCTF - More SQLi
  &lt;a class="anchor" href="#picoctf---more-sqli">#&lt;/a>
 &lt;/h1>
@@ -2882,7 +2882,7 @@ Payload: &lt;code>Algiers' union SELECT id,flag,1 FROM more_table; --&lt;/code>
 :::spoiler Screenshot
 &lt;img src="https://hackmd.io/_uploads/ryonEoIdn.png" alt="" />
 :::
-Flag: &lt;code>picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_98236ce6}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Most Cookies</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---most-cookies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---most-cookies/</guid><description>&lt;h1 id="picoctf---most-cookies">
+Flag: &lt;code>picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_98236ce6}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Most Cookies</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---most-cookies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---most-cookies/</guid><description>&lt;h1 id="picoctf---most-cookies">
  PicoCTF - Most Cookies
  &lt;a class="anchor" href="#picoctf---most-cookies">#&lt;/a>
 &lt;/h1>
@@ -2959,7 +2959,7 @@ def flag():
 
 if __name__ == &amp;#34;__main__&amp;#34;:
 	app.run()
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - mus1c</title><link>https://bernie6401.github.io/security/practice/picoctf/general-skills/picoctf---mus1c/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/general-skills/picoctf---mus1c/</guid><description>&lt;h1 id="picoctf---mus1c">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - mus1c</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---mus1c/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---mus1c/</guid><description>&lt;h1 id="picoctf---mus1c">
  PicoCTF - mus1c
  &lt;a class="anchor" href="#picoctf---mus1c">#&lt;/a>
 &lt;/h1>
@@ -3027,7 +3027,7 @@ shout it
 build it up, up
 shout it
 shout Pico
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - New Caesar</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---new-caesar/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---new-caesar/</guid><description>&lt;h1 id="picoctf---new-caesar">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - New Caesar</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---new-caesar/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---new-caesar/</guid><description>&lt;h1 id="picoctf---new-caesar">
  PicoCTF - New Caesar
  &lt;a class="anchor" href="#picoctf---new-caesar">#&lt;/a>
 &lt;/h1>
@@ -3069,7 +3069,7 @@ enc = &amp;#34;&amp;#34;
 for i, c in enumerate(b16):
 	enc += shift(c, key[i % len(key)])
 print(enc)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - No Padding, No Problem</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---no-padding-no-problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---no-padding-no-problem/</guid><description>&lt;h1 id="picoctf---no-padding-no-problem">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - No Padding, No Problem</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---no-padding-no-problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---no-padding-no-problem/</guid><description>&lt;h1 id="picoctf---no-padding-no-problem">
  PicoCTF - No Padding, No Problem
  &lt;a class="anchor" href="#picoctf---no-padding-no-problem">#&lt;/a>
 &lt;/h1>
@@ -3091,7 +3091,7 @@ print(enc)
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>We can try to decrypt ciphertext directly.&lt;/p></description></item><item><title>PicoCTF - No way out</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---no-way-out/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---no-way-out/</guid><description>&lt;h1 id="picoctf---no-way-out">
+&lt;p>We can try to decrypt ciphertext directly.&lt;/p></description></item><item><title>PicoCTF - No way out</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---no-way-out/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---no-way-out/</guid><description>&lt;h1 id="picoctf---no-way-out">
  PicoCTF - No way out
  &lt;a class="anchor" href="#picoctf---no-way-out">#&lt;/a>
 &lt;/h1>
@@ -3137,7 +3137,7 @@ print(enc)
 {
  this.moveDirection.y = this.jumpSpeed;
 }
-&lt;/code>&lt;/pre>&lt;p>如果改成&lt;/p></description></item><item><title>PicoCTF - not crypto</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---not-crypto/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---not-crypto/</guid><description>&lt;h1 id="picoctf---not-crypto">
+&lt;/code>&lt;/pre>&lt;p>如果改成&lt;/p></description></item><item><title>PicoCTF - not crypto</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---not-crypto/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---not-crypto/</guid><description>&lt;h1 id="picoctf---not-crypto">
  PicoCTF - not crypto
  &lt;a class="anchor" href="#picoctf---not-crypto">#&lt;/a>
 &lt;/h1>
@@ -3490,7 +3490,7 @@ LABEL_14:
  }
  return v18;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - notepad</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---notepad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---notepad/</guid><description>&lt;h1 id="picoctf---notepad">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - notepad</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---notepad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---notepad/</guid><description>&lt;h1 id="picoctf---notepad">
  PicoCTF - notepad
  &lt;a class="anchor" href="#picoctf---notepad">#&lt;/a>
 &lt;/h1>
@@ -3515,7 +3515,7 @@ LABEL_14:
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>PicoCTF - NSA Backdoor</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---nsa-backdoor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---nsa-backdoor/</guid><description>&lt;h1 id="picoctf---nsa-backdoor">
+&lt;/h2></description></item><item><title>PicoCTF - NSA Backdoor</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---nsa-backdoor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---nsa-backdoor/</guid><description>&lt;h1 id="picoctf---nsa-backdoor">
  PicoCTF - NSA Backdoor
  &lt;a class="anchor" href="#picoctf---nsa-backdoor">#&lt;/a>
 &lt;/h1>
@@ -3550,7 +3550,7 @@ $A^x\equiv B(mod\ C)$，其中$0\le x\lt C$
 因此，使用pohlig-hellman的場合只能是較為特殊的情況，即:$p$是質數，且$p-1$包含的質因子較少&amp;amp;較小。&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>和BSGS算法一樣，pohlig-hellman算法也是用於解決離散對數問題（也有很多文獻提到是解決橢圓曲線之類的）。即給定$a,b,p$,求 $a^x \equiv b(mod\ p)$。&lt;/p></description></item><item><title>PicoCTF - Operation Oni</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/disk/picoctf---operation-oni/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/disk/picoctf---operation-oni/</guid><description>&lt;h1 id="picoctf---operation-oni">
+&lt;p>和BSGS算法一樣，pohlig-hellman算法也是用於解決離散對數問題（也有很多文獻提到是解決橢圓曲線之類的）。即給定$a,b,p$,求 $a^x \equiv b(mod\ p)$。&lt;/p></description></item><item><title>PicoCTF - Operation Oni</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---operation-oni/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---operation-oni/</guid><description>&lt;h1 id="picoctf---operation-oni">
  PicoCTF - Operation Oni
  &lt;a class="anchor" href="#picoctf---operation-oni">#&lt;/a>
 &lt;/h1>
@@ -3581,7 +3581,7 @@ ISO文件主要用於制作光盤或者USB啟動盤，用於安裝操作系統�
  Description
  &lt;a class="anchor" href="#description">#&lt;/a>
 &lt;/h2>
-&lt;p>Download this disk image, find the key and log into the remote machine. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.&lt;/p></description></item><item><title>PicoCTF - Operation Orchid</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/disk/picoctf---operation-orchid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/disk/picoctf---operation-orchid/</guid><description>&lt;h1 id="picoctf---operation-orchid">
+&lt;p>Download this disk image, find the key and log into the remote machine. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.&lt;/p></description></item><item><title>PicoCTF - Operation Orchid</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---operation-orchid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---operation-orchid/</guid><description>&lt;h1 id="picoctf---operation-orchid">
  PicoCTF - Operation Orchid
  &lt;a class="anchor" href="#picoctf---operation-orchid">#&lt;/a>
 &lt;/h1>
@@ -3621,7 +3621,7 @@ ISO文件主要用於制作光盤或者USB啟動盤，用於安裝操作系統�
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>140342062343488:error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt:crypto/evp/evp_enc.c:612:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>picoCTF&lt;span style="color:#f92672">{&lt;/span>h4un71ng_p457_5113beab&lt;span style="color:#f92672">}&lt;/span>%
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ol></description></item><item><title>PicoCTF - OTP Implementation</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---otp-implementation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---otp-implementation/</guid><description>&lt;h1 id="picoctf---otp-implementation">
+&lt;/ol></description></item><item><title>PicoCTF - OTP Implementation</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---otp-implementation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---otp-implementation/</guid><description>&lt;h1 id="picoctf---otp-implementation">
  PicoCTF - OTP Implementation
  &lt;a class="anchor" href="#picoctf---otp-implementation">#&lt;/a>
 &lt;/h1>
@@ -3683,7 +3683,7 @@ ISO文件主要用於制作光盤或者USB啟動盤，用於安裝操作系統�
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Picker III</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---picker-iii/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---picker-iii/</guid><description>&lt;h1 id="picoctf---picker-iii">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Picker III</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---picker-iii/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---picker-iii/</guid><description>&lt;h1 id="picoctf---picker-iii">
  PicoCTF - Picker III
  &lt;a class="anchor" href="#picoctf---picker-iii">#&lt;/a>
 &lt;/h1>
@@ -3890,7 +3890,7 @@ while(USER_ALIVE):
  call_func(3)
  else:
  print(&amp;#39;Did not understand &amp;#34;&amp;#39;+choice+&amp;#39;&amp;#34; Have you tried &amp;#34;help&amp;#34;?&amp;#39;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Pitter, Patter, Platters</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/disk/picoctf---pitter-patter-platters/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/disk/picoctf---pitter-patter-platters/</guid><description>&lt;h1 id="picoctf---pitter-patter-platters">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Pitter, Patter, Platters</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---pitter-patter-platters/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---pitter-patter-platters/</guid><description>&lt;h1 id="picoctf---pitter-patter-platters">
  PicoCTF - Pitter, Patter, Platters
  &lt;a class="anchor" href="#picoctf---pitter-patter-platters">#&lt;/a>
 &lt;/h1>
@@ -3936,7 +3936,7 @@ picoCTF{b3_5t111_mL|_&amp;lt;3_ba880921}
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://github.com/Dvd848/CTFs/blob/master/2020_picoCTF_Mini/Pitter_Patter_Platters.md">Pitter, Patter, Platters write up&lt;/a>
-&lt;a href="https://youtu.be/P0wvFs02oKY">pico 2020 mini pitter patter platters&lt;/a>&lt;/p></description></item><item><title>PicoCTF - PowerAnalysis Part 1 / Part 2</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/</guid><description>&lt;h1 id="picoctf---poweranalysis-part-1--part-2">
+&lt;a href="https://youtu.be/P0wvFs02oKY">pico 2020 mini pitter patter platters&lt;/a>&lt;/p></description></item><item><title>PicoCTF - PowerAnalysis Part 1 / Part 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/</guid><description>&lt;h1 id="picoctf---poweranalysis-part-1--part-2">
  PicoCTF - PowerAnalysis Part 1 / Part 2
  &lt;a class="anchor" href="#picoctf---poweranalysis-part-1--part-2">#&lt;/a>
 &lt;/h1>
@@ -4114,7 +4114,7 @@ picoCTF{b3_5t111_mL|_&amp;lt;3_ba880921}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#39;The key of AES is: &amp;#39;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> flag )
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ul>
-&lt;p>Flag: &lt;code>picoCTF{4999139026d84bf20427eb48d4edec53}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Powershelly</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---powershelly/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---powershelly/</guid><description>&lt;h1 id="picoctf---powershelly">
+&lt;p>Flag: &lt;code>picoCTF{4999139026d84bf20427eb48d4edec53}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Powershelly</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---powershelly/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---powershelly/</guid><description>&lt;h1 id="picoctf---powershelly">
  PicoCTF - Powershelly
  &lt;a class="anchor" href="#picoctf---powershelly">#&lt;/a>
 &lt;/h1>
@@ -4263,7 +4263,7 @@ for ($i=0; $i -lt $blocks.count ; $i++)
  $output_file += $result
 }
 Add-Content -Path output_test.txt -Value $output_file
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - PW Crack 4</title><link>https://bernie6401.github.io/security/practice/picoctf/general-skills/picoctf---pw-crack-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/general-skills/picoctf---pw-crack-4/</guid><description>&lt;h1 id="picoctf---pw-crack-4">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - PW Crack 4</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---pw-crack-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---pw-crack-4/</guid><description>&lt;h1 id="picoctf---pw-crack-4">
  PicoCTF - PW Crack 4
  &lt;a class="anchor" href="#picoctf---pw-crack-4">#&lt;/a>
 &lt;/h1>
@@ -4322,7 +4322,7 @@ level_4_pw_check()
 # The strings below are 100 possibilities for the correct password. 
 # (Only 1 is correct)
 pos_pw_list = [&amp;#34;6288&amp;#34;, &amp;#34;6152&amp;#34;, &amp;#34;4c7a&amp;#34;, &amp;#34;b722&amp;#34;, &amp;#34;9a6e&amp;#34;, &amp;#34;6717&amp;#34;, &amp;#34;4389&amp;#34;, &amp;#34;1a28&amp;#34;, &amp;#34;37ac&amp;#34;, &amp;#34;de4f&amp;#34;, &amp;#34;eb28&amp;#34;, &amp;#34;351b&amp;#34;, &amp;#34;3d58&amp;#34;, &amp;#34;948b&amp;#34;, &amp;#34;231b&amp;#34;, &amp;#34;973a&amp;#34;, &amp;#34;a087&amp;#34;, &amp;#34;384a&amp;#34;, &amp;#34;6d3c&amp;#34;, &amp;#34;9065&amp;#34;, &amp;#34;725c&amp;#34;, &amp;#34;fd60&amp;#34;, &amp;#34;4d4f&amp;#34;, &amp;#34;6a60&amp;#34;, &amp;#34;7213&amp;#34;, &amp;#34;93e6&amp;#34;, &amp;#34;8c54&amp;#34;, &amp;#34;537d&amp;#34;, &amp;#34;a1da&amp;#34;, &amp;#34;c718&amp;#34;, &amp;#34;9de8&amp;#34;, &amp;#34;ebe3&amp;#34;, &amp;#34;f1c5&amp;#34;, &amp;#34;a0bf&amp;#34;, &amp;#34;ccab&amp;#34;, &amp;#34;4938&amp;#34;, &amp;#34;8f97&amp;#34;, &amp;#34;3327&amp;#34;, &amp;#34;8029&amp;#34;, &amp;#34;41f2&amp;#34;, &amp;#34;a04f&amp;#34;, &amp;#34;c7f9&amp;#34;, &amp;#34;b453&amp;#34;, &amp;#34;90a5&amp;#34;, &amp;#34;25dc&amp;#34;, &amp;#34;26b0&amp;#34;, &amp;#34;cb42&amp;#34;, &amp;#34;de89&amp;#34;, &amp;#34;2451&amp;#34;, &amp;#34;1dd3&amp;#34;, &amp;#34;7f2c&amp;#34;, &amp;#34;8919&amp;#34;, &amp;#34;f3a9&amp;#34;, &amp;#34;b88f&amp;#34;, &amp;#34;eaa8&amp;#34;, &amp;#34;776a&amp;#34;, &amp;#34;6236&amp;#34;, &amp;#34;98f5&amp;#34;, &amp;#34;492b&amp;#34;, &amp;#34;507d&amp;#34;, &amp;#34;18e8&amp;#34;, &amp;#34;cfb5&amp;#34;, &amp;#34;76fd&amp;#34;, &amp;#34;6017&amp;#34;, &amp;#34;30de&amp;#34;, &amp;#34;bbae&amp;#34;, &amp;#34;354e&amp;#34;, &amp;#34;4013&amp;#34;, &amp;#34;3153&amp;#34;, &amp;#34;e9cc&amp;#34;, &amp;#34;cba9&amp;#34;, &amp;#34;25ea&amp;#34;, &amp;#34;c06c&amp;#34;, &amp;#34;a166&amp;#34;, &amp;#34;faf1&amp;#34;, &amp;#34;2264&amp;#34;, &amp;#34;2179&amp;#34;, &amp;#34;cf30&amp;#34;, &amp;#34;4b47&amp;#34;, &amp;#34;3446&amp;#34;, &amp;#34;b213&amp;#34;, &amp;#34;88a3&amp;#34;, &amp;#34;6253&amp;#34;, &amp;#34;db88&amp;#34;, &amp;#34;c38c&amp;#34;, &amp;#34;a48c&amp;#34;, &amp;#34;3e4f&amp;#34;, &amp;#34;7208&amp;#34;, &amp;#34;9dcb&amp;#34;, &amp;#34;fc77&amp;#34;, &amp;#34;e2cf&amp;#34;, &amp;#34;8552&amp;#34;, &amp;#34;f6f8&amp;#34;, &amp;#34;7079&amp;#34;, &amp;#34;42ef&amp;#34;, &amp;#34;391e&amp;#34;, &amp;#34;8a6d&amp;#34;, &amp;#34;2154&amp;#34;, &amp;#34;d964&amp;#34;, &amp;#34;49ec&amp;#34;]
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - ropfu</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---ropfu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---ropfu/</guid><description>&lt;h1 id="picoctf---ropfu">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - ropfu</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---ropfu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---ropfu/</guid><description>&lt;h1 id="picoctf---ropfu">
  PicoCTF - ropfu
  &lt;a class="anchor" href="#picoctf---ropfu">#&lt;/a>
 &lt;/h1>
@@ -4365,7 +4365,7 @@ int main(int argc, char **argv){
  vuln();
  
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - RPS</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---rps/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---rps/</guid><description>&lt;h1 id="picoctf---rps">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - RPS</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---rps/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---rps/</guid><description>&lt;h1 id="picoctf---rps">
  PicoCTF - RPS
  &lt;a class="anchor" href="#picoctf---rps">#&lt;/a>
 &lt;/h1>
@@ -4376,7 +4376,7 @@ int main(int argc, char **argv){
 &lt;p>&lt;a href="https://www.geeksforgeeks.org/strstr-in-ccpp/">strstr() in C/C++&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>In C++, std::strstr() is a predefined function used for string handling. string.h is the header file required for string functions. This function takes two strings s1 and s2 as an argument and finds the first occurrence of the sub-string s2 in the string s1. The process of matching does not include the terminating null-characters(‘\0’), but function stops there.
-Syntax:&lt;/p></description></item><item><title>PicoCTF - SaaS</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---saas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---saas/</guid><description>&lt;h1 id="picoctf---saas">
+Syntax:&lt;/p></description></item><item><title>PicoCTF - SaaS</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---saas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---saas/</guid><description>&lt;h1 id="picoctf---saas">
  PicoCTF - SaaS
  &lt;a class="anchor" href="#picoctf---saas">#&lt;/a>
 &lt;/h1>
@@ -4452,7 +4452,7 @@ int main()
  setup();
  goto *addr;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Scavenger Hunt</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---scavenger-hunt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---scavenger-hunt/</guid><description>&lt;h1 id="picoctf---scavenger-hunt">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Scavenger Hunt</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---scavenger-hunt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---scavenger-hunt/</guid><description>&lt;h1 id="picoctf---scavenger-hunt">
  PicoCTF - Scavenger Hunt
  &lt;a class="anchor" href="#picoctf---scavenger-hunt">#&lt;/a>
 &lt;/h1>
@@ -4486,7 +4486,7 @@ These files keeps one fragment flag each. Especially &lt;code>js&lt;/code> file&
 &lt;/li>
 &lt;li>
 &lt;p>Mac computer $\to$ &lt;code>.DS_Store&lt;/code> file
-&lt;img src="https://i.imgur.com/iZfLWZ3.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - scrambled-bytes</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---scrambled-bytes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---scrambled-bytes/</guid><description>&lt;h1 id="picoctf---scrambled-bytes">
+&lt;img src="https://i.imgur.com/iZfLWZ3.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - scrambled-bytes</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---scrambled-bytes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---scrambled-bytes/</guid><description>&lt;h1 id="picoctf---scrambled-bytes">
  PicoCTF - scrambled-bytes
  &lt;a class="anchor" href="#picoctf---scrambled-bytes">#&lt;/a>
 &lt;/h1>
@@ -4562,7 +4562,7 @@ if __name__==&amp;#39;__main__&amp;#39;:
  parser.add_argument(&amp;#39;port&amp;#39;, help=&amp;#39;destination port number&amp;#39;, type=check_port)
  parser.add_argument(&amp;#39;input&amp;#39;, help=&amp;#39;input file&amp;#39;)
  main(parser.parse_args())
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Scrambled: RSA</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/</guid><description>&lt;h1 id="picoctf---scrambled-rsa">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Scrambled: RSA</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/</guid><description>&lt;h1 id="picoctf---scrambled-rsa">
  PicoCTF - Scrambled: RSA
  &lt;a class="anchor" href="#picoctf---scrambled-rsa">#&lt;/a>
 &lt;/h1>
@@ -4594,7 +4594,7 @@ I will encrypt whatever you give me: bac
 Here you go: 482814337094129446626465871361763347775065295086385512961816689320275230165383937475878524494623263575752774273564804102734942809717570445625136294234009674073324481263888598173136843991952912799618992769212402102701102256543104237923525322664143067663448690663861429981180018913300355633887907075765050689449619429085627210113794723864117161956939961066630142420889676674025917593454737310140819887001206562193281145515990410131903949359211712425034234736366286462137700473579439657314154736719868903719111785858132034797052503447042089004862886989401543635700329455353580959453911569277021402998961166474045310601826990049735578409030682378965549085676344091481060419655306695078226500400679435180914414853843456517959269938025436462371813167477339887511293320498195667717320879617653974074204687042294887795784122711621510485951142842770951325298677811102706200275406899117894241145575602912451443892687252208402011904237
 ...
 &lt;/code>&lt;/pre>&lt;p>一開始加密的&lt;code>b&lt;/code>是&lt;code>269900...904237&lt;/code>，第二個加密的&lt;code>ba&lt;/code>是&lt;code>26990...5068944&lt;/code>，但如果仔細看其實第一個加密的密文其實也存在其中，他其實是&lt;code>269900...904237+482814...5068944&lt;/code>，可以加密第三個&lt;code>bac&lt;/code>試看看，也會發現是&lt;code>482814...5068944+961942...3106018+269900...904237&lt;/code>
-所以我們可以再往這個方向測試一下，我們知道一開始的flag一定是&lt;code>picoCTF{&lt;/code>，我們加密&lt;code>p&lt;/code>會發現密文其實存在原始的flag密文當中，因此我們可以寫一個腳本，像上一題一樣暴力破解，如果加密的密文有存在原本的flag ciphertext中的話，就代表我們猜對了，反之就繼續找&lt;/p></description></item><item><title>PicoCTF - Secrets</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---secrets/</guid><description>&lt;h1 id="picoctf---secrets">
+所以我們可以再往這個方向測試一下，我們知道一開始的flag一定是&lt;code>picoCTF{&lt;/code>，我們加密&lt;code>p&lt;/code>會發現密文其實存在原始的flag密文當中，因此我們可以寫一個腳本，像上一題一樣暴力破解，如果加密的密文有存在原本的flag ciphertext中的話，就代表我們猜對了，反之就繼續找&lt;/p></description></item><item><title>PicoCTF - Secrets</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---secrets/</guid><description>&lt;h1 id="picoctf---secrets">
  PicoCTF - Secrets
  &lt;a class="anchor" href="#picoctf---secrets">#&lt;/a>
 &lt;/h1>
@@ -4631,7 +4631,7 @@ Flag: &lt;code>picoCTF{succ3ss_@h3n1c@10n_790d2615}&lt;/code>&lt;/p>
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://youtu.be/40DYCMInk5E"> secrets | picoCTF 2022 &lt;/a>&lt;/p></description></item><item><title>PicoCTF - seed-sPRiNG</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---seed-spring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---seed-spring/</guid><description>&lt;h1 id="picoctf---seed-spring">
+&lt;p>&lt;a href="https://youtu.be/40DYCMInk5E"> secrets | picoCTF 2022 &lt;/a>&lt;/p></description></item><item><title>PicoCTF - seed-sPRiNG</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---seed-spring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---seed-spring/</guid><description>&lt;h1 id="picoctf---seed-spring">
  PicoCTF - seed-sPRiNG
  &lt;a class="anchor" href="#picoctf---seed-spring">#&lt;/a>
 &lt;/h1>
@@ -4689,7 +4689,7 @@ Flag: &lt;code>picoCTF{succ3ss_@h3n1c@10n_790d2615}&lt;/code>&lt;/p>
  fflush(stdout);
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Sequences</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---sequences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---sequences/</guid><description>&lt;h1 id="picoctf---sequences">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Sequences</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---sequences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---sequences/</guid><description>&lt;h1 id="picoctf---sequences">
  PicoCTF - Sequences
  &lt;a class="anchor" href="#picoctf---sequences">#&lt;/a>
 &lt;/h1>
@@ -4737,7 +4737,7 @@ def decrypt_flag(sol):
 if __name__ == &amp;#34;__main__&amp;#34;:
  sol = m_func(ITERS)
  decrypt_flag(sol)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - shark on wire 1</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-1/</guid><description>&lt;h1 id="picoctf---shark-on-wire-1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - shark on wire 1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-1/</guid><description>&lt;h1 id="picoctf---shark-on-wire-1">
  PicoCTF - shark on wire 1
  &lt;a class="anchor" href="#picoctf---shark-on-wire-1">#&lt;/a>
 &lt;/h1>
@@ -4753,7 +4753,7 @@ if __name__ == &amp;#34;__main__&amp;#34;:
 &lt;p>It transfer the single character by UDP protocol.
 &lt;img src="https://i.imgur.com/ff5CsGr.png" alt="" />
 Follow the UDP stream and you&amp;rsquo;ll get the flag
-&lt;img src="https://i.imgur.com/EfK83gj.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - shark on wire 2</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-2/</guid><description>&lt;h1 id="picoctf---shark-on-wire-2">
+&lt;img src="https://i.imgur.com/EfK83gj.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - shark on wire 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-2/</guid><description>&lt;h1 id="picoctf---shark-on-wire-2">
  PicoCTF - shark on wire 2
  &lt;a class="anchor" href="#picoctf---shark-on-wire-2">#&lt;/a>
 &lt;/h1>
@@ -4795,7 +4795,7 @@ print(&amp;#34;&amp;#34;.join(data))
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>&lt;a href="https://zomry1.github.io/shark-on-wire-2/">PicoCTF 2019 - shark on wire 2:-1:&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>PicoCTF - SideChannel</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---sidechannel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---sidechannel/</guid><description>&lt;h1 id="picoctf---sidechannel">
+&lt;p>&lt;a href="https://zomry1.github.io/shark-on-wire-2/">PicoCTF 2019 - shark on wire 2:-1:&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>PicoCTF - SideChannel</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---sidechannel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---sidechannel/</guid><description>&lt;h1 id="picoctf---sidechannel">
  PicoCTF - SideChannel
  &lt;a class="anchor" href="#picoctf---sidechannel">#&lt;/a>
 &lt;/h1>
@@ -4807,7 +4807,7 @@ print(&amp;#34;&amp;#34;.join(data))
 &lt;p>There&amp;rsquo;s something fishy about this PIN-code checker, can you figure out the PIN and get the flag? Download the PIN checker program here pin_checker Once you&amp;rsquo;ve figured out the PIN (and gotten the checker program to accept it), connect to the master server using nc saturn.picoctf.net 50364 and provide it the PIN to get your flag.&lt;/p>
 &lt;p>Hint 1: Read about &amp;ldquo;timing-based side-channel attacks.&amp;rdquo;
 Hint 2: Attempting to reverse-engineer or exploit the binary won&amp;rsquo;t help you, you can figure out the PIN just by interacting with it and measuring certain properties about it.
-Hint 3: Don&amp;rsquo;t run your attacks against the master server, it is secured against them. The PIN code you get from the pin_checker binary is the same as the one for the master server.&lt;/p></description></item><item><title>PicoCTF - Sleuthkit Intro</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/disk/picoctf---sleuthkit-intro/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/disk/picoctf---sleuthkit-intro/</guid><description>&lt;h1 id="picoctf---sleuthkit-intro">
+Hint 3: Don&amp;rsquo;t run your attacks against the master server, it is secured against them. The PIN code you get from the pin_checker binary is the same as the one for the master server.&lt;/p></description></item><item><title>PicoCTF - Sleuthkit Intro</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---sleuthkit-intro/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---sleuthkit-intro/</guid><description>&lt;h1 id="picoctf---sleuthkit-intro">
  PicoCTF - Sleuthkit Intro
  &lt;a class="anchor" href="#picoctf---sleuthkit-intro">#&lt;/a>
 &lt;/h1>
@@ -4825,7 +4825,7 @@ Hint 3: Don&amp;rsquo;t run your attacks against the master server, it is secure
 &lt;pre>&lt;code>Download disk image
 Access checker program: nc saturn.picoctf.net 52279
 &lt;/code>&lt;/pre>
-&lt;p>&lt;a href="https://blog.csdn.net/qq_40399982/article/details/114882879?spm=1001.2014.3001.5506">最新kali之mmls&lt;/a>&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 1</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-1/</guid><description>&lt;h1 id="picoctf---some-assembly-required-1">
+&lt;p>&lt;a href="https://blog.csdn.net/qq_40399982/article/details/114882879?spm=1001.2014.3001.5506">最新kali之mmls&lt;/a>&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-1/</guid><description>&lt;h1 id="picoctf---some-assembly-required-1">
  PicoCTF - Some Assembly Required 1
  &lt;a class="anchor" href="#picoctf---some-assembly-required-1">#&lt;/a>
 &lt;/h1>
@@ -4881,7 +4881,7 @@ function onButtonPress() {
  }
  exports[&amp;#39;copy_char&amp;#39;](0, input_value[&amp;#39;length&amp;#39;]), exports[search_string(487)]() == 1 ? document[search_string(494)](search_string(0x1dc))[search_string(0x1e1)] = search_string(0x1e6) : document[search_string(0x1ee)](search_string(0x1dc))[search_string(0x1e1)] = search_string(0x1e8);
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 2</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-2/</guid><description>&lt;h1 id="picoctf---some-assembly-required-2">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-2/</guid><description>&lt;h1 id="picoctf---some-assembly-required-2">
  PicoCTF - Some Assembly Required 2
  &lt;a class="anchor" href="#picoctf---some-assembly-required-2">#&lt;/a>
 &lt;/h1>
@@ -4933,7 +4933,7 @@ function onButtonPress() {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">exports&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;copy_char&amp;#39;&lt;/span>](&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#a6e22e">res_1&lt;/span>[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">215&lt;/span>)]), &lt;span style="color:#a6e22e">exports&lt;/span>[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">202&lt;/span>)]() &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">?&lt;/span> document[&lt;span style="color:#e6db74">&amp;#39;getElementById&amp;#39;&lt;/span>](&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">211&lt;/span>))[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">208&lt;/span>)] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">206&lt;/span>) &lt;span style="color:#f92672">:&lt;/span> document[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">216&lt;/span>)](&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">211&lt;/span>))[&lt;span style="color:#e6db74">&amp;#39;innerHTML&amp;#39;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">213&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 3</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-3/</guid><description>&lt;h1 id="picoctf---some-assembly-required-3">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 3</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-3/</guid><description>&lt;h1 id="picoctf---some-assembly-required-3">
  PicoCTF - Some Assembly Required 3
  &lt;a class="anchor" href="#picoctf---some-assembly-required-3">#&lt;/a>
 &lt;/h1>
@@ -4996,7 +4996,7 @@ function onButtonPress() {
  }
 }
 ;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Special &amp; Specialer</title><link>https://bernie6401.github.io/security/practice/picoctf/general-skills/picoctf---special--specialer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/general-skills/picoctf---special--specialer/</guid><description>&lt;h1 id="picoctf---special--specialer">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Special &amp; Specialer</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---special--specialer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---special--specialer/</guid><description>&lt;h1 id="picoctf---special--specialer">
  PicoCTF - Special &amp;amp; Specialer
  &lt;a class="anchor" href="#picoctf---special--specialer">#&lt;/a>
 &lt;/h1>
@@ -5068,7 +5068,7 @@ function onButtonPress() {
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://jarv.org/posts/cat-without-cat/">Cat without cat on the commandline&lt;/a>
-&lt;a href="https://ubunlog.com/en/alternativas-al-comando-ls/">Alternatives to the &amp;rsquo;ls&amp;rsquo; command to list the contents of a directory&lt;/a>&lt;/p></description></item><item><title>PicoCTF - SQLiLite</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---sqlilite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---sqlilite/</guid><description>&lt;h1 id="picoctf---sqlilite">
+&lt;a href="https://ubunlog.com/en/alternativas-al-comando-ls/">Alternatives to the &amp;rsquo;ls&amp;rsquo; command to list the contents of a directory&lt;/a>&lt;/p></description></item><item><title>PicoCTF - SQLiLite</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---sqlilite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---sqlilite/</guid><description>&lt;h1 id="picoctf---sqlilite">
  PicoCTF - SQLiLite
  &lt;a class="anchor" href="#picoctf---sqlilite">#&lt;/a>
 &lt;/h1>
@@ -5083,7 +5083,7 @@ function onButtonPress() {
 &lt;/h2>
 &lt;p>Payload:
 &lt;code>admin' or '1'='1' -- #&lt;/code>
-&lt;img src="https://i.imgur.com/yNgpTiY.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - SRA</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---sra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---sra/</guid><description>&lt;h1 id="picoctf---sra">
+&lt;img src="https://i.imgur.com/yNgpTiY.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - SRA</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---sra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---sra/</guid><description>&lt;h1 id="picoctf---sra">
  PicoCTF - SRA
  &lt;a class="anchor" href="#picoctf---sra">#&lt;/a>
 &lt;/h1>
@@ -5121,7 +5121,7 @@ if vainglory == pride:
  print(f.read())
 else:
  print(&amp;#34;Hubris!&amp;#34;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - stack cache</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---stack-cache/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---stack-cache/</guid><description>&lt;h1 id="picoctf---stack-cache">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - stack cache</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---stack-cache/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---stack-cache/</guid><description>&lt;h1 id="picoctf---stack-cache">
  PicoCTF - stack cache
  &lt;a class="anchor" href="#picoctf---stack-cache">#&lt;/a>
 &lt;/h1>
@@ -5199,7 +5199,7 @@ int main(int argc, char **argv){
  printf(&amp;#34;Bye!&amp;#34;);
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Stonk Market</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---stonk-market/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---stonk-market/</guid><description>&lt;h1 id="picoctf---stonk-market">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Stonk Market</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---stonk-market/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---stonk-market/</guid><description>&lt;h1 id="picoctf---stonk-market">
  PicoCTF - Stonk Market
  &lt;a class="anchor" href="#picoctf---stonk-market">#&lt;/a>
 &lt;/h1>
@@ -5360,7 +5360,7 @@ int main(int argc, char *argv[])
 
 	exit(0);
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Super Serial</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---super-serial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---super-serial/</guid><description>&lt;h1 id="picoctf---super-serial">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Super Serial</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---super-serial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---super-serial/</guid><description>&lt;h1 id="picoctf---super-serial">
  PicoCTF - Super Serial
  &lt;a class="anchor" href="#picoctf---super-serial">#&lt;/a>
 &lt;/h1>
@@ -5448,7 +5448,7 @@ if(isset($_POST[&amp;#34;user&amp;#34;]) &amp;amp;&amp;amp; isset($_POST[&amp;#3
  &amp;lt;/div&amp;gt;
  &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Surfing the Waves</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/audio/picoctf---surfing-the-waves/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/audio/picoctf---surfing-the-waves/</guid><description>&lt;h1 id="picoctf---surfing-the-waves">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Surfing the Waves</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/audio/picoctf---surfing-the-waves/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/audio/picoctf---surfing-the-waves/</guid><description>&lt;h1 id="picoctf---surfing-the-waves">
  PicoCTF - Surfing the Waves
  &lt;a class="anchor" href="#picoctf---surfing-the-waves">#&lt;/a>
 &lt;/h1>
@@ -5544,7 +5544,7 @@ Then you can get the source code and flag&amp;hellip;&lt;/li>
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://youtu.be/tDPetapjm74">picoCTF 2021 Surfing the Waves&lt;/a>&lt;/p></description></item><item><title>PicoCTF - tic-tac</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---tic-tac/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---tic-tac/</guid><description>&lt;h1 id="picoctf---tic-tac">
+&lt;p>&lt;a href="https://youtu.be/tDPetapjm74">picoCTF 2021 Surfing the Waves&lt;/a>&lt;/p></description></item><item><title>PicoCTF - tic-tac</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---tic-tac/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---tic-tac/</guid><description>&lt;h1 id="picoctf---tic-tac">
  PicoCTF - tic-tac
  &lt;a class="anchor" href="#picoctf---tic-tac">#&lt;/a>
 &lt;/h1>
@@ -5605,7 +5605,7 @@ int main(int argc, char *argv[]) {
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Torrent Analyze</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---torrent-analyze/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---torrent-analyze/</guid><description>&lt;h1 id="picoctf---torrent-analyze">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Torrent Analyze</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---torrent-analyze/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---torrent-analyze/</guid><description>&lt;h1 id="picoctf---torrent-analyze">
  PicoCTF - Torrent Analyze
  &lt;a class="anchor" href="#picoctf---torrent-analyze">#&lt;/a>
 &lt;/h1>
@@ -5630,7 +5630,7 @@ int main(int argc, char *argv[]) {
 Hint 1: Download and open the file with a packet analyzer like &lt;a href="https://www.wireshark.org/">Wireshark&lt;/a>.
 Hint 2: You may want to enable BitTorrent protocol (BT-DHT, etc.) on Wireshark. Analyze -&amp;gt; Enabled Protocols
 Hint 3: Try to understand peers, leechers and seeds. &lt;a href="https://www.techworm.net/2017/03/seeds-peers-leechers-torrents-language.html">Article&lt;/a>
-Hint 4: The file name ends with &lt;code>.iso&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Transformation</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---transformation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---transformation/</guid><description>&lt;h1 id="picoctf---transformation">
+Hint 4: The file name ends with &lt;code>.iso&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Transformation</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---transformation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---transformation/</guid><description>&lt;h1 id="picoctf---transformation">
  PicoCTF - Transformation
  &lt;a class="anchor" href="#picoctf---transformation">#&lt;/a>
 &lt;/h1>
@@ -5702,7 +5702,7 @@ for i in range(0, len(flag)):
  enc += binToHexa(plaintext1)
  enc += binToHexa(plaintext2)
 print(bytes.fromhex(enc).decode(&amp;#39;utf-8&amp;#39;))
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Trivial Flag Transfer Protocol</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---trivial-flag-transfer-protocol/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---trivial-flag-transfer-protocol/</guid><description>&lt;h1 id="picoctf---trivial-flag-transfer-protocol">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Trivial Flag Transfer Protocol</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---trivial-flag-transfer-protocol/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---trivial-flag-transfer-protocol/</guid><description>&lt;h1 id="picoctf---trivial-flag-transfer-protocol">
  PicoCTF - Trivial Flag Transfer Protocol
  &lt;a class="anchor" href="#picoctf---trivial-flag-transfer-protocol">#&lt;/a>
 &lt;/h1>
@@ -5744,7 +5744,7 @@ print(bytes.fromhex(enc).decode(&amp;#39;utf-8&amp;#39;))
 &lt;li>
 &lt;p>Save files
 According to the article: &lt;a href="https://tw511.com/a/01/2927.html">TFTP協定是什麼？&lt;/a>, we can aware that this protocol is aim to transfer the data without authentication. So, we can download the files using wireshark.
-&lt;img src="https://i.imgur.com/rETlGmm.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - two-sum</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---two-sum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---two-sum/</guid><description>&lt;h1 id="picoctf---two-sum">
+&lt;img src="https://i.imgur.com/rETlGmm.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - two-sum</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---two-sum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---two-sum/</guid><description>&lt;h1 id="picoctf---two-sum">
  PicoCTF - two-sum
  &lt;a class="anchor" href="#picoctf---two-sum">#&lt;/a>
 &lt;/h1>
@@ -5809,7 +5809,7 @@ int main() {
  }
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Unsubscriptions Are Free</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/</guid><description>&lt;h1 id="picoctf---unsubscriptions-are-free">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Unsubscriptions Are Free</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/</guid><description>&lt;h1 id="picoctf---unsubscriptions-are-free">
  PicoCTF - Unsubscriptions Are Free
  &lt;a class="anchor" href="#picoctf---unsubscriptions-are-free">#&lt;/a>
 &lt;/h1>
@@ -5976,7 +5976,7 @@ int main() {
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>	}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Very Smooth</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/</guid><description>&lt;h1 id="picoctf---very-smooth">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Very Smooth</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/</guid><description>&lt;h1 id="picoctf---very-smooth">
  PicoCTF - Very Smooth
  &lt;a class="anchor" href="#picoctf---very-smooth">#&lt;/a>
 &lt;/h1>
@@ -6083,7 +6083,7 @@ c = pow(FLAG, e, n)
 
 print(f&amp;#39;n = {n.digits(10)}&amp;#39;)
 print(f&amp;#39;c = {c.digits(10)}&amp;#39;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - VNE</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---vne/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---vne/</guid><description>&lt;h1 id="picoctf---vne">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - VNE</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---vne/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---vne/</guid><description>&lt;h1 id="picoctf---vne">
  PicoCTF - VNE
  &lt;a class="anchor" href="#picoctf---vne">#&lt;/a>
 &lt;/h1>
@@ -6106,7 +6106,7 @@ Command Injection&lt;/p>
  Source Code
  &lt;a class="anchor" href="#source-code">#&lt;/a>
 &lt;/h2>
-&lt;p>:::spoiler IDA Main Function&lt;/p></description></item><item><title>PicoCTF - WebNet0</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---webnet0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---webnet0/</guid><description>&lt;h1 id="picoctf---webnet0">
+&lt;p>:::spoiler IDA Main Function&lt;/p></description></item><item><title>PicoCTF - WebNet0</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---webnet0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---webnet0/</guid><description>&lt;h1 id="picoctf---webnet0">
  PicoCTF - WebNet0
  &lt;a class="anchor" href="#picoctf---webnet0">#&lt;/a>
 &lt;/h1>
@@ -6129,7 +6129,7 @@ Command Injection&lt;/p>
 &lt;img src="https://hackmd.io/_uploads/ByMdwwSe6.png" alt="" />&lt;/li>
 &lt;li>加入題目給的private key file後記得要重新開啟該pcap file
 &lt;img src="https://hackmd.io/_uploads/S1PMPDSx6.png" alt="" />&lt;/li>
-&lt;/ol></description></item><item><title>PicoCTF - WhitePages</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---whitepages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/general/picoctf---whitepages/</guid><description>&lt;h1 id="picoctf---whitepages">
+&lt;/ol></description></item><item><title>PicoCTF - WhitePages</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---whitepages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---whitepages/</guid><description>&lt;h1 id="picoctf---whitepages">
  PicoCTF - WhitePages
  &lt;a class="anchor" href="#picoctf---whitepages">#&lt;/a>
 &lt;/h1>
@@ -6151,7 +6151,7 @@ Command Injection&lt;/p>
 &lt;/h2>
 &lt;p>If you use sublime editor to observe the file, then you may see the result as below.
 &lt;img src="https://i.imgur.com/ME4F3hm.png" alt="" />
-In unicode, &lt;code>&amp;lt;0x2003&amp;gt;&lt;/code> is a kind of white space, then some gap between &lt;code>&amp;lt;0x2003&amp;gt;&lt;/code> is a normal white space. Obviously, this is a binary encoding(&lt;code>&amp;lt;0x2003&amp;gt;&lt;/code> is 0 and normal white space is 1)&lt;/p></description></item><item><title>PicoCTF - Who are you?</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---who-are-you_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---who-are-you_/</guid><description>&lt;h1 id="picoctf---who-are-you">
+In unicode, &lt;code>&amp;lt;0x2003&amp;gt;&lt;/code> is a kind of white space, then some gap between &lt;code>&amp;lt;0x2003&amp;gt;&lt;/code> is a normal white space. Obviously, this is a binary encoding(&lt;code>&amp;lt;0x2003&amp;gt;&lt;/code> is 0 and normal white space is 1)&lt;/p></description></item><item><title>PicoCTF - Who are you?</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---who-are-you_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---who-are-you_/</guid><description>&lt;h1 id="picoctf---who-are-you">
  PicoCTF - Who are you?
  &lt;a class="anchor" href="#picoctf---who-are-you">#&lt;/a>
 &lt;/h1>
@@ -6182,7 +6182,7 @@ In unicode, &lt;code>&amp;lt;0x2003&amp;gt;&lt;/code> is a kind of white space, 
 &lt;p>The Date general-header field represents the date and time at which
 the message was originated, having the same semantics as orig-date in
 RFC 822. The field value is an HTTP-date, as described in section
-3.3.1; it MUST be sent in RFC 1123 [8]-date format.&lt;/p></description></item><item><title>PicoCTF - Wireshark twoo twooo two twoo...</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---wireshark-twoo-twooo-two-twoo_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---wireshark-twoo-twooo-two-twoo_/</guid><description>&lt;h1 id="picoctf---wireshark-twoo-twooo-two-twoo">
+3.3.1; it MUST be sent in RFC 1123 [8]-date format.&lt;/p></description></item><item><title>PicoCTF - Wireshark twoo twooo two twoo...</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wireshark-twoo-twooo-two-twoo_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wireshark-twoo-twooo-two-twoo_/</guid><description>&lt;h1 id="picoctf---wireshark-twoo-twooo-two-twoo">
  PicoCTF - Wireshark twoo twooo two twoo&amp;hellip;
  &lt;a class="anchor" href="#picoctf---wireshark-twoo-twooo-two-twoo">#&lt;/a>
 &lt;/h1>
@@ -6212,7 +6212,7 @@ picoCTF{3cf1e22d489fcfb6bb312a34f46c8699989ed043406134331452d11ce73cd59e}
 picoCTF{b4cc138bb0f7f9da7e35085e349555aa6d00bdca3b021c1fe8663c0a422ce0d7}
 picoCTF{41b8a1a796bd8d202016f75bc5b38889e9ea06007e6b22fc856d380fb7573133}
 ...
-&lt;/code>&lt;/pre>&lt;p>You&amp;rsquo;ll find tons of fake flag. Obviously, it&amp;rsquo;s a trap to distract you.&lt;/p></description></item><item><title>PicoCTF - Wizardlike</title><link>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---wizardlike/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/reverse/picoctf---wizardlike/</guid><description>&lt;h1 id="picoctf---wizardlike">
+&lt;/code>&lt;/pre>&lt;p>You&amp;rsquo;ll find tons of fake flag. Obviously, it&amp;rsquo;s a trap to distract you.&lt;/p></description></item><item><title>PicoCTF - Wizardlike</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---wizardlike/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---wizardlike/</guid><description>&lt;h1 id="picoctf---wizardlike">
  PicoCTF - Wizardlike
  &lt;a class="anchor" href="#picoctf---wizardlike">#&lt;/a>
 &lt;/h1>
@@ -6397,7 +6397,7 @@ picoCTF{41b8a1a796bd8d202016f75bc5b38889e9ea06007e6b22fc856d380fb7573133}
 #####################################################################################.#####.###....#
 #####################################################################################..............#
 #####################################################################################..............#
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - WPA-ing Out</title><link>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---wpa-ing-out/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/misc/flow/picoctf---wpa-ing-out/</guid><description>&lt;h1 id="picoctf---wpa-ing-out">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - WPA-ing Out</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wpa-ing-out/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wpa-ing-out/</guid><description>&lt;h1 id="picoctf---wpa-ing-out">
  PicoCTF - WPA-ing Out
  &lt;a class="anchor" href="#picoctf---wpa-ing-out">#&lt;/a>
 &lt;/h1>
@@ -6416,7 +6416,7 @@ picoCTF{41b8a1a796bd8d202016f75bc5b38889e9ea06007e6b22fc856d380fb7573133}
  &lt;a class="anchor" href="#description--hint">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>I thought that my password was super-secret, but it turns out that passwords passed over the AIR can be CRACKED, especially if I used the same wireless network password as one in the &lt;font color="FF0000">&lt;code>rockyou.txt&lt;/code>&lt;/font> credential dump. Use this &lt;a href="https://artifacts.picoctf.net/c/8/wpa-ing_out.pcap">&lt;code>pcap file&lt;/code>&lt;/a> and the &lt;code>rockyou&lt;/code> wordlist. The flag should be entered in the &lt;code>picoCTF{XXXXXX}&lt;/code> format.&lt;/p></description></item><item><title>PicoCTF - x-sixty-what</title><link>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---x-sixty-what/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/pwn/picoctf---x-sixty-what/</guid><description>&lt;h1 id="picoctf---x-sixty-what">
+&lt;p>I thought that my password was super-secret, but it turns out that passwords passed over the AIR can be CRACKED, especially if I used the same wireless network password as one in the &lt;font color="FF0000">&lt;code>rockyou.txt&lt;/code>&lt;/font> credential dump. Use this &lt;a href="https://artifacts.picoctf.net/c/8/wpa-ing_out.pcap">&lt;code>pcap file&lt;/code>&lt;/a> and the &lt;code>rockyou&lt;/code> wordlist. The flag should be entered in the &lt;code>picoCTF{XXXXXX}&lt;/code> format.&lt;/p></description></item><item><title>PicoCTF - x-sixty-what</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---x-sixty-what/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/pwn/picoctf---x-sixty-what/</guid><description>&lt;h1 id="picoctf---x-sixty-what">
  PicoCTF - x-sixty-what
  &lt;a class="anchor" href="#picoctf---x-sixty-what">#&lt;/a>
 &lt;/h1>
@@ -6474,7 +6474,7 @@ r.interactive()
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>&lt;a href="https://ctftime.org/writeup/33199">x-sixty-what WP&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>PicoCTF - XtraORdinary</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/</guid><description>&lt;h1 id="picoctf---xtraordinary">
+&lt;p>&lt;a href="https://ctftime.org/writeup/33199">x-sixty-what WP&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>PicoCTF - XtraORdinary</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/</guid><description>&lt;h1 id="picoctf---xtraordinary">
  PicoCTF - XtraORdinary
  &lt;a class="anchor" href="#picoctf---xtraordinary">#&lt;/a>
 &lt;/h1>
@@ -6533,7 +6533,7 @@ for random_str in random_strs:
 
 with open(&amp;#39;output.txt&amp;#39;, &amp;#39;w&amp;#39;) as f:
  f.write(ctxt.hex())
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF 2023</title><link>https://bernie6401.github.io/security/competition/picoctf-2023/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/competition/picoctf-2023/</guid><description>&lt;h1 id="picoctf-2023">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF 2023</title><link>https://bernie6401.github.io/docs/security/competition/picoctf-2023/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/competition/picoctf-2023/</guid><description>&lt;h1 id="picoctf-2023">
  PicoCTF 2023
  &lt;a class="anchor" href="#picoctf-2023">#&lt;/a>
 &lt;/h1>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crypto on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/crypto/</link><description>Recent content in Crypto on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/crypto/index.xml" rel="self" type="application/rss+xml"/><item><title>Crypto Cheat Sheet</title><link>https://bernie6401.github.io/tools/ctf/crypto-cheat-sheet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/tools/ctf/crypto-cheat-sheet/</guid><description>&lt;h1 id="crypto-cheat-sheet">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crypto on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/crypto/</link><description>Recent content in Crypto on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/crypto/index.xml" rel="self" type="application/rss+xml"/><item><title>Crypto Cheat Sheet</title><link>https://bernie6401.github.io/docs/tools/ctf/crypto-cheat-sheet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/crypto-cheat-sheet/</guid><description>&lt;h1 id="crypto-cheat-sheet">
  Crypto Cheat Sheet
  &lt;a class="anchor" href="#crypto-cheat-sheet">#&lt;/a>
 &lt;/h1>
@@ -136,7 +136,7 @@ openssl x509 -inform pem -in cert1.pem
 &lt;li>&lt;a href="http://factordb.com/index.php">Factor DB&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/DarkenCode/yafu">Yafu&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.alpertron.com/ECM.HTM">Prime Factorization Online&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>NTU CS 2023 HW1 Write Up</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw1-write-up">
+&lt;/ul></description></item><item><title>NTU CS 2023 HW1 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw1-write-up">
  NTU CS 2023 HW1 Write Up
  &lt;a class="anchor" href="#ntu-cs-2023-hw1-write-up">#&lt;/a>
 &lt;/h1>
@@ -172,7 +172,7 @@ openssl x509 -inform pem -in cert1.pem
  解題流程與思路
  &lt;a class="anchor" href="#%e8%a7%a3%e9%a1%8c%e6%b5%81%e7%a8%8b%e8%88%87%e6%80%9d%e8%b7%af-1">#&lt;/a>
 &lt;/h3>
-&lt;p>這一題是變形過的Lease Significant Bit，上課教的例子是mod 2下的結果，而看source code可以知道目前他是mod 3下的結果，但換湯不換藥，只要把上課教的部分全部換成mod 3就可以了&lt;/p></description></item><item><title>PicoCTF - AES-ABC</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/</guid><description>&lt;h1 id="picoctf---aes-abc">
+&lt;p>這一題是變形過的Lease Significant Bit，上課教的例子是mod 2下的結果，而看source code可以知道目前他是mod 3下的結果，但換湯不換藥，只要把上課教的部分全部換成mod 3就可以了&lt;/p></description></item><item><title>PicoCTF - AES-ABC</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/</guid><description>&lt;h1 id="picoctf---aes-abc">
  PicoCTF - AES-ABC
  &lt;a class="anchor" href="#picoctf---aes-abc">#&lt;/a>
 &lt;/h1>
@@ -267,7 +267,7 @@ if __name__==&amp;#34;__main__&amp;#34;:
  with open(&amp;#39;body.enc.ppm&amp;#39;, &amp;#39;wb&amp;#39;) as fw:
  fw.write(header)
  fw.write(c_img)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Compress and Attack</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/picoctf---compress-and-attack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/picoctf---compress-and-attack/</guid><description>&lt;h1 id="picoctf---compress-and-attack">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Compress and Attack</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/picoctf---compress-and-attack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/picoctf---compress-and-attack/</guid><description>&lt;h1 id="picoctf---compress-and-attack">
  PicoCTF - Compress and Attack
  &lt;a class="anchor" href="#picoctf---compress-and-attack">#&lt;/a>
 &lt;/h1>
@@ -331,7 +331,7 @@ def main():
 
 if __name__ == &amp;#39;__main__&amp;#39;:
  main()
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - corrupt-key-1</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---corrupt-key-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---corrupt-key-1/</guid><description>&lt;h1 id="picoctf---corrupt-key-1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - corrupt-key-1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---corrupt-key-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---corrupt-key-1/</guid><description>&lt;h1 id="picoctf---corrupt-key-1">
  PicoCTF - corrupt-key-1
  &lt;a class="anchor" href="#picoctf---corrupt-key-1">#&lt;/a>
 &lt;/h1>
@@ -376,7 +376,7 @@ if __name__ == &amp;#39;__main__&amp;#39;:
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>可見private.key的內文被corrupted了，必須要修復才能夠解密ciphertext，但看來看去也找不到相關的write up，或是修復的方法，從&lt;a href="https://connor-mccartney.github.io/cryptography/rsa/corrupt-key-1-picoMini">連結&lt;/a>這篇write up也看不懂如何修復，雖然他有附上code，但是很多error也無法debug(主要是看不懂)，總而言之我們的目標就是找出$p$為何&lt;/p></description></item><item><title>PicoCTF - Dachshund Attacks</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---dachshund-attacks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---dachshund-attacks/</guid><description>&lt;h1 id="picoctf---dachshund-attacks">
+&lt;p>可見private.key的內文被corrupted了，必須要修復才能夠解密ciphertext，但看來看去也找不到相關的write up，或是修復的方法，從&lt;a href="https://connor-mccartney.github.io/cryptography/rsa/corrupt-key-1-picoMini">連結&lt;/a>這篇write up也看不懂如何修復，雖然他有附上code，但是很多error也無法debug(主要是看不懂)，總而言之我們的目標就是找出$p$為何&lt;/p></description></item><item><title>PicoCTF - Dachshund Attacks</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---dachshund-attacks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---dachshund-attacks/</guid><description>&lt;h1 id="picoctf---dachshund-attacks">
  PicoCTF - Dachshund Attacks
  &lt;a class="anchor" href="#picoctf---dachshund-attacks">#&lt;/a>
 &lt;/h1>
@@ -436,7 +436,7 @@ Put the exploit file in this repo.&lt;/li>
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/76228394">CTF_RSA解密学习指南(三) - 低解密指数攻击&lt;/a>&lt;/p></description></item><item><title>PicoCTF - Double DES</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/des-aes/picoctf---double-des/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/des-aes/picoctf---double-des/</guid><description>&lt;h1 id="picoctf---double-des">
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/76228394">CTF_RSA解密学习指南(三) - 低解密指数攻击&lt;/a>&lt;/p></description></item><item><title>PicoCTF - Double DES</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---double-des/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---double-des/</guid><description>&lt;h1 id="picoctf---double-des">
  PicoCTF - Double DES
  &lt;a class="anchor" href="#picoctf---double-des">#&lt;/a>
 &lt;/h1>
@@ -504,7 +504,7 @@ while True:
  print(double_encrypt(inputs))
  else:
  print(&amp;#34;Invalid input.&amp;#34;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Easy Peasy</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/</guid><description>&lt;h1 id="picoctf---easy-peasy">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Easy Peasy</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/</guid><description>&lt;h1 id="picoctf---easy-peasy">
  PicoCTF - Easy Peasy
  &lt;a class="anchor" href="#picoctf---easy-peasy">#&lt;/a>
 &lt;/h1>
@@ -572,7 +572,7 @@ print(&amp;#34;******************Welcome to our OTP implementation!*************
 c = startup(0)
 while c &amp;gt;= 0:
 	c = encrypt(c)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - It's Not My Fault 1</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/</guid><description>&lt;h1 id="picoctf---its-not-my-fault-1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - It's Not My Fault 1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/</guid><description>&lt;h1 id="picoctf---its-not-my-fault-1">
  PicoCTF - It&amp;rsquo;s Not My Fault 1
  &lt;a class="anchor" href="#picoctf---its-not-my-fault-1">#&lt;/a>
 &lt;/h1>
@@ -647,7 +647,7 @@ if user_input[:5] == vals1 and user_hash[-6:] == vals2:
 	print(&amp;#34;Public Modulus : &amp;#34;, n)
 	get_clue(p, q, 20)
 	get_flag(p, q)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - john_pollard</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/</guid><description>&lt;h1 id="picoctf---john_pollard">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - john_pollard</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/</guid><description>&lt;h1 id="picoctf---john_pollard">
  PicoCTF - john_pollard
  &lt;a class="anchor" href="#picoctf---john_pollard">#&lt;/a>
 &lt;/h1>
@@ -704,7 +704,7 @@ q16/S1WLvzg4PsElmv1f
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-----END PUBLIC KEY-----
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Use &lt;a href="https://www.alpertron.com/ECM.HTM">online tool&lt;/a> to factor
 p = &lt;code>67867967&lt;/code>
-q = &lt;code>73176001&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Mind your Ps and Qs</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---mind-your-ps-and-qs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---mind-your-ps-and-qs/</guid><description>&lt;h1 id="picoctf---mind-your-ps-and-qs">
+q = &lt;code>73176001&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Mind your Ps and Qs</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---mind-your-ps-and-qs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---mind-your-ps-and-qs/</guid><description>&lt;h1 id="picoctf---mind-your-ps-and-qs">
  PicoCTF - Mind your Ps and Qs
  &lt;a class="anchor" href="#picoctf---mind-your-ps-and-qs">#&lt;/a>
 &lt;/h1>
@@ -738,7 +738,7 @@ p $\to$ 1461849912200000206276283741896701133693
 q $\to$ 431899300006243611356963607089521499045809&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Write exploit&lt;/p></description></item><item><title>PicoCTF - Mini RSA</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---mini-rsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---mini-rsa/</guid><description>&lt;h1 id="picoctf---mini-rsa">
+&lt;p>Write exploit&lt;/p></description></item><item><title>PicoCTF - Mini RSA</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---mini-rsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---mini-rsa/</guid><description>&lt;h1 id="picoctf---mini-rsa">
  PicoCTF - Mini RSA
  &lt;a class="anchor" href="#picoctf---mini-rsa">#&lt;/a>
 &lt;/h1>
@@ -779,7 +779,7 @@ while True:
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/76228394">CTF_RSA解密学习指南(三) - e=3 小明文攻击&lt;/a>&lt;/p></description></item><item><title>PicoCTF - New Caesar</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---new-caesar/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---new-caesar/</guid><description>&lt;h1 id="picoctf---new-caesar">
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/76228394">CTF_RSA解密学习指南(三) - e=3 小明文攻击&lt;/a>&lt;/p></description></item><item><title>PicoCTF - New Caesar</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---new-caesar/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---new-caesar/</guid><description>&lt;h1 id="picoctf---new-caesar">
  PicoCTF - New Caesar
  &lt;a class="anchor" href="#picoctf---new-caesar">#&lt;/a>
 &lt;/h1>
@@ -821,7 +821,7 @@ enc = &amp;#34;&amp;#34;
 for i, c in enumerate(b16):
 	enc += shift(c, key[i % len(key)])
 print(enc)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - No Padding, No Problem</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---no-padding-no-problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---no-padding-no-problem/</guid><description>&lt;h1 id="picoctf---no-padding-no-problem">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - No Padding, No Problem</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---no-padding-no-problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---no-padding-no-problem/</guid><description>&lt;h1 id="picoctf---no-padding-no-problem">
  PicoCTF - No Padding, No Problem
  &lt;a class="anchor" href="#picoctf---no-padding-no-problem">#&lt;/a>
 &lt;/h1>
@@ -843,7 +843,7 @@ print(enc)
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>We can try to decrypt ciphertext directly.&lt;/p></description></item><item><title>PicoCTF - NSA Backdoor</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---nsa-backdoor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---nsa-backdoor/</guid><description>&lt;h1 id="picoctf---nsa-backdoor">
+&lt;p>We can try to decrypt ciphertext directly.&lt;/p></description></item><item><title>PicoCTF - NSA Backdoor</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---nsa-backdoor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---nsa-backdoor/</guid><description>&lt;h1 id="picoctf---nsa-backdoor">
  PicoCTF - NSA Backdoor
  &lt;a class="anchor" href="#picoctf---nsa-backdoor">#&lt;/a>
 &lt;/h1>
@@ -878,7 +878,7 @@ $A^x\equiv B(mod\ C)$，其中$0\le x\lt C$
 因此，使用pohlig-hellman的場合只能是較為特殊的情況，即:$p$是質數，且$p-1$包含的質因子較少&amp;amp;較小。&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>和BSGS算法一樣，pohlig-hellman算法也是用於解決離散對數問題（也有很多文獻提到是解決橢圓曲線之類的）。即給定$a,b,p$,求 $a^x \equiv b(mod\ p)$。&lt;/p></description></item><item><title>PicoCTF - PowerAnalysis Part 1 / Part 2</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/</guid><description>&lt;h1 id="picoctf---poweranalysis-part-1--part-2">
+&lt;p>和BSGS算法一樣，pohlig-hellman算法也是用於解決離散對數問題（也有很多文獻提到是解決橢圓曲線之類的）。即給定$a,b,p$,求 $a^x \equiv b(mod\ p)$。&lt;/p></description></item><item><title>PicoCTF - PowerAnalysis Part 1 / Part 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/</guid><description>&lt;h1 id="picoctf---poweranalysis-part-1--part-2">
  PicoCTF - PowerAnalysis Part 1 / Part 2
  &lt;a class="anchor" href="#picoctf---poweranalysis-part-1--part-2">#&lt;/a>
 &lt;/h1>
@@ -1056,7 +1056,7 @@ $A^x\equiv B(mod\ C)$，其中$0\le x\lt C$
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#39;The key of AES is: &amp;#39;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> flag )
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ul>
-&lt;p>Flag: &lt;code>picoCTF{4999139026d84bf20427eb48d4edec53}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Scrambled: RSA</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/</guid><description>&lt;h1 id="picoctf---scrambled-rsa">
+&lt;p>Flag: &lt;code>picoCTF{4999139026d84bf20427eb48d4edec53}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Scrambled: RSA</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/</guid><description>&lt;h1 id="picoctf---scrambled-rsa">
  PicoCTF - Scrambled: RSA
  &lt;a class="anchor" href="#picoctf---scrambled-rsa">#&lt;/a>
 &lt;/h1>
@@ -1088,7 +1088,7 @@ I will encrypt whatever you give me: bac
 Here you go: 482814337094129446626465871361763347775065295086385512961816689320275230165383937475878524494623263575752774273564804102734942809717570445625136294234009674073324481263888598173136843991952912799618992769212402102701102256543104237923525322664143067663448690663861429981180018913300355633887907075765050689449619429085627210113794723864117161956939961066630142420889676674025917593454737310140819887001206562193281145515990410131903949359211712425034234736366286462137700473579439657314154736719868903719111785858132034797052503447042089004862886989401543635700329455353580959453911569277021402998961166474045310601826990049735578409030682378965549085676344091481060419655306695078226500400679435180914414853843456517959269938025436462371813167477339887511293320498195667717320879617653974074204687042294887795784122711621510485951142842770951325298677811102706200275406899117894241145575602912451443892687252208402011904237
 ...
 &lt;/code>&lt;/pre>&lt;p>一開始加密的&lt;code>b&lt;/code>是&lt;code>269900...904237&lt;/code>，第二個加密的&lt;code>ba&lt;/code>是&lt;code>26990...5068944&lt;/code>，但如果仔細看其實第一個加密的密文其實也存在其中，他其實是&lt;code>269900...904237+482814...5068944&lt;/code>，可以加密第三個&lt;code>bac&lt;/code>試看看，也會發現是&lt;code>482814...5068944+961942...3106018+269900...904237&lt;/code>
-所以我們可以再往這個方向測試一下，我們知道一開始的flag一定是&lt;code>picoCTF{&lt;/code>，我們加密&lt;code>p&lt;/code>會發現密文其實存在原始的flag密文當中，因此我們可以寫一個腳本，像上一題一樣暴力破解，如果加密的密文有存在原本的flag ciphertext中的話，就代表我們猜對了，反之就繼續找&lt;/p></description></item><item><title>PicoCTF - Sequences</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---sequences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---sequences/</guid><description>&lt;h1 id="picoctf---sequences">
+所以我們可以再往這個方向測試一下，我們知道一開始的flag一定是&lt;code>picoCTF{&lt;/code>，我們加密&lt;code>p&lt;/code>會發現密文其實存在原始的flag密文當中，因此我們可以寫一個腳本，像上一題一樣暴力破解，如果加密的密文有存在原本的flag ciphertext中的話，就代表我們猜對了，反之就繼續找&lt;/p></description></item><item><title>PicoCTF - Sequences</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---sequences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---sequences/</guid><description>&lt;h1 id="picoctf---sequences">
  PicoCTF - Sequences
  &lt;a class="anchor" href="#picoctf---sequences">#&lt;/a>
 &lt;/h1>
@@ -1136,7 +1136,7 @@ def decrypt_flag(sol):
 if __name__ == &amp;#34;__main__&amp;#34;:
  sol = m_func(ITERS)
  decrypt_flag(sol)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - SRA</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---sra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---sra/</guid><description>&lt;h1 id="picoctf---sra">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - SRA</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---sra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---sra/</guid><description>&lt;h1 id="picoctf---sra">
  PicoCTF - SRA
  &lt;a class="anchor" href="#picoctf---sra">#&lt;/a>
 &lt;/h1>
@@ -1174,7 +1174,7 @@ if vainglory == pride:
  print(f.read())
 else:
  print(&amp;#34;Hubris!&amp;#34;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Very Smooth</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/</guid><description>&lt;h1 id="picoctf---very-smooth">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Very Smooth</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/</guid><description>&lt;h1 id="picoctf---very-smooth">
  PicoCTF - Very Smooth
  &lt;a class="anchor" href="#picoctf---very-smooth">#&lt;/a>
 &lt;/h1>
@@ -1281,7 +1281,7 @@ c = pow(FLAG, e, n)
 
 print(f&amp;#39;n = {n.digits(10)}&amp;#39;)
 print(f&amp;#39;c = {c.digits(10)}&amp;#39;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - XtraORdinary</title><link>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/</guid><description>&lt;h1 id="picoctf---xtraordinary">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - XtraORdinary</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/</guid><description>&lt;h1 id="picoctf---xtraordinary">
  PicoCTF - XtraORdinary
  &lt;a class="anchor" href="#picoctf---xtraordinary">#&lt;/a>
 &lt;/h1>
@@ -1340,7 +1340,7 @@ for random_str in random_strs:
 
 with open(&amp;#39;output.txt&amp;#39;, &amp;#39;w&amp;#39;) as f:
  f.write(ctxt.hex())
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x01(Modular Operation)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/</guid><description>&lt;h1 id="simple-crypto---0x01modular-operation">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x01(Modular Operation)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/</guid><description>&lt;h1 id="simple-crypto---0x01modular-operation">
  Simple Crypto - 0x01(Modular Operation)
  &lt;a class="anchor" href="#simple-crypto---0x01modular-operation">#&lt;/a>
 &lt;/h1>
@@ -1374,7 +1374,7 @@ $$
 分配率：
 $$
 ((a +b) % p * c) % p = ((a * c) % p + (b * c) % p) % p
-$$&lt;/p></description></item><item><title>Simple Crypto - 0x02(Random Number Generator - LCG)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/</guid><description>&lt;h1 id="simple-crypto---0x02random-number-generator---lcg">
+$$&lt;/p></description></item><item><title>Simple Crypto - 0x02(Random Number Generator - LCG)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/</guid><description>&lt;h1 id="simple-crypto---0x02random-number-generator---lcg">
  Simple Crypto - 0x02(Random Number Generator - LCG)
  &lt;a class="anchor" href="#simple-crypto---0x02random-number-generator---lcg">#&lt;/a>
 &lt;/h1>
@@ -1418,7 +1418,7 @@ S_3 &amp;amp;\equiv (AS_2\ +\ B)\ %\ m
 &amp;amp;\to (S_2-S_3)\ % \ m\equiv \ A\ (S_1-S_2)\ \ %\ m =(S_2-S_3)\
 A&amp;amp;=((S_2-S_3)(S_1-S_2)^{-1})\ %\ m
 \end{aligned}
-$$&lt;/p></description></item><item><title>Simple Crypto - 0x03(2023 Lab - COR)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/</guid><description>&lt;h1 id="simple-crypto---0x032023-lab---cor">
+$$&lt;/p></description></item><item><title>Simple Crypto - 0x03(2023 Lab - COR)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/</guid><description>&lt;h1 id="simple-crypto---0x032023-lab---cor">
  Simple Crypto - 0x03(2023 Lab - COR)
  &lt;a class="anchor" href="#simple-crypto---0x032023-lab---cor">#&lt;/a>
 &lt;/h1>
@@ -1473,7 +1473,7 @@ $$&lt;/p></description></item><item><title>Simple Crypto - 0x03(2023 Lab - COR)<
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(output)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># [0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0]&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x03(Lab - LFSR)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/</guid><description>&lt;h1 id="simple-crypto---0x03lab---lfsr">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x03(Lab - LFSR)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/</guid><description>&lt;h1 id="simple-crypto---0x03lab---lfsr">
  Simple Crypto - 0x03(Lab - LFSR)
  &lt;a class="anchor" href="#simple-crypto---0x03lab---lfsr">#&lt;/a>
 &lt;/h1>
@@ -1556,7 +1556,7 @@ for _ in range(200):
  output.append(cipher.getbit())
 
 # print(output)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x04(2023 Lab - POA)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/</guid><description>&lt;h1 id="simple-crypto---0x042023-lab---poa">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x04(2023 Lab - POA)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/</guid><description>&lt;h1 id="simple-crypto---0x042023-lab---poa">
  Simple Crypto - 0x04(2023 Lab - POA)
  &lt;a class="anchor" href="#simple-crypto---0x042023-lab---poa">#&lt;/a>
 &lt;/h1>
@@ -1614,7 +1614,7 @@ for _ in range(200):
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Well received :)&amp;#34;&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">except&lt;/span> &lt;span style="color:#a6e22e">ValueError&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Something went wrong :(&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x05(2023 Lab - LSB)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/</guid><description>&lt;h1 id="simple-crypto---0x052023-lab---lsb">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x05(2023 Lab - LSB)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/</guid><description>&lt;h1 id="simple-crypto---0x052023-lab---lsb">
  Simple Crypto - 0x05(2023 Lab - LSB)
  &lt;a class="anchor" href="#simple-crypto---0x052023-lab---lsb">#&lt;/a>
 &lt;/h1>
@@ -1651,7 +1651,7 @@ for _ in range(200):
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> inp &lt;span style="color:#f92672">=&lt;/span> int(input()&lt;span style="color:#f92672">.&lt;/span>strip())
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pt &lt;span style="color:#f92672">=&lt;/span> pow(inp, d, n)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(pt &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x06(2023 HW - LFSR)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/</guid><description>&lt;h1 id="simple-crypto---0x062023-hw---lfsr">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x06(2023 HW - LFSR)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/</guid><description>&lt;h1 id="simple-crypto---0x062023-hw---lfsr">
  Simple Crypto - 0x06(2023 HW - LFSR)
  &lt;a class="anchor" href="#simple-crypto---0x062023-hw---lfsr">#&lt;/a>
 &lt;/h1>
@@ -1692,7 +1692,7 @@ for _ in range(200):
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>這一題和前面的triLFSR不一樣的地方在於他只有一層的LFSR，但他只會每個70個才會給一個state，換句話說我們只能拿到$S_{71&lt;em>0+70},\ S_{71&lt;/em>1+70},\ S_{71&lt;em>2+70},\ S_{71&lt;/em>3+70}&amp;hellip;$(從0開始算)，而前面256個拿到的State最後會和flag進行XOR，只有最後70個是最純粹的State&lt;/p></description></item><item><title>Simple Crypto - 0x07(2023 HW - Oracle)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/</guid><description>&lt;h1 id="simple-crypto---0x072023-hw---oracle">
+&lt;p>這一題和前面的triLFSR不一樣的地方在於他只有一層的LFSR，但他只會每個70個才會給一個state，換句話說我們只能拿到$S_{71&lt;em>0+70},\ S_{71&lt;/em>1+70},\ S_{71&lt;em>2+70},\ S_{71&lt;/em>3+70}&amp;hellip;$(從0開始算)，而前面256個拿到的State最後會和flag進行XOR，只有最後70個是最純粹的State&lt;/p></description></item><item><title>Simple Crypto - 0x07(2023 HW - Oracle)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/</guid><description>&lt;h1 id="simple-crypto---0x072023-hw---oracle">
  Simple Crypto - 0x07(2023 HW - Oracle)
  &lt;a class="anchor" href="#simple-crypto---0x072023-hw---oracle">#&lt;/a>
 &lt;/h1>
@@ -1761,7 +1761,7 @@ open(&amp;#34;encrypted_flag.not_png&amp;#34;, &amp;#34;wb&amp;#34;).write(ct)
 # encrypted_key = 65690013242775728459842109842683020587149462096059598501313133592635945234121561534622365974927219223034823754673718159579772056712404749324225325531206903216411508240699572153162745754564955215041783396329242482406426376133687186983187563217156659178000486342335478915053049498619169740534463504372971359692
 # encrypted_iv = 35154524936059729204581782839781987236407179504895959653768093617367549802652967862418906182387861924584809825831862791349195432705129622783580000716829283234184762744224095175044663151370869751957952842383581513986293064879608592662677541628813345923397286253057417592725291925603753086190402107943880261658
 &lt;/code>&lt;/pre>&lt;p>:::
-:::spoiler Alice.py&lt;/p></description></item><item><title>Simple Crypto - 0x08(2023 Lab - dlog)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/</guid><description>&lt;h1 id="simple-crypto---0x082023-lab---dlog">
+:::spoiler Alice.py&lt;/p></description></item><item><title>Simple Crypto - 0x08(2023 Lab - dlog)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/</guid><description>&lt;h1 id="simple-crypto---0x082023-lab---dlog">
  Simple Crypto - 0x08(2023 Lab - dlog)
  &lt;a class="anchor" href="#simple-crypto---0x082023-lab---dlog">#&lt;/a>
 &lt;/h1>
@@ -1794,7 +1794,7 @@ open(&amp;#34;encrypted_flag.not_png&amp;#34;, &amp;#34;wb&amp;#34;).write(ct)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>flag &lt;span style="color:#f92672">=&lt;/span> bytes_to_long(FLAG)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#39;The hint about my secret:&amp;#39;&lt;/span>, pow(g, flag, p))
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x09(2023 Lab - signature)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/</guid><description>&lt;h1 id="simple-crypto---0x092023-lab---signature">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x09(2023 Lab - signature)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/</guid><description>&lt;h1 id="simple-crypto---0x092023-lab---signature">
  Simple Crypto - 0x09(2023 Lab - signature)
  &lt;a class="anchor" href="#simple-crypto---0x092023-lab---signature">#&lt;/a>
 &lt;/h1>
@@ -1856,7 +1856,7 @@ for _ in range(3):
  else:
  print(&amp;#34;bye~&amp;#34;)
  break
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x10(2023 Lab - coppersmith)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/</guid><description>&lt;h1 id="simple-crypto---0x102023-lab---coppersmith">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x10(2023 Lab - coppersmith)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/</guid><description>&lt;h1 id="simple-crypto---0x102023-lab---coppersmith">
  Simple Crypto - 0x10(2023 Lab - coppersmith)
  &lt;a class="anchor" href="#simple-crypto---0x102023-lab---coppersmith">#&lt;/a>
 &lt;/h1>
@@ -1888,7 +1888,7 @@ print(f&amp;#34;{ct = }&amp;#34;)
 # e = 3
 # n = 11548249006448728920152703839381630946834097081458641312395741399152626808167055308830597218237419306363812953570976143239712039037941209800604194908083149885941768218371746741812573578768412807189143962911312361667909189521442378332430658999991458388376075547304981934158525694587528155624390264161508298680598416212224037418377397597560818727159266535257243347737195812548494888452510974912762585150695881388036715559552242157015756455473208463066542053661043988897316002396230791287157322382659981842882278113445574922266102197380093864871418103716702341116793118630092030597784102701252267617442078055768183287429
 # ct = 10016669153906644953016660527326048255337800602435656916304698358749910229624738375584073093905785564737742726549033330343901680652357648652891913260149958947299067801907769873568759955053120633017158582128001396334187309835478967775943564724073809481988489791896725867047366927584419210464759674986336704398037888892734158765679221980466827060998749130113847401820986980535379266905587107992796676977541915779320084736207068268591500847603252838325486939367980604888710370629644796971859833251926677637185722683564847418746350226830775205063128441515048529918173084258483536354002888691012853231754416802134513394608
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto 0x11(2023 HW - invalid_curve_attack)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/</guid><description>&lt;h1 id="simple-crypto-0x112023-hw---invalid_curve_attack">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto 0x11(2023 HW - invalid_curve_attack)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/</guid><description>&lt;h1 id="simple-crypto-0x112023-hw---invalid_curve_attack">
  Simple Crypto 0x11(2023 HW - invalid_curve_attack)
  &lt;a class="anchor" href="#simple-crypto-0x112023-hw---invalid_curve_attack">#&lt;/a>
 &lt;/h1>
@@ -1911,7 +1911,7 @@ s &amp;amp;= \frac{3x_P^2+a}{2y_P} \
 x_R &amp;amp;= s^2 - 2x_P \
 y_R &amp;amp;= y_P + s(x_R - x_P)
 \end{aligned}
-$$&lt;/p></description></item><item><title>Simple Crypto 0x12(2023 HW - signature_revenge)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/</guid><description>&lt;h1 id="simple-crypto-0x122023-hw---signature_revenge">
+$$&lt;/p></description></item><item><title>Simple Crypto 0x12(2023 HW - signature_revenge)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/</guid><description>&lt;h1 id="simple-crypto-0x122023-hw---signature_revenge">
  Simple Crypto 0x12(2023 HW - signature_revenge)
  &lt;a class="anchor" href="#simple-crypto-0x122023-hw---signature_revenge">#&lt;/a>
 &lt;/h1>
@@ -1957,7 +1957,7 @@ $$&lt;/p></description></item><item><title>Simple Crypto 0x12(2023 HW - signatur
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># P = (70427896289635684269185763735464004880272487387417064603929487585697794861713, 83106938517126976838986116917338443942453391221542116900720022828358221631968)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># sig1 = (26150478759659181410183574739595997895638116875172347795980556499925372918857, 50639168022751577246163934860133616960953696675993100806612269138066992704236)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># sig2 = (8256687378196792904669428303872036025324883507048772044875872623403155644190, 90323515158120328162524865800363952831516312527470472160064097576156608261906)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto 0x13(2023 HW - Power Analysis)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/</guid><description>&lt;h1 id="simple-crypto-0x132023-hw---power-analysis">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto 0x13(2023 HW - Power Analysis)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/</guid><description>&lt;h1 id="simple-crypto-0x132023-hw---power-analysis">
  Simple Crypto 0x13(2023 HW - Power Analysis)
  &lt;a class="anchor" href="#simple-crypto-0x132023-hw---power-analysis">#&lt;/a>
 &lt;/h1>
@@ -2111,7 +2111,7 @@ for idx in trange(16):
  # flag += long_to_bytes(key_idx // biggest_length).decode(&amp;#34;cp437&amp;#34;)
 
 print(&amp;#39;The key of AES is: FLAG{&amp;#39; + flag + &amp;#39;}&amp;#39;)
-&lt;/code>&lt;/pre>&lt;p>有嘗試過只選擇常見可使用的字元也就是&lt;code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&lt;/code>，以及trace只選擇前95個data，也可以正常解析出AES key並且算的更快(大約快77倍左右)&lt;/p></description></item><item><title>Simple Welcome 0x01(Lab - Let's meet at class)</title><link>https://bernie6401.github.io/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/</guid><description>&lt;h1 id="simple-welcome-0x01lab---lets-meet-at-class">
+&lt;/code>&lt;/pre>&lt;p>有嘗試過只選擇常見可使用的字元也就是&lt;code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&lt;/code>，以及trace只選擇前95個data，也可以正常解析出AES key並且算的更快(大約快77倍左右)&lt;/p></description></item><item><title>Simple Welcome 0x01(Lab - Let's meet at class)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/</guid><description>&lt;h1 id="simple-welcome-0x01lab---lets-meet-at-class">
  Simple Welcome 0x01(Lab - Let&amp;rsquo;s meet at class)
  &lt;a class="anchor" href="#simple-welcome-0x01lab---lets-meet-at-class">#&lt;/a>
 &lt;/h1>

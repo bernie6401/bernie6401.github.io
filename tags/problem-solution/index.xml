@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Problem Solution on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/problem-solution/</link><description>Recent content in Problem Solution on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/problem-solution/index.xml" rel="self" type="application/rss+xml"/><item><title>/wp-admin VS /wp-content VS /wp-include VS /wp-json</title><link>https://bernie6401.github.io/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/</guid><description>&lt;h1 id="wp-admin-vs-wp-content-vs-wp-include-vs-wp-json">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Problem Solution on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/problem-solution/</link><description>Recent content in Problem Solution on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/problem-solution/index.xml" rel="self" type="application/rss+xml"/><item><title>/wp-admin VS /wp-content VS /wp-include VS /wp-json</title><link>https://bernie6401.github.io/docs/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/</guid><description>&lt;h1 id="wp-admin-vs-wp-content-vs-wp-include-vs-wp-json">
  /wp-admin VS /wp-content VS /wp-include VS /wp-json
  &lt;a class="anchor" href="#wp-admin-vs-wp-content-vs-wp-include-vs-wp-json">#&lt;/a>
 &lt;/h1>
@@ -61,7 +61,7 @@
 &lt;/li>
 &lt;li>&lt;strong>訪問權限&lt;/strong>: 通常禁止直接訪問這些文件，因為它們是內部功能實現的核心部分。&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>範例&lt;/strong>:&lt;/p></description></item><item><title>`sudo chmod 777 -R /usr` Problem</title><link>https://bernie6401.github.io/problem-solutions/sudo-chmod-777--r-_usr-problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/sudo-chmod-777--r-_usr-problem/</guid><description>&lt;h1 id="sudo-chmod-777--r-usr-problem">
+&lt;p>&lt;strong>範例&lt;/strong>:&lt;/p></description></item><item><title>`sudo chmod 777 -R /usr` Problem</title><link>https://bernie6401.github.io/docs/problem-solutions/sudo-chmod-777--r-_usr-problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/sudo-chmod-777--r-_usr-problem/</guid><description>&lt;h1 id="sudo-chmod-777--r-usr-problem">
  &lt;code>sudo chmod 777 -R /usr&lt;/code> Problem
  &lt;a class="anchor" href="#sudo-chmod-777--r-usr-problem">#&lt;/a>
 &lt;/h1>
@@ -78,7 +78,7 @@
 &lt;p>&lt;a href="https://blog.csdn.net/lileihappy/article/details/79214156">sudo: error in /etc/sudo.conf, line 0 while loading plugin &amp;lsquo;sudoers_policy&amp;rsquo;&lt;/a>&lt;/p>
 &lt;hr>
 &lt;p>&lt;a href="https://github.com/zsh-users/zsh-completions/issues/433">zsh compinit: insecure directories and files, run compaudit for list.&lt;/a>
-&lt;a href="https://blog.csdn.net/Bronze5/article/details/109449532">zsh报错：_complete:96: bad math expression: operand expected at end of string&lt;/a>&lt;/p></description></item><item><title>~/.zshrc &amp; Initial Library</title><link>https://bernie6401.github.io/problem-solutions/~_.zshrc--initial-library/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/~_.zshrc--initial-library/</guid><description>&lt;h1 id="zshrc--initial-library">
+&lt;a href="https://blog.csdn.net/Bronze5/article/details/109449532">zsh报错：_complete:96: bad math expression: operand expected at end of string&lt;/a>&lt;/p></description></item><item><title>~/.zshrc &amp; Initial Library</title><link>https://bernie6401.github.io/docs/problem-solutions/~_.zshrc--initial-library/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/~_.zshrc--initial-library/</guid><description>&lt;h1 id="zshrc--initial-library">
  ~/.zshrc &amp;amp; Initial Library
  &lt;a class="anchor" href="#zshrc--initial-library">#&lt;/a>
 &lt;/h1>
@@ -145,7 +145,7 @@ alias gccc=&amp;#39;gcc -Wl,--dynamic-linker=/usr/src/glibc/glibc_dbg/elf/ld.so 
  gdb-gef
  &lt;a class="anchor" href="#gdb-gef">#&lt;/a>
 &lt;/h2>
-&lt;p>Touch 2 files&lt;/p></description></item><item><title>CreateProcessEntryCommon:586: Create process not expected to return</title><link>https://bernie6401.github.io/problem-solutions/createprocessentrycommon_586_-create-process-not-expected-to-return/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/createprocessentrycommon_586_-create-process-not-expected-to-return/</guid><description>&lt;h1 id="createprocessentrycommon586-create-process-not-expected-to-return">
+&lt;p>Touch 2 files&lt;/p></description></item><item><title>CreateProcessEntryCommon:586: Create process not expected to return</title><link>https://bernie6401.github.io/docs/problem-solutions/createprocessentrycommon_586_-create-process-not-expected-to-return/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/createprocessentrycommon_586_-create-process-not-expected-to-return/</guid><description>&lt;h1 id="createprocessentrycommon586-create-process-not-expected-to-return">
  CreateProcessEntryCommon:586: Create process not expected to return
  &lt;a class="anchor" href="#createprocessentrycommon586-create-process-not-expected-to-return">#&lt;/a>
 &lt;/h1>
@@ -180,7 +180,7 @@ alias gccc=&amp;#39;gcc -Wl,--dynamic-linker=/usr/src/glibc/glibc_dbg/elf/ld.so 
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://askubuntu.com/questions/1423048/i-am-getting-error-on-windows-subsystem">i am getting error on windows subsystem&lt;/a>&lt;/p></description></item><item><title>Endnote - Invalid Citation</title><link>https://bernie6401.github.io/problem-solutions/endnote---invalid-citation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/endnote---invalid-citation/</guid><description>&lt;h1 id="endnote---invalid-citation">
+&lt;p>&lt;a href="https://askubuntu.com/questions/1423048/i-am-getting-error-on-windows-subsystem">i am getting error on windows subsystem&lt;/a>&lt;/p></description></item><item><title>Endnote - Invalid Citation</title><link>https://bernie6401.github.io/docs/problem-solutions/endnote---invalid-citation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/endnote---invalid-citation/</guid><description>&lt;h1 id="endnote---invalid-citation">
  Endnote - Invalid Citation
  &lt;a class="anchor" href="#endnote---invalid-citation">#&lt;/a>
 &lt;/h1>
@@ -214,7 +214,7 @@ alias gccc=&amp;#39;gcc -Wl,--dynamic-linker=/usr/src/glibc/glibc_dbg/elf/ld.so 
  更新
  &lt;a class="anchor" href="#%e6%9b%b4%e6%96%b0">#&lt;/a>
 &lt;/h2>
-&lt;p>我大概知道原因了，基本上應該是Endnote無法處理&amp;quot;範圍&amp;quot;，也就是類似[10-13]這樣的關係，雖然不知道為什麼，但其實只要把範圍拆開獨立顯示-&amp;gt;[10][11][12][13]就沒問題了，不過之後還是要查一下為什麼會這樣&lt;/p></description></item><item><title>fatal: Authentication failed for `'https://github.com/{username}/{repository}.git/'`</title><link>https://bernie6401.github.io/problem-solutions/fatal_-authentication-failed-for-https___github.com_username_repository.git_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/fatal_-authentication-failed-for-https___github.com_username_repository.git_/</guid><description>&lt;h1 id="fatal-authentication-failed-for-httpsgithubcomusernamerepositorygit">
+&lt;p>我大概知道原因了，基本上應該是Endnote無法處理&amp;quot;範圍&amp;quot;，也就是類似[10-13]這樣的關係，雖然不知道為什麼，但其實只要把範圍拆開獨立顯示-&amp;gt;[10][11][12][13]就沒問題了，不過之後還是要查一下為什麼會這樣&lt;/p></description></item><item><title>fatal: Authentication failed for `'https://github.com/{username}/{repository}.git/'`</title><link>https://bernie6401.github.io/docs/problem-solutions/fatal_-authentication-failed-for-https___github.com_username_repository.git_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/fatal_-authentication-failed-for-https___github.com_username_repository.git_/</guid><description>&lt;h1 id="fatal-authentication-failed-for-httpsgithubcomusernamerepositorygit">
  fatal: Authentication failed for &lt;code>'https://github.com/{username}/{repository}.git/'&lt;/code>
  &lt;a class="anchor" href="#fatal-authentication-failed-for-httpsgithubcomusernamerepositorygit">#&lt;/a>
 &lt;/h1>
@@ -239,7 +239,7 @@ Payload:
 Payload:
 &lt;code>git clone https://ghp_XXXXXXXXXXXXXXXXXXX@github.com/howarder3/test_repo.git&lt;/code>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>Git Large File Error - Solution</title><link>https://bernie6401.github.io/problem-solutions/git-large-file-error---solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/git-large-file-error---solution/</guid><description>&lt;h1 id="git-large-file-error---solution">
+&lt;/ul></description></item><item><title>Git Large File Error - Solution</title><link>https://bernie6401.github.io/docs/problem-solutions/git-large-file-error---solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/git-large-file-error---solution/</guid><description>&lt;h1 id="git-large-file-error---solution">
  Git Large File Error - Solution
  &lt;a class="anchor" href="#git-large-file-error---solution">#&lt;/a>
 &lt;/h1>
@@ -262,7 +262,7 @@ $ git filter-branch -f --index-filter &amp;#39;git rm --cached --ignore-unmatch 
 $ git push #Then it works
 &lt;/code>&lt;/pre>&lt;p>:::info
 如果在變更過程中出現&lt;code>Cannot rewrite branches: You have unstaged changes.&lt;/code>，代表以一些檔案沒有被add以及commit，需要先把其他檔案都做完整的commit後才可以執行上述操作
-:::&lt;/p></description></item><item><title>How How to use Mailgun/Resend as SMTP server?</title><link>https://bernie6401.github.io/problem-solutions/how-how-to-use-mailgun_resend-as-smtp-server_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-how-to-use-mailgun_resend-as-smtp-server_/</guid><description>&lt;h1 id="how-how-to-use-mailgunresend-as-smtp-server">
+:::&lt;/p></description></item><item><title>How How to use Mailgun/Resend as SMTP server?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-how-to-use-mailgun_resend-as-smtp-server_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-how-to-use-mailgun_resend-as-smtp-server_/</guid><description>&lt;h1 id="how-how-to-use-mailgunresend-as-smtp-server">
  How How to use Mailgun/Resend as SMTP server?
  &lt;a class="anchor" href="#how-how-to-use-mailgunresend-as-smtp-server">#&lt;/a>
 &lt;/h1>
@@ -314,7 +314,7 @@ SMTP_SERVER和SMTP_PORT建議不要改，login如果沒有特別指定，就是�
 &lt;img src="https://hackmd.io/_uploads/ryI8KTzX1g.png" alt="image" />
 就直接到自己當初申請domain的DNS Server設定，接下來就是等DNS server更新
 &lt;img src="https://hackmd.io/_uploads/ByPKYaf7yx.png" alt="image" />
-等到更新成功後，先申請API key，到API Keys &amp;gt; Create API Keys 建立SMTP的API，然後就可以開始填寫pds.env&lt;/p></description></item><item><title>How to address docker compose not found?</title><link>https://bernie6401.github.io/problem-solutions/how-to-address-docker-compose-not-found_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-to-address-docker-compose-not-found_/</guid><description>&lt;h1 id="how-to-address-docker-compose-not-found">
+等到更新成功後，先申請API key，到API Keys &amp;gt; Create API Keys 建立SMTP的API，然後就可以開始填寫pds.env&lt;/p></description></item><item><title>How to address docker compose not found?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-address-docker-compose-not-found_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-address-docker-compose-not-found_/</guid><description>&lt;h1 id="how-to-address-docker-compose-not-found">
  How to address docker compose not found?
  &lt;a class="anchor" href="#how-to-address-docker-compose-not-found">#&lt;/a>
 &lt;/h1>
@@ -340,7 +340,7 @@ SMTP_SERVER和SMTP_PORT建議不要改，login如果沒有特別指定，就是�
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo apt update
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo apt install docker-compose-plugin
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker compose version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to adjust Endnote's Paragraph in Word?</title><link>https://bernie6401.github.io/problem-solutions/how-to-adjust-endnotes-paragraph-in-word_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-to-adjust-endnotes-paragraph-in-word_/</guid><description>&lt;h1 id="how-to-adjust-endnotes-paragraph-in-word">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to adjust Endnote's Paragraph in Word?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-adjust-endnotes-paragraph-in-word_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-adjust-endnotes-paragraph-in-word_/</guid><description>&lt;h1 id="how-to-adjust-endnotes-paragraph-in-word">
  How to adjust Endnote&amp;rsquo;s Paragraph in Word?
  &lt;a class="anchor" href="#how-to-adjust-endnotes-paragraph-in-word">#&lt;/a>
 &lt;/h1>
@@ -364,7 +364,7 @@ SMTP_SERVER和SMTP_PORT建議不要改，login如果沒有特別指定，就是�
 &lt;img src="https://hackmd.io/_uploads/rJoRcWr11x.png" alt="圖片" />&lt;/li>
 &lt;li>Done
 接著就可以放心使用自己設定的Reference格式&lt;/li>
-&lt;/ol></description></item><item><title>How to build apk file on React-Native Project?</title><link>https://bernie6401.github.io/problem-solutions/how-to-build-apk-file-on-react-native-project_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-to-build-apk-file-on-react-native-project_/</guid><description>&lt;h1 id="how-to-build-apk-file-on-react-native-project">
+&lt;/ol></description></item><item><title>How to build apk file on React-Native Project?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-build-apk-file-on-react-native-project_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-build-apk-file-on-react-native-project_/</guid><description>&lt;h1 id="how-to-build-apk-file-on-react-native-project">
  How to build apk file on React-Native Project?
  &lt;a class="anchor" href="#how-to-build-apk-file-on-react-native-project">#&lt;/a>
 &lt;/h1>
@@ -415,7 +415,7 @@ $ANDROID_HOME/platform-tools
  &lt;strong>文件 &lt;code>android/gradle.properties&lt;/code>&lt;/strong>
  &lt;a class="anchor" href="#%e6%96%87%e4%bb%b6-1">#&lt;/a>
 &lt;/h3>
-&lt;p>啟用 ProGuard 和 Hermes 以優化 APK：&lt;/p></description></item><item><title>How to check if the paper is Top Conference or Q1 Journal?</title><link>https://bernie6401.github.io/problem-solutions/how-to-check-if-the-paper-is-top-conference-or-q1-journal_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-to-check-if-the-paper-is-top-conference-or-q1-journal_/</guid><description>&lt;h1 id="how-to-check-if-the-paper-is-top-conference-or-q1-journal">
+&lt;p>啟用 ProGuard 和 Hermes 以優化 APK：&lt;/p></description></item><item><title>How to check if the paper is Top Conference or Q1 Journal?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-check-if-the-paper-is-top-conference-or-q1-journal_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-check-if-the-paper-is-top-conference-or-q1-journal_/</guid><description>&lt;h1 id="how-to-check-if-the-paper-is-top-conference-or-q1-journal">
  How to check if the paper is Top Conference or Q1 Journal?
  &lt;a class="anchor" href="#how-to-check-if-the-paper-is-top-conference-or-q1-journal">#&lt;/a>
 &lt;/h1>
@@ -457,7 +457,7 @@ $ANDROID_HOME/platform-tools
  Journal
  &lt;a class="anchor" href="#journal">#&lt;/a>
 &lt;/h2>
-&lt;p>這個就簡單很多，直接用Clarivate查JCI，如果沒有就代表沒有收錄在JCR，那可能就先不要引用，或者是有Transactions的關鍵字，代表他一定曾經是頂會，https://jcr.clarivate.com/jcr/home&lt;/p></description></item><item><title>How to download blob videos?</title><link>https://bernie6401.github.io/problem-solutions/how-to-download-blob-videos_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-to-download-blob-videos_/</guid><description>&lt;h1 id="how-to-download-blob-videos">
+&lt;p>這個就簡單很多，直接用Clarivate查JCI，如果沒有就代表沒有收錄在JCR，那可能就先不要引用，或者是有Transactions的關鍵字，代表他一定曾經是頂會，https://jcr.clarivate.com/jcr/home&lt;/p></description></item><item><title>How to download blob videos?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-download-blob-videos_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-download-blob-videos_/</guid><description>&lt;h1 id="how-to-download-blob-videos">
  How to download blob videos?
  &lt;a class="anchor" href="#how-to-download-blob-videos">#&lt;/a>
 &lt;/h1>
@@ -489,7 +489,7 @@ $ANDROID_HOME/platform-tools
 複製封包的Request URL
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yt-dlp &lt;span style="color:#e6db74">&amp;#34;https://surrit.com/9e2613de-2337-4cfd-aab5-2a68c0fbad14/playlist.m3u8&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ol></description></item><item><title>How to install aab file?</title><link>https://bernie6401.github.io/problem-solutions/how-to-install-aab-file_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-to-install-aab-file_/</guid><description>&lt;h1 id="how-to-install-aab-file">
+&lt;/ol></description></item><item><title>How to install aab file?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-install-aab-file_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-install-aab-file_/</guid><description>&lt;h1 id="how-to-install-aab-file">
  How to install aab file?
  &lt;a class="anchor" href="#how-to-install-aab-file">#&lt;/a>
 &lt;/h1>
@@ -507,7 +507,7 @@ $ANDROID_HOME/platform-tools
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 填寫基本資訊&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ bundletool build-apks --bundle&lt;span style="color:#f92672">=&lt;/span>&amp;lt;your aab filename&amp;gt; --output&lt;span style="color:#f92672">=&lt;/span>app.apks --ks&lt;span style="color:#f92672">=&lt;/span>./my-release-key.jks --ks-key-alias&lt;span style="color:#f92672">=&lt;/span>my-key-alias
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ bundletool install-apks --apks&lt;span style="color:#f92672">=&lt;/span>app.apks
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to install LogonTracer?</title><link>https://bernie6401.github.io/problem-solutions/how-to-install-logontracer_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-to-install-logontracer_/</guid><description>&lt;h1 id="how-to-install-logontracer">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to install LogonTracer?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-install-logontracer_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-install-logontracer_/</guid><description>&lt;h1 id="how-to-install-logontracer">
  How to install LogonTracer?
  &lt;a class="anchor" href="#how-to-install-logontracer">#&lt;/a>
 &lt;/h1>
@@ -561,7 +561,7 @@ Docker&lt;/p>
  Python Version (Recommended)
  &lt;a class="anchor" href="#python-version-recommended">#&lt;/a>
 &lt;/h3>
-&lt;p>如果上面的版本不行用的話，就直接用他們發在&lt;a href="https://github.com/JPCERTCC/LogonTracer/wiki/how-to-use">github的版本&lt;/a>會比較穩定，詳細的步驟都已經寫在他們wiki了，不過有幾個問題還是需要先克服&lt;/p></description></item><item><title>How to Root Android Phone &amp; Install AlwaysTrustUserCert.zip Module?</title><link>https://bernie6401.github.io/problem-solutions/how-to-root-android-phone--install-alwaystrustusercert.zip-module_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-to-root-android-phone--install-alwaystrustusercert.zip-module_/</guid><description>&lt;h1 id="how-to-root-android-phone--install-alwaystrustusercertzip-module">
+&lt;p>如果上面的版本不行用的話，就直接用他們發在&lt;a href="https://github.com/JPCERTCC/LogonTracer/wiki/how-to-use">github的版本&lt;/a>會比較穩定，詳細的步驟都已經寫在他們wiki了，不過有幾個問題還是需要先克服&lt;/p></description></item><item><title>How to Root Android Phone &amp; Install AlwaysTrustUserCert.zip Module?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-root-android-phone--install-alwaystrustusercert.zip-module_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-root-android-phone--install-alwaystrustusercert.zip-module_/</guid><description>&lt;h1 id="how-to-root-android-phone--install-alwaystrustusercertzip-module">
  How to Root Android Phone &amp;amp; Install AlwaysTrustUserCert.zip Module?
  &lt;a class="anchor" href="#how-to-root-android-phone--install-alwaystrustusercertzip-module">#&lt;/a>
 &lt;/h1>
@@ -614,7 +614,7 @@ android.auto_generated_rro_vendor__ com.android.soundpicker
  ASUS ZenFone 3(Z017DA)
  &lt;a class="anchor" href="#asus-zenfone-3z017da">#&lt;/a>
 &lt;/h2>
-&lt;p>這一台是Lab的手機，我拿到的時候就已經進入Bootloader了，所以我就直接跳到後半段，但是這一台應該是刷壞了，我先紀錄一下整個過程，現在是已經無線迴圈同一個畫面了QAQ&lt;/p></description></item><item><title>How to use VScode / Web Storm Debug JS?</title><link>https://bernie6401.github.io/problem-solutions/how-to-use-vscode-_-web-storm-debug-js_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-to-use-vscode-_-web-storm-debug-js_/</guid><description>&lt;h1 id="how-to-use-vscode--web-storm-debug-js">
+&lt;p>這一台是Lab的手機，我拿到的時候就已經進入Bootloader了，所以我就直接跳到後半段，但是這一台應該是刷壞了，我先紀錄一下整個過程，現在是已經無線迴圈同一個畫面了QAQ&lt;/p></description></item><item><title>How to use VScode / Web Storm Debug JS?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-use-vscode-_-web-storm-debug-js_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-use-vscode-_-web-storm-debug-js_/</guid><description>&lt;h1 id="how-to-use-vscode--web-storm-debug-js">
  How to use VScode / Web Storm Debug JS?
  &lt;a class="anchor" href="#how-to-use-vscode--web-storm-debug-js">#&lt;/a>
 &lt;/h1>
@@ -760,7 +760,7 @@ android.auto_generated_rro_vendor__ com.android.soundpicker
 &lt;/h2>
 &lt;p>詳細可以看&lt;a href="https://learn.microsoft.com/zh-tw/training/modules/debug-nodejs/5-analyze-your-program-state">MSDN的教學&lt;/a>
 :::info
-在debug的過程中，有可能會因為是linux based的路徑，所以造成錯誤，所以最好還是在wsl中用&lt;code>code .&lt;/code>的方式進入VScode，再進行debug，另外提醒，在linux or windows下npm install所載的package會根據OS不一樣而有差異，所以要搞清楚目前的平台是哪一個再進行debug；再另外，因為大部分的題目都是具備docker，所以在build之前要先確定有沒有都完成原本docker幫忙的事情，例如以下script:&lt;/p></description></item><item><title>How to use ZAP/Burp Suite/mitmproxy as Proxy for Android?</title><link>https://bernie6401.github.io/problem-solutions/how-to-use-zap_burp-suite_mitmproxy-as-proxy-for-android_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/how-to-use-zap_burp-suite_mitmproxy-as-proxy-for-android_/</guid><description>&lt;h1 id="how-to-use-zap-as-proxy">
+在debug的過程中，有可能會因為是linux based的路徑，所以造成錯誤，所以最好還是在wsl中用&lt;code>code .&lt;/code>的方式進入VScode，再進行debug，另外提醒，在linux or windows下npm install所載的package會根據OS不一樣而有差異，所以要搞清楚目前的平台是哪一個再進行debug；再另外，因為大部分的題目都是具備docker，所以在build之前要先確定有沒有都完成原本docker幫忙的事情，例如以下script:&lt;/p></description></item><item><title>How to use ZAP/Burp Suite/mitmproxy as Proxy for Android?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-use-zap_burp-suite_mitmproxy-as-proxy-for-android_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-use-zap_burp-suite_mitmproxy-as-proxy-for-android_/</guid><description>&lt;h1 id="how-to-use-zap-as-proxy">
  How to use ZAP as Proxy?
  &lt;a class="anchor" href="#how-to-use-zap-as-proxy">#&lt;/a>
 &lt;/h1>
@@ -909,7 +909,7 @@ $ adb shell settings put global http_proxy :0 # unset phone proxy
  Bypass SSL Pinning by Frida
  &lt;a class="anchor" href="#bypass-ssl-pinning-by-frida">#&lt;/a>
 &lt;/h2>
-&lt;p>還記得之前做的實驗&lt;a href="https://hackmd.io/@SBK6401/r155hduCT#%e7%84%a1%e6%b3%95%e4%bd%bf%e7%94%a8">論文筆記&lt;/a>中有提到，有一部分的app就算安裝了SSL Unpinning的Plugin還是無法攔截到流量，根據&lt;a href="https://httptoolkit.com/blog/frida-certificate-pinning/">Defeating Android Certificate Pinning with Frida&lt;/a>文章的說明，Facebook各式各樣的App所使用的憑證標準和實作方式都是自定義的，而不是用標準API，這樣的話用一般的SSL Unpinning就還是不會成功&lt;/p></description></item><item><title>MITMProxy相關問題整理</title><link>https://bernie6401.github.io/problem-solutions/mitmproxy%E7%9B%B8%E9%97%9C%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/mitmproxy%E7%9B%B8%E9%97%9C%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</guid><description>&lt;h1 id="mitmproxy相關問題整理">
+&lt;p>還記得之前做的實驗&lt;a href="https://hackmd.io/@SBK6401/r155hduCT#%e7%84%a1%e6%b3%95%e4%bd%bf%e7%94%a8">論文筆記&lt;/a>中有提到，有一部分的app就算安裝了SSL Unpinning的Plugin還是無法攔截到流量，根據&lt;a href="https://httptoolkit.com/blog/frida-certificate-pinning/">Defeating Android Certificate Pinning with Frida&lt;/a>文章的說明，Facebook各式各樣的App所使用的憑證標準和實作方式都是自定義的，而不是用標準API，這樣的話用一般的SSL Unpinning就還是不會成功&lt;/p></description></item><item><title>MITMProxy相關問題整理</title><link>https://bernie6401.github.io/docs/problem-solutions/mitmproxy%E7%9B%B8%E9%97%9C%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/mitmproxy%E7%9B%B8%E9%97%9C%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</guid><description>&lt;h1 id="mitmproxy相關問題整理">
  MITMProxy相關問題整理
  &lt;a class="anchor" href="#mitmproxy%e7%9b%b8%e9%97%9c%e5%95%8f%e9%a1%8c%e6%95%b4%e7%90%86">#&lt;/a>
 &lt;/h1>
@@ -930,13 +930,13 @@ def request(flow: http.HTTPFlow) -&amp;gt; None:
  Unable to establish TLS connection with server (The remote server does not speak TLS.). Trying to establish TLS with client anyway. If you plan to redirect requests away from this server, consider setting &lt;code>connection_strategy&lt;/code> to &lt;code>lazy&lt;/code> to suppress early connections.
  &lt;a class="anchor" href="#unable-to-establish-tls-connection-with-server-the-remote-server-does-not-speak-tls-trying-to-establish-tls-with-client-anyway-if-you-plan-to-redirect-requests-away-from-this-server-consider-setting-connection_strategy-to-lazy-to-suppress-early-connections">#&lt;/a>
 &lt;/h2>
-&lt;p>出現這個warning，&lt;/p></description></item><item><title>Problems About Multiprocess</title><link>https://bernie6401.github.io/problem-solutions/problems-about-multiprocess/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/problems-about-multiprocess/</guid><description>&lt;h1 id="problems-about-multiprocess">
+&lt;p>出現這個warning，&lt;/p></description></item><item><title>Problems About Multiprocess</title><link>https://bernie6401.github.io/docs/problem-solutions/problems-about-multiprocess/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/problems-about-multiprocess/</guid><description>&lt;h1 id="problems-about-multiprocess">
  Problems About Multiprocess
  &lt;a class="anchor" href="#problems-about-multiprocess">#&lt;/a>
 &lt;/h1>
 &lt;p>&lt;a href="https://blog.csdn.net/LutingWang/article/details/124203032">徹底解出TypeError: cannot pickle &amp;lsquo;_thread.RLock&amp;rsquo; object，以PyTorch DDP 為例 &lt;/a>
 &lt;a href="https://blog.csdn.net/jbluxun/article/details/134167082">TypeError: cannot pickle &amp;lsquo;_thread.lock&amp;rsquo; object的一個淺層解決方法&lt;/a>
-&lt;a href="https://blog.csdn.net/nangua06/article/details/129668222">ForkingPickler can&amp;rsquo;t pickle weakref objects&lt;/a>&lt;/p></description></item><item><title>pwndbg installation problems</title><link>https://bernie6401.github.io/problem-solutions/pwndbg-installation-problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/pwndbg-installation-problems/</guid><description>&lt;h1 id="pwndbg-installation-problems">
+&lt;a href="https://blog.csdn.net/nangua06/article/details/129668222">ForkingPickler can&amp;rsquo;t pickle weakref objects&lt;/a>&lt;/p></description></item><item><title>pwndbg installation problems</title><link>https://bernie6401.github.io/docs/problem-solutions/pwndbg-installation-problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/pwndbg-installation-problems/</guid><description>&lt;h1 id="pwndbg-installation-problems">
  pwndbg installation problems
  &lt;a class="anchor" href="#pwndbg-installation-problems">#&lt;/a>
 &lt;/h1>
@@ -959,7 +959,7 @@ The following packages have unmet dependencies:
 E: Unable to correct problems, you have held broken packages.
 &lt;/code>&lt;/pre>&lt;ol>
 &lt;li>
-&lt;p>如果遇到這種的問題，就直接分析setup.sh是crash在哪邊，照理說應該是跟python的版本有關係，想我的狀況是原本安裝python3的version是3.10，而不是3.8，所以最直接的做法是修改setup.sh file，在第23行的地方修改一下，直接指定安裝的版本，另外&lt;/p></description></item><item><title>React Native - Error resolving plugin [id: 'com.facebook.react.settings']</title><link>https://bernie6401.github.io/problem-solutions/react-native---error-resolving-plugin-id_-com.facebook.react.settings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/react-native---error-resolving-plugin-id_-com.facebook.react.settings/</guid><description>&lt;h1 id="react-native---error-resolving-plugin-id-comfacebookreactsettings">
+&lt;p>如果遇到這種的問題，就直接分析setup.sh是crash在哪邊，照理說應該是跟python的版本有關係，想我的狀況是原本安裝python3的version是3.10，而不是3.8，所以最直接的做法是修改setup.sh file，在第23行的地方修改一下，直接指定安裝的版本，另外&lt;/p></description></item><item><title>React Native - Error resolving plugin [id: 'com.facebook.react.settings']</title><link>https://bernie6401.github.io/docs/problem-solutions/react-native---error-resolving-plugin-id_-com.facebook.react.settings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/react-native---error-resolving-plugin-id_-com.facebook.react.settings/</guid><description>&lt;h1 id="react-native---error-resolving-plugin-id-comfacebookreactsettings">
  React Native - Error resolving plugin [id: &amp;lsquo;com.facebook.react.settings&amp;rsquo;]
  &lt;a class="anchor" href="#react-native---error-resolving-plugin-id-comfacebookreactsettings">#&lt;/a>
 &lt;/h1>
@@ -987,7 +987,7 @@ Settings file &amp;#39;D:\Downloads\Trash\MyProject\android\settings.gradle&amp;
 * What went wrong:
 Error resolving plugin [id: &amp;#39;com.facebook.react.settings&amp;#39;]
 &amp;gt; java.io.UncheckedIOException: Could not move temporary workspace (D:\Downloads\Trash\MyProject\android\.gradle\8.8\dependencies-accessors\569c8b261a8a714d7731d5f568e0e5c05babae10-3763ef7e-e78a-4639-821b-3aa92091847a) to immutable location (D:\Downloads\Trash\MyProject\android\.gradle\8.8\dependencies-accessors\569c8b261a8a714d7731d5f568e0e5c05babae10)
-&lt;/code>&lt;/pre>&lt;p>我是按照官方的文檔進行創建，而錯誤是發生在gradle的setting file中發生問題(MyProject\android\settings.gradle)，具體來說應該是版本上的問題，有嘗試針對以下文章說明的解決方式試看看，但都一無所獲&lt;/p></description></item><item><title>UiAutomatorViewer 常見問題整理</title><link>https://bernie6401.github.io/problem-solutions/uiautomatorviewer-%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/uiautomatorviewer-%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</guid><description>&lt;h1 id="uiautomatorviewer-常見問題整理">
+&lt;/code>&lt;/pre>&lt;p>我是按照官方的文檔進行創建，而錯誤是發生在gradle的setting file中發生問題(MyProject\android\settings.gradle)，具體來說應該是版本上的問題，有嘗試針對以下文章說明的解決方式試看看，但都一無所獲&lt;/p></description></item><item><title>UiAutomatorViewer 常見問題整理</title><link>https://bernie6401.github.io/docs/problem-solutions/uiautomatorviewer-%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/uiautomatorviewer-%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</guid><description>&lt;h1 id="uiautomatorviewer-常見問題整理">
  UiAutomatorViewer 常見問題整理
  &lt;a class="anchor" href="#uiautomatorviewer-%e5%b8%b8%e8%a6%8b%e5%95%8f%e9%a1%8c%e6%95%b4%e7%90%86">#&lt;/a>
 &lt;/h1>
@@ -1019,7 +1019,7 @@ Official Link: &lt;a href="https://www.oracle.com/java/technologies/downloads/#j
 參考來源2: &lt;a href="https://www.cnblogs.com/lilip/p/11089713.html">cnblogs - 【Android】【問題解決記錄】Error obtaining UI hierarchy :Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn&amp;rsquo;t exist!&lt;/a>
 參考來源3: &lt;a href="https://stackoverflow.com/questions/40214342/error-obtaining-ui-hierarchy-error-while-obtaining-ui-hierarchy-xml-file-com-an">StackOverflow - Error obtaining UI hierarchy Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn&amp;rsquo;t exist&lt;/a>
 參考來源4: &lt;a href="https://blog.csdn.net/weixin_39230341/article/details/90598944">CSDN - Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncExceptio解決方法&lt;/a>
-參考來源5: &lt;a href="https://blog.csdn.net/suncanshine/article/details/124546419">uiautomatorviewer報錯：Remote object doesn‘t exist Error while obtaining UI hierarchy XML file&lt;/a>&lt;/p></description></item><item><title>Unexpected fatal error while initializing python runtime.</title><link>https://bernie6401.github.io/problem-solutions/unexpected-fatal-error-while-initializing-python-runtime_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/unexpected-fatal-error-while-initializing-python-runtime_/</guid><description>&lt;h1 id="unexpected-fatal-error-while-initializing-python-runtime">
+參考來源5: &lt;a href="https://blog.csdn.net/suncanshine/article/details/124546419">uiautomatorviewer報錯：Remote object doesn‘t exist Error while obtaining UI hierarchy XML file&lt;/a>&lt;/p></description></item><item><title>Unexpected fatal error while initializing python runtime.</title><link>https://bernie6401.github.io/docs/problem-solutions/unexpected-fatal-error-while-initializing-python-runtime_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/unexpected-fatal-error-while-initializing-python-runtime_/</guid><description>&lt;h1 id="unexpected-fatal-error-while-initializing-python-runtime">
  Unexpected fatal error while initializing python runtime.
  &lt;a class="anchor" href="#unexpected-fatal-error-while-initializing-python-runtime">#&lt;/a>
 &lt;/h1>
@@ -1050,7 +1050,7 @@ Official Link: &lt;a href="https://www.oracle.com/java/technologies/downloads/#j
  &lt;a class="anchor" href="#other-reference">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://blog.csdn.net/tbk345/article/details/124163684">IDA免安裝版沒有python執行功能&lt;/a>
-&lt;a href="https://blog.csdn.net/weixin_45055269/article/details/105940348">IDA7.0的脚本语言：idc和idapython&lt;/a>&lt;/p></description></item><item><title>VirtualBox滑鼠無法跳出</title><link>https://bernie6401.github.io/problem-solutions/virtualbox%E6%BB%91%E9%BC%A0%E7%84%A1%E6%B3%95%E8%B7%B3%E5%87%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/virtualbox%E6%BB%91%E9%BC%A0%E7%84%A1%E6%B3%95%E8%B7%B3%E5%87%BA/</guid><description>&lt;h1 id="virtualbox滑鼠無法跳出">
+&lt;a href="https://blog.csdn.net/weixin_45055269/article/details/105940348">IDA7.0的脚本语言：idc和idapython&lt;/a>&lt;/p></description></item><item><title>VirtualBox滑鼠無法跳出</title><link>https://bernie6401.github.io/docs/problem-solutions/virtualbox%E6%BB%91%E9%BC%A0%E7%84%A1%E6%B3%95%E8%B7%B3%E5%87%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/virtualbox%E6%BB%91%E9%BC%A0%E7%84%A1%E6%B3%95%E8%B7%B3%E5%87%BA/</guid><description>&lt;h1 id="virtualbox滑鼠無法跳出">
  VirtualBox滑鼠無法跳出
  &lt;a class="anchor" href="#virtualbox%e6%bb%91%e9%bc%a0%e7%84%a1%e6%b3%95%e8%b7%b3%e5%87%ba">#&lt;/a>
 &lt;/h1>
@@ -1091,7 +1091,7 @@ Official Link: &lt;a href="https://www.oracle.com/java/technologies/downloads/#j
 &lt;p>&lt;a href="https://www.jinnsblog.com/2021/05/virtualbox-guest-additions-install-guide.html">Virtualbox Guest Additions 安裝教學 [Linux / Windows]&lt;/a>&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>WSL tty /dev/tty0</title><link>https://bernie6401.github.io/problem-solutions/wsl-tty-_dev_tty0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/wsl-tty-_dev_tty0/</guid><description>&lt;h1 id="wsl-tty-devtty0">
+&lt;/div></description></item><item><title>WSL tty /dev/tty0</title><link>https://bernie6401.github.io/docs/problem-solutions/wsl-tty-_dev_tty0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/wsl-tty-_dev_tty0/</guid><description>&lt;h1 id="wsl-tty-devtty0">
  WSL tty /dev/tty0
  &lt;a class="anchor" href="#wsl-tty-devtty0">#&lt;/a>
 &lt;/h1>
@@ -1132,7 +1132,7 @@ $ wsl --set-version Ubuntu-22.04 2
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>&lt;a href="https://samiouob.github.io/2019/06/17/WSL2/">[WSL] 將 WSL 升級成 WSL2 吧 !&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>WSL2 Cannot List Android Devices</title><link>https://bernie6401.github.io/problem-solutions/wsl2-cannot-list-android-devices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/wsl2-cannot-list-android-devices/</guid><description>&lt;h1 id="wsl2-cannot-list-android-devices">
+&lt;p>&lt;a href="https://samiouob.github.io/2019/06/17/WSL2/">[WSL] 將 WSL 升級成 WSL2 吧 !&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>WSL2 Cannot List Android Devices</title><link>https://bernie6401.github.io/docs/problem-solutions/wsl2-cannot-list-android-devices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/wsl2-cannot-list-android-devices/</guid><description>&lt;h1 id="wsl2-cannot-list-android-devices">
  WSL2 Cannot List Android Devices
  &lt;a class="anchor" href="#wsl2-cannot-list-android-devices">#&lt;/a>
 &lt;/h1>
@@ -1167,7 +1167,7 @@ $ wsl --set-version Ubuntu-22.04 2
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>List of devices attached
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>RFCW81CY9AD device
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ol></description></item><item><title>如何使用Hugo+Github架設網站</title><link>https://bernie6401.github.io/problem-solutions/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo+github%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/problem-solutions/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo+github%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/</guid><description>&lt;h1 id="如何使用hugogithub架設網站">
+&lt;/ol></description></item><item><title>如何使用Hugo+Github架設網站</title><link>https://bernie6401.github.io/docs/problem-solutions/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo+github%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo+github%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/</guid><description>&lt;h1 id="如何使用hugogithub架設網站">
  如何使用Hugo+Github架設網站
  &lt;a class="anchor" href="#%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8hugogithub%e6%9e%b6%e8%a8%ad%e7%b6%b2%e7%ab%99">#&lt;/a>
 &lt;/h1>

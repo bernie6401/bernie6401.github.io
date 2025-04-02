@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>名詞解釋 on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/</link><description>Recent content in 名詞解釋 on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>Android Related</title><link>https://bernie6401.github.io/terminology/android-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/terminology/android-related/</guid><description>&lt;h1 id="android-related">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>名詞解釋 on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/</link><description>Recent content in 名詞解釋 on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/%E5%90%8D%E8%A9%9E%E8%A7%A3%E9%87%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>Android Related</title><link>https://bernie6401.github.io/docs/terminology/android-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/android-related/</guid><description>&lt;h1 id="android-related">
  Android Related
  &lt;a class="anchor" href="#android-related">#&lt;/a>
 &lt;/h1>
@@ -68,7 +68,7 @@ startActivity(intent);
 &lt;li>
 &lt;p>明確意圖範例
 &lt;code>Intent intent = new Intent(FirstActivity.this, SecondActivity.class);&lt;/code>
-&lt;code>startActivity(intent);&lt;/code>&lt;/p></description></item><item><title>Linux Related</title><link>https://bernie6401.github.io/terminology/linux-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/terminology/linux-related/</guid><description>&lt;ul>
+&lt;code>startActivity(intent);&lt;/code>&lt;/p></description></item><item><title>Linux Related</title><link>https://bernie6401.github.io/docs/terminology/linux-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/linux-related/</guid><description>&lt;ul>
 &lt;li>
 &lt;p>What is .so file?
 資料來源: &lt;a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000P8svSAC&amp;amp;l=zh-TW">在Linux中.so和.a檔有什麼差別？&lt;/a>&lt;/p>
@@ -93,7 +93,7 @@ startActivity(intent);
 &lt;p>/dev/null 表示空設備文件
 0 表示stdin標準輸入
 1 表示stdout標準輸出
-2 表示stderr標準錯誤&lt;/p></description></item><item><title>Math Related</title><link>https://bernie6401.github.io/terminology/math-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/terminology/math-related/</guid><description>&lt;h1 id="math-related">
+2 表示stderr標準錯誤&lt;/p></description></item><item><title>Math Related</title><link>https://bernie6401.github.io/docs/terminology/math-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/math-related/</guid><description>&lt;h1 id="math-related">
  Math Related
  &lt;a class="anchor" href="#math-related">#&lt;/a>
 &lt;/h1>
@@ -145,7 +145,7 @@ $$&lt;/p>
  &lt;strong>3. \mathscr (Script Font)&lt;/strong>
  &lt;a class="anchor" href="#3-mathscr-script-font">#&lt;/a>
 &lt;/h3>
-&lt;p>&lt;strong>用途&lt;/strong>：&lt;/p></description></item><item><title>Network Related</title><link>https://bernie6401.github.io/terminology/network-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/terminology/network-related/</guid><description>&lt;h1 id="what-is-httpssh-tunnel-tlsssl-websocket">
+&lt;p>&lt;strong>用途&lt;/strong>：&lt;/p></description></item><item><title>Network Related</title><link>https://bernie6401.github.io/docs/terminology/network-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/network-related/</guid><description>&lt;h1 id="what-is-httpssh-tunnel-tlsssl-websocket">
  What is HTTP/SSH Tunnel, TLS/SSL, WebSocket?
  &lt;a class="anchor" href="#what-is-httpssh-tunnel-tlsssl-websocket">#&lt;/a>
 &lt;/h1>
@@ -191,7 +191,7 @@ $$&lt;/p>
  HTTP Tunnel
  &lt;a class="anchor" href="#http-tunnel">#&lt;/a>
 &lt;/h2>
-&lt;p>根據&lt;a href="http://www.wiseuc.com/facontent.php?id=903">http tunnel 原理及穿透防火牆方法&lt;/a>中提到的說明，其實和上述的SSH Tunnel的原理和功能差不多，只是建立tunnel的Port變成HTTP的80為主&lt;/p></description></item><item><title>Node Related</title><link>https://bernie6401.github.io/terminology/node-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/terminology/node-related/</guid><description>&lt;h1 id="node-related">
+&lt;p>根據&lt;a href="http://www.wiseuc.com/facontent.php?id=903">http tunnel 原理及穿透防火牆方法&lt;/a>中提到的說明，其實和上述的SSH Tunnel的原理和功能差不多，只是建立tunnel的Port變成HTTP的80為主&lt;/p></description></item><item><title>Node Related</title><link>https://bernie6401.github.io/docs/terminology/node-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/node-related/</guid><description>&lt;h1 id="node-related">
  Node Related
  &lt;a class="anchor" href="#node-related">#&lt;/a>
 &lt;/h1>
@@ -232,7 +232,7 @@ $$&lt;/p>
  Node.js 的優缺點
  &lt;a class="anchor" href="#nodejs-%e7%9a%84%e5%84%aa%e7%bc%ba%e9%bb%9e">#&lt;/a>
 &lt;/h3>
-&lt;p>&lt;strong>優點&lt;/strong>：&lt;/p></description></item><item><title>Programming Related</title><link>https://bernie6401.github.io/terminology/programming-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/terminology/programming-related/</guid><description>&lt;h1 id="programming-related">
+&lt;p>&lt;strong>優點&lt;/strong>：&lt;/p></description></item><item><title>Programming Related</title><link>https://bernie6401.github.io/docs/terminology/programming-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/programming-related/</guid><description>&lt;h1 id="programming-related">
  Programming Related
  &lt;a class="anchor" href="#programming-related">#&lt;/a>
 &lt;/h1>
@@ -297,7 +297,7 @@ $$&lt;/p>
  2. &lt;strong>Python&lt;/strong>
  &lt;a class="anchor" href="#2-python">#&lt;/a>
 &lt;/h4>
-&lt;p>在 Python 中，每個模組（module）本身就是一個命名空間，通過 &lt;code>import&lt;/code> 來使用其他命名空間的內容。&lt;/p></description></item><item><title>Reinforcement Learning</title><link>https://bernie6401.github.io/terminology/reinforcement-learning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/terminology/reinforcement-learning/</guid><description>&lt;h1 id="reinforcement-learning">
+&lt;p>在 Python 中，每個模組（module）本身就是一個命名空間，通過 &lt;code>import&lt;/code> 來使用其他命名空間的內容。&lt;/p></description></item><item><title>Reinforcement Learning</title><link>https://bernie6401.github.io/docs/terminology/reinforcement-learning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/reinforcement-learning/</guid><description>&lt;h1 id="reinforcement-learning">
  Reinforcement Learning
  &lt;a class="anchor" href="#reinforcement-learning">#&lt;/a>
 &lt;/h1>
@@ -378,7 +378,7 @@ $$&lt;/p>
 &lt;p>Value Function
 $$
 V^\pi(s) = \mathbb{E}&lt;em>\pi \left[ \sum&lt;/em>{t=0}^\infty \gamma^t r_t \mid s_0 = s \right]
-$$&lt;/p></description></item><item><title>What is DevOps, MLOps, CI/CD?</title><link>https://bernie6401.github.io/terminology/what-is-devops-mlops-ci_cd_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/terminology/what-is-devops-mlops-ci_cd_/</guid><description>&lt;ul>
+$$&lt;/p></description></item><item><title>What is DevOps, MLOps, CI/CD?</title><link>https://bernie6401.github.io/docs/terminology/what-is-devops-mlops-ci_cd_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/what-is-devops-mlops-ci_cd_/</guid><description>&lt;ul>
 &lt;li>&lt;a href="https://ithelp.ithome.com.tw/articles/10184557">什麼是 DevOps？&lt;/a>
 :::spoiler
 &lt;blockquote>
@@ -417,7 +417,7 @@ DevOps 到底在做什麼？&lt;/p>
  CI（Continuous Integration）持續整合
  &lt;a class="anchor" href="#cicontinuous-integration%e6%8c%81%e7%ba%8c%e6%95%b4%e5%90%88">#&lt;/a>
 &lt;/h3>
-&lt;p>持續整合（Continuous Integration，CI）顧名思義，就是當開發人員完成一個階段性的程式碼後就經由自動化工具測試、驗證，協助偵測程式碼問題，並建置出即將部署的版本（Build）&lt;/p></description></item><item><title>What is IDS, IPS, EDR, MDR, NSM, SIEM?</title><link>https://bernie6401.github.io/terminology/what-is-ids-ips-edr-mdr-nsm-siem_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/terminology/what-is-ids-ips-edr-mdr-nsm-siem_/</guid><description>&lt;ol>
+&lt;p>持續整合（Continuous Integration，CI）顧名思義，就是當開發人員完成一個階段性的程式碼後就經由自動化工具測試、驗證，協助偵測程式碼問題，並建置出即將部署的版本（Build）&lt;/p></description></item><item><title>What is IDS, IPS, EDR, MDR, NSM, SIEM?</title><link>https://bernie6401.github.io/docs/terminology/what-is-ids-ips-edr-mdr-nsm-siem_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/what-is-ids-ips-edr-mdr-nsm-siem_/</guid><description>&lt;ol>
 &lt;li>IDS(Intrusion Detection System, 入侵偵測系統)
 簡答: 從名字就可以看的出來，他是針對流入流出的各種封包的偵測系統，也就是獨立於Firewall的旁之，如果他有檢測到封包內有什麼異常的Payload或是pattern，就會跳出告警，但就僅只於此，不會再做更多的操作
 詳答: &lt;a href="https://www.ithome.com.tw/tech/28712">What is IDS(Intrusion Detection Systems)?&lt;/a>
@@ -452,7 +452,7 @@ e.g.帳號登入失敗、創建新帳號、帳號權限提升等等可能是攻�
 &lt;li>整合其他資安工具或資安服務&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ol></description></item><item><title>投資理財</title><link>https://bernie6401.github.io/knowledge/%E6%8A%95%E8%B3%87%E7%90%86%E8%B2%A1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/knowledge/%E6%8A%95%E8%B3%87%E7%90%86%E8%B2%A1/</guid><description>&lt;h1 id="投資理財">
+&lt;/ol></description></item><item><title>投資理財</title><link>https://bernie6401.github.io/docs/knowledge/%E6%8A%95%E8%B3%87%E7%90%86%E8%B2%A1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/knowledge/%E6%8A%95%E8%B3%87%E7%90%86%E8%B2%A1/</guid><description>&lt;h1 id="投資理財">
  投資理財
  &lt;a class="anchor" href="#%e6%8a%95%e8%b3%87%e7%90%86%e8%b2%a1">#&lt;/a>
 &lt;/h1>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU_CT on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntu_ct/</link><description>Recent content in NTU_CT on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntu_ct/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Compiler Technology Previous Exam 2019 Spring</title><link>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2019-spring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2019-spring/</guid><description>&lt;h1 id="ntu-compiler-technology-previous-exam-2019-spring">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU_CT on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntu_ct/</link><description>Recent content in NTU_CT on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntu_ct/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Compiler Technology Previous Exam 2019 Spring</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2019-spring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2019-spring/</guid><description>&lt;h1 id="ntu-compiler-technology-previous-exam-2019-spring">
  NTU Compiler Technology Previous Exam 2019 Spring
  &lt;a class="anchor" href="#ntu-compiler-technology-previous-exam-2019-spring">#&lt;/a>
 &lt;/h1>
@@ -14,7 +14,7 @@
 (c) 3rd compiler optimization techniques: (5points/15)&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Many computer systems provide an interactive debugger (for example, &lt;code>gdb&lt;/code> or db x) to assist users in diagnosing and correcting runtime errors. Although a debugger is run long after a compiler has done its job, the two tools still must cooperate. What information (beyond the translation of a program) must a compiler supply to support effective runtime debugging? (5 points/20)&lt;/p></description></item><item><title>NTU Compiler Technology Previous Exam 2020 Spring</title><link>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2020-spring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2020-spring/</guid><description>&lt;h1 id="ntu-compiler-technology-previous-exam-2020-spring">
+&lt;p>Many computer systems provide an interactive debugger (for example, &lt;code>gdb&lt;/code> or db x) to assist users in diagnosing and correcting runtime errors. Although a debugger is run long after a compiler has done its job, the two tools still must cooperate. What information (beyond the translation of a program) must a compiler supply to support effective runtime debugging? (5 points/20)&lt;/p></description></item><item><title>NTU Compiler Technology Previous Exam 2020 Spring</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2020-spring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2020-spring/</guid><description>&lt;h1 id="ntu-compiler-technology-previous-exam-2020-spring">
  NTU Compiler Technology Previous Exam 2020 Spring
  &lt;a class="anchor" href="#ntu-compiler-technology-previous-exam-2020-spring">#&lt;/a>
 &lt;/h1>
@@ -29,7 +29,7 @@
 &lt;/li>
 &lt;li>
 &lt;p>Please write down a regular expression that defines the set of strings recognized by the FA in the following and explain your answer (5points/ 15)
-&lt;img src="https://imgur.com/oWs2kC0.png" alt="" />&lt;/p></description></item><item><title>NTU Compiler Technology Project 1</title><link>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-project-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-project-1/</guid><description>&lt;h1 id="ntu-compiler-technology-project-1">
+&lt;img src="https://imgur.com/oWs2kC0.png" alt="" />&lt;/p></description></item><item><title>NTU Compiler Technology Project 1</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-1/</guid><description>&lt;h1 id="ntu-compiler-technology-project-1">
  NTU Compiler Technology Project 1
  &lt;a class="anchor" href="#ntu-compiler-technology-project-1">#&lt;/a>
 &lt;/h1>
@@ -89,7 +89,7 @@
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/jaidTw/AcDc">AcDc&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/ZephyrZhuQi/AcDcCompiler">AcDcCompiler&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>NTU Compiler Technology Project 2</title><link>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-project-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-project-2/</guid><description>&lt;h1 id="ntu-compiler-technology-project-2">
+&lt;/ul></description></item><item><title>NTU Compiler Technology Project 2</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-2/</guid><description>&lt;h1 id="ntu-compiler-technology-project-2">
  NTU Compiler Technology Project 2
  &lt;a class="anchor" href="#ntu-compiler-technology-project-2">#&lt;/a>
 &lt;/h1>
@@ -117,7 +117,7 @@
 &lt;/h2>
 &lt;ul>
 &lt;li>
-&lt;p>For sample1.ac&lt;/p></description></item><item><title>NTU Compiler Technology Project 3</title><link>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-project-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-project-3/</guid><description>&lt;h1 id="ntu-compiler-technology-project-3">
+&lt;p>For sample1.ac&lt;/p></description></item><item><title>NTU Compiler Technology Project 3</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-3/</guid><description>&lt;h1 id="ntu-compiler-technology-project-3">
  NTU Compiler Technology Project 3
  &lt;a class="anchor" href="#ntu-compiler-technology-project-3">#&lt;/a>
 &lt;/h1>
@@ -303,7 +303,7 @@ int main() {
 &lt;a href="https://bluelove1968.pixnet.net/blog/post/222285652?utm_source=PIXNET&amp;amp;utm_medium=Blog_CollectionEXP_login">Simple intro of yacc &amp;amp; lex&lt;/a>
 &lt;a href="https://www.netadmin.com.tw/netadmin/zh-tw/technology/122966CB664D4A17ABAAD11FC2AA887C?page=3">Simple intro of Graphviz&lt;/a>
 &lt;a href="https://arcb.csc.ncsu.edu/~mueller/codeopt/codeopt00/y_man.pdf">A GUIDE TO LEX &amp;amp; YACC from TA&lt;/a>
-大推：&lt;a href="https://good-ed.blogspot.com/2010/04/lexyacc.html">以lex/yacc實作算式計算機&lt;/a>&lt;/p></description></item><item><title>NTU Compiler Technology Project 4</title><link>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-project-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-ct/ntu-compiler-technology-project-4/</guid><description>&lt;h1 id="ntu-compiler-technology-project-4">
+大推：&lt;a href="https://good-ed.blogspot.com/2010/04/lexyacc.html">以lex/yacc實作算式計算機&lt;/a>&lt;/p></description></item><item><title>NTU Compiler Technology Project 4</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-4/</guid><description>&lt;h1 id="ntu-compiler-technology-project-4">
  NTU Compiler Technology Project 4
  &lt;a class="anchor" href="#ntu-compiler-technology-project-4">#&lt;/a>
 &lt;/h1>

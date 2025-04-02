@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cryptography on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/cryptography/</link><description>Recent content in Cryptography on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Cryptography and Network Security - Final Project</title><link>https://bernie6401.github.io/security/course/ntu-cns/cryptography-and-network-security---final-project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cns/cryptography-and-network-security---final-project/</guid><description>&lt;h1 id="cryptography-and-network-security---final-project">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cryptography on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/cryptography/</link><description>Recent content in Cryptography on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Cryptography and Network Security - Final Project</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/cryptography-and-network-security---final-project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cns/cryptography-and-network-security---final-project/</guid><description>&lt;h1 id="cryptography-and-network-security---final-project">
  Cryptography and Network Security - Final Project
  &lt;a class="anchor" href="#cryptography-and-network-security---final-project">#&lt;/a>
 &lt;/h1>
@@ -7,7 +7,7 @@
  &lt;a class="anchor" href="#threshold-he-description">#&lt;/a>
 &lt;/h2>
 &lt;p>With a designed scheme in place for threshold homomorphic encryption, private keys are divided into various shares among participating individuals who then work together to collaborate on computations without revealing plaintext material.&lt;/p>
-&lt;p>Decryption requires collaboration from at least the minimum requirement, e.g. $(t,n)$ means there&amp;rsquo;re $n$ participate parties but need at least $t$ parties&amp;rsquo; granting to decrypt the secret just like secret sharing scheme proposed by Shamir. Threshold homomorphic&amp;rsquo;s primary objective is secure computation involving confidential information with lesser exposure or accessibility risks for single individuals - due to a shared understanding by several stakeholders.&lt;/p></description></item><item><title>Cryptography Lec 1(Overview) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-1overview---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-1overview---notes/</guid><description>&lt;h1 id="cryptography-lec-1overview---notes">
+&lt;p>Decryption requires collaboration from at least the minimum requirement, e.g. $(t,n)$ means there&amp;rsquo;re $n$ participate parties but need at least $t$ parties&amp;rsquo; granting to decrypt the secret just like secret sharing scheme proposed by Shamir. Threshold homomorphic&amp;rsquo;s primary objective is secure computation involving confidential information with lesser exposure or accessibility risks for single individuals - due to a shared understanding by several stakeholders.&lt;/p></description></item><item><title>Cryptography Lec 1(Overview) - Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-1overview---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-1overview---notes/</guid><description>&lt;h1 id="cryptography-lec-1overview---notes">
  Cryptography Lec 1(Overview) - Notes
  &lt;a class="anchor" href="#cryptography-lec-1overview---notes">#&lt;/a>
 &lt;/h1>
@@ -25,7 +25,7 @@ Attacker只可以拿到plaintext相對應的ciphertext，通常是在同一把ke
 Attacker不只可以拿到plaintext相對應的ciphertext，他也可以知道ciphertext相對應的plaintext，進而得知很多額外的資訊&lt;/p>
 &lt;p>Mode of Operation
 e.g. ECB, CBC, CTR, GCM&amp;hellip;(Nonsecure $\to$ Secure)
-選擇甚麼樣的mode和選擇麼加密演算法是完全獨立的事情，也可以每一個block都使用完全不同的加密演算法&lt;/p></description></item><item><title>Cryptography Lec 2(Historical Ciphers) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-2historical-ciphers---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-2historical-ciphers---notes/</guid><description>&lt;h1 id="cryptography-lec-2historical-ciphers---notes">
+選擇甚麼樣的mode和選擇麼加密演算法是完全獨立的事情，也可以每一個block都使用完全不同的加密演算法&lt;/p></description></item><item><title>Cryptography Lec 2(Historical Ciphers) - Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-2historical-ciphers---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-2historical-ciphers---notes/</guid><description>&lt;h1 id="cryptography-lec-2historical-ciphers---notes">
  Cryptography Lec 2(Historical Ciphers) - Notes
  &lt;a class="anchor" href="#cryptography-lec-2historical-ciphers---notes">#&lt;/a>
 &lt;/h1>
@@ -53,7 +53,7 @@ The Algorithm consists of 2 steps:&lt;/p>
 &lt;/ol>
 &lt;p>:::info
 Note that: Pair cannot be made with same letter. Break the letter in single and add a bogus letter to the previous letter.
-:::&lt;/p></description></item><item><title>Cryptography Lec 3(Mathematical Background) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-3mathematical-background---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-3mathematical-background---notes/</guid><description>&lt;h1 id="cryptography-lec-3mathematical-background---notes">
+:::&lt;/p></description></item><item><title>Cryptography Lec 3(Mathematical Background) - Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-3mathematical-background---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-3mathematical-background---notes/</guid><description>&lt;h1 id="cryptography-lec-3mathematical-background---notes">
  Cryptography Lec 3(Mathematical Background) - Notes
  &lt;a class="anchor" href="#cryptography-lec-3mathematical-background---notes">#&lt;/a>
 &lt;/h1>
@@ -87,7 +87,7 @@ Compute\ gcd(270,\ 192)\
 36=6&lt;/em>6+0
 $$
 Then we found $gcd(270,\ 192)=6$
-:::&lt;/p></description></item><item><title>Cryptography Lec 4(Information Theory) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-4information-theory---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-4information-theory---notes/</guid><description>&lt;h1 id="cryptography-lec-4information-theory---notes">
+:::&lt;/p></description></item><item><title>Cryptography Lec 4(Information Theory) - Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-4information-theory---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-4information-theory---notes/</guid><description>&lt;h1 id="cryptography-lec-4information-theory---notes">
  Cryptography Lec 4(Information Theory) - Notes
  &lt;a class="anchor" href="#cryptography-lec-4information-theory---notes">#&lt;/a>
 &lt;/h1>
@@ -105,7 +105,7 @@ Then we found $gcd(270,\ 192)=6$
 $$此cryptosystem具有perfect\ secrecy\
 iff\
 每一把key被使用的機率都相同，i.e.{1 \over #K}，且對於每個m\in P和c\in C都有一個獨立的key\ k使得e_k(m)=c
-$$&lt;/p></description></item><item><title>Cryptography Lec 5(Symmetric Key Cryptography) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-5symmetric-key-cryptography---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-5symmetric-key-cryptography---notes/</guid><description>&lt;h1 id="cryptography-lec-5symmetric-key-cryptography---notes">
+$$&lt;/p></description></item><item><title>Cryptography Lec 5(Symmetric Key Cryptography) - Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-5symmetric-key-cryptography---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-5symmetric-key-cryptography---notes/</guid><description>&lt;h1 id="cryptography-lec-5symmetric-key-cryptography---notes">
  Cryptography Lec 5(Symmetric Key Cryptography) - Notes
  &lt;a class="anchor" href="#cryptography-lec-5symmetric-key-cryptography---notes">#&lt;/a>
 &lt;/h1>
@@ -178,7 +178,7 @@ $$&lt;/p></description></item><item><title>Cryptography Lec 5(Symmetric Key Cryp
 &lt;blockquote>
 &lt;p>RC4在後來被指出他所產生的密鑰並不隨機，存在統計上的偏誤，並且密文有洩漏明文資訊的可能，
 因此已不再被建議使用。
-:::&lt;/p></description></item><item><title>Cryptography Lec 6(Key Agreement Protocol) - Notes</title><link>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-6key-agreement-protocol---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-crypto/cryptography-lec-6key-agreement-protocol---notes/</guid><description>&lt;h1 id="cryptography-lec-6key-agreement-protocol---notes">
+:::&lt;/p></description></item><item><title>Cryptography Lec 6(Key Agreement Protocol) - Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-6key-agreement-protocol---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-crypto/cryptography-lec-6key-agreement-protocol---notes/</guid><description>&lt;h1 id="cryptography-lec-6key-agreement-protocol---notes">
  Cryptography Lec 6(Key Agreement Protocol) - Notes
  &lt;a class="anchor" href="#cryptography-lec-6key-agreement-protocol---notes">#&lt;/a>
 &lt;/h1>

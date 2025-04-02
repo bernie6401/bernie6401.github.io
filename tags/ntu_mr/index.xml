@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU_MR on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntu_mr/</link><description>Recent content in NTU_MR on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntu_mr/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Malware Reverse Final Project Notes</title><link>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-final-project-notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-final-project-notes/</guid><description>&lt;h1 id="ntu-malware-reverse-final-project-notes">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU_MR on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntu_mr/</link><description>Recent content in NTU_MR on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntu_mr/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Malware Reverse Final Project Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-final-project-notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-final-project-notes/</guid><description>&lt;h1 id="ntu-malware-reverse-final-project-notes">
  NTU Malware Reverse Final Project Notes
  &lt;a class="anchor" href="#ntu-malware-reverse-final-project-notes">#&lt;/a>
 &lt;/h1>
@@ -44,7 +44,7 @@ Refer to &lt;a href="https://www.tensorflow.org/install/source_windows#gpu">docu
  &lt;/tbody>
 &lt;/table>
 &lt;p>Then refer to &lt;a href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-windows">NVIDIA CUDNN DOCUMENTATION&lt;/a>, just use &lt;code>zlibwapi.dll&lt;/code> provided by this page directly. This compressed folder is for &lt;code>x64&lt;/code> processor.
-Notice that, &lt;strong>&lt;font color=#FF0000>DO NOT USE &lt;a href="http://www.winimage.com/zLibDll/">this page&lt;/a> and &lt;a href="https://www.dll-files.com/zlibwapi.dll.html">this page&lt;/a>&lt;/font>&lt;/strong>. These are for &lt;code>x86&lt;/code> processor.&lt;/p></description></item><item><title>NTU Malware Reverse HW 1 write up</title><link>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-hw-1-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-hw-1-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-hw-1-write-up">
+Notice that, &lt;strong>&lt;font color=#FF0000>DO NOT USE &lt;a href="http://www.winimage.com/zLibDll/">this page&lt;/a> and &lt;a href="https://www.dll-files.com/zlibwapi.dll.html">this page&lt;/a>&lt;/font>&lt;/strong>. These are for &lt;code>x86&lt;/code> processor.&lt;/p></description></item><item><title>NTU Malware Reverse HW 1 write up</title><link>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-hw-1-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-hw-1-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-hw-1-write-up">
  NTU Malware Reverse HW 1 write up
  &lt;a class="anchor" href="#ntu-malware-reverse-hw-1-write-up">#&lt;/a>
 &lt;/h1>
@@ -69,7 +69,7 @@ Ans: It has only an if statement in the main function.
 &lt;/li>
 &lt;li>
 &lt;p>What is the subroutine located at 0x40105F?
-Ans: It’s just a &lt;code>printf&lt;/code> function. At the beginning, I can not recognize this code block do exactly until I analyze the program behavior by using string side bar to search the specific string in the code.&lt;/p></description></item><item><title>NTU Malware Reverse HW 2 write up</title><link>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-hw-2-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-hw-2-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-hw-2-write-up">
+Ans: It’s just a &lt;code>printf&lt;/code> function. At the beginning, I can not recognize this code block do exactly until I analyze the program behavior by using string side bar to search the specific string in the code.&lt;/p></description></item><item><title>NTU Malware Reverse HW 2 write up</title><link>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-hw-2-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-hw-2-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-hw-2-write-up">
  NTU Malware Reverse HW 2 write up
  &lt;a class="anchor" href="#ntu-malware-reverse-hw-2-write-up">#&lt;/a>
 &lt;/h1>
@@ -88,7 +88,7 @@ Ans:&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>&lt;code>Conhost.exe&lt;/code>: It’s defined by Microsoft and is normally legal and safe. Working on &lt;code>Win7&lt;/code>, &lt;code>Win8&lt;/code>, and &lt;code>Win10&lt;/code>. The main function of this PE file is to let Command Prompt and Windows File Explorer can interact. The other function is to support users who can drag the file or folder to the command prompt directly. Most of the time, it’s a safe file that even repeats execution many times. However, in some circumstances, the viruses will pretend a &lt;code>conhost.exe&lt;/code> file to use massive memory or store it in the wrong folder.[1]
-&lt;img src="https://imgur.com/xQayXgX.png" alt="" />&lt;/p></description></item><item><title>NTU Malware Reverse HW 3 write up</title><link>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-hw-3-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-hw-3-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-hw-3-write-up">
+&lt;img src="https://imgur.com/xQayXgX.png" alt="" />&lt;/p></description></item><item><title>NTU Malware Reverse HW 3 write up</title><link>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-hw-3-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-hw-3-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-hw-3-write-up">
  NTU Malware Reverse HW 3 write up
  &lt;a class="anchor" href="#ntu-malware-reverse-hw-3-write-up">#&lt;/a>
 &lt;/h1>
@@ -121,7 +121,7 @@ Ans:&lt;/p>
 &lt;li>
 &lt;p>When I execute the file, it print out a message: &lt;code>Son, I am disappoint.&lt;/code> Refer to the description below, I must enter some parameter that match the secret code.&lt;/p>
 &lt;blockquote>
-&lt;p>Analyze the sample found in the file &lt;code>Lab15-01.exe&lt;/code>. This is a command-line program that takes an argument and prints &lt;code>Good Job!&lt;/code> if the argument matches a secret code.&lt;/p></description></item><item><title>NTU Malware Reverse Lab 1 write up</title><link>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-lab-1-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-lab-1-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-lab-1-write-up">
+&lt;p>Analyze the sample found in the file &lt;code>Lab15-01.exe&lt;/code>. This is a command-line program that takes an argument and prints &lt;code>Good Job!&lt;/code> if the argument matches a secret code.&lt;/p></description></item><item><title>NTU Malware Reverse Lab 1 write up</title><link>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-lab-1-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-lab-1-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-lab-1-write-up">
  NTU Malware Reverse Lab 1 write up
  &lt;a class="anchor" href="#ntu-malware-reverse-lab-1-write-up">#&lt;/a>
 &lt;/h1>
@@ -177,7 +177,7 @@ Ans:&lt;/p>
 &lt;p>1.1 What is the &amp;lsquo;killswitch&amp;rsquo; string?
 Ans: &lt;a href="http://www.iuqerfsodp">http://www.iuqerfsodp&lt;/a>9ifjaposdfj
 1.2 What is the unzip password? (as show in below)
-Ans: WNcry@2o17&lt;/p></description></item><item><title>NTU Malware Reverse Lab 2 write up</title><link>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-lab-2-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-lab-2-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-lab-2-write-up">
+Ans: WNcry@2o17&lt;/p></description></item><item><title>NTU Malware Reverse Lab 2 write up</title><link>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-lab-2-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-lab-2-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-lab-2-write-up">
  NTU Malware Reverse Lab 2 write up
  &lt;a class="anchor" href="#ntu-malware-reverse-lab-2-write-up">#&lt;/a>
 &lt;/h1>
@@ -221,7 +221,7 @@ Then use PEiD to check if the file has shell or not. And refer to the result as 
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;/ul>
 &lt;p>1.2 Use static techniques such as an xor search, FindCrypt2, KANAL, and the IDA Entropy Plugin to look for potential encoding. What do you find?&lt;strong>(Install findcrypt and IDA Entropy plugin can refer to Appendix 1, 2)&lt;/strong>
-Ans:&lt;/p></description></item><item><title>NTU Malware Reverse Lab 3 write up</title><link>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-lab-3-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-mr/ntu-malware-reverse-lab-3-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-lab-3-write-up">
+Ans:&lt;/p></description></item><item><title>NTU Malware Reverse Lab 3 write up</title><link>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-lab-3-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-mr/ntu-malware-reverse-lab-3-write-up/</guid><description>&lt;h1 id="ntu-malware-reverse-lab-3-write-up">
  NTU Malware Reverse Lab 3 write up
  &lt;a class="anchor" href="#ntu-malware-reverse-lab-3-write-up">#&lt;/a>
 &lt;/h1>

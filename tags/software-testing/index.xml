@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software Testing on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/software-testing/</link><description>Recent content in Software Testing on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/software-testing/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Software Testing Notes</title><link>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes-1/</guid><description>&lt;h1 id="ntu-software-testing-notes">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software Testing on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/software-testing/</link><description>Recent content in Software Testing on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/software-testing/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Software Testing Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-st/ntu-software-testing-notes-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-st/ntu-software-testing-notes-1/</guid><description>&lt;h1 id="ntu-software-testing-notes">
  NTU Software Testing Notes
  &lt;a class="anchor" href="#ntu-software-testing-notes">#&lt;/a>
 &lt;/h1>
@@ -32,7 +32,7 @@ Regression tests must be automated&lt;/p>&lt;/blockquote>
 &lt;li>Scripting software: 管理以下流程，包含獲取測試輸入、執行軟體、獲取輸出、比較結果和生成測試報告等等(Manages the process of obtaining test inputs, executing the software, obtaining the outputs, comparing the results, and generating test reports&lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>Tools are plentiful and cheap&lt;/p></description></item><item><title>NTU Software Testing Notes</title><link>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-st/ntu-software-testing-notes/</guid><description>&lt;h1 id="ntu-software-testing-notes">
+&lt;p>Tools are plentiful and cheap&lt;/p></description></item><item><title>NTU Software Testing Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-st/ntu-software-testing-notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-st/ntu-software-testing-notes/</guid><description>&lt;h1 id="ntu-software-testing-notes">
  NTU Software Testing Notes
  &lt;a class="anchor" href="#ntu-software-testing-notes">#&lt;/a>
 &lt;/h1>
@@ -94,7 +94,7 @@ Regression tests must be automated&lt;/p>&lt;/blockquote>
 &lt;/ol>
 &lt;ul>
 &lt;li>
-&lt;p>Static Checking: 先不跑test input，先針對畫出來的graph做checking&lt;/p></description></item><item><title>Unit Test Practice</title><link>https://bernie6401.github.io/security/course/ntu-st/unit-test-practice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-st/unit-test-practice/</guid><description>&lt;h1 id="unit-test-practice">
+&lt;p>Static Checking: 先不跑test input，先針對畫出來的graph做checking&lt;/p></description></item><item><title>Unit Test Practice</title><link>https://bernie6401.github.io/docs/security/course/ntu-st/unit-test-practice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-st/unit-test-practice/</guid><description>&lt;h1 id="unit-test-practice">
  Unit Test Practice
  &lt;a class="anchor" href="#unit-test-practice">#&lt;/a>
 &lt;/h1>

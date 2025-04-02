@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTUSTWS on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntustws/</link><description>Recent content in NTUSTWS on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntustws/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple Web 0x01(Lab - `gitleak`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/</guid><description>&lt;h1 id="simple-web-0x01lab---gitleak">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTUSTWS on SBK Hugo Site</title><link>https://bernie6401.github.io/tags/ntustws/</link><description>Recent content in NTUSTWS on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/ntustws/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple Web 0x01(Lab - `gitleak`)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/information-leak/simple-web-0x01lab---gitleak/</guid><description>&lt;h1 id="simple-web-0x01lab---gitleak">
  Simple Web 0x01(Lab - &lt;code>gitleak&lt;/code>)
  &lt;a class="anchor" href="#simple-web-0x01lab---gitleak">#&lt;/a>
 &lt;/h1>
@@ -26,7 +26,7 @@ $ sudo ./scrabble http://h4ck3r.quest:9000/
 &lt;li>
 &lt;p>Still no flag
 There&amp;rsquo;s &lt;code>flag.php&lt;/code> but still no flag in there. &lt;code>HEAD&lt;/code> said &lt;code>HEAD is now at a0228bd Remove flag.&lt;/code>
-Thus, we can look up the history by the command below.&lt;/p></description></item><item><title>Simple Web 0x02(Lab - `.DS_Store`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/</guid><description>&lt;h1 id="simple-web-0x02lab---ds_store">
+Thus, we can look up the history by the command below.&lt;/p></description></item><item><title>Simple Web 0x02(Lab - `.DS_Store`)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/information-leak/simple-web-0x02lab---.ds_store/</guid><description>&lt;h1 id="simple-web-0x02lab---ds_store">
  Simple Web 0x02(Lab - &lt;code>.DS_Store&lt;/code>)
  &lt;a class="anchor" href="#simple-web-0x02lab---ds_store">#&lt;/a>
 &lt;/h1>
@@ -59,7 +59,7 @@ $ conda install -c anaconda requests
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://bobbyhadz.com/blog/python-no-module-named-queue">python-no-module-named-queue&lt;/a>&lt;/p></description></item><item><title>Simple Web 0x03(Lab - Log me in + Revenge)</title><link>https://bernie6401.github.io/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</guid><description>&lt;h1 id="simple-web-0x03lab---log-me-in--revenge">
+&lt;p>&lt;a href="https://bobbyhadz.com/blog/python-no-module-named-queue">python-no-module-named-queue&lt;/a>&lt;/p></description></item><item><title>Simple Web 0x03(Lab - Log me in + Revenge)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</guid><description>&lt;h1 id="simple-web-0x03lab---log-me-in--revenge">
  Simple Web 0x03(Lab - Log me in + Revenge)
  &lt;a class="anchor" href="#simple-web-0x03lab---log-me-in--revenge">#&lt;/a>
 &lt;/h1>
@@ -157,7 +157,7 @@ def source():
 
 if __name__ == &amp;#39;__main__&amp;#39;:
  app.run(debug=True)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x04(Lab - Image Space 0x01)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/</guid><description>&lt;h1 id="simple-web-0x04lab---image-space-0x01">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x04(Lab - Image Space 0x01)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x04lab---image-space-0x01/</guid><description>&lt;h1 id="simple-web-0x04lab---image-space-0x01">
  Simple Web 0x04(Lab - Image Space 0x01)
  &lt;a class="anchor" href="#simple-web-0x04lab---image-space-0x01">#&lt;/a>
 &lt;/h1>
@@ -198,7 +198,7 @@ if __name__ == &amp;#39;__main__&amp;#39;:
  move_uploaded_file($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;tmp_name&amp;#39;], &amp;#34;images/${prefix}_${filename}&amp;#34;);
  echo &amp;#34;&amp;lt;img src=\&amp;#34;images/${prefix}_${filename}\&amp;#34;&amp;gt;&amp;#34;;
 ?&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x05(Lab - Image Space 0x02)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/</guid><description>&lt;h1 id="simple-web-0x05lab---image-space-0x02">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x05(Lab - Image Space 0x02)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x05lab---image-space-0x02/</guid><description>&lt;h1 id="simple-web-0x05lab---image-space-0x02">
  Simple Web 0x05(Lab - Image Space 0x02)
  &lt;a class="anchor" href="#simple-web-0x05lab---image-space-0x02">#&lt;/a>
 &lt;/h1>
@@ -243,7 +243,7 @@ if __name__ == &amp;#39;__main__&amp;#39;:
  move_uploaded_file($_FILES[&amp;#39;image_file&amp;#39;][&amp;#39;tmp_name&amp;#39;], &amp;#34;images/${prefix}_${filename}&amp;#34;);
  echo &amp;#34;&amp;lt;img src=\&amp;#34;/images/${prefix}_${filename}\&amp;#34;&amp;gt;&amp;#34;;
 ?&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x06(Lab - Image Space 0x03)</title><link>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/</guid><description>&lt;h1 id="simple-web-0x06lab---image-space-0x03">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x06(Lab - Image Space 0x03)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/upload/simple-web-0x06lab---image-space-0x03/</guid><description>&lt;h1 id="simple-web-0x06lab---image-space-0x03">
  Simple Web 0x06(Lab - Image Space 0x03)
  &lt;a class="anchor" href="#simple-web-0x06lab---image-space-0x03">#&lt;/a>
 &lt;/h1>
@@ -304,7 +304,7 @@ if __name__ == &amp;#39;__main__&amp;#39;:
  echo &amp;#34;&amp;lt;img src=\&amp;#34;/images/${prefix}_${filename}\&amp;#34;&amp;gt;&amp;#34;;
 ?&amp;gt;
 &lt;/code>&lt;/pre>&lt;p>:::
-It has 2 extra constraint must be bypassed. Use &lt;code>burpsuite&lt;/code> and change valid file signature&lt;/p></description></item><item><title>Simple Web 0x07(Lab - `HakkaMD`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</guid><description>&lt;h1 id="simple-web-0x07lab---hakkamd">
+It has 2 extra constraint must be bypassed. Use &lt;code>burpsuite&lt;/code> and change valid file signature&lt;/p></description></item><item><title>Simple Web 0x07(Lab - `HakkaMD`)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</guid><description>&lt;h1 id="simple-web-0x07lab---hakkamd">
  Simple Web 0x07(Lab - &lt;code>HakkaMD&lt;/code>)
  &lt;a class="anchor" href="#simple-web-0x07lab---hakkamd">#&lt;/a>
 &lt;/h1>
@@ -342,7 +342,7 @@ We can see that session file store the data of what we enter. Therefore, we coul
 ↓
 &lt;code>http://h4ck3r.quest:8401/?module=/tmp/sess_2f0dilri9ju4553th2bkclefal&amp;amp;sh=cat%20/flag_aff6136bbef82137&lt;/code>&lt;/li>
 &lt;li>Then we got flag!!!&lt;/li>
-&lt;/ol></description></item><item><title>Simple Web 0x08(Lab - My First Meow Website)</title><link>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</guid><description>&lt;h1 id="simple-web-0x08lab---my-first-meow-website">
+&lt;/ol></description></item><item><title>Simple Web 0x08(Lab - My First Meow Website)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</guid><description>&lt;h1 id="simple-web-0x08lab---my-first-meow-website">
  Simple Web 0x08(Lab - My First Meow Website)
  &lt;a class="anchor" href="#simple-web-0x08lab---my-first-meow-website">#&lt;/a>
 &lt;/h1>
@@ -435,7 +435,7 @@ if (
 ?&amp;gt;
 &lt;/code>&lt;/pre>:::&lt;/li>
 &lt;li>Then we get admin password is: &lt;code>kqqPFObwxU8HYo8E5QgNLhdOxvZmtPhyBCyDxCwpvAQ&lt;/code>. Then we got flag!!!&lt;/li>
-&lt;/ol></description></item><item><title>Simple Web 0x09(Lab - DNS Lookup Tool)</title><link>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/</guid><description>&lt;h1 id="simple-web-0x09lab---dns-lookup-tool">
+&lt;/ol></description></item><item><title>Simple Web 0x09(Lab - DNS Lookup Tool)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/command-injection/simple-web-0x09lab---dns-lookup-tool/</guid><description>&lt;h1 id="simple-web-0x09lab---dns-lookup-tool">
  Simple Web 0x09(Lab - DNS Lookup Tool)
  &lt;a class="anchor" href="#simple-web-0x09lab---dns-lookup-tool">#&lt;/a>
 &lt;/h1>
@@ -506,7 +506,7 @@ isset($_GET[&amp;#39;source&amp;#39;]) and die(show_source(__FILE__, true));
 &amp;lt;/body&amp;gt;
 
 &amp;lt;/html&amp;gt; 
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x10(Lab - DNS Lookup Tool | WAF)</title><link>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/</guid><description>&lt;h1 id="simple-web-0x10lab---dns-lookup-tool--waf">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x10(Lab - DNS Lookup Tool | WAF)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/command-injection/simple-web-0x10lab---dns-lookup-tool-_-waf/</guid><description>&lt;h1 id="simple-web-0x10lab---dns-lookup-tool--waf">
  Simple Web 0x10(Lab - DNS Lookup Tool | WAF)
  &lt;a class="anchor" href="#simple-web-0x10lab---dns-lookup-tool--waf">#&lt;/a>
 &lt;/h1>
@@ -585,7 +585,7 @@ isset($_GET[&amp;#39;source&amp;#39;]) and die(show_source(__FILE__, true));
 
 &amp;lt;/html&amp;gt; 
 &lt;/code>&lt;/pre>&lt;p>:::
-It set some protection such as blacklist.&lt;/p></description></item><item><title>Simple Web 0x11(Lab - XSS Me)</title><link>https://bernie6401.github.io/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</guid><description>&lt;h1 id="simple-web-0x11lab---xss-me">
+It set some protection such as blacklist.&lt;/p></description></item><item><title>Simple Web 0x11(Lab - XSS Me)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</guid><description>&lt;h1 id="simple-web-0x11lab---xss-me">
  Simple Web 0x11(Lab - XSS Me)
  &lt;a class="anchor" href="#simple-web-0x11lab---xss-me">#&lt;/a>
 &lt;/h1>
@@ -650,7 +650,7 @@ If you login as guest(password = guest), then you can get the response
 &lt;ol start="3">
 &lt;li>
 &lt;p>Fetch flag and send to &lt;a href="https://beeceptor.com/">beeceptor&lt;/a>
-Payload:&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
+Payload:&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
  Simple Web 0x12(Lab - Web Preview Card)
  &lt;a class="anchor" href="#simple-web-0x12lab---web-preview-card">#&lt;/a>
 &lt;/h1>
@@ -691,7 +691,7 @@ if ($_SERVER[&amp;#39;REMOTE_ADDR&amp;#39;] !== &amp;#39;127.0.0.1&amp;#39;) die
 if (isset($_POST[&amp;#39;givemeflag&amp;#39;]) &amp;amp;&amp;amp; $_POST[&amp;#39;givemeflag&amp;#39;] === &amp;#39;yes&amp;#39;)
  echo &amp;#34;FLAG:&amp;#34;, getenv(&amp;#39;FLAG&amp;#39;);
 &lt;/code>&lt;/pre>&lt;p>:::
-If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
+If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x12lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
  Simple Web 0x12(Lab - Web Preview Card)
  &lt;a class="anchor" href="#simple-web-0x12lab---web-preview-card">#&lt;/a>
 &lt;/h1>
@@ -732,7 +732,7 @@ if ($_SERVER[&amp;#39;REMOTE_ADDR&amp;#39;] !== &amp;#39;127.0.0.1&amp;#39;) die
 if (isset($_POST[&amp;#39;givemeflag&amp;#39;]) &amp;amp;&amp;amp; $_POST[&amp;#39;givemeflag&amp;#39;] === &amp;#39;yes&amp;#39;)
  echo &amp;#34;FLAG:&amp;#34;, getenv(&amp;#39;FLAG&amp;#39;);
 &lt;/code>&lt;/pre>&lt;p>:::
-If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x13(Lab - SSRFrog)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/</guid><description>&lt;h1 id="simple-web-0x13lab---ssrfrog">
+If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x13(Lab - SSRFrog)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x13lab---ssrfrog/</guid><description>&lt;h1 id="simple-web-0x13lab---ssrfrog">
  Simple Web 0x13(Lab - SSRFrog)
  &lt;a class="anchor" href="#simple-web-0x13lab---ssrfrog">#&lt;/a>
 &lt;/h1>
@@ -779,7 +779,7 @@ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; {
 });
 
 app.listen(3000, &amp;#39;0.0.0.0&amp;#39;);
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x14(Lab - Debug)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/</guid><description>&lt;h1 id="simple-web-0x14lab---debug">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x14(Lab - Debug)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssrf/simple-web-0x14lab---debug/</guid><description>&lt;h1 id="simple-web-0x14lab---debug">
  Simple Web 0x14(Lab - Debug)
  &lt;a class="anchor" href="#simple-web-0x14lab---debug">#&lt;/a>
 &lt;/h1>
@@ -841,7 +841,7 @@ def source():
  source_code = open(__file__).read()
  source_code = re.sub(r&amp;#39;FLAG{.*}&amp;#39;, r&amp;#39;FL4G{fake_flag}&amp;#39;, source_code, count=1)
  return Response(source_code, mimetype=&amp;#39;text/plain&amp;#39;)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x15.5(Pickle)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</guid><description>&lt;h1 id="simple-web-0x155pickle">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x15.5(Pickle)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</guid><description>&lt;h1 id="simple-web-0x155pickle">
  Simple Web 0x15.5(Pickle)
  &lt;a class="anchor" href="#simple-web-0x155pickle">#&lt;/a>
 &lt;/h1>
@@ -882,7 +882,7 @@ print(pickletools.dis(optim_s))
 
 serialized = bytes.fromhex(input(&amp;#39;Data: &amp;#39;))
 pickle.loads(serialized)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x15(Lab - `Jinja`)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</guid><description>&lt;h1 id="simple-web-0x15lab---jinja">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x15(Lab - `Jinja`)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</guid><description>&lt;h1 id="simple-web-0x15lab---jinja">
  Simple Web 0x15(Lab - &lt;code>Jinja&lt;/code>)
  &lt;a class="anchor" href="#simple-web-0x15lab---jinja">#&lt;/a>
 &lt;/h1>
@@ -930,7 +930,7 @@ def source():
 
 if __name__ == &amp;#39;__main__&amp;#39;:
  app.run(threaded=True, debug=True)
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16.5(php unserialize)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</guid><description>&lt;h1 id="simple-web-0x165php-unserialize">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16.5(php unserialize)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</guid><description>&lt;h1 id="simple-web-0x165php-unserialize">
  Simple Web 0x16.5(php unserialize)
  &lt;a class="anchor" href="#simple-web-0x165php-unserialize">#&lt;/a>
 &lt;/h1>
@@ -977,7 +977,7 @@ php &amp;gt; $_GET[&amp;#39;cat&amp;#39;]=&amp;#39;O:3:&amp;#34;cat&amp;#34;:1:{
 php &amp;gt; $cat = unserialize($_GET[&amp;#39;cat&amp;#39;]);
 
 uid=1000(sbk6401) gid=1000(sbk6401) groups=1000(sbk6401),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev),1001(docker)
-&lt;/code>&lt;/pre>&lt;p>This is a typical command injection. The magic method &lt;code>__wakeup()&lt;/code> will be called when unserialized something.&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
+&lt;/code>&lt;/pre>&lt;p>This is a typical command injection. The magic method &lt;code>__wakeup()&lt;/code> will be called when unserialized something.&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
  Simple Web 0x16(Lab - Pickle)
  &lt;a class="anchor" href="#simple-web-0x16lab---pickle">#&lt;/a>
 &lt;/h1>
@@ -1032,7 +1032,7 @@ def login():
  resp = make_response(redirect(&amp;#39;/&amp;#39;))
  resp.set_cookie(&amp;#34;session&amp;#34;, user)
  return resp
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
  Simple Web 0x16(Lab - Pickle)
  &lt;a class="anchor" href="#simple-web-0x16lab---pickle">#&lt;/a>
 &lt;/h1>
@@ -1087,7 +1087,7 @@ def login():
  resp = make_response(redirect(&amp;#39;/&amp;#39;))
  resp.set_cookie(&amp;#34;session&amp;#34;, user)
  return resp
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
  Simple Web 0x17(Lab - Baby Cat)
  &lt;a class="anchor" href="#simple-web-0x17lab---baby-cat">#&lt;/a>
 &lt;/h1>
@@ -1133,7 +1133,7 @@ if (!isset($_COOKIE[&amp;#39;cat_session&amp;#39;])) {
 ?&amp;gt;
 &amp;lt;p&amp;gt;Hello, &amp;lt;?= $cat-&amp;gt;name ?&amp;gt;.&amp;lt;/p&amp;gt;
 &amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;source code&amp;lt;/a&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
  Simple Web 0x17(Lab - Baby Cat)
  &lt;a class="anchor" href="#simple-web-0x17lab---baby-cat">#&lt;/a>
 &lt;/h1>
@@ -1179,7 +1179,7 @@ if (!isset($_COOKIE[&amp;#39;cat_session&amp;#39;])) {
 ?&amp;gt;
 &amp;lt;p&amp;gt;Hello, &amp;lt;?= $cat-&amp;gt;name ?&amp;gt;.&amp;lt;/p&amp;gt;
 &amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;source code&amp;lt;/a&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
  Simple Web 0x18(Lab - Magic Cat)
  &lt;a class="anchor" href="#simple-web-0x18lab---magic-cat">#&lt;/a>
 &lt;/h1>
@@ -1252,7 +1252,7 @@ This is your 🐱:
 &amp;lt;p&amp;gt;Usage:&amp;lt;/p&amp;gt;
 &amp;lt;p&amp;gt;/?source&amp;lt;/p&amp;gt;
 &amp;lt;p&amp;gt;/?spell=the-spell-of-your-cat&amp;lt;/p&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
  Simple Web 0x18(Lab - Magic Cat)
  &lt;a class="anchor" href="#simple-web-0x18lab---magic-cat">#&lt;/a>
 &lt;/h1>
@@ -1325,7 +1325,7 @@ This is your 🐱:
 &amp;lt;p&amp;gt;Usage:&amp;lt;/p&amp;gt;
 &amp;lt;p&amp;gt;/?source&amp;lt;/p&amp;gt;
 &amp;lt;p&amp;gt;/?spell=the-spell-of-your-cat&amp;lt;/p&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x19(Lab - PHP Login)</title><link>https://bernie6401.github.io/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/</guid><description>&lt;h1 id="simple-web-0x19lab---php-login">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x19(Lab - PHP Login)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/language-feature/simple-web-0x19lab---php-login/</guid><description>&lt;h1 id="simple-web-0x19lab---php-login">
  Simple Web 0x19(Lab - PHP Login)
  &lt;a class="anchor" href="#simple-web-0x19lab---php-login">#&lt;/a>
 &lt;/h1>
@@ -1374,7 +1374,7 @@ highlight_file(__file__);
  Exploit
  &lt;a class="anchor" href="#exploit">#&lt;/a>
 &lt;/h2>
-&lt;p>Must change &lt;code>GET&lt;/code> method to &lt;code>POST&lt;/code> method and add &lt;code>Content-Type: application/x-www-form-urlencoded&lt;/code> in header&lt;/p></description></item><item><title>Simple Web 0x22(Lab - Pug)</title><link>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</guid><description>&lt;h1 id="simple-web-0x22lab---pug">
+&lt;p>Must change &lt;code>GET&lt;/code> method to &lt;code>POST&lt;/code> method and add &lt;code>Content-Type: application/x-www-form-urlencoded&lt;/code> in header&lt;/p></description></item><item><title>Simple Web 0x22(Lab - Pug)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</guid><description>&lt;h1 id="simple-web-0x22lab---pug">
  Simple Web 0x22(Lab - Pug)
  &lt;a class="anchor" href="#simple-web-0x22lab---pug">#&lt;/a>
 &lt;/h1>
@@ -1416,7 +1416,7 @@ app.get(&amp;#34;/source&amp;#34;, (_, res) =&amp;gt; {
 });
 
 app.listen(3000, () =&amp;gt; console.log(&amp;#39;:3000&amp;#39;));
-&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
  Simple Web 0x23(Lab - XXE)
  &lt;a class="anchor" href="#simple-web-0x23lab---xxe">#&lt;/a>
 &lt;/h1>
@@ -1475,7 +1475,7 @@ app.listen(3000, () =&amp;gt; console.log(&amp;#39;:3000&amp;#39;));
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
+&lt;/h2></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
  Simple Web 0x23(Lab - XXE)
  &lt;a class="anchor" href="#simple-web-0x23lab---xxe">#&lt;/a>
 &lt;/h1>
@@ -1534,7 +1534,7 @@ app.listen(3000, () =&amp;gt; console.log(&amp;#39;:3000&amp;#39;));
 &lt;h2 id="reference">
  Reference
  &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2></description></item><item><title>Simple Web 0x24(Lab - how2http)</title><link>https://bernie6401.github.io/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</guid><description>&lt;h1 id="simple-web-0x24lab---how2http">
+&lt;/h2></description></item><item><title>Simple Web 0x24(Lab - how2http)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</guid><description>&lt;h1 id="simple-web-0x24lab---how2http">
  Simple Web 0x24(Lab - how2http)
  &lt;a class="anchor" href="#simple-web-0x24lab---how2http">#&lt;/a>
 &lt;/h1>
