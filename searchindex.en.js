@@ -1,8 +1,8 @@
 var relearn_searchindex = [
   {
     "breadcrumb": "SBK Hugo Site \u003e  Posts",
-    "content": "bbb aaa",
-    "description": "bbb aaa",
+    "content": "bbb aaa ccc",
+    "description": "bbb aaa ccc",
     "tags": [],
     "title": "Hello123",
     "uri": "/posts/hello/index.html"
