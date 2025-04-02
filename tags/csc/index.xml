@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSC :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/csc/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/csc/index.xml" rel="self" type="application/rss+xml"/><item><title>CSC 2023 決賽</title><link>https://bernie6401.github.io/security/competition/csc-2023-%E6%B1%BA%E8%B3%BD/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/competition/csc-2023-%E6%B1%BA%E8%B3%BD/index.html</guid><description>CSC CTF 2023 決賽 隊伍名稱: 名字好難想RRRRRRRRRRRRRRR
+教學題 Q4 題目敘述 成為「admin」並取得Flag
+[連線IP/連結資訊] http://192.168.100.71
+[備註] 答題系統Flag輸入格式：CSC{FLAG_最多長度25可包含數字、英文大小寫、特殊字元及底線}
+Exploit 這一題太難了，看了教學檔案還是沒辦法在有效時間內解出來，所以放棄 學長自述:
+Q5 題目敘述 壞壞恐怖組織要對這邊進行恐攻，丟了一顆定時炸彈，拆彈專家4你???拆彈成功領取豐沛的獎勵吧!
+[備註] 答題系統Flag輸入格式：CSC{FLAG_最多長度25可包含數字、英文大小寫、特殊字元及底線}
+Exploit 測驗智商用的，直接pwntools就可以了
+from pwn import * r = process('./Bomb.exe') r.recvuntil(b'P1ease count A(') A = r.recvuntil(b')')[:-1].decode() sign = r.recv(3).decode() B = r.recvline()[2:-2].decode() log.info(f'A({A}) {sign} B({B}) = {eval(A + sign + B)}') r.sendlineafter(b'Enter your answer: ', str(eval(A + sign + B)).encode()) r.interactive() $ python exp.py [+] Starting local process './Bomb.exe': pid 8143 [*] A(1507886) + B(7372399) = 8880285 [*] Switching to interactive mode Good job!\(^^)/ CSC{FLAG_54v3th3d4y7777777}Time's up! (っ•O•)╮ =͟͟͞͞●~* [*] Got EOF while reading in interactive Flag: CSC{FLAG_54v3th3d4y7777777}</description></item></channel></rss>

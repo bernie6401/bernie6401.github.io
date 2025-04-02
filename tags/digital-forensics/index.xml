@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Digital Forensics :: Tag :: SBK Hugo Site</title><link>https://bernie6401.github.io/tags/digital-forensics/index.html</link><description/><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/digital-forensics/index.xml" rel="self" type="application/rss+xml"/><item><title>BTLO - Meta</title><link>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---meta/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---meta/index.html</guid><description>BTLO - Meta Challenge: https://blueteamlabs.online/home/challenge/meta-b976cec9e2
+:::spoiler TOC [TOC] :::
+Scenario The attached images were posted by a criminal on the run, with the caption “I’m roaming free. You will never catch me”. We believe you can assist us in proving him wrong.
+==Q1== What is the camera model?
+Recon 問有關圖片相關的forensics直覺就是利用exiftool幫忙parse其中的內容，之後再慢慢extract出有用的資訊，或是直接丟到chatgpt幫忙extract問題的答案
+Exploit $ sudo apt install exiftool -y $ exiftool uploaded_1.JPG > uploaded1_exiftool.txt $ exiftool uploaded_2.png > uploaded2_exiftool.txt chatgpt紀錄</description></item><item><title>BTLO - Shiba Insider</title><link>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---shiba-insider/index.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/security/practice/btlo/digital-forensic/btlo---shiba-insider/index.html</guid><description>BTLO - Shiba Insider Challenge: https://blueteamlabs.online/home/challenge/shiba-insider-5b48123711
+:::spoiler TOC [TOC] :::
+Tools Wireshark CyberChef Steghide Command Line Exiftool
+==Q1== What is the response message obtained from the PCAP file?
+Recon 這一題首先看到一個pcap file，以及zip file，不過zip file需要密碼才能unzip，所以先看pcap file有沒有相關訊息
+這個流量紀錄非常簡單，就是一個簡單的tcp connection，包含前面的三向交握以及get packet，交換完訊息之後當然就是要finish conversation，所以重點在中間他們交換的訊息 傳回來的訊息說: use your own password，其實也就是該題的答案
+:::spoiler Flag Flag: use your own password :::
+==Q2== What is the password of the ZIP file?
+Recon 呈上題，我們看到他給的提示後，往上看他的Authorization其實是個base64 encode的可疑資訊，decode之後發現是個username:password的資訊→==fakeblue:redforever==</description></item></channel></rss>
