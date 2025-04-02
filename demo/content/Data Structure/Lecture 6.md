@@ -1,0 +1,164 @@
+---
+title: Lecture 6
+tags: [Data Structure, NYCU]
+
+---
+
+# Lecture 6
+###### tags: `Data Structure` `NYCU`
+[TOC]
+
+## Reference
+[Lec06 資料結構 第四週課程](https://youtu.be/5HBMYNYYGZU)
+[[C/C++] C/C++ 箭頭(->) 、點(.)、雙冒號(::) 用法](https://gist.github.com/LeeKLTW/e5004f2d7046d43676d0891af8a13ef7)
+
+## Rewind
+### String Matching Task
+最笨的作法是一個字元依依比對
+![](https://i.imgur.com/qwCSoNe.png)
+
+---
+### KMP Algorithm
+* 有沒有可能一次不要只移動一個字元，
+![](https://i.imgur.com/zNhwzCt.png)
+
+* 又充分利用已經比對過的資訊進行位移
+![](https://i.imgur.com/7uvOfzP.png)
+
+### 原理
+運用到的就是建立一個Failure Function，如下圖為例，在index=5的地方failure function是3，代表從index=5往回看3個字元，會和整個字串的開頭往後看3個字元會相等
+![](https://i.imgur.com/k8auhgP.png)
+
+這樣的話就可以快速的移動比對的字串，例如下圖，index i和j不相等，則可以往回看j-1的failure function儲存的相等字元有多少，如果是3代表可以直接移動到P到相等字元的地方(也就是p[3+1]的地方開始比對)，也就是粉紅色的地方對齊，這樣的話就可以移動不只一個字元
+![](https://i.imgur.com/vrO4YnO.png)
+
+### Implementation
+:::info
+Prefix (Failure) Function can refer to `1:05:00`
+KMP Matcher can refer to orignal video at timestamp `1:14:00`
+實際操作：`1:14:10`
+:::
+
+### Order
+此演算法有分兩個phase，前一個是要計算failure function $O(m)$，後一個phase是matching $O(n)$
+所以總共是：$O(m+n)$
+## Note
+### Stack
+* Last In First Out
+Top Pointer永遠指向最後進來的element
+![](https://i.imgur.com/wFZMQXA.png)
+* Application
+    * Function Call的Return Address或是其他Passing Parameters都會儲存在Stack中
+        ![](https://i.imgur.com/mvfzAgR.png)
+
+* Implementation
+    :::info
+    How to implement? Array Or Link List
+    :::
+    :::spoiler Structure
+    ```c++
+    Template <class KeyType>
+    class Stack
+    {// objects: A finite ordered list with zero or more elements
+
+        public:
+            Stack (int MaxStackSize = DefaultSize);
+            // Create an empty stack whose maximum size is MarStackSize
+            Boolean IsFull();
+            // if number of elements in the stack is equal to the maximum size
+            // of the stack, return TRUE(1) else return FALSE(0)
+            void Add(const KeyType& item);
+            // if IsFull(), then StackFull(); else insert item into the top of the stack.
+            Boolean IsEmpty();
+            // if number of elements in the stack is 0, return TRUE(1) else return FALSE(0)
+            KeyType* Delete(KeyType&);
+            // if IsEmpty(), then StackEmpty() and return O;
+            // else remove and return a pointer to the top element of the stack.
+        private:
+            int top;
+            KeyType *stack;
+            int MaxSize,
+            template<class KeyType>
+            Stack<KeyType>::Stack(int MaxStackSize):MaxSize(Max.StackSize)
+            {
+                stack=new KeyType(MaxSize),
+                top=-1;
+            }
+            template<classs KeyType>
+            inline Boolean Stack<KeyType>::IsFul1()
+            {
+                if (top==MarSize-1) return TRUE,
+                else return FALSE;
+            }
+            template<classs KeyType>
+            inline Boolean Stack<KeyType>::IsEmpty()
+            {
+                if (top==-1)return TRUE;
+                else return FALSE;
+            }
+    };
+    ```
+    :::
+    
+    :::spoiler Add to a stack
+    ```c++
+    Template <class KeyType>
+    void Stack<Key Type>::Add(const KeyType& x)
+    {
+        /* add an item to the global stack */
+        if (IsFull())
+            stack_full( );
+        else
+            stack[++top]-x;
+    }
+    ```
+    :::
+
+    :::spoiler Delete from a stack
+    ```c++
+    Template <class Key Type>
+    KeyType*Stack<KeyType>::Delete(KeyType&x)
+    {
+        /* return the top element from the stack */
+        if (IsEmpty())
+        {
+            stack_empty( ); /* returns and error key
+            return 0;
+        }
+        x=stack[top--];
+        return &x;
+    }
+    ```
+    :::
+
+### Queue
+* First In First Out
+![](https://i.imgur.com/MmC6x23.png)
+
+* Application
+    * 在OS中的Job Scheduling的其中一種方式，誰先進入這個Queue，OS就先服務誰，但這個方式很不好，如果第一個Job的工作量很大，則後面其他Job的waiting time就會很長，所以另外一種方式是利用Priority Queue的方式
+
+* Implementation
+    :::spoiler Abstract Data Type of Queue
+    ```c++
+    Template <class KeyType>
+    class Queue
+    {
+        // objects: A finite ordered list with zero or more elements
+        public:
+            Queue(int MaxQueueSize = DefaultSize);
+            // Create an empty queue whose maximum size is MaxQueueSize
+            Boolean IsFull();
+            // if number of elements in the queue is equal to the maximum size of
+            // the queue, return TRUE(1); otherwise, return FALSE(0)
+            void Add(const KeyType& item);
+            // if IsFull(), then QueueFull(); else insert item at rear of the queue
+            Boolean IsEmptyO;
+            l/ if number of elements in the queue is equal to O, return TRUE(1)
+            l/ else retur FALSE(0)
+            KeyType* Delete(KeyType&);
+            // if IsEmptyO, then QueueEmpty() and return O;
+            // else remove the item at the front of the queue and return a pointer to it
+    }
+    ```
+    :::

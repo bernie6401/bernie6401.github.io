@@ -1,0 +1,911 @@
+---
+title: $\LaTeX$ 語法筆記
+tags: [LaTeX]
+
+---
+
+> HackMD 是透過 MathJax 支援 $\LaTeX$ ，雖未支援所有語法，對多數人應已足夠，一起把 Web 上醜死的公式換成美美的吧～
+
+# $\LaTeX$ 語法筆記
+
+$$
+\LaTeX % 大小寫須正確
+$$
+
+```
+\LaTeX % 大小寫須正確
+
+$\textstyle$
+$$\displaystyle$$
+%comment
+```
+
+$$
+\grave apple % 標重音
+$$
+
+```
+\grave apple % 標重音
+```
+
+
+$$
+{\bf AB} % 粗體 boldface
+$$
+
+```
+{\bf AB} % 粗體 boldface
+```
+
+$$
+\bar{A}
+$$
+
+```
+\bar{A}
+```
+
+$$
+{ a+b \brace c+d }
+$$
+
+```
+{ a+b \brace c+d }
+```
+
+$$
+\overline{AB}
+$$
+
+```
+\overline{AB}
+```
+
+$$
+\vec{v}
+$$
+
+```
+\vec{v}
+```
+
+$$
+\frac{b}{a}
+$$
+
+```
+\frac{b}{a}
+% 或
+{b \over a}
+```
+
+$$
+\dfrac{b}{a}
+$$
+
+```
+\dfrac{b}{a}  % d for \displaystyle
+\tfrac{b}{a}  % t for \textstyle
+```
+
+$$
+90^\circ
+$$
+
+```
+90^\circ
+```
+
+$$
+e^{\theta i}
+$$
+
+```
+e^{\theta i}
+```
+
+$$
+S_{n}
+$$
+
+```
+S_{n}
+```
+
+$$
+\lim\limits_{n\to \infty}
+$$
+
+```
+\lim\limits_{n\to \infty}
+```
+
+$$
+\sum\limits_{x = 0}^k{x^2}
+$$
+
+```
+\sum\limits_{x = 0}^k{x^2}
+```
+
+$$
+\bigcup\limits_{i = 1}^{\infty}{U_i}
+$$
+
+```
+\bigcup\limits_{i = 1}^{\infty}{U_i}
+```
+
+$$
+\bigcap\limits_{i = 1}^{\infty}{U_i}
+$$
+
+```
+\bigcap\limits_{i = 1}^{\infty}{U_i}
+```
+
+$$
+\mathop{\vcenter{\huge\times}}_\limits{i=1}^n{U_i}
+$$
+
+```
+\mathop{\vcenter{\huge\times}}_\limits{i=1}^n{U_i}
+```
+
+$$
+\int_a^b x^2  \mathrm{d} x
+$$
+
+```
+\int_a^b x^2  \mathrm{d} x
+```
+
+$$
+\sqrt[n]{1+x+x^2+x^3+\dots+x^n}
+$$
+
+```
+\sqrt[n]{1+x+x^2+x^3+\dots+x^n}
+% 或
+\root n \of {1+x+x^2+x^3+\dots+x^n}
+```
+
+$$
+A \implies B
+$$
+
+```
+A \implies B
+```
+
+$$
+A \impliedby B
+$$
+
+```
+A \impliedby B
+```
+
+$$
+A \iff B
+$$
+
+```
+A \iff B
+```
+
+$$
+f: A \to B
+$$
+
+```
+f: A \to B
+```
+
+$$
+A \leftarrow B 
+$$
+
+```
+A \leftarrow B
+```
+
+$$
+\xrightarrow{中文亦可}\ \xleftarrow{中文亦可}
+$$
+
+```
+\xrightarrow{中文亦可}\ \xleftarrow{中文亦可}
+```
+
+$$
+a\,\overset{?}{=}\,b
+$$
+
+```
+a\,\overset{?}{=}\,b
+```
+
+$$
+\forall x \in X, \exists x \in b
+$$
+
+```
+\forall x \in X, \exists x \in b
+```
+
+$$
+\not\in, \not\gt, \not\lt, \not=
+$$
+```
+\not\in, \not\gt, \not\lt, \not=   % 利用 \not 組合表示否定
+```
+
+$$
+a_{1}, a_{2}, \ldots, a_{n}
+$$
+
+```
+a_{1}, a_{2}, \ldots, a_{n}
+```
+
+$$
+a_{1} + a_{2} + \cdots + a_{n}
+$$
+
+```
+a_{1} + a_{2} + \cdots + a_{n}
+```
+
+$$
+\begin{pmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n}?
+  a_{21} & a_{22} & \cdots & a_{2n}\\
+  \vdots & \vdots & \ddots & \vdots\\
+  a_{m1} & \cdots & \cdots & a_{mn}
+\end{pmatrix}
+$$
+
+```
+\begin{pmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n}\\
+  a_{21} & a_{22} & \cdots & a_{2n}\\
+  \vdots & \vdots & \ddots & \vdots\\
+  a_{m1} & \cdots & \cdots & a_{mn}
+\end{pmatrix}
+
+% ldots: low dots
+% cdots: center dots
+% ddots: diagonal dots
+% vdots: vertical dots
+```
+
+$$
+\left\{
+  \begin{array}{c}
+    a_1x+b_1y+c_1z=d_1 \\ 
+    a_2x+b_2y+c_2z=d_2 \\ 
+    a_3x+b_3y+c_3z=d_3
+  \end{array}
+\right.
+$$
+
+```
+\left\{ 
+  \begin{array}{c}
+    a_1x+b_1y+c_1z=d_1 \\ 
+    a_2x+b_2y+c_2z=d_2 \\ 
+    a_3x+b_3y+c_3z=d_3
+  \end{array}
+\right.
+```
+
+# Operator/Relation
+
+$A\times B$ = A\times B
+$a\cdot b$ = a\cdot b
+$\div$ = \div
+$\pmod n$ = \pmod n
+$\pm$ = \pm (plus and minus)
+$\partial$ = \partial
+$\oplus$ = \oplus
+$\&$= \\&
+$\gt$ = \gt (greater than)
+$\lt$ = \lt (less than)
+$\ge$ = \ge (greater or equal)
+$\le$ = \le (less or equal)
+$\lhd$ = \lhd (normal subgroup)
+$\unlhd$ = \unlhd 
+$\ne$ = \ne (not equal)
+$\approx$ = \approx (approximate to)
+$\sim$ = \sim (similar)
+$\cong$ = \cong (congruent)
+$\equiv$ = \equiv (equivalent)
+$\ll$ = \ll, much less than
+$\gg$ = \gg, much greater than
+$\nless$ = \nless, not less than
+$\ngtr$ = \ngtr, not greater than
+$\cap$ = \cap, 像帽子, intersection
+$\cup$ = \cup, 像杯子, union
+$\subset$ = \subset, or implied
+$\supset$ = \superset, or implies
+$\subseteq$ = \subseteq
+$\supseteq$ = \supseteq
+$\land$ = \land (logical and); \wedge (wedge product)
+$\lor$ = \lor (logical or)
+
+[List of Logic Symbols](https://en.wikipedia.org/wiki/List_of_logic_symbols)
+
+# Function
+
+$\binom{a}{b}$ = \binom{a}{b}
+
+>Binomial : $\frac{C!}{n!(n-k)!}, where\ (n+k) = constant$
+或 \binom a b
+或 { a \choose b }
+\tbinom a b (t for \textstyle)
+\dbinom a b (d for \displaystyle)
+
+$\cos{\theta}$ = \cos{\theta}
+$\sin{\theta}$ = \sin{\theta}
+$\log_{b}{x}$ = \log_{b}{x}
+$\ln{x}$ = \ln{x}
+$\lceil x \rceil$ = \lceil x \rceil
+$\lfloor x \rfloor$ = \lfloor x \rfloor
+
+# Matrix
+
+$$
+\begin{pmatrix}A\\B\end{pmatrix}
+$$
+
+```
+\begin{pmatrix}
+  A\\B                % \\ 為 newline(換行)
+\end{pmatrix}
+
+% 或
+
+\pmatrix{A\\B}
+```
+
+$$
+\begin{bmatrix}A\\B\end{bmatrix}
+$$
+
+```
+\begin{bmatrix}
+  A\\B
+\end{bmatrix}
+```
+
+$$
+\begin{vmatrix}A\\B\end{vmatrix}
+$$
+
+```
+\begin{vmatrix}
+  A\\B
+\end{vmatrix}
+```
+
+$$
+\begin{Vmatrix}A\\B\end{Vmatrix}
+$$
+
+```
+\begin{Vmatrix}
+  A\\B
+\end{Vmatrix}
+```
+
+$$
+\begin{bmatrix}
+  a & b \\
+  c & d 
+\end{bmatrix}
+$$
+
+```
+\begin{bmatrix}
+  a & b \\
+  c & d 
+\end{bmatrix}
+```
+
+# Greek
+$\alpha$ = \alpha
+$\beta$ = \beta
+$\Delta$ = \Delta, $\delta$ = \delta
+$\epsilon$ = \epsilon, $\varepsilon$ = \varepsilon
+$\gamma$ = \gamma
+$\theta$ = \theta
+$\sigma$ = \sigma
+$\pi$ = \pi
+$\mu$ = \mu
+$\lambda$ = \lambda
+$\omega$ = \omega
+$\phi$ = \phi
+$\varphi$ = \varphi
+$\rho$ = \rho
+
+# Misc
+$\angle$ = \angle
+$\triangle$ = \triangle
+$\square$ = \square
+$\quad (space)$ = \quad (space)
+$\propto$ = \propto (propotional to)
+
+$\because$ = \because
+$\therefore$ = \therefore
+$\mathbb{Z}$ = \mathbb{Z}
+$\mathbb{P}$ = \mathbb{P}
+$\mathbb{R}$ = \mathbb{R}
+$\mathbb{C}$ = \mathbb{C}
+$\Im$ = \Im (Imaginary Space)
+$\Re$ = \Re (Real Space)
+
+$\emptyset$ = \emptyset
+$\varnothing$ = \varnothing (以此表示空集合較好看)
+$\in$ = \in
+$\not\in$ = \not\in
+$\langle S\rangle$ = \langel S\rangle (generator)
+$\chi$ = \chi
+$\circlearrowleft$ = \circlearrowleft
+$\circlearrowright$ = \circlearrowright
+$\curvearrowleft$ = \curvearrowleft
+$\curvearrowright$ = \curvearrowright
+$\hbar$ = \hbar (Planck's Constant)
+
+
+https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Set_and.2For_logic_notation
+
+# Format
+
+## Style
+
+$$
+\style{background-color:#eeeeee}{\frac{x+1}{y+2}}
+$$
+
+```
+\style{background-color:#eeeeee}{\frac{x+1}{y+2}}  % 直接以 CSS 改變 style
+```
+
+$$
+f(x) = a{\color{red}{x}} + b
+$$
+
+```
+f(x) = a{\color{red}{x}} + b
+% 或
+f(x) = a{\color{#ff0000}{x}} + b
+```
+
+$$
+\require{color}
+\colorbox{#eeeeee}{Color Box}
+$$
+
+```
+\require{color}
+\colorbox{#eeeeee}{Color Box}
+```
+
+$$
+{\cal ABCDE12345abcde}
+$$
+
+```
+{\cal ABCDE12345abced} % callgraphic mode
+```
+
+$$
+\fbox{boxed text}
+$$
+
+```
+\fbox{boxed text}      % in textstyle
+```
+
+$$
+\boxed{boxed\ text}
+$$
+
+```
+\boxed{boxed\ text}    % in displaystyle
+```
+
+$$
+\text{text $E=mc^2$}
+$$
+```
+\text{text $E=mc^2$}
+```
+
+$$
+{\frak ABCDE12345abcde}
+$$
+
+```
+{\frak ABCDE12345abcde}
+```
+
+$$
+{\it abefg12345}\ abcdefg12345
+$$
+
+```
+{\it abefg12345}\ abcdefg12345   % italic
+```
+$$
+\min\limits_{n}
+$$
+```
+\min\limits_{n}
+```
+
+
+## Automatic Sizing
+
+$$
+\{x \mid x\gt 1\}\text{ 與 }\{x | x\gt 1\}
+$$
+
+```
+\{x \mid x\gt 1\}     % 請用 \mid 寫 Set 才好看
+```
+
+$$
+\left( \dfrac{x^2}{y^3} \right)
+$$
+
+```
+\left(\dfrac{x^2}{y^3}\right)
+```
+
+$$
+\left\{ \dfrac{1}{2} \right\}
+$$
+
+```
+\left\{ \dfrac{1}{2} \right\}
+```
+
+$$
+f(x) = \left\{
+\begin{array}{r} 
+x + by = c \\ 
+dx + ey = f 
+\end{array}
+\right.
+$$
+
+```
+f(x) = \left\{
+\begin{array}{r}
+   x + by = c \\
+  dx + ey = f 
+\end{array}
+\right.
+
+% {r} for right alignment within array
+% {l} for left alignment within array
+% 或
+
+\array{
+   x + by = c \\
+  dx + ey = f 
+}
+```
+
+$$
+z = \overbrace{
+      \underbrace{x}_\text{real} + i
+      \underbrace{y}_\text{imaginary}
+}^\text{complex number}
+$$
+
+```
+z = \overbrace{
+    \underbrace{x}_\text{real} + i
+    \underbrace{y}_\text{imaginary}
+}^\text{complex number}
+```
+
+## Alignment
+
+$$
+\begin{aligned}
+f(x) &= ax + by + cz + d \\
+     &= 2x + 3y + 5z + 1
+\end{aligned}
+$$
+
+```
+\begin{aligned}
+f(x) &= ax + by + cz + d \\
+     &= 2x + 3y + 5z + 1
+\end{aligned}
+
+% 或
+
+\begin{align}
+f(x) &= ax + by + cz + d \\
+     &= 2x + 3y + 5z + 1
+\end{align}
+
+% 或
+
+\eqalign{
+f(x) &= ax + by + cz + d \\
+     &= 2x + 3y + 5z + 1
+}
+```
+
+$$
+\begin{cases}n/2, & \text{if $n$ is even} \\
+3n+1, & \text{if $n$ is odd}
+\end{cases}
+$$
+
+```
+\begin{cases}
+  n/2, & \text{if $n$ is even} \\
+  3n+1, & \text{if $n$ is odd}
+\end{cases}
+
+% 或
+
+\cases{
+  n/2, & \text{if $n$ is even} \\
+  3n+1, & \text{if $n$ is odd}
+}
+```
+
+$$
+\begin{pmatrix}
+ aaa & bbb \\
+ cc & dd
+\end{pmatrix}
+$$
+
+```
+\begin{pmatrix}
+ aaa & bbb \\
+ cc & dd
+\end{pmatrix}
+```
+
+$$
+\begin{matrix}
+  xxxxxx & xxxxxx & xxxxxx \cr
+  ab & \hfil ab & ab\hfil \cr
+\end{matrix}
+$$
+
+```
+\begin{matrix}
+  xxxxxx & xxxxxx & xxxxxx \cr
+  ab & \hfil ab & ab\hfil \cr    % 以 \hfil 自動填空
+\end{matrix}
+```
+
+$$
+\begin{array}{rrrrrr|r}
+       & x_1 & x_2 & s_1 & s_2 & s_3 &    \\ \hline
+   s_1 &   0 &   1 &   1 &   0 &   0 &  8 \\
+   s_2 &   1 &  -1 &   0 &   1 &   0 &  4 \\
+   s_3 &   1 &   1 &   0 &   0 &   1 & 12 \\ \hline
+       &  -1 &  -1 &   0 &   0 &   0 &  0
+\end{array}
+$$
+
+```
+\begin{array}{rrrrrr|r}
+       & x_1 & x_2 & s_1 & s_2 & s_3 &    \\ \hline
+   s_1 &   0 &   1 &   1 &   0 &   0 &  8 \\
+   s_2 &   1 &  -1 &   0 &   1 &   0 &  4 \\
+   s_3 &   1 &   1 &   0 &   0 &   1 & 12 \\ \hline
+       &  -1 &  -1 &   0 &   0 &   0 &  0
+\end{array}
+```
+
+# Advanced
+
+$$
+\overset{上組合技}{\implies} 或\underset{下組合技}{\impliedby}
+$$
+
+```
+\overset{上組合技}{\implies} 或 \underset{下組合技}{\impliedby}
+```
+
+$$
+\require{extpfeil}
+x\xtofrom[f^{-1}]{f} y
+$$
+
+```
+\require{extpfeil}
+x \xtofrom[f^{-1}]{f} y
+```
+
+$$
+\require{mhchem}
+x \xrightleftharpoons[f^{-1}]{f} y
+$$
+
+```
+\require{mhchem}
+x \xrightleftharpoons[f^{-1}]{f} y
+```
+
+$$
+\require{ams}
+\begin{equation}
+   \tag{1}\label{eq:eq_1} E = mc^2  
+\end{equation}
+$$
+
+```
+\require{ams}
+\begin{equation}
+   \tag{1}\label{eq:eq_1} E = mc^2 
+\end{equation}
+% MathJax 照理說已支援 Auto Number，但 HackMD 不支援。
+% 只能手動自己加 \tag{1}\label{eq:equation_name}
+```
+
+$$
+reference\ equation\eqref{eq:eq_1}
+$$
+
+```
+reference\ equation\eqref{eq:eq_1}
+```
+
+$$
+\begin{equation*}
+   E = mc^2
+\end{equation*}
+$$
+
+```
+\begin{equation*}
+  E = mc^2
+\end{equation*}
+% 不加入 Auto Number，但在 HackMD 上沒差別。
+```
+
+$$
+\def \kton{\sum\limits_{k=0}^{n}}
+\begin{aligned}
+(1+\frac{1}{n})^n &= \kton \binom{n}{k}1^{n-k}(\frac{1}{n})^{k}\\
+&= \kton \binom{n}{k} \frac{1}{n^{k}}\\
+&= \kton \frac{n!}{k!(n-k)!}\times\frac{1}{n^k}\\
+&= \kton \frac{1}{k!} \frac{\overbrace{n(n-1)(n-2)\ldots(n-k+1)}^{共\ k\ 項}}{n^k}\\
+&= \kton \frac{1}{k!} (\frac{n}{n}\frac{n-1}{n}\cdots\frac{n-k+1}{n})
+\end{aligned}
+$$
+
+```
+% 若命令又長又重複，可用 \def 自訂
+
+\def \kton{\sum\limits_{k=0}^{n}}
+\begin{aligned}
+  (1+\frac{1}{n})^n &= \kton \binom{n}{k}1^{n-k}(\frac{1}{n})^{k}\\
+  &= \kton \binom{n}{k} \frac{1}{n^{k}}\\
+  &= \kton \frac{n!}{k!(n-k)!}\times\frac{1}{n^k}\\
+  &= \kton \frac{1}{k!} \frac{\overbrace{n(n-1)(n-2)\ldots(n-k+1)}^{共\ k\ 項}}{n^k}\\
+  &= \kton \frac{1}{k!} (\frac{n}{n}\frac{n-1}{n}\cdots\frac{n-k+1}{n})
+\end{aligned}
+```
+
+$$
+\DeclareMathOperator {\total}{總計}
+\total_a^b(x)
+$$
+
+```
+\DeclareMathOperator {\total}{總計}
+\total_a^b(x)
+% 自訂 Operator，命名限 [a-z|A-Z]，不可含數字。
+```
+
+## 微調字體、字距
+
+### Font
+
+$$
+\mathbb{ABCDE12345abcde}
+$$
+
+\mathbb - Used to turn on blackboard-bold for uppercase letters and lowercase 'k'.
+
+$$
+\mathbf{ABCDE12345abcde}
+$$
+
+\mathbf - Used to turn on boldface for uppercase and lowercase letters and digits.
+
+$$
+\mathit{ABCDE12345abcde}
+$$
+
+\mathit - forces the math italic mode.
+
+$$
+\mathcal{ABCDE12345abcde}
+$$
+
+\mathcal - Used to turn on calligraphic font for uppercase letters and digits.
+
+$$
+\mathfrak{ABCDE12345abcde}
+$$
+
+\mathfrak - turn on fraktur font for uppercase and lowercase letters and digits (and a few other characters).
+
+$$
+\mathrm{ABCDE12345abcde}
+$$
+
+\mathrm - Used to turn on roman typestyle for uppercase and lowercase letters.
+
+$$
+\mathscr{ABCDE12345abcde}
+$$
+
+\mathscr - Used to turn on script typestyle for uppercase letters. If lowercase script letters are not available, then they are typeset in a roman typestyle.
+
+$$
+\mathsf{ABCDE12345abcde}
+$$
+
+\mathsf - Used to turn on sans serif typestyle for uppercase and lowercase letters and digits; also affects uppercase greek.
+
+$$
+\mathtt{ABCDE12345abcde}
+$$
+
+\mathtt - Used to turn on typewriter typestyle for uppercase and lowercase letters and digits.
+
+$$
+\oldstyle{ABCDE12345abcde}
+$$
+
+\oldstyle - Used to turn on oldstyle font.
+
+### Operator (Class Assignment)
+
+\mathord - forces the argument to be treated in the 'ordinary' class.
+\mathrel - forces the argument to be treated in the 'relation' class.
+\mathinner - forces the argument to appear 'inside' other formulas, and should be surrounded by additional space in certain circumstances.
+\mathbin - Used to give the correct spacing to make an object into a binary operator.
+\mathstrut - Used to achieve more uniform appearance in adjacent formulas as an invisible box whose width is zero.
+\mathpunct
+\mathopen
+\mathclose
+\mathop
+```
+\mathxxx{argument}
+```
+\mathchoice - provides content that is dependent on the current style (display, text, script, or scriptscript).
+```
+\mathchoice{D}{T}{S}{SS}
+```
+
+# More
+* https://en.wikibooks.org/wiki/LaTeX/Mathematics
+* https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#Custom_operators
+* https://en.wikibooks.org/wiki/LaTeX/Mathematics#Adding_text_to_equations
+* [MathJax Tutorial](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
+* https://tex.stackexchange.com/
+* [手寫辨認查詢](http://detexify.kirelabs.org/classify.html)
+* [MathJax Commands](http://docs.mathjax.org/en/latest/input/tex/macros/index.html)
+* [LaTeX Arrows](https://www.sascha-frank.com/Arrow/latex-arrows.html)
+* https://en.wikipedia.org/wiki/List_of_logic_symbols
+* [$\LaTeX$ for Twitch Chat](https://rintaroutw.github.io/LaTeX4TwitchChat/)
+
+###### tags: `LaTeX`

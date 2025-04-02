@@ -1,0 +1,60 @@
+---
+title: Adworld - 3-1
+tags: [Adworld, CTF, Misc]
+
+---
+
+# Adworld - 3-1
+## Recon
+這一題很簡單，和之前幾題有點像
+1. 用file看一下給的檔案是一個`.rar`壓縮檔，改個副檔名後解壓縮出現另外一個檔案
+2. 再用file看一下是一個pcapng檔案，用wireshark分析
+3. 用一些基本的技巧(Follow TCP Stream/Extract Object...)看tcp stream，會發現一個bash的command紀錄，有一個python enc/dec flow，和一串base64的string，除此之外還可以用extract object把一些file dump下來，發現是另外一個加密的flag.rar檔案，我們的任務就是要從這個pcapng檔案中把加密的密碼找出來
+![](https://hackmd.io/_uploads/H1iy1vf5h.png)
+4. 用python腳本解密base64 string，會輸出`b'passwd={No_One_Can_Decrypt_Me}\x00\x00'`
+5. 解密壓縮檔flag就出來了
+
+
+## Exploit
+Write Byte Data
+```python
+from base64 import b64decode
+import zipfile
+
+f = open('./basezip.txt', 'r').read().split(',')[-1]
+f1 = open('./cipher.zip', 'wb')
+f1.write(b64decode(f))
+print(bytes.fromhex(b64decode(f).hex()).decode('cp437'))
+f1.close()
+```
+
+Decrypt Part
+```python
+from Crypto.Cipher import AES
+import base64
+
+
+IV = b'QWERTYUIOPASDFGH'
+str1 = '19aaFYsQQKr+hVX6hl2smAUQ5a767TsULEUebWSajEo='
+
+
+def decrypt(encrypted):
+  aes = AES.new(IV, AES.MODE_CBC, IV)
+  return aes.decrypt(encrypted)
+
+
+def encrypt(message):
+  length = 16
+  count = len(message)
+  padding = length - (count % length)
+  message = message + '\0' * padding
+  aes = AES.new(IV, AES.MODE_CBC, IV)
+  return aes.encrypt(message)
+
+
+str = 'this is a test'
+example = decrypt(base64.b64decode(str1))
+print(example)
+```
+## Reference
+[【攻防世界AD】Misc进阶区：3-1](https://blog.csdn.net/yoyoko_chan/article/details/117660494)

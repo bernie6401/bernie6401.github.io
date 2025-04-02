@@ -1,0 +1,60 @@
+---
+title: Background
+tags: [NISRA, CTF, Misc]
+
+---
+
+# NISRA - 看不見的地方
+## Background
+[advanced-potion-making:two::+1:](/uwox6r5hQ6St_8G-4mv1_g)
+
+## Recon
+這題出的不錯，我用了所有方法都沒看到甚麼奇怪的東西，除了pngcheck
+```bash!
+$ pngcheck flag.png
+flag.png  CRC error in chunk IHDR (computed 68ff0ded, expected 8c5880da)
+ERROR: flag.png 
+```
+代表檔案可能有一些問題
+原圖：
+![](https://hackmd.io/_uploads/SkwQ2IPu3.png)
+
+
+## Exploit - Recover PNG File
+1. 參考[UP主的腳本](https://zhuanlan.zhihu.com/p/599657891)，可以直接寫出長寬
+    ```python!
+    import zlib
+    import struct
+    import sys
+
+    filename = sys.argv[1]
+    with open(filename, 'rb') as f:
+        all_b = f.read()
+        crc32key = int(all_b[29:33].hex(),16)
+        data = bytearray(all_b[12:29])
+        n = 4095
+        for w in range(n): 
+            width = bytearray(struct.pack('>i', w))
+            for h in range(n):
+                height = bytearray(struct.pack('>i', h))
+                for x in range(4):
+                    data[x+4] = width[x]
+                    data[x+8] = height[x]
+                crc32result = zlib.crc32(data)
+                if crc32result == crc32key:
+                    print("寬為：{}(hex), {}(int)".format(width.hex(), int(width.hex(), 16)))
+                    print("高為：{}(hex), {}(int)".format(height.hex(), int(height.hex(), 16)))
+                    exit(0)
+    ```
+    ```bash!
+    $ python exp.py flag.png
+    寬為：00000258(hex), 600(int)
+    高為：00000148(hex), 328(int)
+    ```
+    ![](https://hackmd.io/_uploads/rkLuiLwuh.png)
+    可以看得出來高的數值不一樣
+2. 修復png file
+把原本的高`0120`$\to$`0148`
+    ![](https://hackmd.io/_uploads/SyyW9LD_2.png)
+
+    ![](https://hackmd.io/_uploads/Hypkt8Pun.png)

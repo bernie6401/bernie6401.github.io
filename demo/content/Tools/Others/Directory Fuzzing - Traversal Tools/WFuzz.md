@@ -1,0 +1,179 @@
+---
+title: WFuzz
+tags: [Tools]
+
+---
+
+# WFuzz
+參考網站-1: https://www.ddosi.org/wfuzz-guide/
+參考網站-2: https://www.ddosi.org/wfuzz/
+參考網站-3: https://www.secpulse.com/archives/78638.html
+參考官網-1: https://wfuzz.readthedocs.io/en/latest/user/basicusage.html
+### Installation & Basic Guide
+```bash!
+$ git pull https://github.com/xmendez/wfuzz.git
+```
+下載下來後總共有==4==個executable file: ==wfencode==, ==wfpayload==, ==wfuzz==, ==wxfuzz==，這四個file實際上就是去執行src/內部的python cli file
+```bash!
+python src/wfuzz-cli.py "$@"
+python src/wxfuzz.py $@
+python src/wfencode.py "$@"
+python src/wfpayload.py "$@"
+```
+### wfencode
+這個就是encode/decode的script，很單純
+```bash!
+$ wfencode --help
+Usage:
+
+        wfencode --help This help
+        wfencode -d decoder_name string_to_decode
+        wfencode -e encoder_name string_to_encode
+        wfencode -e encoder_name -i <<stdin>>
+```
+而關於encode/decoder name可以參考wfuzz file的help
+```bash!
+$ wfuzz -e encoder
+Available encoders:
+
+  Category      | Name              | Summary
+------------------------------------------------------------------------------------------------------------------------
+  hashes        | base64            | Encodes the given string using base64
+  url           | doble_nibble_hex  | Replaces ALL characters in string using the %%dd%dd escape
+  url_safe, url | double_urlencode  | Applies a double encode to special characters in string using the %25xx escape.
+                |                   | Letters, digits, and the characters '_.-' are never quoted.
+  url           | first_nibble_hex  | Replaces ALL characters in string using the %%dd? escape
+  default       | hexlify           | Every byte of data is converted into the corresponding 2-digit hex representatio
+                |                   | n.
+  html          | html_decimal      | Replaces ALL characters in string using the &#dd; escape
+  html          | html_escape       | Convert the characters &<>" in string to HTML-safe sequences.
+  html          | html_hexadecimal  | Replaces ALL characters in string using the &#xx; escape
+  hashes        | md5               | Applies a md5 hash to the given string
+  db            | mssql_char        | Converts ALL characters to MsSQL's char(xx)
+  db            | mysql_char        | Converts ALL characters to MySQL's char(xx)
+  default       | none              | Returns string without changes
+  db            | oracle_char       | Converts ALL characters to Oracle's chr(xx)
+  default       | random_upper      | Replaces random characters in string with its capitals letters
+  url           | second_nibble_hex | Replaces ALL characters in string using the %?%dd escape
+  hashes        | sha1              | Applies a sha1 hash to the given string
+  hashes        | sha256            | Applies a sha256 hash to the given string
+  hashes        | sha512            | Applies a sha512 hash to the given string
+  url           | uri_double_hex    | Encodes ALL charachers using the %25xx escape.
+  url           | uri_hex           | Encodes ALL charachers using the %xx escape.
+  url           | uri_triple_hex    | Encodes ALL charachers using the %25%xx%xx escape.
+  url           | uri_unicode       | Replaces ALL characters in string using the %u00xx escape
+  url_safe, url | urlencode         | Replace special characters in string using the %xx escape. Letters, digits, and
+                |                   | the characters '_.-' are never quoted.
+  url           | utf8              | Replaces ALL characters in string using the \u00xx escape
+  url           | utf8_binary       | Replaces ALL characters in string using the \uxx escape
+```
+如何使用
+```bash!
+$ wfencode -e md5 aaa
+47bce5c74f589f4867dbd57e9ca9f808
+```
+### wfpayload
+這個file主要是產生payload，不管是數字、iprange或是name，以下列出一些常見的
+```bash!
+$ wfpayload -e payloads
+Available payloads:
+
+  Name            | Summary
+------------------------------------------------------------------------------------------------------
+  autorize        | Returns fuzz results' from autorize.
+  bing            | Returns URL results of a given bing API search (needs api key).
+  buffer_overflow | Returns a string using the following pattern A * given number.
+  burpitem        | This payload loads request/response from items saved from Burpsuite.
+  burplog         | Returns fuzz results from a Burp log.
+  burpstate       | Returns fuzz results from a Burp state.
+  dirwalk         | Returns filename's recursively from a local directory.
+  file            | Returns each word from a file.
+  guitab          | This payload reads requests from a tab in the GUI
+  hexrand         | Returns random hex numbers from the given range.
+  hexrange        | Returns each hex number of the given hex range.
+  ipnet           | Returns list of IP addresses of a network.
+  iprange         | Returns list of IP addresses of a given IP range.
+  list            | Returns each element of the given word list separated by -.
+  names           | Returns possible usernames by mixing the given words, separated by -, using know
+                  | n typical constructions.
+  permutation     | Returns permutations of the given charset and length.
+  range           | Returns each number of the given range.
+  shodanp         | Returns URLs of a given Shodan API search (needs api key).
+  stdin           | Returns each item read from stdin.
+  wfuzzp          | Returns fuzz results' URL from a previous stored wfuzz session.
+```
+如何使用
+:::info
+如果不知道payload的格式或是哪些module需要安裝，可以使用`$ wfpayload -z help --slice "<payload you wanna use>"`，就可以知道詳細的格式或範例以及一些基本的說明
+:::
+```bash!
+# number(以下三者皆相通)
+$ wfpayload -z range,0-20
+$ wfpayload -z range --zP range=0-20
+$ wfpayload -z range --zD 0-20
+
+# iprange(以下三者皆相通)
+# pip install netaddr
+$ wfpayload -z iprange,192.168.1.1-192.168.1.255
+$ wfpayload -z iprange --zP iprange=192.168.1.1-192.168.1.255
+$ wfpayload -z iprange --zD 192.168.1.1-192.168.1.255
+
+# list(以下三者皆相通)
+$ wfpayload -z list,aaa-bbbb-ccc
+$ wfpayload -z list --zP values=aaa-bbbb-ccc
+$ wfpayload -z list --zD aaa-bbbb-ccc
+
+# dirwalk(以下三者皆相通)
+$ wfpayload -z dirwalk,./wordlist
+$ wfpayload -z dirwalk --zP dir=./wordlist
+$ wfpayload -z dirwalk --zD ./wordlist
+
+# ipnet(以下三者皆相通)
+$ wfpayload -z ipnet,127.0.0.1/24
+$ wfpayload -z ipnet --zP net=127.0.0.1/24
+$ wfpayload -z ipnet --zD 127.0.0.1/24
+
+# name(以下三者皆相通)
+$ wfpayload -z name,sbk-ho
+$ wfpayload -z name --zP name=sbk-ho
+$ wfpayload -z name --zD sbk-ho
+```
+### wfuzz & wxfuzz
+基本上wxfuzz是wfuzz的GUI版本，他是利用wxPython進行實作，所以如果會使用CLI就不需要管wxfuzz
+#### Directory Scanning
+```bash!
+$ wfuzz -c -w wordlist/general/common.txt http://localhost:8065/FUZZ
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+Target: http://localhost:8065/FUZZ
+Total requests: 951
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload
+=====================================================================
+
+000000001:   200        34 L     199 W      3471 Ch     "@"
+000000003:   200        34 L     199 W      3471 Ch     "01"
+...
+```
+可以看到最一開始有Response Status Code, Lines, Word, Chars等這些index，如果想要過濾/顯示特定的packet，可以使用
+```bash
+--hc/hl/hw/hh N[,N]+      : Hide responses with the specified code/lines/words/chars (Use BBB for taking values from baseline)
+--sc/sl/sw/sh N[,N]+      : Show responses with the specified code/lines/words/chars (Use BBB for taking values from baseline)
+```
+就是對應上述提到的四個index
+```bash
+# 想要過濾status code: 404
+$ wfuzz -c -w wordlist/general/common.txt --hc 404 http://localhost:8065/FUZZ
+
+# 想要過濾chars是3471的packet，以下三者完全相等
+$ wfuzz -c -w wordlist/general/common.txt --hh 3471 http://localhost:8065/FUZZ
+$ wfuzz -c -z file --zD wordlist\general\common.txt --hh 3471 http://localhost:8065/FUZZ
+$ wfuzz -c -z file,wordlist\general\common.txt --hh 3471 http://localhost:8065/FUZZ
+```
+
+:::info
+有一個非常重要的部分是，wfuzz無法自行判斷我給的URL和Fuzz element之間是否只有一個`/`也就是如果wordlist是`/api/v1/about`，但我給的testing URL是`http://localhost:80/`這樣的話拼起來就會是`http://localhost:80//api/v1/about`，這樣的話就會出錯(web server大機率會無法render)，另外有些web server的backend沒有辦法解析request URL的最後面出現`/`(例如==Abacus==)，舉例來說: `/api/v1/about`和`/api/v1/about/`在backend解析的時候是不一樣的，但明明wordlist上只出現`/api/v1/about`，會這樣是因為我給的Wfuzz testing URL是`http://localhost:80FUZZ`，Wfuzz會自動在後面補一個`/`，因此比較保險的方式是wordlist最一開始不要是`/`，然後Wfuzz testing URL是`http://localhost:80/FUZZ`這樣比較保險
+:::

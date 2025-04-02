@@ -1,0 +1,50 @@
+---
+title: Maxim
+tags: [Tools]
+
+---
+
+# Maxim
+原本的[repo README](https://github.com/zhangzhao4444/Maxim)就說明的很清楚了
+## How to use
+1. Environment
+    * 適用Emulator/Physical Android Version 7, 8, 9, 10, 11，但再往上就會遇到下面的問題
+    * 待測的App需要先安裝
+2. Push File to Mobile
+    ```bash
+    $ adb push framework.jar /sdcard
+    $ adb push monkey.jar /sdcard
+    ```
+3. Command
+    ```bash!
+    $ adb shell CLASSPATH=/sdcard/monkey.jar:/sdcard/framework.jar exec app_process /system/bin tv.panda.test.monkey.Monkey -p <app package name> --uiautomatormix --running-minutes 1 -v -v
+    ```
+    * Mode: `--uiautomatormix`, `--uiautomatordfs`, `--uiautomatortroy`
+    * `-p`: 需要更改成待測app的package name
+    * `--running-minutes`: 設定要跑多久
+
+## Problem
+```
+[Maxim] *** ERROR // CRASH: com.xueqiu.android (pid 6940)
+[Maxim] *** ERROR // Short Msg: java.lang.UnsatisfiedLinkError
+[Maxim] *** ERROR // Long Msg: java.lang.UnsatisfiedLinkError: No implementation found for java.lang.ClassLoader s.h.e.l.l.N.al(java.lang.ClassLoader, android.content.pm.ApplicationInfo, java.lang.String, java.lang.String) (tried Java_s_h_e_l_l_N_al and Java_s_h_e_l_l_N_al__Ljava_lang_ClassLoader_2Landroid_content_pm_ApplicationInfo_2Ljava_lang_String_2Ljava_lang_String_2)
+[Maxim] *** ERROR // Build Label: google/sdk_gphone64_x86_64/emulator64_x86_64_arm64:12/SE1A.211212.001.B1/8023802:user/release-keys
+[Maxim] *** ERROR // Build Changelist: 8023802
+[Maxim] *** ERROR // Build Time: 1640217878000
+[Maxim] *** ERROR // java.lang.UnsatisfiedLinkError: No implementation found for java.lang.ClassLoader s.h.e.l.l.N.al(java.lang.ClassLoader, android.content.pm.ApplicationInfo, java.lang.String, java.lang.String) (tried Java_s_h_e_l_l_N_al and Java_s_h_e_l_l_N_al__Ljava_lang_ClassLoader_2Landroid_content_pm_ApplicationInfo_2Ljava_lang_String_2Ljava_lang_String_2)
+//      at s.h.e.l.l.N.al(Native Method)
+//      at s.h.e.l.l.A.instantiateApplication(Unknown Source:45)
+//      at android.app.Instrumentation.newApplication(Instrumentation.java:1177)
+//      at android.app.LoadedApk.makeApplication(LoadedApk.java:1356)
+//      at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6686)
+//      at android.app.ActivityThread.access$1500(ActivityThread.java:247)
+//      at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2053)
+//      at android.os.Handler.dispatchMessage(Handler.java:106)
+//      at android.os.Looper.loopOnce(Looper.java:201)
+//      at android.os.Looper.loop(Looper.java:288)
+//      at android.app.ActivityThread.main(ActivityThread.java:7839)
+//      at java.lang.reflect.Method.invoke(Native Method)
+//      at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:548)
+//      at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1003)
+//
+```

