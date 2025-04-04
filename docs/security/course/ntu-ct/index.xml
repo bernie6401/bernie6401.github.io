@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntu-ct/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Compiler Technology Previous Exam 2019 Spring</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2019-spring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2019-spring/</guid><description>&lt;h1 id="ntu-compiler-technology-previous-exam-2019-spring">
+ NTU Compiler Technology Previous Exam 2019 Spring
+ &lt;a class="anchor" href="#ntu-compiler-technology-previous-exam-2019-spring">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ct-ntu-compiler-techonology-of-programming-language-final-exam">
+ tags: &lt;code>NTU_CT&lt;/code> &lt;code>NTU&lt;/code> &lt;code>Compiler Techonology of Programming Language&lt;/code> &lt;code>Final Exam&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ct-ntu-compiler-techonology-of-programming-language-final-exam">#&lt;/a>
+&lt;/h6>
+&lt;ol>
+&lt;li>
+&lt;p>Please explain three different compiler optimization techniques :
+(a) 1st compiler optimization technique: (5points/5)
+(b) 2nd compiler optimization technique: (5points/10)
+(c) 3rd compiler optimization techniques: (5points/15)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Many computer systems provide an interactive debugger (for example, &lt;code>gdb&lt;/code> or db x) to assist users in diagnosing and correcting runtime errors. Although a debugger is run long after a compiler has done its job, the two tools still must cooperate. What information (beyond the translation of a program) must a compiler supply to support effective runtime debugging? (5 points/20)&lt;/p></description></item><item><title>NTU Compiler Technology Previous Exam 2020 Spring</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2020-spring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-previous-exam-2020-spring/</guid><description>&lt;h1 id="ntu-compiler-technology-previous-exam-2020-spring">
+ NTU Compiler Technology Previous Exam 2020 Spring
+ &lt;a class="anchor" href="#ntu-compiler-technology-previous-exam-2020-spring">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ct-ntu-compiler-techonology-of-programming-language-final-exam">
+ tags: &lt;code>NTU_CT&lt;/code> &lt;code>NTU&lt;/code> &lt;code>Compiler Techonology of Programming Language&lt;/code> &lt;code>Final Exam&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ct-ntu-compiler-techonology-of-programming-language-final-exam">#&lt;/a>
+&lt;/h6>
+&lt;ol>
+&lt;li>
+&lt;p>According to the grammar of AC in the right , please write down the recursive descent parsing procedure for nonterminal Expr. (10 points/10)
+&lt;img src="https://imgur.com/fIUehwA.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Please write down a regular expression that defines the set of strings recognized by the FA in the following and explain your answer (5points/ 15)
+&lt;img src="https://imgur.com/oWs2kC0.png" alt="" />&lt;/p></description></item><item><title>NTU Compiler Technology Project 1</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-1/</guid><description>&lt;h1 id="ntu-compiler-technology-project-1">
+ NTU Compiler Technology Project 1
+ &lt;a class="anchor" href="#ntu-compiler-technology-project-1">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ct-ntu-compiler-techonology-of-programming-language">
+ tags: &lt;code>NTU_CT&lt;/code> &lt;code>NTU&lt;/code> &lt;code>Compiler Techonology of Programming Language&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ct-ntu-compiler-techonology-of-programming-language">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="acdc-compiler">
+ AcDc Compiler
+ &lt;a class="anchor" href="#acdc-compiler">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="description">
+ Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>This is a project from NTU (National Taiwan University) course, Compiler Technology of Programming Language.&lt;/li>
+&lt;li>First project is aim to
+&lt;ul>
+&lt;li>add multiplier and division operation in this compiler&lt;/li>
+&lt;li>let compiler can recognize multi character identifier(variable) name by alphabet string&lt;/li>
+&lt;li>use constant folding to optimize the statement&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-use">
+ How to use?
+ &lt;a class="anchor" href="#how-to-use">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>You can browse Assignment1.pdf. You must run in Linux OS environment(more conveniently). When you finish the coding, use &lt;code>$ make&lt;/code> command directly.&lt;/li>
+&lt;li>&lt;code>$ ./AcDc &amp;lt;input sample address&amp;gt; &amp;lt;output file address&amp;gt;&lt;/code>
+&lt;ul>
+&lt;li>For instance: &lt;code>$ ./AcDc ../test/sample1.ac ./output&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="something-need-to-know-first">
+ Something need to know first
+ &lt;a class="anchor" href="#something-need-to-know-first">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>It can not recognize the bottom line as identifier name.&lt;/li>
+&lt;li>It can not print negative value like $1-2=-1$ expression. Actually speaking, it can calculate correctly but it can not print it out.(I&amp;rsquo;ll check it out later.)
+&lt;ul>
+&lt;li>You can check &lt;a href="https://bernie6401.github.io/test/constfold.ac">constfold testbench&lt;/a>&lt;/li>
+&lt;li>Solution and Why: In Dc Language, the bottom line represent negative symbol. You can not just use minus as negative symbol, replace it by bottom line instead.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>It can not recognize identifier name with numbers. You can check &lt;a href="https://bernie6401.github.io/test/longname.ac">longname.ac&lt;/a>&lt;/li>
+&lt;li>The other testbenchs can compile from Ac language to Dc language correctly.&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/jaidTw/AcDc">AcDc&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ZephyrZhuQi/AcDcCompiler">AcDcCompiler&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>NTU Compiler Technology Project 2</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-2/</guid><description>&lt;h1 id="ntu-compiler-technology-project-2">
+ NTU Compiler Technology Project 2
+ &lt;a class="anchor" href="#ntu-compiler-technology-project-2">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ct-ntu-compiler-techonology-of-programming-language-scanner">
+ tags: &lt;code>NTU_CT&lt;/code> &lt;code>NTU&lt;/code> &lt;code>Compiler Techonology of Programming Language&lt;/code> &lt;code>Scanner&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ct-ntu-compiler-techonology-of-programming-language-scanner">#&lt;/a>
+&lt;/h6>
+&lt;p>:::spoiler
+[TOC]
+:::&lt;/p>
+&lt;h2 id="objective">
+ Objective
+ &lt;a class="anchor" href="#objective">#&lt;/a>
+&lt;/h2>
+&lt;p>This is compiler project 2 that aim to construct the scanner by handmade with some sample code. The output is symbol table that the frequency of each identifier and the result is sorted.&lt;/p>
+&lt;h2 id="run-and-test">
+ Run and Test
+ &lt;a class="anchor" href="#run-and-test">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ make /*use make in src folder*/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./scanner ../test/sample1.ac
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="output-of-each-sample">
+ Output of each sample
+ &lt;a class="anchor" href="#output-of-each-sample">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>For sample1.ac&lt;/p></description></item><item><title>NTU Compiler Technology Project 3</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-3/</guid><description>&lt;h1 id="ntu-compiler-technology-project-3">
+ NTU Compiler Technology Project 3
+ &lt;a class="anchor" href="#ntu-compiler-technology-project-3">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ct-ntu-compiler-techonology-of-programming-language-yacc-lex">
+ tags: &lt;code>NTU_CT&lt;/code> &lt;code>NTU&lt;/code> &lt;code>Compiler Techonology of Programming Language&lt;/code> &lt;code>YACC&lt;/code> &lt;code>Lex&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ct-ntu-compiler-techonology-of-programming-language-yacc-lex">#&lt;/a>
+&lt;/h6>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="objective">
+ Objective
+ &lt;a class="anchor" href="#objective">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>The main task for this project is to revise &lt;code>src/parser.y&lt;/code> and generate &lt;code>parser&lt;/code> file properly to compile test code in &lt;code>test&lt;/code> folder.&lt;/li>
+&lt;li>And then use &lt;code>Graphviz&lt;/code> command to visualize the structure of these test code&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-run">
+ How to run?
+ &lt;a class="anchor" href="#how-to-run">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Just use &lt;code>make&lt;/code> to compile all files in &lt;code>/src&lt;/code>. Though you&amp;rsquo;ll get a lots of warning shown as below, you can ignore them and obtain the target file &lt;code>parser&lt;/code>.
+&lt;pre tabindex="0">&lt;code class="language-bash=" data-lang="bash=">bison -v -d parser.y
+parser.y: warning: 1 shift/reduce conflict [-Wconflicts-sr]
+flex lexer.l
+gcc -g -c alloc.c
+gcc -g -c parser.tab.c
+parser.tab.c: In function ‘yyparse’:
+parser.tab.c:2565:7: warning: implicit declaration of function ‘yyerror’; did you mean ‘yyerrok’? [-Wimplicit-function-declaration]
+ yyerror (YY_(&amp;#34;syntax error&amp;#34;));
+ ^~~~~~~
+ yyerrok
+parser.y: At top level:
+parser.y:825:3: warning: data definition has no type or storage class
+ yydebug = 1;
+ ^~~~~~~
+parser.y:825:3: warning: type defaults to ‘int’ in declaration of ‘yydebug’ [-Wimplicit-int]
+parser.y:827:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ main (argc, argv)
+ ^~~~
+parser.y: In function ‘main’:
+parser.y:834:5: warning: implicit declaration of function ‘printGV’; did you mean ‘printf’? [-Wimplicit-function-declaration]
+ printGV(prog, NULL);
+ ^~~~~~~
+ printf
+gcc -g -c functions.c
+gcc -g -o parser parser.tab.o alloc.o functions.o -lfl
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Use parser to compile all files in &lt;code>/test&lt;/code> folder and you will get &lt;code>AST_Graph.gv&lt;/code> in &lt;strong>&lt;code>/test&lt;/code>&lt;/strong> folder.
+&lt;strong>&lt;code>/src&lt;/code>&lt;/strong>
+&lt;pre tabindex="0">&lt;code class="language-bash=" data-lang="bash=">./parser ../test/control.c
+dot -Tpng -o ../test/control.png ../test/AST_Graph.gv
+./parser ../test/decl.c
+dot -Tpng -o ../test/decl.png ../test/AST_Graph.gv
+./parser ../test/expr.c
+dot -Tpng -o ../test/expr.png ../test/AST_Graph.gv
+./parser ../test/func.c
+dot -Tpng -o ../test/func.png ../test/AST_Graph.gv
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Note that in &lt;code>parser.y&lt;/code>, I set &lt;code>yydebug = 1&lt;/code> so that we can see the debug message from parser
+&lt;pre tabindex="0">&lt;code class="language-cpp=821" data-lang="cpp=821">#ifdef YYDEBUG
+ yydebug = 1;
+#endif
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;h2 id="for-ta">
+ For TA
+ &lt;a class="anchor" href="#for-ta">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>I changed a little bit &lt;code>functions.c&lt;/code> that will generate &lt;code>AST_Graph.gv&lt;/code> at &lt;code>test/&lt;/code> folder.&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code class="language-cpp=150" data-lang="cpp=150">void printGV(AST_NODE *root, char* fileName)
+{
+ if (fileName == NULL) {
+ fileName = &amp;#34;../test/AST_Graph.gv&amp;#34;;
+ }
+ ...
+}
+&lt;/code>&lt;/pre>&lt;h2 id="analysis">
+ Analysis
+ &lt;a class="anchor" href="#analysis">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>You can see the relationship between structure map and test code by yourself.&lt;/li>
+&lt;li>&lt;strong>control.c&lt;/strong>
+&lt;pre tabindex="0">&lt;code class="language-cpp=" data-lang="cpp=">int main()
+{
+ int i;
+ int p;
+ int k, j;
+ for (i=0; i&amp;lt;9; i=i+1) {
+ /* empty */
+ }
+ for (i=0, p=4+4; i&amp;lt;9; i=i+1, p=i) {
+ write(&amp;#34;test&amp;#34;);
+ }
+ for (;;) {
+ /*empty*/
+ }
+ while (1) {
+ }
+ while (2) {
+ write(&amp;#34;haha&amp;#34;);
+ write(&amp;#34;wow&amp;#34;);
+ }
+ if (k == j) {
+ write(&amp;#34;first&amp;#34;);
+ }
+ if (k == j) {
+ write(&amp;#34;first&amp;#34;);
+ } else if (j == k) {
+ write(&amp;#34;second&amp;#34;);
+ } else {
+ write(&amp;#34;third&amp;#34;);
+ }
+}
+&lt;/code>&lt;/pre>&lt;img src="https://imgur.com/4zTAsML.png" alt="graphviz of control.c" />&lt;/li>
+&lt;li>&lt;strong>decl.c&lt;/strong>
+&lt;pre tabindex="0">&lt;code class="language-cpp=" data-lang="cpp=">typedef float GFLOAT;
+int main() {
+ typedef int INT, INT2, INT3;
+ typedef float FLOAT;
+ typedef void VOID;
+ typedef void VOID2, VOID3;
+ INT f[3][3*3-(4+2)/2];
+ FLOAT f2;
+}
+&lt;/code>&lt;/pre>&lt;img src="https://imgur.com/6KWV4IT.png" alt="graphviz of decl.c" />&lt;/li>
+&lt;li>&lt;strong>expr.c&lt;/strong>
+&lt;pre tabindex="0">&lt;code class="language-cpp=" data-lang="cpp=">int fn1() {
+ return 1;
+}
+float fn3() {
+ return 1.0;
+}
+int fn4(int a, int b) {
+ return 1;
+}
+int expr(int a, int b, int c, int d,
+ float fa, float fb, float fc) {
+ int i, j, k, l;
+ float fi = 1.0, fj = 2.0, fk = 3.0, fl = 4.0;
+
+ fi = 1.2*fi + -fj * (fl - fk * fn3());
+ fi = -fn3() -(-(-(4)));
+ fi = !fn3() -(!(!(4)));
+ i = !fn1();
+ i = 1 &amp;lt; 2;
+ i = 1 &amp;gt; 2;
+ i = 1 &amp;gt;= 2;
+ i = 1 &amp;lt;= 2;
+ i = 1 != 2;
+ i = 1 == 2;
+ i = fn4(1+3*4*fn4(2,3), 3);
+ return 1;
+}
+int main() {
+}
+&lt;/code>&lt;/pre>&lt;img src="https://imgur.com/7a6OyJA.png" alt="graphviz of expr.c" />&lt;/li>
+&lt;li>&lt;strong>func.c&lt;/strong>
+&lt;pre tabindex="0">&lt;code class="language-cpp=" data-lang="cpp=">int fn1() {
+ int ABC = 5;
+ return ABC+5;
+}
+void fn2() {
+}
+void fn3(int a, int b[3][4]) {
+}
+int main() {
+ int b[4][4];
+ fn1();
+ fn2();
+ fn3(2, b);
+}
+&lt;/code>&lt;/pre>&lt;img src="https://imgur.com/BvW5b2U.png" alt="graphviz of func.c" />&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://github.com/liuxt/Compiler/blob/master/hw3">Github example&lt;/a>
+&lt;a href="https://bluelove1968.pixnet.net/blog/post/222285652?utm_source=PIXNET&amp;amp;utm_medium=Blog_CollectionEXP_login">Simple intro of yacc &amp;amp; lex&lt;/a>
+&lt;a href="https://www.netadmin.com.tw/netadmin/zh-tw/technology/122966CB664D4A17ABAAD11FC2AA887C?page=3">Simple intro of Graphviz&lt;/a>
+&lt;a href="https://arcb.csc.ncsu.edu/~mueller/codeopt/codeopt00/y_man.pdf">A GUIDE TO LEX &amp;amp; YACC from TA&lt;/a>
+大推：&lt;a href="https://good-ed.blogspot.com/2010/04/lexyacc.html">以lex/yacc實作算式計算機&lt;/a>&lt;/p></description></item><item><title>NTU Compiler Technology Project 4</title><link>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-ct/ntu-compiler-technology-project-4/</guid><description>&lt;h1 id="ntu-compiler-technology-project-4">
+ NTU Compiler Technology Project 4
+ &lt;a class="anchor" href="#ntu-compiler-technology-project-4">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_ct-ntu-compiler-techonology-of-programming-language-code-generation">
+ tags: &lt;code>NTU_CT&lt;/code> &lt;code>NTU&lt;/code> &lt;code>Compiler Techonology of Programming Language&lt;/code> &lt;code>Code Generation&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_ct-ntu-compiler-techonology-of-programming-language-code-generation">#&lt;/a>
+&lt;/h6>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="how-to-run">
+ How to run?
+ &lt;a class="anchor" href="#how-to-run">#&lt;/a>
+&lt;/h2>
+&lt;p>First, put your testing file and &lt;code>main.S&lt;/code> to the folder same as &lt;code>parser&lt;/code> file&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./parser &lt;span style="color:#f92672">[&lt;/span>testing file&lt;span style="color:#f92672">]&lt;/span>.c
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ aarch64-linux-gnu-gcc -static -O0 main.S
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ qemu-aarch64-static ./a.out
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Or, you can put the &lt;code>run.sh&lt;/code> and &lt;code>main.S&lt;/code> in the same directory and run&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ./run.sh &lt;span style="color:#f92672">[&lt;/span>your parser&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">[&lt;/span>the C file&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ qemu-aarch64-static ./a.out
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Note that you must change your test file&amp;rsquo;s &lt;code>main()&lt;/code> to &lt;font color="FF0000">&lt;code>MAIN()&lt;/code>&lt;/font>&lt;/p></description></item></channel></rss>

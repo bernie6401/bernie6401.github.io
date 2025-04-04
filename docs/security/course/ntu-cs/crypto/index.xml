@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU CS 2023 HW1 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/ntu-cs-2023-hw1-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw1-write-up">
+ NTU CS 2023 HW1 Write Up
+ &lt;a class="anchor" href="#ntu-cs-2023-hw1-write-up">#&lt;/a>
+&lt;/h1>
+&lt;p>Name: 何秉學 Student ID: R11921A16
+:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="lab-cor">
+ Lab-COR
+ &lt;a class="anchor" href="#lab-cor">#&lt;/a>
+&lt;/h2>
+&lt;p>Flag: &lt;code>FLAG{Corre1ati0n_Attack!_!}&lt;/code>&lt;/p>
+&lt;h3 id="解題流程與思路">
+ 解題流程與思路
+ &lt;a class="anchor" href="#%e8%a7%a3%e9%a1%8c%e6%b5%81%e7%a8%8b%e8%88%87%e6%80%9d%e8%b7%af">#&lt;/a>
+&lt;/h3>
+&lt;p>這一題是簡單的padding oracle attack，他一樣是應用在CBC mode上，只是他padding的方式和上課教的有一點不一樣，他會先在最後放一個0x80然後接續放0x00直到長度%16==0，同樣的，我們可以用上課教的方式:&lt;/p>
+&lt;ul>
+&lt;li>What we have: 我們有的東西就是密文，所以可以利用它動一些手腳&lt;/li>
+&lt;li>Our Goal 1: 目標是要取得原本和47進行XOR的數字是多少&lt;/li>
+&lt;li>Our Goal 2: 這樣才可以取得最後的明文69
+&lt;img src="https://hackmd.io/_uploads/r1p3yoGlp.png" alt="" />&lt;/li>
+&lt;li>How to achieve: 我們可以簡單猜一個byte，從0x00開始，把密文換成猜測的byte，這樣256種組合和原本的Goal 1所求的byte進行XOR後會padding正確(也就是0x01)，此時假設我們已經猜到目前是0x2f符合padding正確的目標，代表現在的假明文是0x01，則原本和0x47進行XOR的數字就是0x01⊕0x2f，然後我們就可以回到原本解密的流程，也就是原本的密文0x47⊕剛剛得知的(0x01⊕0x2f)，就會得到想要的正確的明文0x69
+&lt;img src="https://hackmd.io/_uploads/H1yKboMlp.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;p>所以套用到今天的lab意思也是一樣，如果要知道padding是否正確可以問oracle，反正只要符合明文+0x80+(0&amp;hellip;15)*0x00，這一題的flag長度可以從題目給的ciphertext看出來，顯然扣掉16bytes的initial vector後，flag的長度是32 bytes，也就是說我們從第二個block開始解，我們可以單獨把第一個ciphertext block當成第二個ciphertext block的initial vector，合併後再一起送出去，然後不斷變化IV的最後一個byte，如果oracle回傳&lt;code>Well received :)&lt;/code>代表第一個bytes猜對了，我們就可以把flag的最後一個bytes求出來$\to$我們猜的byte⊕原本ciphertext的最後一個byte⊕0x80(0x80是我們判斷padding正確的依據)，當然找到真正的plaintext byte後要把我們猜測的block恢復原狀，接著繼續找下一個byte&lt;/p>
+&lt;h2 id="lab-lsb">
+ Lab-LSB
+ &lt;a class="anchor" href="#lab-lsb">#&lt;/a>
+&lt;/h2>
+&lt;p>Flag: &lt;code>FLAG{Viycx_qsklsjgmeld_fgd_spkgjo}&lt;/code>&lt;/p>
+&lt;h3 id="解題流程與思路-1">
+ 解題流程與思路
+ &lt;a class="anchor" href="#%e8%a7%a3%e9%a1%8c%e6%b5%81%e7%a8%8b%e8%88%87%e6%80%9d%e8%b7%af-1">#&lt;/a>
+&lt;/h3>
+&lt;p>這一題是變形過的Lease Significant Bit，上課教的例子是mod 2下的結果，而看source code可以知道目前他是mod 3下的結果，但換湯不換藥，只要把上課教的部分全部換成mod 3就可以了&lt;/p></description></item><item><title>Simple Crypto - 0x01(Modular Operation)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x01modular-operation/</guid><description>&lt;h1 id="simple-crypto---0x01modular-operation">
+ Simple Crypto - 0x01(Modular Operation)
+ &lt;a class="anchor" href="#simple-crypto---0x01modular-operation">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ctf-crypto-eductf">
+ tags: &lt;code>CTF&lt;/code> &lt;code>Crypto&lt;/code> &lt;code>eductf&lt;/code>
+ &lt;a class="anchor" href="#tags-ctf-crypto-eductf">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10225768">『Day 23密碼卷宗現代篇非對稱章 - RSA&lt;/a>
+&lt;a href="https://blog.csdn.net/lion19930924/article/details/61926019">模运算与逆元&lt;/a>
+模運算基本特性:
+$$
+(a + b) % p = (a % p + b % p) % p \
+(a - b) % p = (a % p - b % p) % p \
+(a * b) % p = (a % p * b % p) % p \
+(a ^ b) % p = ((a % p) ^ b ) % p
+$$
+模運算的结合律：
+$$
+((a + b) % p + c) % p= (a + (b + c) % p) % p \
+((a * b) % p * c) % p = (a * (b * c) % p ) % p
+$$
+交換律：
+$$
+(a + b) % p = (b+a) % p \
+(a * b) % p = (b * a) % p
+$$
+分配率：
+$$
+((a +b) % p * c) % p = ((a * c) % p + (b * c) % p) % p
+$$&lt;/p></description></item><item><title>Simple Crypto - 0x02(Random Number Generator - LCG)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x02random-number-generator---lcg/</guid><description>&lt;h1 id="simple-crypto---0x02random-number-generator---lcg">
+ Simple Crypto - 0x02(Random Number Generator - LCG)
+ &lt;a class="anchor" href="#simple-crypto---0x02random-number-generator---lcg">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ctf-crypto-eductf">
+ tags: &lt;code>CTF&lt;/code> &lt;code>Crypto&lt;/code> &lt;code>eductf&lt;/code>
+ &lt;a class="anchor" href="#tags-ctf-crypto-eductf">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Linear Congruential Generator:
+&lt;img src="https://i.imgur.com/pCTWEcO.png" alt="" />&lt;/p>
+&lt;h2 id="analysis">
+ Analysis
+ &lt;a class="anchor" href="#analysis">#&lt;/a>
+&lt;/h2>
+&lt;p>LCG Formula
+$$
+\begin{aligned}
+Unknown: S_0&amp;amp;=Seed,\ A,\ B,\ m = 2^{32} \
+Given: S_1&amp;amp;,\ S_2,\ S_3\
+S_1 &amp;amp;\equiv (AS_0\ +\ B)\ %\ m\
+S_2 &amp;amp;\equiv (AS_1\ +\ B)\ %\ m\
+S_3 &amp;amp;\equiv (AS_2\ +\ B)\ %\ m\
+\end{aligned}
+$$&lt;/p>
+&lt;p>Derived A
+$$
+\begin{aligned}
+&amp;amp;\left{
+\begin{array}{c}
+S_2 &amp;amp;\equiv (AS_1\ +\ B)\ %\ m\
+S_3 &amp;amp;\equiv (AS_2\ +\ B)\ %\ m
+\end{array}
+\right.
+\ \ \ \ \ \ minus \ two \ formula\ \
+&amp;amp;\to (S_2-S_3) \equiv (AS_1\ +\ B)\ %\ m-(AS_2\ +\ B)\ %\ m \
+&amp;amp;\to (S_2-S_3)\ % \ m\equiv [(AS_1\ +\ B)\ %\ m-(AS_2\ +\ B)\ %\ m]\ %\ m \
+&amp;amp;\to (S_2-S_3)\ % \ m\equiv [(AS_1\ +\ B)-(AS_2\ +\ B)]\ %\ m \
+&amp;amp;\to (S_2-S_3)\ % \ m\equiv \ A\ (S_1-S_2)\ \ %\ m =(S_2-S_3)\
+A&amp;amp;=((S_2-S_3)(S_1-S_2)^{-1})\ %\ m
+\end{aligned}
+$$&lt;/p></description></item><item><title>Simple Crypto - 0x03(2023 Lab - COR)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x032023-lab---cor/</guid><description>&lt;h1 id="simple-crypto---0x032023-lab---cor">
+ Simple Crypto - 0x03(2023 Lab - COR)
+ &lt;a class="anchor" href="#simple-crypto---0x032023-lab---cor">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://hackmd.io/@SBK6401/rkiE18Kas">Simple Crypto - 0x03(Lab - LFSR)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> random
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> secret &lt;span style="color:#f92672">import&lt;/span> FLAG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">LFSR&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">def&lt;/span> __init__(self, tap, state):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> self&lt;span style="color:#f92672">.&lt;/span>_tap &lt;span style="color:#f92672">=&lt;/span> tap
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> self&lt;span style="color:#f92672">.&lt;/span>_state &lt;span style="color:#f92672">=&lt;/span> state
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">getbit&lt;/span>(self):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> f &lt;span style="color:#f92672">=&lt;/span> sum([self&lt;span style="color:#f92672">.&lt;/span>_state[i] &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>_tap]) &lt;span style="color:#f92672">&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>_state[&lt;span style="color:#ae81ff">0&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> self&lt;span style="color:#f92672">.&lt;/span>_state &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>_state[&lt;span style="color:#ae81ff">1&lt;/span>:] &lt;span style="color:#f92672">+&lt;/span> [f]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> x
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">triLFSR&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">def&lt;/span> __init__(self, lfsr1, lfsr2, lfsr3):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> self&lt;span style="color:#f92672">.&lt;/span>lfsr1 &lt;span style="color:#f92672">=&lt;/span> lfsr1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> self&lt;span style="color:#f92672">.&lt;/span>lfsr2 &lt;span style="color:#f92672">=&lt;/span> lfsr2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> self&lt;span style="color:#f92672">.&lt;/span>lfsr3 &lt;span style="color:#f92672">=&lt;/span> lfsr3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">getbit&lt;/span>(self):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x1 &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>lfsr1&lt;span style="color:#f92672">.&lt;/span>getbit()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x2 &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>lfsr2&lt;span style="color:#f92672">.&lt;/span>getbit()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x3 &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>lfsr3&lt;span style="color:#f92672">.&lt;/span>getbit()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> x2 &lt;span style="color:#66d9ef">if&lt;/span> x1 &lt;span style="color:#66d9ef">else&lt;/span> x3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lfsr1 &lt;span style="color:#f92672">=&lt;/span> LFSR([&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>], [random&lt;span style="color:#f92672">.&lt;/span>randrange(&lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#66d9ef">for&lt;/span> _ &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">19&lt;/span>)])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lfsr2 &lt;span style="color:#f92672">=&lt;/span> LFSR([&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>], [random&lt;span style="color:#f92672">.&lt;/span>randrange(&lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#66d9ef">for&lt;/span> _ &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">23&lt;/span>)])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lfsr3 &lt;span style="color:#f92672">=&lt;/span> LFSR([&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>], [random&lt;span style="color:#f92672">.&lt;/span>randrange(&lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#66d9ef">for&lt;/span> _ &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">27&lt;/span>)])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cipher &lt;span style="color:#f92672">=&lt;/span> triLFSR(lfsr1, lfsr2, lfsr3)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>flag &lt;span style="color:#f92672">=&lt;/span> map(int, &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>join([&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">{:08b}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(c) &lt;span style="color:#66d9ef">for&lt;/span> c &lt;span style="color:#f92672">in&lt;/span> FLAG]))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>output &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> _ &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">200&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> output&lt;span style="color:#f92672">.&lt;/span>append(cipher&lt;span style="color:#f92672">.&lt;/span>getbit())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> b &lt;span style="color:#f92672">in&lt;/span> flag:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> output&lt;span style="color:#f92672">.&lt;/span>append(cipher&lt;span style="color:#f92672">.&lt;/span>getbit() &lt;span style="color:#f92672">^&lt;/span> b)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(output)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># [0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x03(Lab - LFSR)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x03lab---lfsr/</guid><description>&lt;h1 id="simple-crypto---0x03lab---lfsr">
+ Simple Crypto - 0x03(Lab - LFSR)
+ &lt;a class="anchor" href="#simple-crypto---0x03lab---lfsr">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-eductf-ctf-crypto">
+ tags: &lt;code>eductf&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Crypto&lt;/code>
+ &lt;a class="anchor" href="#tags-eductf-ctf-crypto">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/hnXtaiyvQ3s?t=945">[2022 fall] 0923 Crypto - LFSR&lt;/a>
+&lt;a href="https://youtu.be/dYyNeMeDM20?t=4386">Crypto I - LFSR&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>Must read the source code first with some comment I added
+:::spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-pytho=" data-lang="pytho=">import random
+
+# from secret import FLAG
+
+FLAG = b&amp;#39;00001111&amp;#39;
+
+class LFSR:
+ def __init__(self, tap, state):
+ self._tap = tap
+ self._state = state
+
+ def getbit(self):
+ # f is the new bit that append in last position
+ f = sum([self._state[i] for i in self._tap]) &amp;amp; 1
+
+ # x is the output bit
+ x = self._state[0]
+ 
+ # self._state is a new state
+ self._state = self._state[1:] + [f]
+ return x
+
+class triLFSR:
+ def __init__(self, lfsr1, lfsr2, lfsr3):
+ self.lfsr1 = lfsr1
+ self.lfsr2 = lfsr2
+ self.lfsr3 = lfsr3
+
+ def getbit(self):
+ x1 = self.lfsr1.getbit()
+ x2 = self.lfsr2.getbit()
+ x3 = self.lfsr3.getbit()
+ return x2 if x1 else x3
+# These are the state of lfsr1, lfsr2, and lfsr3
+A = [random.randrange(2) for _ in range(27)]
+B = [random.randrange(2) for _ in range(23)]
+C = [random.randrange(2) for _ in range(25)]
+print(A, B, C)
+
+# tap is a filter that decide the last bit is 1 or 0
+tap1 = [0, 13, 16, 26]
+tap2 = [0, 5, 7, 22]
+tap3 = [0, 17, 19, 24]
+
+lfsr1 = LFSR(tap1, A)
+lfsr2 = LFSR(tap2, B)
+lfsr3 = LFSR(tap3, C)
+cipher = triLFSR(lfsr1, lfsr2, lfsr3)
+
+# Transfer the flag to ascii code and expressed in binary
+# e.g. FLAG = &amp;#39;00001111&amp;#39; → &amp;#39;3030303031313131&amp;#39; → &amp;#39;001100000011000000110000...00110001&amp;#39;(64 bits)
+flag = map(int, &amp;#39;&amp;#39;.join([&amp;#34;{:08b}&amp;#34;.format(c) for c in FLAG]))
+
+output = []
+
+for b in flag:
+ # print(b)
+ output.append(cipher.getbit() ^ b)
+
+for _ in range(200):
+ output.append(cipher.getbit())
+
+# print(output)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x04(2023 Lab - POA)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x042023-lab---poa/</guid><description>&lt;h1 id="simple-crypto---0x042023-lab---poa">
+ Simple Crypto - 0x04(2023 Lab - POA)
+ &lt;a class="anchor" href="#simple-crypto---0x042023-lab---poa">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/dYyNeMeDM20?si=BEvBPBzCsg8oWv_Q&amp;amp;t=8317"> Crypto I - Timmy&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#! /usr/bin/python3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> Crypto.Cipher &lt;span style="color:#f92672">import&lt;/span> AES
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> os
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> secret &lt;span style="color:#f92672">import&lt;/span> FLAG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">pad&lt;/span>(data, block_size):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> data &lt;span style="color:#f92672">+=&lt;/span> bytes([&lt;span style="color:#ae81ff">0x80&lt;/span>] &lt;span style="color:#f92672">+&lt;/span> [&lt;span style="color:#ae81ff">0x00&lt;/span>] &lt;span style="color:#f92672">*&lt;/span> (&lt;span style="color:#ae81ff">15&lt;/span> &lt;span style="color:#f92672">-&lt;/span> len(data) &lt;span style="color:#f92672">%&lt;/span> block_size))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> data
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># padding style: &amp;lt;oooooo[0x80][0x00]...[0x00]&amp;gt; (find first [0x80])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">unpad&lt;/span>(data, block_size):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> len(data) &lt;span style="color:#f92672">%&lt;/span> block_size:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">raise&lt;/span> &lt;span style="color:#a6e22e">ValueError&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> padding_len &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">1&lt;/span>, len(data) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> data[&lt;span style="color:#f92672">-&lt;/span>i] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0x80&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> padding_len &lt;span style="color:#f92672">=&lt;/span> i
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">break&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">elif&lt;/span> data[&lt;span style="color:#f92672">-&lt;/span>i] &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#ae81ff">0x00&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">raise&lt;/span> &lt;span style="color:#a6e22e">ValueError&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">raise&lt;/span> &lt;span style="color:#a6e22e">ValueError&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> data[:&lt;span style="color:#f92672">-&lt;/span>padding_len]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>key &lt;span style="color:#f92672">=&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>urandom(&lt;span style="color:#ae81ff">16&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cipher &lt;span style="color:#f92672">=&lt;/span> AES&lt;span style="color:#f92672">.&lt;/span>new(key, AES&lt;span style="color:#f92672">.&lt;/span>MODE_CBC)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ct &lt;span style="color:#f92672">=&lt;/span> cipher&lt;span style="color:#f92672">.&lt;/span>encrypt(pad(FLAG, AES&lt;span style="color:#f92672">.&lt;/span>block_size))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>iv &lt;span style="color:#f92672">=&lt;/span> cipher&lt;span style="color:#f92672">.&lt;/span>iv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print((iv &lt;span style="color:#f92672">+&lt;/span> ct)&lt;span style="color:#f92672">.&lt;/span>hex())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># same encryption&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> inp &lt;span style="color:#f92672">=&lt;/span> bytes&lt;span style="color:#f92672">.&lt;/span>fromhex(input()&lt;span style="color:#f92672">.&lt;/span>strip()) &lt;span style="color:#75715e"># hex style input&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> iv, ct &lt;span style="color:#f92672">=&lt;/span> inp[:&lt;span style="color:#ae81ff">16&lt;/span>], inp[&lt;span style="color:#ae81ff">16&lt;/span>:] &lt;span style="color:#75715e"># get first 16 bytes from input &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cipher &lt;span style="color:#f92672">=&lt;/span> AES&lt;span style="color:#f92672">.&lt;/span>new(key, AES&lt;span style="color:#f92672">.&lt;/span>MODE_CBC, iv) 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pt &lt;span style="color:#f92672">=&lt;/span> unpad(cipher&lt;span style="color:#f92672">.&lt;/span>decrypt(ct), AES&lt;span style="color:#f92672">.&lt;/span>block_size)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Well received :)&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">except&lt;/span> &lt;span style="color:#a6e22e">ValueError&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Something went wrong :(&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x05(2023 Lab - LSB)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x052023-lab---lsb/</guid><description>&lt;h1 id="simple-crypto---0x052023-lab---lsb">
+ Simple Crypto - 0x05(2023 Lab - LSB)
+ &lt;a class="anchor" href="#simple-crypto---0x052023-lab---lsb">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.youtube.com/live/mqQ2zgK8a0Y?si=GRgtEKGHsCNcKuqU&amp;amp;t=7176"> [edu-ctf 2023] week01 - crypto1 &lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#! /usr/bin/python3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> Crypto.Util.number &lt;span style="color:#f92672">import&lt;/span> bytes_to_long, getPrime
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> os
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> secret &lt;span style="color:#f92672">import&lt;/span> FLAG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>p &lt;span style="color:#f92672">=&lt;/span> getPrime(&lt;span style="color:#ae81ff">1024&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>q &lt;span style="color:#f92672">=&lt;/span> getPrime(&lt;span style="color:#ae81ff">1024&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>n &lt;span style="color:#f92672">=&lt;/span> p &lt;span style="color:#f92672">*&lt;/span> q
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>phi &lt;span style="color:#f92672">=&lt;/span> (p &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">*&lt;/span> (q &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>e &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">65537&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>d &lt;span style="color:#f92672">=&lt;/span> pow(e, &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, phi)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>m &lt;span style="color:#f92672">=&lt;/span> bytes_to_long(FLAG &lt;span style="color:#f92672">+&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>urandom(&lt;span style="color:#ae81ff">256&lt;/span> &lt;span style="color:#f92672">-&lt;/span> len(FLAG)))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">assert&lt;/span> m &lt;span style="color:#f92672">&amp;lt;&lt;/span> n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>enc &lt;span style="color:#f92672">=&lt;/span> pow(m, e, n)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(n)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(e)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(enc)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> inp &lt;span style="color:#f92672">=&lt;/span> int(input()&lt;span style="color:#f92672">.&lt;/span>strip())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pt &lt;span style="color:#f92672">=&lt;/span> pow(inp, d, n)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(pt &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x06(2023 HW - LFSR)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x062023-hw---lfsr/</guid><description>&lt;h1 id="simple-crypto---0x062023-hw---lfsr">
+ Simple Crypto - 0x06(2023 HW - LFSR)
+ &lt;a class="anchor" href="#simple-crypto---0x062023-hw---lfsr">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.geeksforgeeks.org/python-list-xor/">Python – List XOR&lt;/a>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> funtools &lt;span style="color:#f92672">import&lt;/span> reduce
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>test_list &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">6&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">8&lt;/span>, &lt;span style="color:#ae81ff">9&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>res &lt;span style="color:#f92672">=&lt;/span> reduce(&lt;span style="color:#66d9ef">lambda&lt;/span> x, y: x &lt;span style="color:#f92672">^&lt;/span> y, test_list) &lt;span style="color:#75715e"># The output is 2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>&lt;a href="https://www.qiniu.com/qfans/qnso-67006518#comments">Numpy矩陣乘法，但不是乘法，而是XOR的元素&lt;/a>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> numpy &lt;span style="color:#66d9ef">as&lt;/span> np
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>m1 &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array([[&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>], [&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>], [&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>]])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>m2 &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array([[&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>], [&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>], [&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>]])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mr &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>empty((m2&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">0&lt;/span>], m1&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">1&lt;/span>]), dtype &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>int64)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(mr&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">0&lt;/span>]):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> j &lt;span style="color:#f92672">in&lt;/span> range(mr&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">1&lt;/span>]):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> mr[i, j] &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>sum(m1[:, j] &lt;span style="color:#f92672">^&lt;/span> m2[i, :])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(mr)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>&lt;a href="https://pyradise.com/%e4%bd%bf%e7%94%a8-python-%e4%be%86%e8%aa%8d%e8%ad%98%e7%9f%a9%e9%99%a3-915376207187">使用 Python 來認識矩陣&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ithelp.ithome.com.tw/articles/10203624">[Day07]Learning Numpy - 建立、合併、分割 - CheetSheet for Numpy&lt;/a>&lt;/li>
+&lt;li>Sage
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt install sagemath -y &lt;span style="color:#75715e"># wsl/unix base可以直接安裝，如果是windows要下載sage binary，有1.4GB&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sage -n &lt;span style="color:#75715e"># 開起sage notebook，也就是可以用sage kernel運行jupyter&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sage &amp;lt;.py/.sage file&amp;gt; &lt;span style="color:#75715e"># 用sage運行腳本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sage &lt;span style="color:#75715e"># 直接開啟sage interactive shell&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題和前面的triLFSR不一樣的地方在於他只有一層的LFSR，但他只會每個70個才會給一個state，換句話說我們只能拿到$S_{71&lt;em>0+70},\ S_{71&lt;/em>1+70},\ S_{71&lt;em>2+70},\ S_{71&lt;/em>3+70}&amp;hellip;$(從0開始算)，而前面256個拿到的State最後會和flag進行XOR，只有最後70個是最純粹的State&lt;/p></description></item><item><title>Simple Crypto - 0x07(2023 HW - Oracle)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x072023-hw---oracle/</guid><description>&lt;h1 id="simple-crypto---0x072023-hw---oracle">
+ Simple Crypto - 0x07(2023 HW - Oracle)
+ &lt;a class="anchor" href="#simple-crypto---0x072023-hw---oracle">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>POA/RSA&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Oracle.py&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">from Crypto.Util.number import bytes_to_long
+from Crypto.Cipher import AES
+from random import randbytes
+from secret import aes_key, p, q
+
+def pad(m):
+ length = 16-len(m) % 16
+ return m + chr(length).encode()*length
+
+def unpad(c):
+ length = c[-1]
+ for char in c[-length:]:
+ if char != length:
+ raise ValueError
+ return c[:-length]
+
+def asymmetric_encryption(message, N, e):
+ # encrypt message with RSA
+ # message must be 16 bytes
+ # padding 100 bytes random value
+ padded_message = randbytes(100) + message
+ return pow(bytes_to_long(padded_message), e, N)
+
+def symmetric_encryption(message, key):
+ # ecrypt message with AES + CBC Mode
+ # message can be arbitrary length
+ cipher = AES.new(key, AES.MODE_CBC)
+ ct = cipher.encrypt(pad(message))
+ iv = cipher.iv
+ return iv, ct
+
+## Alice: This is my public key.
+# p = getPrime(512)
+# q = getPrime(512)
+N = p * q
+e = 65537
+print( f&amp;#34;{N = }, {e = }&amp;#34; )
+# N = 69214008498642035761243756357619851816607540327248468473247478342523127723748756926949706235406640562827724567100157104972969498385528097714986614165867074449238186426536742677816881849038677123630836686152379963670139334109846133566156815333584764063197379180877984670843831985941733688575703811651087495223
+# e = 65537
+
+## Bob: I want to send message to Alice! But my message is too looooooong......
+flag = open(&amp;#34;flag.png&amp;#34;, &amp;#34;rb&amp;#34;).read()
+
+## Bob: Oh! I can use symmetric encryption.
+iv, ct = symmetric_encryption(flag, aes_key)
+encrypted_key = asymmetric_encryption(aes_key, N, e)
+encrypted_iv = asymmetric_encryption(iv, N, e)
+print( f&amp;#34;{encrypted_key = }&amp;#34; )
+print( f&amp;#34;{encrypted_iv = }&amp;#34; )
+open(&amp;#34;encrypted_flag.not_png&amp;#34;, &amp;#34;wb&amp;#34;).write(ct)
+
+## Bob: Ha ha! Now no one can decrypt my message except Alice!
+# encrypted_key = 65690013242775728459842109842683020587149462096059598501313133592635945234121561534622365974927219223034823754673718159579772056712404749324225325531206903216411508240699572153162745754564955215041783396329242482406426376133687186983187563217156659178000486342335478915053049498619169740534463504372971359692
+# encrypted_iv = 35154524936059729204581782839781987236407179504895959653768093617367549802652967862418906182387861924584809825831862791349195432705129622783580000716829283234184762744224095175044663151370869751957952842383581513986293064879608592662677541628813345923397286253057417592725291925603753086190402107943880261658
+&lt;/code>&lt;/pre>&lt;p>:::
+:::spoiler Alice.py&lt;/p></description></item><item><title>Simple Crypto - 0x08(2023 Lab - dlog)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x082023-lab---dlog/</guid><description>&lt;h1 id="simple-crypto---0x082023-lab---dlog">
+ Simple Crypto - 0x08(2023 Lab - dlog)
+ &lt;a class="anchor" href="#simple-crypto---0x082023-lab---dlog">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.youtube.com/live/u4ZVc8PuJC0?si=2wbiGreg_BZQ-dff"> [edu-ctf 2023] week03 - crypto2 &lt;/a>
+&lt;a href="https://hackmd.io/@SBK6401/SJobiaxQ3#5-Little-Knowledge-Proof">Cryptography and Network Security – Homework 2 - Little Knowledge Proof&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> Crypto.Util.number &lt;span style="color:#f92672">import&lt;/span> isPrime, bytes_to_long
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> os
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> secret &lt;span style="color:#f92672">import&lt;/span> FLAG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>p &lt;span style="color:#f92672">=&lt;/span> int(input(&lt;span style="color:#e6db74">&amp;#34;give me a prime: &amp;#34;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>strip())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">not&lt;/span> isPrime(p):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Do you know what is primes?&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> exit(&lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> p&lt;span style="color:#f92672">.&lt;/span>bit_length() &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#ae81ff">1024&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Bit length need to be 1024&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> exit(&lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>g &lt;span style="color:#f92672">=&lt;/span> int(input(&lt;span style="color:#e6db74">&amp;#34;give me a number: &amp;#34;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>strip())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>flag &lt;span style="color:#f92672">=&lt;/span> bytes_to_long(FLAG)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#39;The hint about my secret:&amp;#39;&lt;/span>, pow(g, flag, p))
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x09(2023 Lab - signature)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x092023-lab---signature/</guid><description>&lt;h1 id="simple-crypto---0x092023-lab---signature">
+ Simple Crypto - 0x09(2023 Lab - signature)
+ &lt;a class="anchor" href="#simple-crypto---0x092023-lab---signature">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.youtube.com/live/u4ZVc8PuJC0?si=ychlqdZnGVfFYRAV&amp;amp;t=4075"> [edu-ctf 2023] week03 - crypto2 - ECDSA&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/ryVbmdMWp.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/HkJMXOG-T.png" alt="" />&lt;/p>&lt;/blockquote>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">from random import randint
+from Crypto.Util.number import *
+from hashlib import sha256
+from ecdsa import SECP256k1
+from ecdsa.ecdsa import Public_key, Private_key, Signature
+from secret import FLAG
+
+E = SECP256k1
+G, n = E.generator, E.order
+
+d = randint(1, n)
+k = randint(1, n)
+pubkey = Public_key(G, d*G)
+prikey = Private_key(pubkey, d)
+print(f&amp;#39;P = ({pubkey.point.x()}, {pubkey.point.y()})&amp;#39;)
+
+for _ in range(3):
+ print(&amp;#39;&amp;#39;&amp;#39;
+1) Request for Signature
+2) Check the Permission
+3) exit&amp;#39;&amp;#39;&amp;#39;)
+ option = input()
+ if option == &amp;#39;1&amp;#39;:
+ msg = input(&amp;#39;What do you want? &amp;#39;)
+ if msg == &amp;#39;Give me the FLAG.&amp;#39;:
+ print(&amp;#39;No way!&amp;#39;)
+ else:
+ h = sha256(msg.encode()).digest()
+ # k = k * 1337 % n
+ sig = prikey.sign(bytes_to_long(h), k)
+ print(f&amp;#39;sig = ({sig.r}, {sig.s})&amp;#39;)
+
+ elif option == &amp;#39;2&amp;#39;:
+ msg = &amp;#39;Give me the FLAG.&amp;#39;
+ r = input(&amp;#39;r: &amp;#39;)
+ s = input(&amp;#39;s: &amp;#39;)
+ h = bytes_to_long(sha256(msg.encode()).digest())
+ verified = pubkey.verifies(h, Signature(int(r), int(s)))
+ if verified:
+ print(FLAG)
+ else:
+ print(&amp;#39;Bad signature&amp;#39;)
+ else:
+ print(&amp;#34;bye~&amp;#34;)
+ break
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto - 0x10(2023 Lab - coppersmith)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto---0x102023-lab---coppersmith/</guid><description>&lt;h1 id="simple-crypto---0x102023-lab---coppersmith">
+ Simple Crypto - 0x10(2023 Lab - coppersmith)
+ &lt;a class="anchor" href="#simple-crypto---0x102023-lab---coppersmith">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://ctf-wiki.org/crypto/asymmetric/rsa/rsa_coppersmith_attack/">coppersmith相關攻擊&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">from Crypto.Util.number import bytes_to_long, getPrime
+from secret import FLAG
+
+assert len(FLAG) &amp;lt;= 30
+
+p = getPrime(1024)
+q = getPrime(1024)
+n = p * q
+e = 3
+padding = b&amp;#34;Padding in cryptography is a fundamental concept employed to ensure that data, typically in the form of plaintext, aligns properly with the encryption algorithm&amp;#39;s block size. This process is crucial for symmetric block ciphers like AES and asymmetric encryption algorithms such as RSA. Padding involves adding extra bits to the input data before encryption, making it fit neatly into fixed-size blocks. The primary purpose of padding is to prevent information leakage by ensuring that the last block of plaintext is always complete, even when the original data&amp;#39;s size isn&amp;#39;t a perfect multiple of the block size. Common padding schemes include PKCS#7, PKCS#1 (for RSA), and ANSI X.923, each with its rules for padding and unpadding data. Proper padding ensures data integrity, security, and compatibility within cryptographic protocols.&amp;#34;
+pt = padding + FLAG
+ct = pow(bytes_to_long(pt), e, n)
+print(f&amp;#34;{e = }&amp;#34;)
+print(f&amp;#34;{n = }&amp;#34;)
+print(f&amp;#34;{ct = }&amp;#34;)
+# e = 3
+# n = 11548249006448728920152703839381630946834097081458641312395741399152626808167055308830597218237419306363812953570976143239712039037941209800604194908083149885941768218371746741812573578768412807189143962911312361667909189521442378332430658999991458388376075547304981934158525694587528155624390264161508298680598416212224037418377397597560818727159266535257243347737195812548494888452510974912762585150695881388036715559552242157015756455473208463066542053661043988897316002396230791287157322382659981842882278113445574922266102197380093864871418103716702341116793118630092030597784102701252267617442078055768183287429
+# ct = 10016669153906644953016660527326048255337800602435656916304698358749910229624738375584073093905785564737742726549033330343901680652357648652891913260149958947299067801907769873568759955053120633017158582128001396334187309835478967775943564724073809481988489791896725867047366927584419210464759674986336704398037888892734158765679221980466827060998749130113847401820986980535379266905587107992796676977541915779320084736207068268591500847603252838325486939367980604888710370629644796971859833251926677637185722683564847418746350226830775205063128441515048529918173084258483536354002888691012853231754416802134513394608
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto 0x11(2023 HW - invalid_curve_attack)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x112023-hw---invalid_curve_attack/</guid><description>&lt;h1 id="simple-crypto-0x112023-hw---invalid_curve_attack">
+ Simple Crypto 0x11(2023 HW - invalid_curve_attack)
+ &lt;a class="anchor" href="#simple-crypto-0x112023-hw---invalid_curve_attack">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://github.com/maple3142/My-CTF-Challenges/blob/7d9141ac7b61fdbb71f29c07d489018d7c0a0aaa/AIS3%20Pre-exam%202022/pekobot/README.md">pekobot - maple&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>這邊我會嘗試用簡單的講法把這個攻擊簡述一遍，詳細還是建議 &lt;a href="https://github.com/ashutosh1206/Crypton/blob/master/Diffie-Hellman-Key-Exchange/Attack-Invalid-Curve-Point/README.md">Crypton&lt;/a> 或是其他地方的說明。&lt;/p>
+&lt;p>Invalid Curve Attack 大致上來說利用的是當一個不在原本曲線 $E$ 上的 $P$ 進行 scalar multiplication 的一些特性，使用類似 &lt;a href="https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm">Pohlig–Hellman algorithm&lt;/a> 的辦法在不同的 subgroup 解 &lt;a href="https://en.wikipedia.org/wiki/Discrete_logarithm">DLP&lt;/a> 然後用 &lt;a href="https://en.wikipedia.org/wiki/Chinese_remainder_theorem">CRT&lt;/a> 解回原本的 private key。&lt;/p>
+&lt;p>一個 Short Weierstrass curve 長這樣:&lt;/p>
+&lt;p>$$
+y^2 = x^3 + ax + b
+$$&lt;/p>
+&lt;p>而它的 point doubling formula ($R=2P$) 是:&lt;/p>
+&lt;p>$$
+\begin{aligned}
+s &amp;amp;= \frac{3x_P^2+a}{2y_P} \
+x_R &amp;amp;= s^2 - 2x_P \
+y_R &amp;amp;= y_P + s(x_R - x_P)
+\end{aligned}
+$$&lt;/p></description></item><item><title>Simple Crypto 0x12(2023 HW - signature_revenge)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x122023-hw---signature_revenge/</guid><description>&lt;h1 id="simple-crypto-0x122023-hw---signature_revenge">
+ Simple Crypto 0x12(2023 HW - signature_revenge)
+ &lt;a class="anchor" href="#simple-crypto-0x122023-hw---signature_revenge">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/Skf4o1tGp.png" alt="" />
+&lt;img src="https://hackmd.io/_uploads/B16No1FzT.png" alt="" />&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> Crypto.Util.number &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#f92672">*&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> hashlib &lt;span style="color:#f92672">import&lt;/span> sha256, md5
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> ecdsa &lt;span style="color:#f92672">import&lt;/span> SECP256k1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> ecdsa.ecdsa &lt;span style="color:#f92672">import&lt;/span> Public_key, Private_key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> secret &lt;span style="color:#f92672">import&lt;/span> FLAG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> os
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>E &lt;span style="color:#f92672">=&lt;/span> SECP256k1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>G, n &lt;span style="color:#f92672">=&lt;/span> E&lt;span style="color:#f92672">.&lt;/span>generator, E&lt;span style="color:#f92672">.&lt;/span>order
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>d &lt;span style="color:#f92672">=&lt;/span> bytes_to_long( os&lt;span style="color:#f92672">.&lt;/span>urandom(&lt;span style="color:#ae81ff">32&lt;/span> &lt;span style="color:#f92672">-&lt;/span> len(FLAG)) &lt;span style="color:#f92672">+&lt;/span> FLAG )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pubkey &lt;span style="color:#f92672">=&lt;/span> Public_key(G, d&lt;span style="color:#f92672">*&lt;/span>G)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>prikey &lt;span style="color:#f92672">=&lt;/span> Private_key(pubkey, d)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>magic1 &lt;span style="color:#f92672">=&lt;/span> md5(d&lt;span style="color:#f92672">.&lt;/span>to_bytes(&lt;span style="color:#ae81ff">32&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;big&amp;#34;&lt;/span>))&lt;span style="color:#f92672">.&lt;/span>digest()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>magic2 &lt;span style="color:#f92672">=&lt;/span> md5(d&lt;span style="color:#f92672">.&lt;/span>to_bytes(&lt;span style="color:#ae81ff">32&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;big&amp;#34;&lt;/span>)[::&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>])&lt;span style="color:#f92672">.&lt;/span>digest()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>h1 &lt;span style="color:#f92672">=&lt;/span> sha256(&lt;span style="color:#e6db74">b&lt;/span>&lt;span style="color:#e6db74">&amp;#34;https://www.youtube.com/watch?v=IBnrn2pnPG8&amp;#34;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>digest()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>h2 &lt;span style="color:#f92672">=&lt;/span> sha256(&lt;span style="color:#e6db74">b&lt;/span>&lt;span style="color:#e6db74">&amp;#34;https://www.youtube.com/watch?v=1H2cyhWYXrE&amp;#34;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>digest()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>k1 &lt;span style="color:#f92672">=&lt;/span> bytes_to_long(magic1 &lt;span style="color:#f92672">+&lt;/span> magic2)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>k2 &lt;span style="color:#f92672">=&lt;/span> bytes_to_long(magic2 &lt;span style="color:#f92672">+&lt;/span> magic1)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sig1 &lt;span style="color:#f92672">=&lt;/span> prikey&lt;span style="color:#f92672">.&lt;/span>sign(bytes_to_long(h1), k1)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sig2 &lt;span style="color:#f92672">=&lt;/span> prikey&lt;span style="color:#f92672">.&lt;/span>sign(bytes_to_long(h2), k2)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">f&lt;/span>&lt;span style="color:#e6db74">&amp;#39;P = (&lt;/span>&lt;span style="color:#e6db74">{&lt;/span>pubkey&lt;span style="color:#f92672">.&lt;/span>point&lt;span style="color:#f92672">.&lt;/span>x()&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">, &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>pubkey&lt;span style="color:#f92672">.&lt;/span>point&lt;span style="color:#f92672">.&lt;/span>y()&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">)&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">f&lt;/span>&lt;span style="color:#e6db74">&amp;#39;sig1 = (&lt;/span>&lt;span style="color:#e6db74">{&lt;/span>sig1&lt;span style="color:#f92672">.&lt;/span>r&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">, &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>sig1&lt;span style="color:#f92672">.&lt;/span>s&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">)&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">f&lt;/span>&lt;span style="color:#e6db74">&amp;#39;sig2 = (&lt;/span>&lt;span style="color:#e6db74">{&lt;/span>sig2&lt;span style="color:#f92672">.&lt;/span>r&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">, &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>sig2&lt;span style="color:#f92672">.&lt;/span>s&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">)&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># P = (70427896289635684269185763735464004880272487387417064603929487585697794861713, 83106938517126976838986116917338443942453391221542116900720022828358221631968)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># sig1 = (26150478759659181410183574739595997895638116875172347795980556499925372918857, 50639168022751577246163934860133616960953696675993100806612269138066992704236)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># sig2 = (8256687378196792904669428303872036025324883507048772044875872623403155644190, 90323515158120328162524865800363952831516312527470472160064097576156608261906)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Crypto 0x13(2023 HW - Power Analysis)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/crypto/simple-crypto-0x132023-hw---power-analysis/</guid><description>&lt;h1 id="simple-crypto-0x132023-hw---power-analysis">
+ Simple Crypto 0x13(2023 HW - Power Analysis)
+ &lt;a class="anchor" href="#simple-crypto-0x132023-hw---power-analysis">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.youtube.com/live/Q-gaGLJpJHc?si=DZgJm62AnoPHWiZF&amp;amp;t=5433"> [edu-ctf 2023] week04 - crypto3 [1:30:36]&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>json file recorded by TA&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題全部都是刻出來的，也包含算correlation coefficient，後面才知道numpy有這東西，但反正根據老師上課的作法一步一步跟著做是絕對沒有問題的，包含以下步驟:&lt;/p>
+&lt;ol>
+&lt;li>Preprocessing
+也就是把pt, ct, pm都按照簡報上的方式排列(各個trace的第一個byte都蒐集在一起，第二個byte都蒐集再一起&amp;hellip;)&lt;/li>
+&lt;li>計算和sbox key XOR的結果&lt;/li>
+&lt;li>查表sbox&lt;/li>
+&lt;li>計算hamming weight model&lt;/li>
+&lt;li>計算和trace的correlation coefficient&lt;/li>
+&lt;li>看哪一個結果的數值最大，並把index結果記錄下來算它的ascii&lt;/li>
+&lt;li>repeat以上操作後共可得16 bytes的flag&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>加速的方法:
+可以把整個trace的圖片plot出來看看，會發現題目給的json file是把整段加密的過程記錄下來，所以我們可以只取前一兩百個point就可以完成key的還原&lt;/li>
+&lt;/ul>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">import json
+from tqdm import trange
+import numpy as np
+import copy
+from string import ascii_letters, digits
+from numpy import corrcoef
+
+jsonFile = open(&amp;#39;./Crypto/HW3/traces.json&amp;#39;, &amp;#39;r&amp;#39;)
+j = json.load(jsonFile)
+
+s_box = [
+ [0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5, 0x30, 0x01, 0x67, 0x2B, 0xFE, 0xD7, 0xAB, 0x76],
+ [0xCA, 0x82, 0xC9, 0x7D, 0xFA, 0x59, 0x47, 0xF0, 0xAD, 0xD4, 0xA2, 0xAF, 0x9C, 0xA4, 0x72, 0xC0],
+ [0xB7, 0xFD, 0x93, 0x26, 0x36, 0x3F, 0xF7, 0xCC, 0x34, 0xA5, 0xE5, 0xF1, 0x71, 0xD8, 0x31, 0x15],
+ [0x04, 0xC7, 0x23, 0xC3, 0x18, 0x96, 0x05, 0x9A, 0x07, 0x12, 0x80, 0xE2, 0xEB, 0x27, 0xB2, 0x75],
+ [0x09, 0x83, 0x2C, 0x1A, 0x1B, 0x6E, 0x5A, 0xA0, 0x52, 0x3B, 0xD6, 0xB3, 0x29, 0xE3, 0x2F, 0x84],
+ [0x53, 0xD1, 0x00, 0xED, 0x20, 0xFC, 0xB1, 0x5B, 0x6A, 0xCB, 0xBE, 0x39, 0x4A, 0x4C, 0x58, 0xCF],
+ [0xD0, 0xEF, 0xAA, 0xFB, 0x43, 0x4D, 0x33, 0x85, 0x45, 0xF9, 0x02, 0x7F, 0x50, 0x3C, 0x9F, 0xA8],
+ [0x51, 0xA3, 0x40, 0x8F, 0x92, 0x9D, 0x38, 0xF5, 0xBC, 0xB6, 0xDA, 0x21, 0x10, 0xFF, 0xF3, 0xD2],
+ [0xCD, 0x0C, 0x13, 0xEC, 0x5F, 0x97, 0x44, 0x17, 0xC4, 0xA7, 0x7E, 0x3D, 0x64, 0x5D, 0x19, 0x73],
+ [0x60, 0x81, 0x4F, 0xDC, 0x22, 0x2A, 0x90, 0x88, 0x46, 0xEE, 0xB8, 0x14, 0xDE, 0x5E, 0x0B, 0xDB],
+ [0xE0, 0x32, 0x3A, 0x0A, 0x49, 0x06, 0x24, 0x5C, 0xC2, 0xD3, 0xAC, 0x62, 0x91, 0x95, 0xE4, 0x79],
+ [0xE7, 0xC8, 0x37, 0x6D, 0x8D, 0xD5, 0x4E, 0xA9, 0x6C, 0x56, 0xF4, 0xEA, 0x65, 0x7A, 0xAE, 0x08],
+ [0xBA, 0x78, 0x25, 0x2E, 0x1C, 0xA6, 0xB4, 0xC6, 0xE8, 0xDD, 0x74, 0x1F, 0x4B, 0xBD, 0x8B, 0x8A],
+ [0x70, 0x3E, 0xB5, 0x66, 0x48, 0x03, 0xF6, 0x0E, 0x61, 0x35, 0x57, 0xB9, 0x86, 0xC1, 0x1D, 0x9E],
+ [0xE1, 0xF8, 0x98, 0x11, 0x69, 0xD9, 0x8E, 0x94, 0x9B, 0x1E, 0x87, 0xE9, 0xCE, 0x55, 0x28, 0xDF],
+ [0x8C, 0xA1, 0x89, 0x0D, 0xBF, 0xE6, 0x42, 0x68, 0x41, 0x99, 0x2D, 0x0F, 0xB0, 0x54, 0xBB, 0x16]
+]
+
+def data_preprocess(json_data):
+ pt_col = []
+ ct_col = []
+ trace_col = []
+ for bytes in range(16):
+ tmp_pt_col = []
+ tmp_ct_col = []
+ for trace_idx in range(len(json_data)):
+ tmp_pt_col.append(json_data[trace_idx][&amp;#39;pt&amp;#39;][bytes])
+ tmp_ct_col.append(json_data[trace_idx][&amp;#39;ct&amp;#39;][bytes])
+ pt_col.append(tmp_pt_col)
+ ct_col.append(tmp_ct_col)
+ for point in range(len(json_data[0][&amp;#39;pm&amp;#39;])):
+ tmp_trace_col = []
+ for trace_idx in range(len(json_data)):
+ tmp_trace_col.append(json_data[trace_idx][&amp;#39;pm&amp;#39;][point])
+ trace_col.append(tmp_trace_col)
+ 
+ return pt_col, ct_col, trace_col
+
+def sbox_preprocess(pt_col):
+ sbox_result_tmp = []
+ for sbox_key in range(256): # 總共有256個sbox key
+ tmp = []
+ for trace in range(len(pt_col)): # 有50個trace
+ tmp.append(pt_col[trace] ^ sbox_key)
+ sbox_result_tmp.append(tmp)
+ return sbox_result_tmp
+
+def choose_sbox(sbox_result_tmp):
+ sbox_result = copy.deepcopy(sbox_result_tmp)
+ for sbox_key in range(256):
+ for trace in range(50):
+ hex_value = &amp;#39;{0:0&amp;gt;2x}&amp;#39;.format(sbox_result_tmp[sbox_key][trace])
+ x, y = hex_value[0], hex_value[1]
+ sbox_result[sbox_key][trace] = s_box[int(x, 16)][int(y, 16)]
+ 
+ return sbox_result
+
+def cal_hamming_weight(sbox_result_col):
+ hw_model = copy.deepcopy(sbox_result_col)
+ for i in range(len(sbox_result_col)): # 256
+ for j in range(len(sbox_result_col[i])): # 50
+ hw_model[i][j] = bin(sbox_result_col[i][j]).count(&amp;#39;1&amp;#39;)
+ 
+ return hw_model
+
+def cal_correlation(hw_model_col_result, trace_col):
+ correlation_result = []
+ for i in (ascii_letters + digits).encode():#trange(len(hw_model_col_result)): &amp;lt;- 加速的部分
+ for j in range(biggest_length):
+ correlation_result.append(corrcoef(hw_model_col_result[i], trace_col[j])[0, -1])
+ return correlation_result
+ 
+def run_pearson_correlation(x, y):
+ mean_x = np.mean(x)
+ mean_y = np.mean(y)
+ 
+ covariance = np.sum((x - mean_x) * (y - mean_y))
+ 
+ std_dev_x = np.sqrt(np.sum((x - mean_x)**2))
+ std_dev_y = np.sqrt(np.sum((y - mean_y)**2))
+ 
+ correlation = covariance / (std_dev_x * std_dev_y)
+ 
+ return correlation
+
+def display_pt(offset:int, data_offset = (0, len(j[0][&amp;#34;pm&amp;#34;]))):
+ plt.plot(range(data_offset[0], data_offset[1]), j[offset][&amp;#34;pm&amp;#34;][data_offset[0]:data_offset[1]])
+ plt.savefig(fname=&amp;#34;pt_&amp;#34; + str(offset) + &amp;#34;.jpg&amp;#34;)
+ plt.clf()
+
+# display_pt(0, (0, 95))
+# display_pt(0)
+pt_col, ct_col, trace_col = data_preprocess(j)
+flag = &amp;#39;&amp;#39;
+biggest_length = 95# len(trace_col)
+for idx in trange(16):
+ sbox_preprocess_result = sbox_preprocess(pt_col[idx])
+ choose_sbox_result = choose_sbox(sbox_preprocess_result)
+ hw_model_col_result = cal_hamming_weight(choose_sbox_result)
+ correlation_result = cal_correlation(hw_model_col_result, trace_col)
+ key_idx = correlation_result.index(max(correlation_result))
+ flag += (ascii_letters + digits)[key_idx // biggest_length]
+ # from Crypto.Util.number import long_to_bytes
+ # flag += long_to_bytes(key_idx // biggest_length).decode(&amp;#34;cp437&amp;#34;)
+
+print(&amp;#39;The key of AES is: FLAG{&amp;#39; + flag + &amp;#39;}&amp;#39;)
+&lt;/code>&lt;/pre>&lt;p>有嘗試過只選擇常見可使用的字元也就是&lt;code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&lt;/code>，以及trace只選擇前95個data，也可以正常解析出AES key並且算的更快(大約快77倍左右)&lt;/p></description></item></channel></rss>

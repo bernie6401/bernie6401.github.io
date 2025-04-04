@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU CS HW0 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/ntu-cs-hw0-write-up/</guid><description>&lt;h1 id="ntu-cs-hw0-write-up">
+ NTU CS HW0 Write Up
+ &lt;a class="anchor" href="#ntu-cs-hw0-write-up">#&lt;/a>
+&lt;/h1>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="easy-c2">
+ Easy C2
+ &lt;a class="anchor" href="#easy-c2">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Flag: &lt;code>FLAG{C2_cmd_in_http_header}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="description">
+ Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h3>
+&lt;p>我們獵捕到一隻惡意程式，它似乎有與 C2 進行互動的行為。請找出它發送給 C2 的訊息。Flag 格式為：FLAG{&amp;hellip;}。
+此題模仿惡意程式與 C2 進行溝通的行為，期望能在對不熟悉逆向的同學而言不過度困難的情況下，讓同學對惡意程式行為有初步的認識。題目本身並沒有實際的惡意或影響系統運作的行為，因此可以安心執行。建議同學可以先嘗試執行程式，觀察程式的行為，嘗試找出 C2 位址以及如何與其溝通。&lt;/p>
+&lt;p>Google 關鍵字：IDA freeware、Ghidra、malware C2&lt;/p>
+&lt;h3 id="解題思路">
+ 解題思路
+ &lt;a class="anchor" href="#%e8%a7%a3%e9%a1%8c%e6%80%9d%e8%b7%af">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>Simple 解題思路
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ file easy-c2
+easy-c2: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=8fa6ee42a706cfc93d97d04b3ff5e300b9f8ae02, for GNU/Linux 3.2.0, with debug_info, not stripped
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>IDA
+&lt;pre tabindex="0">&lt;code class="language-cpp!" data-lang="cpp!">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+ int sockfd; // [rsp+1Ch] [rbp-24h]
+ char *flag; // [rsp+20h] [rbp-20h] BYREF
+ char *enc_flag; // [rsp+28h] [rbp-18h]
+ char *host; // [rsp+30h] [rbp-10h]
+ unsigned __int64 v8; // [rsp+38h] [rbp-8h]
+
+ v8 = __readfsqword(0x28u);
+ enc_flag = byte_20F0;
+ host = &amp;#34;127.0.0.1&amp;#34;;
+ sockfd = socket_connect(&amp;#34;127.0.0.1&amp;#34;, 11187);
+ decode_flag(&amp;amp;flag, byte_20F0);
+ send_msg(sockfd, flag);
+ puts(&amp;#34;Message sent.&amp;#34;);
+ sleep(1u);
+ free(flag);
+ close(sockfd);
+ return 0;
+}
+&lt;/code>&lt;/pre>可以看得出來他會連localhost:11187，然後把decode過後的flag給送出去，所以只要會nc的都可以直接聽該port的訊息&lt;/li>
+&lt;/ol>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ nc -lvp 11187
+Listening on 0.0.0.0 11187
+Connection received on localhost 54028
+GET / HTTP/1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko, FLAG{C2_cmd_in_http_header}) Chrome/51.0.2704.103 Safari/537.36
+&lt;/code>&lt;/pre>&lt;h2 id="baby-crackme">
+ Baby Crackme
+ &lt;a class="anchor" href="#baby-crackme">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Flag: &lt;code>FLAG{r0ll1ng_4nd_3xtr4ct_t0_m3m0ry}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="description-1">
+ Description
+ &lt;a class="anchor" href="#description-1">#&lt;/a>
+&lt;/h3>
+&lt;p>透過此題目希望學生們可以先自行摸索過各種 SRE(Software Reverse-Engineering) 的工具與流程。 給你一些關鍵字用: IDA Freeware, Ghidra, gdb (GNU Debugger), Dynamic Analysis&lt;/p></description></item><item><title>Simple Welcome - 0x04(Lab - Script)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome---0x04lab---script/</guid><description>&lt;h1 id="simple-welcome---0x04lab---script">
+ Simple Welcome - 0x04(Lab - Script)
+ &lt;a class="anchor" href="#simple-welcome---0x04lab---script">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ctf-web-eductf">
+ tags: &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code> &lt;code>eductf&lt;/code>
+ &lt;a class="anchor" href="#tags-ctf-web-eductf">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://pyscript.ctf.zoolab.org/">https://pyscript.ctf.zoolab.org/&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+ if(!isset($_FILES[&amp;#34;file&amp;#34;]))
+ highlight_file(__file__) &amp;amp;&amp;amp; die();
+ $flag = file_get_contents(&amp;#39;/flag&amp;#39;);
+ $node = @`node {$_FILES[&amp;#34;file&amp;#34;][&amp;#34;tmp_name&amp;#34;]} 2&amp;gt;&amp;amp;1`;
+ $python = @`python3 {$_FILES[&amp;#34;file&amp;#34;][&amp;#34;tmp_name&amp;#34;]} 2&amp;gt;&amp;amp;1`;
+ if($flag === $node &amp;amp;&amp;amp; $flag === $python)
+ echo &amp;#39;Here is your Flag: &amp;#39;.$flag;
+ else
+ echo &amp;#39;Fail :(&amp;#39;;
+?&amp;gt;
+&lt;/code>&lt;/pre>&lt;h3 id="analysis">
+ Analysis
+ &lt;a class="anchor" href="#analysis">#&lt;/a>
+&lt;/h3>
+&lt;p>Must write a script that can be executed in python and node language simultaneously.&lt;/p></description></item><item><title>Simple Welcome 0x01(Lab - Let's meet at class)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome-0x01lab---lets-meet-at-class/</guid><description>&lt;h1 id="simple-welcome-0x01lab---lets-meet-at-class">
+ Simple Welcome 0x01(Lab - Let&amp;rsquo;s meet at class)
+ &lt;a class="anchor" href="#simple-welcome-0x01lab---lets-meet-at-class">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="description">
+ Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;p>Crypto part of homework 0. The key space is $10^{15}$. I used my supercomputer(i5 7th gen) to solve it in about 10 minutes. It&amp;rsquo;s impossible for you guys to enumerate all the keys in 2 weeks, or maybe you can&amp;hellip; (Use &lt;code>pip3 install pycryptodome&lt;/code> to install Crypto)&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> Crypto.Util.number &lt;span style="color:#f92672">import&lt;/span> bytes_to_long, getPrime
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> random
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> math
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> os
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> secret &lt;span style="color:#f92672">import&lt;/span> FLAG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>FLAG &lt;span style="color:#f92672">+=&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>urandom(&lt;span style="color:#ae81ff">128&lt;/span> &lt;span style="color:#f92672">-&lt;/span> len(FLAG))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>flag &lt;span style="color:#f92672">=&lt;/span> bytes_to_long(FLAG)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>p &lt;span style="color:#f92672">=&lt;/span> getPrime(&lt;span style="color:#ae81ff">1024&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>keys &lt;span style="color:#f92672">=&lt;/span> [pow(random&lt;span style="color:#f92672">.&lt;/span>randint(&lt;span style="color:#ae81ff">1000&lt;/span> &lt;span style="color:#f92672">*&lt;/span> i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">1000&lt;/span> &lt;span style="color:#f92672">*&lt;/span> (i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) ), &lt;span style="color:#ae81ff">65537&lt;/span>, p) &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">5&lt;/span>)]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>enc &lt;span style="color:#f92672">=&lt;/span> flag
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">5&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> enc &lt;span style="color:#f92672">=&lt;/span> enc &lt;span style="color:#f92672">*&lt;/span> keys[i] &lt;span style="color:#f92672">%&lt;/span> p
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hint &lt;span style="color:#f92672">=&lt;/span> keys[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">^&lt;/span> keys[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">^&lt;/span> keys[&lt;span style="color:#ae81ff">2&lt;/span>] &lt;span style="color:#f92672">^&lt;/span> keys[&lt;span style="color:#ae81ff">3&lt;/span>] &lt;span style="color:#f92672">^&lt;/span> keys[&lt;span style="color:#ae81ff">4&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#39;p =&amp;#39;&lt;/span>, p)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#39;enc =&amp;#39;&lt;/span>, enc)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#39;hint =&amp;#39;&lt;/span>, hint)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
+:::spoiler&lt;/p></description></item><item><title>Simple Welcome 0x02 &amp; 0x05(Lab - Nine &amp; Nine-Revenge)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome-0x02--0x05lab---nine--nine-revenge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/welcome/simple-welcome-0x02--0x05lab---nine--nine-revenge/</guid><description>&lt;h1 id="simple-welcome-0x02--0x05lab---nine--nine-revenge">
+ Simple Welcome 0x02 &amp;amp; 0x05(Lab - Nine &amp;amp; Nine-Revenge)
+ &lt;a class="anchor" href="#simple-welcome-0x02--0x05lab---nine--nine-revenge">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.tutorialspoint.com/convert-frombase64string-string-method-in-chash#">Convert.FromBase64String(String) Method in C#&lt;/a>
+&lt;a href="https://learn.microsoft.com/zh-tw/dotnet/api/system.string.substring?view=net-7.0">String.Substring 方法&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler C# From dnSpy&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Nine.Stage&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Token: 0x0600000D RID: 13 RVA: 0x00002694 File Offset: 0x00000894&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Flag()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">this&lt;/span>.font = &lt;span style="color:#66d9ef">new&lt;/span> Font(&lt;span style="color:#66d9ef">this&lt;/span>.fontFamily, &lt;span style="color:#ae81ff">35f&lt;/span>, FontStyle.Regular);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">byte&lt;/span>[] array = Convert.FromBase64String(&lt;span style="color:#e6db74">&amp;#34;LwcvGwpuiPzT7+LY9PPo6eLpuiY7vTY6ejz2OH1pui5uDu6+LY5unpui+6uj14qmpuipqfo=&amp;#34;&lt;/span>.Replace(&lt;span style="color:#e6db74">&amp;#34;pui&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>).Substring(&lt;span style="color:#ae81ff">1&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i = &lt;span style="color:#ae81ff">0&lt;/span>; i &amp;lt; array.Length; i++)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		array[i] ^= &lt;span style="color:#ae81ff">135&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">this&lt;/span>.SetMessageBox(Encoding.UTF8.GetString(array));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>起手式一定用DIE或其他檢測tool看一下是用哪種東西編譯或有沒有加殼
+&lt;img src="https://hackmd.io/_uploads/SksyjD8K3.png" alt="" />
+我一開始以為可以用IDA之類的東西反編譯他，但是顯然IDA沒辦法解析&lt;code>.NET&lt;/code> file，這一題也是看了別人的WP&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>才知道有&lt;a href="https://github.com/dnSpy/dnSpy/releases">dnSpy&lt;/a>這東西可以用
+&lt;img src="https://hackmd.io/_uploads/rkiIiwUK3.png" alt="" />&lt;/li>
+&lt;li>執行程式
+實際執行起來會發現它就是個小遊戲，可以用方向鍵操控人移動或是移開石頭，重點是要拿到鑰匙並開鎖拿到旗子，玩了好久都沒成功，所以想說可以用dnSpy看一下可以用的東西
+&lt;img src="https://hackmd.io/_uploads/rkR8cPIt2.png" alt="" />&lt;/li>
+&lt;li>用dnSpy看source code
+在&lt;code>/Nine/Nine.exe/Nine/Stage@02000004/Flag()&lt;/code>以及&lt;code>/Nine-revenge/Nine-revenge.exe/Nine/Stage@02000004/Flag()&lt;/code>都可以直接看到flag function怎麼寫的，所以其實這一題只要知道dnSpy這東西，其實就過於簡單
+:::spoiler Function Path Screenshot
+&lt;img src="https://hackmd.io/_uploads/HkHxLuUYh.png" alt="" />
+&lt;img src="https://hackmd.io/_uploads/SyW-8OUK3.png" alt="" />
+:::&lt;/li>
+&lt;/ol>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;p>也是可以直接用C#的線上editor，不過如果不會寫的話就可以直接看source code然後用熟悉的語言寫script&lt;/p></description></item></channel></rss>

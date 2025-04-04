@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple Web 0x15(Lab - `Jinja`)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x15lab---jinja/</guid><description>&lt;h1 id="simple-web-0x15lab---jinja">
+ Simple Web 0x15(Lab - &lt;code>Jinja&lt;/code>)
+ &lt;a class="anchor" href="#simple-web-0x15lab---jinja">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8700/">http://h4ck3r.quest:8700/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/_hasOTGximc?t=5863">Web Security 0x1&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">from flask import Flask, render_template_string, request, send_file
+
+app = Flask(__name__)
+
+
+@app.get(&amp;#34;/&amp;#34;)
+def home():
+ return render_template_string(&amp;#34;&amp;#34;&amp;#34;
+ &amp;lt;form method=&amp;#34;POST&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;name&amp;#34; placeholder=&amp;#34;Your name&amp;#34;&amp;gt;
+ &amp;lt;button&amp;gt;submit&amp;lt;/button&amp;gt;
+ &amp;lt;/form&amp;gt;
+ &amp;lt;p&amp;gt;&amp;lt;a href=&amp;#34;/source&amp;#34;&amp;gt;Source code&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+ &amp;#34;&amp;#34;&amp;#34;)
+
+
+@app.post(&amp;#34;/&amp;#34;)
+def welcome_message():
+ name = request.form.get(&amp;#39;name&amp;#39;)
+ return render_template_string(&amp;#34;&amp;lt;p&amp;gt;Hello, &amp;#34; + name + &amp;#34;&amp;lt;/p&amp;gt;&amp;#34;)
+
+
+@app.get(&amp;#34;/source&amp;#34;)
+def source():
+ return send_file(__file__, mimetype=&amp;#34;text/plain&amp;#34;)
+
+
+if __name__ == &amp;#39;__main__&amp;#39;:
+ app.run(threaded=True, debug=True)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x22(Lab - Pug)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/ssti/simple-web-0x22lab---pug/</guid><description>&lt;h1 id="simple-web-0x22lab---pug">
+ Simple Web 0x22(Lab - Pug)
+ &lt;a class="anchor" href="#simple-web-0x22lab---pug">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8008">http://h4ck3r.quest:8008&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-javascript=" data-lang="javascript=">const express = require(&amp;#39;express&amp;#39;);
+const pug = require(&amp;#39;pug&amp;#39;);
+
+const app = express();
+
+const template = `
+h1 Hello %NAME%
+form(method=&amp;#39;GET&amp;#39; action=&amp;#39;/&amp;#39;)
+ div
+ label(for=&amp;#39;nickname&amp;#39;) Name:
+ input#nickname(type=&amp;#39;text&amp;#39;, placeholder=&amp;#39;Nickname&amp;#39; name=&amp;#39;name&amp;#39;)
+ button(type=&amp;#39;submit&amp;#39;) Submit 
+ a(href=&amp;#39;/source&amp;#39;) Source Code
+`;
+
+app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; {
+ const name = (req.query.name ?? &amp;#39;Anonymous&amp;#39;).toString();
+ if (name.includes(&amp;#39;{&amp;#39;)) return res.send(&amp;#39;Nice try&amp;#39;);
+ let html = pug.render(template.replace(&amp;#39;%NAME%&amp;#39;, name));
+ res.set(&amp;#39;Content-Type&amp;#39;, &amp;#39;text/html&amp;#39;);
+ res.send(html);
+});
+
+app.get(&amp;#34;/source&amp;#34;, (_, res) =&amp;gt; {
+ res.sendFile(__filename);
+});
+
+app.listen(3000, () =&amp;gt; console.log(&amp;#39;:3000&amp;#39;));
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item></channel></rss>

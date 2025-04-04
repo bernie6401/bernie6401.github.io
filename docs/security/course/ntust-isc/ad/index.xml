@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntust-isc/ad/index.xml" rel="self" type="application/rss+xml"/><item><title>NTUSTISC - AD Note - 會後提及有用的工具</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/ntustisc---ad-note---%E6%9C%83%E5%BE%8C%E6%8F%90%E5%8F%8A%E6%9C%89%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/ntustisc---ad-note---%E6%9C%83%E5%BE%8C%E6%8F%90%E5%8F%8A%E6%9C%89%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7/</guid><description>&lt;h1 id="ntustisc---ad-note---會後提及有用的工具">
+ NTUSTISC - AD Note - 會後提及有用的工具
+ &lt;a class="anchor" href="#ntustisc---ad-note---%e6%9c%83%e5%be%8c%e6%8f%90%e5%8f%8a%e6%9c%89%e7%94%a8%e7%9a%84%e5%b7%a5%e5%85%b7">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=JAnGtFoJlij-03nk&amp;amp;t=6024">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="edrendpoint-detection-and-response">
+ &lt;a href="https://www.trendmicro.com/zh_tw/what-is/xdr/edr.html">EDR(Endpoint Detection and Response)&lt;/a>
+ &lt;a class="anchor" href="#edrendpoint-detection-and-response">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>端點偵測及回應 (EDR) 結合了即時的持續監控、端點資料蒐集，以及進階交叉關聯，來偵測並回應主機和端點連線的可疑活動。這套方法可讓資安團隊快速發掘並交叉分析各種活動來產生高可信度的偵測事件，並提供手動和自動化回應選項。&lt;/p>
+&lt;p>EDR 解決方案會記錄端點上發生的所有活動和事件。某些廠商或許還會將這項服務延伸至任何與您網路相連的工作負載。然後，這些記錄 (或事件記錄檔) 可用來發掘原本不會被發現的資安事件。即時的監控可以更快偵測威脅，不讓威脅有機會擴散至使用者端點之外。&lt;/p>&lt;/blockquote>
+&lt;p>其實就是把我們感興趣的log抓出來而已&lt;/p>
+&lt;h3 id="xdrextended-detection-and-response">
+ &lt;a href="https://www.trendmicro.com/zh_tw/what-is/xdr.html">XDR(Extended detection and response)&lt;/a>
+ &lt;a class="anchor" href="#xdrextended-detection-and-response">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>XDR (延伸式偵測及回應) 可蒐集並自動交叉關聯涵蓋多個防護層的資料，包括：電子郵件、端點、伺服器、雲端工作負載以及網路。如此可藉由資安分析來提供更快的威脅偵測，提升調查與回應時間。&lt;/p>
+&lt;p>XDR 能打破資安產品之間的藩籬，採用一種全方位面面俱到的偵測及回應方法。XDR 可蒐集並透過交叉關聯涵蓋多個防護層的偵測事件與深入的活動資料，包括：電子郵件、端點、伺服器、雲端工作負載以及網路。如此豐富的資料若能透過自動化分析，就能更快偵測威脅，同時也讓資安分析師擁有適當的工具可完成更多任務，並透過調查來採取更迅速的行動。
+&lt;img src="https://www.trendmicro.com/content/dam/trendmicro/global/en/what-is/xdr/XDR-new-market-iture.png" alt="" />&lt;/p>&lt;/blockquote>
+&lt;p>簡單來說EDR只能特定範圍或是單一產品上做到端點偵測，但XDR是能夠跨各個資安產品或是layer達到更全面的偵測以及比對事件的結果&lt;/p>
+&lt;h3 id="mdrmanaged-detection-and-response">
+ &lt;a href="https://ithelp.ithome.com.tw/articles/10307982">MDR(Managed Detection and Response)&lt;/a>
+ &lt;a class="anchor" href="#mdrmanaged-detection-and-response">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>提供專業的資安人員來協助企業進行監控網路、分析事件、並且回應所遭遇的資安狀況如何做出對應的應變&lt;/p>
+&lt;ul>
+&lt;li>是一種服務&lt;/li>
+&lt;li>藉由資安專家的服務，提供及時、有效的處理，以避免損失擴大&lt;/li>
+&lt;li>將安全專業知識外包給專業的人員&lt;/li>
+&lt;li>分析警示當中潛藏的危險徵兆&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;h3 id="如何滅證">
+ 如何滅證
+ &lt;a class="anchor" href="#%e5%a6%82%e4%bd%95%e6%bb%85%e8%ad%89">#&lt;/a>
+&lt;/h3>
+&lt;p>只要讓windows保持預設值或是把event file砍掉就好了，因為windows10會記錄很多使用者的狀況，例如Quick Access的使用路徑或是使用者之前使用過的應用程式的縮圖等等，所以最暴力的方式是離開之前丟一個勒索病毒，它就會針對常見的file進行加密，這樣縱使不把東西刪掉，鑑識人員也不會知道裡面的內容是甚麼&lt;/p>
+&lt;h3 id="如果正在使用win20082012">
+ 如果正在使用Win2008/2012
+ &lt;a class="anchor" href="#%e5%a6%82%e6%9e%9c%e6%ad%a3%e5%9c%a8%e4%bd%bf%e7%94%a8win20082012">#&lt;/a>
+&lt;/h3>
+&lt;p>請趕快升級成Win2016，因為有很多攻擊手段是到win2016的就失效的，例如前面提到的wdigest在2008/2012是會開的，因為這樣在認證上才會成功&lt;/p>
+&lt;h3 id="什麼是誘捕系統honey-pot">
+ &lt;a href="https://www.ithome.com.tw/news/27824">什麼是誘捕系統（Honey Pot）？&lt;/a>
+ &lt;a class="anchor" href="#%e4%bb%80%e9%ba%bc%e6%98%af%e8%aa%98%e6%8d%95%e7%b3%bb%e7%b5%b1honey-pot">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>就像是一罐用來吸引、捕捉昆蟲的蜂蜜，所謂的誘捕系統（Honey Pot）就是一個吸引攻擊者的目標，透過誘捕的手法，吸引駭客發動攻擊，以蒐集攻擊者的來源以及攻擊手法，現在除了應用在蒐集病毒特徵、攻擊手法，也用來蒐集假網站的IP，以及散布木馬或間諜程式等惡意來源名單，藉此觀察病蠕蟲、駭客入侵或惡意攻擊的來源、手段、管道及模式，由於會將所有攻擊動作與過程記錄下來，已經成為蒐集駭客資訊的重要方式之ㄧ。&lt;/p></description></item><item><title>NTUSTISC - AD Note - 環境建置 &amp; Background</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/ntustisc---ad-note---0x01%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE--background/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/ntustisc---ad-note---0x01%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE--background/</guid><description>&lt;h1 id="ntustisc---ad-note---環境建置--background">
+ NTUSTISC - AD Note - 環境建置 &amp;amp; Background
+ &lt;a class="anchor" href="#ntustisc---ad-note---%e7%92%b0%e5%a2%83%e5%bb%ba%e7%bd%ae--background">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>What is Directory Service?&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;img src="https://i.imgur.com/QVJYCoG.jpg" alt="" />
+Windows Server 系統使用的目錄服務 就是 Active Directory&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>What is Active Directory(AD)?&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/p>
+&lt;blockquote>
+&lt;p>Windows的Windows Server中，負責架構中大型網路環境的集中式目錄管理服務(Directory Services)，他處理在組織中的網路物件，物件可以是&lt;font color="FF0000">使用者、群組、電腦、網域控制站、郵件、設定檔、組織單元、樹系&lt;/font>等等，只要是在AD結構定義檔(Schema)中定義的物件，就可以儲存在AD資料檔中，並利用AD Service Interface來存取&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>What is Domain Service?&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;img src="https://i.imgur.com/k2ma2Nf.jpg" alt="" />
+執行 AD DS 的伺服器稱為 domain controllers (DCs)&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>What is LDAP?&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>
+:::info&lt;/p>
+&lt;blockquote>
+&lt;p>輕量型目錄存取協定 (LDAP) 是用來從 Active Directory 讀取資料，及將資料寫入 Active Directory 的標準協定。某些應用程式使用 LDAP 新增、移除或搜尋 Active Directory 中的使用者和群組，或是傳輸登入資料來驗證 Active Directory 中的使用者。每個 LDAP 通訊都包括用戶端 (如應用程式) 和伺服器 (例如 Active Directory)。
+:::&lt;/p></description></item></channel></rss>

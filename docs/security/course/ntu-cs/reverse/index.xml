@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU CS 2023 HW2 Write Up</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/ntu-cs-2023-hw2-write-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/ntu-cs-2023-hw2-write-up/</guid><description>&lt;h1 id="ntu-cs-2023-hw2-write-up">
+ NTU CS 2023 HW2 Write Up
+ &lt;a class="anchor" href="#ntu-cs-2023-hw2-write-up">#&lt;/a>
+&lt;/h1>
+&lt;p>Name: 何秉學 Student ID: R11921A16
+:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="lab-hellorevworld">
+ Lab-HelloRevWorld
+ &lt;a class="anchor" href="#lab-hellorevworld">#&lt;/a>
+&lt;/h2>
+&lt;p>Flag: &lt;code>FLAG{h311O_revers1ng_3ngineer5}&lt;/code>&lt;/p>
+&lt;h3 id="解題流程與思路">
+ 解題流程與思路
+ &lt;a class="anchor" href="#%e8%a7%a3%e9%a1%8c%e6%b5%81%e7%a8%8b%e8%88%87%e6%80%9d%e8%b7%af">#&lt;/a>
+&lt;/h3>
+&lt;p>這一題主要是練習如何把如何把bytes變成字串:&lt;/p>
+&lt;ol>
+&lt;li>可以先把bytes的型別定義好(單獨的bytes變成array)，變成array有兩種方法，第一種是直接用&lt;code>Y&lt;/code>定義他的型別成&lt;code>int dword_2008[32]&lt;/code>，前面的int就看每一個字元是來決定，後面&lt;code>[32]&lt;/code>就代表有多少字元變成array；第二種方法就是直接按&lt;code>d&lt;/code>改變一個字元的型態變成int，然後在&lt;code>edit/Array&lt;/code>的地方可以叫出&lt;code>Convert to array&lt;/code>的視窗(如果前面沒有先用&lt;code>d&lt;/code>改變型態的話，他會以為所有字元都是一個byte，然後總共有128個字元這樣換算，但其實我們是總共32個字元，每一個字元是4個bytes，也就是int，這一點要特別注意)
+&lt;img src="https://hackmd.io/_uploads/HJ3yvI-Ga.png" alt="" />
+&lt;img src="https://hackmd.io/_uploads/r1A_8LWMa.png" alt="" />&lt;/li>
+&lt;li>接著就是在&lt;code>Option/String literals&lt;/code>視窗中設定用哪一個型態表示字串，這邊因為每一個字元都是4 bytes，也就是32 bits，所以選擇C-style
+&lt;img src="https://hackmd.io/_uploads/SyQBP8Zfp.png" alt="" />
+:::spoiler 完整流程&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>.rodata:0000000000002008 unk_2008 db 46h ; F ; DATA XREF: main+8↑o
+.rodata:0000000000002009 db 0
+.rodata:000000000000200A db 0
+.rodata:000000000000200B db 0
+.rodata:000000000000200C db 4Ch ; L
+.rodata:000000000000200D db 0
+.rodata:000000000000200E db 0
+.rodata:000000000000200F db 0
+.rodata:0000000000002010 db 41h ; A
+.rodata:0000000000002011 db 0
+.rodata:0000000000002012 db 0
+.rodata:0000000000002013 db 0
+.rodata:0000000000002014 db 47h ; G
+.rodata:0000000000002015 db 0
+.rodata:0000000000002016 db 0
+.rodata:0000000000002017 db 0
+.rodata:0000000000002018 db 7Bh ; {
+.rodata:0000000000002019 db 0
+.rodata:000000000000201A db 0
+.rodata:000000000000201B db 0
+.rodata:000000000000201C db 68h ; h
+.rodata:000000000000201D db 0
+.rodata:000000000000201E db 0
+.rodata:000000000000201F db 0
+.rodata:0000000000002020 db 33h ; 3
+.rodata:0000000000002021 db 0
+.rodata:0000000000002022 db 0
+.rodata:0000000000002023 db 0
+.rodata:0000000000002024 db 31h ; 1
+.rodata:0000000000002025 db 0
+.rodata:0000000000002026 db 0
+.rodata:0000000000002027 db 0
+.rodata:0000000000002028 db 31h ; 1
+.rodata:0000000000002029 db 0
+.rodata:000000000000202A db 0
+.rodata:000000000000202B db 0
+.rodata:000000000000202C db 4Fh ; O
+.rodata:000000000000202D db 0
+.rodata:000000000000202E db 0
+.rodata:000000000000202F db 0
+.rodata:0000000000002030 db 5Fh ; _
+.rodata:0000000000002031 db 0
+.rodata:0000000000002032 db 0
+.rodata:0000000000002033 db 0
+.rodata:0000000000002034 db 72h ; r
+.rodata:0000000000002035 db 0
+.rodata:0000000000002036 db 0
+.rodata:0000000000002037 db 0
+.rodata:0000000000002038 db 65h ; e
+.rodata:0000000000002039 db 0
+.rodata:000000000000203A db 0
+.rodata:000000000000203B db 0
+.rodata:000000000000203C db 76h ; v
+.rodata:000000000000203D db 0
+.rodata:000000000000203E db 0
+.rodata:000000000000203F db 0
+.rodata:0000000000002040 db 65h ; e
+.rodata:0000000000002041 db 0
+.rodata:0000000000002042 db 0
+.rodata:0000000000002043 db 0
+.rodata:0000000000002044 db 72h ; r
+.rodata:0000000000002045 db 0
+.rodata:0000000000002046 db 0
+.rodata:0000000000002047 db 0
+.rodata:0000000000002048 db 73h ; s
+.rodata:0000000000002049 db 0
+.rodata:000000000000204A db 0
+.rodata:000000000000204B db 0
+.rodata:000000000000204C db 31h ; 1
+.rodata:000000000000204D db 0
+.rodata:000000000000204E db 0
+.rodata:000000000000204F db 0
+.rodata:0000000000002050 db 6Eh ; n
+.rodata:0000000000002051 db 0
+.rodata:0000000000002052 db 0
+.rodata:0000000000002053 db 0
+.rodata:0000000000002054 db 67h ; g
+.rodata:0000000000002055 db 0
+.rodata:0000000000002056 db 0
+.rodata:0000000000002057 db 0
+.rodata:0000000000002058 db 5Fh ; _
+.rodata:0000000000002059 db 0
+.rodata:000000000000205A db 0
+.rodata:000000000000205B db 0
+.rodata:000000000000205C db 33h ; 3
+.rodata:000000000000205D db 0
+.rodata:000000000000205E db 0
+.rodata:000000000000205F db 0
+.rodata:0000000000002060 db 6Eh ; n
+.rodata:0000000000002061 db 0
+.rodata:0000000000002062 db 0
+.rodata:0000000000002063 db 0
+.rodata:0000000000002064 db 67h ; g
+.rodata:0000000000002065 db 0
+.rodata:0000000000002066 db 0
+.rodata:0000000000002067 db 0
+.rodata:0000000000002068 db 69h ; i
+.rodata:0000000000002069 db 0
+.rodata:000000000000206A db 0
+.rodata:000000000000206B db 0
+.rodata:000000000000206C db 6Eh ; n
+.rodata:000000000000206D db 0
+.rodata:000000000000206E db 0
+.rodata:000000000000206F db 0
+.rodata:0000000000002070 db 65h ; e
+.rodata:0000000000002071 db 0
+.rodata:0000000000002072 db 0
+.rodata:0000000000002073 db 0
+.rodata:0000000000002074 db 65h ; e
+.rodata:0000000000002075 db 0
+.rodata:0000000000002076 db 0
+.rodata:0000000000002077 db 0
+.rodata:0000000000002078 db 72h ; r
+.rodata:0000000000002079 db 0
+.rodata:000000000000207A db 0
+.rodata:000000000000207B db 0
+.rodata:000000000000207C db 35h ; 5
+.rodata:000000000000207D db 0
+.rodata:000000000000207E db 0
+.rodata:000000000000207F db 0
+.rodata:0000000000002080 db 7Dh ; }
+.rodata:0000000000002081 db 0
+.rodata:0000000000002082 db 0
+.rodata:0000000000002083 db 0
+.rodata:0000000000002084 db 0
+.rodata:0000000000002085 db 0
+.rodata:0000000000002086 db 0
+.rodata:0000000000002087 db 0
+&lt;/code>&lt;/pre>&lt;p>$\downarrow$&lt;/p></description></item><item><title>Simple Reverse - 0x01(Lab - Sacred Arts)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x01lab---sacred-arts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x01lab---sacred-arts/</guid><description>&lt;h1 id="simple-reverse---0x01lab---sacred-arts">
+ Simple Reverse - 0x01(Lab - Sacred Arts)
+ &lt;a class="anchor" href="#simple-reverse---0x01lab---sacred-arts">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://zh.wikibooks.org/wiki/X86%E7%B5%84%E5%90%88%E8%AA%9E%E8%A8%80/%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4%E9%9B%86">X86組合語言/基本指令集&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.ibm.com/docs/en/aix/7.1?topic=set-neg-negate-instruction">neg (Negate) instruction&lt;/a>
+實作：先在執行&lt;code>neg rax&lt;/code>之前把&lt;code>$rax&lt;/code>設定成2，執行指令之後剛好是2的補數
+&lt;pre tabindex="0">&lt;code class="language-!" data-lang="!">gef➤ set $rax=2
+gef➤ info r $rax
+rax 0x2 0x2
+gef➤ ni
+0x00000000004010e0 in ?? ()
+gef➤ info r $rax
+rax 0xfffffffffffffffe 0xfffffffffffffffe
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>&lt;a href="https://zh.wikibooks.org/zh/X86%E7%B5%84%E5%90%88%E8%AA%9E%E8%A8%80/%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4%E9%9B%86/IA32%E6%8C%87%E4%BB%A4:xchg">X86組合語言/基本指令集/IA32指令:xchg&lt;/a>
+實作：執行&lt;code>xchg ah, al&lt;/code>之前先看一下&lt;code>$rax&lt;/code>的狀態
+&lt;pre tabindex="0">&lt;code class="language-!" data-lang="!">gef➤ info r $rax
+rax 0xfffffffffffffffe 0xfffffffffffffffe
+gef➤ ni
+0x00000000004010e2 in ?? ()
+gef➤ info r $rax
+rax 0xfffffffffffffeff 0xfffffffffffffeff
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA Pro Disassembler Code&lt;/p></description></item><item><title>Simple Reverse - 0x03(Lab - Why)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x03lab---why/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x03lab---why/</guid><description>&lt;h1 id="simple-reverse---0x03lab---why">
+ Simple Reverse - 0x03(Lab - Why)
+ &lt;a class="anchor" href="#simple-reverse---0x03lab---why">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://chenhh.gitbooks.io/parallel_processing/content/cython/function_pointer.html">What is function pointer?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.youtube.com/live/IJlYPH1ljIY?feature=share&amp;amp;t=9587">Lecture Vid.&lt;/a>
+&lt;img src="https://hackmd.io/_uploads/BJlVKMiO2.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA main function&lt;/p>
+&lt;pre tabindex="0">&lt;code>int __cdecl main(int argc, const char **argv, const char **envp)
+{
+ int i; // [rsp+Ch] [rbp-4h]
+
+ printf(&amp;#34;Give me flag: &amp;#34;);
+ __isoc99_scanf(&amp;#34;%25s&amp;#34;, buf);
+ for ( i = 0; i &amp;lt;= 24; ++i )
+ {
+ if ( buf[i] - 10 != enc_flag[i] )
+ return 0;
+ }
+ pass = 1;
+ return 0;
+}
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x14(2023 Lab - AssemblyDev)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x142023-lab---assemblydev/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x142023-lab---assemblydev/</guid><description>&lt;h1 id="simple-reverse---0x142023-lab---assemblydev">
+ Simple Reverse - 0x14(2023 Lab - AssemblyDev)
+ &lt;a class="anchor" href="#simple-reverse---0x142023-lab---assemblydev">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Tools
+&lt;a href="https://carlosrafaelgn.com.br/Asm86/">Assembly x86 Emulator&lt;/a>
+&lt;a href="https://godbolt.org/">Compiler Explorer&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler arithmatic.py&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/usr/bin/python&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> module.checker &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#f92672">*&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> module.math &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#f92672">*&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> sys &lt;span style="color:#f92672">import&lt;/span> argv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>challenge_info &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">f&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">let a = MEM[RSP+0x0:RSP+0x4]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">let b = MEM[RSP+0x4:RSP+0x8]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">let c = MEM[RSP+0x8:RSP+0xc]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">EAX = a + b
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">EBX = a - b
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">ECX = -c
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">EDX = 9*a + 7
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>a &lt;span style="color:#f92672">=&lt;/span> get_rand(&lt;span style="color:#ae81ff">4&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>b &lt;span style="color:#f92672">=&lt;/span> get_rand(&lt;span style="color:#ae81ff">4&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c &lt;span style="color:#f92672">=&lt;/span> get_rand(&lt;span style="color:#ae81ff">4&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>init_list &lt;span style="color:#f92672">=&lt;/span> [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (RSP_DEFAULT &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">0x0&lt;/span>, a, &lt;span style="color:#ae81ff">4&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (RSP_DEFAULT &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">0x4&lt;/span>, b, &lt;span style="color:#ae81ff">4&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (RSP_DEFAULT &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">0x8&lt;/span>, c, &lt;span style="color:#ae81ff">4&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ans_list &lt;span style="color:#f92672">=&lt;/span> [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#34;eax&amp;#34;&lt;/span>, add(a, b, &lt;span style="color:#ae81ff">4&lt;/span>)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#34;ebx&amp;#34;&lt;/span>, sub(a, b, &lt;span style="color:#ae81ff">4&lt;/span>)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#34;ecx&amp;#34;&lt;/span>, neg(c, &lt;span style="color:#ae81ff">4&lt;/span>)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#34;edx&amp;#34;&lt;/span>, add(mul(a, &lt;span style="color:#ae81ff">9&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>), &lt;span style="color:#ae81ff">7&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> __name__ &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#34;__main__&amp;#34;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> len(argv) &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">f&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">{&lt;/span>C&lt;span style="color:#f92672">.&lt;/span>BLUE&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">[+]&lt;/span>&lt;span style="color:#e6db74">{&lt;/span>C&lt;span style="color:#f92672">.&lt;/span>NC&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74"> Usage: python3 &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>__file__&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74"> &amp;lt;path_to_asm_file&amp;gt;&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(challenge_info)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> exit(&lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> code &lt;span style="color:#f92672">=&lt;/span> open(argv[&lt;span style="color:#ae81ff">1&lt;/span>], &lt;span style="color:#e6db74">&amp;#39;r&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>read()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Checker(init_list, ans_list, code)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
+:::spoiler data_movement.py&lt;/p></description></item><item><title>Simple Reverse - 0x15(2023 HW - crackme_vectorization)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x152023-hw---crackme_vectorization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x152023-hw---crackme_vectorization/</guid><description>&lt;h1 id="simple-reverse---0x152023-hw---crackme_vectorization">
+ Simple Reverse - 0x15(2023 HW - crackme_vectorization)
+ &lt;a class="anchor" href="#simple-reverse---0x152023-hw---crackme_vectorization">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA Main Function&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">__int64&lt;/span> &lt;span style="color:#66d9ef">__fastcall&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> a1, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>a2, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>a3)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// [COLLAPSED LOCAL DECLARATIONS. PRESS KEYPAD CTRL-&amp;#34;+&amp;#34; TO EXPAND]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __isoc99_scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>, &lt;span style="color:#f92672">&amp;amp;&lt;/span>user_input_len); &lt;span style="color:#75715e">// 長度為49
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> user_input_len_cp &lt;span style="color:#f92672">=&lt;/span> user_input_len;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sqrt_length &lt;span style="color:#f92672">=&lt;/span> sqrt((&lt;span style="color:#66d9ef">double&lt;/span>)user_input_len); &lt;span style="color:#75715e">// 開根號後是7
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> sqrt_length_cp &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span>)sqrt_length;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( sqrt_length &lt;span style="color:#f92672">&amp;gt;&lt;/span> (&lt;span style="color:#66d9ef">double&lt;/span>)(&lt;span style="color:#66d9ef">int&lt;/span>)sqrt_length )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">++&lt;/span>sqrt_length_cp;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sqrt_len &lt;span style="color:#f92672">=&lt;/span> _mm_shuffle_epi32(_mm_cvtsi32_si128(sqrt_length_cp), &lt;span style="color:#ae81ff">224&lt;/span>).m128i_u64[&lt;span style="color:#ae81ff">0&lt;/span>];&lt;span style="color:#75715e">// 原本的shuffle num就是user input length的開根號結果
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> space &lt;span style="color:#f92672">=&lt;/span> (struc_1 &lt;span style="color:#f92672">*&lt;/span>)malloc(&lt;span style="color:#ae81ff">0x10uLL&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> space&lt;span style="color:#f92672">-&amp;gt;&lt;/span>sqrt_len &lt;span style="color:#f92672">=&lt;/span> sqrt_len;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> size &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#f92672">*&lt;/span> sqrt_length_cp &lt;span style="color:#f92672">*&lt;/span> (&lt;span style="color:#66d9ef">__int64&lt;/span>)sqrt_length_cp;&lt;span style="color:#75715e">// size是196
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> shuffle_space &lt;span style="color:#f92672">=&lt;/span> malloc(size);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> space&lt;span style="color:#f92672">-&amp;gt;&lt;/span>content_space &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#66d9ef">__int64&lt;/span>)shuffle_space;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( user_input_len_cp &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> shuffle_space_cp &lt;span style="color:#f92672">=&lt;/span> shuffle_space;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> len &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0LL&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __isoc99_scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>, content);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> shuffle_space_cp[len&lt;span style="color:#f92672">++&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> content[&lt;span style="color:#ae81ff">0&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> ( user_input_len &lt;span style="color:#f92672">&amp;gt;&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span>)len ); &lt;span style="color:#75715e">// 要輸入東西49次
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( length &lt;span style="color:#f92672">==&lt;/span> sqrt_length_cp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> (space_1 &lt;span style="color:#f92672">=&lt;/span> (struc_1 &lt;span style="color:#f92672">*&lt;/span>)malloc(&lt;span style="color:#ae81ff">0x10uLL&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> space_1&lt;span style="color:#f92672">-&amp;gt;&lt;/span>sqrt_len &lt;span style="color:#f92672">=&lt;/span> sqrt_len,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> shuffle_space_1 &lt;span style="color:#f92672">=&lt;/span> malloc(size),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> src &lt;span style="color:#f92672">=&lt;/span> cipher_flag,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> space_1&lt;span style="color:#f92672">-&amp;gt;&lt;/span>content_space &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#66d9ef">__int64&lt;/span>)shuffle_space_1,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> memcpy(shuffle_space_1, src, size),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> result &lt;span style="color:#f92672">=&lt;/span> ugly_matrix_multiplication(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>)space_1,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#66d9ef">__int64&lt;/span>)space), &lt;span style="color:#75715e">// guess_cipher的大小是196
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// 他會把我們輸入的東西和他原本的東西一起送到guess_encrypt的這個function中
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">!&lt;/span>memcmp((&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>)result[&lt;span style="color:#ae81ff">1&lt;/span>], verify_key, size)) )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;Correct!&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;:(&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0LL&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
+:::spoiler IDA Ugly Function&lt;/p></description></item><item><title>Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x262023-hw---banana-donut-verifier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x262023-hw---banana-donut-verifier/</guid><description>&lt;h1 id="simple-reverse---0x262023-hw---banana-donut-verifier">
+ Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)
+ &lt;a class="anchor" href="#simple-reverse---0x262023-hw---banana-donut-verifier">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>__int64 __fastcall main(int a1, char &lt;span style="color:#f92672">**&lt;/span>a2, char &lt;span style="color:#f92672">**&lt;/span>a3)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">//&lt;/span> [COLLAPSED LOCAL DECLARATIONS&lt;span style="color:#f92672">.&lt;/span> PRESS KEYPAD CTRL&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#34;+&amp;#34;&lt;/span> TO EXPAND]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v47 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0.0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v46 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0.0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v42 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>LL;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> memset(user_input, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1024&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;Dount Verifier&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">Input: &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __isoc99_scanf(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">%1023s&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, user_input);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\x1B&lt;/span>&lt;span style="color:#e6db74">[2J&amp;#34;&lt;/span>); &lt;span style="color:#f92672">//&lt;/span> 這個意思是清除整個頁面
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>LL; i &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">499&lt;/span>; &lt;span style="color:#f92672">++&lt;/span>i )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> memset(s, &lt;span style="color:#ae81ff">32&lt;/span>, sizeof(s));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> memset(v20, &lt;span style="color:#ae81ff">0&lt;/span>, sizeof(v20));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( j &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0.0&lt;/span>; j &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">6.28&lt;/span>; j &lt;span style="color:#f92672">=&lt;/span> v14 )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v40 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( k &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0.0&lt;/span>; k &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">6.28&lt;/span>; k &lt;span style="color:#f92672">=&lt;/span> v13 )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v3 &lt;span style="color:#f92672">=&lt;/span> _mm_cvtsi32_si128(LODWORD(k));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>v3&lt;span style="color:#f92672">.&lt;/span>m128i_i64 &lt;span style="color:#f92672">=&lt;/span> (compute_sinf)(&lt;span style="color:#f92672">*&lt;/span>v3&lt;span style="color:#f92672">.&lt;/span>m128i_i64);&lt;span style="color:#f92672">//&lt;/span> 計算浮點數的正弦值&lt;span style="color:#960050;background-color:#1e0010">，&lt;/span>參考自https:&lt;span style="color:#f92672">//&lt;/span>learn&lt;span style="color:#f92672">.&lt;/span>microsoft&lt;span style="color:#f92672">.&lt;/span>com&lt;span style="color:#f92672">/&lt;/span>zh&lt;span style="color:#f92672">-&lt;/span>tw&lt;span style="color:#f92672">/&lt;/span>cpp&lt;span style="color:#f92672">/&lt;/span>c&lt;span style="color:#f92672">-&lt;/span>runtime&lt;span style="color:#f92672">-&lt;/span>library&lt;span style="color:#f92672">/&lt;/span>reference&lt;span style="color:#f92672">/&lt;/span>sin&lt;span style="color:#f92672">-&lt;/span>sinf&lt;span style="color:#f92672">-&lt;/span>sinl&lt;span style="color:#960050;background-color:#1e0010">?&lt;/span>view&lt;span style="color:#f92672">=&lt;/span>msvc&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">170&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v37 &lt;span style="color:#f92672">=&lt;/span> COERCE_FLOAT(_mm_cvtsi128_si32(v3));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v4 &lt;span style="color:#f92672">=&lt;/span> _mm_cvtsi32_si128(LODWORD(j));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>v4&lt;span style="color:#f92672">.&lt;/span>m128i_i64 &lt;span style="color:#f92672">=&lt;/span> (compute_conf)(&lt;span style="color:#f92672">*&lt;/span>v4&lt;span style="color:#f92672">.&lt;/span>m128i_i64);&lt;span style="color:#f92672">//&lt;/span> 計算餘弦值&lt;span style="color:#960050;background-color:#1e0010">，&lt;/span>參考自https:&lt;span style="color:#f92672">//&lt;/span>learn&lt;span style="color:#f92672">.&lt;/span>microsoft&lt;span style="color:#f92672">.&lt;/span>com&lt;span style="color:#f92672">/&lt;/span>zh&lt;span style="color:#f92672">-&lt;/span>tw&lt;span style="color:#f92672">/&lt;/span>cpp&lt;span style="color:#f92672">/&lt;/span>c&lt;span style="color:#f92672">-&lt;/span>runtime&lt;span style="color:#f92672">-&lt;/span>library&lt;span style="color:#f92672">/&lt;/span>reference&lt;span style="color:#f92672">/&lt;/span>cos&lt;span style="color:#f92672">-&lt;/span>cosf&lt;span style="color:#f92672">-&lt;/span>cosl&lt;span style="color:#960050;background-color:#1e0010">?&lt;/span>view&lt;span style="color:#f92672">=&lt;/span>msvc&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">170&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v36 &lt;span style="color:#f92672">=&lt;/span> COERCE_FLOAT(_mm_cvtsi128_si32(v4));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v5 &lt;span style="color:#f92672">=&lt;/span> _mm_cvtsi32_si128(LODWORD(v47));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>v5&lt;span style="color:#f92672">.&lt;/span>m128i_i64 &lt;span style="color:#f92672">=&lt;/span> (compute_sinf)(&lt;span style="color:#f92672">*&lt;/span>v5&lt;span style="color:#f92672">.&lt;/span>m128i_i64);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v35 &lt;span style="color:#f92672">=&lt;/span> COERCE_FLOAT(_mm_cvtsi128_si32(v5));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v6 &lt;span style="color:#f92672">=&lt;/span> _mm_cvtsi32_si128(LODWORD(j));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>v6&lt;span style="color:#f92672">.&lt;/span>m128i_i64 &lt;span style="color:#f92672">=&lt;/span> (compute_sinf)(&lt;span style="color:#f92672">*&lt;/span>v6&lt;span style="color:#f92672">.&lt;/span>m128i_i64);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v34 &lt;span style="color:#f92672">=&lt;/span> COERCE_FLOAT(_mm_cvtsi128_si32(v6));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v7 &lt;span style="color:#f92672">=&lt;/span> _mm_cvtsi32_si128(LODWORD(v47));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>v7&lt;span style="color:#f92672">.&lt;/span>m128i_i64 &lt;span style="color:#f92672">=&lt;/span> (compute_conf)(&lt;span style="color:#f92672">*&lt;/span>v7&lt;span style="color:#f92672">.&lt;/span>m128i_i64);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v33 &lt;span style="color:#f92672">=&lt;/span> COERCE_FLOAT(_mm_cvtsi128_si32(v7));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v32 &lt;span style="color:#f92672">=&lt;/span> v36 &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">2.0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v31 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1.0&lt;/span> &lt;span style="color:#f92672">/&lt;/span> ((((v37 &lt;span style="color:#f92672">*&lt;/span> (v36 &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">2.0&lt;/span>)) &lt;span style="color:#f92672">*&lt;/span> v35) &lt;span style="color:#f92672">+&lt;/span> (v34 &lt;span style="color:#f92672">*&lt;/span> v33)) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">5.0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v8 &lt;span style="color:#f92672">=&lt;/span> _mm_cvtsi32_si128(LODWORD(k));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>v8&lt;span style="color:#f92672">.&lt;/span>m128i_i64 &lt;span style="color:#f92672">=&lt;/span> (compute_conf)(&lt;span style="color:#f92672">*&lt;/span>v8&lt;span style="color:#f92672">.&lt;/span>m128i_i64);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v30 &lt;span style="color:#f92672">=&lt;/span> COERCE_FLOAT(_mm_cvtsi128_si32(v8));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v9 &lt;span style="color:#f92672">=&lt;/span> _mm_cvtsi32_si128(LODWORD(v46));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>v9&lt;span style="color:#f92672">.&lt;/span>m128i_i64 &lt;span style="color:#f92672">=&lt;/span> (compute_conf)(&lt;span style="color:#f92672">*&lt;/span>v9&lt;span style="color:#f92672">.&lt;/span>m128i_i64);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v29 &lt;span style="color:#f92672">=&lt;/span> COERCE_FLOAT(_mm_cvtsi128_si32(v9));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v10 &lt;span style="color:#f92672">=&lt;/span> _mm_cvtsi32_si128(LODWORD(v46));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>v10&lt;span style="color:#f92672">.&lt;/span>m128i_i64 &lt;span style="color:#f92672">=&lt;/span> (compute_sinf)(&lt;span style="color:#f92672">*&lt;/span>v10&lt;span style="color:#f92672">.&lt;/span>m128i_i64);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v28 &lt;span style="color:#f92672">=&lt;/span> COERCE_FLOAT(_mm_cvtsi128_si32(v10));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v27 &lt;span style="color:#f92672">=&lt;/span> ((v37 &lt;span style="color:#f92672">*&lt;/span> v32) &lt;span style="color:#f92672">*&lt;/span> v33) &lt;span style="color:#f92672">-&lt;/span> (v34 &lt;span style="color:#f92672">*&lt;/span> v35);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v26 &lt;span style="color:#f92672">=&lt;/span> (((v31 &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">30.0&lt;/span>) &lt;span style="color:#f92672">*&lt;/span> (((v30 &lt;span style="color:#f92672">*&lt;/span> v32) &lt;span style="color:#f92672">*&lt;/span> v29) &lt;span style="color:#f92672">-&lt;/span> (v27 &lt;span style="color:#f92672">*&lt;/span> v28))) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">40.0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v25 &lt;span style="color:#f92672">=&lt;/span> (((v31 &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">15.0&lt;/span>) &lt;span style="color:#f92672">*&lt;/span> ((v27 &lt;span style="color:#f92672">*&lt;/span> v29) &lt;span style="color:#f92672">+&lt;/span> ((v30 &lt;span style="color:#f92672">*&lt;/span> v32) &lt;span style="color:#f92672">*&lt;/span> v28))) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">12.0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v24 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">80&lt;/span> &lt;span style="color:#f92672">*&lt;/span> v25 &lt;span style="color:#f92672">+&lt;/span> v26;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v23 &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#ae81ff">8.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span> ((((((v34 &lt;span style="color:#f92672">*&lt;/span> v35) &lt;span style="color:#f92672">-&lt;/span> ((v37 &lt;span style="color:#f92672">*&lt;/span> v36) &lt;span style="color:#f92672">*&lt;/span> v33)) &lt;span style="color:#f92672">*&lt;/span> v29) &lt;span style="color:#f92672">-&lt;/span> ((v37 &lt;span style="color:#f92672">*&lt;/span> v36) &lt;span style="color:#f92672">*&lt;/span> v35)) &lt;span style="color:#f92672">-&lt;/span> (v34 &lt;span style="color:#f92672">*&lt;/span> v33)) &lt;span style="color:#f92672">-&lt;/span> ((v30 &lt;span style="color:#f92672">*&lt;/span> v36) &lt;span style="color:#f92672">*&lt;/span> v28)));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( v25 &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">21&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> v25 &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> v26 &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> v26 &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">79&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> v31 &lt;span style="color:#f92672">&amp;gt;&lt;/span> v20[v24] )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v20[v24] &lt;span style="color:#f92672">=&lt;/span> v31;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v11 &lt;span style="color:#f92672">=&lt;/span> v23;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( v23 &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v11 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> s[v24] &lt;span style="color:#f92672">=&lt;/span> special_char[v11]; &lt;span style="color:#f92672">//&lt;/span> special_char就是印出甜甜圈的素材
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( v40 &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">30&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> v42 &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">0x3FF&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v22 &lt;span style="color:#f92672">=&lt;/span> v24 &lt;span style="color:#f92672">^&lt;/span> v23 &lt;span style="color:#f92672">^&lt;/span> (v26 &lt;span style="color:#f92672">+&lt;/span> v25);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v12 &lt;span style="color:#f92672">=&lt;/span> v42&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>(user_input &lt;span style="color:#f92672">+&lt;/span> v12) &lt;span style="color:#f92672">^=&lt;/span> v24 &lt;span style="color:#f92672">^&lt;/span> v23 &lt;span style="color:#f92672">^&lt;/span> (v26 &lt;span style="color:#f92672">+&lt;/span> v25);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">++&lt;/span>v40;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v13 &lt;span style="color:#f92672">=&lt;/span> k &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">0.02&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v14 &lt;span style="color:#f92672">=&lt;/span> j &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">0.07000000000000001&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\x1B&lt;/span>&lt;span style="color:#e6db74">[H&amp;#34;&lt;/span>); &lt;span style="color:#f92672">//&lt;/span> 這個代表游標回到home position
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( idx &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; idx &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">0x6E0&lt;/span>; &lt;span style="color:#f92672">++&lt;/span>idx ) &lt;span style="color:#f92672">//&lt;/span> 這一段for loop就是在印出甜甜圈
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( idx &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">80&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v15 &lt;span style="color:#f92672">=&lt;/span> s[idx];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v15 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> putchar(v15);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v16 &lt;span style="color:#f92672">=&lt;/span> v47 &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">0.00004&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v47 &lt;span style="color:#f92672">=&lt;/span> v16;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v17 &lt;span style="color:#f92672">=&lt;/span> v46 &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">0.00002&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v46 &lt;span style="color:#f92672">=&lt;/span> v17;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> usleep(&lt;span style="color:#ae81ff">30000&lt;/span>u); &lt;span style="color:#f92672">//&lt;/span> 睡眠0&lt;span style="color:#ae81ff">.03&lt;/span>秒
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cipher_1 &lt;span style="color:#f92672">=&lt;/span> verification(user_input, &lt;span style="color:#ae81ff">0x400&lt;/span>uLL);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cipher_2 &lt;span style="color:#f92672">=&lt;/span> verification(key, &lt;span style="color:#ae81ff">0x400&lt;/span>uLL);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( cipher_1 &lt;span style="color:#f92672">==&lt;/span> cipher_2 )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;Donut likes your input!! :D&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;Donut Reject You!! :(&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;No matter donut accept you or not. Here&amp;#39;s a bananacat for you&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(icon);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">112&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">232&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">352&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">480&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">600&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">728&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">856&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">992&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">1128&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">1272&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░ ░▓▒▒▒▒▒░░░░░░░░░░▒▒▒▓▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▒▒▒▒▒▒░░░░░░░░░░░▒▒▒▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▒▒▒▒▒▒▒░░░░░░░░░▒▒▒▒▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▓▒▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒░▒▒▒▒▒▒▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▒▓▒▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▒▒▓▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▒▒▓▓▓▒▒▒▒▒▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▓▒▒▓▓▓▒▒▒▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░ ░▒▒▒▒▒▒▒░░░░░░░░░░░▒▒▒▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▒▒▒▒▒▒▒░░░░░░░░░▒▒▒▒▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▓▒▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒░▒▒▒▒▒▒▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▒▓▒▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▒▒▓▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▒▒▓▓▓▒▒▒▒▒▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▓▒▒▓▓▓▒▒▒▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░ ░▒▓▒▒▒▒▒▒▒▒░░░░░░░░░▒▒▒▒▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▓▒▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒░▒▒▒▒▒▒▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▒▓▒▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▒▒▓▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▒▒▓▓▓▒▒▒▒▒▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▓▒▒▓▓▓▒▒▒▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░▒▒▓▒▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒░▒▒▒▒▒▒▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▒▓▒▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▒▒▓▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▒▒▓▓▓▒▒▒▒▒▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▓▒▒▓▓▓▒▒▒▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░▒▓▓▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒░▒▒▒▒▒▒▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▒▓▒▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▒▒▓▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▒▒▓▓▓▒▒▒▒▒▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▓▒▒▓▓▓▒▒▒▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░▒▓▓▓▒▓▒▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▒▒▓▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▒▒▓▓▓▒▒▒▒▒▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▓▒▒▓▓▓▒▒▒▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░▒▓▒▒▓▓▓▒▒▒▒▒▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▓▒▒▓▓▓▒▒▒▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░ ░▒▓▓▒▒▓▓▓▒▒▒▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░▒▓▓█▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▓▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░▒▓███▓▓▒▒▒▒▒▒▒▓██▓█▓▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒░▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░▓▓▓▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░ ░▓▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░▓▓▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▓▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░░▓▒▒▒▒▒▒▒▒▒▒░▒▒░▒▓▒▒▒▒▒▒▒ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░ ░░▒▓▒▒▒▒▒▒▒▒▒░░▒░▒▒▓▒▒▒▒▒▒▒▒░░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░░▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░▒▒▒▓▓█▓▒▓▒▒▒░░░░░▒▒▓▒▒▒▒▒▓▒▒▒▒▒▒▒▓░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░▒▓▓▓░░█▓▒▓▓▓▒░░░░▒▒▒▒▒▒▒▓▓▓▒▓▓▒▒▒▒▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░▓▓▒░░░▓▓▓█▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▒░░▒▓▓▓▓▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░▓██████▓▓▒▒▒▒▒▒▓▓▓▓▓░ ░░▒░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░ ░░▓█████▓▒▒▒▒▒▒▒▓▓▓▒░ ░ ░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░▓██████▓▒▒▓▓▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░ ░▒▓▒▓▓▓▓██▓█▓▓▒▒▒▒▒░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░▒▓▓▓▓▓▓░▒▒▒▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░▓▓▓▓▓▓▓▒ ░▒▓▒▒▒▒▒▒░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░░░▒▒▒▒▒░░░ ░▒▓▒▒▒▒▓▓░ ░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00\x00\x00\x00\x00\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34; ░ ░░░░░░░░ &lt;/span>&lt;span style="color:#ae81ff">\x00\x00&lt;/span>&lt;span style="color:#e6db74"> ░░ &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#f92672">&amp;amp;&lt;/span>icon[&lt;span style="color:#ae81ff">6760&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>LL;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x27(2023 Lab - Scramble)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x272023-lab---scramble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x272023-lab---scramble/</guid><description>&lt;h1 id="simple-reverse---0x272023-lab---scramble">
+ Simple Reverse - 0x27(2023 Lab - Scramble)
+ &lt;a class="anchor" href="#simple-reverse---0x272023-lab---scramble">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler scramble.py&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> random
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">generate_scramble_pattern&lt;/span>(pattern_length, max_shift, max_add_sub):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scramble_pattern &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> _ &lt;span style="color:#f92672">in&lt;/span> range(random&lt;span style="color:#f92672">.&lt;/span>randint(&lt;span style="color:#ae81ff">1&lt;/span>, pattern_length)):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> operation &lt;span style="color:#f92672">=&lt;/span> random&lt;span style="color:#f92672">.&lt;/span>randint(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> operation &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sub_value &lt;span style="color:#f92672">=&lt;/span> random&lt;span style="color:#f92672">.&lt;/span>randint(&lt;span style="color:#ae81ff">1&lt;/span>, max_add_sub)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">elif&lt;/span> operation &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> add_value &lt;span style="color:#f92672">=&lt;/span> random&lt;span style="color:#f92672">.&lt;/span>randint(&lt;span style="color:#ae81ff">1&lt;/span>, max_add_sub)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scramble_pattern&lt;span style="color:#f92672">.&lt;/span>append((&lt;span style="color:#e6db74">&amp;#39;add&amp;#39;&lt;/span>, add_value))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">elif&lt;/span> operation &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sub_value &lt;span style="color:#f92672">=&lt;/span> random&lt;span style="color:#f92672">.&lt;/span>randint(&lt;span style="color:#ae81ff">1&lt;/span>, max_add_sub)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scramble_pattern&lt;span style="color:#f92672">.&lt;/span>append((&lt;span style="color:#e6db74">&amp;#39;sub&amp;#39;&lt;/span>, sub_value))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">elif&lt;/span> operation &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> shift_value &lt;span style="color:#f92672">=&lt;/span> random&lt;span style="color:#f92672">.&lt;/span>randint(&lt;span style="color:#ae81ff">1&lt;/span>, max_shift)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scramble_pattern&lt;span style="color:#f92672">.&lt;/span>append((&lt;span style="color:#e6db74">&amp;#39;lsh&amp;#39;&lt;/span>, shift_value))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> scramble_pattern
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">apply_scramble_pattern&lt;/span>(input_bytes, patterns):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> result &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> i, operations &lt;span style="color:#f92672">in&lt;/span> enumerate(patterns):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> src &lt;span style="color:#f92672">=&lt;/span> input_bytes[i]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> operation &lt;span style="color:#f92672">in&lt;/span> operations:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> operation &lt;span style="color:#f92672">is&lt;/span> &lt;span style="color:#66d9ef">None&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">elif&lt;/span> operation[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;add&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> src &lt;span style="color:#f92672">+=&lt;/span> operation[&lt;span style="color:#ae81ff">1&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">elif&lt;/span> operation[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;sub&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> src &lt;span style="color:#f92672">-=&lt;/span> operation[&lt;span style="color:#ae81ff">1&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">elif&lt;/span> operation[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;lsh&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> src &lt;span style="color:#f92672">&amp;lt;&amp;lt;=&lt;/span> operation[&lt;span style="color:#ae81ff">1&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> src &lt;span style="color:#f92672">&amp;amp;=&lt;/span> &lt;span style="color:#ae81ff">0xffffffff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> result&lt;span style="color:#f92672">.&lt;/span>append(src)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> result
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>k_FLAG &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">b&lt;/span>&lt;span style="color:#e6db74">&amp;#39;FLAG&lt;/span>&lt;span style="color:#e6db74">{REDACTED}&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>patterns &lt;span style="color:#f92672">=&lt;/span> [generate_scramble_pattern(&lt;span style="color:#ae81ff">6&lt;/span>, max_shift&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>, max_add_sub&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0xffff&lt;/span>) &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(len(k_FLAG)) ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scrambled_result &lt;span style="color:#f92672">=&lt;/span> apply_scramble_pattern(k_FLAG, patterns)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#34;Input Bytes:&amp;#34;&lt;/span>, k_FLAG, len(k_FLAG))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># REDACTED, 42&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#34;Scramble Pattern:&amp;#34;&lt;/span>, patterns)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># [[(&amp;#39;sub&amp;#39;, 20935)], [(&amp;#39;sub&amp;#39;, 31575), (&amp;#39;lsh&amp;#39;, 9), (&amp;#39;add&amp;#39;, 45363), (&amp;#39;add&amp;#39;, 35372), (&amp;#39;sub&amp;#39;, 15465)], [(&amp;#39;add&amp;#39;, 19123), (&amp;#39;add&amp;#39;, 35260), (&amp;#39;sub&amp;#39;, 49421), (&amp;#39;lsh&amp;#39;, 8)], [(&amp;#39;lsh&amp;#39;, 1), (&amp;#39;sub&amp;#39;, 4977), (&amp;#39;sub&amp;#39;, 55837)], [(&amp;#39;add&amp;#39;, 16937)], [(&amp;#39;sub&amp;#39;, 56984), (&amp;#39;lsh&amp;#39;, 2), (&amp;#39;sub&amp;#39;, 32363), (&amp;#39;sub&amp;#39;, 46293)], [(&amp;#39;sub&amp;#39;, 94), (&amp;#39;sub&amp;#39;, 48860), (&amp;#39;sub&amp;#39;, 18342), (&amp;#39;lsh&amp;#39;, 3)], [(&amp;#39;add&amp;#39;, 37549), (&amp;#39;sub&amp;#39;, 36283), (&amp;#39;lsh&amp;#39;, 6), (&amp;#39;add&amp;#39;, 6253)], [(&amp;#39;add&amp;#39;, 34661), (&amp;#39;sub&amp;#39;, 13281), (&amp;#39;sub&amp;#39;, 64107)], [(&amp;#39;sub&amp;#39;, 8525), (&amp;#39;sub&amp;#39;, 30349), (&amp;#39;sub&amp;#39;, 26744)], [(&amp;#39;lsh&amp;#39;, 2), (&amp;#39;sub&amp;#39;, 18120), (&amp;#39;sub&amp;#39;, 63091), (&amp;#39;add&amp;#39;, 17287), (&amp;#39;sub&amp;#39;, 37618), (&amp;#39;add&amp;#39;, 2237)], [(&amp;#39;sub&amp;#39;, 48573), (&amp;#39;sub&amp;#39;, 4449), (&amp;#39;add&amp;#39;, 36013), (&amp;#39;sub&amp;#39;, 64051)], [(&amp;#39;add&amp;#39;, 10415), (&amp;#39;lsh&amp;#39;, 3), (&amp;#39;lsh&amp;#39;, 10)], [(&amp;#39;add&amp;#39;, 5676), (&amp;#39;lsh&amp;#39;, 3), (&amp;#39;lsh&amp;#39;, 10), (&amp;#39;add&amp;#39;, 32002), (&amp;#39;sub&amp;#39;, 60775)], [(&amp;#39;add&amp;#39;, 35939), (&amp;#39;sub&amp;#39;, 32666), (&amp;#39;sub&amp;#39;, 45639), (&amp;#39;add&amp;#39;, 2077), (&amp;#39;sub&amp;#39;, 16253)], [(&amp;#39;sub&amp;#39;, 30392), (&amp;#39;sub&amp;#39;, 26913), (&amp;#39;sub&amp;#39;, 14009), (&amp;#39;sub&amp;#39;, 62416)], [(&amp;#39;sub&amp;#39;, 15056), (&amp;#39;sub&amp;#39;, 40527)], [(&amp;#39;lsh&amp;#39;, 5)], [(&amp;#39;lsh&amp;#39;, 1), (&amp;#39;sub&amp;#39;, 16070)], [(&amp;#39;add&amp;#39;, 2045)], [(&amp;#39;lsh&amp;#39;, 8), (&amp;#39;add&amp;#39;, 37087), (&amp;#39;sub&amp;#39;, 22013), (&amp;#39;lsh&amp;#39;, 10), (&amp;#39;lsh&amp;#39;, 2)], [(&amp;#39;add&amp;#39;, 31880), (&amp;#39;sub&amp;#39;, 56557), (&amp;#39;lsh&amp;#39;, 6), (&amp;#39;lsh&amp;#39;, 5), (&amp;#39;lsh&amp;#39;, 8), (&amp;#39;add&amp;#39;, 15535)], [(&amp;#39;add&amp;#39;, 22937), (&amp;#39;add&amp;#39;, 4060)], [(&amp;#39;add&amp;#39;, 8462), (&amp;#39;sub&amp;#39;, 4463), (&amp;#39;sub&amp;#39;, 45810), (&amp;#39;lsh&amp;#39;, 1)], [(&amp;#39;sub&amp;#39;, 10144), (&amp;#39;lsh&amp;#39;, 8), (&amp;#39;lsh&amp;#39;, 5), (&amp;#39;lsh&amp;#39;, 1), (&amp;#39;lsh&amp;#39;, 8)], [(&amp;#39;add&amp;#39;, 49937), (&amp;#39;lsh&amp;#39;, 2), (&amp;#39;add&amp;#39;, 60982), (&amp;#39;sub&amp;#39;, 24799)], [(&amp;#39;lsh&amp;#39;, 4), (&amp;#39;add&amp;#39;, 53340), (&amp;#39;add&amp;#39;, 50619), (&amp;#39;sub&amp;#39;, 56111), (&amp;#39;add&amp;#39;, 6134), (&amp;#39;lsh&amp;#39;, 1)], [(&amp;#39;sub&amp;#39;, 22577), (&amp;#39;sub&amp;#39;, 50645)], [(&amp;#39;add&amp;#39;, 21265), (&amp;#39;sub&amp;#39;, 41440)], [(&amp;#39;add&amp;#39;, 63314), (&amp;#39;sub&amp;#39;, 45755), (&amp;#39;add&amp;#39;, 62216)], [(&amp;#39;sub&amp;#39;, 52616)], [(&amp;#39;add&amp;#39;, 21192)], [(&amp;#39;add&amp;#39;, 62573), (&amp;#39;sub&amp;#39;,18811)], [(&amp;#39;add&amp;#39;, 35452), (&amp;#39;sub&amp;#39;, 11573), (&amp;#39;sub&amp;#39;, 49079), (&amp;#39;sub&amp;#39;, 36361), (&amp;#39;sub&amp;#39;, 26862), (&amp;#39;lsh&amp;#39;, 9)], [(&amp;#39;add&amp;#39;, 13610), (&amp;#39;lsh&amp;#39;, 7), (&amp;#39;lsh&amp;#39;, 3), (&amp;#39;sub&amp;#39;, 28490), (&amp;#39;lsh&amp;#39;, 10), (&amp;#39;add&amp;#39;, 44742)], [(&amp;#39;lsh&amp;#39;, 10), (&amp;#39;sub&amp;#39;, 1797), (&amp;#39;sub&amp;#39;, 10564), (&amp;#39;add&amp;#39;, 12394)], [(&amp;#39;add&amp;#39;, 45165), (&amp;#39;lsh&amp;#39;, 10), (&amp;#39;sub&amp;#39;, 60610), (&amp;#39;sub&amp;#39;, 63002), (&amp;#39;sub&amp;#39;, 14851), (&amp;#39;lsh&amp;#39;, 1)], [(&amp;#39;add&amp;#39;, 34840), (&amp;#39;lsh&amp;#39;, 3), (&amp;#39;sub&amp;#39;, 16907)], [(&amp;#39;add&amp;#39;, 4404), (&amp;#39;lsh&amp;#39;, 3), (&amp;#39;lsh&amp;#39;, 7), (&amp;#39;lsh&amp;#39;, 6)], [(&amp;#39;lsh&amp;#39;, 6), (&amp;#39;add&amp;#39;, 51738), (&amp;#39;sub&amp;#39;, 24621), (&amp;#39;add&amp;#39;, 58646)], [(&amp;#39;lsh&amp;#39;, 1)], [(&amp;#39;add&amp;#39;, 29375), (&amp;#39;sub&amp;#39;, 419), (&amp;#39;add&amp;#39;, 2854), (&amp;#39;sub&amp;#39;, 11878), (&amp;#39;lsh&amp;#39;, 10), (&amp;#39;add&amp;#39;, 40151)], [(&amp;#39;add&amp;#39;, 22953)]]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#34;Scrambled Result:&amp;#34;&lt;/span>, scrambled_result)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># [4294946431, 4278905078, 1286912, 4294906624, 17060, 4294661164, 4294429720, 94573, 4294924666, 4294901787, 4294868383, 4294886344, 86147072, 47247259, 4294910851, 4294833676, 4294911813, 3040, 4294951460, 2160, 171843584, 4734127, 27100, 4294883864, 884998144, 236375, 111420, 4294894192, 4294947222, 79889, 4294914775, 21308, 43873, 4249743360, 1477674694, 113697, 92442178, 262757, 295239680, 91843, 210, 20569303, 23078]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
+:::spoiler output.txt&lt;/p></description></item><item><title>Simple Reverse - 0x28(2023 Lab - Super Angry)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x282023-lab---super-angry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x282023-lab---super-angry/</guid><description>&lt;h1 id="simple-reverse---0x282023-lab---super-angry">
+ Simple Reverse - 0x28(2023 Lab - Super Angry)
+ &lt;a class="anchor" href="#simple-reverse---0x282023-lab---super-angry">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler main function&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">__int64&lt;/span> &lt;span style="color:#66d9ef">__fastcall&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>a3)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">__int64&lt;/span> &lt;span style="color:#f92672">*&lt;/span>user_input; &lt;span style="color:#75715e">// rcx
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">__int64&lt;/span> v5; &lt;span style="color:#75715e">// rdx
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">__int64&lt;/span> v6; &lt;span style="color:#75715e">// rdx
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> output[&lt;span style="color:#ae81ff">128&lt;/span>]; &lt;span style="color:#75715e">// [rsp+10h] [rbp-B0h] BYREF
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">__int64&lt;/span> user_input_cp[&lt;span style="color:#ae81ff">6&lt;/span>]; &lt;span style="color:#75715e">// [rsp+90h] [rbp-30h] BYREF
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> user_input_cp[&lt;span style="color:#ae81ff">5&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> __readfsqword(&lt;span style="color:#ae81ff">0x28u&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( argc &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> user_input &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#66d9ef">__int64&lt;/span> &lt;span style="color:#f92672">*&lt;/span>)argv[&lt;span style="color:#ae81ff">1&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v5 &lt;span style="color:#f92672">=&lt;/span> user_input[&lt;span style="color:#ae81ff">1&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> user_input_cp[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">*&lt;/span>user_input;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> user_input_cp[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> v5;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v6 &lt;span style="color:#f92672">=&lt;/span> user_input[&lt;span style="color:#ae81ff">3&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> user_input_cp[&lt;span style="color:#ae81ff">2&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> user_input[&lt;span style="color:#ae81ff">2&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> user_input_cp[&lt;span style="color:#ae81ff">3&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> v6;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scramble_fn((&lt;span style="color:#66d9ef">__int64&lt;/span>)user_input_cp, output, &lt;span style="color:#ae81ff">0x20uLL&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( &lt;span style="color:#f92672">!&lt;/span>memcmp(output, verify_key, &lt;span style="color:#ae81ff">0x80uLL&lt;/span>) )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;Correct!&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;Incorrect!&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0LL&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;Usage: %s &amp;lt;input&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, &lt;span style="color:#f92672">*&lt;/span>argv);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1LL&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse - 0x29(2023 Lab - Unpackme)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x292023-lab---unpackme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x292023-lab---unpackme/</guid><description>&lt;h1 id="simple-reverse---0x292023-lab---unpackme">
+ Simple Reverse - 0x29(2023 Lab - Unpackme)
+ &lt;a class="anchor" href="#simple-reverse---0x292023-lab---unpackme">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AE8 mov rdi, [rsp&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">18&lt;/span>h&lt;span style="color:#f92672">+&lt;/span>start] ; start
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AED push &lt;span style="color:#ae81ff">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AEF pop rdx ; prot
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF0 push &lt;span style="color:#ae81ff">0&lt;/span>Ah
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF2 pop rax
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF3 syscall ; LINUX &lt;span style="color:#f92672">-&lt;/span> sys_mprotect
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF5 jmp r13
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF5
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF5 sub_5A7C endp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF5
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF8 ; &lt;span style="color:#f92672">---------------------------------------------------------------------------&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF8
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF8 loc_5AF8: ; CODE XREF: start&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">↑&lt;/span>p
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF8 pop rbp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF9 call sub_5A7C
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF9
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AF9 ; &lt;span style="color:#f92672">---------------------------------------------------------------------------&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>AFE aProcSelfExe db &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>&lt;span style="color:#f92672">/&lt;/span>proc&lt;span style="color:#f92672">/&lt;/span>self&lt;span style="color:#f92672">/&lt;/span>exe&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>,&lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>B0D align &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>B0E dw &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>B10 dq &lt;span style="color:#ae81ff">81&lt;/span>B00000C1100h, &lt;span style="color:#ae81ff">0FF&lt;/span>FFFF0000000200h, &lt;span style="color:#ae81ff">7549F&lt;/span>&lt;span style="color:#ae81ff">983004&lt;/span>AE8E5h, &lt;span style="color:#ae81ff">0F&lt;/span>D374C8D48575344h, &lt;span style="color:#ae81ff">0&lt;/span>CE39482FEB5B565Eh, &lt;span style="color:#ae81ff">0FF&lt;/span>FFFBFF5E563273h
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>B10 dq &lt;span style="color:#ae81ff">778F&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>C0A72803CACh, &lt;span style="color:#ae81ff">2&lt;/span>C06740FFE7E8006h, &lt;span style="color:#ae81ff">56161&lt;/span>BE477013CE8h, &lt;span style="color:#ae81ff">0FF&lt;/span>BFFFFF75D028ADh, &lt;span style="color:#ae81ff">0&lt;/span>D801F829C80F5FDFh, &lt;span style="color:#ae81ff">0&lt;/span>C35BDFEBAC0312ABh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>B10 dq &lt;span style="color:#ae81ff">8948505741564158&lt;/span>h, &lt;span style="color:#ae81ff">0&lt;/span>DBFFEDFEEC8148E6h, &lt;span style="color:#ae81ff">590&lt;/span>A6A5F54591000h, &lt;span style="color:#ae81ff">5003E8348&lt;/span>A548F3h, &lt;span style="color:#ae81ff">0&lt;/span>B6AB48FE8949F875h, &lt;span style="color:#ae81ff">0F&lt;/span>&lt;span style="color:#ae81ff">60&lt;/span>C0AFC0CCBB374h
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LOAD:&lt;span style="color:#ae81ff">0000000000005&lt;/span>B10 dq &lt;span style="color:#ae81ff">4&lt;/span>DF5FF6EDFFE02FFh, &lt;span style="color:#ae81ff">5E57370&lt;/span>FFFBAFC29h, &lt;span style="color:#ae81ff">50F&lt;/span>&lt;span style="color:#ae81ff">58596&lt;/span>AED7B8Ch, &lt;span style="color:#ae81ff">0&lt;/span>DFFF6FDB0579C085h, &lt;span style="color:#ae81ff">8&lt;/span>D49FD91580F6A0Eh, &lt;span style="color:#ae81ff">0E741&lt;/span>AAA00B0FF7Dh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::spoiler Real File main Function&lt;/p></description></item><item><title>Simple Reverse - 0x30(2023 HW - Evil FlagChecker)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x302023-hw---evil-flagchecker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x302023-hw---evil-flagchecker/</guid><description>&lt;h1 id="simple-reverse---0x302023-hw---evil-flagchecker">
+ Simple Reverse - 0x30(2023 HW - Evil FlagChecker)
+ &lt;a class="anchor" href="#simple-reverse---0x302023-hw---evil-flagchecker">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Anti Disassembly - 這一部分可以看一下碩一修的malware reverse的anti disassembly的修復(就是d和c的交錯使用)
+Anti Debugging - 首推scylla hide&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA main&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#66d9ef">__cdecl&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>envp)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> DWORD TickCount; &lt;span style="color:#75715e">// [esp+0h] [ebp-14h]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> v5; &lt;span style="color:#75715e">// [esp+8h] [ebp-Ch]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> TickCount &lt;span style="color:#f92672">=&lt;/span> GetTickCount();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Sleep(&lt;span style="color:#ae81ff">120000u&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v5 &lt;span style="color:#f92672">=&lt;/span> GetTickCount() &lt;span style="color:#f92672">-&lt;/span> TickCount;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( v5 &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">119950&lt;/span> &lt;span style="color:#f92672">||&lt;/span> v5 &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">120050&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ExitProcess(&lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ((&lt;span style="color:#66d9ef">void&lt;/span> (&lt;span style="color:#f92672">*&lt;/span>)(&lt;span style="color:#66d9ef">void&lt;/span>))loc_401AE0)();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
+:::spoiler IDA loc_401AE0&lt;/p>
+&lt;pre tabindex="0">&lt;code>.text:00401AE0 loc_401AE0: ; CODE XREF: _main:loc_4014AB↑p
+.text:00401AE0 push ebp
+.text:00401AE1 mov ebp, esp
+.text:00401AE3 lea esi, aHelloHacker ; &amp;#34;Hello Hacker&amp;#34;
+.text:00401AE9 mov al, 48h ; &amp;#39;H&amp;#39;
+.text:00401AEB cmp [esi], al
+.text:00401AED jz short loc_401AF0
+.text:00401AED
+.text:00401AED ; ---------------------------------------------------------------------------
+.text:00401AEF db 0E8h
+.text:00401AF0 ; ---------------------------------------------------------------------------
+.text:00401AF0
+.text:00401AF0 loc_401AF0: ; CODE XREF: .text:00401AED↑j
+.text:00401AF0 nop word ptr [eax+eax+00000000h]
+.text:00401AF9 jmp short loc_401B01
+.text:00401AF9
+.text:00401AF9 ; ---------------------------------------------------------------------------
+.text:00401AFB db 48h ; H
+.text:00401AFC db 65h ; e
+.text:00401AFD db 6Ch ; l
+.text:00401AFE db 6Ch ; l
+.text:00401AFF db 6Fh ; o
+.text:00401B00 db 0
+.text:00401B01 ; ---------------------------------------------------------------------------
+.text:00401B01
+.text:00401B01 loc_401B01: ; CODE XREF: .text:00401AF9↑j
+.text:00401B01 jmp short loc_401B0E
+.text:00401B01
+.text:00401B01 ; ---------------------------------------------------------------------------
+.text:00401B03 db 0E8h
+.text:00401B04 db 66h ; f
+.text:00401B05 db 0Fh
+.text:00401B06 db 1Fh
+.text:00401B07 db 84h
+.text:00401B08 db 0
+.text:00401B09 db 0
+.text:00401B0A db 0
+.text:00401B0B db 0
+.text:00401B0C byte_401B0C db 0
+.text:00401B0D db 0E8h
+.text:00401B0E ; ---------------------------------------------------------------------------
+.text:00401B0E
+.text:00401B0E loc_401B0E: ; CODE XREF: .text:loc_401B01↑j
+.text:00401B0E jz short loc_401B13
+.text:00401B0E
+.text:00401B10 jnz short loc_401B13
+.text:00401B10
+.text:00401B10 ; ---------------------------------------------------------------------------
+.text:00401B12 db 0E8h
+.text:00401B13 ; ---------------------------------------------------------------------------
+.text:00401B13
+.text:00401B13 loc_401B13: ; CODE XREF: .text:loc_401B0E↑j
+.text:00401B13 ; .text:00401B10↑j
+.text:00401B13 push 1
+.text:00401B15 jmp sub_401220
+&lt;/code>&lt;/pre>&lt;p>:::
+:::spoiler IDA notify_debugger&lt;/p></description></item><item><title>Simple Reverse 0x06(Lab - AMessageBox)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x06lab---amessagebox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x06lab---amessagebox/</guid><description>&lt;h1 id="simple-reverse-0x06lab---amessagebox">
+ Simple Reverse 0x06(Lab - AMessageBox)
+ &lt;a class="anchor" href="#simple-reverse-0x06lab---amessagebox">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.796t.com/content/1550025925.html">組合語言ROL和RCL的區別&lt;/a>&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題其實以逆向的角度來說很簡單&lt;/p>
+&lt;ol>
+&lt;li>先用DIE看一些資訊
+&lt;img src="https://hackmd.io/_uploads/BkFoZ06u3.png" alt="" />
+發現有加UPX的殼，這件事情可以透過IDA更加確定
+&lt;img src="https://hackmd.io/_uploads/ryG0-Aau3.png" alt="" />
+可以看到Function Name只有start然後反組譯的地方看起來很噁心，那應該就是在拆殼的步驟&lt;/li>
+&lt;li>先執行看看
+&lt;img src="https://hackmd.io/_uploads/HktlXCaun.png" alt="" />
+需要輸入flag然後用一個message box噴錯&lt;/li>
+&lt;li>用x64-dbg
+透過TA的講解，可以知道這一題不需要解殼，只需要用動態debugger看一下就可以了
+&lt;ol>
+&lt;li>我們知道題目有使用到message box的API，所以我們可以先鎖定該API在哪邊呼叫，再往回trace出他的判斷
+我們可以利用符號的視窗看到這支程式有用到那些API Module(.dll)，而message box的API是在&lt;code>user32.dll&lt;/code>，用下面的搜尋可以縮小範圍，但這個多種類的messagebox，具體來說是用哪一個也不知道，所以可以全選後都設立中斷點
+&lt;img src="https://hackmd.io/_uploads/S18CNR6_h.png" alt="" />&lt;/li>
+&lt;li>剩下的就是跟一般debugger差不多的操作，當追到call messagebox之前的break point時，可以看一下call stack(呼叫堆疊)往前trace是誰呼叫了API，發現是&lt;code>00C7110B&lt;/code>，點進去看一下可以明顯看到Correct/Wrong的字樣，所以可以判斷應該是這一段程式在判斷我們輸入的東西
+&lt;img src="https://hackmd.io/_uploads/r1E7LAad3.png" alt="" />
+&lt;img src="https://hackmd.io/_uploads/Syt_8Cadh.png" alt="" />
+&lt;img src="https://hackmd.io/_uploads/BkixvRTOn.png" alt="" />&lt;/li>
+&lt;li>分析判斷的程式
+這裡就是要考驗耐心和不斷的觀察register的變化，認真看大概花個半小時就可以知道這一段在幹嘛(我就菜QAQ)
+&lt;img src="https://hackmd.io/_uploads/S10aORTd2.png" alt="" />&lt;/li>
+&lt;li>結論是中間的那些==重要的操作==其實就是左旋轉+XOR &lt;code>0x87&lt;/code>這樣而已，所以我們就可以開寫腳本了，把東西反著作回去就好了&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">import binascii
+
+enc_flag = [0xB5, 0xE5, 0x8D, 0xBD, 0x5C, 0x46, 0x36, 0x4E, 0x4E, 0x1E, 0x0E, 0x26, 0xA4, 0x1E, 0x0E, 0x4E, 0x46, 0x06, 0x16, 0xAC, 0xB4, 0x3E, 0x4E, 0x16, 0x94, 0x3E, 0x94, 0x8C, 0x94, 0x8C, 0x9C, 0x4E, 0xA4, 0x8C, 0x2E, 0x46, 0x8C, 0x6C]
+
+def pad(m):
+ length = 0
+ if len(m) % 8 != 0:
+ length = 8-len(m) % 8
+ return &amp;#39;0&amp;#39; * length + m
+
+FLAG = []
+for i in range(len(enc_flag)):
+ enc_flag[i] ^= 0x87
+ tmp = pad(bin(enc_flag[i])[2:])
+ tmp = hex(int(tmp[-3:] + tmp[:-3], 2))
+ FLAG.append(binascii.unhexlify(tmp[2:]).decode())
+
+print(&amp;#34;&amp;#34;.join(FLAG))
+&lt;/code>&lt;/pre>&lt;p>Flag: &lt;code>FLAG{8699314d319802ef792b7babac9da58a}&lt;/code>&lt;/p></description></item><item><title>Simple Reverse 0x08(Lab - GetProcAddress)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x08lab---getprocaddress/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x08lab---getprocaddress/</guid><description>&lt;h1 id="simple-reverse-0x08lab---getprocaddress">
+ Simple Reverse 0x08(Lab - GetProcAddress)
+ &lt;a class="anchor" href="#simple-reverse-0x08lab---getprocaddress">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://learn.microsoft.com/zh-tw/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulefilenamea?ns-enrollment-type=Collection&amp;amp;ns-enrollment-id=rdg3b1j45ye486">GetModuleFileNameA 函式&lt;/a>
+&lt;a href="https://learn.microsoft.com/zh-tw/windows/win32/api/fileapi/nf-fileapi-createfilea">createFileA 函式&lt;/a>
+&lt;a href="https://learn.microsoft.com/zh-tw/windows/win32/api/fileapi/nf-fileapi-setfilepointer?ns-enrollment-type=Collection&amp;amp;ns-enrollment-id=rdg3b1j45ye486">setFilePointer 函式&lt;/a>
+&lt;a href="https://learn.microsoft.com/zh-tw/windows/win32/api/fileapi/nf-fileapi-readfile">ReadFile 函式&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA main function&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-cpp!" data-lang="cpp!">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+ char *v3; // rdi
+ __int64 i; // rcx
+ char v6[32]; // [rsp+0h] [rbp-40h] BYREF
+ char v7; // [rsp+40h] [rbp+0h] BYREF
+ char lpFilename[304]; // [rsp+50h] [rbp+10h] BYREF
+ char lpBuffer[136]; // [rsp+180h] [rbp+140h] BYREF
+ char flag[64]; // [rsp+208h] [rbp+1C8h] BYREF
+ __int64 File_HANDLE_VALUE; // [rsp+248h] [rbp+208h]
+ int j; // [rsp+264h] [rbp+224h]
+
+ v3 = &amp;amp;v7;
+ for ( i = 146i64; i; --i )
+ {
+ *v3 = 0xCCCCCCCC;
+ v3 += 4;
+ }
+ sub_140011375(&amp;amp;unk_1400230B5);
+ sub_1400113AC();
+ printf(&amp;#34;Give me flag: &amp;#34;);
+ scanf(&amp;#34;%39s&amp;#34;, flag);
+ (GetModuleFileNameA_0)(0i64, lpFilename, 260i64);
+ File_HANDLE_VALUE = (CreateFileA)(
+ lpFilename,
+ 0x80000000i64,
+ FILE_SHARE_READ,
+ 0i64,
+ OPEN_EXISTING,
+ FILE_ATTRIBUTE_NORMAL,
+ 0i64);
+ if ( File_HANDLE_VALUE == -1
+ || ((SetFilePointer)(File_HANDLE_VALUE, 0x4Ei64, 0i64, FILE_BEGIN),
+ !(ReadFile)(File_HANDLE_VALUE, lpBuffer, 39i64, 0i64, 0i64)) )
+ {
+LABEL_11:
+ puts(&amp;#34;Wrong...&amp;#34;);
+ }
+ else
+ {
+ for ( j = 0; j &amp;lt; 39; ++j )
+ {
+ if ( (flag[j] ^ lpBuffer[j]) != byte_14001E000[8 * j] )
+ goto LABEL_11;
+ }
+ puts(&amp;#34;Correct!!!&amp;#34;);
+ }
+ sub_140011311(v6, &amp;amp;unk_14001BB18);
+ return 0;
+}
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x11(Lab - Exception)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x11lab---exception/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x11lab---exception/</guid><description>&lt;h1 id="simple-reverse-0x11lab---exception">
+ Simple Reverse 0x11(Lab - Exception)
+ &lt;a class="anchor" href="#simple-reverse-0x11lab---exception">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://mycollegenotebook.medium.com/%E4%B9%98%E6%B3%95-%E9%99%A4%E6%B3%95%E7%9A%84%E9%81%8B%E7%94%A8-%E7%B5%84%E5%90%88%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98-638b1eac4696">乘法、除法的運用 — 組合語言筆記&lt;/a>
+&lt;a href="https://learn.microsoft.com/zh-tw/cpp/cpp/try-except-statement?view=msvc-170&amp;amp;viewFallbackFrom=msvc-170%3Fns-enrollment-type%3DCollection&amp;amp;ns-enrollment-id=rdg3b1j45ye486">try-except 陳述式&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>EXCEPTION_CONTINUE_EXECUTION (-1) 例外狀況已關閉。 在例外狀況發生的位置繼續執行。&lt;/li>
+&lt;li>EXCEPTION_CONTINUE_SEARCH 無法辨識 (0) 例外狀況。 繼續搜尋處理常式的堆疊，先搜尋包含 try-except 語句，然後針對具有下一個最高優先順序的處理常式。&lt;/li>
+&lt;li>EXCEPTION_EXECUTE_HANDLER 辨識 (1) 例外狀況。 藉由執行 __except 複合陳述式將控制權傳送至例外狀況處理常式，然後在 區塊之後 __except 繼續執行。&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA Psuedo Code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#66d9ef">__cdecl&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>envp)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">char&lt;/span> Str[&lt;span style="color:#ae81ff">112&lt;/span>]; &lt;span style="color:#75715e">// [rsp+20h] [rbp+0h] BYREF
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> i; &lt;span style="color:#75715e">// [rsp+A0h] [rbp+80h]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;Give me flag: &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scanf(&lt;span style="color:#e6db74">&amp;#34;%s&amp;#34;&lt;/span>, Str);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( strlen(Str) &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">38&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">38&lt;/span>; &lt;span style="color:#f92672">++&lt;/span>i )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( Str[i] &lt;span style="color:#f92672">!=&lt;/span> byte_14000A000[i] )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">goto&lt;/span> LABEL_7;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;Correct :&amp;gt;&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LABEL_7:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;Wrong :&amp;lt;&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x12(Lab - TLSCallback)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x12lab---tlscallback/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x12lab---tlscallback/</guid><description>&lt;h1 id="simple-reverse-0x12lab---tlscallback">
+ Simple Reverse 0x12(Lab - TLSCallback)
+ &lt;a class="anchor" href="#simple-reverse-0x12lab---tlscallback">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.youtube.com/live/4-hgyiCV3ZA?feature=share&amp;amp;t=6624">課程相關影片&lt;/a>
+&lt;a href="https://medium.com/@racktar7743/c%e8%aa%9e%e8%a8%80-function-pointer%e7%9a%84%e6%87%89%e7%94%a8-%e5%9b%9b-function-pointer-array-d0d624db8406">[C語言] function pointer的應用[四]: function pointer array&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA main function&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#66d9ef">__cdecl&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>envp)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">__int64&lt;/span> v3; &lt;span style="color:#75715e">// rbx
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> v4; &lt;span style="color:#75715e">// edi
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">__int64&lt;/span> v5; &lt;span style="color:#75715e">// r14
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>v6; &lt;span style="color:#75715e">// rsi
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">__int64&lt;/span> v7; &lt;span style="color:#75715e">// rax
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>v8; &lt;span style="color:#75715e">// rcx
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;Give me flag: &amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scanf(&lt;span style="color:#e6db74">&amp;#34;%58s&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v3 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>i64;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v4 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v5 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>i64;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v6 &lt;span style="color:#f92672">=&lt;/span> flag;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (funcs_140001156[v4 &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">3u&lt;/span>])(&lt;span style="color:#f92672">&amp;amp;&lt;/span>flag[v5]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">++&lt;/span>v6;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v7 &lt;span style="color:#f92672">=&lt;/span> v5 &lt;span style="color:#f92672">&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">++&lt;/span>v4;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">++&lt;/span>v5;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>(v6 &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">+=&lt;/span> key_140004050[v7];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> ( v4 &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">58&lt;/span> );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> ( flag[v3] &lt;span style="color:#f92672">==&lt;/span> byte_1400022B8[v3] )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( &lt;span style="color:#f92672">++&lt;/span>v3 &lt;span style="color:#f92672">&amp;gt;=&lt;/span> &lt;span style="color:#ae81ff">58&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v8 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Correct!&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">goto&lt;/span> LABEL_7;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v8 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Wrong QAO&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LABEL_7:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(v8);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>Simple Reverse 0x13(Lab - Meow)</title><link>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x13lab---meow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cs/reverse/simple-reverse---0x13lab---meow/</guid><description>&lt;h1 id="simple-reverse-0x13lab---meow">
+ Simple Reverse 0x13(Lab - Meow)
+ &lt;a class="anchor" href="#simple-reverse-0x13lab---meow">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.youtube.com/live/4-hgyiCV3ZA?feature=share&amp;amp;t=7028">課程影片 - Process Injection&lt;/a>
+一開始看真的看不太懂，只知道大概的邏輯，簡單來說應該是在原有的process中插入其他的process使其被執行，有以下幾種&lt;/p>
+&lt;ul>
+&lt;li>DLL Injection&lt;/li>
+&lt;li>APC Injection&lt;/li>
+&lt;li>Early Bird APC Injection&lt;/li>
+&lt;li>Process Hollowing&lt;/li>
+&lt;li>Reflective DLL Injection&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>其實這一題如果沒有TA先破哏，基本上我是直接放棄的，解題之前可以先看&lt;a href="https://www.youtube.com/live/4-hgyiCV3ZA?feature=share&amp;amp;t=10348">破哏教學&lt;/a>
+簡單來說這整支程式就是先把預先藏好的code解密出來，然後利用Process Hollowing的方式inject到原本的程式，而這支外插進來的code就會對我們輸入的flag進行一些操作，然後再跟他原本的encrypted flag進行比較。當我們知道這些事情之後，就可以開始分析了&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>先在IDA中找到隱藏的code解密的function
+我是直接看TA教學的部分，不然我應該也找不出來，除非用x64dbg慢慢跟，具體來說是在main function中if statement的第二個function
+&lt;img src="https://hackmd.io/_uploads/S1DtpV-K3.png" alt="" />
+跟進去後的sub_401550()
+&lt;img src="https://hackmd.io/_uploads/Sy3R6Vbth.png" alt="" />
+:::spoiler Decrypt Hidden Code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">__int64&lt;/span> &lt;span style="color:#a6e22e">sub_401550&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">__int64&lt;/span> result; &lt;span style="color:#75715e">// rax
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> i; &lt;span style="color:#75715e">// [rsp+Ch] [rbp-4h]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; ; &lt;span style="color:#f92672">++&lt;/span>i )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> result &lt;span style="color:#f92672">=&lt;/span> i;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( i &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0x3FFF&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">break&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>(dword_404040 &lt;span style="color:#f92672">+&lt;/span> i) &lt;span style="color:#f92672">+=&lt;/span> i &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>(dword_404040 &lt;span style="color:#f92672">+&lt;/span> i) &lt;span style="color:#f92672">^=&lt;/span> byte_404020[i &lt;span style="color:#f92672">&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> result;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item></channel></rss>

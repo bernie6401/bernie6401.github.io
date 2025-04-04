@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntu-cns/index.xml" rel="self" type="application/rss+xml"/><item><title>Cryptography and Network Security - Final Project</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/cryptography-and-network-security---final-project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cns/cryptography-and-network-security---final-project/</guid><description>&lt;h1 id="cryptography-and-network-security---final-project">
+ Cryptography and Network Security - Final Project
+ &lt;a class="anchor" href="#cryptography-and-network-security---final-project">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="threshold-he-description">
+ Threshold HE Description
+ &lt;a class="anchor" href="#threshold-he-description">#&lt;/a>
+&lt;/h2>
+&lt;p>With a designed scheme in place for threshold homomorphic encryption, private keys are divided into various shares among participating individuals who then work together to collaborate on computations without revealing plaintext material.&lt;/p>
+&lt;p>Decryption requires collaboration from at least the minimum requirement, e.g. $(t,n)$ means there&amp;rsquo;re $n$ participate parties but need at least $t$ parties&amp;rsquo; granting to decrypt the secret just like secret sharing scheme proposed by Shamir. Threshold homomorphic&amp;rsquo;s primary objective is secure computation involving confidential information with lesser exposure or accessibility risks for single individuals - due to a shared understanding by several stakeholders.&lt;/p></description></item><item><title>NTU CNS Final Project Proposal</title><link>https://bernie6401.github.io/docs/security/course/ntu-cns/ntu-cns-final-project-proposal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-cns/ntu-cns-final-project-proposal/</guid><description>&lt;h1 id="ntu-cns-final-project-proposal">
+ NTU CNS Final Project Proposal
+ &lt;a class="anchor" href="#ntu-cns-final-project-proposal">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntucns">
+ tags: &lt;code>NTUCNS&lt;/code>
+ &lt;a class="anchor" href="#tags-ntucns">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="problem-description--research-question秉學">
+ Problem description / Research question(秉學)
+ &lt;a class="anchor" href="#problem-description--research-question%e7%a7%89%e5%ad%b8">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="terminology">
+ Terminology
+ &lt;a class="anchor" href="#terminology">#&lt;/a>
+&lt;/h3>
+&lt;p>Federated Learning is a decentralized machine learning method that enables training models without exposing data. Traditional machine learning methods require all data to be centralized in one location for training, but Federated Learning enables models to be trained on many distributed devices, such as smartphones, tablets, or embedded devices, with each device training its own local data. This greatly reduces data transmission and storage requirements and better protects user privacy.&lt;/p></description></item></channel></rss>

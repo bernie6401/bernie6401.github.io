@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntu-os/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntu-os/index.xml" rel="self" type="application/rss+xml"/><item><title>NTU Operating System Project 1</title><link>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-1/</guid><description>&lt;h1 id="ntu-operating-system-project-1">
+ NTU Operating System Project 1
+ &lt;a class="anchor" href="#ntu-operating-system-project-1">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_os-operating-system-nachos-thread-management">
+ tags: &lt;code>NTU_OS&lt;/code> &lt;code>Operating System&lt;/code> &lt;code>NachOS&lt;/code> &lt;code>Thread Management&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_os-operating-system-nachos-thread-management">#&lt;/a>
+&lt;/h6>
+&lt;p>:::spoiler
+[TOC]
+:::&lt;/p>
+&lt;h2 id="how-to-parse-this-project">
+ How to parse this project
+ &lt;a class="anchor" href="#how-to-parse-this-project">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>You can research userkernel.cc file first. UserProgKernel will parse the command line and store the file you want to execute in execfile variable which defined at userkernel.h.
+&lt;img src="https://imgur.com/n73Z19F.png" alt="parse command line" />&lt;/li>
+&lt;li>Then you&amp;rsquo;ll find something interesting.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>ForkExecute(Thread &lt;span style="color:#f92672">*&lt;/span>t)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{t&lt;span style="color:#f92672">-&amp;gt;&lt;/span>space&lt;span style="color:#f92672">-&amp;gt;&lt;/span>Execute(t&lt;span style="color:#f92672">-&amp;gt;&lt;/span>getName());}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// space and getName() are defined at thread.h
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Execute is defined at addrspace.h
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>This is what we&amp;rsquo;ve learned on lecture that it&amp;rsquo;ll clone a child process and execute the same program as parent process just like a multi-thread.&lt;/li>
+&lt;li>Next, you can observe Run() function&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>UserProgKernel&lt;span style="color:#f92672">::&lt;/span>Run()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Total threads number is &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> execfileNum &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;n&lt;span style="color:#f92672">&amp;lt;=&lt;/span>execfileNum;n&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		t[n] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Thread(execfile[n]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		t[n]&lt;span style="color:#f92672">-&amp;gt;&lt;/span>space &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> AddrSpace();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		t[n]&lt;span style="color:#f92672">-&amp;gt;&lt;/span>Fork((VoidFunctionPtr) &lt;span style="color:#f92672">&amp;amp;&lt;/span>ForkExecute, (&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>)t[n]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Thread &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> execfile[n] &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34; is executing.&amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	ThreadedKernel&lt;span style="color:#f92672">::&lt;/span>Run();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Review a very simple concept: Process Representation in Linux&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Represented by the C structure task_struct
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>pid t pid; &lt;span style="color:#75715e">/* process identifier */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">long&lt;/span> state; &lt;span style="color:#75715e">/* state of the process */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> time slice &lt;span style="color:#75715e">/* scheduling information */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">task&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">*&lt;/span>&lt;span style="color:#a6e22e">parent&lt;/span>; &lt;span style="color:#75715e">/* this process’s parent */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">list&lt;/span> head children; &lt;span style="color:#75715e">/* this process’s children */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">files&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">*&lt;/span>&lt;span style="color:#a6e22e">files&lt;/span>; &lt;span style="color:#75715e">/* list of open files */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">mm&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">*&lt;/span>&lt;span style="color:#a6e22e">mm&lt;/span>; &lt;span style="color:#75715e">/* address space of this process */&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Another related concept is &lt;strong>Process Creation&lt;/strong>
+&lt;ul>
+&lt;li>Address space
+&lt;ul>
+&lt;li>Child duplicate of parent&lt;/li>
+&lt;li>Child has a program loaded into it&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>UNIX examples
+&lt;ul>
+&lt;li>fork() system call creates new process&lt;/li>
+&lt;li>exec() system call used after a fork() to replace the process’ memory space with a new program
+&lt;img src="https://imgur.com/ClBK9bA.png" alt="process creation" />&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>After reviewing the concept above, we can continue to answer next question(Please follow the next section -&amp;gt; Q2)&lt;/li>
+&lt;/ul>
+&lt;h2 id="project-qa">
+ Project Q&amp;amp;A
+ &lt;a class="anchor" href="#project-qa">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Q1: Why the result is not congruent with expected?
+&lt;ul>
+&lt;li>Because OS has multi-thread concept like the code above and it&amp;rsquo;ll fork child process. When more than 1 process be executed simultaneously without any precondition, it&amp;rsquo;ll happend what we unexpected. And the precondition or you can say the real problem in this case is context switching which is the progress between preocesses switching by CPU.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Q2: How to solve the issue?(You can include some code and explain it)
+&lt;ul>
+&lt;li>According to the previous question, NachOS didn&amp;rsquo;t manage memory for executing multi program and this&amp;rsquo;ll cause the current program&amp;rsquo;s page overlap to the others running program.&lt;/li>
+&lt;li>Thus, we have to revise these two program and let the program&amp;rsquo;s virtual memory map to the real memory that no one used.
+&lt;pre tabindex="0">&lt;code>code/userprog/addrspace.cc
+code/userprog/addrspace.h
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>
+&lt;p>Add the code in addrspace.cc at the beginning to stored the usage of all physical pages and stored how many free pages can be used now.&lt;/p></description></item><item><title>NTU Operating System Project 2</title><link>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-2/</guid><description>&lt;h1 id="ntu-operating-system-project-2">
+ NTU Operating System Project 2
+ &lt;a class="anchor" href="#ntu-operating-system-project-2">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_os-operating-system-nachos-cpu-scheduling-system-call">
+ tags: &lt;code>NTU_OS&lt;/code> &lt;code>Operating System&lt;/code> &lt;code>NachOS&lt;/code> &lt;code>CPU Scheduling&lt;/code> &lt;code>System Call&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_os-operating-system-nachos-cpu-scheduling-system-call">#&lt;/a>
+&lt;/h6>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="motivation">
+ Motivation
+ &lt;a class="anchor" href="#motivation">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>For the first task, We&amp;rsquo;d like to add sleep() function in system call that can help us call sleep in our program.&lt;/li>
+&lt;li>For the second task, we&amp;rsquo;d like to implement CPU scheduling by FIFO(First-In-First-Out), SJF(Shortest-Job-First), Priority, RR(Round-Robin), and multi-level queue.&lt;/li>
+&lt;/ul>
+&lt;h2 id="implementation">
+ Implementation
+ &lt;a class="anchor" href="#implementation">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="task1---system-call">
+ Task1 - System Call
+ &lt;a class="anchor" href="#task1---system-call">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>First of all, we need to define a new token, SC_Sleep, that compiler(scanner) can recognize in &lt;code>code/userprog/syscall.h&lt;/code>.&lt;/p></description></item><item><title>NTU Operating System Project 3</title><link>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-project-3/</guid><description>&lt;h1 id="ntu-operating-system-project-3">
+ NTU Operating System Project 3
+ &lt;a class="anchor" href="#ntu-operating-system-project-3">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_os-operating-system-nachos-memory-management">
+ tags: &lt;code>NTU_OS&lt;/code> &lt;code>Operating System&lt;/code> &lt;code>NachOS&lt;/code> &lt;code>Memory Management&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_os-operating-system-nachos-memory-management">#&lt;/a>
+&lt;/h6>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="description-first">
+ Description First
+ &lt;a class="anchor" href="#description-first">#&lt;/a>
+&lt;/h2>
+&lt;p>I used the code from &lt;code>Project2&lt;/code> directly and obtained the correct value, 1 and 7220, by the command &lt;code>./nachos -e ../test/sort -e ../test/matmult&lt;/code> respectively. After debugging a while, I knew what&amp;rsquo;s the matter. In &lt;code>project2&lt;/code>, I set &lt;code>const unsigned int NumPhysPages = 256;&lt;/code> so that it can handle huge computing resource. In order to address this project, we must change it back to 32.&lt;/p></description></item><item><title>NTU Operating System Review Notes</title><link>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-review-notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntu-os/ntu-operating-system-review-notes/</guid><description>&lt;h1 id="ntu-operating-system-review-notes">
+ NTU Operating System Review Notes
+ &lt;a class="anchor" href="#ntu-operating-system-review-notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntu_os-operating-system">
+ tags: &lt;code>NTU_OS&lt;/code> &lt;code>Operating System&lt;/code>
+ &lt;a class="anchor" href="#tags-ntu_os-operating-system">#&lt;/a>
+&lt;/h6>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="ch-6-synchronization">
+ Ch 6 Synchronization
+ &lt;a class="anchor" href="#ch-6-synchronization">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="process-communication">
+ Process communication
+ &lt;a class="anchor" href="#process-communication">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;img src="https://imgur.com/zQM1oNq.png" alt="" />&lt;/p>
+&lt;h4 id="race-condition">
+ Race condition
+ &lt;a class="anchor" href="#race-condition">#&lt;/a>
+&lt;/h4>
+&lt;p>就是Project1提到的共享記憶體的問題，導致multi-thread執行的結果會完全錯誤&lt;/p>
+&lt;ul>
+&lt;li>解決策略
+&lt;ul>
+&lt;li>Disable interrupt
+process在對shared memory進行變數存取之前，先disable interrupt，直到完成此次存取後才enable，這樣的話這段時間，CPU就不會被其他processes搶走(preempted)&lt;/li>
+&lt;li>Critical section design
+必須滿足三個criteria
+&lt;ul>
+&lt;li>Mutual exclusion: 在任何時間點，最多只允許一個process在他自己的CS內活動，不可同時有多個process在各自的CS內活動&lt;/li>
+&lt;li>Progress: 如果有人想進去CS，遲早進的去&lt;/li>
+&lt;li>Bounded waiting: 在一定時間內一定進的去&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>架構圖
+&lt;img src="https://imgur.com/q1iDFSC.png" alt="" />&lt;/li>
+&lt;li>spinlock&lt;/li>
+&lt;li>busy waiting&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="critical-section-design的方法">
+ Critical section design的方法
+ &lt;a class="anchor" href="#critical-section-design%e7%9a%84%e6%96%b9%e6%b3%95">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Software solution
+&lt;ul>
+&lt;li>兩個processes
+&lt;ul>
+&lt;li>Peterson&amp;rsquo;s solution: 有turn和flag兩個變數，分別代表目前的token在誰手上(turn)，以及表示有無意願進入CS(flag)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>N個processes
+&lt;ul>
+&lt;li>Bakery&amp;rsquo;s ALG: 就是領號碼牌，號碼最小的人優先，若同時有多人持有相同的號碼牌，則以PID最小的優先&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Hardware 指令支援&lt;/li>
+&lt;li>OS提出了mutex lock的概念，並用acquire()和release()的方法實踐&lt;/li>
+&lt;li>Semaphore
+&lt;ul>
+&lt;li>一種可以解決CS design和processes synchronization problem的data type，會提供兩個atomic operations: wait(s)和signal(s)&lt;/li>
+&lt;li>wait(s): &lt;code>while(s&amp;lt;=0) {do nothing;}s--;&lt;/code>&lt;/li>
+&lt;li>signal(s): &lt;code>s++&lt;/code>&lt;/li>
+&lt;li>簡單來說，s就是看現在可以使用的資源有多少(例如有多少台printer)，如果資源被分出去一個，s就減一，如果都沒有資源了，就一直等待，直到有人釋放資源，釋放資源的時候，s就會加一，所以和前面提到的mutex lock幾乎一樣，wait(s)就是acquire()，而signal(s)就是release()&lt;/li>
+&lt;li>Semaphore的種類
+&lt;ul>
+&lt;li>有使用busy-waiting: spinlock semaphore:其實就是上面說的mutex lock和正常semaphore的概念&lt;/li>
+&lt;li>沒有使用busy-waiting: Non-Busy-Waiting semaphore: 看講義&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Monitor
+用來解決synchronization problem的高階資料結構
+其實就是物件導向的方式，利用private、initialization等方式，創造monitor這個class object&lt;/li>
+&lt;/ul>
+&lt;h4 id="message-passing技術">
+ Message Passing技術
+ &lt;a class="anchor" href="#message-passing%e6%8a%80%e8%a1%93">#&lt;/a>
+&lt;/h4>
+&lt;p>&lt;img src="https://imgur.com/W7uTjET.png" alt="" />&lt;/p></description></item></channel></rss>

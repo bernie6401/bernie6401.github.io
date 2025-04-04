@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/index.xml" rel="self" type="application/rss+xml"/><item><title>NTUSTISC - AD Note - Lab(SMB遠端讀寫)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/ntustisc---ad-note---lab0x24smb%E9%81%A0%E7%AB%AF%E8%AE%80%E5%AF%AB/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/ntustisc---ad-note---lab0x24smb%E9%81%A0%E7%AB%AF%E8%AE%80%E5%AF%AB/</guid><description>&lt;h1 id="ntustisc---ad-note---labsmb遠端讀寫">
+ NTUSTISC - AD Note - Lab(SMB遠端讀寫)
+ &lt;a class="anchor" href="#ntustisc---ad-note---labsmb%e9%81%a0%e7%ab%af%e8%ae%80%e5%af%ab">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/ubNMQ7_dcm0?si=26g2Lz2CB-O-7S5d"> 2022/05/11 AD 安全 2 &lt;/a>&lt;/p>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;p>這個lab主要和之前不太一樣的地方在於都是利用SMB的功能達到遠端電腦讀寫的效果，雖然遠端執行也可以做到，但這樣會比較方便&lt;/p>
+&lt;h3 id="遠端讀寫w-gui">
+ ==遠端讀寫(w/ GUI)==
+ &lt;a class="anchor" href="#%e9%81%a0%e7%ab%af%e8%ae%80%e5%af%abw-gui">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>Open File Explorer&lt;/li>
+&lt;li>Enter &lt;code>\\&amp;lt;IP&amp;gt;\c$&lt;/code>
+For example: &lt;code>\\192.168.222.128\c$&lt;/code>&lt;/li>
+&lt;li>Login Local Admin
+&lt;img src="https://hackmd.io/_uploads/S1uCNUBlp.png" alt="" />&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Result
+我在Win10中利用上述步驟，成功讀取到Win2016的資料
+&lt;img src="https://hackmd.io/_uploads/HJbEr8Bxa.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;h3 id="遠端讀寫wo-gui">
+ ==遠端讀寫(w/o GUI)==
+ &lt;a class="anchor" href="#%e9%81%a0%e7%ab%af%e8%ae%80%e5%af%abwo-gui">#&lt;/a>
+&lt;/h3>
+&lt;p>沒有GUI的情況就需要先掛載遠端的C槽在本地端，然後才可以進行後續的讀寫，有時候他會跳出錯誤&lt;/p>
+&lt;ul>
+&lt;li>Cheat Sheet
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ net use &lt;span style="color:#ae81ff">\\&lt;/span>&amp;lt;IP&amp;gt;&lt;span style="color:#ae81ff">\C&lt;/span>$ &lt;span style="color:#e6db74">&amp;#34;&amp;lt;password&amp;gt;&amp;#34;&lt;/span> /user:&amp;lt;username&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>:::spoiler Result
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ net use &lt;span style="color:#ae81ff">\\&lt;/span>192.168.222.128&lt;span style="color:#ae81ff">\C&lt;/span>$ &lt;span style="color:#e6db74">&amp;#34;1qaz@WSX3edc&amp;#34;&lt;/span> /user:administrator &lt;span style="color:#75715e"># 掛載遠端磁碟&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令已經成功完成。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ net use &lt;span style="color:#75715e"># 查看已掛載的遠端磁碟&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>會記錄新的網路連線。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>狀態 本機 遠端 網路
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-------------------------------------------------------------------------------
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>OK &lt;span style="color:#ae81ff">\\&lt;/span>192.168.222.128&lt;span style="color:#ae81ff">\C&lt;/span>$ Microsoft Windows Network
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令已經成功完成。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ copy Rubeus.exe &lt;span style="color:#ae81ff">\\&lt;/span>192.168.222.128&lt;span style="color:#ae81ff">\C&lt;/span>$
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>複製了 &lt;span style="color:#ae81ff">1&lt;/span> 個檔案。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;img src="https://hackmd.io/_uploads/BykOL8rgT.png" alt="" />
+可以看到Win2016的C槽中多了一個Rubeus.exe的檔案，代表成功
+:::&lt;/li>
+&lt;/ul>
+&lt;h3 id="how-to-detect-smb-access">
+ ==How to Detect SMB Access==
+ &lt;a class="anchor" href="#how-to-detect-smb-access">#&lt;/a>
+&lt;/h3>
+&lt;p>Event ID: 5145
+預設不開，因為會有大量的event湧入，除非設定有存取c$的filter，就會少非常多，因為遠端存取c槽本身就蠻可疑的，所以偵測到非法存取的機率就蠻高的&lt;/p></description></item><item><title>NTUSTISC - AD Note - Lab(遠端執行(RDP))</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/ntustisc---ad-note---lab0x22%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8Crdp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/ntustisc---ad-note---lab0x22%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8Crdp/</guid><description>&lt;h1 id="ntustisc---ad-note---lab遠端執行rdp">
+ NTUSTISC - AD Note - Lab(遠端執行(RDP))
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e9%81%a0%e7%ab%af%e5%9f%b7%e8%a1%8crdp">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/ubNMQ7_dcm0?si=26g2Lz2CB-O-7S5d"> 2022/05/11 AD 安全 2 &lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E7%BB%88%E7%94%A8%E6%88%B7%E8%AE%B8%E5%8F%AF%E5%8D%8F%E8%AE%AE">What is EULA?&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>終端使用者授權合約（英語：end-user license agreements，英文縮寫：EULA）是指軟體的開發者或發行者授權使用者使用特定軟體產品時的規定，大多私有軟體附帶此合約，如不接受則無法安裝。不過自由軟體則較少使用這個合約&lt;/p>&lt;/blockquote>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;p>此Lab主要是要讓我們可以遠端執行其他人的電腦，當我們已經取得local admin時，但domain admin遲遲沒有出現，我們就需要多找幾台主機試看看，可不可以登入或是遠端連線，這樣從一台主機出發，多幾台主機一起蹲domain admin的機會就會變大，可能會有疑問，要怎麼知道其他電腦的密碼呢?如果這一間公司它沒有使用之前介紹過的&lt;a href="https://learn.microsoft.com/zh-tw/windows-server/identity/laps/laps-overview">LAPS密碼管理工具&lt;/a>，而且又是委外管理，則很有可能會有多台主機的密碼都一樣，然後再用前面提到的多種密碼提取方法(Brute Force SAM/Password Spraying etc)，得到更多台主機的密碼，然後再利用Mimikatz之類的工具把lsass的info leak出來，就有可能得到domain admin的密碼&lt;/p>
+&lt;h3 id="遠端執行rdp">
+ ==遠端執行(RDP)==
+ &lt;a class="anchor" href="#%e9%81%a0%e7%ab%af%e5%9f%b7%e8%a1%8crdp">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="linux--kali">
+ Linux / Kali
+ &lt;a class="anchor" href="#linux--kali">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Tools
+&lt;ul>
+&lt;li>xfreerdp
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt install freerdp2-x11 -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Libfreerdp
+先到&lt;a href="https://packages.debian.org/sid/libfreerdp-client2-2">https://packages.debian.org/sid/libfreerdp-client2-2&lt;/a>這個頁面看一下要下載哪一個版本，Kali是amd64
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ cd ~/Downloads
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ wget http://ftp.tw.debian.org/debian/pool/main/f/freerdp2/libfreerdp-client2-2_2.10.0+dfsg1-1.1_amd64.deb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="windows">
+ Windows
+ &lt;a class="anchor" href="#windows">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Tools: &lt;a href="https://learn.microsoft.com/zh-tw/sysinternals/downloads/psexec">Psexec.exe&lt;/a>
+微軟的遠端執行工具，具有微軟的簽章，第一次使用需要接受EULA
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ PsExec.exe -i &lt;span style="color:#ae81ff">\\&lt;/span>&amp;lt;Remote IP&amp;gt; -accepteula -u &lt;span style="color:#f92672">[&lt;/span>&amp;lt;domain&amp;gt;&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#ae81ff">\&amp;lt;&lt;/span>Remote Username&amp;gt; -p &amp;lt;Remote Password&amp;gt; cmd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h5 id="how-to-use-xfreerdp">
+ ==How to use xfreerdp==
+ &lt;a class="anchor" href="#how-to-use-xfreerdp">#&lt;/a>
+&lt;/h5>
+&lt;p>網路上有很多文章和教學&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>，不過他們的情況和我們的狀況有點不一樣
+:::success
+使用條件：Win2016一定要打開，事先取得帳號的密碼
+:::&lt;/p></description></item><item><title>NTUSTISC - AD Note - Lab(遠端執行(RDP)2)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/ntustisc---ad-note---lab0x23%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8Crdp2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/4.-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C-%E8%AE%80%E6%AA%94/ntustisc---ad-note---lab0x23%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8Crdp2/</guid><description>&lt;h1 id="ntustisc---ad-note---lab遠端執行rdp2">
+ NTUSTISC - AD Note - Lab(遠端執行(RDP)2)
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e9%81%a0%e7%ab%af%e5%9f%b7%e8%a1%8crdp2">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/ubNMQ7_dcm0?si=26g2Lz2CB-O-7S5d"> 2022/05/11 AD 安全 2 &lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://hackmd.io/@SBK6401/Byk16MV0n">NTUSTISC - AD Note - Lab(Password Spraying)&lt;/a>
+&lt;a href="https://sectools.tw/impacket/">滲透測試的利器 - Impacket&lt;/a>:&lt;/p>
+&lt;blockquote>
+&lt;p>python撰寫的內網滲透工具&lt;/p>&lt;/blockquote>
+&lt;h2 id="lab">
+ Lab
+ &lt;a class="anchor" href="#lab">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="遠端執行rdp2">
+ ==遠端執行(RDP)2==
+ &lt;a class="anchor" href="#%e9%81%a0%e7%ab%af%e5%9f%b7%e8%a1%8crdp2">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Kali-Linux Tools
+&lt;ul>
+&lt;li>Impacket(Kali-Linux愛好者可使用的PsExec)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Set up &amp;amp; Install&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/fortra/impacket.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd impacket
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ conda activate py3.7 &lt;span style="color:#75715e"># Recommended to install it in conda&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pip3 install -r requirements.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python3 setup.py install
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Cheat-Sheet&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ conda activate py3.7
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ proxychains psexec.py &amp;lt;username&amp;gt;:&amp;lt;password&amp;gt;@&amp;lt;ip&amp;gt; whoami
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>CrackMapExec
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ crackmapexec smb &lt;span style="color:#f92672">[&lt;/span>IP&lt;span style="color:#f92672">]&lt;/span> -u &amp;lt;username&amp;gt; -p &amp;lt;password --exec-method smbexec -x &lt;span style="color:#e6db74">&amp;#39;&amp;lt;command&amp;gt;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>exec-method支援以下方法:
+* mmcexec
+* smbexec
+* wmiexec
+* atexec&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="how-to-use-impacket">
+ ==How to use Impacket==
+ &lt;a class="anchor" href="#how-to-use-impacket">#&lt;/a>
+&lt;/h4>
+&lt;p>感覺應該是proxychains壞掉了，或是有一些其他問題，導致Connection Refused，總而言之，這套工具就是讓kali-linux也可以使用psexec這個工具&lt;/p></description></item></channel></rss>

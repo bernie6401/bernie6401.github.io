@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/index.xml" rel="self" type="application/rss+xml"/><item><title>NTUSTISC - AD Note - Lab(Hijack Token)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x10hijack-token/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x10hijack-token/</guid><description>&lt;h1 id="ntustisc---ad-note---labhijack-token">
+ NTUSTISC - AD Note - Lab(Hijack Token)
+ &lt;a class="anchor" href="#ntustisc---ad-note---labhijack-token">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCMCOy58LN&amp;amp;t=3600">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>提權方法
+&lt;ul>
+&lt;li>利用弱點&lt;/li>
+&lt;li>Hijack Token
+&lt;ul>
+&lt;li>Tools: &lt;a href="https://github.com/itm4n/PrintSpoofer">PrintSpoofer&lt;/a>&lt;/li>
+&lt;li>Support: Windows 8.1/Server 2012 R2/10/Server 2019&lt;/li>
+&lt;li>How to use: &lt;code>$ PrintSpoofer.exe -c &amp;quot;command&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Guess Password&lt;/li>
+&lt;li>管理服務&lt;/li>
+&lt;li>錯誤配置&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab-time---本地提權">
+ Lab Time - 本地提權
+ &lt;a class="anchor" href="#lab-time---%e6%9c%ac%e5%9c%b0%e6%8f%90%e6%ac%8a">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="hijack-tokennetwork-service">
+ ==Hijack Token(Network Service)==
+ &lt;a class="anchor" href="#hijack-tokennetwork-service">#&lt;/a>
+&lt;/h3>
+&lt;p>這邊講師示範的是，如何利用IIS的特殊權限，達成提權。
+先解釋一下，如果要使用PrintSpoofer之類的工具有個特殊的條件，就是需要有特殊權限，也就是
+:::info&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ whoami /priv
+&lt;/code>&lt;/pre>&lt;p>需要有下列其一權限:
+SeImpersonatePrivilege =&amp;gt; CreateProcessWithToken()
+SeAddignPrimaryToekn =&amp;gt; CreateProcessAsUser()
+:::&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>whoami /priv
+我們先看一下正常使用者的特殊權限有哪些&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ whoami /priv
+
+PRIVILEGES INFORMATION
+----------------------
+
+特殊權限名稱 描述 狀況
+============================= ================== ======
+SeShutdownPrivilege 關閉系統 已停用
+SeChangeNotifyPrivilege 略過周遊檢查 已啟用
+SeUndockPrivilege 從擴充座移除電腦 已停用
+SeIncreaseWorkingSetPrivilege 增加處理程序工作組 已停用
+SeTimeZonePrivilege 變更時區 已停用
+&lt;/code>&lt;/pre>&lt;p>可以看到上述的權限都沒有在這裏面，也就是說正常的使用者是不會有這兩個權限的，那誰會有這兩個權限呢?需要==impersonation(也就是講師說的切換身分)的人==，詳細的腳本可以看這邊&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>但今天不會用到，總之IIS就是一個需要做身分切換的角色，所以講師已經在Win10的電腦中設定好IIS，也起用了web shell的功能，我們就可以試看看，在browser中&lt;code>http://127.0.0.1/cmd.aspx&lt;/code>，他可以直接用IIS的權限執行程式
+&lt;img src="https://hackmd.io/_uploads/r1N1LMM03.png" alt="" />&lt;/p></description></item><item><title>NTUSTISC - AD Note - Lab(偵測提權)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x11%E5%81%B5%E6%B8%AC%E6%8F%90%E6%AC%8A/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x11%E5%81%B5%E6%B8%AC%E6%8F%90%E6%AC%8A/</guid><description>&lt;h1 id="ntustisc---ad-note---lab偵測提權">
+ NTUSTISC - AD Note - Lab(偵測提權)
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e5%81%b5%e6%b8%ac%e6%8f%90%e6%ac%8a">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCMCOy58LN&amp;amp;t=3600">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>提權方法
+&lt;ul>
+&lt;li>利用弱點&lt;/li>
+&lt;li>Hijack Token&lt;/li>
+&lt;li>Guess Password&lt;/li>
+&lt;li>管理服務&lt;/li>
+&lt;li>錯誤配置&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab-time---本地提權">
+ Lab Time - 本地提權
+ &lt;a class="anchor" href="#lab-time---%e6%9c%ac%e5%9c%b0%e6%8f%90%e6%ac%8a">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="偵測network-service提權">
+ ==偵測Network Service提權==
+ &lt;a class="anchor" href="#%e5%81%b5%e6%b8%acnetwork-service%e6%8f%90%e6%ac%8a">#&lt;/a>
+&lt;/h3>
+&lt;p>利用Event ID: 4624&lt;/p>
+&lt;ul>
+&lt;li>類型: 5&lt;/li>
+&lt;li>虛擬帳戶: 是&lt;/li>
+&lt;li>提高權限的權杖: 是
+這樣的rule會有高機率命中，但經過實測會發現他不會顯示出類型5和虛擬帳戶為是的event，只有類型3會被顯示出來，如下圖
+&lt;img src="https://hackmd.io/_uploads/ryoW9NfC3.png" alt="" />&lt;/li>
+&lt;/ul></description></item><item><title>NTUSTISC - AD Note - Lab(利用弱點)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x09%E5%88%A9%E7%94%A8%E5%BC%B1%E9%BB%9E/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x09%E5%88%A9%E7%94%A8%E5%BC%B1%E9%BB%9E/</guid><description>&lt;h1 id="ntustisc---ad-note---lab利用弱點">
+ NTUSTISC - AD Note - Lab(利用弱點)
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e5%88%a9%e7%94%a8%e5%bc%b1%e9%bb%9e">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCMCOy58LN&amp;amp;t=3600">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/145430397">Internet Information Services(IIS)&lt;/a>
+&lt;blockquote>
+&lt;p>IIS是縮寫，全稱Internet Information Services ( IIS,互聯網信息服務 ),是由微軟公司提供的基於運行Microsoft Windows的互聯網基本服務。&lt;/p>
+&lt;p>IIS是指World Wide Web server服務，IIS是一種Web（網頁）服務組件，專業的說，IIS可以賦予一部主機電腦一組以上的IP地址，而且還可以有一個以上的域名作為Web網站。做過服務器配置的都應該知道IIS。制作好了網站怎麽才能讓別人瀏覽，就是通過網站服務器來實現的。IIS只是網站服務器的一種而已。&lt;/p>
+&lt;h3 id="簡單來說">
+ 簡單來說：
+ &lt;a class="anchor" href="#%e7%b0%a1%e5%96%ae%e4%be%86%e8%aa%aa">#&lt;/a>
+&lt;/h3>
+&lt;p>Internet Information Service（IIS）是windows開設web網頁服務的組件，用來搭載網站運行程序的平台的。還能提供FTP，SMTP等服務。&lt;/p>
+&lt;p>&lt;font color="ff0000">在UNIX或Linux平台上，Apache就是網站服務器。&lt;/p>
+&lt;p>而對於Windows NT/2000來說，IIS就是標準的網站服務器。&lt;/font>&lt;/p>
+&lt;p>IIS是一種服務，是Windows 2000 Server系列的一個組件。不同於一般的應用程序，它就像驅動程序一樣是操作系統的一部分，具有在系統啟動時被同時啟動的服務功能。
+如果想知道如何在win10啟用IIS或是建置網站server，可以看這個影片&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>一般權限(就像前面的lab那樣)
+&lt;ul>
+&lt;li>取得網域使用者資訊&lt;/li>
+&lt;li>Scan Port&lt;/li>
+&lt;li>Check Group Policy Object&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>高權限好處
+&lt;ul>
+&lt;li>Dump Password or Hash&lt;/li>
+&lt;li>Turn off Defender&lt;/li>
+&lt;li>Check the other users&amp;rsquo; info&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>本地特出使用者
+&lt;ul>
+&lt;li>==NT Authority\System==(本地端真正的最高權限使用者)&lt;/li>
+&lt;li>NT Authority\Network Service&lt;/li>
+&lt;li>NT Authority\Local Service&lt;/li>
+&lt;li>NT Authority\IUSR&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>提權方法
+&lt;ul>
+&lt;li>利用弱點(通常是直接用Windows CVE直接打看看)，可參考&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Hijack Token&lt;/li>
+&lt;li>Guess Password
+就像前面環境觀察中提到的一樣，可以從&lt;code>Active Directory Users and Computers&lt;/code>的description中看看有沒有密碼的提示，或是查看&lt;code>$ net user&lt;/code>變更密碼的時間是哪時候，然後考慮爆破
+&lt;ul>
+&lt;li>Local Admin比Domain Admin好拿&lt;/li>
+&lt;li>通常是固定密碼
+&lt;ul>
+&lt;li>所有主機都相同&lt;/li>
+&lt;li>可能很多人知道&lt;/li>
+&lt;li>弱密碼&lt;/li>
+&lt;li>系統初始化包&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Solution: 可以參考&lt;a href="https://learn.microsoft.com/zh-tw/windows-server/identity/laps/laps-overview">本機系統管理員密碼解決方案(LAPS)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>管理服務&lt;/li>
+&lt;li>錯誤配置&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab-time---本地提權">
+ Lab Time - 本地提權
+ &lt;a class="anchor" href="#lab-time---%e6%9c%ac%e5%9c%b0%e6%8f%90%e6%ac%8a">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="利用弱點">
+ ==利用弱點==
+ &lt;a class="anchor" href="#%e5%88%a9%e7%94%a8%e5%bc%b1%e9%bb%9e">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/bitsadmin/wesng.git --depth &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd wesng
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python wes.py --update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systeminfo.exe &amp;gt; systeminfo.txt &lt;span style="color:#75715e"># 這條指令是windows內建的指令，所以一定要在cmd中操作&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python wes.py systeminfo.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::spoiler Result&lt;/p></description></item><item><title>NTUSTISC - AD Note - Lab(錯誤配置)</title><link>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x12%E9%8C%AF%E8%AA%A4%E9%85%8D%E7%BD%AE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-isc/ad/2.-%E6%8F%90%E5%8D%87%E6%AC%8A%E9%99%90/ntustisc---ad-note---lab0x12%E9%8C%AF%E8%AA%A4%E9%85%8D%E7%BD%AE/</guid><description>&lt;h1 id="ntustisc---ad-note---lab錯誤配置">
+ NTUSTISC - AD Note - Lab(錯誤配置)
+ &lt;a class="anchor" href="#ntustisc---ad-note---lab%e9%8c%af%e8%aa%a4%e9%85%8d%e7%bd%ae">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;p>Lecture Video: &lt;a href="https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCMCOy58LN&amp;amp;t=3600">2022/05/04 AD 安全1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>提權方法
+&lt;ul>
+&lt;li>利用弱點&lt;/li>
+&lt;li>Hijack Token&lt;/li>
+&lt;li>Guess Password&lt;/li>
+&lt;li>管理服務&lt;/li>
+&lt;li>錯誤配置
+&lt;ul>
+&lt;li>服務使用高權限執行且檔案權限配置錯誤，所以只要把這項服務替換成惡意程式，最後再利用前面提到的print operator重開機，就可以達到控制的目的&lt;/li>
+&lt;li>透過&lt;a href="https://docs.microsoft.com/en-us/sysinternals/downloads/accesschk">accesschk.exe&lt;/a>找出有問題的地方
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ accesschk.exe &amp;lt;user&amp;gt; &amp;lt;path&amp;gt;
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>For example
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ accesschk.exe &amp;#34;Administrator&amp;#34; &amp;#34;C:\Program Files\&amp;#34;
+
+Accesschk v6.15 - Reports effective permissions for securable objects
+Copyright (C) 2006-2022 Mark Russinovich
+Sysinternals - www.sysinternals.com
+RW C:\Program Files
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab-time---本地提權">
+ Lab Time - 本地提權
+ &lt;a class="anchor" href="#lab-time---%e6%9c%ac%e5%9c%b0%e6%8f%90%e6%ac%8a">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="錯誤配置">
+ ==錯誤配置==
+ &lt;a class="anchor" href="#%e9%8c%af%e8%aa%a4%e9%85%8d%e7%bd%ae">#&lt;/a>
+&lt;/h3>
+&lt;p>找出low有存取權限的service檔案&lt;/p></description></item></channel></rss>

