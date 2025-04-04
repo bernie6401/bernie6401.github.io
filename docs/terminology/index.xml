@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/terminology/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/terminology/index.xml" rel="self" type="application/rss+xml"/><item><title>Android Related</title><link>https://bernie6401.github.io/docs/terminology/android-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/android-related/</guid><description>&lt;h1 id="android-related">
+ Android Related
+ &lt;a class="anchor" href="#android-related">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="android-app本身">
+ Android App本身
+ &lt;a class="anchor" href="#android-app%e6%9c%ac%e8%ba%ab">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://ironglion.com/archives/334">[Android] Activity基本介紹&lt;/a>
+:::spoiler&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>什麼是Activity?
+Activity是App中，提供畫面的一個元件，
+例如：使用Google地圖App時，顯示地圖的那個畫面。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>只有Activity可以顯示畫面嗎？
+不是，除了Activity以外還有其他元件可以顯示畫面，
+例如：Dialog，但每一個App至少要有一個Activity，但這有個例外，如果這個App不提供介面的話也是可以不用有Activity的。&lt;/p>
+&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;hr>
+&lt;blockquote>
+&lt;p>Activity其他注意事項&lt;/p>
+&lt;ul>
+&lt;li>兩個Activity傳遞資訊是透過Intent
+&lt;pre tabindex="0">&lt;code class="language-kotlin!" data-lang="kotlin!">Intent intent = new Intent(this, TwoActivity.class);
+startActivity(intent);
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Intent 能傳遞的資訊大小要小於512k&lt;/li>
+&lt;li>每一個Activity都要在AndroidManifest中聲明
+&lt;pre tabindex="0">&lt;code class="language-kotlin!" data-lang="kotlin!">&amp;lt;manifest ... &amp;gt;
+ &amp;lt;application ... &amp;gt;
+ &amp;lt;activity android:name=&amp;#34;.MainActivity&amp;#34; /&amp;gt;
+ ...
+ &amp;lt;/application ... &amp;gt;
+ ...
+&amp;lt;/manifest &amp;gt;
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10231988">Android基本(2)-Intent基本觀念與使用釐清&lt;/a>
+:::spoiler&lt;/p>
+&lt;blockquote>
+&lt;p>我們該如何從一個 activity 去啟動另外一個 activity，又或者我們要怎麼進行兩個 activity 間的資料通等等的問題，這時候最常見的方式就是使用我們今天的主角 Intent&lt;/p>
+&lt;h3 id="種類">
+ 種類
+ &lt;a class="anchor" href="#%e7%a8%ae%e9%a1%9e">#&lt;/a>
+&lt;/h3>
+&lt;p>下方名稱網路上對他們的名稱有些需的差異，在這邊以 android doc 上名稱為主。&lt;/p>
+&lt;ol>
+&lt;li>明確意圖(Explicit intents)：官方的說明有點冗長，講白一點就是在指定啟動元件的時候，我們直接使用名稱(完整的類別名稱)進行指定。
+例如：
+&lt;code>Intent intent = new Intent(FirstActivity.this, SecondActivity.class);&lt;/code>&lt;/li>
+&lt;li>隱含意圖(Implicit intents)：在宣告的時候不指定給特定的元件，而是針對功能、動作進行宣告，來讓定一個應用程式的元件進行處理。
+例如：在APP中開啟網頁，系統發現手機上有chrome以及預設瀏覽器提供網頁瀏覽的功能，這時候便會跳出選單讓使用者選擇。&lt;/li>
+&lt;/ol>
+&lt;h3 id="範例">
+ 範例
+ &lt;a class="anchor" href="#%e7%af%84%e4%be%8b">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>明確意圖範例
+&lt;code>Intent intent = new Intent(FirstActivity.this, SecondActivity.class);&lt;/code>
+&lt;code>startActivity(intent);&lt;/code>&lt;/p></description></item><item><title>Linux Related</title><link>https://bernie6401.github.io/docs/terminology/linux-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/linux-related/</guid><description>&lt;ul>
+&lt;li>
+&lt;p>What is .so file?
+資料來源: &lt;a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000P8svSAC&amp;amp;l=zh-TW">在Linux中.so和.a檔有什麼差別？&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>副檔名為“ .so”的檔案是dynamically linked shared object libraries，簡稱為shared objects、shared libraries或shared object libraries。Shared object libraries在執行時動態載入。Shared object libraries並不是應用程式的一部分，但它們在編譯過程中必須可用取用。一般來說，shared object libraries類似於Windows電腦上的DLL檔。 舉例來說，NI-VISA驅動程式就是使用Shared object libraries。&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>x86、x86_64/x64、amd64和arm64/aarch64
+資料來源: &lt;a href="https://blog.csdn.net/michaelwoshi/article/details/105105421">【CPU】關於x86、x86_64/x64、amd64和arm64/aarch64&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>==&lt;strong>x86=i386=IA32&lt;/strong>==: 是指intel的開發的一種32位指令集，從386開始時代開始的，一直沿用至今，是一種cisc指令集，所有intel早期的cpu，amd早期的cpu都支持這種指令集，intel官方文檔里面稱為“IA-32”&lt;/li>
+&lt;li>==&lt;strong>x86_64=x64=AMD64&lt;/strong>==: 是x86 CPU開始邁向64位的时候&lt;/li>
+&lt;li>==&lt;strong>ARM&lt;/strong>==: （英文為Advanced RISC Machine，或Acorn RISC Machine）也是一個架構，非常適用於移動通信這種低成本，高性能，低耗電的領域。
+==&lt;strong>AArch64=ARM64&lt;/strong>==: 是ARMv8的一種執行狀態。為了更廣泛地向企業領域推進，需要引入 64 位構架，同時也需要在 ARMv8 架構中引入新的 AArch64 執行狀態。AArch64 不是一個單純的 32 位 ARM 構架擴展，而是 ARMv8 內全新的構架，完全使用全新的 A64 指令集。&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>Linux 0, 1, 2, 2&amp;gt;&amp;amp;1
+資料來源: &lt;a href="https://blog.csdn.net/yzf279533105/article/details/128587714">Linux 裡的文件描述符 0，1，2， 2＞&amp;amp;1 究竟是什麼&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>/dev/null 表示空設備文件
+0 表示stdin標準輸入
+1 表示stdout標準輸出
+2 表示stderr標準錯誤&lt;/p></description></item><item><title>Math Related</title><link>https://bernie6401.github.io/docs/terminology/math-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/math-related/</guid><description>&lt;h1 id="math-related">
+ Math Related
+ &lt;a class="anchor" href="#math-related">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="數學字母使用規則">
+ 數學字母使用規則
+ &lt;a class="anchor" href="#%e6%95%b8%e5%ad%b8%e5%ad%97%e6%af%8d%e4%bd%bf%e7%94%a8%e8%a6%8f%e5%89%87">#&lt;/a>
+&lt;/h2>
+&lt;p>在 LaTeX 中，數學符號（如 &lt;code>\mathscr&lt;/code>, &lt;code>\mathbb&lt;/code>, &lt;code>\mathcal&lt;/code>）通常有特定的用途和限制，主要在於 &lt;strong>哪些類型的變數或集合適合使用哪種格式&lt;/strong>。以下是一些常見的數學字母風格以及它們的用途：&lt;/p>
+&lt;hr>
+&lt;h3 id="1-mathcal-calligraphic">
+ &lt;strong>1. \mathcal (Calligraphic)&lt;/strong>
+ &lt;a class="anchor" href="#1-mathcal-calligraphic">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>用途&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>用來表示 &lt;strong>集合、空間、拓撲結構、代數結構等&lt;/strong>&lt;/li>
+&lt;li>例如：機率論的 &lt;code>\mathcal{F}&lt;/code>（σ-代數）、拓撲空間 &lt;code>\mathcal{T}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>示例&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-latex" data-lang="latex">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">\mathcal&lt;/span>{P}, &lt;span style="color:#66d9ef">\mathcal&lt;/span>{L}, &lt;span style="color:#66d9ef">\mathcal&lt;/span>{M}, &lt;span style="color:#66d9ef">\mathcal&lt;/span>{N}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>顯示為：
+$$
+\mathcal{P}, \mathcal{L}, \mathcal{M}, \mathcal{N}
+$$&lt;/p>
+&lt;p>&lt;strong>適用範圍&lt;/strong>：
+✅ 集合、拓撲、機率論、幾何學
+❌ 變數、數值、矩陣&lt;/p>
+&lt;hr>
+&lt;h3 id="2-mathbb-blackboard-bold">
+ &lt;strong>2. \mathbb (Blackboard Bold)&lt;/strong>
+ &lt;a class="anchor" href="#2-mathbb-blackboard-bold">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>用途&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>用於表示 &lt;strong>數域、特殊集合&lt;/strong>，例如 &lt;strong>實數、整數、複數等&lt;/strong>&lt;/li>
+&lt;li>常見於線性代數、數論、分析等&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>示例&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-latex" data-lang="latex">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">\mathbb&lt;/span>{R}, &lt;span style="color:#66d9ef">\mathbb&lt;/span>{Z}, &lt;span style="color:#66d9ef">\mathbb&lt;/span>{Q}, &lt;span style="color:#66d9ef">\mathbb&lt;/span>{C}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>顯示為：
+$$
+\mathbb{R}, \mathbb{Z}, \mathbb{Q}, \mathbb{C}
+$$&lt;/p>
+&lt;p>&lt;strong>適用範圍&lt;/strong>：
+✅ 數域、特定的集合（例如 &lt;code>\mathbb{N}&lt;/code> 代表自然數）
+❌ 一般變數、函數名稱&lt;/p>
+&lt;hr>
+&lt;h3 id="3-mathscr-script-font">
+ &lt;strong>3. \mathscr (Script Font)&lt;/strong>
+ &lt;a class="anchor" href="#3-mathscr-script-font">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>用途&lt;/strong>：&lt;/p></description></item><item><title>Network Related</title><link>https://bernie6401.github.io/docs/terminology/network-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/network-related/</guid><description>&lt;h1 id="what-is-httpssh-tunnel-tlsssl-websocket">
+ What is HTTP/SSH Tunnel, TLS/SSL, WebSocket?
+ &lt;a class="anchor" href="#what-is-httpssh-tunnel-tlsssl-websocket">#&lt;/a>
+&lt;/h1>
+&lt;p>在讀When TLS Meets Proxy on Mobile&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>這篇paper的時候一直提到這些觀念，有時候會差點搞混中間的意思&lt;/p>
+&lt;h2 id="ssl-tunnel">
+ SSL Tunnel
+ &lt;a class="anchor" href="#ssl-tunnel">#&lt;/a>
+&lt;/h2>
+&lt;p>根據&lt;a href="https://johnliu55.tw/ssh-tunnel.html">SSH Tunneling (Port Forwarding) 詳解 &lt;/a>的說明:&lt;/p>
+&lt;blockquote>
+&lt;p>Tunneling 指的是將網路上的 A、B 兩個端點用某種方式連接起來，形成一個「隧道」，讓兩端的通訊能夠穿透某些限制（例如防火牆），或是能將通訊內容加密避免洩漏。而 SSH Tunneling 就是指利用 SSH 協定來建立這個隧道
+![](&lt;a href="https://johnliu55.tw/ssh-tunnel/images/tunneling.png">https://johnliu55.tw/ssh-tunnel/images/tunneling.png&lt;/a> =400x)&lt;/p>&lt;/blockquote>
+&lt;p>有分成以下三種，以下接取自&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>的說明，但不特別解釋，原文也有補充很多實際如何使用的Command和教學&lt;/p>
+&lt;ul>
+&lt;li>Local Port Forwarding
+&lt;ul>
+&lt;li>使用情境一：連到位在防火牆後的開發伺服器上的服務
+![](&lt;a href="https://johnliu55.tw/ssh-tunnel/images/local_scenario1_problem.png">https://johnliu55.tw/ssh-tunnel/images/local_scenario1_problem.png&lt;/a> =400x)
+![](&lt;a href="https://johnliu55.tw/ssh-tunnel/images/local_scenario1_solved.png">https://johnliu55.tw/ssh-tunnel/images/local_scenario1_solved.png&lt;/a> =400x)&lt;/li>
+&lt;li>使用情境二：透過防火牆後的機器，連到防火牆後的特定服務
+![](&lt;a href="https://johnliu55.tw/ssh-tunnel/images/local_scenario2_problem.png">https://johnliu55.tw/ssh-tunnel/images/local_scenario2_problem.png&lt;/a> =400x)
+![](&lt;a href="https://johnliu55.tw/ssh-tunnel/images/local_scenario2_solved.png">https://johnliu55.tw/ssh-tunnel/images/local_scenario2_solved.png&lt;/a> =400x)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Remote Port Forwarding
+&lt;ul>
+&lt;li>使用情境一：透過對外機器，讓其他人能夠連到你的電腦上的服務
+![](&lt;a href="https://johnliu55.tw/ssh-tunnel/images/remote_scenario1_problem.png">https://johnliu55.tw/ssh-tunnel/images/remote_scenario1_problem.png&lt;/a> =400x)
+![](&lt;a href="https://johnliu55.tw/ssh-tunnel/images/remote_scenario1_solved.png">https://johnliu55.tw/ssh-tunnel/images/remote_scenario1_solved.png&lt;/a> =400x)&lt;/li>
+&lt;li>使用情境二：透過對外機器，從外面連回內部網路上的服務
+![](&lt;a href="https://johnliu55.tw/ssh-tunnel/images/remote_scenario2_problem.png">https://johnliu55.tw/ssh-tunnel/images/remote_scenario2_problem.png&lt;/a> =400x)
+![](&lt;a href="https://johnliu55.tw/ssh-tunnel/images/remote_scenario2_solved.png">https://johnliu55.tw/ssh-tunnel/images/remote_scenario2_solved.png&lt;/a> =400x)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Dynamic Port Forwarding
+&lt;ul>
+&lt;li>使用情境：建立一個 HTTP 代理伺服器連到內網的所有 HTTP(S) 服務
+![](&lt;a href="https://johnliu55.tw/ssh-tunnel/images/dynamic.png">https://johnliu55.tw/ssh-tunnel/images/dynamic.png&lt;/a> =400x)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="http-tunnel">
+ HTTP Tunnel
+ &lt;a class="anchor" href="#http-tunnel">#&lt;/a>
+&lt;/h2>
+&lt;p>根據&lt;a href="http://www.wiseuc.com/facontent.php?id=903">http tunnel 原理及穿透防火牆方法&lt;/a>中提到的說明，其實和上述的SSH Tunnel的原理和功能差不多，只是建立tunnel的Port變成HTTP的80為主&lt;/p></description></item><item><title>Node Related</title><link>https://bernie6401.github.io/docs/terminology/node-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/node-related/</guid><description>&lt;h1 id="node-related">
+ Node Related
+ &lt;a class="anchor" href="#node-related">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="what-is-nodejs">
+ What is Node.JS
+ &lt;a class="anchor" href="#what-is-nodejs">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>Node.js&lt;/strong> 是一個基於 Chrome V8 引擎的 JavaScript 運行環境，最初由 Ryan Dahl 於 2009 年開發，用於讓開發者在服務器端運行 JavaScript 代碼。它突破了 JavaScript 只能在瀏覽器端運行的限制，從而可以用 JavaScript 構建完整的後端應用。&lt;/p>
+&lt;h3 id="nodejs-的核心特點">
+ Node.js 的核心特點
+ &lt;a class="anchor" href="#nodejs-%e7%9a%84%e6%a0%b8%e5%bf%83%e7%89%b9%e9%bb%9e">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>事件驅動和非阻塞 I/O 模型&lt;/strong>：Node.js 采用事件驅動和非阻塞 I/O（異步 I/O）模型，這使得它非常適合處理高並發的網絡請求。它不會像傳統的阻塞 I/O 那樣等待數據返回，而是直接執行下一步操作，這大大提高了性能和效率。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>單線程架構&lt;/strong>：Node.js 使用單線程來處理所有請求。雖然這看似會限制並發性，但因為它的非阻塞 I/O 模型，這樣的架構仍然能高效處理大量請求。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>基於 V8 引擎&lt;/strong>：V8 是 Google 開發的一個非常快的 JavaScript 引擎，能夠將 JavaScript 編譯成高效的機器碼，顯著提高了 Node.js 的執行速度。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>豐富的包管理系統（npm）&lt;/strong>：Node.js 附帶 npm (Node Package Manager)，這是一個巨大的生態系統，提供了成千上萬的開源包，可以很方便地引入到項目中，快速實現各種功能。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="nodejs-的主要應用場景">
+ Node.js 的主要應用場景
+ &lt;a class="anchor" href="#nodejs-%e7%9a%84%e4%b8%bb%e8%a6%81%e6%87%89%e7%94%a8%e5%a0%b4%e6%99%af">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>RESTful API 和微服務&lt;/strong>：Node.js 非常適合構建輕量、快速響應的 API 服務，可以和前端應用進行良好的交互。&lt;/li>
+&lt;li>&lt;strong>實時應用&lt;/strong>：例如聊天應用、在線遊戲等，需要高頻交互的場景。&lt;/li>
+&lt;li>&lt;strong>數據流處理&lt;/strong>：例如處理實時流數據的應用，可以通過 Node.js 輕松實現。&lt;/li>
+&lt;li>&lt;strong>單頁應用（SPA）&lt;/strong>：Node.js 經常和前端框架（如 React、Angular、Vue）一起使用，構建單頁應用的後端。&lt;/li>
+&lt;/ol>
+&lt;h3 id="nodejs-的優缺點">
+ Node.js 的優缺點
+ &lt;a class="anchor" href="#nodejs-%e7%9a%84%e5%84%aa%e7%bc%ba%e9%bb%9e">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>優點&lt;/strong>：&lt;/p></description></item><item><title>Programming Related</title><link>https://bernie6401.github.io/docs/terminology/programming-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/programming-related/</guid><description>&lt;h1 id="programming-related">
+ Programming Related
+ &lt;a class="anchor" href="#programming-related">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="what-is-namespace-in-programming">
+ What is namespace in programming?
+ &lt;a class="anchor" href="#what-is-namespace-in-programming">#&lt;/a>
+&lt;/h2>
+&lt;p>From ChatGPT
+在程式語言中，&lt;strong>namespace&lt;/strong>（命名空間）是一種用來&lt;strong>組織和管理代碼&lt;/strong>的機制，目的是避免名稱衝突並提升代碼的可讀性和結構化。&lt;/p>
+&lt;hr>
+&lt;h3 id="namespace-的概念與作用">
+ &lt;strong>Namespace 的概念與作用&lt;/strong>
+ &lt;a class="anchor" href="#namespace-%e7%9a%84%e6%a6%82%e5%bf%b5%e8%88%87%e4%bd%9c%e7%94%a8">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>名稱分隔&lt;/strong>&lt;br>
+命名空間可以將代碼中的名稱（如變數、函數、類別等）組織起來，避免與其他代碼中的名稱發生衝突。&lt;/p>
+&lt;ul>
+&lt;li>例如，兩個不同的模組中可能都定義了名稱為 &lt;code>calculate&lt;/code> 的函數，但由於它們位於不同的命名空間，因此可以共存。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>代碼組織&lt;/strong>&lt;br>
+命名空間可以將相關聯的功能分組在一起，使代碼結構更加清晰，便於維護和重用。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>避免名稱污染&lt;/strong>&lt;br>
+命名空間可以避免全域命名空間中的名稱被不小心覆蓋或污染，降低了意外錯誤的可能性。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="namespace-的具體表現">
+ &lt;strong>Namespace 的具體表現&lt;/strong>
+ &lt;a class="anchor" href="#namespace-%e7%9a%84%e5%85%b7%e9%ab%94%e8%a1%a8%e7%8f%be">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="1-c">
+ 1. &lt;strong>C++&lt;/strong>
+ &lt;a class="anchor" href="#1-c">#&lt;/a>
+&lt;/h4>
+&lt;p>在 C++ 中，命名空間是通過 &lt;code>namespace&lt;/code> 關鍵字來實現的。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">namespace&lt;/span> Math {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> a, &lt;span style="color:#66d9ef">int&lt;/span> b) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> a &lt;span style="color:#f92672">+&lt;/span> b;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">namespace&lt;/span> Physics {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> a, &lt;span style="color:#66d9ef">int&lt;/span> b) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> a &lt;span style="color:#f92672">-&lt;/span> b;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> Math&lt;span style="color:#f92672">::&lt;/span>add(&lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>) &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>endl; &lt;span style="color:#75715e">// 使用 Math 的 add 函數
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> Physics&lt;span style="color:#f92672">::&lt;/span>add(&lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>) &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>endl; &lt;span style="color:#75715e">// 使用 Physics 的 add 函數
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-python">
+ 2. &lt;strong>Python&lt;/strong>
+ &lt;a class="anchor" href="#2-python">#&lt;/a>
+&lt;/h4>
+&lt;p>在 Python 中，每個模組（module）本身就是一個命名空間，通過 &lt;code>import&lt;/code> 來使用其他命名空間的內容。&lt;/p></description></item><item><title>Reinforcement Learning</title><link>https://bernie6401.github.io/docs/terminology/reinforcement-learning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/reinforcement-learning/</guid><description>&lt;h1 id="reinforcement-learning">
+ Reinforcement Learning
+ &lt;a class="anchor" href="#reinforcement-learning">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="什麼是rl">
+ 什麼是RL
+ &lt;a class="anchor" href="#%e4%bb%80%e9%ba%bc%e6%98%afrl">#&lt;/a>
+&lt;/h2>
+&lt;p>Reinforcement Learning（強化學習）是一種機器學習方法，通過試錯和獎勵機制來學習最佳行為。以下是強化學習的幾個應用面向，以及一些相關論文的參考：
+遊戲：強化學習在遊戲領域中取得了顯著成就，例如AlphaGo和AlphaZero等。
+機器人控制：用於控制機器人完成複雜任務，如行走、抓取物體等。
+股票預測：應用於股票交易、投資策略等金融領域。
+交通：用於優化交通信號控制、路線規劃等。&lt;/p>
+&lt;h2 id="基本概念">
+ 基本概念
+ &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">#&lt;/a>
+&lt;/h2>
+&lt;p>強化學習（Reinforcement Learning）是一種機器學習方法，通過試錯和獎勵機制來學習最佳行為:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>代理（Agent）&lt;/strong>：在環境中採取行動的實體，可以是機器人、軟件程序等。&lt;/li>
+&lt;li>&lt;strong>環境（Environment）&lt;/strong>：代理所處的外部世界，提供狀態和反饋給代理。&lt;/li>
+&lt;li>&lt;strong>狀態（State）&lt;/strong>：環境在某一時刻的描述，通常用$s$ 表示。&lt;/li>
+&lt;li>&lt;strong>行動（Action）&lt;/strong>：代理在環境中採取的動作，通常用$a$ 表示。&lt;/li>
+&lt;li>&lt;strong>獎勵（Reward）&lt;/strong>：環境對代理行動的反饋，用於引導學習，通常用$r$ 表示。&lt;/li>
+&lt;li>&lt;strong>策略（Policy）&lt;/strong>：代理根據狀態選擇行動的方法，通常用$\pi(a|s)$ 表示。&lt;/li>
+&lt;li>&lt;strong>價值函數（Value Function）&lt;/strong>：評估在某一狀態下遵循特定策略的預期累積獎勵，用於評估狀態的好壞。&lt;/li>
+&lt;li>&lt;strong>Q函數（Q-Function）&lt;/strong>：評估在某一狀態下採取特定行動後遵循特定策略的預期累積獎勵。&lt;/li>
+&lt;/ol>
+&lt;h3 id="基本過程">
+ 基本過程
+ &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e9%81%8e%e7%a8%8b">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>初始化&lt;/strong>：代理開始與環境交互。&lt;/li>
+&lt;li>&lt;strong>觀察狀態&lt;/strong>：代理觀察環境的當前狀態。&lt;/li>
+&lt;li>&lt;strong>選擇行動&lt;/strong>：根據策略選擇行動。&lt;/li>
+&lt;li>&lt;strong>執行動作&lt;/strong>：在環境中執行動作。&lt;/li>
+&lt;li>&lt;strong>獲得獎勵&lt;/strong>：環境給予獎勵。&lt;/li>
+&lt;li>&lt;strong>更新知識&lt;/strong>：更新價值函數或Q函數，以改善未來的決策。&lt;/li>
+&lt;/ol>
+&lt;h3 id="常見算法">
+ 常見算法
+ &lt;a class="anchor" href="#%e5%b8%b8%e8%a6%8b%e7%ae%97%e6%b3%95">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Q-learning&lt;/strong>：使用Q函數學習最佳行動。&lt;/li>
+&lt;li>&lt;strong>SARSA&lt;/strong>：使用價值函數學習最佳行動。&lt;/li>
+&lt;li>&lt;strong>Deep Q-Networks (DQN)&lt;/strong>：使用深度神經網絡來近似Q函數。&lt;/li>
+&lt;li>&lt;strong>Policy Gradient Methods&lt;/strong>：直接學習策略而非價值函數。&lt;/li>
+&lt;/ul>
+&lt;h2 id="value-function-vs-q-function">
+ Value Function VS Q-Function
+ &lt;a class="anchor" href="#value-function-vs-q-function">#&lt;/a>
+&lt;/h2>
+&lt;p>在強化學習（Reinforcement Learning, RL）中，&lt;strong>Value Function（價值函數）&lt;/strong> 和 &lt;strong>Q-Function（Q 值函數）&lt;/strong> 都是用來評估策略 $\pi$ 的好壞，但它們的側重點不同。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>函數&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>定義&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>描述&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>State Value Function（狀態價值函數）$V(s)$&lt;/strong>&lt;/td>
+ &lt;td>$V^\pi(s) = \mathbb{E} \left[ \sum_{t=0}^{\infty} \gamma^t R_t \mid S_0 = s, \pi \right]$&lt;/td>
+ &lt;td>表示 &lt;strong>在狀態 $s$ 下，根據策略 $\pi$ 所能期望獲得的累積回報&lt;/strong>。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Action-Value Function（行動價值函數）$Q(s, a)$&lt;/strong>&lt;/td>
+ &lt;td>$Q^\pi(s, a) = \mathbb{E} \left[ \sum_{t=0}^{\infty} \gamma^t R_t \mid S_0 = s, A_0 = a, \pi \right]$&lt;/td>
+ &lt;td>表示 &lt;strong>在狀態 $s$ 下執行動作 $a$，並按照策略 $\pi$ 行動後，所能期望獲得的累積回報&lt;/strong>。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>
+&lt;p>Value Function
+$$
+V^\pi(s) = \mathbb{E}&lt;em>\pi \left[ \sum&lt;/em>{t=0}^\infty \gamma^t r_t \mid s_0 = s \right]
+$$&lt;/p></description></item><item><title>What is DevOps, MLOps, CI/CD?</title><link>https://bernie6401.github.io/docs/terminology/what-is-devops-mlops-ci_cd_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/what-is-devops-mlops-ci_cd_/</guid><description>&lt;ul>
+&lt;li>&lt;a href="https://ithelp.ithome.com.tw/articles/10184557">什麼是 DevOps？&lt;/a>
+:::spoiler
+&lt;blockquote>
+&lt;p>DevOps 簡而言之，就是 Development + Operations ，也就是開發與維運。但大部分的文章都會說是「開發」「測試」「維運」三者的結合。如同下面這張圖想表示的意義一樣，當三者有了交集，即是 DevOps
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Devops.svg/512px-Devops.svg.png" alt="" />&lt;/p>
+&lt;h4 id="devops-想要達成的目標為何">
+ DevOps 想要達成的目標為何？
+ &lt;a class="anchor" href="#devops-%e6%83%b3%e8%a6%81%e9%81%94%e6%88%90%e7%9a%84%e7%9b%ae%e6%a8%99%e7%82%ba%e4%bd%95">#&lt;/a>
+&lt;/h4>
+&lt;p>從 Patrick Debois 發現的問題與參考葉大一句話囊括 DevOps 的目標一文，可以了解，最大的目標即為速度。「天下武功，唯快不破」，從發現需求到產品上線的時間越短，能得到的回饋與市場也就越大；但快還不夠，還要好，也就是要有品質！如果只有快，而沒有品質，只是更快把 bug 上線，並破壞企業名聲而已。如何兼顧速度與品質，即為 DevOps 的主要目標。
+DevOps 到底在做什麼？&lt;/p>
+&lt;p>為何會出現 DevOps ，相信已經有個感覺了。那它究竟在做些什麼事呢？&lt;/p>
+&lt;p>有文章會提到用 CALMS 的角度來說明 DevOps 的要領，這是下列五個英文單字的縮寫：&lt;/p>
+&lt;ul>
+&lt;li>Culture&lt;/li>
+&lt;li>Automation&lt;/li>
+&lt;li>Lean&lt;/li>
+&lt;li>Measurement&lt;/li>
+&lt;li>Sharing&lt;/li>
+&lt;/ul>
+&lt;p>這是了解 DevOps 概念的好方向之一。&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>&lt;a href="https://ithelp.ithome.com.tw/articles/10238335">什麼是MLOps？-30 Days of MLOps&lt;/a>
+:::spoiler
+&lt;blockquote>
+&lt;p>用最短的一句話來解釋它的話，MLOps 就是 Machine Learning 的 DevOps
+在 Machine Learning 團隊中，除了資料科學家、資料工程師、DevOps 工程師作為固定班底外，協作單位還有產品經理、後端工程師等等。我們要讓所有人可以彼此良好的協作，這需要依賴更好的維運架構。除了最直覺想到的 Model 部署外，常見的挑戰還有例如：訓練 Model、測試與分析 Model、資料的預處理等等。
+&lt;img src="https://github.com/alincode/30-days-of-mlops/raw/master/assets/mlops-collenges.png" alt="" />&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>&lt;a href="https://www.wingwill.com.tw/zh-tw/%E9%83%A8%E8%90%BD%E6%A0%BC/%E9%9B%B2%E5%9C%B0%E6%B7%B7%E5%90%88%E6%87%89%E7%94%A8/cicd%E5%B7%A5%E5%85%B7/">CI/CD是什麼？一篇認識CI/CD工具及優勢，將日常瑣事自動化&lt;/a>
+:::spoiler
+&lt;blockquote>
+&lt;p>CI/CD工具也是為了此概念(DevOps)而產生的自動化工具，透過持續整合、持續部署的方式，在開發階段就自動協助開發人員偵測程式碼問題，並部署至伺服器&lt;/p>
+&lt;hr>
+&lt;h3 id="cicontinuous-integration持續整合">
+ CI（Continuous Integration）持續整合
+ &lt;a class="anchor" href="#cicontinuous-integration%e6%8c%81%e7%ba%8c%e6%95%b4%e5%90%88">#&lt;/a>
+&lt;/h3>
+&lt;p>持續整合（Continuous Integration，CI）顧名思義，就是當開發人員完成一個階段性的程式碼後就經由自動化工具測試、驗證，協助偵測程式碼問題，並建置出即將部署的版本（Build）&lt;/p></description></item><item><title>What is IDS, IPS, EDR, MDR, NSM, SIEM?</title><link>https://bernie6401.github.io/docs/terminology/what-is-ids-ips-edr-mdr-nsm-siem_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/terminology/what-is-ids-ips-edr-mdr-nsm-siem_/</guid><description>&lt;ol>
+&lt;li>IDS(Intrusion Detection System, 入侵偵測系統)
+簡答: 從名字就可以看的出來，他是針對流入流出的各種封包的偵測系統，也就是獨立於Firewall的旁之，如果他有檢測到封包內有什麼異常的Payload或是pattern，就會跳出告警，但就僅只於此，不會再做更多的操作
+詳答: &lt;a href="https://www.ithome.com.tw/tech/28712">What is IDS(Intrusion Detection Systems)?&lt;/a>
+&lt;blockquote>
+&lt;p>入侵偵測系統（Intrusion Detection System，IDS）是用來偵測資訊系統或網路上潛在的惡意破壞活動&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>網路型入侵偵測系統(NIDS):主要是由一個或多個偵測器，加上收集與分析資料的主控臺所組成，可以分析每個通過的網路封包，並與已知的攻擊特徵進行比對，如果符合某項攻擊特徵，系統就會啟動防護機制，例如發簡訊或命令防火牆中斷該連線。&lt;/li>
+&lt;li>主機型入侵偵測系統(HIDS):是從主機系統稽核日誌檔演進而來，必須在主機上安裝代理程式﹙Agent﹚，負責監視主機內部的程序，並監控記錄檔與可疑活動，若有任何系統事件都會被記錄至日誌檔，並與攻擊特徵資料庫比對，判斷主機是否遭到攻擊&lt;/li>
+&lt;li>誘捕型入侵偵測系統(Deception Systems):目的是偵測未經授權的活動，任何進出誘捕系統的封包都會被認定是可疑的。但它卻是受到爭議的產品，有些廠商認為誘捕型系統只適合學術研究，因為它誘導駭客上勾，因此收集的證據無法用來起訴駭客&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>IPS(Intrusion Prevention System, 入侵防禦系統)
+IPS就是要改進上述的問題，他主打的就是偵測到快快的東西就會主動的防禦掉，但這樣還是有一個問題，現今的攻擊手法越來越多種，而且有時候是那種可以包裝成安全落地的形式，必須要在本地端監控才有辦法知道&lt;/li>
+&lt;li>EDR(Endpoint Detection and Response, 端點偵測與應對)
+EDR就是在做這樣的事情，可是有可能會有一個疑問，每個人的主機內不是都有安裝那種傳統的Windows Defenders或是小紅傘那種東西，為什麼還需要有EDR，其實現今的攻擊手法已經有很大的變化，有可能單純看個人的裝置會看不出個所以然，必須要聯合其他的裝置一起做關聯性的比對才會知道目前是不是正在遭受攻擊，所以EDR強大的地方在於他做到各個裝置endpoint端點的串聯，讓資安事件的偵測和防禦可以更嚴謹，這也是中小型企業最需要的資安產品&lt;/li>
+&lt;li>MDR(Managed Detection and Response, 受管式偵測與應對)
+這東西其實就是一個EDR+SOC的服務衍生的產品，但ddaa說這個東西要做出市場區隔可能還沒有到太創新&lt;/li>
+&lt;li>&lt;a href="https://ithelp.ithome.com.tw/articles/10202297">What is NSM(Network Security Monitors)?&lt;/a>
+&lt;blockquote>
+&lt;p>NSM主要目的是偵測、找出入侵者，提高能見度。它建立在「我們一定會被攻擊，而且最終防禦一定會被突破」的思惟上。假設意志堅決的駭客最終打穿我們辛苦建立的防禦，但只要能在入侵者進一步破壞、感染系統前偵測、做出回應，讓入侵者無法達到目的，便能阻擋這波攻擊
+NSM不是等接收IDS/IPS等等資安設備觸發警示後才開始收集，而是平時便預先主動收集資料，提供NSM平台審視、分析，強化可見度，主動找出入侵軌跡&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>&lt;a href="https://ithelp.ithome.com.tw/articles/10195623">What is SIEM(Security Information and Event Management)&lt;/a>
+&lt;blockquote>
+&lt;p>SIEM的功能和一般日誌管理工具類似，都會將來自不同伺服器和設備的日誌和事件紀錄集中在一個地方 (通常是Log server伺服器本身硬碟或特定的儲存池Storage pool)，避免日誌和紀錄隨著機器故障遺失，符合稽核要求，可以進行關鍵字或日期查詢，所以也有人直接用日誌管理工具來進行分析
+功能&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>彙整、解讀多項系統設備日誌&lt;/li>
+&lt;li>資料圖形化&lt;/li>
+&lt;li>SIEM具備強大的比對Correlation 功能
+e.g.帳號登入失敗、創建新帳號、帳號權限提升等等可能是攻擊行為也可能是網管的正常登入，要看一連串的流量或封包資料才能判斷$\to$耗費人力&lt;/li>
+&lt;li>整合其他資安工具或資安服務&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>

@@ -1,0 +1,1273 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/problem-solutions/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/problem-solutions/index.xml" rel="self" type="application/rss+xml"/><item><title>/wp-admin VS /wp-content VS /wp-include VS /wp-json</title><link>https://bernie6401.github.io/docs/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/</guid><description>&lt;h1 id="wp-admin-vs-wp-content-vs-wp-include-vs-wp-json">
+ /wp-admin VS /wp-content VS /wp-include VS /wp-json
+ &lt;a class="anchor" href="#wp-admin-vs-wp-content-vs-wp-include-vs-wp-json">#&lt;/a>
+&lt;/h1>
+&lt;p>From Chat-GPT:&lt;/p>
+&lt;h3 id="1-wp-admin">
+ 1. &lt;strong>&lt;code>wp-admin&lt;/code>&lt;/strong>
+ &lt;a class="anchor" href="#1-wp-admin">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>用途&lt;/strong>: WordPress 的後台管理系統。&lt;/li>
+&lt;li>&lt;strong>位置&lt;/strong>: &lt;code>/wp-admin/&lt;/code>&lt;/li>
+&lt;li>&lt;strong>內容&lt;/strong>:
+&lt;ul>
+&lt;li>包含所有與管理後台相關的 PHP 文件（如控制面板、用戶管理、文章管理等）。&lt;/li>
+&lt;li>提供網站管理者的操作界面。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>訪問權限&lt;/strong>: 需要用戶登錄並具備管理員或其他授權身份才能訪問。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>範例&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>http://example.com/wp-admin/&lt;/code>：進入 WordPress 後台儀表板。&lt;/li>
+&lt;li>&lt;code>http://example.com/wp-admin/post-new.php&lt;/code>：進入新增文章頁面。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-wp-content">
+ 2. &lt;strong>&lt;code>wp-content&lt;/code>&lt;/strong>
+ &lt;a class="anchor" href="#2-wp-content">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>用途&lt;/strong>: 儲存用戶生成的內容和可定制項目。&lt;/li>
+&lt;li>&lt;strong>位置&lt;/strong>: &lt;code>/wp-content/&lt;/code>&lt;/li>
+&lt;li>&lt;strong>內容&lt;/strong>:
+&lt;ul>
+&lt;li>主題 (&lt;code>themes&lt;/code>)：網站外觀的所有文件。&lt;/li>
+&lt;li>外掛 (&lt;code>plugins&lt;/code>)：網站功能擴展的所有文件。&lt;/li>
+&lt;li>上傳 (&lt;code>uploads&lt;/code>)：用戶上傳的媒體文件（圖片、影片等）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>訪問權限&lt;/strong>: 通常開放訪問，因為靜態文件（如圖片或 CSS 文件）需要公開存取。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>範例&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>http://example.com/wp-content/uploads/2025/01/image.jpg&lt;/code>：上傳的圖片文件。&lt;/li>
+&lt;li>&lt;code>http://example.com/wp-content/themes/my-theme/style.css&lt;/code>：主題樣式文件。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="3-wp-includes">
+ 3. &lt;strong>&lt;code>wp-includes&lt;/code>&lt;/strong>
+ &lt;a class="anchor" href="#3-wp-includes">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>用途&lt;/strong>: 儲存 WordPress 核心功能的代碼。&lt;/li>
+&lt;li>&lt;strong>位置&lt;/strong>: &lt;code>/wp-includes/&lt;/code>&lt;/li>
+&lt;li>&lt;strong>內容&lt;/strong>:
+&lt;ul>
+&lt;li>包含 WordPress 核心的 PHP 函數庫和類。&lt;/li>
+&lt;li>負責處理網站的內部邏輯，包括模板標籤、格式化工具和 API 的核心部分。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>訪問權限&lt;/strong>: 通常禁止直接訪問這些文件，因為它們是內部功能實現的核心部分。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>範例&lt;/strong>:&lt;/p></description></item><item><title>`sudo chmod 777 -R /usr` Problem</title><link>https://bernie6401.github.io/docs/problem-solutions/sudo-chmod-777--r-_usr-problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/sudo-chmod-777--r-_usr-problem/</guid><description>&lt;h1 id="sudo-chmod-777--r-usr-problem">
+ &lt;code>sudo chmod 777 -R /usr&lt;/code> Problem
+ &lt;a class="anchor" href="#sudo-chmod-777--r-usr-problem">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-problem-solution">
+ tags: &lt;code>problem solution&lt;/code>
+ &lt;a class="anchor" href="#tags-problem-solution">#&lt;/a>
+&lt;/h6>
+&lt;p>&lt;a href="https://www.cnblogs.com/silentdoer/p/8946946.html">解决普通用户sudo时出现/usr/bin/sudo must be owned by uid 0 and have the setuid bit set&lt;/a>&lt;/p>
+&lt;p>If you forget root password:
+&lt;a href="https://blog.csdn.net/ACK_ACK/article/details/106320127">su Authentication failure解决方法&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://blog.csdn.net/Tangramor/article/details/120358727">WSL2 的 /etc/sudoers 文件改错后：/etc/sudoers: syntax error near line 30&lt;/a>
+&lt;a href="https://askubuntu.com/questions/816732/how-to-change-default-user-in-wsl-ubuntu-bash-on-windows-10">How to change default user in WSL Ubuntu bash on Windows 10&lt;/a>
+&lt;img src="https://i.imgur.com/UwBX8O2.png" alt="" />&lt;/p>
+&lt;p>&lt;a href="https://blog.csdn.net/lileihappy/article/details/79214156">sudo: error in /etc/sudo.conf, line 0 while loading plugin &amp;lsquo;sudoers_policy&amp;rsquo;&lt;/a>&lt;/p>
+&lt;hr>
+&lt;p>&lt;a href="https://github.com/zsh-users/zsh-completions/issues/433">zsh compinit: insecure directories and files, run compaudit for list.&lt;/a>
+&lt;a href="https://blog.csdn.net/Bronze5/article/details/109449532">zsh报错：_complete:96: bad math expression: operand expected at end of string&lt;/a>&lt;/p></description></item><item><title>~/.zshrc &amp; Initial Library</title><link>https://bernie6401.github.io/docs/problem-solutions/~_.zshrc--initial-library/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/~_.zshrc--initial-library/</guid><description>&lt;h1 id="zshrc--initial-library">
+ ~/.zshrc &amp;amp; Initial Library
+ &lt;a class="anchor" href="#zshrc--initial-library">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="zsh">
+ Zsh
+ &lt;a class="anchor" href="#zsh">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ sudo apt install zsh gawk git -y
+$ sudo apt update; sudo apt upgrade -y; sudo apt install curl binutils vim npm -y
+$ chsh -s /bin/zsh
+$ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+$ vim ~/.zshrc
+# Add these lines in .zshrc
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename &amp;#39;/home/sbk6401/.zshrc&amp;#39;
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# Delete all temp download files
+alias ll=&amp;#34;ls -al&amp;#34;
+find . -name &amp;#34;*:Zone.Identifier&amp;#34; -type f -delete
+export ZSH=&amp;#34;$HOME/.zplug/repos/robbyrussell/oh-my-zsh&amp;#34;
+ZSH_THEME=&amp;#34;robbyrussell&amp;#34;
+ZSH_THEME=&amp;#34;powerlevel10k/powerlevel10k&amp;#34;
+source ~/.zplug/init.zsh
+npm install -g tldr
+
+# zplug plugins
+zplug &amp;#34;romkatv/powerlevel10k&amp;#34;, as:theme, depth:1
+zplug &amp;#39;zplug/zplug&amp;#39;, hook-build:&amp;#39;zplug --self-manage&amp;#39;
+zplug &amp;#34;zsh-users/zsh-autosuggestions&amp;#34;
+
+if ! zplug check --verbose; then
+	printf &amp;#34;Install? [y/N]: &amp;#34;
+	if read -q; then
+	
+		echo; zplug install
+	else
+		echo
+	fi
+fi
+
+zplug load
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>客製化 zshrc
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">source ~/anaconda3/bin/activate CTF
+cd /mnt/d/NTU/CTF/PicoCTF/
+alias ll=&amp;#39;ls -al&amp;#39;
+alias gccc=&amp;#39;gcc -Wl,--dynamic-linker=/usr/src/glibc/glibc_dbg/elf/ld.so -g&amp;#39;
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;h2 id="gdb-gef">
+ gdb-gef
+ &lt;a class="anchor" href="#gdb-gef">#&lt;/a>
+&lt;/h2>
+&lt;p>Touch 2 files&lt;/p></description></item><item><title>CreateProcessEntryCommon:586: Create process not expected to return</title><link>https://bernie6401.github.io/docs/problem-solutions/createprocessentrycommon_586_-create-process-not-expected-to-return/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/createprocessentrycommon_586_-create-process-not-expected-to-return/</guid><description>&lt;h1 id="createprocessentrycommon586-create-process-not-expected-to-return">
+ CreateProcessEntryCommon:586: Create process not expected to return
+ &lt;a class="anchor" href="#createprocessentrycommon586-create-process-not-expected-to-return">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-problem-solution">
+ tags: &lt;code>problem solution&lt;/code>
+ &lt;a class="anchor" href="#tags-problem-solution">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="problem">
+ Problem
+ &lt;a class="anchor" href="#problem">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ wsl
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Processing fstab with mount -a failed.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;3&amp;gt;WSL &lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span> ERROR: CreateProcessEntryCommon:370: getpwuid&lt;span style="color:#f92672">(&lt;/span>0&lt;span style="color:#f92672">)&lt;/span> failed &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;3&amp;gt;WSL &lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span> ERROR: CreateProcessEntryCommon:374: getpwuid&lt;span style="color:#f92672">(&lt;/span>0&lt;span style="color:#f92672">)&lt;/span> failed &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;3&amp;gt;WSL &lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span> ERROR: CreateProcessEntryCommon:577: execvpe /bin/sh failed &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;3&amp;gt;WSL &lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span> ERROR: CreateProcessEntryCommon:586: Create process not expected to &lt;span style="color:#66d9ef">return&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="solution">
+ Solution
+ &lt;a class="anchor" href="#solution">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ wsl -l
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Windows 子系統 Linux 版發佈:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-desktop-data &lt;span style="color:#f92672">(&lt;/span>預設&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-desktop
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Ubuntu-20.04
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ wsl -s Ubuntu-20.04
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>操作順利完成。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://askubuntu.com/questions/1423048/i-am-getting-error-on-windows-subsystem">i am getting error on windows subsystem&lt;/a>&lt;/p></description></item><item><title>Endnote - Invalid Citation</title><link>https://bernie6401.github.io/docs/problem-solutions/endnote---invalid-citation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/endnote---invalid-citation/</guid><description>&lt;h1 id="endnote---invalid-citation">
+ Endnote - Invalid Citation
+ &lt;a class="anchor" href="#endnote---invalid-citation">#&lt;/a>
+&lt;/h1>
+&lt;p>目前遇到的怪問題，先紀錄起來，之後再解決&lt;/p>
+&lt;h2 id="problem">
+ Problem
+ &lt;a class="anchor" href="#problem">#&lt;/a>
+&lt;/h2>
+&lt;p>使用Endnote寫論文，因不明原因導致關閉Word之後，出現某一些references不見了，而且經過一些測試，不見的論文都是同樣幾篇，&lt;/p>
+&lt;h2 id="已嘗試的方法">
+ 已嘗試的方法
+ &lt;a class="anchor" href="#%e5%b7%b2%e5%98%97%e8%a9%a6%e7%9a%84%e6%96%b9%e6%b3%95">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>重新remove該reference後，再cite一次，但只要關閉word，重開後就還是回復原樣&lt;/li>
+&lt;li>刪除endnote的data file，並且建立新的library，再從雲端拉資料下來，再重複方法1，還是無果&lt;/li>
+&lt;li>複製一份新的paper template(原本的這一篇也是用這個template改的)，再重新把資料從舊的word，一段一段搬運過去，並且同步cite各個reference，但還是一樣，重新開啟Word後，在同樣的幾篇論文出現Invalid Citation&lt;/li>
+&lt;li>在Endnote中去除有問題的幾篇論文，再重新下載Google Scholar的Endnote Files，然後再用一樣的方法cite，結果還是一樣&lt;/li>
+&lt;li>如果用一篇完全空白的word，並且用Endnote cite那幾篇有問題的論文，會發現沒有出現任何問題&lt;/li>
+&lt;/ol>
+&lt;h2 id="確定的事情">
+ 確定的事情
+ &lt;a class="anchor" href="#%e7%a2%ba%e5%ae%9a%e7%9a%84%e4%ba%8b%e6%83%85">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>雲端的資料應該沒有問題&lt;/li>
+&lt;li>出現問題的應該是Word，但不確定是哪邊&lt;/li>
+&lt;/ol>
+&lt;p>目前可能的解決方式是直接開一個新的Word，然後一段一段搬運過去，就不要用Template改&lt;/p>
+&lt;h2 id="更新">
+ 更新
+ &lt;a class="anchor" href="#%e6%9b%b4%e6%96%b0">#&lt;/a>
+&lt;/h2>
+&lt;p>我大概知道原因了，基本上應該是Endnote無法處理&amp;quot;範圍&amp;quot;，也就是類似[10-13]這樣的關係，雖然不知道為什麼，但其實只要把範圍拆開獨立顯示-&amp;gt;[10][11][12][13]就沒問題了，不過之後還是要查一下為什麼會這樣&lt;/p></description></item><item><title>fatal: Authentication failed for `'https://github.com/{username}/{repository}.git/'`</title><link>https://bernie6401.github.io/docs/problem-solutions/fatal_-authentication-failed-for-https___github.com_username_repository.git_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/fatal_-authentication-failed-for-https___github.com_username_repository.git_/</guid><description>&lt;h1 id="fatal-authentication-failed-for-httpsgithubcomusernamerepositorygit">
+ fatal: Authentication failed for &lt;code>'https://github.com/{username}/{repository}.git/'&lt;/code>
+ &lt;a class="anchor" href="#fatal-authentication-failed-for-httpsgithubcomusernamerepositorygit">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-problem-solution">
+ tags: &lt;code>problem solution&lt;/code>
+ &lt;a class="anchor" href="#tags-problem-solution">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="solution">
+ Solution
+ &lt;a class="anchor" href="#solution">#&lt;/a>
+&lt;/h2>
+&lt;p>According to &lt;a href="https://www.wongwonggoods.com/all-posts/debug_error/git-remote-support/">this page&lt;/a>
+Go to &lt;a href="https://github.com/settings/tokens">https://github.com/settings/tokens&lt;/a> (or setting/Developer setting/Tokens (classic)/) and click &lt;code>Generate new token&lt;/code> to apply a new token.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>If you want to push repo
+Payload:
+&lt;code>git remote set-url origin https://ghp_XXXXXXXXXXXXXXXXXXX@github.com/howarder3/test_repo.git&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If you want to clone your own private repo in new computer
+Payload:
+&lt;code>git clone https://ghp_XXXXXXXXXXXXXXXXXXX@github.com/howarder3/test_repo.git&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Git Large File Error - Solution</title><link>https://bernie6401.github.io/docs/problem-solutions/git-large-file-error---solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/git-large-file-error---solution/</guid><description>&lt;h1 id="git-large-file-error---solution">
+ Git Large File Error - Solution
+ &lt;a class="anchor" href="#git-large-file-error---solution">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.51cto.com/frytea/4143701">解决git不小心提交大文件导致无法提交问题 &lt;/a>
+&lt;a href="https://stackoverflow.com/questions/30316723/git-filter-branch-remove-folder-failed">git filter-branch remove folder failed&lt;/a>
+&lt;a href="https://andy6804tw.github.io/2018/12/09/git-exceeds-size/">[Git筆記] exceeds GitHub file size 解決&lt;/a>&lt;/p>
+&lt;h2 id="scenario-1">
+ Scenario 1
+ &lt;a class="anchor" href="#scenario-1">#&lt;/a>
+&lt;/h2>
+&lt;p>如果是在加入後不慎注意，就直接commit並且push才發現的，要用以下解法&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">...
+$ git push # Now it has large file problem
+# Assume the path of large file is : PicoCTF/2023/Reverse/Reverse/ida-20230316-000006-17384.dmp
+$ git filter-branch -f --index-filter &amp;#39;git rm --cached --ignore-unmatch PicoCTF/2023/Reverse/Reverse/ida-20230316-000006-17384.dmp&amp;#39;
+$ git push #Then it works
+&lt;/code>&lt;/pre>&lt;p>:::info
+如果在變更過程中出現&lt;code>Cannot rewrite branches: You have unstaged changes.&lt;/code>，代表以一些檔案沒有被add以及commit，需要先把其他檔案都做完整的commit後才可以執行上述操作
+:::&lt;/p></description></item><item><title>How How to use Mailgun/Resend as SMTP server?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-how-to-use-mailgun_resend-as-smtp-server_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-how-to-use-mailgun_resend-as-smtp-server_/</guid><description>&lt;h1 id="how-how-to-use-mailgunresend-as-smtp-server">
+ How How to use Mailgun/Resend as SMTP server?
+ &lt;a class="anchor" href="#how-how-to-use-mailgunresend-as-smtp-server">#&lt;/a>
+&lt;/h1>
+&lt;p>會有這個紀錄是因為deploy Mastodon Instance時需要用到SMTP Server，雖然是Optional，但還是嘗試建立一個試看看&lt;/p>
+&lt;h2 id="prerequisite">
+ Prerequisite
+ &lt;a class="anchor" href="#prerequisite">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>有一台具有domain的device&lt;/li>
+&lt;/ul>
+&lt;h2 id="mailgun-step">
+ Mailgun Step
+ &lt;a class="anchor" href="#mailgun-step">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>先到&lt;a href="https://app.mailgun.com">官網&lt;/a>註冊帳號&lt;/li>
+&lt;li>在Sending &amp;gt; Domains中新增Domain，我是只有domain name，而不是包含subdomain
+&lt;img src="https://hackmd.io/_uploads/HygMAixKM1g.png" alt="圖片" />
+其他參數不用改
+&lt;img src="https://hackmd.io/_uploads/SyrSnlKG1l.png" alt="圖片" />&lt;/li>
+&lt;li>進入到DNS records並且查看有哪些東西需要加進去到DNS的紀錄，以我的為例，因為我有開啟automatic sender security，所以有以下6個
+&lt;img src="https://hackmd.io/_uploads/HkHA2gKM1x.png" alt="圖片" />
+包含3個CNAME，2個MX，一個TXT
+接著就到當初申請domain的網站，以我的為例是namesilo，新增這幾個紀錄，就是複製貼上，最後新增完如下
+&lt;img src="https://hackmd.io/_uploads/r1CLpgYGkg.png" alt="圖片" />&lt;/li>
+&lt;li>接著就一直等，由於DNS更新也會需要時間，所以mailgun要verify也可能要等很久，我大概是等了半小時才好，在Mailgun的Domain Setting頁面，會顯示所有的紀錄為Verified或是Active的字樣(如上上圖)&lt;/li>
+&lt;li>接著就看哪一個service需要用到SMTP，以我的為例就是Mastodon Instance，他會建立一個.env.production，裡面就要放SMTP會用到的環境變數，如下
+&lt;pre tabindex="0">&lt;code>SMTP_SERVER=smtp.mailgun.org
+SMTP_PORT=587
+SMTP_LOGIN=postmaster@sbk6401.sbs
+SMTP_PASSWORD=&amp;lt;your SMTP Password&amp;gt;
+SMTP_AUTH_METHOD=plain
+SMTP_OPENSSL_VERIFY_MODE=none
+SMTP_ENABLE_STARTTLS=auto
+SMTP_FROM_ADDRESS=&amp;#39;Mastodon &amp;lt;notifications@mastodon.sbk6401.sbs&amp;gt;&amp;#39;
+&lt;/code>&lt;/pre>首先解釋一下上面的變數
+SMTP_SERVER和SMTP_PORT建議不要改，login如果沒有特別指定，就是使用postmaster@&amp;lt;your domain name&amp;gt;，而password要到Mailgun的SMTP Credentials中，利用Reset Password並且複製新的密碼就可以貼上
+&lt;img src="https://hackmd.io/_uploads/HyWxlWKfJx.png" alt="圖片" />
+而auto_method、openssl_verify和enable_starttls則是有其他的選項可以選，可以視情況自行使用，from_address則是看要用什麼身份傳送mail，我是直接使用mastodon的預設模式&lt;/li>
+&lt;li>Done!!!
+通常這樣沒有什麼問題的話就完成了，只要mastodon有出現任何被Follow、登入、被tag發文等操作，都應該要發送信件通知才對&lt;/li>
+&lt;/ol>
+&lt;h2 id="resend-step">
+ Resend Step
+ &lt;a class="anchor" href="#resend-step">#&lt;/a>
+&lt;/h2>
+&lt;p>我發現在設定Bluesky的SMTP的時候，無法用mailgun當作server，不確定是什麼原因，但官方doc說建議用&lt;a href="https://resend.com">Resend&lt;/a>或是&lt;a href="https://sendgrid.com/">SendGrid&lt;/a>，然後和Mailgun設定的差不多，先新增一個自己的domain，然後他會給4個DNS config的紀錄(3個TXT和1個MX)
+&lt;img src="https://hackmd.io/_uploads/ryI8KTzX1g.png" alt="image" />
+就直接到自己當初申請domain的DNS Server設定，接下來就是等DNS server更新
+&lt;img src="https://hackmd.io/_uploads/ByPKYaf7yx.png" alt="image" />
+等到更新成功後，先申請API key，到API Keys &amp;gt; Create API Keys 建立SMTP的API，然後就可以開始填寫pds.env&lt;/p></description></item><item><title>How to address docker compose not found?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-address-docker-compose-not-found_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-address-docker-compose-not-found_/</guid><description>&lt;h1 id="how-to-address-docker-compose-not-found">
+ How to address docker compose not found?
+ &lt;a class="anchor" href="#how-to-address-docker-compose-not-found">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="problem-statement">
+ Problem Statement
+ &lt;a class="anchor" href="#problem-statement">#&lt;/a>
+&lt;/h2>
+&lt;p>如果之前有安裝過docker-compose，而且主要的command是中間有個dash，那是舊的版本，可以參考&lt;a href="https://stackoverflow.com/questions/66514436/difference-between-docker-compose-and-docker-compose">&amp;ldquo;docker compose&amp;quot;和&amp;quot;docker-compose&amp;quot;之間的區別&lt;/a>，但更新的版其實是把dash拿掉，因為要把compose合併到docker的command，這樣的話就需要安裝plugin&lt;/p>
+&lt;h2 id="solution">
+ Solution
+ &lt;a class="anchor" href="#solution">#&lt;/a>
+&lt;/h2>
+&lt;p>以結論來說就是只要安裝docker-compose-plugin，這個套件，但是我自己遇到以下問題，所以最後一部分是GPT給我的答案，也成功解決問題&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt install docker-compose-plugin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Reading package lists... Done
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Building dependency tree... Done
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Reading state information... Done
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>E: Unable to locate package docker-compose-plugin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Final Solution↓&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo mkdir -p /etc/apt/keyrings
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;deb [arch=&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>dpkg --print-architecture&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74"> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu &lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>lsb_release -cs&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74"> stable&amp;#34;&lt;/span> | sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo apt install docker-compose-plugin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker compose version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to adjust Endnote's Paragraph in Word?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-adjust-endnotes-paragraph-in-word_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-adjust-endnotes-paragraph-in-word_/</guid><description>&lt;h1 id="how-to-adjust-endnotes-paragraph-in-word">
+ How to adjust Endnote&amp;rsquo;s Paragraph in Word?
+ &lt;a class="anchor" href="#how-to-adjust-endnotes-paragraph-in-word">#&lt;/a>
+&lt;/h1>
+&lt;p>參考資料: &lt;a href="https://youtu.be/YMthTCU5isA?si=ZZSlAP0rfPdMAKFY&amp;amp;t=2798">善用Word與EndNote協助論文編排[臺大圖書館HELP講堂20201229]&lt;/a>&lt;/p>
+&lt;h2 id="problem-statement">
+ Problem Statement
+ &lt;a class="anchor" href="#problem-statement">#&lt;/a>
+&lt;/h2>
+&lt;p>在寫論文的時候會使用到Endnote進行引用索引，但cite paper到word的時候，往往會和投稿的Format不一樣，最直接的方式就是，到確定要投稿之前再選取所有的reference section，並進行調整，但每次看到不正確的Format會很討厭，而且不能夠確定之後是不是不需要在修改，只有重新Update Citation，格式就會跑掉，這是一個蠻麻煩的問題&lt;/p>
+&lt;h2 id="solution">
+ Solution
+ &lt;a class="anchor" href="#solution">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>先確定投稿的Reference Format長怎樣
+例如要左右對齊、固定行高、特殊縮排等等
+![螢幕擷取畫面 2024-10-10 153232](&lt;a href="https://hackmd.io/_uploads/Hk7wYWr1Jg.png">https://hackmd.io/_uploads/Hk7wYWr1Jg.png&lt;/a> =300x)&lt;/li>
+&lt;li>然後到[常用] &amp;gt; [樣式]中右鍵Endnote Bibliography，點選修改，就能針對Endnote的Format進行調整
+&lt;img src="https://hackmd.io/_uploads/SJ6BqWr1ke.png" alt="圖片" />
+包含段落、定位點、字型、大小等等
+&lt;img src="https://hackmd.io/_uploads/rJoRcWr11x.png" alt="圖片" />&lt;/li>
+&lt;li>Done
+接著就可以放心使用自己設定的Reference格式&lt;/li>
+&lt;/ol></description></item><item><title>How to build apk file on React-Native Project?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-build-apk-file-on-react-native-project_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-build-apk-file-on-react-native-project_/</guid><description>&lt;h1 id="how-to-build-apk-file-on-react-native-project">
+ How to build apk file on React-Native Project?
+ &lt;a class="anchor" href="#how-to-build-apk-file-on-react-native-project">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="1-確保已完成的環境設置">
+ &lt;strong>1. 確保已完成的環境設置&lt;/strong>
+ &lt;a class="anchor" href="#1-%e7%a2%ba%e4%bf%9d%e5%b7%b2%e5%ae%8c%e6%88%90%e7%9a%84%e7%92%b0%e5%a2%83%e8%a8%ad%e7%bd%ae">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="必備工具">
+ 必備工具：
+ &lt;a class="anchor" href="#%e5%bf%85%e5%82%99%e5%b7%a5%e5%85%b7">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>安裝 &lt;a href="https://nodejs.org/">Node.js&lt;/a>.&lt;/li>
+&lt;li>安裝 &lt;a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">Java JDK&lt;/a> (推薦 11 或更高版本)。&lt;/li>
+&lt;li>安裝 &lt;a href="https://developer.android.com/studio">Android Studio&lt;/a> 並設置環境變量：
+&lt;ul>
+&lt;li>配置 &lt;code>ANDROID_HOME&lt;/code> 環境變量，指向你的 Android SDK 安裝路徑。&lt;/li>
+&lt;li>將以下路徑添加到 &lt;code>PATH&lt;/code>：
+&lt;pre tabindex="0">&lt;code>$ANDROID_HOME/tools
+$ANDROID_HOME/tools/bin
+$ANDROID_HOME/platform-tools
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>使用以下命令確認 Android SDK 設置正確：
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>adb --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="2-檢查-react-native-項目配置">
+ &lt;strong>2. 檢查 React Native 項目配置&lt;/strong>
+ &lt;a class="anchor" href="#2-%e6%aa%a2%e6%9f%a5-react-native-%e9%a0%85%e7%9b%ae%e9%85%8d%e7%bd%ae">#&lt;/a>
+&lt;/h2>
+&lt;p>在項目中，確保以下內容已經配置：&lt;/p>
+&lt;h3 id="文件">
+ &lt;strong>文件 &lt;code>android/app/build.gradle&lt;/code>&lt;/strong>
+ &lt;a class="anchor" href="#%e6%96%87%e4%bb%b6">#&lt;/a>
+&lt;/h3>
+&lt;p>確認 &lt;code>minSdkVersion&lt;/code> 和 &lt;code>targetSdkVersion&lt;/code> 值符合要求，例如：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-gradle" data-lang="gradle">&lt;span style="display:flex;">&lt;span>android &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> defaultConfig &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> applicationId &lt;span style="color:#e6db74">&amp;#34;com.example.myapp&amp;#34;&lt;/span> &lt;span style="color:#75715e">// 替換為你的包名
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> minSdkVersion &lt;span style="color:#ae81ff">21&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> targetSdkVersion &lt;span style="color:#ae81ff">33&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="文件-1">
+ &lt;strong>文件 &lt;code>android/gradle.properties&lt;/code>&lt;/strong>
+ &lt;a class="anchor" href="#%e6%96%87%e4%bb%b6-1">#&lt;/a>
+&lt;/h3>
+&lt;p>啟用 ProGuard 和 Hermes 以優化 APK：&lt;/p></description></item><item><title>How to check if the paper is Top Conference or Q1 Journal?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-check-if-the-paper-is-top-conference-or-q1-journal_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-check-if-the-paper-is-top-conference-or-q1-journal_/</guid><description>&lt;h1 id="how-to-check-if-the-paper-is-top-conference-or-q1-journal">
+ How to check if the paper is Top Conference or Q1 Journal?
+ &lt;a class="anchor" href="#how-to-check-if-the-paper-is-top-conference-or-q1-journal">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="preliminary">
+ Preliminary
+ &lt;a class="anchor" href="#preliminary">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>先判斷該篇論文是Conference還是Journal
+&lt;blockquote>
+&lt;p>有出現Conference, Symposium, Proceedings, ACM: SIG…, Ex. SIGSOFT, SIGGRAPH等關鍵字時，基本上是Conference
+有出現Journal或是Transactions基本上是Journal
+[name=ianyang]&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="conference">
+ Conference
+ &lt;a class="anchor" href="#conference">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>(不推薦)直接看有沒有在Google Scholar Ranking當中
+如果是Engineer &amp;amp; Computer Science的，可以直接看 &lt;a href="https://scholar.google.com/citations?view_op=top_venues&amp;amp;hl=zh-TW&amp;amp;vq=eng">https://scholar.google.com/citations?view_op=top_venues&amp;hl=zh-TW&amp;vq=eng&lt;/a> ，不過這個方法也要知道該篇論文在Subcatecory當中的哪一個類別，可能該篇論文有用到很多元素，就不太好判斷&lt;/li>
+&lt;li>(推薦)直接丟 &lt;a href="https://www.myhuiban.com/">https://www.myhuiban.com/&lt;/a> (有收錄中國、巴西和澳洲的等第)或 &lt;a href="https://portal.core.edu.au/conf-ranks/">https://portal.core.edu.au/conf-ranks/&lt;/a> (澳洲政府開的學術研討會搜尋網站)，如果這兩個網站找不到或是有找到但沒有標示等第，那可能是不入流或是比較新的研討會&lt;/li>
+&lt;li>(推薦)直接問博班或是對該領域很熟的同學
+&lt;ul>
+&lt;li>舉例來說IOP這個出版社我也沒聽過，但是@ian 說是一個以Open Source為主的出版社，所以他們出的一些Journal有機會是Q1，但如果是Conference可能就有點危&lt;/li>
+&lt;li>再舉例想是Spinger出版的可能都不是頂會，以CS領域來說，Springer出版的論文很少出現在頂會，Elsevier也是一樣的狀況&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>(最後的方法)丟Google或是進官網找，看會議是誰主辦
+只有很少的會議有這樣的狀況，例如&lt;a href="https://conf.researchr.org/home/icse-2025">ICSE&lt;/a>，他底下就有很多Co-Hosted的會議是切分出來的
+![圖片](&lt;a href="https://hackmd.io/_uploads/rJrV-uzkJx.png">https://hackmd.io/_uploads/rJrV-uzkJx.png&lt;/a> =500x)
+但本質上也還是ICSE主辦的，所以也算頂會，只是通常收錄的paper，他的reference citation會寫Co-Hosted的名稱而不是ICSE，這樣的話一般researcher可能會不知道這是什麼樣的conference，所以要往上一個level看他是誰主辦，但這是沒有辦法中的辦法，可能會走到這一步的情況是，有一個很多人cite的Paper也是自己的研究中主要比較對象，但透過以上方法都找不到，才會需要做到這個複雜
+:::info
+如果是IEEE或是ACM出版的，大部分都可能是頂會，但也要看，如果是自己論文的主要比較對象，就要再確定，但如果只是一般的引用，可以不用那麼detail或是執著一定要是頂會
+:::&lt;/li>
+&lt;/ul>
+&lt;h2 id="journal">
+ Journal
+ &lt;a class="anchor" href="#journal">#&lt;/a>
+&lt;/h2>
+&lt;p>這個就簡單很多，直接用Clarivate查JCI，如果沒有就代表沒有收錄在JCR，那可能就先不要引用，或者是有Transactions的關鍵字，代表他一定曾經是頂會，https://jcr.clarivate.com/jcr/home&lt;/p></description></item><item><title>How to download blob videos?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-download-blob-videos_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-download-blob-videos_/</guid><description>&lt;h1 id="how-to-download-blob-videos">
+ How to download blob videos?
+ &lt;a class="anchor" href="#how-to-download-blob-videos">#&lt;/a>
+&lt;/h1>
+&lt;p>參考資料: &lt;a href="https://stackoverflow.com/questions/42901942/how-do-we-download-a-blob-url-video">https://stackoverflow.com/questions/42901942/how-do-we-download-a-blob-url-video&lt;/a>
+參考資料: &lt;a href="https://superuser.com/questions/1260846/downloading-m3u8-videos">https://superuser.com/questions/1260846/downloading-m3u8-videos&lt;/a>&lt;/p>
+&lt;h2 id="prerequisite">
+ Prerequisite
+ &lt;a class="anchor" href="#prerequisite">#&lt;/a>
+&lt;/h2>
+&lt;p>有兩種方法，一種是利用ffmpeg，另外一種是&lt;a href="https://github.com/yt-dlp/yt-dlp/wiki/Installation">yt-dlp&lt;/a>，前者下載比較慢，後者快很多，但都可以正確的下載&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Ffmpeg&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo apt install ffmpeg -y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># yt-dlp Windows&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ choco install yt-dlp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># yt-dlp linux&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo add-apt-repository ppa:tomtomtom/yt-dlp &lt;span style="color:#75715e"># Add ppa repo to apt&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt update &lt;span style="color:#75715e"># Update package list&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install yt-dlp &lt;span style="color:#75715e"># Install yt-dlp&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step">
+ Step
+ &lt;a class="anchor" href="#step">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>透過Browser的F12找出m3u8的封包
+&lt;img src="https://hackmd.io/_uploads/HyrYRTR4kl.png" alt="image" />&lt;/li>
+&lt;li>透過yt-dlp下載
+複製封包的Request URL
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yt-dlp &lt;span style="color:#e6db74">&amp;#34;https://surrit.com/9e2613de-2337-4cfd-aab5-2a68c0fbad14/playlist.m3u8&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol></description></item><item><title>How to install aab file?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-install-aab-file_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-install-aab-file_/</guid><description>&lt;h1 id="how-to-install-aab-file">
+ How to install aab file?
+ &lt;a class="anchor" href="#how-to-install-aab-file">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="problem-statement">
+ Problem Statement
+ &lt;a class="anchor" href="#problem-statement">#&lt;/a>
+&lt;/h2>
+&lt;p>有時候我們會直接拿到aab檔案而非apk，尤其是用React Native寫的專案，但又無法直接安裝這個aab檔案，他需要經過一些步驟才能轉成apk&lt;/p>
+&lt;h2 id="solution">
+ Solution
+ &lt;a class="anchor" href="#solution">#&lt;/a>
+&lt;/h2>
+&lt;p>先確保本機有安裝keytool和bundletool，keytool一般會在&lt;code>C:\Program File\Java\jdk-17\bin&lt;/code>中，只要設定環境變數就可以直接使用；而bundletool則是要另外&lt;a href="https://github.com/google/bundletool/releases">下載&lt;/a>，有關於如何寫成bat，可以參考&lt;a href="https://blog.csdn.net/yingaizhu/article/details/119545459">bundletool 工具使用詳解&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ keytool -genkeypair -v -keystore my-release-key.jks -keyalg RSA -keysize &lt;span style="color:#ae81ff">2048&lt;/span> -validity &lt;span style="color:#ae81ff">10000&lt;/span> -alias my-key-alias
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 填寫基本資訊&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ bundletool build-apks --bundle&lt;span style="color:#f92672">=&lt;/span>&amp;lt;your aab filename&amp;gt; --output&lt;span style="color:#f92672">=&lt;/span>app.apks --ks&lt;span style="color:#f92672">=&lt;/span>./my-release-key.jks --ks-key-alias&lt;span style="color:#f92672">=&lt;/span>my-key-alias
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ bundletool install-apks --apks&lt;span style="color:#f92672">=&lt;/span>app.apks
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to install LogonTracer?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-install-logontracer_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-install-logontracer_/</guid><description>&lt;h1 id="how-to-install-logontracer">
+ How to install LogonTracer?
+ &lt;a class="anchor" href="#how-to-install-logontracer">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="installation">
+ Installation
+ &lt;a class="anchor" href="#installation">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="環境">
+ 環境
+ &lt;a class="anchor" href="#%e7%92%b0%e5%a2%83">#&lt;/a>
+&lt;/h3>
+&lt;p>WSL2 - Ubuntu 20.04
+Docker&lt;/p>
+&lt;h3 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;a href="https://www.netadmin.com.tw/netadmin/zh-tw/technology/84E5EAA4BC494BB6A4B15607E62418A0">二刀流Windows日誌分析　精準掌握資安蛛絲馬跡&lt;/a>&lt;/p>
+&lt;h3 id="docker-version">
+ Docker Version
+ &lt;a class="anchor" href="#docker-version">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>安裝Docker(上網找)&lt;/li>
+&lt;li>Pull Image &amp;amp; Run
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ docker pull jpcertcc/docker-logontracer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker run --detach --publish&lt;span style="color:#f92672">=&lt;/span>7474:7474 --publish&lt;span style="color:#f92672">=&lt;/span>7687:7687 --publish&lt;span style="color:#f92672">=&lt;/span>8080:8080 -e LTHOSTNAME&lt;span style="color:#f92672">=&lt;/span>0.0.0.0 jpcertcc/docker-logontracer
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>先進入neo4j(&lt;code>localhost:7474&lt;/code>)
+預設密碼: &lt;code>neo4j/neo4j&lt;/code>
+:::info
+若有遇到登入不進去的問題，error message$\to$&lt;code>Neo.ClientError.Security.Unauthorized: The client is unauthorized due to authentication failure.&lt;/code>
+可參考&lt;a href="https://blog.csdn.net/weixin_39198406/article/details/85068102">訪問neo4j驗證失敗&lt;/a>，我是直接把neo4j.conf的驗證註解拿掉
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ docker exec -it &lt;span style="color:#f92672">{&lt;/span>neo4j container name&lt;span style="color:#f92672">}&lt;/span> bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>root@5aac14bfd6fd:/var/lib/neo4j# find / -name neo4j.conf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/var/lib/neo4j/conf/neo4j.conf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>root@5aac14bfd6fd:/var/lib/neo4j# cd conf/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>root@5aac14bfd6fd:/var/lib/neo4j/conf# apt install vim -y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>root@5aac14bfd6fd:/var/lib/neo4j/conf# vim neo4j.conf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 只要把dbms.security.auth_enabled=false的註解拿掉就可以了&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>root@5aac14bfd6fd:/var/lib/neo4j/conf# exit
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>exit
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker restart nifty_stonebraker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nifty_stonebraker
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>之後再重新進入&lt;code>localhost:7474&lt;/code>，用預設帳密登入就可以了
+:::&lt;/li>
+&lt;li>進入LogonTracer(&lt;code>localhost:8080&lt;/code>)
+預設帳密也是&lt;code>neo4j/neo4j&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h3 id="python-version-recommended">
+ Python Version (Recommended)
+ &lt;a class="anchor" href="#python-version-recommended">#&lt;/a>
+&lt;/h3>
+&lt;p>如果上面的版本不行用的話，就直接用他們發在&lt;a href="https://github.com/JPCERTCC/LogonTracer/wiki/how-to-use">github的版本&lt;/a>會比較穩定，詳細的步驟都已經寫在他們wiki了，不過有幾個問題還是需要先克服&lt;/p></description></item><item><title>How to Root Android Phone &amp; Install AlwaysTrustUserCert.zip Module?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-root-android-phone--install-alwaystrustusercert.zip-module_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-root-android-phone--install-alwaystrustusercert.zip-module_/</guid><description>&lt;h1 id="how-to-root-android-phone--install-alwaystrustusercertzip-module">
+ How to Root Android Phone &amp;amp; Install AlwaysTrustUserCert.zip Module?
+ &lt;a class="anchor" href="#how-to-root-android-phone--install-alwaystrustusercertzip-module">#&lt;/a>
+&lt;/h1>
+&lt;ol>
+&lt;li>Install &lt;a href="https://github.com/K3V1991/ADB-and-FastbootPlusPlus/releases">adb &amp;amp; fastboot++&lt;/a>&lt;/li>
+&lt;li>透過USB連接手機和電腦，如果測試&lt;code>$ fastboot devices&lt;/code>發現沒有抓到連線的裝置可以到&lt;a href="https://developer.android.com/studio/run/win-usb">Get the Google USB Driver&lt;/a>下載最新的驅動，並且在裝置管理員的地方更新&lt;/li>
+&lt;/ol>
+&lt;h2 id="android-studio-emulator">
+ Android Studio Emulator
+ &lt;a class="anchor" href="#android-studio-emulator">#&lt;/a>
+&lt;/h2>
+&lt;p>本方法完全是參考&lt;a href="https://youtu.be/zZZVoUTZipw?si=-r7H1aWTeTDFkSOr">Root an Android emulator with just one command&lt;/a>，很簡單而且成功率很高，如果有特殊的需求而需要使用Physical Device，再往下看其他的Physical Device的Rooted Method&lt;/p>
+&lt;ol>
+&lt;li>用Android Studio開啟Emulator
+請記住Emulator的API Level，以我的為例是31
+&lt;img src="https://hackmd.io/_uploads/Hy2UPOFAR.png" alt="圖片" />&lt;/li>
+&lt;li>Download Script &amp;amp; Execute it
+到 &lt;a href="https://gitlab.com/newbit/rootAVD">https://gitlab.com/newbit/rootAVD&lt;/a> 下載latest script
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ git clone https://gitlab.com/newbit/rootAVD
+$ cd rootAVD
+$ rootAVD.bat ListAllAVDs
+...
+rootAVD.bat system-images\android-31\google_apis_playstore\x86_64\ramdisk.img
+rootAVD.bat system-images\android-31\google_apis_playstore\x86_64\ramdisk.img FAKEBOOTIMG
+rootAVD.bat system-images\android-31\google_apis_playstore\x86_64\ramdisk.img DEBUG PATCHFSTAB GetUSBHPmodZ
+rootAVD.bat system-images\android-31\google_apis_playstore\x86_64\ramdisk.img restore
+rootAVD.bat system-images\android-31\google_apis_playstore\x86_64\ramdisk.img InstallKernelModules
+rootAVD.bat system-images\android-31\google_apis_playstore\x86_64\ramdisk.img InstallPrebuiltKernelModules
+rootAVD.bat system-images\android-31\google_apis_playstore\x86_64\ramdisk.img InstallPrebuiltKernelModules GetUSBHPmodZ PATCHFSTAB DEBUG
+...
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>選擇適當的command
+可以從上面的output看到，API Level 31的所有commands，選擇第一個執行就可以了
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ rootAVD.bat system-images&lt;span style="color:#ae81ff">\a&lt;/span>ndroid-31&lt;span style="color:#ae81ff">\g&lt;/span>oogle_apis_playstore&lt;span style="color:#ae81ff">\x&lt;/span>86_64&lt;span style="color:#ae81ff">\r&lt;/span>amdisk.img
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>等大約3-5分鐘後，Emulator會自動關機，此時選擇Cold Boot
+&lt;img src="https://hackmd.io/_uploads/Sy__O_YCA.png" alt="圖片" />
+開啟後，會發現Magisk已經被安裝在Emulator上，點開Magisk之後會在5秒內重開機，此時所有程序應該就結束了，可以測試一下有沒有確實Root
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ adb shell
+emulator64_x86_64_arm64:/ $ ls /data/data
+ls: /data/data: Permission denied
+1|emulator64_x86_64_arm64:/ $ su
+emulator64_x86_64_arm64:/ # ls /data/data
+android com.android.simappdialog
+android.auto_generated_rro_product__ com.android.simappdialog.auto_generated_rro_product__
+android.auto_generated_rro_vendor__ com.android.soundpicker
+...
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ol>
+&lt;h2 id="asus-zenfone-3z017da">
+ ASUS ZenFone 3(Z017DA)
+ &lt;a class="anchor" href="#asus-zenfone-3z017da">#&lt;/a>
+&lt;/h2>
+&lt;p>這一台是Lab的手機，我拿到的時候就已經進入Bootloader了，所以我就直接跳到後半段，但是這一台應該是刷壞了，我先紀錄一下整個過程，現在是已經無線迴圈同一個畫面了QAQ&lt;/p></description></item><item><title>How to use VScode / Web Storm Debug JS?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-use-vscode-_-web-storm-debug-js_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-use-vscode-_-web-storm-debug-js_/</guid><description>&lt;h1 id="how-to-use-vscode--web-storm-debug-js">
+ How to use VScode / Web Storm Debug JS?
+ &lt;a class="anchor" href="#how-to-use-vscode--web-storm-debug-js">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://a0910288060.medium.com/%E4%BA%86%E8%A7%A3node-js-nvm-npm%E5%B7%AE%E5%88%A5-47cda7c1d569">了解node.js nvm npm差別&lt;/a>&lt;/p>
+&lt;h2 id="prepare-js-modules">
+ Prepare JS Modules
+ &lt;a class="anchor" href="#prepare-js-modules">#&lt;/a>
+&lt;/h2>
+&lt;p>當拿到一個web題目，通常會包含Dockerfile / docker-compose.yml / package.json，我們要做的就是把這個專案所需要的library都載好，這些通常都會記錄在package.json中&lt;/p>
+&lt;ul>
+&lt;li>Windows
+在windows也需要下載js的interpreter，也就是node js / npm這些東西，詳細可以看&lt;a href="https://learn.microsoft.com/zh-tw/windows/dev-environment/javascript/nodejs-on-windows">MSDN文件&lt;/a>
+&lt;ol>
+&lt;li>到&lt;a href="https://github.com/coreybutler/nvm-windows/releases">nvm windows github官方&lt;/a>下載latest ==nvm-setup.exe==並安裝
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nvm --version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.1.12
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nvm ls &lt;span style="color:#75715e"># 列出目前node js的已安裝的版本有哪些&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>No installations recognized. &lt;span style="color:#75715e"># 因為目前都沒有所以No installations&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nvm list available &lt;span style="color:#75715e"># 列出目前可安裝的版本有哪些&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| CURRENT | LTS | OLD STABLE | OLD UNSTABLE |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>|--------------|--------------|--------------|--------------|
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 21.5.0 | 20.10.0 | 0.12.18 | 0.11.16 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 21.4.0 | 20.9.0 | 0.12.17 | 0.11.15 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 21.3.0 | 18.19.0 | 0.12.16 | 0.11.14 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 21.2.0 | 18.18.2 | 0.12.15 | 0.11.13 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 21.1.0 | 18.18.1 | 0.12.14 | 0.11.12 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 21.0.0 | 18.18.0 | 0.12.13 | 0.11.11 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.8.1 | 18.17.1 | 0.12.12 | 0.11.10 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.8.0 | 18.17.0 | 0.12.11 | 0.11.9 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.7.0 | 18.16.1 | 0.12.10 | 0.11.8 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.6.1 | 18.16.0 | 0.12.9 | 0.11.7 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.6.0 | 18.15.0 | 0.12.8 | 0.11.6 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.5.1 | 18.14.2 | 0.12.7 | 0.11.5 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.5.0 | 18.14.1 | 0.12.6 | 0.11.4 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.4.0 | 18.14.0 | 0.12.5 | 0.11.3 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.3.1 | 18.13.0 | 0.12.4 | 0.11.2 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.3.0 | 18.12.1 | 0.12.3 | 0.11.1 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.2.0 | 18.12.0 | 0.12.2 | 0.11.0 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.1.0 | 16.20.2 | 0.12.1 | 0.9.12 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 20.0.0 | 16.20.1 | 0.12.0 | 0.9.11 |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| 19.9.0 | 16.20.0 | 0.10.48 | 0.9.10 |
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>選擇一個版本安裝
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nvm install 20.10.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Downloading node.js version 20.10.0 &lt;span style="color:#f92672">(&lt;/span>64-bit&lt;span style="color:#f92672">)&lt;/span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Extracting node and npm...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Complete
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm v10.2.3 installed successfully.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Installation complete. If you want to use this version, type
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nvm use 20.10.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>選擇已安裝的版本
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nvm use 20.10.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Now using node v20.10.0 &lt;span style="color:#f92672">(&lt;/span>64-bit&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>接著就可以只用npm / node安裝專案需要的package
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ cd &lt;span style="color:#e6db74">&amp;#34;Double Injection\app&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ls
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 目錄: D:&lt;span style="color:#ae81ff">\D&lt;/span>ouble Injection&lt;span style="color:#ae81ff">\a&lt;/span>pp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mode LastWriteTime Length Name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---- ------------- ------ ----
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-a---- 2023/12/18 下午 05:52 &lt;span style="color:#ae81ff">1786&lt;/span> app.js
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-a---- 2023/12/29 上午 01:19 &lt;span style="color:#ae81ff">1160&lt;/span> exp.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-a---- 2023/12/18 下午 10:16 &lt;span style="color:#ae81ff">13&lt;/span> flag.json
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-a---- 2023/12/18 下午 05:26 &lt;span style="color:#ae81ff">470&lt;/span> init-db.js
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-a---- 2023/12/18 上午 06:16 &lt;span style="color:#ae81ff">110&lt;/span> package.json
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ npm install &lt;span style="color:#75715e"># 安裝所有package.json中的library&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>WSL / Linux
+同樣的操作需要再做一次，詳細可以看&lt;a href="https://learn.microsoft.com/zh-tw/windows/dev-environment/javascript/nodejs-on-wsl">MSDN - 在 Windows 子系統 Linux 版 (WSL2) 上安裝 Node.js&lt;/a>
+&lt;ol>
+&lt;li>Install nvm
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt-get install curl
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nvm --version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0.39.7
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Check Current Available Version
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nvm ls
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-&amp;gt; system
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>iojs -&amp;gt; N/A &lt;span style="color:#f92672">(&lt;/span>default&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>node -&amp;gt; stable &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; N/A&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">(&lt;/span>default&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unstable -&amp;gt; N/A &lt;span style="color:#f92672">(&lt;/span>default&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Install Long Term Support
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nvm install --lts
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Installing latest LTS version.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Downloading and installing node v20.10.0...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Downloading https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-x64.tar.xz...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">############################################################################################################ 100.0%&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Computing checksum with sha256sum
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Checksums matched!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Now using node v20.10.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Creating default alias: default -&amp;gt; lts/* &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; v20.10.0&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nvm ls
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-&amp;gt; v20.10.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> system
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>default -&amp;gt; lts/* &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; v20.10.0&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>iojs -&amp;gt; N/A &lt;span style="color:#f92672">(&lt;/span>default&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unstable -&amp;gt; N/A &lt;span style="color:#f92672">(&lt;/span>default&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>node -&amp;gt; stable &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; v20.10.0&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">(&lt;/span>default&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>stable -&amp;gt; 20.10 &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; v20.10.0&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">(&lt;/span>default&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lts/* -&amp;gt; lts/iron &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; v20.10.0&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lts/argon -&amp;gt; v4.9.1 &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; N/A&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lts/boron -&amp;gt; v6.17.1 &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; N/A&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lts/carbon -&amp;gt; v8.17.0 &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; N/A&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lts/dubnium -&amp;gt; v10.24.1 &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; N/A&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lts/erbium -&amp;gt; v12.22.12 &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; N/A&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lts/fermium -&amp;gt; v14.21.3 &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; N/A&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lts/gallium -&amp;gt; v16.20.2 &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; N/A&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lts/hydrogen -&amp;gt; v18.19.0 &lt;span style="color:#f92672">(&lt;/span>-&amp;gt; N/A&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lts/iron -&amp;gt; v20.10.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Check npm / node Version
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ npm --version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>10.2.3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ node --version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>v20.10.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>安裝Module(一樣是在有package.json的目錄下)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ npm install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="debug-by-vscode">
+ Debug By VScode
+ &lt;a class="anchor" href="#debug-by-vscode">#&lt;/a>
+&lt;/h2>
+&lt;p>詳細可以看&lt;a href="https://learn.microsoft.com/zh-tw/training/modules/debug-nodejs/5-analyze-your-program-state">MSDN的教學&lt;/a>
+:::info
+在debug的過程中，有可能會因為是linux based的路徑，所以造成錯誤，所以最好還是在wsl中用&lt;code>code .&lt;/code>的方式進入VScode，再進行debug，另外提醒，在linux or windows下npm install所載的package會根據OS不一樣而有差異，所以要搞清楚目前的平台是哪一個再進行debug；再另外，因為大部分的題目都是具備docker，所以在build之前要先確定有沒有都完成原本docker幫忙的事情，例如以下script:&lt;/p></description></item><item><title>How to use ZAP/Burp Suite/mitmproxy as Proxy for Android?</title><link>https://bernie6401.github.io/docs/problem-solutions/how-to-use-zap_burp-suite_mitmproxy-as-proxy-for-android_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/how-to-use-zap_burp-suite_mitmproxy-as-proxy-for-android_/</guid><description>&lt;h1 id="how-to-use-zap-as-proxy">
+ How to use ZAP as Proxy?
+ &lt;a class="anchor" href="#how-to-use-zap-as-proxy">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>
+&lt;p>根據&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>我大概知道怎麼使用，我們通常會使用zap的command line形式進行操作，詳細的參數可以參考&lt;a href="https://www.zaproxy.org/docs/desktop/cmdline/">Official Document&lt;/a>，另外我看ZAP如果要當作Proxy的角色會需要用到ROOT CA憑證，所以如果單純用之前的教學文章會不知到在哪裡產生憑證，他已經移動到Network底下了
+![image](&lt;a href="https://hackmd.io/_uploads/B11DaMnpT.png">https://hackmd.io/_uploads/B11DaMnpT.png&lt;/a> =400x)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>目前我把Proxy架好了，看的是&lt;a href="https://hackmd.io/@ZLgd0D1pQcyasZhkkWKG4g/HyFZFPDQu">這篇教學文章-OWASP ZAP操作手冊&lt;/a>，講的非常詳細&lt;/p>
+&lt;ol>
+&lt;li>在Firefox中搜尋憑證或是cert，直接安裝在ZAP產生的憑證檔案&lt;/li>
+&lt;li>在Firefox的setting中搜尋Proxy
+![圖片](&lt;a href="https://hackmd.io/_uploads/HJ4NI5Aap.png">https://hackmd.io/_uploads/HJ4NI5Aap.png&lt;/a> =400x)&lt;/li>
+&lt;li>設定成如下
+![圖片](&lt;a href="https://hackmd.io/_uploads/HJoGB9CTa.png">https://hackmd.io/_uploads/HJoGB9CTa.png&lt;/a> =400x)
+只要ZAP有打開，就可以連線出去，但如果Proxy已經setup，卻沒有打開ZAP會通不到外面喔&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="補充">
+ 補充
+ &lt;a class="anchor" href="#%e8%a3%9c%e5%85%85">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>如果上述的步驟已經執行完但Proxy只能攔截到GET Method的封包，就代表憑證爛掉了，和在手機上一樣，但手機會出現這個問題還有可能是SSL Pinning，網頁端只需要重新安裝ZAP Generate的新憑證就好&lt;/li>
+&lt;li>如果設定Firefox的Proxy時，是設定成&lt;code>使用系統Proxy設定&lt;/code>，那就要在電腦的設定中，更改Proxy的config
+![圖片](&lt;a href="https://hackmd.io/_uploads/HJ6STMP1R.png">https://hackmd.io/_uploads/HJ6STMP1R.png&lt;/a> =400x)
+這樣的話ZAP也可以正常運作，但是就不會出現ZAP特定的畫面(功能)
+![圖片](&lt;a href="https://hackmd.io/_uploads/ByAxAfPyA.png">https://hackmd.io/_uploads/ByAxAfPyA.png&lt;/a> =400x)
+只有設定成&lt;code>手動設定Proxy&lt;/code>才會出現，否則會變成連線不上的畫面
+&lt;img src="https://hackmd.io/_uploads/B1vHRzPJ0.png" alt="圖片" />&lt;/li>
+&lt;/ol>
+&lt;h1 id="how-to-use-burp-suite-as-proxy">
+ How to use Burp Suite as Proxy?
+ &lt;a class="anchor" href="#how-to-use-burp-suite-as-proxy">#&lt;/a>
+&lt;/h1>
+&lt;p>這個完全是翻譯並且按照&lt;a href="https://youtu.be/xp8ufidc514?si=4y0JhxW0kbnO1HjF"> Intercepting Android App Traffic with BurpSuite &lt;/a>的影片教學&lt;/p>
+&lt;h2 id="prepare">
+ Prepare
+ &lt;a class="anchor" href="#prepare">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="有取得root實機的情況下">
+ (有取得Root實機的情況下)
+ &lt;a class="anchor" href="#%e6%9c%89%e5%8f%96%e5%be%97root%e5%af%a6%e6%a9%9f%e7%9a%84%e6%83%85%e6%b3%81%e4%b8%8b">#&lt;/a>
+&lt;/h3>
+&lt;p>如果要保險一點零失敗的達成目標，按照影片的步驟和環境比較好，如果是已經有一台取得Root的實機，就可以忽略用VMware開的Emulator&lt;/p>
+&lt;ul>
+&lt;li>取得Burp Suite Cert(在開啟Burp Suite的前提下)
+有關於DER和PEM的背景知識可以參考&lt;a href="https://medium.com/chouhsiang/%e8%83%8c%e6%99%af%e7%9f%a5%e8%ad%98-pem-%e8%88%87-der-dad659e0a40d">[背景知識] 憑證的格式 PEM 與 DER | 自然人憑證開發筆記&lt;/a>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ curl localhost:8080/cert -o cert.der
+
+# 這一段是強制把der檔案轉換成pem檔案
+$ openssl x509 -inform der -in cert.der -out cert.pem
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>丟到手機端後直接在手機安裝憑證&lt;/li>
+&lt;li>接著就要參考&lt;a href="https://hackmd.io/nAJIgt13TjSZ5nqLR4-BiQ#Install-AlwaysTrustUserCertzip-Module">How to Root Android Phone &amp;amp; Install AlwaysTrustUserCert.zip Module?&lt;/a>這篇文章下面註解的地方重新安裝AlwaysTrustUserCert.zip這個plugin，最保險的做法是
+先把之前所有安裝的憑證刪除→
+重新啟動→
+重新安裝&amp;quot;所有&amp;quot;的憑證→
+重新安裝Magisk模組→
+Reboot
+接著就直接跳到下一段(實際攔截前)&lt;/li>
+&lt;/ul>
+&lt;h3 id="利用vmware開emulator">
+ (利用VMware開Emulator)
+ &lt;a class="anchor" href="#%e5%88%a9%e7%94%a8vmware%e9%96%8bemulator">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>VMware 記得啟動 Virtualization&lt;/li>
+&lt;li>安裝Genymotion, virtualbox, adb
+安裝前先到Genymotion官網註冊帳號
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ wget https://dl.genymotion.com/releases/genymotion-3.6.0/genymotion-3.6.0-linux_x64.bin
+$ chmod +x genymotion-3.6.0-linux_x64.bin
+$ ./genymotion-3.6.0-linux_x64.bin
+$ sudo apt install virtualbox adb -y
+$ cd genymotion
+$ ./genymotion # login to genymotion
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>選擇Emulator的手機型號就可以開啟一個全新的Emulator&lt;/li>
+&lt;li>取得Burp Suite Cert(在開啟Burp Suite的前提下)
+有關於DER和PEM的背景知識可以參考&lt;a href="https://medium.com/chouhsiang/%e8%83%8c%e6%99%af%e7%9f%a5%e8%ad%98-pem-%e8%88%87-der-dad659e0a40d">[背景知識] 憑證的格式 PEM 與 DER | 自然人憑證開發筆記&lt;/a>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ curl localhost:8080/cert -o cert.der
+
+# 這一段是強制把der檔案轉換成pem檔案
+$ openssl x509 -inform der -in cert.der -out cert.pem
+
+# 這一段是顯示cert.pem這個檔案Subject的MD5 Hash Value，至於他怎麼做hash的，可以參考https://github.com/spacemonkeygo/openssl/issues/112#issuecomment-443313713，他解釋該hash的標的為哪些，並不是針對這整個file做hash
+$ openssl x509 -inform PEM -subject_hash_old -in cert.pem
+9a5ba575
+-----BEGIN CERTIFICATE-----
+MIIDpzCCAo+gAwIBAgIEdz+xgjANBgkqhkiG9w0BAQsFADCBijEUMBIGA1UEBhML
+UG9ydFN3aWdnZXIxFDASBgNVBAgTC1BvcnRTd2lnZ2VyMRQwEgYDVQQHEwtQb3J0
+U3dpZ2dlcjEUMBIGA1UEChMLUG9ydFN3aWdnZXIxFzAVBgNVBAsTDlBvcnRTd2ln
+Z2VyIENBMRcwFQYDVQQDEw5Qb3J0U3dpZ2dlciBDQTAeFw0xNDA4MjgxMzUxMzda
+Fw0zMzA4MjgxMzUxMzdaMIGKMRQwEgYDVQQGEwtQb3J0U3dpZ2dlcjEUMBIGA1UE
+CBMLUG9ydFN3aWdnZXIxFDASBgNVBAcTC1BvcnRTd2lnZ2VyMRQwEgYDVQQKEwtQ
+b3J0U3dpZ2dlcjEXMBUGA1UECxMOUG9ydFN3aWdnZXIgQ0ExFzAVBgNVBAMTDlBv
+cnRTd2lnZ2VyIENBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwCM2
+OEX9sby5W3ck1djqnohtIpNKIkBWw0qvwDfi17Hvyc0YIUPzQE+6o/a1KRgCS6Ni
+2SgcJ/soKcRkMn5nmI5Mh+6w0NGEd13VmIcSkd97RghpeNivd5u0LOHW4KVYmxh9
+0pDlt+6DD2zQIShM0hxUTGpaaPaRk9S9z0kWHNyJ9cfy627IWDSl1oNrQvNYTWU4
+DhjBa0AOQUjCrTqkCALwCEAErZRGgjeonkola117DFG8twdjdA+55Iegw2Bd8ogd
+JafibIUutXwGFiaAxx/ckapkqUKFnjBbXwyfoFmeiuiHqB3oy8Y8tduSh1e9lJNq
+bMWW+UDG/4H5kXNOgwIDAQABoxMwETAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3
+DQEBCwUAA4IBAQAn4BB23JUP0EThzsQY/299zJW0Z1AquMwYRYtWhhno+OoQ8gHu
+zKNQHdV2RHr/Ns4z7tP7aNyWiCgSmmOwJ/0l7pY74NjxbZPdqVnHMy5Vg6ehggOH
+ShKk6N561W4856G2AaiOqtY1a84wj1l5GtAtSbfVJtu3SdOvdiR2oD8C8IWx71VN
+EGjEuIkbWdyysVQkhXkn1GAl8E3CRPqDrqJL4HA9CSAPEvvhbpUvJ/j+dqp+bH68
+kPBVOVVKdzUBbngYeRpSwGm2WlbZ8RiWoeodsixPKiK2tSqtGG+D1H/bOKH/aq8x
+PVGwpBZqfagUIDw+E1x1zmbtUkpY5nHCAcEo
+-----END CERTIFICATE-----
+
+# 複製cert.pem並改名成9a5ba575.0，會改成這樣是因為手機當中儲存憑證的方式就是這樣
+$ cp cert.pem 9a5ba575.0
+
+# 這一段是print出9a5ba575.0的subject，也就是上面做hash的標的就是下面這一串東西，所以只要是PortSwigger的憑證，只要他們沒有改subject，基本上做hash得到的結果都會是9a5ba575
+$ openssl x509 -inform PEM -subject -in 9a5ba575.0
+subject=C = PortSwigger, ST = PortSwigger, L = PortSwigger, O = PortSwigger, OU = PortSwigger CA, CN = PortSwigger CA
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>丟到手機端中儲存憑證的絕對位址
+如果直接用adb push到該位置，會發現錯誤，原因是該位置是read only的狀態，所以我們要進到su進到root權限改變read only的狀態，再把東西丟進去就完成安裝了
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ adb shell
+# su
+# mount -o remount,rw /
+# exit
+# exit
+$ adb push 9a5ba575.0 /system/etc/security/cacerts/
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;h2 id="實際攔截前">
+ 實際攔截前
+ &lt;a class="anchor" href="#%e5%af%a6%e9%9a%9b%e6%94%94%e6%88%aa%e5%89%8d">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>打開的Burp Suite一定要把Bind to address改成All interfaces
+![圖片](&lt;a href="https://hackmd.io/_uploads/B1HBnVVPR.png">https://hackmd.io/_uploads/B1HBnVVPR.png&lt;/a> =400x)&lt;/li>
+&lt;li>設定手機端的網路Proxy
+這一部分就跟ZAP當初設定的時候一模一樣，當然也是可以像教學影片那樣用CLI的方式處理
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ adb shell settings put global http_proxy &amp;lt;proxy server ip&amp;gt;:8080 # set phone proxy
+$ adb shell settings put global http_proxy :0 # unset phone proxy
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>接下來就可以實際攔截了&lt;/li>
+&lt;/ol>
+&lt;h2 id="bypass-ssl-pinning-by-frida">
+ Bypass SSL Pinning by Frida
+ &lt;a class="anchor" href="#bypass-ssl-pinning-by-frida">#&lt;/a>
+&lt;/h2>
+&lt;p>還記得之前做的實驗&lt;a href="https://hackmd.io/@SBK6401/r155hduCT#%e7%84%a1%e6%b3%95%e4%bd%bf%e7%94%a8">論文筆記&lt;/a>中有提到，有一部分的app就算安裝了SSL Unpinning的Plugin還是無法攔截到流量，根據&lt;a href="https://httptoolkit.com/blog/frida-certificate-pinning/">Defeating Android Certificate Pinning with Frida&lt;/a>文章的說明，Facebook各式各樣的App所使用的憑證標準和實作方式都是自定義的，而不是用標準API，這樣的話用一般的SSL Unpinning就還是不會成功&lt;/p></description></item><item><title>MITMProxy相關問題整理</title><link>https://bernie6401.github.io/docs/problem-solutions/mitmproxy%E7%9B%B8%E9%97%9C%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/mitmproxy%E7%9B%B8%E9%97%9C%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</guid><description>&lt;h1 id="mitmproxy相關問題整理">
+ MITMProxy相關問題整理
+ &lt;a class="anchor" href="#mitmproxy%e7%9b%b8%e9%97%9c%e5%95%8f%e9%a1%8c%e6%95%b4%e7%90%86">#&lt;/a>
+&lt;/h1>
+&lt;p>資料來源: &lt;a href="https://github.com/mitmproxy/mitmproxy/issues/5442">https://github.com/mitmproxy/mitmproxy/issues/5442&lt;/a>&lt;/p>
+&lt;h2 id="server-tls-handshake-failed-the-remote-server-does-not-speak-tls">
+ Server TLS handshake failed. The remote server does not speak TLS.
+ &lt;a class="anchor" href="#server-tls-handshake-failed-the-remote-server-does-not-speak-tls">#&lt;/a>
+&lt;/h2>
+&lt;p>代表連線的標的無法處理https的scheme，如果確定連線的目標是開在localhost或是一定是http scheme的話，可以利用script去hook流量把https改掉&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python!" data-lang="python!">from mitmproxy import http
+
+def request(flow: http.HTTPFlow) -&amp;gt; None:
+ # 檢查請求是否是 HTTPS
+ if flow.request.scheme == &amp;#34;https&amp;#34;:
+ # 將 URL 中的 HTTPS 替換為 HTTP
+ flow.request.url = flow.request.url.replace(&amp;#39;https://&amp;#39;, &amp;#39;http://&amp;#39;)
+&lt;/code>&lt;/pre>&lt;h2 id="unable-to-establish-tls-connection-with-server-the-remote-server-does-not-speak-tls-trying-to-establish-tls-with-client-anyway-if-you-plan-to-redirect-requests-away-from-this-server-consider-setting-connection_strategy-to-lazy-to-suppress-early-connections">
+ Unable to establish TLS connection with server (The remote server does not speak TLS.). Trying to establish TLS with client anyway. If you plan to redirect requests away from this server, consider setting &lt;code>connection_strategy&lt;/code> to &lt;code>lazy&lt;/code> to suppress early connections.
+ &lt;a class="anchor" href="#unable-to-establish-tls-connection-with-server-the-remote-server-does-not-speak-tls-trying-to-establish-tls-with-client-anyway-if-you-plan-to-redirect-requests-away-from-this-server-consider-setting-connection_strategy-to-lazy-to-suppress-early-connections">#&lt;/a>
+&lt;/h2>
+&lt;p>出現這個warning，&lt;/p></description></item><item><title>Problems About Multiprocess</title><link>https://bernie6401.github.io/docs/problem-solutions/problems-about-multiprocess/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/problems-about-multiprocess/</guid><description>&lt;h1 id="problems-about-multiprocess">
+ Problems About Multiprocess
+ &lt;a class="anchor" href="#problems-about-multiprocess">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;a href="https://blog.csdn.net/LutingWang/article/details/124203032">徹底解出TypeError: cannot pickle &amp;lsquo;_thread.RLock&amp;rsquo; object，以PyTorch DDP 為例 &lt;/a>
+&lt;a href="https://blog.csdn.net/jbluxun/article/details/134167082">TypeError: cannot pickle &amp;lsquo;_thread.lock&amp;rsquo; object的一個淺層解決方法&lt;/a>
+&lt;a href="https://blog.csdn.net/nangua06/article/details/129668222">ForkingPickler can&amp;rsquo;t pickle weakref objects&lt;/a>&lt;/p></description></item><item><title>pwndbg installation problems</title><link>https://bernie6401.github.io/docs/problem-solutions/pwndbg-installation-problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/pwndbg-installation-problems/</guid><description>&lt;h1 id="pwndbg-installation-problems">
+ pwndbg installation problems
+ &lt;a class="anchor" href="#pwndbg-installation-problems">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="normal-installation">
+ Normal Installation
+ &lt;a class="anchor" href="#normal-installation">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/pwndbg/pwndbg
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd pwndbg
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./setup.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="problem-i">
+ Problem I
+ &lt;a class="anchor" href="#problem-i">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ python3-venv : Depends: python3.8-venv (&amp;gt;= 3.8.2-1~) but it is not going to be installed
+ Depends: python3 (= 3.8.2-0ubuntu2) but 3.10.4-0ubuntu2 is to be installed
+E: Unable to correct problems, you have held broken packages.
+&lt;/code>&lt;/pre>&lt;ol>
+&lt;li>
+&lt;p>如果遇到這種的問題，就直接分析setup.sh是crash在哪邊，照理說應該是跟python的版本有關係，想我的狀況是原本安裝python3的version是3.10，而不是3.8，所以最直接的做法是修改setup.sh file，在第23行的地方修改一下，直接指定安裝的版本，另外&lt;/p></description></item><item><title>React Native - Error resolving plugin [id: 'com.facebook.react.settings']</title><link>https://bernie6401.github.io/docs/problem-solutions/react-native---error-resolving-plugin-id_-com.facebook.react.settings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/react-native---error-resolving-plugin-id_-com.facebook.react.settings/</guid><description>&lt;h1 id="react-native---error-resolving-plugin-id-comfacebookreactsettings">
+ React Native - Error resolving plugin [id: &amp;lsquo;com.facebook.react.settings&amp;rsquo;]
+ &lt;a class="anchor" href="#react-native---error-resolving-plugin-id-comfacebookreactsettings">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="problem-statement">
+ Problem Statement
+ &lt;a class="anchor" href="#problem-statement">#&lt;/a>
+&lt;/h2>
+&lt;p>這個錯誤是發生在我想要創建一個新的React Native專案，但不管是用&lt;a href="https://reactnative.cn/docs/environment-setup">Official Document&lt;/a>還是其他網路文章的分享，我都無法順利創建，確切的錯誤message如下&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ yarn android
+yarn run v1.22.22
+$ react-native run-android
+(node:13044) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+info A dev server is already running for this project on port 8081.
+info Installing the app...
+
+info 💡 Tip: Make sure that you have set up your development environment correctly, by running npx react-native doctor. To read more about doctor command visit: https://github.com/react-native-community/cli/blob/main/packages/cli-doctor/README.md#doctor
+
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Settings file &amp;#39;D:\Downloads\Trash\MyProject\android\settings.gradle&amp;#39; line: 2
+
+* What went wrong:
+Error resolving plugin [id: &amp;#39;com.facebook.react.settings&amp;#39;]
+&amp;gt; java.io.UncheckedIOException: Could not move temporary workspace (D:\Downloads\Trash\MyProject\android\.gradle\8.8\dependencies-accessors\569c8b261a8a714d7731d5f568e0e5c05babae10-3763ef7e-e78a-4639-821b-3aa92091847a) to immutable location (D:\Downloads\Trash\MyProject\android\.gradle\8.8\dependencies-accessors\569c8b261a8a714d7731d5f568e0e5c05babae10)
+&lt;/code>&lt;/pre>&lt;p>我是按照官方的文檔進行創建，而錯誤是發生在gradle的setting file中發生問題(MyProject\android\settings.gradle)，具體來說應該是版本上的問題，有嘗試針對以下文章說明的解決方式試看看，但都一無所獲&lt;/p></description></item><item><title>UiAutomatorViewer 常見問題整理</title><link>https://bernie6401.github.io/docs/problem-solutions/uiautomatorviewer-%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/uiautomatorviewer-%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E6%95%B4%E7%90%86/</guid><description>&lt;h1 id="uiautomatorviewer-常見問題整理">
+ UiAutomatorViewer 常見問題整理
+ &lt;a class="anchor" href="#uiautomatorviewer-%e5%b8%b8%e8%a6%8b%e5%95%8f%e9%a1%8c%e6%95%b4%e7%90%86">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="java版本不相容">
+ Java版本不相容
+ &lt;a class="anchor" href="#java%e7%89%88%e6%9c%ac%e4%b8%8d%e7%9b%b8%e5%ae%b9">#&lt;/a>
+&lt;/h2>
+&lt;p>參考來源1: &lt;a href="https://khemlall-mangal.medium.com/setting-up-appium-configuration-on-windows-mac-efbc4d4a7bc3">Setting up Appium configuration on windows / Mac&lt;/a>
+參考來源2: &lt;a href="https://blog.csdn.net/zyself/article/details/124084171">uiautomatorviewer閃退、提示Could not create the Java Virtual Machine等問題的處理&lt;/a>&lt;/p>
+&lt;p>如果電腦安裝的JAVA version不是JAVA 8的話，有極高的機率會出錯，但又不想要覆蓋掉自己原本安裝的latest version，那參考來源1這個forum可以滿足這樣的事情&lt;/p>
+&lt;ol>
+&lt;li>下載JAVA 8並安裝 - 參考&lt;a href="https://blog.csdn.net/JunLeon/article/details/122623465">(超詳細）2022年最新版java 8（jdk1.8u321）安裝教程&lt;/a>
+Official Link: &lt;a href="https://www.oracle.com/java/technologies/downloads/#java8-windows">https://www.oracle.com/java/technologies/downloads/#java8-windows&lt;/a>&lt;/li>
+&lt;li>下載完UiAutomatorViewer之後直接改內部的bat file
+&lt;ol>
+&lt;li>Open &lt;code>uiautomatorviewer.bat&lt;/code> with editor by the path - &lt;code>%USERPROFILE%\AppData\Local\Android\Sdk\tools\bin\uiautomatorviewer.bat&lt;/code>&lt;/li>
+&lt;li>搜尋&lt;code>set java_exe=&lt;/code>並且設定成comment，再更新如下
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ set java_exe&lt;span style="color:#f92672">=&lt;/span>C:&lt;span style="color:#ae81ff">\P&lt;/span>rogram Files&lt;span style="color:#ae81ff">\J&lt;/span>ava&lt;span style="color:#ae81ff">\j&lt;/span>dk-1.8&lt;span style="color:#ae81ff">\b&lt;/span>in&lt;span style="color:#ae81ff">\j&lt;/span>ava.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;img src="https://hackmd.io/_uploads/BktkRCFcR.png" alt="圖片" />&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="error-while-obtaining-ui-hierarchy-xml-file-comandroidddmlibsyncexception-remote-object-doesnt-exist">
+ Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn&amp;rsquo;t exist!
+ &lt;a class="anchor" href="#error-while-obtaining-ui-hierarchy-xml-file-comandroidddmlibsyncexception-remote-object-doesnt-exist">#&lt;/a>
+&lt;/h2>
+&lt;p>這個的解決方案有很多，我是在使用Spotify的時候出現這個問題，解決的方案是第一個
+參考來源1: &lt;a href="https://blog.csdn.net/YiLiuF/article/details/109601968">CSDN - adb常用命令&lt;/a>
+參考來源2: &lt;a href="https://www.cnblogs.com/lilip/p/11089713.html">cnblogs - 【Android】【問題解決記錄】Error obtaining UI hierarchy :Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn&amp;rsquo;t exist!&lt;/a>
+參考來源3: &lt;a href="https://stackoverflow.com/questions/40214342/error-obtaining-ui-hierarchy-error-while-obtaining-ui-hierarchy-xml-file-com-an">StackOverflow - Error obtaining UI hierarchy Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn&amp;rsquo;t exist&lt;/a>
+參考來源4: &lt;a href="https://blog.csdn.net/weixin_39230341/article/details/90598944">CSDN - Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncExceptio解決方法&lt;/a>
+參考來源5: &lt;a href="https://blog.csdn.net/suncanshine/article/details/124546419">uiautomatorviewer報錯：Remote object doesn‘t exist Error while obtaining UI hierarchy XML file&lt;/a>&lt;/p></description></item><item><title>Unexpected fatal error while initializing python runtime.</title><link>https://bernie6401.github.io/docs/problem-solutions/unexpected-fatal-error-while-initializing-python-runtime_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/unexpected-fatal-error-while-initializing-python-runtime_/</guid><description>&lt;h1 id="unexpected-fatal-error-while-initializing-python-runtime">
+ Unexpected fatal error while initializing python runtime.
+ &lt;a class="anchor" href="#unexpected-fatal-error-while-initializing-python-runtime">#&lt;/a>
+&lt;/h1>
+&lt;p>Complete error message: Unexpected fatal error while initializing python runtime. Please run idapyswitch to confirm or change the used Python runtime&lt;/p>
+&lt;h2 id="solution">
+ Solution
+ &lt;a class="anchor" href="#solution">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/434575474">IDA出错unexpected fatal error while intitailizing python runtime.&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>只要在使用者變數增加&lt;code>PYTHON:C:\Users\berni\anaconda3\envs\NTUCNS\&lt;/code>
+&lt;img src="https://hackmd.io/_uploads/r1aVq-su2.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在增加環境變數&lt;code>C:\Users\berni\anaconda3\envs\NTUCNS\Lib&lt;/code>
+&lt;img src="https://hackmd.io/_uploads/Hkkv5bs_2.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>Note: ==但這樣的情況會變成VSCode的terminal沒辦法使用conda的command，而一般的CMD或是WSL不受影響==&lt;/p>
+&lt;h2 id="ida-pro-77">
+ IDA Pro 7.7
+ &lt;a class="anchor" href="#ida-pro-77">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://github.com/751643992/IDA_Pro_7.7">IDA Pro 7.7&lt;/a>&lt;/p>
+&lt;h2 id="other-reference">
+ Other Reference
+ &lt;a class="anchor" href="#other-reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.csdn.net/tbk345/article/details/124163684">IDA免安裝版沒有python執行功能&lt;/a>
+&lt;a href="https://blog.csdn.net/weixin_45055269/article/details/105940348">IDA7.0的脚本语言：idc和idapython&lt;/a>&lt;/p></description></item><item><title>VirtualBox滑鼠無法跳出</title><link>https://bernie6401.github.io/docs/problem-solutions/virtualbox%E6%BB%91%E9%BC%A0%E7%84%A1%E6%B3%95%E8%B7%B3%E5%87%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/virtualbox%E6%BB%91%E9%BC%A0%E7%84%A1%E6%B3%95%E8%B7%B3%E5%87%BA/</guid><description>&lt;h1 id="virtualbox滑鼠無法跳出">
+ VirtualBox滑鼠無法跳出
+ &lt;a class="anchor" href="#virtualbox%e6%bb%91%e9%bc%a0%e7%84%a1%e6%b3%95%e8%b7%b3%e5%87%ba">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="problem-description">
+ Problem Description
+ &lt;a class="anchor" href="#problem-description">#&lt;/a>
+&lt;/h2>
+&lt;p>在VirtualBox中如果滑鼠無法跳回本機，請先按照其他blog提出的solution自行排除&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>，如果暫時找不到解決辦法，也可以參考&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>的做法，Ctrl+Alt+Del強制本機電腦跳出windows選項，此時滑鼠的控制權就會交回到本機端&lt;/p>
+&lt;h2 id="solution">
+ Solution
+ &lt;a class="anchor" href="#solution">#&lt;/a>
+&lt;/h2>
+&lt;p>我的狀況是鍵盤是新買的小鍵盤，所以沒有Right Ctrl可以用，只有左邊，而且安裝增強功能VirtualBox會一直跳出&amp;quot;無法掛載映像檔&amp;quot;的字樣，最後是參考&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>中下面有一半教學是示範linux遇到這個問題要如何解決，簡單說就是手動在控制器的地方加入光碟機，並且選擇VBoxGuestAddition.iso，之後重開機就可以了
+&lt;img src="https://hackmd.io/_uploads/rJc9d3Sp3.png" alt="" />
+之後在VM的主視窗中選擇==插入Guest Additions CD映像檔==，就可以在系統中看到CD被掛載上去了，只要按照一般的安裝流程在reboot就可以解決滑鼠自由移動的目的了
+&lt;img src="https://hackmd.io/_uploads/SJjrYhrT2.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/r1R5Y3H63.png" alt="" />&lt;/p>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://blog.csdn.net/lijun5635/article/details/8715915">VirtualBox中鼠標在主機和虛擬機之間切換&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a href="https://support.huaweicloud.com/bestpractice-ims/ims_bp_0010.html">在Windows虛擬機中安裝Virtualbox增強功能&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>&lt;a href="https://zhidao.baidu.com/question/280635794.html"> oracle vm virtualbox 怎麽讓鼠標出來啊？ &lt;/a>&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>&lt;a href="https://blog.moa.tw/2012/08/virtualbox-windowshostvm.html"> [VirtualBox] windows下解決移除Host鍵後VM滑鼠無法移出 &lt;/a>&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:5">
+&lt;p>&lt;a href="https://www.jinnsblog.com/2021/05/virtualbox-guest-additions-install-guide.html">Virtualbox Guest Additions 安裝教學 [Linux / Windows]&lt;/a>&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>WSL tty /dev/tty0</title><link>https://bernie6401.github.io/docs/problem-solutions/wsl-tty-_dev_tty0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/wsl-tty-_dev_tty0/</guid><description>&lt;h1 id="wsl-tty-devtty0">
+ WSL tty /dev/tty0
+ &lt;a class="anchor" href="#wsl-tty-devtty0">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="problem-description">
+ Problem Description
+ &lt;a class="anchor" href="#problem-description">#&lt;/a>
+&lt;/h2>
+&lt;p>之前重灌電腦，重新載了WSL，但不知道為甚麼WSL沒有升到version 2，這會導致我在用gdb的時候(我是用gef)，想要設定redirect，但是看了別的視窗的tty都顯示/dev/tty1，而不是/dev/pts/1，導致無法如設定一樣可以分開視窗&lt;/p>
+&lt;h2 id="solution">
+ Solution
+ &lt;a class="anchor" href="#solution">#&lt;/a>
+&lt;/h2>
+&lt;p>先回答原因，這是因為目前的wsl version是1而不是2，所以只要把wsl version轉到2就可以了，具體做法可以參考這篇文章&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;ol>
+&lt;li>確定wsl版本
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ wsl --list --verbose
+ NAME STATE VERSION
+* Ubuntu-18.04 Stopped 1
+ docker-desktop Stopped 2
+ docker-desktop-data Stopped 2
+ Ubuntu-20.04 Running 1
+ Ubuntu-22.04 Stopped 1
+&lt;/code>&lt;/pre>可以看到目前所有版本都還是1&lt;/li>
+&lt;li>Switch
+用管理員權限打開PowerShell
+&lt;pre tabindex="0">&lt;code class="language-shell!" data-lang="shell!">$ Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform 
+$ wsl --set-version Ubuntu-18.04 2
+$ wsl --set-version Ubuntu-20.04 2
+$ wsl --set-version Ubuntu-22.04 2
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ol>
+&lt;p>最後就可以開始設定gef config&lt;/p>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://samiouob.github.io/2019/06/17/WSL2/">[WSL] 將 WSL 升級成 WSL2 吧 !&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>WSL2 Cannot List Android Devices</title><link>https://bernie6401.github.io/docs/problem-solutions/wsl2-cannot-list-android-devices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/wsl2-cannot-list-android-devices/</guid><description>&lt;h1 id="wsl2-cannot-list-android-devices">
+ WSL2 Cannot List Android Devices
+ &lt;a class="anchor" href="#wsl2-cannot-list-android-devices">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="問題描述">
+ 問題描述
+ &lt;a class="anchor" href="#%e5%95%8f%e9%a1%8c%e6%8f%8f%e8%bf%b0">#&lt;/a>
+&lt;/h2>
+&lt;p>這個問題的前題是Windows CMD以及WSL2都有正確安裝adb，但前者可以正常list出連接的device，後者卻為空&lt;/p>
+&lt;h2 id="how-to-solve">
+ How to Solve
+ &lt;a class="anchor" href="#how-to-solve">#&lt;/a>
+&lt;/h2>
+&lt;p>這是參考&lt;a href="https://stackoverflow.com/a/71414575/15036381">StackOverflow - ADB device list empty using WSL2&lt;/a>的說明，具體原理就是我們直接把Windows安裝adb的path，soft link給WSL2的path就可以了&lt;/p>
+&lt;ol>
+&lt;li>先找出Windows安裝adb的path
+自行尋找&lt;/li>
+&lt;li>找出WSL2中adb的path
+通常是&lt;code>/usr/bin/adb&lt;/code>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ll /usr/bin/adb
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lrwxrwxrwx &lt;span style="color:#ae81ff">1&lt;/span> root root &lt;span style="color:#ae81ff">45&lt;/span> Aug &lt;span style="color:#ae81ff">14&lt;/span> 12:07 /usr/bin/adb -&amp;gt; lrwxrwxrwx &lt;span style="color:#ae81ff">1&lt;/span> root root &lt;span style="color:#ae81ff">37&lt;/span> Jan &lt;span style="color:#ae81ff">23&lt;/span> &lt;span style="color:#ae81ff">2022&lt;/span> /usr/bin/adb_bk -&amp;gt; ../lib/android-sdk/platform-tools/adb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>備份原本的soft link
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo mv /usr/bin/adb /usr/bin/adb_bk
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>取代softlink
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo ln -sf /mnt/&amp;lt;folder path to adb&amp;gt;/adb.exe /usr/bin/adb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>測試
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ adb devices
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>* daemon not running; starting now at tcp:5037
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>* daemon started successfully
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>List of devices attached
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>RFCW81CY9AD device
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol></description></item><item><title>如何使用Hugo+Github架設網站</title><link>https://bernie6401.github.io/docs/problem-solutions/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo+github%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo+github%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/</guid><description>&lt;h1 id="如何使用hugogithub架設網站">
+ 如何使用Hugo+Github架設網站
+ &lt;a class="anchor" href="#%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8hugogithub%e6%9e%b6%e8%a8%ad%e7%b6%b2%e7%ab%99">#&lt;/a>
+&lt;/h1>
+&lt;p>參考資料: &lt;a href="https://kucw.io/blog/2021/1/from-medium-to-github/">為了 SEO！我離開了 Medium，改在 GitHub 上自架個人網站&lt;/a>&lt;/p>
+&lt;h2 id="註冊github-account--create-github-page">
+ 註冊Github Account &amp;amp; Create Github Page
+ &lt;a class="anchor" href="#%e8%a8%bb%e5%86%8agithub-account--create-github-page">#&lt;/a>
+&lt;/h2>
+&lt;p>參考資料: &lt;a href="https://hackmd.io/@flagmaker/BkvQphP65">使用 GitHub Pages 架設個人網站&lt;/a>&lt;/p>
+&lt;h2 id="optional">
+ (Optional)
+ &lt;a class="anchor" href="#optional">#&lt;/a>
+&lt;/h2>
+&lt;p>參考資料: &lt;a href="https://medium.com/zrealm-ios-dev/github-pages-%E8%87%AA%E8%A8%82%E7%B6%B2%E5%9F%9F%E6%95%99%E5%AD%B8-483af5d93297">Github Pages 自訂網域教學&lt;/a>&lt;/p>
+&lt;h2 id="hugo-step">
+ Hugo Step
+ &lt;a class="anchor" href="#hugo-step">#&lt;/a>
+&lt;/h2>
+&lt;p>參考資料: &lt;a href="https://sean22492249.medium.com/%E4%BD%BF%E7%94%A8-hugo-%E5%9C%A8-github-%E9%83%A8%E7%BD%B2%E5%80%8B%E4%BA%BA%E7%B6%B2%E7%AB%99-5b2ff19f8b6">使用 Hugo 在 github 部署個人網站&lt;/a>&lt;/p>
+&lt;h3 id="安裝hugolatest-version">
+ 安裝Hugo(latest version)
+ &lt;a class="anchor" href="#%e5%ae%89%e8%a3%9dhugolatest-version">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>在&lt;a href="https://github.com/gohugoio/hugo/releases">Github Release&lt;/a>可以找到符合自己需求的版本，目前我是選&lt;code>0.145.0_windows_amd64&lt;/code>&lt;/li>
+&lt;li>解壓縮到&lt;code>C:\hugo\bin&lt;/code>&lt;/li>
+&lt;li>設定環境變數，設定完後測試
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ hugo version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hugo v0.145.0-666444f0a52132f9fec9f71cf25b441cc6a4f355 windows/amd64 BuildDate&lt;span style="color:#f92672">=&lt;/span>2025-02-26T15:41:25Z VendorInfo&lt;span style="color:#f92672">=&lt;/span>gohugoio
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="deploy-website-on-local">
+ Deploy Website on Local
+ &lt;a class="anchor" href="#deploy-website-on-local">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>Create New Site
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ hugo new site demo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Congratulations! Your new Hugo site was created in D:&lt;span style="color:#ae81ff">\L&lt;/span>ife&lt;span style="color:#ae81ff">\W&lt;/span>ebsite&lt;span style="color:#ae81ff">\d&lt;/span>emo.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Just a few more steps...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1. Change the current directory to D:&lt;span style="color:#ae81ff">\L&lt;/span>ife&lt;span style="color:#ae81ff">\W&lt;/span>ebsite&lt;span style="color:#ae81ff">\d&lt;/span>emo.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2. Create or install a theme:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - Create a new theme with the command &lt;span style="color:#e6db74">&amp;#34;hugo new theme &amp;lt;THEMENAME&amp;gt;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - Or, install a theme from https://themes.gohugo.io/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>3. Edit hugo.toml, setting the &lt;span style="color:#e6db74">&amp;#34;theme&amp;#34;&lt;/span> property to the theme name.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>4. Create new content with the command &lt;span style="color:#e6db74">&amp;#34;hugo new content &amp;lt;SECTIONNAME&amp;gt;\&amp;lt;FILENAME&amp;gt;.&amp;lt;FORMAT&amp;gt;&amp;#34;&lt;/span>.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>5. Start the embedded web server with the command &lt;span style="color:#e6db74">&amp;#34;hugo server --buildDrafts&amp;#34;&lt;/span>.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>See documentation at https://gohugo.io/.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>選擇Hugo Theme並且更新toml File
+到Hugo的&lt;a href="https://themes.gohugo.io/">Official Demo Theme&lt;/a>看哪一個theme適合自己，假設我選擇relearn這個theme，就點選Download
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ cd ./demo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git submodule add https://github.com/McShelby/hugo-theme-relearn.git themes/relearn &lt;span style="color:#75715e"># 因為我是用relearn這個theme所以URL和folder name是customize&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 也可以直接下載zip file，不過下面在設定toml file有一個地方要修改&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ echo theme &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;relearn&amp;#39;&lt;/span>&amp;gt;&amp;gt; hugo.toml &lt;span style="color:#75715e"># For CMD&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;theme = &amp;#39;relearn&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; hugo.toml &lt;span style="color:#75715e"># For linux&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>這個toml檔案就是一個config file，所以描述網站的最基本資訊&lt;/li>
+&lt;li>新增一個測試的檔案
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ hugo new posts/hello.md
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cat ./content/posts/hello.md
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>+++
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>date &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;2025-04-02T19:15:29+08:00&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>draft &lt;span style="color:#f92672">=&lt;/span> true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Hello&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>+++
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>hugo會在&lt;code>./demo/content/posts&lt;/code>的地方新增一個hello.md這個檔案，並且把draft property改成false，最後deploy之後才會顯示&lt;/li>
+&lt;li>Deploy Local Server
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ hugo server
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Watching &lt;span style="color:#66d9ef">for&lt;/span> changes in D:&lt;span style="color:#ae81ff">\L&lt;/span>ife&lt;span style="color:#ae81ff">\W&lt;/span>ebsite&lt;span style="color:#ae81ff">\d&lt;/span>emo&lt;span style="color:#ae81ff">\{&lt;/span>archetypes,assets,content,data,i18n,layouts,static,themes&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Watching &lt;span style="color:#66d9ef">for&lt;/span> config changes in D:&lt;span style="color:#ae81ff">\L&lt;/span>ife&lt;span style="color:#ae81ff">\W&lt;/span>ebsite&lt;span style="color:#ae81ff">\d&lt;/span>emo&lt;span style="color:#ae81ff">\h&lt;/span>ugo.toml, D:&lt;span style="color:#ae81ff">\L&lt;/span>ife&lt;span style="color:#ae81ff">\W&lt;/span>ebsite&lt;span style="color:#ae81ff">\d&lt;/span>emo&lt;span style="color:#ae81ff">\t&lt;/span>hemes&lt;span style="color:#ae81ff">\r&lt;/span>elearn&lt;span style="color:#ae81ff">\h&lt;/span>ugo.toml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Start building sites …
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hugo v0.145.0-666444f0a52132f9fec9f71cf25b441cc6a4f355 windows/amd64 BuildDate&lt;span style="color:#f92672">=&lt;/span>2025-02-26T15:41:25Z VendorInfo&lt;span style="color:#f92672">=&lt;/span>gohugoio
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> | EN
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-------------------+-----
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Pages | &lt;span style="color:#ae81ff">11&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Paginator pages | &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Non-page files | &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Static files | &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Processed images | &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Aliases | &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Cleaned | &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Built in &lt;span style="color:#ae81ff">163&lt;/span> ms
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Environment: &lt;span style="color:#e6db74">&amp;#34;development&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Serving pages from disk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Web Server is available at http://localhost:1313/ &lt;span style="color:#f92672">(&lt;/span>bind address 127.0.0.1&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Press Ctrl+C to stop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;img src="https://hackmd.io/_uploads/SkoITccp1e.png" alt="圖片" />
+現在Local的deployment已經完成，剩下的就是deploy到Github Page&lt;/li>
+&lt;/ol>
+&lt;h2 id="利用github-action-deploy-hugo">
+ 利用Github Action Deploy Hugo
+ &lt;a class="anchor" href="#%e5%88%a9%e7%94%a8github-action-deploy-hugo">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>如果沒有碰過github action的人可能要先熟悉一下，這東西就是github的自動化流程，網路上有很多種action script，應該大同小異，我是用&lt;a href="https://github.com/peaceiris/actions-gh-pages#getting-started">peaceiris/actions-gh-pages&lt;/a>&lt;/p></description></item></channel></rss>
