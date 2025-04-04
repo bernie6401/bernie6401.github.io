@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - Easy Peasy</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---easy-peasy/</guid><description>&lt;h1 id="picoctf---easy-peasy">
+ PicoCTF - Easy Peasy
+ &lt;a class="anchor" href="#picoctf---easy-peasy">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-crypto">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Crypto&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-crypto">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="">Easy Peasy&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">#!/usr/bin/python3 -u
+import os.path
+
+KEY_FILE = &amp;#34;key&amp;#34;
+KEY_LEN = 50000
+FLAG_FILE = &amp;#34;flag&amp;#34;
+
+def startup(key_location):
+	flag = open(FLAG_FILE).read()
+	kf = open(KEY_FILE, &amp;#34;rb&amp;#34;).read()
+
+	start = key_location
+	stop = key_location + len(flag)
+
+	key = kf[start:stop]
+	key_location = stop
+
+	result = list(map(lambda p, k: &amp;#34;{:02x}&amp;#34;.format(ord(p) ^ k), flag, key))
+	print(&amp;#34;This is the encrypted flag!\n{}\n&amp;#34;.format(&amp;#34;&amp;#34;.join(result)))
+
+	return key_location
+
+def encrypt(key_location):
+	ui = input(&amp;#34;What data would you like to encrypt? &amp;#34;).rstrip()
+	if len(ui) == 0 or len(ui) &amp;gt; KEY_LEN:
+		return -1
+
+	start = key_location
+	stop = key_location + len(ui)
+
+	kf = open(KEY_FILE, &amp;#34;rb&amp;#34;).read()
+
+	if stop &amp;gt;= KEY_LEN:
+		stop = stop % KEY_LEN
+		key = kf[start:] + kf[:stop]
+	else:
+		key = kf[start:stop]
+	key_location = stop
+
+	result = list(map(lambda p, k: &amp;#34;{:02x}&amp;#34;.format(ord(p) ^ k), ui, key))
+
+	print(&amp;#34;Here ya go!\n{}\n&amp;#34;.format(&amp;#34;&amp;#34;.join(result)))
+
+	return key_location
+
+
+print(&amp;#34;******************Welcome to our OTP implementation!******************&amp;#34;)
+c = startup(0)
+while c &amp;gt;= 0:
+	c = encrypt(c)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - New Caesar</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---new-caesar/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---new-caesar/</guid><description>&lt;h1 id="picoctf---new-caesar">
+ PicoCTF - New Caesar
+ &lt;a class="anchor" href="#picoctf---new-caesar">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-crypto">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Crypto&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-crypto">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/158?category=2&amp;amp;page=1">New Caesar&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>::: spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">import string
+
+LOWERCASE_OFFSET = ord(&amp;#34;a&amp;#34;)
+ALPHABET = string.ascii_lowercase[:16]
+
+def b16_encode(plain):
+	enc = &amp;#34;&amp;#34;
+	for c in plain:
+		binary = &amp;#34;{0:08b}&amp;#34;.format(ord(c))
+		enc += ALPHABET[int(binary[:4], 2)]
+		enc += ALPHABET[int(binary[4:], 2)]
+	return enc
+
+def shift(c, k):
+	t1 = ord(c) - LOWERCASE_OFFSET
+	t2 = ord(k) - LOWERCASE_OFFSET
+	return ALPHABET[(t1 + t2) % len(ALPHABET)]
+
+flag = &amp;#34;redacted&amp;#34;
+key = &amp;#34;redacted&amp;#34;
+assert all([k in ALPHABET for k in key])
+assert len(key) == 1
+
+b16 = b16_encode(flag)
+enc = &amp;#34;&amp;#34;
+for i, c in enumerate(b16):
+	enc += shift(c, key[i % len(key)])
+print(enc)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Sequences</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---sequences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---sequences/</guid><description>&lt;h1 id="picoctf---sequences">
+ PicoCTF - Sequences
+ &lt;a class="anchor" href="#picoctf---sequences">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">import math
+import hashlib
+import sys
+from tqdm import tqdm
+import functools
+
+ITERS = int(2e7)
+VERIF_KEY = &amp;#34;96cc5f3b460732b442814fd33cf8537c&amp;#34;
+ENCRYPTED_FLAG = bytes.fromhex(&amp;#34;42cbbce1487b443de1acf4834baed794f4bbd0dfe2d6046e248ff7962b&amp;#34;)
+
+# This will overflow the stack, it will need to be significantly optimized in order to get the answer :)
+@functools.cache
+def m_func(i):
+ if i == 0: return 1
+ if i == 1: return 2
+ if i == 2: return 3
+ if i == 3: return 4
+
+ return 55692*m_func(i-4) - 9549*m_func(i-3) + 301*m_func(i-2) + 21*m_func(i-1)
+
+
+# Decrypt the flag
+def decrypt_flag(sol):
+ sol = sol % (10**10000)
+ sol = str(sol)
+ sol_md5 = hashlib.md5(sol.encode()).hexdigest()
+
+ if sol_md5 != VERIF_KEY:
+ print(&amp;#34;Incorrect solution&amp;#34;)
+ sys.exit(1)
+
+ key = hashlib.sha256(sol.encode()).digest()
+ flag = bytearray([char ^ key[i] for i, char in enumerate(ENCRYPTED_FLAG)]).decode()
+
+ print(flag)
+
+if __name__ == &amp;#34;__main__&amp;#34;:
+ sol = m_func(ITERS)
+ decrypt_flag(sol)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - XtraORdinary</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/classic/picoctf---xtraordinary/</guid><description>&lt;h1 id="picoctf---xtraordinary">
+ PicoCTF - XtraORdinary
+ &lt;a class="anchor" href="#picoctf---xtraordinary">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.finxter.com/how-to-convert-hex-string-to-bytes-in-python/">How to Convert Hex String to Bytes in Python?&lt;/a>
+&lt;a href="https://myapollo.com.tw/blog/python-itertools-more-itertools/">Python 好用模組介紹 - itertools &amp;amp; more-itertools&lt;/a>
+&lt;a href="https://www.w3schools.com/python/ref_file_readline.asp">Python File readline() Method&lt;/a>
+&lt;a href="https://www.geeksforgeeks.org/python-append-to-a-file/">Python append to a file&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">#!/usr/bin/env python3
+
+from random import randint
+with open(&amp;#39;flag.txt&amp;#39;, &amp;#39;rb&amp;#39;) as f:
+ flag = f.read()
+
+with open(&amp;#39;secret-key.txt&amp;#39;, &amp;#39;rb&amp;#39;) as f:
+ key = f.read()
+
+def encrypt(ptxt, key):
+ ctxt = b&amp;#39;&amp;#39;
+ for i in range(len(ptxt)):
+ a = ptxt[i]
+ b = key[i % len(key)]
+ ctxt += bytes([a ^ b])
+ return ctxt
+
+ctxt = encrypt(flag, key)
+
+random_strs = [
+ b&amp;#39;my encryption method&amp;#39;,
+ b&amp;#39;is absolutely impenetrable&amp;#39;,
+ b&amp;#39;and you will never&amp;#39;,
+ b&amp;#39;ever&amp;#39;,
+ b&amp;#39;ever&amp;#39;,
+ b&amp;#39;ever&amp;#39;,
+ b&amp;#39;ever&amp;#39;,
+ b&amp;#39;ever&amp;#39;,
+ b&amp;#39;ever&amp;#39;,
+ b&amp;#39;break it&amp;#39;
+]
+
+for random_str in random_strs:
+ for i in range(randint(0, pow(2, 8))):
+ for j in range(randint(0, pow(2, 6))):
+ for k in range(randint(0, pow(2, 4))):
+ for l in range(randint(0, pow(2, 2))):
+ for m in range(randint(0, pow(2, 0))):
+ ctxt = encrypt(ctxt, random_str)
+
+with open(&amp;#39;output.txt&amp;#39;, &amp;#39;w&amp;#39;) as f:
+ f.write(ctxt.hex())
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item></channel></rss>

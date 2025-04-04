@@ -1,40 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/index.xml" rel="self" type="application/rss+xml"/><item><title>Lab: Blind XXE with out-of-band interaction</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction">
- Lab: Blind XXE with out-of-band interaction
- &lt;a class="anchor" href="#lab-blind-xxe-with-out-of-band-interaction">#&lt;/a>
-&lt;/h1>
-&lt;h6 id="tags-portswigger-web-security-academy-web">
- tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
- &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
-&lt;/h6>
-&lt;ul>
-&lt;li>Description: This lab has a &amp;ldquo;Check stock&amp;rdquo; feature that parses XML input but does not display the result.
-You can detect the blind XXE vulnerability by triggering out-of-band interactions with an external domain.&lt;/li>
-&lt;li>Goal: To solve the lab, use an external entity to make the XML parser issue a DNS lookup and HTTP request to Burp Collaborator.&lt;/li>
-&lt;li>Hint:&lt;/li>
-&lt;/ul>
-&lt;h2 id="background">
- &lt;a href="https://portswigger.net/web-security/xxe/blind">Background&lt;/a>
- &lt;a class="anchor" href="#background">#&lt;/a>
-&lt;/h2>
-&lt;blockquote>
-&lt;p>有兩種廣泛的方法可以找到和利用Blind XXE 漏洞：&lt;/p></description></item><item><title>Lab: Blind XXE with out-of-band interaction via XML parameter entities</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/blind-xxe/lab_-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities/</guid><description>&lt;h1 id="lab-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities">
- Lab: Blind XXE with out-of-band interaction via XML parameter entities
- &lt;a class="anchor" href="#lab-blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities">#&lt;/a>
-&lt;/h1>
-&lt;h6 id="tags-portswigger-web-security-academy-web">
- tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
- &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
-&lt;/h6>
-&lt;ul>
-&lt;li>Description: This lab has a &amp;ldquo;Check stock&amp;rdquo; feature that parses XML input, but does not display any unexpected values, and blocks requests containing regular external entities.&lt;/li>
-&lt;li>Goal: To solve the lab, use a parameter entity to make the XML parser issue a DNS lookup and HTTP request to Burp Collaborator.&lt;/li>
-&lt;li>Hint: To prevent the Academy platform being used to attack third parties, our firewall blocks interactions between the labs and arbitrary external systems. To solve the lab, you must use Burp Collaborator&amp;rsquo;s default public server.&lt;/li>
-&lt;/ul>
-&lt;h2 id="background">
- Background
- &lt;a class="anchor" href="#background">#&lt;/a>
-&lt;/h2>
-&lt;p>這一題會用到Parameter Entity，也就是當server端擋掉外部的entity輸入時，可以直接在&lt;code>DOCTYPE&lt;/code>中直接Reference，也就是利用&lt;code>%&lt;/code>這個字元達到這個效果&lt;/p></description></item><item><title>Lab: Exploiting `XInclude` to retrieve files</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</guid><description>&lt;h1 id="lab-exploiting-xinclude-to-retrieve-files">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/index.xml" rel="self" type="application/rss+xml"/><item><title>Lab: Exploiting `XInclude` to retrieve files</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xinclude-to-retrieve-files/</guid><description>&lt;h1 id="lab-exploiting-xinclude-to-retrieve-files">
  Lab: Exploiting &lt;code>XInclude&lt;/code> to retrieve files
  &lt;a class="anchor" href="#lab-exploiting-xinclude-to-retrieve-files">#&lt;/a>
 &lt;/h1>
@@ -53,44 +17,7 @@ Because you don&amp;rsquo;t control the entire XML document you can&amp;rsquo;t 
  &lt;a class="anchor" href="#background">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>XInclude is a part of the XML specification that allows an XML document to be built from sub documents You can place an XInclude attack within any data value in an XML document, so the attack can be performed in situations where you only control a single item of data that is placed into a server side XML document&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd">
- Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD
- &lt;a class="anchor" href="#lab-exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd">#&lt;/a>
-&lt;/h1>
-&lt;h6 id="tags-portswigger-web-security-academy-web">
- tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
- &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
-&lt;/h6>
-&lt;ul>
-&lt;li>Description: This lab has a &amp;ldquo;Check stock&amp;rdquo; feature that parses XML input but does not display the result.&lt;/li>
-&lt;li>Goal: To solve the lab, exfiltrate the contents of the /etc/hostname file.&lt;/li>
-&lt;li>Hint: To prevent the Academy platform being used to attack third parties, our firewall blocks interactions between the labs and arbitrary external systems. To solve the lab, you must use the provided exploit server and/or Burp Collaborator&amp;rsquo;s default public server.&lt;/li>
-&lt;/ul>
-&lt;h2 id="recon">
- Recon
- &lt;a class="anchor" href="#recon">#&lt;/a>
-&lt;/h2>
-&lt;ol>
-&lt;li>
-&lt;p>Use the previous method
-:::spoiler Payload&lt;/p></description></item><item><title>Lab: Exploiting blind XXE to retrieve data via error messages</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/external-malicious-server/lab_-exploiting-blind-xxe-to-retrieve-data-via-error-messages/</guid><description>&lt;h1 id="lab-exploiting-blind-xxe-to-retrieve-data-via-error-messages">
- Lab: Exploiting blind XXE to retrieve data via error messages
- &lt;a class="anchor" href="#lab-exploiting-blind-xxe-to-retrieve-data-via-error-messages">#&lt;/a>
-&lt;/h1>
-&lt;h6 id="tags-portswigger-web-security-academy-web">
- tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
- &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
-&lt;/h6>
-&lt;ul>
-&lt;li>Description: This lab has a &amp;ldquo;Check stock&amp;rdquo; feature that parses XML input but does not display the result.&lt;/li>
-&lt;li>Goal: To solve the lab, use an external DTD to trigger an error message that displays the contents of the &lt;code>/etc/passwd&lt;/code> file.
-The lab contains a link to an exploit server on a different domain where you can host your malicious DTD.&lt;/li>
-&lt;/ul>
-&lt;h2 id="recon">
- Recon
- &lt;a class="anchor" href="#recon">#&lt;/a>
-&lt;/h2>
-&lt;p>This is very similar to the previous lab(Exploiting blind XXE to exfiltrate data using a malicious external DTD)&lt;/p></description></item><item><title>Lab: Exploiting XXE via image file upload</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</guid><description>&lt;h1 id="lab-exploiting-xxe-via-image-file-upload">
+&lt;p>XInclude is a part of the XML specification that allows an XML document to be built from sub documents You can place an XInclude attack within any data value in an XML document, so the attack can be performed in situations where you only control a single item of data that is placed into a server side XML document&lt;/p></description></item><item><title>Lab: Exploiting XXE via image file upload</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/xxe/lab_-exploiting-xxe-via-image-file-upload/</guid><description>&lt;h1 id="lab-exploiting-xxe-via-image-file-upload">
  Lab: Exploiting XXE via image file upload
  &lt;a class="anchor" href="#lab-exploiting-xxe-via-image-file-upload">#&lt;/a>
 &lt;/h1>

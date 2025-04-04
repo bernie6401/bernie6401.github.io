@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - `Wireshark doo dooo do doo...`</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wireshark-doo-dooo-do-doo.../</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wireshark-doo-dooo-do-doo.../</guid><description>&lt;h1 id="picoctf---wireshark-doo-dooo-do-doo">
+ PicoCTF - &lt;code>Wireshark doo dooo do doo...&lt;/code>
+ &lt;a class="anchor" href="#picoctf---wireshark-doo-dooo-do-doo">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/115?category=4&amp;amp;page=1">https://play.picoctf.org/practice/challenge/115?category=4&amp;page=1&lt;/a>&lt;/p>
+&lt;h2 id="exploit---strings--rot13">
+ Exploit - strings + rot13
+ &lt;a class="anchor" href="#exploit---strings--rot13">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ strings shark1.pcapng | grep &amp;#34;{&amp;#34;
+...
+Gur synt vf cvpbPGS{c33xno00_1_f33_h_qrnqorrs}
+...
+&lt;/code>&lt;/pre>&lt;p>Obviously a encrypted flag $\to$ use rot13
+flag: &lt;code>picoCTF{p33kab00_1_s33_u_deadbeef}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Eavesdrop</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---eavesdrop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---eavesdrop/</guid><description>&lt;h1 id="picoctf---eavesdrop">
+ PicoCTF - Eavesdrop
+ &lt;a class="anchor" href="#picoctf---eavesdrop">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題是有關eavesdropping，代表有一個中間人監聽了所有conversation，先用一些基本的手段看一下整體的pcap packets(strings searching/IO Graphs/Statistic/Extract Default Protocol File&amp;hellip;)，但是如果跟一下tcp的packets，可以發現傳輸兩方的對話紀錄，包括傳輸資料的加密方式等等，所以我們就可以直接把傳輸資料解密得到flag&lt;/p>
+&lt;h2 id="exploit---extract-file--decrypt">
+ Exploit - Extract File &amp;amp; Decrypt
+ &lt;a class="anchor" href="#exploit---extract-file--decrypt">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Follow TCP Packets
+&lt;pre tabindex="0">&lt;code>Hey, how do you decrypt this file again?
+You&amp;#39;re serious?
+Yeah, I&amp;#39;m serious
+*sigh* openssl des3 -d -salt -in file.des3 -out file.txt -k supersecretpassword123
+Ok, great, thanks.
+Let&amp;#39;s use Discord next time, it&amp;#39;s more secure.
+C&amp;#39;mon, no one knows we use this program like this!
+Whatever.
+Hey.
+Yeah?
+Could you transfer the file to me again?
+Oh great. Ok, over 9002?
+Yeah, listening.
+Sent it
+Got it.
+You&amp;#39;re unbelievable
+&lt;/code>&lt;/pre>從以上對話紀錄可以知道他們在9002 port有傳輸資料，並且解密的command是&lt;code>openssl des3 -d -salt -in file.des3 -out file.txt -k supersecretpassword123&lt;/code>&lt;/li>
+&lt;li>Extract File
+我們可以增加兩個column專門顯示source/destination port
+&lt;img src="https://hackmd.io/_uploads/B1ZrNEdOh.png" alt="" />
+然後找到port 9002的地方，可以發現No.57有附帶資料，把這筆資料另存起來
+&lt;img src="https://hackmd.io/_uploads/r11KNV_O2.png" alt="" />
+Note: 儲存資料到file.des3的時候，內容必須要是&lt;code>Salted__9BæÄ'÷b4Ó[ÐNXämn±'-ärGsðÏú :›çk¿«@Û=6&lt;/code>
+Note2: 也可以用&lt;code>tcpflow&lt;/code>的方式把資料download下來
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ sudo tcpflow -r {pcap file}
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Decrypt File
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ openssl des3 -d -salt -in file.des3 -out file.txt -k supersecretpassword123
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ol>
+&lt;p>Flag: &lt;code>picoCTF{nc_73115_411_dd54ab67}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - scrambled-bytes</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---scrambled-bytes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---scrambled-bytes/</guid><description>&lt;h1 id="picoctf---scrambled-bytes">
+ PicoCTF - scrambled-bytes
+ &lt;a class="anchor" href="#picoctf---scrambled-bytes">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.readfog.com/a/1635090435931213824">盤點一款 Python 發包收包利器 - scapy&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;h3 id="只發不收">
+ 只發不收
+ &lt;a class="anchor" href="#%e5%8f%aa%e7%99%bc%e4%b8%8d%e6%94%b6">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>send(pkt, inter&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>, loop&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>, count&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, iface&lt;span style="color:#f92672">=&lt;/span>N) 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pkt:數據包
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>inter&lt;span style="color:#960050;background-color:#1e0010">：&lt;/span>發包間隔時間
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>count&lt;span style="color:#960050;background-color:#1e0010">：&lt;/span>發包數量
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>iface&lt;span style="color:#960050;background-color:#1e0010">：&lt;/span>網卡接口名稱
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>send()&lt;span style="color:#960050;background-color:#1e0010">，&lt;/span>在第三層發包&lt;span style="color:#960050;background-color:#1e0010">，&lt;/span>沒有接收功能&lt;span style="color:#960050;background-color:#1e0010">；&lt;/span>send(IP(dst&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;www.baidu.com&amp;#34;&lt;/span>,ttl&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>)&lt;span style="color:#f92672">/&lt;/span>ICMP())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sendp()&lt;span style="color:#960050;background-color:#1e0010">，&lt;/span>在第二層發包&lt;span style="color:#960050;background-color:#1e0010">，&lt;/span>沒有接收功能&lt;span style="color:#960050;background-color:#1e0010">。&lt;/span>sr(Ether()&lt;span style="color:#f92672">/&lt;/span>IP(dst&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;www.baidu.com&amp;#34;&lt;/span>))
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;p>&lt;a href="https://docs.python.org/zh-tw/3/library/time.html#time.time">time-時間的訪問和轉換&lt;/a>
+&lt;a href="https://zhuanlan.zhihu.com/p/602431298">python 的pyshark庫如何使用&lt;/a>
+&lt;a href="https://segmentfault.com/a/1190000006064442">PyShark入門(2)：FileCapture和LiveCapture模塊&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">#!/usr/bin/env python3
+
+import argparse
+from progress.bar import IncrementalBar
+
+from scapy.all import *
+import ipaddress
+
+import random
+from time import time
+
+def check_ip(ip):
+ try:
+ return ipaddress.ip_address(ip)
+ except:
+ raise argparse.ArgumentTypeError(f&amp;#39;{ip} is an invalid address&amp;#39;)
+
+def check_port(port):
+ try:
+ port = int(port)
+ if port &amp;lt; 1 or port &amp;gt; 65535:
+ raise ValueError
+ return port
+ except:
+ raise argparse.ArgumentTypeError(f&amp;#39;{port} is an invalid port&amp;#39;)
+
+def main(args):
+ with open(args.input, &amp;#39;rb&amp;#39;) as f:
+ payload = bytearray(f.read())
+ random.seed(int(time()))
+ random.shuffle(payload)
+ with IncrementalBar(&amp;#39;Sending&amp;#39;, max=len(payload)) as bar:
+ for b in payload:
+ send(
+ IP(dst=str(args.destination)) /
+ UDP(sport=random.randrange(65536), dport=args.port) /
+ Raw(load=bytes([b^random.randrange(256)])),
+ verbose=False)
+ bar.next()
+
+if __name__==&amp;#39;__main__&amp;#39;:
+ parser = argparse.ArgumentParser()
+ parser.add_argument(&amp;#39;destination&amp;#39;, help=&amp;#39;destination IP address&amp;#39;, type=check_ip)
+ parser.add_argument(&amp;#39;port&amp;#39;, help=&amp;#39;destination port number&amp;#39;, type=check_port)
+ parser.add_argument(&amp;#39;input&amp;#39;, help=&amp;#39;input file&amp;#39;)
+ main(parser.parse_args())
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - shark on wire 1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-1/</guid><description>&lt;h1 id="picoctf---shark-on-wire-1">
+ PicoCTF - shark on wire 1
+ &lt;a class="anchor" href="#picoctf---shark-on-wire-1">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/30?category=4&amp;amp;page=2">shark on wire 1&lt;/a>&lt;/p>
+&lt;h2 id="exploit---analyze-udp-stream">
+ Exploit - Analyze UDP stream
+ &lt;a class="anchor" href="#exploit---analyze-udp-stream">#&lt;/a>
+&lt;/h2>
+&lt;p>It transfer the single character by UDP protocol.
+&lt;img src="https://i.imgur.com/ff5CsGr.png" alt="" />
+Follow the UDP stream and you&amp;rsquo;ll get the flag
+&lt;img src="https://i.imgur.com/EfK83gj.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - shark on wire 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---shark-on-wire-2/</guid><description>&lt;h1 id="picoctf---shark-on-wire-2">
+ PicoCTF - shark on wire 2
+ &lt;a class="anchor" href="#picoctf---shark-on-wire-2">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一提出的很硬要，誰知道會把flag藏在這種地方，也沒有任何的提示，如果不是看&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>根本不知道這題要表達甚麼，也可能是我太蔡&lt;/p>
+&lt;ol>
+&lt;li>Simple Recon
+首先做一些基本的recon，諸如dump files/string search/follow tcp or udp之類的，會發現UDP packets會有一些訊息出現，其中出現Start和一些a/b最後接著end
+&lt;img src="https://hackmd.io/_uploads/rkASlUD02.png" alt="" />
+&lt;img src="https://hackmd.io/_uploads/BkxFgLPRn.png" alt="" />&lt;/li>
+&lt;li>Set filter as &lt;code>udp.port==22&lt;/code>
+會發現其中所有的len都一樣，就只有source port不一樣，同樣都是5xxx開頭，而後三位數就是flag
+&lt;img src="https://hackmd.io/_uploads/BJq71UvC2.png" alt="" />&lt;/li>
+&lt;li>Extract Flag
+所以只要把所有的port擷取出來拚在一起，就可以拿到flag了&lt;/li>
+&lt;/ol>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-python!" data-lang="python!">import pyshark
+
+capture = pyshark.FileCapture(&amp;#39;./PicoCTF/Misc/shark on wire 2/capture.pcap&amp;#39;, display_filter=&amp;#39;udp.port == 22&amp;#39;)
+
+data = []
+for pkt in capture:
+ if pkt.udp.port != &amp;#39;5000&amp;#39;:
+ data.append(chr(int(pkt.udp.port[1:])))
+print(&amp;#34;&amp;#34;.join(data))
+&lt;/code>&lt;/pre>&lt;p>Flag: &lt;code>picoCTF{p1LLf3r3d_data_v1a_st3g0}&lt;/code>&lt;/p>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://zomry1.github.io/shark-on-wire-2/">PicoCTF 2019 - shark on wire 2:-1:&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>PicoCTF - Torrent Analyze</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---torrent-analyze/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---torrent-analyze/</guid><description>&lt;h1 id="picoctf---torrent-analyze">
+ PicoCTF - Torrent Analyze
+ &lt;a class="anchor" href="#picoctf---torrent-analyze">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.techworm.net/2017/03/seeds-peers-leechers-torrents-language.html">What are seeds, peers and leechers in Torrents’ language?&lt;/a>
+&lt;a href="https://www.mobile01.com/topicdetail.php?f=507&amp;amp;t=1365797">慎選peer，是加速BT下載的王道！&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>seed個數：seed（即一般所說的「種子」）意指擁有完整檔案的BT參與者，是主要的檔案提供者。seed越多，可用的BT分享頻寬就越多，速度當然就快。&lt;/li>
+&lt;li>seed與peer的比例：雖然peer（指尚未取得完整檔案的BT參與者）可同時自seed與其他peer下載檔案，但peer間會彼此競爭，以爭取有限的BT下載頻寬。因此，peer個數越多，分配後的BT分享頻寬就越少，速度自然就受影響。&lt;/li>
+&lt;/ol>&lt;/blockquote>
+&lt;p>&lt;a href="http://zfly9.blogspot.com/2014/10/hashmethod.html">教你該如何使用bt的info hash特徵碼，下載BT之torrent種子檔&lt;/a>&lt;/p>
+&lt;h2 id="description--hint">
+ Description &amp;amp; Hint
+ &lt;a class="anchor" href="#description--hint">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>SOS, someone is torrenting on our network. One of your colleagues has been using torrent to download some files on the company’s network. Can you identify the file(s) that were downloaded? The file name will be the flag, like picoCTF{filename}.
+Hint 1: Download and open the file with a packet analyzer like &lt;a href="https://www.wireshark.org/">Wireshark&lt;/a>.
+Hint 2: You may want to enable BitTorrent protocol (BT-DHT, etc.) on Wireshark. Analyze -&amp;gt; Enabled Protocols
+Hint 3: Try to understand peers, leechers and seeds. &lt;a href="https://www.techworm.net/2017/03/seeds-peers-leechers-torrents-language.html">Article&lt;/a>
+Hint 4: The file name ends with &lt;code>.iso&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Trivial Flag Transfer Protocol</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---trivial-flag-transfer-protocol/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---trivial-flag-transfer-protocol/</guid><description>&lt;h1 id="picoctf---trivial-flag-transfer-protocol">
+ PicoCTF - Trivial Flag Transfer Protocol
+ &lt;a class="anchor" href="#picoctf---trivial-flag-transfer-protocol">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/103?bookmarked=0&amp;amp;category=4&amp;amp;page=1&amp;amp;search=&amp;amp;solved=0">Trivial Flag Transfer Protocol&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://tw511.com/a/01/2927.html">TFTP協定是什麼？&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.mobile01.com/topicdetail.php?f=110&amp;amp;t=921577">Wireless router中的UPnP是做什麼用的?&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>UPnP 是一種通訊協定，其主要功能是供家中的設備可以輕易的且自動的連結到網路並完成網路相關設定。
+不需要您本人手動去設定就可以使用的意思。
+所以你的 router 有支援並打開這項功能後，您家中的視訊設備（大部分都是支援UPnP）接上網路、打開電源。
+接著你的 作業系統也支援的話，以winodws 為例，「我的電腦」中就會看到您新增的設備，如無線router、media server等等。&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/questions/10002825">SSDP - 通訊協定 ?&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>SSDP的全寫是「Simple Service Discovery Protocol」，使用在Universal Plug and Play (UPnP)網絡環境中。SSDP使用UDP1900連接埠搜尋互聯網上的數據。當SSDP開啟時，其他設置會曝露自己到所有UPnP的用戶端中。&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10278964">&lt;code>steghide&lt;/code> instruction&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="exploit---tftp--steghide">
+ Exploit - TFTP + steghide
+ &lt;a class="anchor" href="#exploit---tftp--steghide">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Save files
+According to the article: &lt;a href="https://tw511.com/a/01/2927.html">TFTP協定是什麼？&lt;/a>, we can aware that this protocol is aim to transfer the data without authentication. So, we can download the files using wireshark.
+&lt;img src="https://i.imgur.com/rETlGmm.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - WebNet0</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---webnet0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---webnet0/</guid><description>&lt;h1 id="picoctf---webnet0">
+ PicoCTF - WebNet0
+ &lt;a class="anchor" href="#picoctf---webnet0">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.csdn.net/walleva96/article/details/106844033">解密TLS協議全記錄之利用wireshark解密&lt;/a>&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題其實就只是利用wireshark把訊息解密就這樣，所以看了一些文章後就按圖施工就好，解密完後就直接string search就找到了&lt;/p>
+&lt;h2 id="exploit---tls-decrypt">
+ Exploit - TLS Decrypt
+ &lt;a class="anchor" href="#exploit---tls-decrypt">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>在&lt;code>Edit/Preferences/RSA Keys/&lt;/code>中&lt;code>Add new keyfile&lt;/code>
+&lt;img src="https://hackmd.io/_uploads/ByMdwwSe6.png" alt="" />&lt;/li>
+&lt;li>加入題目給的private key file後記得要重新開啟該pcap file
+&lt;img src="https://hackmd.io/_uploads/S1PMPDSx6.png" alt="" />&lt;/li>
+&lt;/ol></description></item><item><title>PicoCTF - Wireshark twoo twooo two twoo...</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wireshark-twoo-twooo-two-twoo_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wireshark-twoo-twooo-two-twoo_/</guid><description>&lt;h1 id="picoctf---wireshark-twoo-twooo-two-twoo">
+ PicoCTF - Wireshark twoo twooo two twoo&amp;hellip;
+ &lt;a class="anchor" href="#picoctf---wireshark-twoo-twooo-two-twoo">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/110?category=4&amp;amp;page=1">Wireshark twoo twooo two twoo&amp;hellip;&lt;/a>&lt;/p>
+&lt;h2 id="exploit---dns--sub-domain">
+ Exploit - DNS + sub-domain
+ &lt;a class="anchor" href="#exploit---dns--sub-domain">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Statistic
+Using statistic to analyze http requests and you&amp;rsquo;ll see that there is &lt;code>/flag&lt;/code> and &lt;code>/&lt;/code> in address &lt;code>18.217.1.57&lt;/code>. Maybe it&amp;rsquo;s a clue or key to find flag
+&lt;img src="https://i.imgur.com/VjobDhE.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>String search technique&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ strings shark2.pcapng | grep &amp;#34;pico&amp;#34;
+picoCTF{bfe48e8500c454d647c55a4471985e776a07b26cba64526713f43758599aa98b}
+picoCTF{bda69bdf8f570a9aaab0e4108a0fa5f64cb26ba7d2269bb63f68af5d98b98245}
+picoCTF{fe83bcb6cfd43d3b79392f6a4232685f6ed4e7a789c2ce559cf3c1ab6adbe34b}
+picoCTF{711d3893d90f100c15e10ef4842abeed3a830f8237c1257cd47389646da97810}
+picoCTF{3cf1e22d489fcfb6bb312a34f46c8699989ed043406134331452d11ce73cd59e}
+picoCTF{b4cc138bb0f7f9da7e35085e349555aa6d00bdca3b021c1fe8663c0a422ce0d7}
+picoCTF{41b8a1a796bd8d202016f75bc5b38889e9ea06007e6b22fc856d380fb7573133}
+...
+&lt;/code>&lt;/pre>&lt;p>You&amp;rsquo;ll find tons of fake flag. Obviously, it&amp;rsquo;s a trap to distract you.&lt;/p></description></item><item><title>PicoCTF - WPA-ing Out</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wpa-ing-out/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/flow/picoctf---wpa-ing-out/</guid><description>&lt;h1 id="picoctf---wpa-ing-out">
+ PicoCTF - WPA-ing Out
+ &lt;a class="anchor" href="#picoctf---wpa-ing-out">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/206?category=4&amp;amp;page=2">WPA-ing Out&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10280033">Day 26 Wireless Attacks-無線攻擊(aircrack-ng)&lt;/a>&lt;/p>
+&lt;h2 id="description--hint">
+ Description &amp;amp; Hint
+ &lt;a class="anchor" href="#description--hint">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>I thought that my password was super-secret, but it turns out that passwords passed over the AIR can be CRACKED, especially if I used the same wireless network password as one in the &lt;font color="FF0000">&lt;code>rockyou.txt&lt;/code>&lt;/font> credential dump. Use this &lt;a href="https://artifacts.picoctf.net/c/8/wpa-ing_out.pcap">&lt;code>pcap file&lt;/code>&lt;/a> and the &lt;code>rockyou&lt;/code> wordlist. The flag should be entered in the &lt;code>picoCTF{XXXXXX}&lt;/code> format.&lt;/p></description></item></channel></rss>

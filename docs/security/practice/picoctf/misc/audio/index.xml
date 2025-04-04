@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/audio/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/misc/audio/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - Surfing the Waves</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/audio/picoctf---surfing-the-waves/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/audio/picoctf---surfing-the-waves/</guid><description>&lt;h1 id="picoctf---surfing-the-waves">
+ PicoCTF - Surfing the Waves
+ &lt;a class="anchor" href="#picoctf---surfing-the-waves">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/117?category=4&amp;amp;page=3">Surfing the Waves&lt;/a>&lt;/p>
+&lt;h2 id="description--hint">
+ Description &amp;amp; Hint
+ &lt;a class="anchor" href="#description--hint">#&lt;/a>
+&lt;/h2>
+&lt;p>While you&amp;rsquo;re going through the FBI&amp;rsquo;s servers, you stumble across their incredible taste in music. One &lt;a href="https://mercury.picoctf.net/static/cf917a179937f814d966e53bb1fd4b90/main.wav">main.wav&lt;/a> you found is particularly interesting, see if you can find the flag!
+Hint:&lt;/p>
+&lt;ul>
+&lt;li>Music is cool, but what other kinds of waves are there?&lt;/li>
+&lt;li>Look deep below the surface&lt;/li>
+&lt;/ul>
+&lt;h2 id="exploit---通靈">
+ Exploit - &lt;font color="FF0000">通靈&lt;/font>
+ &lt;a class="anchor" href="#exploit---%e9%80%9a%e9%9d%88">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Audacity to Analyze
+The sound seems quite normal but when you zoom in the audio track, it looks like something encode.
+&lt;img src="https://i.imgur.com/D1H1jpU.png" alt="" />&lt;/li>
+&lt;li>Read it - &lt;code>scipy.io&lt;/code>
+Use &lt;code>scipy.io&lt;/code> library to read it and print the data out.
+&lt;pre tabindex="0">&lt;code class="language-python!" data-lang="python!">&amp;gt;&amp;gt;&amp;gt; from scipy.io.wavfile import read
+&amp;gt;&amp;gt;&amp;gt; rate, data = read(&amp;#34;./main.wav&amp;#34;)
+&amp;gt;&amp;gt;&amp;gt; print(data)
+[2007 2503 2005 ... 4503 4501 7501]
+&amp;gt;&amp;gt;&amp;gt; import numpy as np
+&amp;gt;&amp;gt;&amp;gt; print(np.unique(data))
+[1000 1001 1002 1003 1004 1005 1006 1007 1008 1009 1500 1501 1502 1503
+ 1504 1505 1506 1507 1508 1509 2000 2001 2002 2003 2004 2005 2006 2007
+ 2008 2009 2500 2501 2502 2503 2504 2505 2506 2507 2508 2509 3000 3001
+ 3002 3003 3004 3005 3006 3007 3008 3009 3500 3501 3502 3503 3504 3505
+ 3506 3507 3508 3509 4000 4001 4002 4003 4004 4005 4006 4007 4008 4009
+ 4500 4501 4502 4503 4504 4505 4506 4507 4508 4509 5000 5001 5002 5003
+ 5004 5005 5006 5007 5008 5009 5500 5501 5502 5503 5504 5505 5506 5507
+ 5508 5509 6000 6001 6002 6003 6004 6005 6006 6007 6008 6009 6500 6501
+ 6502 6503 6504 6505 6506 6507 6508 6509 7000 7001 7002 7003 7004 7005
+ 7006 7007 7008 7009 7500 7501 7502 7503 7504 7505 7506 7507 7508 7509
+ 8000 8001 8002 8003 8004 8005 8006 8007 8008 8009 8500 8501 8502 8503
+ 8504 8505 8506 8507 8508 8509]
+&lt;/code>&lt;/pre>Seems it has some rule $\to$
+&lt;code>1000 ~ 1009&lt;/code>
+&lt;code>1500 ~ 1509&lt;/code>
+&lt;code>2000 ~ 2009&lt;/code>
+&amp;hellip;
+&lt;code>8500 ~ 8509&lt;/code>
+It has exactly 16 intervals $\to$ hex value&lt;/li>
+&lt;li>Let&amp;rsquo;s try to exploit it&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Whole exploit
+:::spoiler exploit
+&lt;pre tabindex="0">&lt;code class="language-python!" data-lang="python!">from scipy.io.wavfile import read
+from tqdm import trange
+
+path = &amp;#39;.&amp;#39;
+rate, data = read(path + &amp;#34;/main.wav&amp;#34;)
+
+decode_dic = {
+ 10 : &amp;#34;0&amp;#34;,
+ 15 : &amp;#34;1&amp;#34;,
+ 20 : &amp;#34;2&amp;#34;,
+ 25 : &amp;#34;3&amp;#34;,
+ 30 : &amp;#34;4&amp;#34;,
+ 35 : &amp;#34;5&amp;#34;,
+ 40 : &amp;#34;6&amp;#34;,
+ 45 : &amp;#34;7&amp;#34;,
+ 50 : &amp;#34;8&amp;#34;,
+ 55 : &amp;#34;9&amp;#34;,
+ 60 : &amp;#34;A&amp;#34;,
+ 65 : &amp;#34;B&amp;#34;,
+ 70 : &amp;#34;C&amp;#34;,
+ 75 : &amp;#34;D&amp;#34;,
+ 80 : &amp;#34;E&amp;#34;,
+ 85 : &amp;#34;F&amp;#34;,
+}
+
+message = &amp;#39;&amp;#39;
+for i in trange(len(data)):
+ message += decode_dic[data[i] // 100]
+
+print(bytes.fromhex(message).decode())
+&lt;/code>&lt;/pre>:::
+Then you can get the source code and flag&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/tDPetapjm74">picoCTF 2021 Surfing the Waves&lt;/a>&lt;/p></description></item></channel></rss>

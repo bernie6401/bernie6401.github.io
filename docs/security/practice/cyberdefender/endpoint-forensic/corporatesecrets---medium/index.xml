@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/index.xml" rel="self" type="application/rss+xml"/><item><title>CyberDefender - CorporateSecrets (Part 1)</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-1/</guid><description>&lt;h1 id="cyberdefender---corporatesecrets-part-1">
+ CyberDefender - CorporateSecrets (Part 1)
+ &lt;a class="anchor" href="#cyberdefender---corporatesecrets-part-1">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://cyberdefenders.org/blueteam-ctf-challenges/33">https://cyberdefenders.org/blueteam-ctf-challenges/33&lt;/a>
+Part 2: &lt;a href="https://hackmd.io/@SBK6401/ByFhEE8X6">https://hackmd.io/@SBK6401/ByFhEE8X6&lt;/a>
+Part 3: &lt;a href="https://hackmd.io/@SBK6401/HyHp4NLQT">https://hackmd.io/@SBK6401/HyHp4NLQT&lt;/a>
+Part 4: &lt;a href="https://hackmd.io/@SBK6401/H1rAEV87p">https://hackmd.io/@SBK6401/H1rAEV87p&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="tools">
+ Tools:
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>FTK Imager&lt;/li>
+&lt;li>Registry Explorer&lt;/li>
+&lt;li>RegRipper&lt;/li>
+&lt;li>HxD&lt;/li>
+&lt;li>DB Browser for SQLite&lt;/li>
+&lt;li>HindSight&lt;/li>
+&lt;li>Event Log Explorer&lt;/li>
+&lt;li>MFTDump&lt;/li>
+&lt;/ul>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What is the current build number on the system?&lt;/p>&lt;/blockquote>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;p>直接把Software hive從&lt;code>root/Windows/System32/config/&lt;/code> export出來後找&lt;code>Microsoft/Windows NT/CurrentVersion&lt;/code>中就有紀錄CurrentBuild number
+&lt;img src="https://hackmd.io/_uploads/ryvoSV8mT.png" alt="圖片.png" />
+:::spoiler Result
+&lt;img src="https://hackmd.io/_uploads/rJpJ8EUXa.png" alt="圖片.png" />
+:::&lt;/p>
+&lt;p>:::spoiler Flag
+Flag: &lt;code>16299&lt;/code>
+:::&lt;/p>
+&lt;h2 id="q2">
+ ==Q2==
+ &lt;a class="anchor" href="#q2">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>How many users are there?&lt;/p></description></item><item><title>CyberDefender - CorporateSecrets (Part 2)</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-2/</guid><description>&lt;h1 id="cyberdefender---corporatesecrets-part-2">
+ CyberDefender - CorporateSecrets (Part 2)
+ &lt;a class="anchor" href="#cyberdefender---corporatesecrets-part-2">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://cyberdefenders.org/blueteam-ctf-challenges/33">https://cyberdefenders.org/blueteam-ctf-challenges/33&lt;/a>
+Part 1: &lt;a href="https://hackmd.io/@SBK6401/r18z7VIm6">https://hackmd.io/@SBK6401/r18z7VIm6&lt;/a>
+Part 3: &lt;a href="https://hackmd.io/@SBK6401/HyHp4NLQT">https://hackmd.io/@SBK6401/HyHp4NLQT&lt;/a>
+Part 4: &lt;a href="https://hackmd.io/@SBK6401/H1rAEV87p">https://hackmd.io/@SBK6401/H1rAEV87p&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="tools">
+ Tools:
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>FTK Imager&lt;/li>
+&lt;li>Registry Explorer&lt;/li>
+&lt;li>RegRipper&lt;/li>
+&lt;li>HxD&lt;/li>
+&lt;li>DB Browser for SQLite&lt;/li>
+&lt;li>HindSight&lt;/li>
+&lt;li>Event Log Explorer&lt;/li>
+&lt;li>MFTDump&lt;/li>
+&lt;/ul>
+&lt;h2 id="q10">
+ ==Q10==
+ &lt;a class="anchor" href="#q10">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What is the SID of the machine?&lt;/p>&lt;/blockquote>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;p>直接看&lt;code>SOFTWARE/Microsoft/Windows NT/CurrentVersion/ProfileList&lt;/code>就知道了
+&lt;img src="https://hackmd.io/_uploads/ry8fOuU7T.png" alt="圖片.png" />&lt;/p>
+&lt;p>:::spoiler Flag
+Flag: &lt;code>S-1-5-21-2446097003-76624807-2828106174&lt;/code>
+:::&lt;/p>
+&lt;h2 id="q11">
+ ==Q11==
+ &lt;a class="anchor" href="#q11">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>How many web browsers are present?&lt;/p>&lt;/blockquote>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>直接搜索一下所有user的AppData或是program1，可以發現有五個瀏覽器(Firefox / Internet Explorer / Chrome / Edge / Tor)
+&lt;img src="https://hackmd.io/_uploads/HkKLxF8Xp.png" alt="圖片.png" />&lt;/p></description></item><item><title>CyberDefender - CorporateSecrets (Part 3)</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-3/</guid><description>&lt;h1 id="cyberdefender---corporatesecrets-part-3">
+ CyberDefender - CorporateSecrets (Part 3)
+ &lt;a class="anchor" href="#cyberdefender---corporatesecrets-part-3">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://cyberdefenders.org/blueteam-ctf-challenges/33">https://cyberdefenders.org/blueteam-ctf-challenges/33&lt;/a>
+Part 1: &lt;a href="https://hackmd.io/@SBK6401/r18z7VIm6">https://hackmd.io/@SBK6401/r18z7VIm6&lt;/a>
+Part 2: &lt;a href="https://hackmd.io/@SBK6401/ByFhEE8X6">https://hackmd.io/@SBK6401/ByFhEE8X6&lt;/a>
+Part 4: &lt;a href="https://hackmd.io/@SBK6401/H1rAEV87p">https://hackmd.io/@SBK6401/H1rAEV87p&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="tools">
+ Tools:
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>FTK Imager&lt;/li>
+&lt;li>Registry Explorer&lt;/li>
+&lt;li>RegRipper&lt;/li>
+&lt;li>HxD&lt;/li>
+&lt;li>DB Browser for SQLite&lt;/li>
+&lt;li>HindSight&lt;/li>
+&lt;li>Event Log Explorer&lt;/li>
+&lt;li>MFTDump&lt;/li>
+&lt;/ul>
+&lt;h2 id="q19">
+ ==Q19==
+ &lt;a class="anchor" href="#q19">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Which user installed LibreCAD on the system?&lt;/p>&lt;/blockquote>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;p>我是直接看該檔案在哪個user的資料夾來判斷，當然這個做法有點問題&lt;/p>
+&lt;p>:::spoiler Flag
+Flag: &lt;code>miriam.grapes&lt;/code>
+:::&lt;/p>
+&lt;h2 id="q20">
+ ==Q20==
+ &lt;a class="anchor" href="#q20">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>How many times &amp;ldquo;admin&amp;rdquo; logged into the system?&lt;/p>&lt;/blockquote>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>呈第14題&lt;/p></description></item><item><title>CyberDefender - CorporateSecrets (Part 4)</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/corporatesecrets---medium/cyberdefender---corporatesecrets-part-4/</guid><description>&lt;h1 id="cyberdefender---corporatesecrets-part-4">
+ CyberDefender - CorporateSecrets (Part 4)
+ &lt;a class="anchor" href="#cyberdefender---corporatesecrets-part-4">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://cyberdefenders.org/blueteam-ctf-challenges/33">https://cyberdefenders.org/blueteam-ctf-challenges/33&lt;/a>
+Part 1: &lt;a href="https://hackmd.io/@SBK6401/r18z7VIm6">https://hackmd.io/@SBK6401/r18z7VIm6&lt;/a>
+Part 2: &lt;a href="https://hackmd.io/@SBK6401/ByFhEE8X6">https://hackmd.io/@SBK6401/ByFhEE8X6&lt;/a>
+Part 3: &lt;a href="https://hackmd.io/@SBK6401/HyHp4NLQT">https://hackmd.io/@SBK6401/HyHp4NLQT&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="tools">
+ Tools:
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>FTK Imager&lt;/li>
+&lt;li>Registry Explorer&lt;/li>
+&lt;li>RegRipper&lt;/li>
+&lt;li>HxD&lt;/li>
+&lt;li>DB Browser for SQLite&lt;/li>
+&lt;li>HindSight&lt;/li>
+&lt;li>Event Log Explorer&lt;/li>
+&lt;li>MFTDump&lt;/li>
+&lt;/ul>
+&lt;h2 id="q28">
+ ==Q28==
+ &lt;a class="anchor" href="#q28">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What cloud service was a Startup item for the user admin?&lt;/p>&lt;/blockquote>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>直接看admin的NTUSER.DAT中的&lt;code>./Software/Microsoft/Windows/CurrentVersion/Run&lt;/code>就可以了&lt;/p>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/BJodWuDmp.png" alt="圖片.png" />&lt;/p>
+&lt;p>:::spoiler Flag
+Flag: &lt;code>OneDrive&lt;/code>
+:::&lt;/p>
+&lt;h2 id="q29">
+ ==Q29==
+ &lt;a class="anchor" href="#q29">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Which Firefox prefetch file has the most runtimes?
+(Flag format is )&lt;/p></description></item></channel></rss>

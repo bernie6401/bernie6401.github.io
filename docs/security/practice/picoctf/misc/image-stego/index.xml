@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - `tunn3l v1s10n`</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---tunn3l-v1s10n/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---tunn3l-v1s10n/</guid><description>&lt;h1 id="picoctf---tunn3l-v1s10n">
+ PicoCTF - &lt;code>tunn3l v1s10n&lt;/code>
+ &lt;a class="anchor" href="#picoctf---tunn3l-v1s10n">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/112?category=4&amp;amp;page=1">tunn3l v1s10n&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.jinnsblog.com/2009/08/bmp-format-graphic-illustration.html">[筆記] BMP點陣圖格式說明&lt;/a>&lt;/p>
+&lt;h2 id="exploit---recover-file">
+ Exploit - Recover file
+ &lt;a class="anchor" href="#exploit---recover-file">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Analyze
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ exiftool tunn3l_v1s10n
+ExifTool Version Number : 11.88
+File Name : tunn3l_v1s10n
+Directory : .
+File Size : 2.8 MB
+File Modification Date/Time : 2023:02:17 04:11:33+08:00
+File Access Date/Time : 2023:02:17 04:12:37+08:00
+File Inode Change Date/Time : 2023:02:17 04:11:35+08:00
+File Permissions : rw-r--r--
+File Type : BMP
+File Type Extension : bmp
+MIME Type : image/bmp
+BMP Version : Unknown (53434)
+Image Width : 1134
+Image Height : 306
+Planes : 1
+Bit Depth : 24
+Compression : None
+Image Length : 2893400
+Pixels Per Meter X : 5669
+Pixels Per Meter Y : 5669
+Num Colors : Use BitDepth
+Num Important Colors : All
+Red Mask : 0x27171a23
+Green Mask : 0x20291b1e
+Blue Mask : 0x1e212a1d
+Alpha Mask : 0x311a1d26
+Color Space : Unknown (,5%()
+Rendering Intent : Unknown (826103054)
+Image Size : 1134x306
+Megapixels : 0.347
+&lt;/code>&lt;/pre>It seems a &lt;code>bmp&lt;/code> file and check the file signature of the 2 bytes is &lt;code>42 4D&lt;/code> :heavy_check_mark:&lt;/li>
+&lt;li>Check file headers
+According to &lt;a href="https://en.wikipedia.org/wiki/BMP_file_format">BMP_file_format&lt;/a> and &lt;a href="https://www.jinnsblog.com/2009/08/bmp-format-graphic-illustration.html">BMP點陣圖格式說明&lt;/a>
+&lt;img src="https://i.imgur.com/YU6exro.png" alt="" />
+&lt;ul>
+&lt;li>:heavy_check_mark:size: &lt;code>8E 26 2C 00&lt;/code> $\to$ &lt;code>0x2C268E&lt;/code> $\to$ &lt;code>2893454 bytes&lt;/code>
+&lt;img src="https://i.imgur.com/H6G44kT.png" alt="" />&lt;/li>
+&lt;li>:heavy_check_mark:reserved1: &lt;code>00 00&lt;/code>&lt;/li>
+&lt;li>:heavy_check_mark:reserved2: &lt;code>00 00&lt;/code>&lt;/li>
+&lt;li>:negative_squared_cross_mark:offset: &lt;code>BA D0 00 00&lt;/code> $\to$ &lt;code>0xD0BA&lt;/code> $\to$ &lt;code>53434&lt;/code> means it&amp;rsquo;ll read the bitmap data from offset 53434 bytes. But actually, the data of bitmap is just connect with the header. So, we just need to shift 14 bytes for file header + 40 bytes for info header = 54 bytes $\to$ &lt;code>0x36&lt;/code>
+&lt;img src="https://i.imgur.com/crETYOD.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;p>We can peek the data first&amp;hellip;
+&lt;img src="https://i.imgur.com/DWesnDl.png" alt="" />
+It said &lt;code>notaflag{sorry}&lt;/code>, means we need to recover other parts.&lt;/p></description></item><item><title>PicoCTF - advanced-potion-making</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---advanced-potion-making/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---advanced-potion-making/</guid><description>&lt;h1 id="picoctf---advanced-potion-making">
+ PicoCTF - advanced-potion-making
+ &lt;a class="anchor" href="#picoctf---advanced-potion-making">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/205?bookmarked=0&amp;amp;category=4&amp;amp;page=1&amp;amp;search=&amp;amp;solved=0">advanced-potion-making&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.mythsman.com/post/5d2d62b4a2005d74040ef7eb/">PNG文件格式详解&lt;/a>
+&lt;a href="https://zhuanlan.zhihu.com/p/599657891">隐写分析(2) PNG图片隐写&lt;/a>&lt;/p>
+&lt;h2 id="exploit---recover--stegsolve">
+ Exploit - Recover + StegSolve
+ &lt;a class="anchor" href="#exploit---recover--stegsolve">#&lt;/a>
+&lt;/h2>
+&lt;p>Modify the file signature and length to the right value.
+&lt;code>89 50 42 11 0D 0A 1A 0A 00 12 13 14 49 48 44 52&lt;/code>
+$\to$
+&lt;code>89 50 4E 47 0D 0A 1A 0A 00 00 00 0D 49 48 44 52&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;img src="https://i.imgur.com/Pv1ojSN.png" alt="" />&lt;/li>
+&lt;li>&lt;img src="https://i.imgur.com/vLgguSp.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://i.imgur.com/ZT4PsQ5.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - c0rrupt</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---c0rrupt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---c0rrupt/</guid><description>&lt;h1 id="picoctf---c0rrupt">
+ PicoCTF - c0rrupt
+ &lt;a class="anchor" href="#picoctf---c0rrupt">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/53?category=4&amp;amp;page=3">c0rrupt&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/uwox6r5hQ6St_8G-4mv1_g">advanced-potion-making:two::+1:&lt;/a>&lt;/p>
+&lt;h2 id="exploit---recover-png-file">
+ Exploit - Recover PNG file
+ &lt;a class="anchor" href="#exploit---recover-png-file">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Analyze&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>Header
+&lt;code>89 65 4E 34 0D 0A B0 AA&lt;/code>
+$\to$
+&lt;code>89 50 4E 47 0D 0A 1A 0A&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>IHDR
+&lt;code>43 22 44 52&lt;/code>
+$\to$
+&lt;code>49 48 44 52&lt;/code>
+Then use &lt;code>pngcheck&lt;/code> to analyze the file. It said the header still have some error.&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ pngcheck mystery
+mystery CRC error in chunk pHYs (computed 38d82c82, expected 495224f0)
+ERROR: mystery
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>
+&lt;p>Revise &lt;code>pHYs&lt;/code>
+You can open an arbitrary png file and observe &lt;code>pHYs&lt;/code> part.&lt;/p></description></item><item><title>PicoCTF - m00nwalk</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk/</guid><description>&lt;h1 id="picoctf---m00nwalk">
+ PicoCTF - m00nwalk
+ &lt;a class="anchor" href="#picoctf---m00nwalk">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/26?category=4&amp;amp;page=3">m00nwalk&lt;/a>&lt;/p>
+&lt;h2 id="description--hint">
+ Description &amp;amp; Hint
+ &lt;a class="anchor" href="#description--hint">#&lt;/a>
+&lt;/h2>
+&lt;p>Decode this &lt;a href="https://jupiter.challenges.picoctf.org/static/fc1edf07742e98a480c6aff7d2546107/message.wav">message&lt;/a> from the moon.
+Hint:&lt;/p>
+&lt;ul>
+&lt;li>How did pictures from the moon landing get sent back to Earth?&lt;/li>
+&lt;li>What is the CMU mascot?, that might help select a RX option&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://zh.wikipedia.org/wiki/%E6%85%A2%E6%89%AB%E6%8F%8F%E7%94%B5%E8%A7%86#%E5%9C%A8%E8%88%AA%E5%A4%A9%E9%A2%86%E5%9F%9F%E7%9A%84%E6%97%A9%E6%9C%9F%E5%BA%94%E7%94%A8">慢掃描電視 - slow-scan television(sstv)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="exploit---qsstv-">
+ Exploit - qsstv +
+ &lt;a class="anchor" href="#exploit---qsstv-">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>First, I thought it might be a &lt;code>mp3stego&lt;/code> problem but found nothing. So, I tried to find the write up about this question.&lt;/li>
+&lt;li>Use QSSTV
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ sudo apt-get install pavucontrol
+$ sudo apt-get install qsstv
+$ pactl load-module module-null-sink sink_name=virtual-cable
+22
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>The Setting&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>pavucontrol&lt;/code>&lt;/p></description></item><item><title>PicoCTF - m00nwalk2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/image-stego/picoctf---m00nwalk2/</guid><description>&lt;h1 id="picoctf---m00nwalk2">
+ PicoCTF - m00nwalk2
+ &lt;a class="anchor" href="#picoctf---m00nwalk2">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice?category=4&amp;amp;page=3">m00nwalk2&lt;/a>&lt;/p>
+&lt;h2 id="description--hint">
+ Description &amp;amp; Hint
+ &lt;a class="anchor" href="#description--hint">#&lt;/a>
+&lt;/h2>
+&lt;p>Revisit the last transmission. We think this &lt;a href="https://jupiter.challenges.picoctf.org/static/a33c9e5dae30c560704e6f2ffaba35c7/message.wav">transmission&lt;/a> contains a hidden message. There are also some clues &lt;a href="https://jupiter.challenges.picoctf.org/static/a33c9e5dae30c560704e6f2ffaba35c7/clue1.wav">clue 1&lt;/a>, &lt;a href="https://jupiter.challenges.picoctf.org/static/a33c9e5dae30c560704e6f2ffaba35c7/clue2.wav">clue 2&lt;/a>, &lt;a href="https://jupiter.challenges.picoctf.org/static/a33c9e5dae30c560704e6f2ffaba35c7/clue3.wav">clue 3&lt;/a>.&lt;/p>
+&lt;p>Hint:&lt;/p>
+&lt;ul>
+&lt;li>Use the clues to extract the another flag from the .wav file&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://bernie6401.github.io/rrUS4fS8QxicWvvjqziIqg">m00nwalk&lt;/a>&lt;/p>
+&lt;h2 id="exploit---qsstv">
+ Exploit - QSSTV
+ &lt;a class="anchor" href="#exploit---qsstv">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Follow the write up of m00nwalk then you&amp;rsquo;ll get 3 images from 3 clues respectively.
+&lt;img src="https://i.imgur.com/Vq8ciM2.png" alt="" />
+&lt;img src="https://i.imgur.com/Y5nS8wS.png" alt="" />
+&lt;img src="https://i.imgur.com/C0xk8YL.png" alt="" />&lt;/p></description></item></channel></rss>

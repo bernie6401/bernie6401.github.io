@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - File types</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---file-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---file-types/</guid><description>&lt;h1 id="picoctf---file-types">
+ PicoCTF - File types
+ &lt;a class="anchor" href="#picoctf---file-types">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="">File types&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="for-shell-script">
+ For Shell Script
+ &lt;a class="anchor" href="#for-shell-script">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;a href="https://blog.gtwang.org/linux/generate-verify-check-files-md5-sha1-checksum-linux/">Linux MD5&lt;/a>
+&lt;a href="https://www.runoob.com/linux/linux-comm-egrep.html">Linux egrep命令&lt;/a>
+&lt;a href="https://www.runoob.com/linux/linux-shell-test.html">Shell test 命令&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>-f 文件名: 如果文件存在且为普通文件则为真&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://phoenixnap.com/kb/linux-add-to-path">How to modify $PATH&lt;/a>
+&lt;a href="https://blog.gtwang.org/linux/linux-touch-command-tutorial-examples/">touch - time stamp&lt;/a>
+&lt;a href="https://unix.stackexchange.com/questions/291570/what-is-in-bash">What is $$ in bash?&lt;/a>&lt;/p>
+&lt;h3 id="for-compress-command">
+ For Compress Command
+ &lt;a class="anchor" href="#for-compress-command">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;a href="https://officeguide.cc/linux-copy-files-to-and-from-archives-cpio-command-tutorial-examples/">Linux 備份檔案操作 cpio 指令教學與範例&lt;/a>
+&lt;a href="https://www.geeksforgeeks.org/bzip2-command-in-linux-with-examples/">bzip2 command in Linux&lt;/a>
+&lt;a href="https://linuxize.com/post/gzip-command-in-linux/">Gzip Command in Linux&lt;/a>
+&lt;a href="https://www.nongnu.org/lzip/manual/lzip_manual.html">Lzip Manual&lt;/a>
+&lt;a href="https://manpages.ubuntu.com/manpages/xenial/man1/lz4.1.html">lz4 manual&lt;/a>
+&lt;a href="https://manpages.ubuntu.com/manpages/xenial/man1/lzmp.1.html">lzma manual&lt;/a>
+&lt;a href="https://linux.die.net/man/1/lzop">lzop(1) - Linux man page&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Flag.pdf&lt;/p></description></item><item><title>PicoCTF - Investigative Reversing 0</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---investigative-reversing-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---investigative-reversing-0/</guid><description>&lt;h1 id="picoctf---investigative-reversing-0">
+ PicoCTF - Investigative Reversing 0
+ &lt;a class="anchor" href="#picoctf---investigative-reversing-0">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/70?category=4&amp;amp;page=3">Investigative Reversing 0&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="http://tw.gitbook.net/c_standard_library/c_function_fputc.html">fputc() - C語言庫函數&lt;/a>
+&lt;a href="https://shengyu7697.github.io/cpp-fread/">C/C++ fread 用法與範例&lt;/a>
+&lt;a href="https://blog.51cto.com/u_6680689/3260951">C中fread()函数的返回值&lt;/a>
+&lt;a href="https://blog.csdn.net/u010164190/article/details/124945191">C语言之1ULL/1UL/1L区别&lt;/a>&lt;/p>
+&lt;h2 id="source-code---ida">
+ Source code - IDA
+ &lt;a class="anchor" href="#source-code---ida">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-cpp=" data-lang="cpp=">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+ int i; // [rsp+4h] [rbp-4Ch]
+ int j; // [rsp+8h] [rbp-48h]
+ FILE *stream; // [rsp+10h] [rbp-40h]
+ FILE *v8; // [rsp+18h] [rbp-38h]
+ char ptr[40]; // [rsp+20h] [rbp-30h] BYREF
+ unsigned __int64 v10; // [rsp+48h] [rbp-8h]
+
+ v10 = __readfsqword(40u);
+ stream = fopen(&amp;#34;flag.txt&amp;#34;, &amp;#34;r&amp;#34;);
+ v8 = fopen(&amp;#34;mystery.png&amp;#34;, &amp;#34;a&amp;#34;);
+ if ( !stream )
+ puts(&amp;#34;No flag found, please make sure this is run on the server&amp;#34;);
+ if ( !v8 )
+ puts(&amp;#34;mystery.png is missing, please run this on the server&amp;#34;);
+ if ( (int)fread(ptr, 26uLL, 1uLL, stream) &amp;lt;= 0 )
+ exit(0);
+ puts(&amp;#34;at insert&amp;#34;);
+ fputc(ptr[0], v8);
+ fputc(ptr[1], v8);
+ fputc(ptr[2], v8);
+ fputc(ptr[3], v8);
+ fputc(ptr[4], v8);
+ fputc(ptr[5], v8);
+ for ( i = 6; i &amp;lt;= 14; ++i )
+ fputc((char)(ptr[i] + 5), v8);
+ fputc((char)(ptr[15] - 3), v8);
+ for ( j = 16; j &amp;lt;= 25; ++j )
+ fputc(ptr[j], v8);
+ fclose(v8);
+ fclose(stream);
+ return __readfsqword(40u) ^ v10;
+}
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - like1000</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---like1000/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---like1000/</guid><description>&lt;h1 id="picoctf---like1000">
+ PicoCTF - like1000
+ &lt;a class="anchor" href="#picoctf---like1000">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="">like1000&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/2778153/how-to-extract-nested-tar-gz-files-easily">How to extract nested tar.gz files easily?&lt;/a>
+&lt;a href="https://ithelp.ithome.com.tw/articles/10132603">Shell Script - While&lt;/a>&lt;/p>
+&lt;h2 id="exploit---untar-1000-times">
+ Exploit - Untar 1000 times
+ &lt;a class="anchor" href="#exploit---untar-1000-times">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>For untar folders
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">#! /bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+file_name=1000
+for next in ${file_name}.tar
+while [ $file_name &amp;gt; 1 ]
+ do
+ echo &amp;#34;Untaring - $file_name&amp;#34;
+ tar -xvf ${file_name}.tar #-C ./
+ file_name=$(($file_name-1))
+ mkdir ./$file_name
+ mv ${file_name}.tar ./$file_name
+ cd ./${file_name}
+ done
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>For getting flag
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">#! /bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+file_name=999
+while [ &amp;#34;$file_name&amp;#34; &amp;gt; &amp;#34;0&amp;#34; ]
+ do
+ cd ./${file_name}
+ file_name=$(($file_name-1))
+ if [ &amp;#34;$file_name&amp;#34; == &amp;#34;0&amp;#34; ]
+ then ls -al
+ cat filler.txt
+ mv flag.png ~/CTF/PicoCTF/Misc/like1000
+ fi
+ done
+exit 0
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://shengyu7697.github.io/shell-script-arithmetic/">Shell Script 變數相加&lt;/a>
+&lt;a href="https://linuxhint.com/solve-gzip-stdin-not-gzip-format-error/">How to solve gzip: stdin: not in gzip format error&lt;/a>
+&lt;a href="https://blog.csdn.net/cp_panda_5/article/details/79192688">解压缩报错tar: Error is not recoverable: exiting now&lt;/a>
+&lt;a href="https://unix.stackexchange.com/questions/47584/in-a-bash-script-using-the-conditional-or-in-an-if-statement">In a bash script, using the conditional &amp;ldquo;or&amp;rdquo; in an &amp;ldquo;if&amp;rdquo; statement&lt;/a>&lt;/p></description></item><item><title>PicoCTF - MacroHard WeakEdge</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---macrohard-weakedge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---macrohard-weakedge/</guid><description>&lt;h1 id="picoctf---macrohard-weakedge">
+ PicoCTF - MacroHard WeakEdge
+ &lt;a class="anchor" href="#picoctf---macrohard-weakedge">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/130?bookmarked=0&amp;amp;category=4&amp;amp;page=1&amp;amp;search=&amp;amp;solved=0">MacroHard WeakEdge&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://fileinfo.com/extension/pptm">What is a PPTM file?&lt;/a>
+&lt;font color="FF0000">It&amp;rsquo;s a zip format file&lt;/font>&lt;/p>
+&lt;blockquote>
+&lt;p>A PPTM file is a macro-enabled presentation created by Microsoft PowerPoint, an application used to create presentations and slide shows. It contains a collection of slides, which typically includes text, layout, images, and embedded macros. PPTM files are commonly used to store business, marketing, and academic presentations.&lt;/p></description></item><item><title>PicoCTF - Matryoshka doll</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---matryoshka-doll/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---matryoshka-doll/</guid><description>&lt;h1 id="picoctf---matryoshka-doll">
+ PicoCTF - Matryoshka doll
+ &lt;a class="anchor" href="#picoctf---matryoshka-doll">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/129?category=4&amp;amp;page=1">&lt;/a>&lt;/p>
+&lt;h2 id="exploit---rar-in-rar">
+ Exploit - &lt;code>rar&lt;/code> in &lt;code>rar&lt;/code>
+ &lt;a class="anchor" href="#exploit---rar-in-rar">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Hint
+The hint said:&lt;/p>
+&lt;blockquote>
+&lt;p>Wait, you can hide files inside files? But how do you find them?&lt;/p>&lt;/blockquote>
+&lt;p>So&amp;hellip;I tried &lt;code>stegsolve&lt;/code>, &lt;code>HxD&lt;/code>, &lt;code>exiftool&lt;/code>, &lt;code>string dolls.jpg | grep &amp;quot;{&amp;quot;&lt;/code>, &lt;code>$ zsteg dolls.jpg&lt;/code> &amp;hellip; All these are in vain&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;font color="FF0000">通靈&lt;/font>: Changed the extension to &lt;code>.rar&lt;/code>
+And it can be uncompressed
+&lt;img src="https://i.imgur.com/sNfhE2J.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Repeat until find &lt;code>flag.txt&lt;/code>&amp;hellip;&lt;/p></description></item><item><title>PicoCTF - SideChannel</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---sidechannel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---sidechannel/</guid><description>&lt;h1 id="picoctf---sidechannel">
+ PicoCTF - SideChannel
+ &lt;a class="anchor" href="#picoctf---sidechannel">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="description">
+ Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>There&amp;rsquo;s something fishy about this PIN-code checker, can you figure out the PIN and get the flag? Download the PIN checker program here pin_checker Once you&amp;rsquo;ve figured out the PIN (and gotten the checker program to accept it), connect to the master server using nc saturn.picoctf.net 50364 and provide it the PIN to get your flag.&lt;/p>
+&lt;p>Hint 1: Read about &amp;ldquo;timing-based side-channel attacks.&amp;rdquo;
+Hint 2: Attempting to reverse-engineer or exploit the binary won&amp;rsquo;t help you, you can figure out the PIN just by interacting with it and measuring certain properties about it.
+Hint 3: Don&amp;rsquo;t run your attacks against the master server, it is secured against them. The PIN code you get from the pin_checker binary is the same as the one for the master server.&lt;/p></description></item><item><title>PicoCTF - WhitePages</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---whitepages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/general/picoctf---whitepages/</guid><description>&lt;h1 id="picoctf---whitepages">
+ PicoCTF - WhitePages
+ &lt;a class="anchor" href="#picoctf---whitepages">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/51?category=4&amp;amp;page=3">WhitePages&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler source text&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-text!" data-lang="text!">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p>
+&lt;h2 id="exploit---binary-encoding">
+ Exploit - Binary Encoding
+ &lt;a class="anchor" href="#exploit---binary-encoding">#&lt;/a>
+&lt;/h2>
+&lt;p>If you use sublime editor to observe the file, then you may see the result as below.
+&lt;img src="https://i.imgur.com/ME4F3hm.png" alt="" />
+In unicode, &lt;code>&amp;lt;0x2003&amp;gt;&lt;/code> is a kind of white space, then some gap between &lt;code>&amp;lt;0x2003&amp;gt;&lt;/code> is a normal white space. Obviously, this is a binary encoding(&lt;code>&amp;lt;0x2003&amp;gt;&lt;/code> is 0 and normal white space is 1)&lt;/p></description></item></channel></rss>

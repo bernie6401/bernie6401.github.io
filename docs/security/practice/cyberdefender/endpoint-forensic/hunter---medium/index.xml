@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/index.xml" rel="self" type="application/rss+xml"/><item><title>CyberDefender - Hunter (Part 1)</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/cyberdefender---hunter-part-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/cyberdefender---hunter-part-1/</guid><description>&lt;h1 id="cyberdefender---hunter-part-1">
+ CyberDefender - Hunter (Part 1)
+ &lt;a class="anchor" href="#cyberdefender---hunter-part-1">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://cyberdefenders.org/blueteam-ctf-challenges/32">https://cyberdefenders.org/blueteam-ctf-challenges/32&lt;/a>
+Part 2: &lt;a href="https://hackmd.io/@SBK6401/HJlmeuwfT">https://hackmd.io/@SBK6401/HJlmeuwfT&lt;/a>
+Part 3: &lt;a href="https://hackmd.io/@SBK6401/HylP8ixQp">https://hackmd.io/@SBK6401/HylP8ixQp&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>The SOC team got an alert regarding some illegal port scanning activity coming from an employee&amp;rsquo;s system. The employee was not authorized to do any port scanning or any offensive hacking activity within the network. The employee claimed that he had no idea about that, and it is probably a malware acting on his behalf. The IR team managed to respond immediately and take a full forensic image of the user&amp;rsquo;s system to perform some investigations.&lt;/p></description></item><item><title>CyberDefender - Hunter (Part 2)</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/cyberdefender---hunter-part-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/cyberdefender---hunter-part-2/</guid><description>&lt;h1 id="cyberdefender---hunter-part-2">
+ CyberDefender - Hunter (Part 2)
+ &lt;a class="anchor" href="#cyberdefender---hunter-part-2">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://cyberdefenders.org/blueteam-ctf-challenges/32">https://cyberdefenders.org/blueteam-ctf-challenges/32&lt;/a>
+Part 1: &lt;a href="https://hackmd.io/@SBK6401/By1BpZIf6">https://hackmd.io/@SBK6401/By1BpZIf6&lt;/a>
+Part 3: &lt;a href="https://hackmd.io/@SBK6401/HylP8ixQp">https://hackmd.io/@SBK6401/HylP8ixQp&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="tools">
+ Tools
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://goldfynch.com/pst-viewer/index.html#0/33474/2098436">PST Viewer&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jsonformatter.org/xml-parser">xml parser&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sqlitebrowser.org/dl/">DB Browser for SQLlite&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="q11">
+ ==Q11==
+ &lt;a class="anchor" href="#q11">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>How many ports were scanned?&lt;/p>&lt;/blockquote>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;p>呈上題
+&lt;img src="https://hackmd.io/_uploads/r1Gbf_vM6.png" alt="" />&lt;/p>
+&lt;p>:::spoiler Flag
+Flag: &lt;code>1000&lt;/code>
+:::&lt;/p>
+&lt;h2 id="q12">
+ ==Q12==
+ &lt;a class="anchor" href="#q12">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What ports were found &amp;ldquo;open&amp;rdquo;?(comma-separated, ascending)&lt;/p>&lt;/blockquote>
+&lt;h3 id="exploit-1">
+ Exploit
+ &lt;a class="anchor" href="#exploit-1">#&lt;/a>
+&lt;/h3>
+&lt;p>呈上題
+&lt;img src="https://hackmd.io/_uploads/HJfozdDG6.png" alt="" />&lt;/p>
+&lt;p>:::spoiler Flag
+Flag: &lt;code>22,80,9929,31337&lt;/code>
+:::&lt;/p>
+&lt;h2 id="q13">
+ ==Q13==
+ &lt;a class="anchor" href="#q13">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What was the version of the network scanner running on this computer?&lt;/p></description></item><item><title>CyberDefender - Hunter (Part 3)</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/cyberdefender---hunter-part-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/cyberdefender/endpoint-forensic/hunter---medium/cyberdefender---hunter-part-3/</guid><description>&lt;h1 id="cyberdefender---hunter-part-3">
+ CyberDefender - Hunter (Part 3)
+ &lt;a class="anchor" href="#cyberdefender---hunter-part-3">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://cyberdefenders.org/blueteam-ctf-challenges/32">https://cyberdefenders.org/blueteam-ctf-challenges/32&lt;/a>
+Part 1: &lt;a href="https://hackmd.io/@SBK6401/By1BpZIf6">https://hackmd.io/@SBK6401/By1BpZIf6&lt;/a>
+Part 2: &lt;a href="https://hackmd.io/@SBK6401/HJlmeuwfT">https://hackmd.io/@SBK6401/HJlmeuwfT&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="tools">
+ Tools
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://ericzimmerman.github.io/#!index.md">JLECmd&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="q21">
+ ==Q21==
+ &lt;a class="anchor" href="#q21">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>One of the installed applications is a file shredder. What is the name of the application? (two words space separated)&lt;/p>&lt;/blockquote>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>承接上一題，我們已經知道BCWipe就是題目要的答案，也就是類似file shredder的工具，但前面六個字還是沒有想法，看了一下外層資料夾才發現&lt;a href="https://www.jetico.com/">Jetico&lt;/a>是啥東西啊，上網查才發現是提供各種data encryption/data wiping/endpoint data protection之類的公司，所以這一題的正確答案是&lt;code>Jetico BCWipe&lt;/code>&lt;/p>
+&lt;p>:::spoiler Flag
+Flag: &lt;code>Jetico BCWipe&lt;/code>
+:::&lt;/p>
+&lt;h2 id="q22">
+ ==Q22==
+ &lt;a class="anchor" href="#q22">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>How many prefetch files were discovered on the system?&lt;/p></description></item></channel></rss>

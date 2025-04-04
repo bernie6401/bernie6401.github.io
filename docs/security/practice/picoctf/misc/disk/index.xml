@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - Disk, disk, sleuth! II</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---disk-disk-sleuth-ii/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---disk-disk-sleuth-ii/</guid><description>&lt;h1 id="picoctf---disk-disk-sleuth-ii">
+ PicoCTF - Disk, disk, sleuth! II
+ &lt;a class="anchor" href="#picoctf---disk-disk-sleuth-ii">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/137?category=4&amp;amp;page=2">Disk, disk, sleuth! II&lt;/a>&lt;/p>
+&lt;h2 id="description--hint">
+ Description &amp;amp; Hint
+ &lt;a class="anchor" href="#description--hint">#&lt;/a>
+&lt;/h2>
+&lt;p>All we know is the file with the flag is named &lt;code>down-at-the-bottom.txt&lt;/code>&amp;hellip; Disk image: &lt;code>dds2-alpine.flag.img.gz&lt;/code>
+Hint 1: The sleuthkit has some great tools for this challenge as well.
+Hint 2: Sleuthkit docs here are so helpful: &lt;a href="http://wiki.sleuthkit.org/index.php?title=TSK_Tool_Overview">TSK Tool Overview&lt;/a>
+Hint 3: This disk can also be booted with &lt;a href="https://idobest.pixnet.net/blog/post/22040213">qemu&lt;/a>!&lt;/p></description></item><item><title>PicoCTF - Operation Oni</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---operation-oni/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---operation-oni/</guid><description>&lt;h1 id="picoctf---operation-oni">
+ PicoCTF - Operation Oni
+ &lt;a class="anchor" href="#picoctf---operation-oni">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.techrepublic.com/article/how-to-view-your-ssh-keys-in-linux-macos-and-windows/">How to View Your SSH Keys in Linux, macOS and Windows&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://docs.pingcode.com/ask/16621.html">ISO和IMG有哪些區別&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;h3 id="iso和img的區別">
+ ISO和IMG的區別
+ &lt;a class="anchor" href="#iso%e5%92%8cimg%e7%9a%84%e5%8d%80%e5%88%a5">#&lt;/a>
+&lt;/h3>
+&lt;p>ISO和IMG都是操作系統鏡像文件的擴展名，它們的主要區別在以下幾個方面：&lt;/p>
+&lt;ol>
+&lt;li>來源不同
+ISO文件通常來自光盤鏡像，例如Windows安裝光盤的ISO鏡像文件。而IMG文件可以來自多種渠道，例如從移動設備制造商下載的Android操作系統鏡像文件，或者是從虛擬機軟件中制作的虛擬機磁盤鏡像文件。&lt;/li>
+&lt;li>文件格式不同
+ISO文件使用ISO 9660標準格式，而IMG文件可以使用多種格式，例如RAW、VMDK、VDI等。&lt;/li>
+&lt;li>兼容性不同
+ISO文件在各種操作系統和軟件中都有良好的兼容性，而IMG文件在一些操作系統或軟件中可能存在兼容性問題。&lt;/li>
+&lt;li>使用範圍不同
+ISO文件主要用於制作光盤或者USB啟動盤，用於安裝操作系統或者救援系統等。而IMG文件主要用於移動設備或者虛擬機等環境下的操作系統安裝或備份。
+總之，ISO和IMG都是操作系統鏡像文件的擴展名，雖然它們在一些方面有類似之處，但在來源、文件格式、兼容性和使用範圍等方面存在差異，應根據具體的需求來選擇使用哪種格式。&lt;/li>
+&lt;/ol>&lt;/blockquote>
+&lt;h2 id="description">
+ Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;p>Download this disk image, find the key and log into the remote machine. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.&lt;/p></description></item><item><title>PicoCTF - Operation Orchid</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---operation-orchid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---operation-orchid/</guid><description>&lt;h1 id="picoctf---operation-orchid">
+ PicoCTF - Operation Orchid
+ &lt;a class="anchor" href="#picoctf---operation-orchid">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題過於簡單&lt;/p>
+&lt;h2 id="exploit---forensics--openssl">
+ Exploit - Forensics / Openssl
+ &lt;a class="anchor" href="#exploit---forensics--openssl">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Find Encryption Flag File(Autopsy)
+可以在/root中找到，然後.ash_history的command紀錄中知道加密的password phrase
+&lt;img src="https://hackmd.io/_uploads/rJdlBhLgp.png" alt="" />&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>touch flag.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nano flag.txt 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apk get nano
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apk --help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apk add nano
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nano flag.txt 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>openssl
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>openssl aes256 -salt -in flag.txt -out flag.txt.enc -k unbreakablepassword1234567
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>shred -u flag.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls -al
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>halt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Script&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ openssl aes-256-cbc -in flag.txt.enc -d
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>enter aes-256-cbc decryption password:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>*** WARNING : deprecated key derivation used.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Using -iter or -pbkdf2 would be better.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bad decrypt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>140342062343488:error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt:crypto/evp/evp_enc.c:612:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>picoCTF&lt;span style="color:#f92672">{&lt;/span>h4un71ng_p457_5113beab&lt;span style="color:#f92672">}&lt;/span>%
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol></description></item><item><title>PicoCTF - Pitter, Patter, Platters</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---pitter-patter-platters/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---pitter-patter-platters/</guid><description>&lt;h1 id="picoctf---pitter-patter-platters">
+ PicoCTF - Pitter, Patter, Platters
+ &lt;a class="anchor" href="#picoctf---pitter-patter-platters">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/87?category=4&amp;amp;page=2">Pitter, Patter, Platters&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.gtwang.org/linux/linux-add-format-mount-harddisk/">sda&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="exploit---use-ftk-imager">
+ Exploit - Use FTK Imager
+ &lt;a class="anchor" href="#exploit---use-ftk-imager">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>I use Autopsy but find nothing except a txt file
+&lt;img src="https://i.imgur.com/7IXjuMn.png" alt="" />
+So I follow &lt;a href="https://youtu.be/P0wvFs02oKY">write up video&lt;/a> to use &lt;code>FTK imager&lt;/code> and it can parse files completely.
+&lt;img src="https://i.imgur.com/FdC9k3V.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;p>ORRRR&amp;hellip;&lt;/p>
+&lt;ul>
+&lt;li>Use &lt;code>HxD&lt;/code> as auxiliary tool to find flag
+&lt;img src="https://i.imgur.com/RTIOn1G.png" alt="" />&lt;/li>
+&lt;/ul>
+&lt;p>ORRRR&amp;hellip;&lt;/p>
+&lt;ul>
+&lt;li>Just use string search
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ strings -e l Pitter,\ Patter,\ Platters.sda1 | rev
+picoCTF{b3_5t111_mL|_&amp;lt;3_ba880921}
+...
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://github.com/Dvd848/CTFs/blob/master/2020_picoCTF_Mini/Pitter_Patter_Platters.md">Pitter, Patter, Platters write up&lt;/a>
+&lt;a href="https://youtu.be/P0wvFs02oKY">pico 2020 mini pitter patter platters&lt;/a>&lt;/p></description></item><item><title>PicoCTF - Sleuthkit Intro</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---sleuthkit-intro/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/misc/disk/picoctf---sleuthkit-intro/</guid><description>&lt;h1 id="picoctf---sleuthkit-intro">
+ PicoCTF - Sleuthkit Intro
+ &lt;a class="anchor" href="#picoctf---sleuthkit-intro">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-misc">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Misc&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-misc">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/301?category=4&amp;amp;page=2">Sleuthkit Intro&lt;/a>&lt;/p>
+&lt;h2 id="description">
+ Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Download the disk image and use &lt;font color="FF0000">mmls&lt;/font> on it to find the size of the Linux partition. Connect to the remote checker service to check your answer and get the flag. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.&lt;/p>&lt;/blockquote>
+&lt;pre>&lt;code>Download disk image
+Access checker program: nc saturn.picoctf.net 52279
+&lt;/code>&lt;/pre>
+&lt;p>&lt;a href="https://blog.csdn.net/qq_40399982/article/details/114882879?spm=1001.2014.3001.5506">最新kali之mmls&lt;/a>&lt;/p></description></item></channel></rss>

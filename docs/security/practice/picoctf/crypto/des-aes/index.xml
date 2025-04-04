@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - AES-ABC</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---aes-abc/</guid><description>&lt;h1 id="picoctf---aes-abc">
+ PicoCTF - AES-ABC
+ &lt;a class="anchor" href="#picoctf---aes-abc">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-crypto">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Crypto&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-crypto">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.adobe.com/tw/creativecloud/file-types/image/raster/ppm-file.html">What is PPM file?&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">#!/usr/bin/env python
+
+from Crypto.Cipher import AES
+from key import KEY
+import os
+import math
+
+BLOCK_SIZE = 16
+UMAX = int(math.pow(256, BLOCK_SIZE))
+
+
+def to_bytes(n):
+ s = hex(n)
+ s_n = s[2:]
+ if &amp;#39;L&amp;#39; in s_n:
+ s_n = s_n.replace(&amp;#39;L&amp;#39;, &amp;#39;&amp;#39;)
+ if len(s_n) % 2 != 0:
+ s_n = &amp;#39;0&amp;#39; + s_n
+ decoded = s_n.decode(&amp;#39;hex&amp;#39;)
+
+ pad = (len(decoded) % BLOCK_SIZE)
+ if pad != 0: 
+ decoded = &amp;#34;\0&amp;#34; * (BLOCK_SIZE - pad) + decoded
+ return decoded
+
+
+def remove_line(s):
+ # returns the header line, and the rest of the file
+ return s[:s.index(&amp;#39;\n&amp;#39;) + 1], s[s.index(&amp;#39;\n&amp;#39;)+1:]
+
+
+def parse_header_ppm(f):
+ data = f.read()
+
+ header = &amp;#34;&amp;#34;
+
+ for i in range(3):
+ header_i, data = remove_line(data)
+ header += header_i
+
+ return header, data
+ 
+
+def pad(pt):
+ padding = BLOCK_SIZE - len(pt) % BLOCK_SIZE
+ return pt + (chr(padding) * padding)
+
+
+def aes_abc_encrypt(pt):
+ cipher = AES.new(KEY, AES.MODE_ECB)
+ ct = cipher.encrypt(pad(pt))
+
+ blocks = [ct[i * BLOCK_SIZE:(i+1) * BLOCK_SIZE] for i in range(len(ct) / BLOCK_SIZE)]
+ iv = os.urandom(16)
+ blocks.insert(0, iv)
+ 
+ for i in range(len(blocks) - 1):
+ prev_blk = int(blocks[i].encode(&amp;#39;hex&amp;#39;), 16)
+ curr_blk = int(blocks[i+1].encode(&amp;#39;hex&amp;#39;), 16)
+
+ n_curr_blk = (prev_blk + curr_blk) % UMAX
+ blocks[i+1] = to_bytes(n_curr_blk)
+
+ ct_abc = &amp;#34;&amp;#34;.join(blocks)
+ 
+ return iv, ct_abc, ct
+
+
+if __name__==&amp;#34;__main__&amp;#34;:
+ with open(&amp;#39;flag.ppm&amp;#39;, &amp;#39;rb&amp;#39;) as f:
+ header, data = parse_header_ppm(f)
+ 
+ iv, c_img, ct = aes_abc_encrypt(data)
+
+ with open(&amp;#39;body.enc.ppm&amp;#39;, &amp;#39;wb&amp;#39;) as fw:
+ fw.write(header)
+ fw.write(c_img)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Double DES</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---double-des/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/crypto/des-aes/picoctf---double-des/</guid><description>&lt;h1 id="picoctf---double-des">
+ PicoCTF - Double DES
+ &lt;a class="anchor" href="#picoctf---double-des">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-crypto">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Crypto&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-crypto">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Meet in the middle attack&lt;/li>
+&lt;/ul>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">#!/usr/bin/python3 -u
+from Crypto.Cipher import DES
+import binascii
+import itertools
+import random
+import string
+
+
+def pad(msg):
+ block_len = 8
+ over = len(msg) % block_len
+ pad = block_len - over
+ return (msg + &amp;#34; &amp;#34; * pad).encode()
+
+def generate_key():
+ return pad(&amp;#34;&amp;#34;.join(random.choice(string.digits) for _ in range(6)))
+
+
+FLAG = open(&amp;#34;flag&amp;#34;).read().rstrip()
+KEY1 = generate_key()
+KEY2 = generate_key()
+
+
+def get_input():
+ try:
+ res = binascii.unhexlify(input(&amp;#34;What data would you like to encrypt? &amp;#34;).rstrip()).decode()
+ except:
+ res = None
+ return res
+
+def double_encrypt(m):
+ msg = pad(m)
+
+ cipher1 = DES.new(KEY1, DES.MODE_ECB)
+ enc_msg = cipher1.encrypt(msg)
+ cipher2 = DES.new(KEY2, DES.MODE_ECB)
+ return binascii.hexlify(cipher2.encrypt(enc_msg)).decode()
+
+
+print(&amp;#34;Here is the flag:&amp;#34;)
+print(double_encrypt(FLAG))
+
+while True:
+ inputs = get_input()
+ if inputs:
+ print(double_encrypt(inputs))
+ else:
+ print(&amp;#34;Invalid input.&amp;#34;)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item></channel></rss>
