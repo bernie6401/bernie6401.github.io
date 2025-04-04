@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/tool/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/survey-papers/android-+-security/tool/index.xml" rel="self" type="application/rss+xml"/><item><title>Pentest Tools Survey</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/tool/pentest-tools-survey/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/tool/pentest-tools-survey/</guid><description>&lt;h1 id="mobile-application-security-penetration-testing-based-on-owasp">
+ Mobile Application Security Penetration Testing Based on OWASP
+ &lt;a class="anchor" href="#mobile-application-security-penetration-testing-based-on-owasp">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+Alanda, A., Satria, D., Mooduto, H. A., &amp;amp; Kurniawan, B. (2020, May). Mobile application security penetration testing based on OWASP. In IOP Conference Series: Materials Science and Engineering (Vol. 846, No. 1, p. 012036). IOP Publishing.
+:::&lt;/p>
+&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>研究針對Android行動應用程式安全性進行滲透測試,主要基於OWASP(開放式Web應用程式安全專案)的10大行動應用程式弱點。測試結果顯示,有80%的測試應用程式存在OWASP Mobile Top 10所列出的弱點，研究提供了各種弱點的測試方法與結果分析,並給出相應的安全修復建議,以增強Android行動應用程式的安全性。&lt;/p>
+&lt;h1 id="以-andorid-實驗案例探討-owasp-行動裝置應用程式之十大威脅">
+ 以 Andorid 實驗案例探討 OWASP 行動裝置應用程式之十大威脅
+ &lt;a class="anchor" href="#%e4%bb%a5-andorid-%e5%af%a6%e9%a9%97%e6%a1%88%e4%be%8b%e6%8e%a2%e8%a8%8e-owasp-%e8%a1%8c%e5%8b%95%e8%a3%9d%e7%bd%ae%e6%87%89%e7%94%a8%e7%a8%8b%e5%bc%8f%e4%b9%8b%e5%8d%81%e5%a4%a7%e5%a8%81%e8%84%85">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+許振銘, &amp;amp; 許登凱. (2014). 以 Andorid 實驗案例探討 OWASP 行動裝置應用程式之十大威脅. Communications of the CCISA, 20(2), 77-96.
+:::&lt;/p></description></item><item><title>有關Pentest但貢獻很爛的三篇論文</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/tool/%E6%9C%89%E9%97%9Cpentest%E4%BD%86%E8%B2%A2%E7%8D%BB%E5%BE%88%E7%88%9B%E7%9A%84%E4%B8%89%E7%AF%87%E8%AB%96%E6%96%87/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/tool/%E6%9C%89%E9%97%9Cpentest%E4%BD%86%E8%B2%A2%E7%8D%BB%E5%BE%88%E7%88%9B%E7%9A%84%E4%B8%89%E7%AF%87%E8%AB%96%E6%96%87/</guid><description>&lt;h1 id="risk-analysis-and-android-application-penetration-testing-based-on-owasp-2016">
+ Risk analysis and Android application penetration testing based on OWASP 2016
+ &lt;a class="anchor" href="#risk-analysis-and-android-application-penetration-testing-based-on-owasp-2016">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+Borja, T., Benalcázar, M. E., Valdivieso Caraguay, Á. L., &amp;amp; Barona López, L. I. (2021). Risk analysis and Android application penetration testing based on OWASP 2016. In Information Technology and Systems: ICITS 2021, Volume 1 (pp. 461-478). Springer International Publishing.
+:::&lt;/p>
+&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>嚴格來說，這一篇不是完全沒用，但真的貢獻超級低，他基本上就是照著之前寫過的&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>流程和動機甚至實驗方法做而已，最後再加上自己的一些見解(也就是所謂的風險評估矩陣和針對每一個Risk寫出自己的建議或是mitigation)，就這樣沒了，詳細對比如下
+![圖片](&lt;a href="https://hackmd.io/_uploads/r1eR14KBA.png">https://hackmd.io/_uploads/r1eR14KBA.png&lt;/a> =400x)
+Reference 8就是&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;h2 id="proposed-method">
+ Proposed Method
+ &lt;a class="anchor" href="#proposed-method">#&lt;/a>
+&lt;/h2>
+&lt;p>作者自行創立一個Score Scale如下
+&lt;img src="https://hackmd.io/_uploads/HJf8g4KrR.png" alt="圖片1" />
+總共有四個向度，前三個向度相加取平均後*最後一個向度就是該Risk的分數，
+&lt;img src="https://hackmd.io/_uploads/SJsclVKr0.png" alt="圖片2" />
+實驗後的級距分野如下
+![圖片](&lt;a href="https://hackmd.io/_uploads/HJlAg4tBR.png">https://hackmd.io/_uploads/HJlAg4tBR.png&lt;/a> =300x)&lt;/p></description></item></channel></rss>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/survey-papers/ml-dl-+-security/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/survey-papers/ml-dl-+-security/index.xml" rel="self" type="application/rss+xml"/><item><title>DEEPCASE Semi-Supervised Contextual Analysis of Security Events - Notes</title><link>https://bernie6401.github.io/docs/survey-papers/ml-dl-+-security/deepcase-semi-supervised-contextual-analysis-of-security-events---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/ml-dl-+-security/deepcase-semi-supervised-contextual-analysis-of-security-events---notes/</guid><description>&lt;h1 id="deepcase-semi-supervised-contextual-analysis-of-security-events---notes">
+ DEEPCASE Semi-Supervised Contextual Analysis of Security Events - Notes
+ &lt;a class="anchor" href="#deepcase-semi-supervised-contextual-analysis-of-security-events---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-meeting-paper-ntu">
+ tags: &lt;code>Meeting Paper&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-meeting-paper-ntu">#&lt;/a>
+&lt;/h6>
+&lt;p>:::info
+Van Ede, T., Aghakhani, H., Spahn, N., Bortolameotti, R., Cova, M., Continella, A., &amp;hellip; &amp;amp; Vigna, G. (2022, May). Deepcase: Semi-supervised contextual analysis of security events. In 2022 IEEE Symposium on Security and Privacy (SP) (pp. 522-539). IEEE.
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://ithelp.ithome.com.tw/articles/10202297">What is NSM(Network Security Monitors)?&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>NSM主要目的是偵測、找出入侵者，提高能見度。它建立在「我們一定會被攻擊，而且最終防禦一定會被突破」的思惟上。假設意志堅決的駭客最終打穿我們辛苦建立的防禦，但只要能在入侵者進一步破壞、感染系統前偵測、做出回應，讓入侵者無法達到目的，便能阻擋這波攻擊&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>NSM不是等接收IDS/IPS等等資安設備觸發警示後才開始收集，而是平時便預先主動收集資料，提供NSM平台審視、分析，強化可見度，主動找出入侵軌跡&lt;/p>&lt;/blockquote>
+&lt;hr>
+&lt;p>&lt;a href="https://www.ithome.com.tw/tech/28712">What is IDS(Intrusion Detection Systems)?&lt;/a>&lt;/p></description></item><item><title>DeepLog: Anomaly Detection and Diagnosis from System Logs through Deep Learning</title><link>https://bernie6401.github.io/docs/survey-papers/ml-dl-+-security/deeplog_-anomaly-detection-and-diagnosis-from-system-logs-through-deep-learning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/ml-dl-+-security/deeplog_-anomaly-detection-and-diagnosis-from-system-logs-through-deep-learning/</guid><description>&lt;h1 id="deeplog-anomaly-detection-and-diagnosis-from-system-logs-through-deep-learning">
+ DeepLog: Anomaly Detection and Diagnosis from System Logs through Deep Learning
+ &lt;a class="anchor" href="#deeplog-anomaly-detection-and-diagnosis-from-system-logs-through-deep-learning">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-meeting-paper-ntu">
+ tags: &lt;code>Meeting Paper&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-meeting-paper-ntu">#&lt;/a>
+&lt;/h6>
+&lt;p>:::info
+Du, M., Li, F., Zheng, G., &amp;amp; Srikumar, V. (2017, October). Deeplog: Anomaly detection and diagnosis from system logs through deep learning. In Proceedings of the 2017 ACM SIGSAC conference on computer and communications security (pp. 1285-1298).
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Model - Log Parser
+&lt;a href="https://web.ntnu.edu.tw/~algo/Subsequence2.html">Longest Common Subsequence(LCS)&lt;/a>
+&lt;a href="https://www.redhat.com/zh-tw/topics/openstack">認識 OpenStack&lt;/a>&lt;/p>
+&lt;hr>
+&lt;p>Some attack
+&lt;a href="https://wooyun.js.org/drops/Blind%20Return%20Oriented%20Programming%20%28BROP%29%20Attack%20-%20%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86.html">Blind Return Oriented Programming(BROP)&lt;/a>&lt;/p></description></item></channel></rss>

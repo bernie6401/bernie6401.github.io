@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/gui-testing/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/survey-papers/android-+-security/gui-testing/index.xml" rel="self" type="application/rss+xml"/><item><title>Fastbot: A Multi-Agent Model-Based Test Generation System</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/gui-testing/fastbot_-a-multi-agent-model-based-test-generation-system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/gui-testing/fastbot_-a-multi-agent-model-based-test-generation-system/</guid><description>&lt;h1 id="fastbot-a-multi-agent-model-based-test-generation-system">
+ Fastbot: A Multi-Agent Model-Based Test Generation System
+ &lt;a class="anchor" href="#fastbot-a-multi-agent-model-based-test-generation-system">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+Cai, T., Zhang, Z., &amp;amp; Yang, P. (2020, October). Fastbot: A multi-agent model-based test generation system Beijing Bytedance Network Technology Co., Ltd. In Proceedings of the IEEE/ACM 1st International Conference on Automation of Software Test (pp. 93-96).
+:::
+參考資料: &lt;a href="https://mp.weixin.qq.com/s/QhzqBFZygkIS6C69__smyQ">https://mp.weixin.qq.com/s/QhzqBFZygkIS6C69__smyQ&lt;/a>
+&lt;img src="https://hackmd.io/_uploads/BkAnq965Jg.png" alt="image" />&lt;/p></description></item><item><title>Fastbot2: Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/gui-testing/fastbot2_-reusable-automated-model-based-gui-testing-for-android-enhanced-by-reinforcement-learning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/gui-testing/fastbot2_-reusable-automated-model-based-gui-testing-for-android-enhanced-by-reinforcement-learning/</guid><description>&lt;h1 id="fastbot2-reusable-automated-model-based-gui-testing-for-android-enhanced-by-reinforcement-learning">
+ Fastbot2: Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning
+ &lt;a class="anchor" href="#fastbot2-reusable-automated-model-based-gui-testing-for-android-enhanced-by-reinforcement-learning">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., &amp;amp; Yang, P. (2022, October). Fastbot2: Reusable automated model-based gui testing for android enhanced by reinforcement learning. In Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering (pp. 1-5).
+:::
+參考資料: &lt;a href="https://github.com/bytedance/Fastbot_Android/blob/main/handbook-cn.md">https://github.com/bytedance/Fastbot_Android/blob/main/handbook-cn.md&lt;/a>
+&lt;img src="https://hackmd.io/_uploads/SJFpdcp51x.png" alt="image" />&lt;/p>
+&lt;h2 id="動機與貢獻">
+ 動機與貢獻
+ &lt;a class="anchor" href="#%e5%8b%95%e6%a9%9f%e8%88%87%e8%b2%a2%e7%8d%bb">#&lt;/a>
+&lt;/h2>
+&lt;p>現有的GUI testing都是無法重複使用之前測試的結果，但fastbot2可以(特別是event-activity transitions)。有兩個貢獻&lt;/p>
+&lt;ol>
+&lt;li>提出reusable automated model-based GUI testing technique，並且利用reinforcement learning進行增強，以滿足持續測試的實際需求&lt;/li>
+&lt;li>Fastbot2 優於最先進的技術。它也已成功部署在位元組跳動的 CI 流程中，並因其改善應用程式品質的能力而獲得了積極的回饋&lt;/li>
+&lt;/ol>
+&lt;h2 id="主要流程">
+ 主要流程
+ &lt;a class="anchor" href="#%e4%b8%bb%e8%a6%81%e6%b5%81%e7%a8%8b">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>其實很簡單，就是2個東西合併，一個是可以儲存過往測試的流程中，event和activity之間的關係(transitions)，該機率模型就是在記憶每一次的測試round中，獲得的一些knowledge，比方說哪一個哪些event會跑到哪個activity之類的；&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>旨在根據曾經探索的頁面的情況，對當前的備選組件進行挑選，從中選出最有可能觸發未曾探索過的頁面的組件，也就更有可能提升測試結果的 Activity 覆蓋率&lt;/p></description></item></channel></rss>

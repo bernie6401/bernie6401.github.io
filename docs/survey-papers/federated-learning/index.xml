@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/survey-papers/federated-learning/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/survey-papers/federated-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>EIFFeL: Ensuring Integrity For Federated Learning - Notes</title><link>https://bernie6401.github.io/docs/survey-papers/federated-learning/eiffel_-ensuring-integrity-for-federated-learning---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/federated-learning/eiffel_-ensuring-integrity-for-federated-learning---notes/</guid><description>&lt;h1 id="eiffel-ensuring-integrity-for-federated-learning---notes">
+ EIFFeL: Ensuring Integrity For Federated Learning - Notes
+ &lt;a class="anchor" href="#eiffel-ensuring-integrity-for-federated-learning---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-meeting-paper-ntu">
+ tags: &lt;code>Meeting Paper&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-meeting-paper-ntu">#&lt;/a>
+&lt;/h6>
+&lt;p>:::info
+Roy Chowdhury, A., Guo, C., Jha, S., &amp;amp; van der Maaten, L. (2022, November). Eiffel: Ensuring integrity for federated learning. In Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (pp. 2535-2549).
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://medium.com/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9F%A5%E8%AD%98%E6%AD%B7%E7%A8%8B/%E8%81%AF%E9%82%A6%E5%AD%B8%E7%BF%92%E7%9A%84%E7%B0%A1%E5%96%AE%E4%BB%8B%E7%B4%B9-776924277d13">聯邦學習的簡單介紹&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>聯邦學習的流程大致上可以分成4步驟：&lt;/p>
+&lt;ul>
+&lt;li>確定架構(拓樸) Formulate topology&lt;/li>
+&lt;li>梯度計算 Gradient compute&lt;/li>
+&lt;li>資訊交換 Information exchange&lt;/li>
+&lt;li>模型聚合 model aggregation&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/83786131">What is Secure Aggregation?&lt;/a>&lt;/p></description></item><item><title>FedML-HE - An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System - Notes</title><link>https://bernie6401.github.io/docs/survey-papers/federated-learning/fedml-he---an-efficient-homomorphic-encryption-based-privacy-preserving-federated-learning-system---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/federated-learning/fedml-he---an-efficient-homomorphic-encryption-based-privacy-preserving-federated-learning-system---notes/</guid><description>&lt;h1 id="fedml-he---an-efficient-homomorphic-encryption-based-privacy-preserving-federated-learning-system---notes">
+ FedML-HE - An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System - Notes
+ &lt;a class="anchor" href="#fedml-he---an-efficient-homomorphic-encryption-based-privacy-preserving-federated-learning-system---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-meeting-paper-ntu">
+ tags: &lt;code>Meeting Paper&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-meeting-paper-ntu">#&lt;/a>
+&lt;/h6>
+&lt;p>:::info
+Jin, W., Yao, Y., Han, S., Joe-Wong, C., Ravi, S., Avestimehr, S., &amp;amp; He, C. (2023). FedML-HE: An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System. arXiv preprint arXiv:2303.10837.
+:::
+[TOC]&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="聯邦學習攻擊方式">
+ &lt;a href="https://ithelp.ithome.com.tw/articles/10302263?sc=iThelpR">聯邦學習：攻擊方式&lt;/a>
+ &lt;a class="anchor" href="#%e8%81%af%e9%82%a6%e5%ad%b8%e7%bf%92%e6%94%bb%e6%93%8a%e6%96%b9%e5%bc%8f">#&lt;/a>
+&lt;/h3>
+&lt;p>:::spoiler&lt;/p>
+&lt;blockquote>
+&lt;p>成員推理攻擊
+攻擊者試圖確定某些資料是否是訓練的一部分與模型反轉攻擊一樣，攻擊者利用返回的分類分數來創建多個這些 影子 模型，模型與受攻擊的原始模型具有相似的分類邊界。
+給定一個 黑盒 機器學習模型和一個資料記錄，確定該記錄是否用作模型的訓練資料集的一部分，被證明是可能的，具有極高的準確性。
+因此，僅對在給定輸入上返回模型輸出的黑盒 API 進行簡單的查詢訪問，就可能洩露有關模型訓練所依據的各個資料記錄的大量訊息。
+推理攻擊的準確性隨著類別數量的增加而增加。
+:::&lt;/p>&lt;/blockquote>
+&lt;hr>
+&lt;h3 id="what-is-multi-party-computation-mpc">
+ &lt;a href="https://www.eettaiwan.com/20220609nt21-multi-party-computation/">What is Multi Party Computation (MPC)?&lt;/a>
+ &lt;a class="anchor" href="#what-is-multi-party-computation-mpc">#&lt;/a>
+&lt;/h3>
+&lt;p>:::spoiler&lt;/p></description></item><item><title>Local Model Poisoning Attacks to Byzantine-Robust Federated Learning - Notes</title><link>https://bernie6401.github.io/docs/survey-papers/federated-learning/local-model-poisoning-attacks-to-byzantine-robust-federated-learning---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/federated-learning/local-model-poisoning-attacks-to-byzantine-robust-federated-learning---notes/</guid><description>&lt;h1 id="local-model-poisoning-attacks-to-byzantine-robust-federated-learning---notes">
+ Local Model Poisoning Attacks to Byzantine-Robust Federated Learning - Notes
+ &lt;a class="anchor" href="#local-model-poisoning-attacks-to-byzantine-robust-federated-learning---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-meeting-paper-ntu">
+ tags: &lt;code>Meeting Paper&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-meeting-paper-ntu">#&lt;/a>
+&lt;/h6>
+&lt;p>:::info
+Fang, M., Cao, X., Jia, J., &amp;amp; Gong, N. (2020). Local model poisoning attacks to {Byzantine-Robust} federated learning. In 29th USENIX security symposium (USENIX Security 20) (pp. 1605-1622).
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="what-is-non-iid">
+ &lt;a href="https://www.zhihu.com/question/395555567">What is Non-IID?&lt;/a>
+ &lt;a class="anchor" href="#what-is-non-iid">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>首先：什麽是獨立同分布？&lt;/p>
+&lt;ul>
+&lt;li>同分布：所有items均來自同一種概率分布； e.g. 你丟骰子，每次丟骰子到任何一個數字的概率都是1/6，是相等概率。或者說，在概率空間里面，你不論進行幾次抽樣實驗，他們都服從同樣一個分布。&lt;/li>
+&lt;li>獨立：這些sample items全部都是獨立事件； e.g. 每次抽樣之間沒有關系，不會相互影響。比如你在隨便丟骰子，每次拋到的數字是幾就是幾，是獨立的。但如果我要求你要兩次拋到的數字和大於等於9，第一次和第二次拋就不獨立，因為他們相互關聯。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>非獨立：有些數據處理的順序不夠隨機。比如有些按時間和其他一些標準來排序的數據會出現相關的情況，違反非獨立的原則。&lt;/li>
+&lt;li>非同分布：數據因所處在不同的分區而出現不同的分布。&lt;/li>
+&lt;li>Non-IID其實有三種：不獨立但同分布，獨立不同分布，不獨立也不同分布。&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;h3 id="實用拜占庭容錯機制理解">
+ &lt;a href="https://zhuanlan.zhihu.com/p/217827966">實用拜占庭容錯機制理解&lt;/a>
+ &lt;a class="anchor" href="#%e5%af%a6%e7%94%a8%e6%8b%9c%e5%8d%a0%e5%ba%ad%e5%ae%b9%e9%8c%af%e6%a9%9f%e5%88%b6%e7%90%86%e8%a7%a3">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>拜占庭將軍問題是一個協議問題，拜占庭帝國軍隊的將軍們必須全體一致的決定是否攻擊某一支敵軍。問題是這些將軍在地理上是分隔開來的，並且將軍中存在叛徒。叛徒可以任意行動以達到以下目標：欺騙某些將軍采取進攻行動；促成一個不是所有將軍都同意的決定，如當將軍們不希望進攻時促成進攻行動；或者迷惑某些將軍，使他們無法做出決定。如果叛徒達到了這些目的之一，則任何攻擊行動的結果都是注定要失敗的，只有完全達成一致的努力才能獲得勝利。&lt;/p></description></item></channel></rss>

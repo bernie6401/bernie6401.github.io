@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/tools/others/android-related/installation/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/tools/others/android-related/installation/index.xml" rel="self" type="application/rss+xml"/><item><title>Drozer/MobSF Installation</title><link>https://bernie6401.github.io/docs/tools/others/android-related/installation/drozer_mobsf-installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-related/installation/drozer_mobsf-installation/</guid><description>&lt;h1 id="drozermobsf-installation">
+ Drozer/MobSF Installation
+ &lt;a class="anchor" href="#drozermobsf-installation">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="installation---drozer">
+ Installation - Drozer
+ &lt;a class="anchor" href="#installation---drozer">#&lt;/a>
+&lt;/h2>
+&lt;p>我是參考&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>的說明，但其實參考官網的也可以，我是用docker裝&lt;/p>
+&lt;ol>
+&lt;li>Download drozer-agent &amp;amp; Install - &lt;a href="https://github.com/WithSecureLabs/drozer-agent/releases">Download&lt;/a>
+這是要安裝在手機測試端的類似一個server的概念，而我們的電腦端也要安裝類似的東西(有好幾種方式，我是用Docker)，讓電腦和手機可以互通
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ adb install drozer-agent.apk
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Start a Session
+打開agent app會發現右下角有一個Off，點擊後會變成On，代表這個agent已經準備好要和電腦這邊的server連接
+![Screenshot_20240603-131808](&lt;a href="https://hackmd.io/_uploads/SkPEfC9NC.png">https://hackmd.io/_uploads/SkPEfC9NC.png&lt;/a> =200x)&lt;/li>
+&lt;li>設定電腦的Port轉發到Android的某個Port
+根據&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>的說明，以及官網的要求，我們必須要把電腦31415這個port的封包轉發到手機端的31415這個port
+&lt;blockquote>
+&lt;p>Android 的 adb forward 通訊埠轉發的功能，adb forward 的功能是轉發 PC 電腦上某個埠號 (port) 資料到 Android 裝置的某個埠號 (port)，例如：下列 adb forward 指令就是將 PC 端的 port 10000 收到的資料，轉發給到 Android Device 的 port 20000&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ adb forward tcp:31415 tcp:31415
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Install PC Drozer Client
+看到以下畫面就代表成功了
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ docker run -it --add-host host.docker.internal:host-gateway withsecurelabs/drozer console connect --server host.docker.internal
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Selecting ff762fc058e91df3 &lt;span style="color:#f92672">(&lt;/span>Google Pixel 6a 13&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .. ..:.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ..o.. .r..
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ..a.. . ....... . ..nd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ro..idsnemesisand..pr
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .otectorandroidsneme.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .,sisandprotectorandroids+.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ..nemesisandprotectorandroidsn:.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .emesisandprotectorandroidsnemes..
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ..isandp,..,rotecyayandro,..,idsnem.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .isisandp..rotectorandroid..snemisis.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ,andprotectorandroidsnemisisandprotec.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .torandroidsnemesisandprotectorandroid.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .snemisisandprotectorandroidsnemesisan:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .dprotectorandroidsnemesisandprotector.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>drozer Console &lt;span style="color:#f92672">(&lt;/span>v3.0.2&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dz&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="installation---mobsf">
+ Installation - MobSF
+ &lt;a class="anchor" href="#installation---mobsf">#&lt;/a>
+&lt;/h2>
+&lt;p>可以直接使用&lt;a href="https://mobsf.live/">線上的工具&lt;/a>，也可以用docker架在自己的電腦&lt;/p></description></item></channel></rss>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/tools/others/directory-fuzzing---traversal-tools/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/tools/others/directory-fuzzing---traversal-tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Directory Fuzzing/Traversal Tools</title><link>https://bernie6401.github.io/docs/tools/others/directory-fuzzing---traversal-tools/directory-fuzzing_traversal-tools/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/directory-fuzzing---traversal-tools/directory-fuzzing_traversal-tools/</guid><description>&lt;h1 id="directory-fuzzingtraversal-tools">
+ Directory Fuzzing/Traversal Tools
+ &lt;a class="anchor" href="#directory-fuzzingtraversal-tools">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="according-survey-paper">
+ According Survey Paper
+ &lt;a class="anchor" href="#according-survey-paper">#&lt;/a>
+&lt;/h2>
+&lt;p>:::info
+Aggarwal, V., Kaur, D., Mittal, S., Prasad, T. J. S., Batra, D., &amp;amp; Garg, A. (2023, August). A Comparative Study of Directory Fuzzing Tools. In 2023 International Conference on Circuit Power and Computing Technologies (ICCPCT) (pp. 1368-1374). IEEE.
+:::
+&lt;img src="https://hackmd.io/_uploads/rJ5oCY450.png" alt="圖片1-1" />&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/epi052/feroxbuster">feroxbuster&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/xmendez/wfuzz">Wfuzz&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OJ/gobuster">gobuster&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sourceforge.net/projects/dirbuster/">Dirbuster&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="according-to-csdn-blog---推薦幾款優秀的目錄掃描工具">
+ According to CSDN Blog - &lt;a href="https://blog.csdn.net/m0_60571842/article/details/131463420">推薦幾款優秀的目錄掃描工具&lt;/a>
+ &lt;a class="anchor" href="#according-to-csdn-blog---%e6%8e%a8%e8%96%a6%e5%b9%be%e6%ac%be%e5%84%aa%e7%a7%80%e7%9a%84%e7%9b%ae%e9%8c%84%e6%8e%83%e6%8f%8f%e5%b7%a5%e5%85%b7">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/7kbstorm/7kbscan-WebPathBrute">7kbscan-WebPathBrute&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/maurosoria/dirsearch">dirsearch&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/lijiejie/BBScan">BBScan&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/VMsec/ihoneyBakFileScan_Modify">ihoneyBakFileScan_Modify&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="according-to-csdn-blog---滲透測試目錄掃描">
+ According to CSDN Blog - &lt;a href="https://blog.csdn.net/m0_51191308/article/details/130440572">滲透測試|目錄掃描&lt;/a>
+ &lt;a class="anchor" href="#according-to-csdn-blog---%e6%bb%b2%e9%80%8f%e6%b8%ac%e8%a9%a6%e7%9b%ae%e9%8c%84%e6%8e%83%e6%8f%8f">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/H4ckForJob/dirmap">DirMap&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/foryujian/yjdirscan">御劍&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="according-to-google">
+ According to Google
+ &lt;a class="anchor" href="#according-to-google">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/pmiaowu/PmWebDirScan">PmWebDirScan&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/corunb/Dirscan">Dirscan&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.csdn.net/qq_38612882/article/details/122648462">Dirb&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/maurosoria/dirsearch.git">Dirsearch&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ffuf/ffuf">Ffuf&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>WFuzz</title><link>https://bernie6401.github.io/docs/tools/others/directory-fuzzing---traversal-tools/wfuzz/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/directory-fuzzing---traversal-tools/wfuzz/</guid><description>&lt;h1 id="wfuzz">
+ WFuzz
+ &lt;a class="anchor" href="#wfuzz">#&lt;/a>
+&lt;/h1>
+&lt;p>參考網站-1: &lt;a href="https://www.ddosi.org/wfuzz-guide/">https://www.ddosi.org/wfuzz-guide/&lt;/a>
+參考網站-2: &lt;a href="https://www.ddosi.org/wfuzz/">https://www.ddosi.org/wfuzz/&lt;/a>
+參考網站-3: &lt;a href="https://www.secpulse.com/archives/78638.html">https://www.secpulse.com/archives/78638.html&lt;/a>
+參考官網-1: &lt;a href="https://wfuzz.readthedocs.io/en/latest/user/basicusage.html">https://wfuzz.readthedocs.io/en/latest/user/basicusage.html&lt;/a>&lt;/p>
+&lt;h3 id="installation--basic-guide">
+ Installation &amp;amp; Basic Guide
+ &lt;a class="anchor" href="#installation--basic-guide">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ git pull https://github.com/xmendez/wfuzz.git
+&lt;/code>&lt;/pre>&lt;p>下載下來後總共有==4==個executable file: ==wfencode==, ==wfpayload==, ==wfuzz==, ==wxfuzz==，這四個file實際上就是去執行src/內部的python cli file&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">python src/wfuzz-cli.py &amp;#34;$@&amp;#34;
+python src/wxfuzz.py $@
+python src/wfencode.py &amp;#34;$@&amp;#34;
+python src/wfpayload.py &amp;#34;$@&amp;#34;
+&lt;/code>&lt;/pre>&lt;h3 id="wfencode">
+ wfencode
+ &lt;a class="anchor" href="#wfencode">#&lt;/a>
+&lt;/h3>
+&lt;p>這個就是encode/decode的script，很單純&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ wfencode --help
+Usage:
+
+ wfencode --help This help
+ wfencode -d decoder_name string_to_decode
+ wfencode -e encoder_name string_to_encode
+ wfencode -e encoder_name -i &amp;lt;&amp;lt;stdin&amp;gt;&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>而關於encode/decoder name可以參考wfuzz file的help&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ wfuzz -e encoder
+Available encoders:
+
+ Category | Name | Summary
+------------------------------------------------------------------------------------------------------------------------
+ hashes | base64 | Encodes the given string using base64
+ url | doble_nibble_hex | Replaces ALL characters in string using the %%dd%dd escape
+ url_safe, url | double_urlencode | Applies a double encode to special characters in string using the %25xx escape.
+ | | Letters, digits, and the characters &amp;#39;_.-&amp;#39; are never quoted.
+ url | first_nibble_hex | Replaces ALL characters in string using the %%dd? escape
+ default | hexlify | Every byte of data is converted into the corresponding 2-digit hex representatio
+ | | n.
+ html | html_decimal | Replaces ALL characters in string using the &amp;amp;#dd; escape
+ html | html_escape | Convert the characters &amp;amp;&amp;lt;&amp;gt;&amp;#34; in string to HTML-safe sequences.
+ html | html_hexadecimal | Replaces ALL characters in string using the &amp;amp;#xx; escape
+ hashes | md5 | Applies a md5 hash to the given string
+ db | mssql_char | Converts ALL characters to MsSQL&amp;#39;s char(xx)
+ db | mysql_char | Converts ALL characters to MySQL&amp;#39;s char(xx)
+ default | none | Returns string without changes
+ db | oracle_char | Converts ALL characters to Oracle&amp;#39;s chr(xx)
+ default | random_upper | Replaces random characters in string with its capitals letters
+ url | second_nibble_hex | Replaces ALL characters in string using the %?%dd escape
+ hashes | sha1 | Applies a sha1 hash to the given string
+ hashes | sha256 | Applies a sha256 hash to the given string
+ hashes | sha512 | Applies a sha512 hash to the given string
+ url | uri_double_hex | Encodes ALL charachers using the %25xx escape.
+ url | uri_hex | Encodes ALL charachers using the %xx escape.
+ url | uri_triple_hex | Encodes ALL charachers using the %25%xx%xx escape.
+ url | uri_unicode | Replaces ALL characters in string using the %u00xx escape
+ url_safe, url | urlencode | Replace special characters in string using the %xx escape. Letters, digits, and
+ | | the characters &amp;#39;_.-&amp;#39; are never quoted.
+ url | utf8 | Replaces ALL characters in string using the \u00xx escape
+ url | utf8_binary | Replaces ALL characters in string using the \uxx escape
+&lt;/code>&lt;/pre>&lt;p>如何使用&lt;/p></description></item></channel></rss>

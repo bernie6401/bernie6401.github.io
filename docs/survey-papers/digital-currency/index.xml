@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/survey-papers/digital-currency/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/survey-papers/digital-currency/index.xml" rel="self" type="application/rss+xml"/><item><title>The State of Ethereum Smart Contracts Security: Vulnerabilities, Countermeasures, and Tool Support - Notes</title><link>https://bernie6401.github.io/docs/survey-papers/digital-currency/the-state-of-ethereum-smart-contracts-security_-vulnerabilities-countermeasures-and-tool-support---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/digital-currency/the-state-of-ethereum-smart-contracts-security_-vulnerabilities-countermeasures-and-tool-support---notes/</guid><description>&lt;h1 id="the-state-of-ethereum-smart-contracts-security-vulnerabilities-countermeasures-and-tool-support---notes">
+ The State of Ethereum Smart Contracts Security: Vulnerabilities, Countermeasures, and Tool Support - Notes
+ &lt;a class="anchor" href="#the-state-of-ethereum-smart-contracts-security-vulnerabilities-countermeasures-and-tool-support---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-meeting-paper-ntu-seminar">
+ tags: &lt;code>Meeting Paper&lt;/code> &lt;code>NTU&lt;/code> &lt;code>Seminar&lt;/code>
+ &lt;a class="anchor" href="#tags-meeting-paper-ntu-seminar">#&lt;/a>
+&lt;/h6>
+&lt;p>:::info
+Zhou, H., Milani Fard, A., &amp;amp; Makanju, A. (2022). The state of ethereum smart contracts security: Vulnerabilities, countermeasures, and tool support. Journal of Cybersecurity and Privacy, 2(2), 358-378.
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler &lt;a href="https://rich01.com/what-is-ether-ethereum/">以太幣(Ether) VS 以太坊(Ethereum)&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>以太坊是一個區塊鏈平台，而以太幣是裡面所使用的貨幣，智能合約的運算費用、區塊鏈上的交易手續費、礦工挖礦的獎勵等，都會用以太幣支付。&lt;/p>
+&lt;p>以太坊目的是打造一個「去中心化的世界電腦」，執行的方式是透過區塊鏈技術，實現去中心化智能合約平台，以太坊和比特幣一樣具有可挖礦的公鏈系統，但多了智能合約、Dapp的技術。
+:::
+:::spoiler &lt;a href="https://rich01.com/what-is-smart-contract/">What is Smart Contract?&lt;/a>
+智能合約是一種將雙方的協議條款，並用代碼形式在區塊鏈上運行，儲存在一個公共資料庫中，不能被更改。&lt;/p>
+&lt;p>智能合約中發生的交易是由區塊鏈處理的，這意味著它們可以在沒有第三者的情況下自動執行，只有當協議中的條件得到滿足時，交易才會發生，是完全去中心化的交易。&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;h2 id="智能合約-vs-傳統合約">
+ 智能合約 VS 傳統合約
+ &lt;a class="anchor" href="#%e6%99%ba%e8%83%bd%e5%90%88%e7%b4%84-vs-%e5%82%b3%e7%b5%b1%e5%90%88%e7%b4%84">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://rich01.com/wp-content/uploads/20210917180100_80.jpg" alt="" />&lt;/p></description></item></channel></rss>

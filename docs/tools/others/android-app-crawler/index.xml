@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/tools/others/android-app-crawler/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/tools/others/android-app-crawler/index.xml" rel="self" type="application/rss+xml"/><item><title>App Crawler Overview</title><link>https://bernie6401.github.io/docs/tools/others/android-app-crawler/app-crawler-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-app-crawler/app-crawler-overview/</guid><description>&lt;h1 id="android-app-crawler">
+ Android App Crawler
+ &lt;a class="anchor" href="#android-app-crawler">#&lt;/a>
+&lt;/h1>
+&lt;p>目前僅針對以下功能進行查找&lt;/p>
+&lt;ol>
+&lt;li>可以自行判斷目前activity有哪些可以interact&lt;/li>
+&lt;li>自行與這些interactable的view進行interact，不管是DFS或是BFS，反正就是全部都互動就對了&lt;/li>
+&lt;/ol>
+&lt;h2 id="比較常見的">
+ 比較常見的
+ &lt;a class="anchor" href="#%e6%af%94%e8%bc%83%e5%b8%b8%e8%a6%8b%e7%9a%84">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://developer.android.com/studio/test/other-testing-tools/app-crawler">App Crawler&lt;/a> &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup> - 無法使用&lt;/li>
+&lt;li>&lt;a href="https://github.com/seveniruby/AppCrawler">seveniruby/AppCrawler&lt;/a> &lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>&lt;sup id="fnref:7">&lt;a href="#fn:7" class="footnote-ref" role="doc-noteref">7&lt;/a>&lt;/sup>&lt;sup id="fnref:8">&lt;a href="#fn:8" class="footnote-ref" role="doc-noteref">8&lt;/a>&lt;/sup>&lt;sup id="fnref:9">&lt;a href="#fn:9" class="footnote-ref" role="doc-noteref">9&lt;/a>&lt;/sup> - 無法使用&lt;/li>
+&lt;li>&lt;a href="https://github.com/zhangzhao4444/Maxim">zhangzhao4444/Maxim&lt;/a> - 無法使用&lt;/li>
+&lt;li>&lt;a href="https://github.com/Eaway/AppCrawler">Eaway/AppCrawler&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/isonic1/Appium-Native-Crawler">isonic1/Appium-Native-Crawler&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="根據paper-related-work">
+ 根據Paper Related Work
+ &lt;a class="anchor" href="#%e6%a0%b9%e6%93%9apaper-related-work">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a href="https://github.com/tingsu/Stoat">Stoat&lt;/a>
+:::info
+Ting Su, Guozhu Meng, Yuting Chen, Ke Wu, Weiming Yang, Yao Yao, Geguang Pu, Yang Liu, and Zhendong Su. 2017. Guided, stochastic model-based GUI testing of Android apps. In Proceedings of the 2017 11th Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017). Association for Computing Machinery, New York, NY, USA, 245–256. &lt;a href="https://doi.org/10.1145/3106237.3106298">https://doi.org/10.1145/3106237.3106298&lt;/a>
+:::
+詳細的說明(包含Demo影片、比較的工具、測試的App)，都可以參考 &lt;a href="https://tingsu.github.io/files/stoat.html">https://tingsu.github.io/files/stoat.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developer.android.com/studio/test/other-testing-tools/monkey">UI/Application Exerciser Monkey&lt;/a> - 不會採用
+這是上一篇所比較的對象之一，可以想像成一個猴子正在對一個手機上的App進行隨機互動，可能包含簡單的click, double click, long click或是swipe等等
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ adb shell monkey -p com.music.spotify -v &lt;span style="color:#ae81ff">50000&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>最後面的數字代表隨機丟出多少的event給特定的App&lt;/li>
+&lt;li>&lt;a href="https://github.com/tanzirul/a3e">a3e&lt;/a> - 年代久遠不採用
+也是第一篇的比較對象之一&lt;/li>
+&lt;li>&lt;a href="https://github.com/Rhapsod/sapienz">Sapienz&lt;/a> - 無法使用
+也是第一篇的比較對象之一&lt;/li>
+&lt;li>&lt;a href="http://gutianxiao.com/ape/">APE - official webpage&lt;/a> / &lt;a href="https://github.com/tianxiaogu/ape">APE - github&lt;/a> - github star太少且年代久遠不採用
+這是第一篇有提到的工具之一&lt;/li>
+&lt;li>&lt;a href="https://github.com/bytedance/Fastbot_Android">Fastbot Android&lt;/a> - 可採用
+這是前一個APE官網有提到的工具，而且開發時間還蠻近的，github star也很多，也有&lt;a href="https://blog.csdn.net/u010698107/article/details/127347704">CSDN教學&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/honeynet/droidbot">Droidbot&lt;/a> - 可能採用
+:::info
+Li, Y., Yang, Z., Guo, Y., &amp;amp; Chen, X. (2017, May). Droidbot: a lightweight ui-guided test input generator for android. In 2017 IEEE/ACM 39th International Conference on Software Engineering Companion (ICSE-C) (pp. 23-26). IEEE.
+:::
+年代有點久遠，但網路上的&lt;a href="https://juejin.cn/post/7316582773434204171">教學&lt;/a>也蠻多的，官網也有提供&lt;a href="http://honeynet.github.io/droidbot/report_com.yelp.android/">範例&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/google-deepmind/android_env">Androidenv&lt;/a> - 可能採用
+:::info
+Toyama, D., Hamel, P., Gergely, A., Comanici, G., Glaese, A., Ahmed, Z., &amp;hellip; &amp;amp; Precup, D. (2021). Androidenv: A reinforcement learning platform for android. arXiv preprint arXiv:2105.13231.
+:::
+年代較近，也有教學&lt;/li>
+&lt;/ol>
+&lt;h2 id="實驗的來源以及標準">
+ 實驗的來源以及標準
+ &lt;a class="anchor" href="#%e5%af%a6%e9%a9%97%e7%9a%84%e4%be%86%e6%ba%90%e4%bb%a5%e5%8f%8a%e6%a8%99%e6%ba%96">#&lt;/a>
+&lt;/h2>
+&lt;p>如果僅僅是要app本身是開源的可以從&lt;a href="https://f-droid.org/zh_Hant/">F-Droid&lt;/a>當中去找，這個網站就是一個免費的Google Play Store，但是我要找的除了是app本身開源，後端本身也要開源，k因為這樣我才知道後端的URL有多少，如果想要知道有哪些可能可以拿來實驗的App，可以看&lt;code>Guided, stochastic model-based GUI testing of Android apps.&lt;/code>這一篇論文(就是前面提到的第一篇)&lt;/p></description></item><item><title>App Crawler 無法使用紀錄</title><link>https://bernie6401.github.io/docs/tools/others/android-app-crawler/app-crawler-%E7%84%A1%E6%B3%95%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-app-crawler/app-crawler-%E7%84%A1%E6%B3%95%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/</guid><description>&lt;h1 id="app-crawler-無法使用紀錄">
+ App Crawler 無法使用紀錄
+ &lt;a class="anchor" href="#app-crawler-%e7%84%a1%e6%b3%95%e4%bd%bf%e7%94%a8%e7%b4%80%e9%8c%84">#&lt;/a>
+&lt;/h1>
+&lt;p>根據&lt;a href="https://developer.android.com/studio/test/other-testing-tools/app-crawler">Android Studio官網&lt;/a>的說明&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ java -jar crawl_launcher.jar --apk-file path/to/my/app.apk --android-sdk path/to/my/android/sdk
+&lt;/code>&lt;/pre>&lt;p>我已經有安裝app在手機了，所以實際的command如下&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ java -jar crawl_launcher.jar --app-package-name com.xueqiu.android --android-sdk C:\Users\Bernie\AppData\Local\Android\Sdk
+Preparing to crawl com.xueqiu.android
+Crawl started.
+Crawl finished.
+Writing logcat to D:\NTU\Paper\MITM Framework\Code\AppCrawler\Google App Crawler\crawl_output\com.xueqiu.android-logcat.txt
+SUCCESS: Found 0 crashes.
+Timed out waiting for crawl outputs proto file D:\NTU\Paper\MITM Framework\Code\AppCrawler\Google App Crawler\crawl_output\app_firebase_test_lab\crawl_outputs.proto
+The output directory is D:\NTU\Paper\MITM Framework\Code\AppCrawler\Google App Crawler\crawl_output
+&lt;/code>&lt;/pre>&lt;p>但全程就只有大約不到30秒就結束了，不太懂流程到底出錯在哪，而且就算沒有安裝app，再重新跑一次，居然還可以沒有出錯的跑完；又或者是，把在沒有安裝app的情況下，用官網的command跑會直接當掉，無法繼續往下繼續跑，就一整個就很怪，但網路上也沒有比較新的說明&lt;/p></description></item><item><title>AppCrawler</title><link>https://bernie6401.github.io/docs/tools/others/android-app-crawler/appcrawler/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-app-crawler/appcrawler/</guid><description>&lt;h1 id="appcrawler">
+ AppCrawler
+ &lt;a class="anchor" href="#appcrawler">#&lt;/a>
+&lt;/h1>
+&lt;p>前面踩了超多坑，所以一切都以底下最新的配置為主&lt;/p>
+&lt;h2 id="infra">
+ Infra
+ &lt;a class="anchor" href="#infra">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Appium - 1.22.3
+一定要是2.0.0以下(未包含)，所以不要用default latest version，可以用CLI也可以用Desktop，因為Desktop Version預設已經no longer supported，所以一定是1.22.3，而CLI安裝就需要指定(以下是已經安裝npm為前提)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ npm install -g appium@1.22.3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ npm install -g appium-doctor
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>設定ANDROID_HOME和JAVA_HOME
+到Windows環境變數設定
+&lt;img src="https://hackmd.io/_uploads/BkmODXjqR.png" alt="圖片" />
+然後去看appium-doctor看necessary的部分是不是都有，一般來說可能會apkanalyzer.bat會沒有，這方面就慢慢到網路上去載android studio下載tools
+&lt;img src="https://hackmd.io/_uploads/BkZsw7j9R.png" alt="圖片" />&lt;/li>
+&lt;li>AppCrawler - latest (2.7.4)
+就直接到github release去下載build好的jar file，不需要看其他教學是用2.4.0或是2.3.1去用stb或是maven build原本的專案
+Official Link: &lt;a href="https://github.com/seveniruby/AppCrawler/releases/tag/2.7.4">https://github.com/seveniruby/AppCrawler/releases/tag/2.7.4&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="測試前">
+ 測試前
+ &lt;a class="anchor" href="#%e6%b8%ac%e8%a9%a6%e5%89%8d">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>app activity name
+如果已經在手機安裝好，就直接看dumpsys中該package的main activity是哪一個
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ adb shell dumpsys package com.spotify.music | grep -B &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#e6db74">&amp;#34;android.intent.action.MAIN&amp;#34;&lt;/span> -n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>279- Action: &lt;span style="color:#e6db74">&amp;#34;com.google.android.meet.ADDONS_SUPPORT&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>280- Category: &lt;span style="color:#e6db74">&amp;#34;android.intent.category.DEFAULT&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>281: android.intent.action.MAIN:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>282- 553d29 com.spotify.music/.SpotifyMainActivity filter 3a3b8ae
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>283: Action: &lt;span style="color:#e6db74">&amp;#34;android.intent.action.MAIN&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>286- Category: &lt;span style="color:#e6db74">&amp;#34;android.intent.category.APP_MUSIC&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>287- 7cd1a0c com.spotify.music/.main.AppIconEmeraldGreen filter 18bef55
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>288: Action: &lt;span style="color:#e6db74">&amp;#34;android.intent.action.MAIN&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>290- Category: &lt;span style="color:#e6db74">&amp;#34;android.intent.category.DEFAULT&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>291- c3efd6a com.spotify.music/.MainActivity filter 204625b
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>292: Action: &lt;span style="color:#e6db74">&amp;#34;android.intent.action.MAIN&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>307- android.intent.action.MUSIC_PLAYER:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>308- 553d29 com.spotify.music/.SpotifyMainActivity filter 3a3b8ae
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>309: Action: &lt;span style="color:#e6db74">&amp;#34;android.intent.action.MAIN&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>另外一種方式就是用apktool反編譯後去看AndroidManifest.xml，一樣就是string search ==android.intent.action.MAIN==，但反編譯後會有一大堆files，可能會很佔空間
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ apktool d your_app.apk
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>app package name
+如果已經安裝了，就直接list package
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ adb shell pm list package | grep spotify
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>package:com.spotify.music
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>要不然就要用aapt去看
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ aapt d badging Spotify.apk | findstr package
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>package: name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;com.spotify.music&amp;#39;&lt;/span> versionCode&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;116658084&amp;#39;&lt;/span> versionName&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;8.9.58.572&amp;#39;&lt;/span> platformBuildVersionName&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;14&amp;#39;&lt;/span> platformBuildVersionCode&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;34&amp;#39;&lt;/span> compileSdkVersion&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;34&amp;#39;&lt;/span> compileSdkVersionCodename&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;14&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uses-permission: name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;com.sec.android.app.clockpackage.permission.READ_ALARM&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>開啟appium
+如何檢視有正確開啟並且有連線到
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ appium
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Appium&lt;span style="color:#f92672">]&lt;/span> Welcome to Appium v1.22.3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Appium&lt;span style="color:#f92672">]&lt;/span> Appium REST http interface listener started on 0.0.0.0:4723
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ curl http://127.0.0.1:4723/wd/hub/status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">{&lt;/span>&lt;span style="color:#e6db74">&amp;#34;value&amp;#34;&lt;/span>:&lt;span style="color:#f92672">{&lt;/span>&lt;span style="color:#e6db74">&amp;#34;build&amp;#34;&lt;/span>:&lt;span style="color:#f92672">{&lt;/span>&lt;span style="color:#e6db74">&amp;#34;version&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;1.22.3&amp;#34;&lt;/span>&lt;span style="color:#f92672">}}&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;sessionId&amp;#34;&lt;/span>:null,&lt;span style="color:#e6db74">&amp;#34;status&amp;#34;&lt;/span>:0&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="實際測試">
+ 實際測試
+ &lt;a class="anchor" href="#%e5%af%a6%e9%9a%9b%e6%b8%ac%e8%a9%a6">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ java -jar appcrawler-2.7.4-hogwarts.jar --capability &lt;span style="color:#e6db74">&amp;#34;appPackage=com.spotify.music,appActivity=MainActivity&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="注意事項">
+ 注意事項
+ &lt;a class="anchor" href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a0%85">#&lt;/a>
+&lt;/h2>
+&lt;p>:::danger
+基本上這個tool還是依照大量截圖的方式判斷有無換頁，所以依照現在android版本的更新，開發商如果設定成無法截圖的方式，就無法做後續的測試
+:::
+:::danger
+根據以上的步驟，還是非常有可能會遇到問題，我自己在用physical device時，最常遇到&lt;a href="https://ceshiren.com/t/topic/16293">java.lang.RuntimeException: Error creating extended parser class: Could not determine whether class ‘org.pegdown.Parser$$parboiled’ has already been loaded&lt;/a>，在使用emulator的時候，也會遇到&lt;a href="https://ceshiren.com/t/topic/31983">Exception in thread “main” java.awt.image.RasterFormatException: (y + height) is outside of Raster&lt;/a>&lt;/p></description></item><item><title>Droidbot</title><link>https://bernie6401.github.io/docs/tools/others/android-app-crawler/droidbot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-app-crawler/droidbot/</guid><description>&lt;h1 id="droidbot">
+ Droidbot
+ &lt;a class="anchor" href="#droidbot">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;a href="https://github.com/honeynet/droidbot">Official Github Repo&lt;/a>其實也說明得非常清楚，但在初次執行的時候可能會出現以下問題，按照&lt;a href="https://juejin.cn/post/7316582773434204171"> APP自動化全站爬取探索 &lt;/a>，只要修改&lt;code>./droidbot/app.py&lt;/code>的line 28就可以了
+:::spoiler Execution Problem&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ droidbot -a ./base.apk/Mattermost.apk -grant_perm -script ./my_pass_login_script.json -keep_app
+INFO:Device:disable minicap on sdk &amp;gt;= 32
+Traceback (most recent call last):
+ File &amp;#34;d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\droidbot.py&amp;#34;, line 96, in __init__
+ self.app = App(app_path, output_dir=self.output_dir)
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ File &amp;#34;d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\app.py&amp;#34;, line 28, in __init__
+ from androguard.core.bytecodes.apk import APK
+ModuleNotFoundError: No module named &amp;#39;androguard.core.bytecodes&amp;#39;
+[CONNECTION] ADB is disconnected
+WARNING:DroidBotIme:Failed to disconnect DroidBotIME!
+Traceback (most recent call last):
+ File &amp;#34;d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\droidbot.py&amp;#34;, line 96, in __init__
+ self.app = App(app_path, output_dir=self.output_dir)
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ File &amp;#34;d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\app.py&amp;#34;, line 28, in __init__
+ from androguard.core.bytecodes.apk import APK
+ModuleNotFoundError: No module named &amp;#39;androguard.core.bytecodes&amp;#39;
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+ File &amp;#34;\\?\C:\Users\berni\anaconda3\envs\mitmproxy\Scripts\droidbot-script.py&amp;#34;, line 33, in &amp;lt;module&amp;gt;
+ sys.exit(load_entry_point(&amp;#39;droidbot&amp;#39;, &amp;#39;console_scripts&amp;#39;, &amp;#39;droidbot&amp;#39;)())
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ File &amp;#34;d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\start.py&amp;#34;, line 145, in main
+ droidbot = DroidBot(
+ ^^^^^^^^^
+ File &amp;#34;d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\droidbot.py&amp;#34;, line 116, in __init__
+ self.stop()
+ File &amp;#34;d:\ntu\thesis\mitm framework\code\appcrawler\droidbot\droidbot\droidbot.py&amp;#34;, line 191, in stop
+ if hasattr(self.input_manager.policy, &amp;#34;master&amp;#34;) and \
+ ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: &amp;#39;NoneType&amp;#39; object has no attribute &amp;#39;policy&amp;#39;
+&lt;/code>&lt;/pre>&lt;p>:::
+&lt;img src="https://hackmd.io/_uploads/HJwvucL2A.png" alt="image" />&lt;/p></description></item><item><title>Fastbot Android</title><link>https://bernie6401.github.io/docs/tools/others/android-app-crawler/fastbot-android/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-app-crawler/fastbot-android/</guid><description>&lt;h1 id="fastbot-android">
+ Fastbot Android
+ &lt;a class="anchor" href="#fastbot-android">#&lt;/a>
+&lt;/h1>
+&lt;p>以下流程皆是參考&lt;a href="https://blog.csdn.net/u010698107/article/details/127347704">CSDN-Android APP穩定性測試工具Fastbot&lt;/a>和&lt;a href="https://github.com/bytedance/Fastbot_Android/blob/main/handbook-cn.md">官方中文教學&lt;/a>&lt;/p>
+&lt;h2 id="一般使用">
+ 一般使用
+ &lt;a class="anchor" href="#%e4%b8%80%e8%88%ac%e4%bd%bf%e7%94%a8">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>把repo clone下來，並且把一些檔案複製到手機
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/bytedance/Fastbot_Android.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd Fastbot_Android
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb push fastbot-thirdpart.jar /sdcard
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb push framework.jar /sdcard
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb push monkeyq.jar /sdcard
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb push libs/. /data/local/tmp/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>dump apk內部會使用到的strings，並且複製到手機
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ aapt2 dump strings &amp;lt;your apk name&amp;gt; &amp;gt; max.valid.strings
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb push max.valid.strings /sdcard 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>獲取device number和package name
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ adb devices
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>List of devices attached
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>24121JEGR04513 device
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ aapt2 dump badging &lt;span style="color:#e6db74">&amp;#34;Spotify_ Music and Podcasts_8.9.60.560_APKPure.apk&amp;#34;&lt;/span> | findstr &lt;span style="color:#e6db74">&amp;#34;package&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>package: name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;com.spotify.music&amp;#39;&lt;/span> versionCode&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;116920144&amp;#39;&lt;/span> versionName&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;8.9.60.560&amp;#39;&lt;/span> platformBuildVersionName&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;14&amp;#39;&lt;/span> platformBuildVersionCode&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;34&amp;#39;&lt;/span> compileSdkVersion&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;34&amp;#39;&lt;/span> compileSdkVersionCodename&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;14&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uses-permission: name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;com.sec.android.app.clockpackage.permission.READ_ALARM&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>實際測試
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ adb shell CLASSPATH&lt;span style="color:#f92672">=&lt;/span>/sdcard/monkeyq.jar:/sdcard/framework.jar:/sdcard/fastbot-thirdpart.jar exec app_process /system/bin com.android.commands.monkey.Monkey -p &amp;lt;package name&amp;gt; --agent reuseq --running-minutes &amp;lt;遍歷時長&amp;gt; --throttle &amp;lt;事件頻率&amp;gt; -v -v
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb shell CLASSPATH&lt;span style="color:#f92672">=&lt;/span>/sdcard/monkeyq.jar:/sdcard/framework.jar:/sdcard/fastbot-thirdpart.jar exec app_process /system/bin com.android.commands.monkey.Monkey -p com.spotify.music --agent reuseq --running-minutes &lt;span style="color:#ae81ff">1&lt;/span> --throttle &lt;span style="color:#ae81ff">500&lt;/span> -v -v --output-directory /sdcard/fastbot_results&amp;amp;adb pull /sdcard/fastbot_results D:&lt;span style="color:#ae81ff">\D&lt;/span>ownloads
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="輸入自訂strings">
+ 輸入自訂Strings
+ &lt;a class="anchor" href="#%e8%bc%b8%e5%85%a5%e8%87%aa%e8%a8%82strings">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Download ADBKeyBoard，安裝後設定預設keyboard為ADBKeyboard
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ wget https://github.com/senzhk/ADBKeyBoard/raw/master/ADBKeyboard.apk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb install ADBKeyboard.apk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb shell ime enable com.android.adbkeyboard/.AdbIME
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb shell ime set com.android.adbkeyboard/.AdbIME
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>設定config並push到手機
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;max.randomPickFromStringList = true&amp;#34;&lt;/span> &amp;gt; max.config
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb push max.config /sdcard
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>設定像要輸入的strings並push到手機
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;test string&amp;#34;&lt;/span> &amp;gt; max.strings
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb push max.strings /sdcard
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;p>:::info&lt;/p></description></item><item><title>Maxim</title><link>https://bernie6401.github.io/docs/tools/others/android-app-crawler/maxim/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/android-app-crawler/maxim/</guid><description>&lt;h1 id="maxim">
+ Maxim
+ &lt;a class="anchor" href="#maxim">#&lt;/a>
+&lt;/h1>
+&lt;p>原本的&lt;a href="https://github.com/zhangzhao4444/Maxim">repo README&lt;/a>就說明的很清楚了&lt;/p>
+&lt;h2 id="how-to-use">
+ How to use
+ &lt;a class="anchor" href="#how-to-use">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Environment
+&lt;ul>
+&lt;li>適用Emulator/Physical Android Version 7, 8, 9, 10, 11，但再往上就會遇到下面的問題&lt;/li>
+&lt;li>待測的App需要先安裝&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Push File to Mobile
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ adb push framework.jar /sdcard
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ adb push monkey.jar /sdcard
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Command
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ adb shell CLASSPATH=/sdcard/monkey.jar:/sdcard/framework.jar exec app_process /system/bin tv.panda.test.monkey.Monkey -p &amp;lt;app package name&amp;gt; --uiautomatormix --running-minutes 1 -v -v
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>Mode: &lt;code>--uiautomatormix&lt;/code>, &lt;code>--uiautomatordfs&lt;/code>, &lt;code>--uiautomatortroy&lt;/code>&lt;/li>
+&lt;li>&lt;code>-p&lt;/code>: 需要更改成待測app的package name&lt;/li>
+&lt;li>&lt;code>--running-minutes&lt;/code>: 設定要跑多久&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="problem">
+ Problem
+ &lt;a class="anchor" href="#problem">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code>[Maxim] *** ERROR // CRASH: com.xueqiu.android (pid 6940)
+[Maxim] *** ERROR // Short Msg: java.lang.UnsatisfiedLinkError
+[Maxim] *** ERROR // Long Msg: java.lang.UnsatisfiedLinkError: No implementation found for java.lang.ClassLoader s.h.e.l.l.N.al(java.lang.ClassLoader, android.content.pm.ApplicationInfo, java.lang.String, java.lang.String) (tried Java_s_h_e_l_l_N_al and Java_s_h_e_l_l_N_al__Ljava_lang_ClassLoader_2Landroid_content_pm_ApplicationInfo_2Ljava_lang_String_2Ljava_lang_String_2)
+[Maxim] *** ERROR // Build Label: google/sdk_gphone64_x86_64/emulator64_x86_64_arm64:12/SE1A.211212.001.B1/8023802:user/release-keys
+[Maxim] *** ERROR // Build Changelist: 8023802
+[Maxim] *** ERROR // Build Time: 1640217878000
+[Maxim] *** ERROR // java.lang.UnsatisfiedLinkError: No implementation found for java.lang.ClassLoader s.h.e.l.l.N.al(java.lang.ClassLoader, android.content.pm.ApplicationInfo, java.lang.String, java.lang.String) (tried Java_s_h_e_l_l_N_al and Java_s_h_e_l_l_N_al__Ljava_lang_ClassLoader_2Landroid_content_pm_ApplicationInfo_2Ljava_lang_String_2Ljava_lang_String_2)
+// at s.h.e.l.l.N.al(Native Method)
+// at s.h.e.l.l.A.instantiateApplication(Unknown Source:45)
+// at android.app.Instrumentation.newApplication(Instrumentation.java:1177)
+// at android.app.LoadedApk.makeApplication(LoadedApk.java:1356)
+// at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6686)
+// at android.app.ActivityThread.access$1500(ActivityThread.java:247)
+// at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2053)
+// at android.os.Handler.dispatchMessage(Handler.java:106)
+// at android.os.Looper.loopOnce(Looper.java:201)
+// at android.os.Looper.loop(Looper.java:288)
+// at android.app.ActivityThread.main(ActivityThread.java:7839)
+// at java.lang.reflect.Method.invoke(Native Method)
+// at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:548)
+// at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1003)
+//
+&lt;/code>&lt;/pre></description></item></channel></rss>

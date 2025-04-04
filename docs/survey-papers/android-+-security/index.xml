@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/survey-papers/android-+-security/index.xml" rel="self" type="application/rss+xml"/><item><title>A MITM Based Penetration Test Efficiency Improvement Approach for Traffic-Encrypted Mobile Apps of Power Industry</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/a-mitm-based-penetration-test-efficiency-improvement-approach-for-traffic-encrypted-mobile-apps-of-power-industry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/a-mitm-based-penetration-test-efficiency-improvement-approach-for-traffic-encrypted-mobile-apps-of-power-industry/</guid><description>&lt;h1 id="a-mitm-based-penetration-test-efficiency-improvement-approach-for-traffic-encrypted-mobile-applications-of-power-industry">
+ A MITM Based Penetration Test Efficiency Improvement Approach for Traffic-Encrypted Mobile Applications of Power Industry
+ &lt;a class="anchor" href="#a-mitm-based-penetration-test-efficiency-improvement-approach-for-traffic-encrypted-mobile-applications-of-power-industry">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+Zhang, L., Wang, B., Shen, Q., Song, Y., Guo, N., &amp;amp; Xie, L. (2021, April). A MITM Based Penetration Test Efficiency Improvement Approach for Traffic-Encrypted Mobile Applications of Power Industry. In 2021 IEEE 6th International Conference on Computer and Communication Systems (ICCCS) (pp. 743-747). IEEE.
+:::
+這一篇蠻有趣的，和我想要做的東西幾乎一樣，不過他論文闡述的重點不一樣，但也還是給我一些之後需要注意的地方，&lt;/p>
+&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>他是站在電力相關的Android App的角度去審視如果利用MITM Based做到滲透測試要怎麼做，以及和傳統的方式相比可以減少多少時間、效率提升多少。但其實內文和電力幾乎一點關係也沒有，代換成其他的App也可以，如果我們要利用MITM Based做到Penetration Testing，就必須要手動克服中間會加密的問題，所以他就試圖提出一個==3-Layers Proxy Based==的東西(如下圖)
+&lt;img src="https://hackmd.io/_uploads/B1TUn8oGA.png" alt="圖片" />
+從上圖可知，手機到Web Server中間總共有三層的Proxy，第一和第三層都是MITM Proxy，主要是負責訊息的加解密，而中間的那一層就可以很彈性的替換成各式各樣的自動化測試工具或腳本，例如Burp Suite或是SQLMAP之類的
+:::info
+這個架構會需要三層其實是因為他所測試的App，不只是傳輸的那一層會被SSL加密，而在傳送的封包body還會再加密一次，所以需要三層，不然照理來說，一層的MITM Proxy就可以解決SSL加解密的問題，不需要用到三層那麼多，而且也不需要深入探索他用的是哪一套加解密演算法，因為傳輸層的演算法都一樣才對，這是和學長討論出來的結果
+:::&lt;/p></description></item><item><title>A Mitmproxy-based Dynamic Vulnerability Detection System For Android Applications</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/a-mitmproxy-based-dynamic-vulnerability-detection-system-for-android-applications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/a-mitmproxy-based-dynamic-vulnerability-detection-system-for-android-applications/</guid><description>&lt;h1 id="a-mitmproxy-based-dynamic-vulnerability-detection-system-for-android-applications">
+ A Mitmproxy-based Dynamic Vulnerability Detection System For Android Applications
+ &lt;a class="anchor" href="#a-mitmproxy-based-dynamic-vulnerability-detection-system-for-android-applications">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+Lv, X., Peng, T., Tang, J., He, R., Hu, X., Jiang, M., &amp;hellip; &amp;amp; Cao, W. (2022, December). A Mitmproxy-based Dynamic Vulnerability Detection System For Android Applications. In 2022 18th International Conference on Mobility, Sensing and Networking (MSN) (pp. 408-416). IEEE.
+:::
+這一篇也和我想做的主題有一點關聯，他是利用MITMProxy-based達到偵測應用程式在做Hotfix時，有沒有Code Injection(dex injection)的問題。&lt;/p>
+&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>現在有很多的App都會實現Hotfix這項技術，也就是不斷電更新，傳統的App更新方式為廠商發佈新的版本後，使用者需要重新卸載再安裝新的版本，但現在有了Hotfix的技術，使用者在沒有感知的情況下就會自動完成更新，如下圖所述，當然在更新之前會進行驗證Hash、SSL憑證和簽章，但如果沒有簽章呢?是不是就可以被MITM篡改Hash和進行Code Injection，這一篇文章就是在自動化的檢測這件事情的可行性
+&lt;img src="https://hackmd.io/_uploads/SkTTS9hGA.png" alt="圖片" />&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Hotfix的流程
+按照論文中的說明，利用hotfix更新patch的方式當然不是直接從server傳過來到client端，而是會把dex file打包成.jar或是.zip的patch package，然後放在某個地方。從server那邊會送出一個json file，裡面有一個URL Key會紀錄這個打包好的patch package在哪裡，然後client端自行去下載會來進行patch&lt;/li>
+&lt;li>Android的簽章
+在Android系統安全中有3個主要的技術: Permission Management, Signature Authentication, 以及Sandbox Mechanism，現在主要探討的問題就是在簽章的技術底下。Android的數位簽章總共會包含三個東西: MANIFEST.MF, CERT.SF, CERT.RSA
+&lt;ul>
+&lt;li>MANIFEST.MF
+是一個Digest File也就是存所有更新的打包檔案的Hash Value&lt;/li>
+&lt;li>CERT.SF
+是一個Signature File，他會用SHA1計算MANIFEST.MF中的所有東西再用Base64進行Encode&lt;/li>
+&lt;li>CERT.RSA
+存放Public Key+加密演算法是哪一個+用自己的Private Key加密CERT.SF中的所有東西的結果
+綜上所述，如果一個廠商在進行Hotfix更新時，被MITM Hijack，那MANIFEST.MF和CERT.SF可以被換掉，但CERT.RSA這個檔案，因為沒有廠商的私鑰，故無法替換&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="proposed-method">
+ Proposed Method
+ &lt;a class="anchor" href="#proposed-method">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/B1Ti653GA.png" alt="圖片" />&lt;/p></description></item><item><title>Cross-site Scripting Attacks on Android Hybrid Applications</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/cross-site-scripting-attacks-on-android-hybrid-applications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/cross-site-scripting-attacks-on-android-hybrid-applications/</guid><description>&lt;h1 id="cross-site-scripting-attacks-on-android-hybrid-applications">
+ Cross-site Scripting Attacks on Android Hybrid Applications
+ &lt;a class="anchor" href="#cross-site-scripting-attacks-on-android-hybrid-applications">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+Bao, W., Yao, W., Zong, M., &amp;amp; Wang, D. (2017, March). Cross-site scripting attacks on android hybrid applications. In Proceedings of the 2017 International Conference on Cryptography, Security and Privacy (pp. 56-61).
+:::&lt;/p>
+&lt;p>這一篇論文雖然很舊了，但還是蠻有趣的&lt;/p>
+&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>他在講的是現在市面上的App通常會用一些像是Apache Cordova(早期叫做PhoneGap)這類型的Hybrid框架製作一款App，但是PhoneGap的做法是利用WebView渲染畫面，因此就勢必會出現XSS相關的攻擊，這一篇論文就是在探討如何達成攻擊，以及受害範圍有多廣&lt;/p>
+&lt;ul>
+&lt;li>Gartner 的一份報告稱，Hybrid App在基於 HTML5 的 Web App和本機 App之間提供了平衡，到 2016 年，將在超過 50% 的行動 App中使用&lt;/li>
+&lt;li>為了美化 UI 並在 JavaScript 程式碼中使用行動裝置的原生功能，Hybrid App必須包含第三方元件，而且它們的程式碼可能不可靠。&lt;/li>
+&lt;li>在本文的其餘部分，我們首先對WebView和PhoneGap框架的漏洞進行深入分析。 然後根據我們日常生活中行動應用的使用場景，建立了XSS攻擊混合應用的一般流程。 攻擊結果表明，對Hybrid App的 XSS 攻擊可能會對使用者的行動裝置造成更大的破壞性結果。&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>What is PhoneGap?
+&lt;img src="https://hackmd.io/_uploads/rJsdoZWX0.png" alt="圖片" />
+上圖顯示了PhoneGap App的架構以及如何和device component互動，當Hybrid App的某個功能需要使用 PhoneGap API 時， App可以使用 JavaScript 程式碼呼叫 API，然後 App中的特殊層將 PhoneGap API 呼叫轉換為適合幕後特定功能的device API。&lt;/li>
+&lt;/ul>
+&lt;h2 id="proposed-method">
+ Proposed Method
+ &lt;a class="anchor" href="#proposed-method">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>How XSS attack success on PhoneGap&amp;rsquo;s App?
+&lt;img src="https://hackmd.io/_uploads/SyPtsW-7R.png" alt="圖片" />
+有兩種方是可以達成這個攻擊
+&lt;ul>
+&lt;li>首先從上圖可以知道，外部的資料有很多種型態，可能是一般文字、QRcode、藍牙等等媒介，而當傳送的資料出現malicious code的時候，PhoneGap Interface的App就會接收這些有問題的資料，並且直接被WebView所render，此時attacker就可以直接根據傳送的payload達到竊取機敏資料的目的
+&lt;blockquote>
+&lt;p>在使用者的幫助下注入程式碼。 當使用者開啟將行動裝置連接到外界的通道時，將提供存取權限以允許來自另一個裝置的攻擊。 惡意程式碼是透過在不知不覺中與另一個裝置互動來注入的，然後按照與第一個裝置類似的流程來實現攻擊。&lt;/p></description></item><item><title>Exploiting ML ALG for Efficient Detection and Prevention of JS-XSS Attacks in Android Based Hybrid Applications</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/exploiting-ml-alg-for-efficient-detection-and-prevention-of-js-xss-attacks-in-android-based-hybrid-applications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/exploiting-ml-alg-for-efficient-detection-and-prevention-of-js-xss-attacks-in-android-based-hybrid-applications/</guid><description>&lt;h1 id="exploiting-ml-algorithms-for-efficient-detection-and-prevention-of-javascript-xss-attacks-in-android-based-hybrid-applications">
+ Exploiting ML algorithms for Efficient Detection and Prevention of JavaScript-XSS Attacks in Android Based Hybrid Applications
+ &lt;a class="anchor" href="#exploiting-ml-algorithms-for-efficient-detection-and-prevention-of-javascript-xss-attacks-in-android-based-hybrid-applications">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+Khalid, U., Abdullah, M., &amp;amp; Inayat, K. (2020). Exploiting ML algorithms for Efficient Detection and Prevention of JavaScript-XSS Attacks in Android Based Hybrid Applications. arXiv preprint arXiv:2006.07350.
+:::
+這一篇論文對於我的研究只有一點點用，大概補足了一些我對Android的XSS漏洞的認識。主要是在利用一些feature，訓練出能夠檢測有無XSS攻擊的模型&lt;/p>
+&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>首先，很多的手機App中都會使用WebView這個Component，也就是能夠直接嵌入一個mini browser在App中而不需要另外開啟外部的Browser才能瀏覽網頁，所以JS語言就能夠和Java語言互動，問題在於當從 JavaScript 呼叫 Java 時，攻擊者會將惡意 JavaScript 程式碼儲存在網頁中，當網頁在應用程式中開啟時，然後在 WebView 中註冊一個物件。 首先，攻擊者透過 JavaScript 存取該對象，並透過該對象存取該應用程式的本機方法，攻擊者可以透過觸發本機方法內的重要內建函數輕鬆取得不同的智慧型手機資源。&lt;/p>
+&lt;h2 id="contribution">
+ Contribution
+ &lt;a class="anchor" href="#contribution">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>自行創建一個Dataset，並且從500個不同的Apps中extract出7個不同的feature&lt;/li>
+&lt;li>訓練7種不同的ML 模型: Evolutionary-Support Vector Machine (E-SVM), Neural Network, Naive Bayes, Support Vector Machine(SVM), Bagging, Random Forest and J48&lt;/li>
+&lt;li>根據實驗結果給出F1-Score和執行時間，結果顯示Random Forest是最好的模型&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>WebView
+這個component的存在理由如上所述，其中會用到幾的API:
+&lt;pre tabindex="0">&lt;code>setJavaScriptEnabled API
+addJavascriptInterface API
+loadUrl API
+&lt;/code>&lt;/pre>第一個是enable可以使用JS，第二個是註冊Java物件，第三個就是實際把網頁load進來&lt;/li>
+&lt;li>Sandbox
+&lt;img src="https://hackmd.io/_uploads/r1C5aaRMC.png" alt="圖片" />
+如上圖，一般來說webview的瀏覽是會經過sandbox，確保可以控制web browser的access，讓他和本地資源不會共享；網頁和網頁之間要隔離，而網頁和主系統之間也會隔離&lt;/li>
+&lt;li>Bypassing sandbox mechanism
+&lt;img src="https://hackmd.io/_uploads/BkBYapCGC.png" alt="圖片" />
+從上圖可以看出，儘管WebView中存在沙箱安全機制來保護行動裝置本地資源免受JavaScript攻擊，但WebView本身借助WebView提供的API繞過了沙箱機制。 這創建了一條路徑，JavaScript 可以輕鬆地與本機 Java 通訊。 並且攻擊者可以觸發Java的不同類別方法發動XSS攻擊，透過原生Java程式碼存取行動裝置的重要功能包括本機資源。&lt;/li>
+&lt;li>哪些類型的易受攻擊的 API 可以透過 Java 物件觸發？
+作者有整理出來一個表如下:
+&lt;img src="https://hackmd.io/_uploads/SJmIkA0zA.png" alt="圖片" />&lt;/li>
+&lt;/ul>
+&lt;h2 id="proposed-method">
+ Proposed Method
+ &lt;a class="anchor" href="#proposed-method">#&lt;/a>
+&lt;/h2>
+&lt;p>現在的重點是要如何分辨一個App他啟動了webview之後，是否會造成XSS攻擊，作者提出了由四個Level組成的偵測框架以及三個Layers的預防框架&lt;/p></description></item><item><title>Identifying vulnerabilities of SSL/TLS certificate verification in Android apps with static and dynamic analysis</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/identifying-vulnerabilities-of-ssl_tls-certificate-verification-in-android-apps-with-static-and-dynamic-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/identifying-vulnerabilities-of-ssl_tls-certificate-verification-in-android-apps-with-static-and-dynamic-analysis/</guid><description>&lt;h1 id="identifying-vulnerabilities-of-ssl_tls-certificate-verification-in-android-apps-with-static-and-dynamic-analysis">
+ Identifying vulnerabilities of SSL_TLS certificate verification in Android apps with static and dynamic analysis
+ &lt;a class="anchor" href="#identifying-vulnerabilities-of-ssl_tls-certificate-verification-in-android-apps-with-static-and-dynamic-analysis">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+Wang, Y., Xu, G., Liu, X., Mao, W., Si, C., Pedrycz, W., &amp;amp; Wang, W. (2020). Identifying vulnerabilities of SSL/TLS certificate verification in Android apps with static and dynamic analysis. Journal of Systems and Software, 167, 110609.
+:::
+這一篇論文對我要做的東西非常類似，雖然本質上不一樣但有很多的觀點以及解決方式是可以參照的&lt;/p>
+&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>這篇文章探討了在Android應用程式中SSL/TLS憑證驗證的弱點，並提出了一種名為DCDroid的工具來偵測這些弱點。作者結合靜態和動態分析，分析了來自Google Play和360app的2213個應用程式，發現其中有20.65%可能存在弱點。透過DCDroid在兩部Android智慧手機上執行這些應用程式，最終確認了11.07%的應用程式對MITM和釣魚攻擊存在真正的弱點。&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>SSL/TLS and Android
+一般來說，正確的驗證憑證的步驟為&lt;/p>
+&lt;ol>
+&lt;li>在憑證鏈中的所有憑證有無過期&lt;/li>
+&lt;li>憑證或憑證鏈中的根憑證由客戶端的憑證授權單位（CA）簽署&lt;/li>
+&lt;li>證書中的網域名稱與所連接的伺服器的網域名稱相符&lt;/li>
+&lt;/ol>
+&lt;p>但是基於一些原因(例如: 使用self-signed certificate/伺服器的root憑證不在手機的CA list中/糾正某些第三方庫的不安全實作)導致開發者會自行實做一個憑證驗證的方法，而這時候就有可能會產生一些漏洞發生，例如:
+:::warning&lt;/p></description></item><item><title>Uncovering Intent based Leak of Sensitive Data in Android Framework</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/uncovering-intent-based-leak-of-sensitive-data-in-android-framework/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/uncovering-intent-based-leak-of-sensitive-data-in-android-framework/</guid><description>&lt;h1 id="uncovering-intent-based-leak-of-sensitive-data-in-android-framework">
+ Uncovering Intent based Leak of Sensitive Data in Android Framework
+ &lt;a class="anchor" href="#uncovering-intent-based-leak-of-sensitive-data-in-android-framework">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-meeting-paper-ntu">
+ tags: &lt;code>Meeting Paper&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-meeting-paper-ntu">#&lt;/a>
+&lt;/h6>
+&lt;p>:::info
+Zhou, H., Luo, X., Wang, H., &amp;amp; Cai, H. (2022, November). Uncovering Intent based Leak of Sensitive Data in Android Framework. In Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (pp. 3239-3252).
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler &lt;a href="https://ironglion.com/archives/334">[Android] Activity基本介紹&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>什麼是Activity?
+Activity是App中，提供畫面的一個元件，
+例如：使用Google地圖App時，顯示地圖的那個畫面。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>只有Activity可以顯示畫面嗎？
+不是，除了Activity以外還有其他元件可以顯示畫面，
+例如：Dialog，但每一個App至少要有一個Activity，但這有個例外，如果這個App不提供介面的話也是可以不用有Activity的。&lt;/p>
+&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;hr>
+&lt;blockquote>
+&lt;p>Activity其他注意事項&lt;/p>
+&lt;ul>
+&lt;li>兩個Activity傳遞資訊是透過Intent
+&lt;pre tabindex="0">&lt;code class="language-kotlin!" data-lang="kotlin!">Intent intent = new Intent(this, TwoActivity.class);
+startActivity(intent);
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Intent 能傳遞的資訊大小要小於512k&lt;/li>
+&lt;li>每一個Activity都要在AndroidManifest中聲明
+&lt;pre tabindex="0">&lt;code class="language-kotlin!" data-lang="kotlin!">&amp;lt;manifest ... &amp;gt;
+ &amp;lt;application ... &amp;gt;
+ &amp;lt;activity android:name=&amp;#34;.MainActivity&amp;#34; /&amp;gt;
+ ...
+ &amp;lt;/application ... &amp;gt;
+ ...
+&amp;lt;/manifest &amp;gt;
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;p>:::&lt;/p></description></item><item><title>Understanding Real-world Threats to Deep Learning Models in Android Apps</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/understanding-real-world-threats-to-deep-learning-models-in-android-apps/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/understanding-real-world-threats-to-deep-learning-models-in-android-apps/</guid><description>&lt;h1 id="understanding-real-world-threats-to-deep-learning-models-in-android-apps">
+ Understanding Real-world Threats to Deep Learning Models in Android Apps
+ &lt;a class="anchor" href="#understanding-real-world-threats-to-deep-learning-models-in-android-apps">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-meeting-paper-ntu">
+ tags: &lt;code>Meeting Paper&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-meeting-paper-ntu">#&lt;/a>
+&lt;/h6>
+&lt;p>:::info
+Deng, Z., Chen, K., Meng, G., Zhang, X., Xu, K., &amp;amp; Cheng, Y. (2022, November). Understanding real-world threats to deep learning models in android apps. In Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (pp. 785-799).
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler &lt;a href="https://medium.com/trustableai/%E9%87%9D%E5%B0%8D%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9A%84%E6%83%A1%E6%84%8F%E8%B3%87%E6%96%99%E6%94%BB%E6%93%8A-%E4%B8%80-e94987742767">What is Adversarial Example? - 運用對抗例攻擊深度學習模型&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>所謂對抗例，是一種刻意製造的、讓機器學習模型判斷錯誤的輸入資料。最早是 Szegedy et al（2013）發現對於用 ImageNet、AlexNet 等資料集訓練出來的影像辨識模型，常常只需要輸入端的微小的變動，就可以讓輸出結果有大幅度的改變。例如取一張卡車的照片，可以被模型正確辨識，但只要改變影像中的少數像素，就可以讓模型辨識錯誤，而且前後對影像的改變非常少，對肉眼而言根本分不出差異。
+:::&lt;/p></description></item><item><title>VAPTAi: A Threat Model for Vulnerability Assessment and Pentesting of Android and iOS Mobile Banking Apps</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/vaptai_-a-threat-model-for-vulnerability-assessment-and-pentesting-of-android-and-ios-mobile-banking-apps/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/vaptai_-a-threat-model-for-vulnerability-assessment-and-pentesting-of-android-and-ios-mobile-banking-apps/</guid><description>&lt;h1 id="vaptai-a-threat-model-for-vulnerability-assessment-and-penetration-testing-of-android-and-ios-mobile-banking-apps">
+ VAPTAi: A Threat Model for Vulnerability Assessment and Penetration Testing of Android and iOS Mobile Banking Apps
+ &lt;a class="anchor" href="#vaptai-a-threat-model-for-vulnerability-assessment-and-penetration-testing-of-android-and-ios-mobile-banking-apps">#&lt;/a>
+&lt;/h1>
+&lt;p>:::info
+Bojjagani, S., &amp;amp; Sastry, V. N. (2017, October). VAPTAi: a threat model for vulnerability assessment and penetration testing of android and iOS mobile banking apps. In 2017 IEEE 3rd international conference on collaboration and internet computing (CIC) (pp. 77-86). IEEE.
+:::&lt;/p>
+&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>隨著移動設備的使用急速增加，Mobile Banking Application(MBA)也備受黑客和惡意使用者的目標。這些MBA存儲、傳輸和存取敏感和機密資訊，因此必須優先確保其安全性。本文提出了一個威脅模型，以系統性地測試和分析行動銀行應用程式，檢測和緩解應用程式級和通信級別的漏洞。作者對5個Android和3個iOS的MBA進行了安全測試，發現了許多未知漏洞，並展示了MBA易受中間人攻擊的情況。部分MBA使用簡單的HTTP協議傳輸用戶數據，未考慮安全要求。多數情況下，MBA無條件接受偽造或自簽名的證書，導致SSL/TLS中間人攻擊。&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="proposed-method">
+ Proposed Method
+ &lt;a class="anchor" href="#proposed-method">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/Syab2Ut40.png" alt="圖片" />&lt;/p></description></item><item><title>WIGHT: Wired Ghost Touch Attack on Capacitive Touchscreens</title><link>https://bernie6401.github.io/docs/survey-papers/android-+-security/wight_-wired-ghost-touch-attack-on-capacitive-touchscreens/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/android-+-security/wight_-wired-ghost-touch-attack-on-capacitive-touchscreens/</guid><description>&lt;h1 id="wight-wired-ghost-touch-attack-on-capacitive-touchscreens">
+ WIGHT: Wired Ghost Touch Attack on Capacitive Touchscreens
+ &lt;a class="anchor" href="#wight-wired-ghost-touch-attack-on-capacitive-touchscreens">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-meeting-paper-ntu">
+ tags: &lt;code>Meeting Paper&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-meeting-paper-ntu">#&lt;/a>
+&lt;/h6>
+&lt;p>:::info
+Jiang, Y., Ji, X., Wang, K., Yan, C., Mitev, R., Sadeghi, A. R., &amp;amp; Xu, W. (2022, May). Wight: Wired ghost touch attack on capacitive touchscreens. In 2022 IEEE Symposium on Security and Privacy (SP) (pp. 984-1001). IEEE.
+:::&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwj40bHli7P-AhUNQ94KHUdYAAMQFnoECAsQAQ&amp;amp;url=https%3A%2F%2Fzh-tw.ios-data-recovery.com%2Fandroid-ghost-touch-fix%2F&amp;amp;usg=AOvVaw2qVDJ2tKU-pVUgcDFAodNY">What is ghost touch?&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://youtu.be/YlN7rFg7cps">What is common-mode signal and differential-mode signal - 高中電子學_運算放大器_2. 運算放大器之特性與參數_2.3 運算放大器的動態特性參數 1_支裕文&lt;/a>
+&lt;img src="https://i.imgur.com/AlHU0Uh.png" alt="" />&lt;/p></description></item></channel></rss>

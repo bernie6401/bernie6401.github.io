@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/survey-papers/crypto/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/survey-papers/crypto/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Securely Collaborate on Data: Decentralized Threshold HE and Secure Key Update - Notes</title><link>https://bernie6401.github.io/docs/survey-papers/crypto/how-to-securely-collaborate-on-data_-decentralized-threshold-he-and-secure-key-update---notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/survey-papers/crypto/how-to-securely-collaborate-on-data_-decentralized-threshold-he-and-secure-key-update---notes/</guid><description>&lt;h1 id="how-to-securely-collaborate-on-data-decentralized-threshold-he-and-secure-key-update---notes">
+ How to Securely Collaborate on Data: Decentralized Threshold HE and Secure Key Update - Notes
+ &lt;a class="anchor" href="#how-to-securely-collaborate-on-data-decentralized-threshold-he-and-secure-key-update---notes">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-meeting-paper-ntu">
+ tags: &lt;code>Meeting Paper&lt;/code> &lt;code>NTU&lt;/code>
+ &lt;a class="anchor" href="#tags-meeting-paper-ntu">#&lt;/a>
+&lt;/h6>
+&lt;p>:::info
+Kim, E., Jeong, J., Yoon, H., Kim, Y., Cho, J., &amp;amp; Cheon, J. H. (2020). How to securely collaborate on data: Decentralized threshold he and secure key update. IEEE Access, 8, 191319-191329.
+:::
+[TOC]&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="threshold-homomorphic-encryption---閾值同態加密在隱私計算中的應用">
+ &lt;a href="https://www.cnblogs.com/pam-sh/p/16446840.html">Threshold Homomorphic Encryption - 閾值同態加密在隱私計算中的應用&lt;/a>
+ &lt;a class="anchor" href="#threshold-homomorphic-encryption---%e9%96%be%e5%80%bc%e5%90%8c%e6%85%8b%e5%8a%a0%e5%af%86%e5%9c%a8%e9%9a%b1%e7%a7%81%e8%a8%88%e7%ae%97%e4%b8%ad%e7%9a%84%e6%87%89%e7%94%a8">#&lt;/a>
+&lt;/h3>
+&lt;p>:::spoiler&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>單密鑰同態加密
+只有一個私鑰，且不同公鑰加密的密文無法相互計算。&lt;/li>
+&lt;li>閾值同態加密（多密鑰加密）
+支持多個私鑰，不同公鑰加密的密文可以互相計算。&lt;/li>
+&lt;/ol>
+&lt;h4 id="問題">
+ 問題
+ &lt;a class="anchor" href="#%e5%95%8f%e9%a1%8c">#&lt;/a>
+&lt;/h4>
+&lt;ol>
+&lt;li>多方聯合計算最安全的途徑是各自生成、保存公私鑰,但由於算法限制,不同公鑰加密的信息無法進行相互計算,導致隱私計算無法進行&lt;/li>
+&lt;li>假設多方使用一套公私鑰,雖然計算可以順利進行,但系統安全性會大大下降,系統中只要有一方被成功攻擊,私鑰就會泄露。&lt;/li>
+&lt;li>假設多方使用一套公私鑰,則無法決定由哪個參與方生成公私鑰&lt;/li>
+&lt;/ol>
+&lt;h4 id="solution---threshold-homomorphic-encryption">
+ Solution - Threshold Homomorphic Encryption
+ &lt;a class="anchor" href="#solution---threshold-homomorphic-encryption">#&lt;/a>
+&lt;/h4>
+&lt;p>由於單密鑰同態加密在實際應用中存在諸多關於密鑰使用、管理的問題,閾值同態加密(多密鑰同態加密)應運而生。簡單來說,閾值同態加密算法中存在多個私鑰、一個(或多個公鑰,使用該公鑰系統加密的密文之間可以相互計算,並且只有當參與解密的私鑰數量達到一定閾值時,才能成功解密密文,所以這種多密鑰同態加密算法又被稱為閾值同態加密&lt;/p></description></item></channel></rss>
