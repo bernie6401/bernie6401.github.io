@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - flag_shop</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---flag_shop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---flag_shop/</guid><description>&lt;h1 id="picoctf---flag_shop">
+ PicoCTF - flag_shop
+ &lt;a class="anchor" href="#picoctf---flag_shop">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-general-skill">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>General Skill&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-general-skill">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Bof&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-cpp=" data-lang="cpp=">#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;stdlib.h&amp;gt;
+int main()
+{
+ setbuf(stdout, NULL);
+ int con;
+ con = 0;
+ int account_balance = 1100;
+ while(con == 0){
+ 
+ printf(&amp;#34;Welcome to the flag exchange\n&amp;#34;);
+ printf(&amp;#34;We sell flags\n&amp;#34;);
+
+ printf(&amp;#34;\n1. Check Account Balance\n&amp;#34;);
+ printf(&amp;#34;\n2. Buy Flags\n&amp;#34;);
+ printf(&amp;#34;\n3. Exit\n&amp;#34;);
+ int menu;
+ printf(&amp;#34;\n Enter a menu selection\n&amp;#34;);
+ fflush(stdin);
+ scanf(&amp;#34;%d&amp;#34;, &amp;amp;menu);
+ if(menu == 1){
+ printf(&amp;#34;\n\n\n Balance: %d \n\n\n&amp;#34;, account_balance);
+ }
+ else if(menu == 2){
+ printf(&amp;#34;Currently for sale\n&amp;#34;);
+ printf(&amp;#34;1. Defintely not the flag Flag\n&amp;#34;);
+ printf(&amp;#34;2. 1337 Flag\n&amp;#34;);
+ int auction_choice;
+ fflush(stdin);
+ scanf(&amp;#34;%d&amp;#34;, &amp;amp;auction_choice);
+ if(auction_choice == 1){
+ printf(&amp;#34;These knockoff Flags cost 900 each, enter desired quantity\n&amp;#34;);
+ 
+ int number_flags = 0;
+ fflush(stdin);
+ scanf(&amp;#34;%d&amp;#34;, &amp;amp;number_flags);
+ if(number_flags &amp;gt; 0){
+ int total_cost = 0;
+ total_cost = 900*number_flags;
+ printf(&amp;#34;\nThe final cost is: %d\n&amp;#34;, total_cost);
+ if(total_cost &amp;lt;= account_balance){
+ account_balance = account_balance - total_cost;
+ printf(&amp;#34;\nYour current balance after transaction: %d\n\n&amp;#34;, account_balance);
+ }
+ else{
+ printf(&amp;#34;Not enough funds to complete purchase\n&amp;#34;);
+ }
+ 
+ 
+ }
+ 
+ 
+ 
+ 
+ }
+ else if(auction_choice == 2){
+ printf(&amp;#34;1337 flags cost 100000 dollars, and we only have 1 in stock\n&amp;#34;);
+ printf(&amp;#34;Enter 1 to buy one&amp;#34;);
+ int bid = 0;
+ fflush(stdin);
+ scanf(&amp;#34;%d&amp;#34;, &amp;amp;bid);
+ 
+ if(bid == 1){
+ 
+ if(account_balance &amp;gt; 100000){
+ FILE *f = fopen(&amp;#34;flag.txt&amp;#34;, &amp;#34;r&amp;#34;);
+ if(f == NULL){
+
+ printf(&amp;#34;flag not found: please run this on the server\n&amp;#34;);
+ exit(0);
+ }
+ char buf[64];
+ fgets(buf, 63, f);
+ printf(&amp;#34;YOUR FLAG IS: %s\n&amp;#34;, buf);
+ }
+ 
+ else{
+ printf(&amp;#34;\nNot enough funds for transaction\n\n\n&amp;#34;);
+ }}
+
+ }
+ }
+ else{
+ con = 1;
+ }
+
+ }
+ return 0;
+}
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - mus1c</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---mus1c/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---mus1c/</guid><description>&lt;h1 id="picoctf---mus1c">
+ PicoCTF - mus1c
+ &lt;a class="anchor" href="#picoctf---mus1c">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-general-skill">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>General Skill&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-general-skill">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Lyrics&lt;/p>
+&lt;pre tabindex="0">&lt;code>Pico&amp;#39;s a CTFFFFFFF
+my mind is waitin
+It&amp;#39;s waitin
+
+Put my mind of Pico into This
+my flag is not found
+put This into my flag
+put my flag into Pico
+
+
+shout Pico
+shout Pico
+shout Pico
+
+My song&amp;#39;s something
+put Pico into This
+
+Knock This down, down, down
+put This into CTF
+
+shout CTF
+my lyric is nothing
+Put This without my song into my lyric
+Knock my lyric down, down, down
+
+shout my lyric
+
+Put my lyric into This
+Put my song with This into my lyric
+Knock my lyric down
+
+shout my lyric
+
+Build my lyric up, up ,up
+
+shout my lyric
+shout Pico
+shout It
+
+Pico CTF is fun
+security is important
+Fun is fun
+Put security with fun into Pico CTF
+Build Fun up
+shout fun times Pico CTF
+put fun times Pico CTF into my song
+
+build it up
+
+shout it
+shout it
+
+build it up, up
+shout it
+shout Pico
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - PW Crack 4</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---pw-crack-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---pw-crack-4/</guid><description>&lt;h1 id="picoctf---pw-crack-4">
+ PicoCTF - PW Crack 4
+ &lt;a class="anchor" href="#picoctf---pw-crack-4">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-general-skills">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>General Skills&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-general-skills">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/248?category=5&amp;amp;page=2">PW Crack 4&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">import hashlib
+
+### THIS FUNCTION WILL NOT HELP YOU FIND THE FLAG --LT ########################
+def str_xor(secret, key):
+ #extend key to secret length
+ new_key = key
+ i = 0
+ while len(new_key) &amp;lt; len(secret):
+ new_key = new_key + key[i]
+ i = (i + 1) % len(key) 
+ return &amp;#34;&amp;#34;.join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(secret,new_key)])
+###############################################################################
+
+flag_enc = open(&amp;#39;level4.flag.txt.enc&amp;#39;, &amp;#39;rb&amp;#39;).read()
+correct_pw_hash = open(&amp;#39;level4.hash.bin&amp;#39;, &amp;#39;rb&amp;#39;).read()
+
+
+def hash_pw(pw_str):
+ pw_bytes = bytearray()
+ pw_bytes.extend(pw_str.encode())
+ m = hashlib.md5()
+ m.update(pw_bytes)
+ return m.digest()
+
+
+def level_4_pw_check():
+ user_pw = input(&amp;#34;Please enter correct password for flag: &amp;#34;)
+ user_pw_hash = hash_pw(user_pw)
+ 
+ if( user_pw_hash == correct_pw_hash ):
+ print(&amp;#34;Welcome back... your flag, user:&amp;#34;)
+ decryption = str_xor(flag_enc.decode(), user_pw)
+ print(decryption)
+ return
+ print(&amp;#34;That password is incorrect&amp;#34;)
+
+
+
+level_4_pw_check()
+
+
+
+# The strings below are 100 possibilities for the correct password. 
+# (Only 1 is correct)
+pos_pw_list = [&amp;#34;6288&amp;#34;, &amp;#34;6152&amp;#34;, &amp;#34;4c7a&amp;#34;, &amp;#34;b722&amp;#34;, &amp;#34;9a6e&amp;#34;, &amp;#34;6717&amp;#34;, &amp;#34;4389&amp;#34;, &amp;#34;1a28&amp;#34;, &amp;#34;37ac&amp;#34;, &amp;#34;de4f&amp;#34;, &amp;#34;eb28&amp;#34;, &amp;#34;351b&amp;#34;, &amp;#34;3d58&amp;#34;, &amp;#34;948b&amp;#34;, &amp;#34;231b&amp;#34;, &amp;#34;973a&amp;#34;, &amp;#34;a087&amp;#34;, &amp;#34;384a&amp;#34;, &amp;#34;6d3c&amp;#34;, &amp;#34;9065&amp;#34;, &amp;#34;725c&amp;#34;, &amp;#34;fd60&amp;#34;, &amp;#34;4d4f&amp;#34;, &amp;#34;6a60&amp;#34;, &amp;#34;7213&amp;#34;, &amp;#34;93e6&amp;#34;, &amp;#34;8c54&amp;#34;, &amp;#34;537d&amp;#34;, &amp;#34;a1da&amp;#34;, &amp;#34;c718&amp;#34;, &amp;#34;9de8&amp;#34;, &amp;#34;ebe3&amp;#34;, &amp;#34;f1c5&amp;#34;, &amp;#34;a0bf&amp;#34;, &amp;#34;ccab&amp;#34;, &amp;#34;4938&amp;#34;, &amp;#34;8f97&amp;#34;, &amp;#34;3327&amp;#34;, &amp;#34;8029&amp;#34;, &amp;#34;41f2&amp;#34;, &amp;#34;a04f&amp;#34;, &amp;#34;c7f9&amp;#34;, &amp;#34;b453&amp;#34;, &amp;#34;90a5&amp;#34;, &amp;#34;25dc&amp;#34;, &amp;#34;26b0&amp;#34;, &amp;#34;cb42&amp;#34;, &amp;#34;de89&amp;#34;, &amp;#34;2451&amp;#34;, &amp;#34;1dd3&amp;#34;, &amp;#34;7f2c&amp;#34;, &amp;#34;8919&amp;#34;, &amp;#34;f3a9&amp;#34;, &amp;#34;b88f&amp;#34;, &amp;#34;eaa8&amp;#34;, &amp;#34;776a&amp;#34;, &amp;#34;6236&amp;#34;, &amp;#34;98f5&amp;#34;, &amp;#34;492b&amp;#34;, &amp;#34;507d&amp;#34;, &amp;#34;18e8&amp;#34;, &amp;#34;cfb5&amp;#34;, &amp;#34;76fd&amp;#34;, &amp;#34;6017&amp;#34;, &amp;#34;30de&amp;#34;, &amp;#34;bbae&amp;#34;, &amp;#34;354e&amp;#34;, &amp;#34;4013&amp;#34;, &amp;#34;3153&amp;#34;, &amp;#34;e9cc&amp;#34;, &amp;#34;cba9&amp;#34;, &amp;#34;25ea&amp;#34;, &amp;#34;c06c&amp;#34;, &amp;#34;a166&amp;#34;, &amp;#34;faf1&amp;#34;, &amp;#34;2264&amp;#34;, &amp;#34;2179&amp;#34;, &amp;#34;cf30&amp;#34;, &amp;#34;4b47&amp;#34;, &amp;#34;3446&amp;#34;, &amp;#34;b213&amp;#34;, &amp;#34;88a3&amp;#34;, &amp;#34;6253&amp;#34;, &amp;#34;db88&amp;#34;, &amp;#34;c38c&amp;#34;, &amp;#34;a48c&amp;#34;, &amp;#34;3e4f&amp;#34;, &amp;#34;7208&amp;#34;, &amp;#34;9dcb&amp;#34;, &amp;#34;fc77&amp;#34;, &amp;#34;e2cf&amp;#34;, &amp;#34;8552&amp;#34;, &amp;#34;f6f8&amp;#34;, &amp;#34;7079&amp;#34;, &amp;#34;42ef&amp;#34;, &amp;#34;391e&amp;#34;, &amp;#34;8a6d&amp;#34;, &amp;#34;2154&amp;#34;, &amp;#34;d964&amp;#34;, &amp;#34;49ec&amp;#34;]
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Special &amp; Specialer</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---special--specialer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/general-skills/picoctf---special--specialer/</guid><description>&lt;h1 id="picoctf---special--specialer">
+ PicoCTF - Special &amp;amp; Specialer
+ &lt;a class="anchor" href="#picoctf---special--specialer">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-general-skill">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>General Skill&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-general-skill">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這兩題都蠻有趣的，感覺打提權應該會用到，所以一起紀錄，第一題是要get shell，關於這一題我是直接看學長之前解題的WP，payload是&lt;code>${0}&lt;/code>就直接拿到shell了，詳細的原理我也不清楚，第二題比較簡單，就直接用網路的資源替換一下&lt;code>ls, cat&lt;/code>這兩個指令就拿到flag了&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>代替&lt;code>cat&lt;/code>的方法：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#66d9ef">while&lt;/span> read line; &lt;span style="color:#66d9ef">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span>&amp;gt; echo $line;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span>&amp;gt; &lt;span style="color:#66d9ef">done&lt;/span> &amp;lt;&lt;span style="color:#f92672">{&lt;/span>filename&lt;span style="color:#f92672">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exec 3&amp;lt;&lt;span style="color:#f92672">{&lt;/span>filename&lt;span style="color:#f92672">}}&lt;/span> &lt;span style="color:#75715e"># Assign file descriptor 3 for reading&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#66d9ef">while&lt;/span> read -u &lt;span style="color:#ae81ff">3&lt;/span> line; &lt;span style="color:#66d9ef">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span>&amp;gt; echo $line
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span>&amp;gt; &lt;span style="color:#66d9ef">done&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>&amp;lt;&lt;span style="color:#f92672">{&lt;/span>filename&lt;span style="color:#f92672">}&lt;/span>&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>代替&lt;code>ls&lt;/code>的方法&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ echo *
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ echo */*
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ echo * .*
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 4&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ dir
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ printf &lt;span style="color:#e6db74">&amp;#39;%s\n&amp;#39;&lt;/span> *
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 6&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ grep -l &lt;span style="color:#e6db74">&amp;#39;.*&amp;#39;&lt;/span> ./*
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 7&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ find .
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ stat -c &lt;span style="color:#e6db74">&amp;#39;%s %A %n&amp;#39;&lt;/span> *
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 9&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ lsattr ./*
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Method 10&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ vim .
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://jarv.org/posts/cat-without-cat/">Cat without cat on the commandline&lt;/a>
+&lt;a href="https://ubunlog.com/en/alternativas-al-comando-ls/">Alternatives to the &amp;rsquo;ls&amp;rsquo; command to list the contents of a directory&lt;/a>&lt;/p></description></item></channel></rss>

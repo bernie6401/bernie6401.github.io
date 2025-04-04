@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/threat-intel/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/cyberdefender/threat-intel/index.xml" rel="self" type="application/rss+xml"/><item><title>CyberDefender - GrabThePhisher</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/threat-intel/cyberdefender---grabthephisher/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/cyberdefender/threat-intel/cyberdefender---grabthephisher/</guid><description>&lt;h1 id="cyberdefender---grabthephisher">
+ CyberDefender - GrabThePhisher
+ &lt;a class="anchor" href="#cyberdefender---grabthephisher">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://cyberdefenders.org/blueteam-ctf-challenges/95">https://cyberdefenders.org/blueteam-ctf-challenges/95&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>An attacker compromised a server and impersonated &lt;a href="https://pancakeswap.finance/">https://pancakeswap.finance/&lt;/a>, a decentralized exchange native to BNB Chain, to host a phishing kit at &lt;a href="https://apankewk.soup.xyz/mainpage.php">https://apankewk.soup.xyz/mainpage.php&lt;/a>. The attacker set it as an open directory with the file name &amp;ldquo;pankewk.zip&amp;rdquo;.&lt;/p>
+&lt;p>Provided the phishing kit, you as a soc analyst are requested to analyze it and do your threat intel homework.&lt;/p>&lt;/blockquote>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Which wallet is used for asking the seed phrase?&lt;/p></description></item><item><title>CyberDefender - Intel101</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/threat-intel/cyberdefender---intel101/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/cyberdefender/threat-intel/cyberdefender---intel101/</guid><description>&lt;h1 id="cyberdefender---intel101">
+ CyberDefender - Intel101
+ &lt;a class="anchor" href="#cyberdefender---intel101">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://cyberdefenders.org/blueteam-ctf-challenges/38">https://cyberdefenders.org/blueteam-ctf-challenges/38&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Open-source intelligence (OSINT) exercise to practice mining and analyzing public data to produce meaningful intel when investigating external threats as a security blue team analyst.
+Tools&lt;/p>&lt;/blockquote>
+&lt;h2 id="tool">
+ Tool
+ &lt;a class="anchor" href="#tool">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://lens.google/">Google Lens&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://web.archive.org/">archive.org&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.tecmint.com/whois-command-get-domain-and-ip-address-information/#:~:text=In%20Linux%2C%20the%20whois%20command,in%20a%20human%2Dreadable%20format.">WhoIS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Who is the Registrar for jameskainth.com?&lt;/p>&lt;/blockquote>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>看&lt;a href="https://www.whois.com/whois/jameskainth.com">whois&lt;/a>的搜尋結果
+&lt;img src="https://hackmd.io/_uploads/rJIevf8mp.png" alt="圖片.png" />&lt;/p>
+&lt;p>:::spoiler Flag
+Flag: &lt;code>NameCheap&lt;/code>
+:::&lt;/p>
+&lt;h2 id="q2">
+ ==Q2==
+ &lt;a class="anchor" href="#q2">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>You get a phone call from this number: 855-707-7328, they were previously known by another name? (No spaces between words)&lt;/p></description></item><item><title>CyberDefender - L'espion</title><link>https://bernie6401.github.io/docs/security/practice/cyberdefender/threat-intel/cyberdefender---lespion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/cyberdefender/threat-intel/cyberdefender---lespion/</guid><description>&lt;h1 id="cyberdefender---lespion">
+ CyberDefender - L&amp;rsquo;espion
+ &lt;a class="anchor" href="#cyberdefender---lespion">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://cyberdefenders.org/blueteam-ctf-challenges/73">https://cyberdefenders.org/blueteam-ctf-challenges/73&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>You, as a soc analyst, have been tasked by a client whose network was compromised and brought offline to investigate the incident and determine the attacker&amp;rsquo;s identity.&lt;/p>
+&lt;p>Incident responders and digital forensic investigators are currently on the scene and have conducted a preliminary investigation. Their findings show that the attack originated from a single user account, probably, an insider.&lt;/p></description></item></channel></rss>

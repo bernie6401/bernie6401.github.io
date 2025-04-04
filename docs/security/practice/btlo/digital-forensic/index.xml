@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/btlo/digital-forensic/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/btlo/digital-forensic/index.xml" rel="self" type="application/rss+xml"/><item><title>BTLO - Meta</title><link>https://bernie6401.github.io/docs/security/practice/btlo/digital-forensic/btlo---meta/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/btlo/digital-forensic/btlo---meta/</guid><description>&lt;h1 id="btlo---meta">
+ BTLO - Meta
+ &lt;a class="anchor" href="#btlo---meta">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://blueteamlabs.online/home/challenge/meta-b976cec9e2">https://blueteamlabs.online/home/challenge/meta-b976cec9e2&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="scenario">
+ Scenario
+ &lt;a class="anchor" href="#scenario">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>The attached images were posted by a criminal on the run, with the caption &amp;ldquo;I&amp;rsquo;m roaming free. You will never catch me&amp;rdquo;. We believe you can assist us in proving him wrong.&lt;/p>&lt;/blockquote>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What is the camera model?&lt;/p>&lt;/blockquote>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>問有關圖片相關的forensics直覺就是利用exiftool幫忙parse其中的內容，之後再慢慢extract出有用的資訊，&lt;del>或是直接丟到chatgpt幫忙extract問題的答案&lt;/del>&lt;/p>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo apt install exiftool -y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exiftool uploaded_1.JPG &amp;gt; uploaded1_exiftool.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exiftool uploaded_2.png &amp;gt; uploaded2_exiftool.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://chat.openai.com/share/6b38b409-1dec-4245-bb14-6a6fe98160af">chatgpt紀錄&lt;/a>&lt;/p></description></item><item><title>BTLO - Shiba Insider</title><link>https://bernie6401.github.io/docs/security/practice/btlo/digital-forensic/btlo---shiba-insider/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/btlo/digital-forensic/btlo---shiba-insider/</guid><description>&lt;h1 id="btlo---shiba-insider">
+ BTLO - Shiba Insider
+ &lt;a class="anchor" href="#btlo---shiba-insider">#&lt;/a>
+&lt;/h1>
+&lt;p>Challenge: &lt;a href="https://blueteamlabs.online/home/challenge/shiba-insider-5b48123711">https://blueteamlabs.online/home/challenge/shiba-insider-5b48123711&lt;/a>&lt;/p>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;h2 id="tools">
+ Tools
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;p>Wireshark
+CyberChef
+Steghide
+Command Line
+Exiftool&lt;/p>
+&lt;h2 id="q1">
+ ==Q1==
+ &lt;a class="anchor" href="#q1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What is the response message obtained from the PCAP file?&lt;/p>&lt;/blockquote>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;p>這一題首先看到一個pcap file，以及zip file，不過zip file需要密碼才能unzip，所以先看pcap file有沒有相關訊息&lt;/p>
+&lt;p>這個流量紀錄非常簡單，就是一個簡單的tcp connection，包含前面的三向交握以及get packet，交換完訊息之後當然就是要finish conversation，所以重點在中間他們交換的訊息
+&lt;img src="https://hackmd.io/_uploads/S1rZCIpPT.png" alt="圖片" />&lt;/p>
+&lt;p>傳回來的訊息說: &lt;code>use your own password&lt;/code>，其實也就是該題的答案&lt;/p>
+&lt;p>:::spoiler Flag
+Flag: &lt;code>use your own password&lt;/code>
+:::&lt;/p>
+&lt;h2 id="q2">
+ ==Q2==
+ &lt;a class="anchor" href="#q2">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What is the password of the ZIP file?&lt;/p></description></item></channel></rss>

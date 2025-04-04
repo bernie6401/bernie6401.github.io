@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/misc/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/crewctf/misc/index.xml" rel="self" type="application/rss+xml"/><item><title>CrewCTF - Attaaaaack 1-13</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---attaaaaack-1-13/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---attaaaaack-1-13/</guid><description>&lt;h1 id="crewctf---attaaaaack-1-13">
+ CrewCTF - Attaaaaack 1-13
+ &lt;a class="anchor" href="#crewctf---attaaaaack-1-13">#&lt;/a>
+&lt;/h1>
+&lt;p>:::spoiler TOC
+[TOC]
+:::&lt;/p>
+&lt;p>One of our employees at the company complained about suspicious behavior on the machine, our IR team took a memory dump from the machine and we need to investigate it.&lt;/p>
+&lt;h2 id="attaaaaack-1">
+ ==Attaaaaack 1==
+ &lt;a class="anchor" href="#attaaaaack-1">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Q1. What is the best profile for the the machine?&lt;/p>&lt;/blockquote>
+&lt;h3 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ volatility_2.6_win64_standalone.exe -f memdump.raw imageinfo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Volatility Foundation Volatility Framework 2.6
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>INFO : volatility.debug : Determining profile based on KDBG search...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Suggested Profile&lt;span style="color:#f92672">(&lt;/span>s&lt;span style="color:#f92672">)&lt;/span> : Win7SP1x86_23418, Win7SP0x86, Win7SP1x86
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> AS Layer1 : IA32PagedMemoryPae &lt;span style="color:#f92672">(&lt;/span>Kernel AS&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> AS Layer2 : FileAddressSpace &lt;span style="color:#f92672">(&lt;/span>D:&lt;span style="color:#ae81ff">\N&lt;/span>TU&lt;span style="color:#ae81ff">\C&lt;/span>TF&lt;span style="color:#ae81ff">\C&lt;/span>rewCTF&lt;span style="color:#ae81ff">\M&lt;/span>isc&lt;span style="color:#ae81ff">\A&lt;/span>ttaaaaack&lt;span style="color:#ae81ff">\m&lt;/span>emdump.raw&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> PAE type : PAE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> DTB : 0x185000L
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> KDBG : 0x82b7ab78L
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Number of Processors : &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Image Type &lt;span style="color:#f92672">(&lt;/span>Service Pack&lt;span style="color:#f92672">)&lt;/span> : &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> KPCR &lt;span style="color:#66d9ef">for&lt;/span> CPU &lt;span style="color:#ae81ff">0&lt;/span> : 0x80b96000L
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> KUSER_SHARED_DATA : 0xffdf0000L
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Image date and time : 2023-02-20 19:10:54 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Image local date and time : 2023-02-20 21:10:54 +0200
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Flag: &lt;code>crew{Win7SP1x86_23418}&lt;/code>&lt;/p></description></item><item><title>CrewCTF - Encrypt10n(Part 1)</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---encrypt10npart-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---encrypt10npart-1/</guid><description>&lt;h1 id="crewctf---encrypt10npart-1">
+ CrewCTF - Encrypt10n(Part 1)
+ &lt;a class="anchor" href="#crewctf---encrypt10npart-1">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://github.com/volatilityfoundation/volatility3">Volatility 3&lt;/a>&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Description: We made a memory dump on the criminal machine after entering the crime scene. Our investigator thought he was using encryption software to hide the secret. can you help me to detect it?&lt;/li>
+&lt;li>Q1 : crew{password}
+這種類型之前沒碰過，所以看了別人的WP學一下&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>
+首先他有提到他有用加密的技術隱藏secret，所以我們的目的就是要找到password&lt;/li>
+&lt;/ul>
+&lt;h2 id="exploit---memory-forensics">
+ Exploit - Memory Forensics
+ &lt;a class="anchor" href="#exploit---memory-forensics">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>先找到運行的OS version或其他軟硬體資訊
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ python ../../Software/CTF/Misc/volatility/vol.py -f dump.raw imageinfo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Volatility Foundation Volatility Framework 2.6.1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>INFO : volatility.debug : Determining profile based on KDBG search...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Suggested Profile&lt;span style="color:#f92672">(&lt;/span>s&lt;span style="color:#f92672">)&lt;/span> : Win7SP1x86_23418, Win7SP0x86, Win7SP1x86_24000, Win7SP1x86
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> AS Layer1 : IA32PagedMemoryPae &lt;span style="color:#f92672">(&lt;/span>Kernel AS&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> AS Layer2 : FileAddressSpace &lt;span style="color:#f92672">(&lt;/span>/mnt/d/Download/Trash/dump.raw&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> PAE type : PAE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> DTB : 0x185000L
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> KDBG : 0x82b3db78L
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Number of Processors : &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Image Type &lt;span style="color:#f92672">(&lt;/span>Service Pack&lt;span style="color:#f92672">)&lt;/span> : &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> KPCR &lt;span style="color:#66d9ef">for&lt;/span> CPU &lt;span style="color:#ae81ff">0&lt;/span> : 0x839a5000L
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> KUSER_SHARED_DATA : 0xffdf0000L
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Image date and time : 2023-02-16 12:03:16 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Image local date and time : 2023-02-16 14:03:16 +0200
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>重點: &lt;code>Suggested Profile(s) : Win7SP1x86_23418, Win7SP0x86, Win7SP1x86_24000, Win7SP1x86&lt;/code>&lt;/li>
+&lt;li>列出當時系統正在運行的process
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ python ../../Software/CTF/Misc/volatility/vol.py -f dump.raw pslist --profile&lt;span style="color:#f92672">=&lt;/span>Win7SP0x86
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Volatility Foundation Volatility Framework 2.6.1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Offset&lt;span style="color:#f92672">(&lt;/span>V&lt;span style="color:#f92672">)&lt;/span> Name PID PPID Thds Hnds Sess Wow64 Start Exit
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x8413a938 System &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">88&lt;/span> &lt;span style="color:#ae81ff">520&lt;/span> ------ &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:48 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x84e481c8 smss.exe &lt;span style="color:#ae81ff">252&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">29&lt;/span> ------ &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:49 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x84cae358 csrss.exe &lt;span style="color:#ae81ff">340&lt;/span> &lt;span style="color:#ae81ff">324&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#ae81ff">550&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:53 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x844ea030 wininit.exe &lt;span style="color:#ae81ff">392&lt;/span> &lt;span style="color:#ae81ff">324&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">77&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:54 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x84ef5030 csrss.exe &lt;span style="color:#ae81ff">400&lt;/span> &lt;span style="color:#ae81ff">384&lt;/span> &lt;span style="color:#ae81ff">9&lt;/span> &lt;span style="color:#ae81ff">223&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:54 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x8573dd20 winlogon.exe &lt;span style="color:#ae81ff">456&lt;/span> &lt;span style="color:#ae81ff">384&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#ae81ff">114&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:54 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85749868 services.exe &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">392&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#ae81ff">228&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:54 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85763030 lsass.exe &lt;span style="color:#ae81ff">508&lt;/span> &lt;span style="color:#ae81ff">392&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span> &lt;span style="color:#ae81ff">578&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:55 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85764030 lsm.exe &lt;span style="color:#ae81ff">516&lt;/span> &lt;span style="color:#ae81ff">392&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> &lt;span style="color:#ae81ff">149&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:55 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x857bd510 svchost.exe &lt;span style="color:#ae81ff">624&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">11&lt;/span> &lt;span style="color:#ae81ff">362&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:56 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85809510 svchost.exe &lt;span style="color:#ae81ff">704&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span> &lt;span style="color:#ae81ff">298&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:56 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85859920 svchost.exe &lt;span style="color:#ae81ff">784&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">23&lt;/span> &lt;span style="color:#ae81ff">510&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:56 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x8586da80 svchost.exe &lt;span style="color:#ae81ff">832&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">15&lt;/span> &lt;span style="color:#ae81ff">265&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:57 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85872bb0 svchost.exe &lt;span style="color:#ae81ff">856&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">22&lt;/span> &lt;span style="color:#ae81ff">731&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:57 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85875460 svchost.exe &lt;span style="color:#ae81ff">880&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">47&lt;/span> &lt;span style="color:#ae81ff">1013&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:57 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x8588f370 audiodg.exe &lt;span style="color:#ae81ff">960&lt;/span> &lt;span style="color:#ae81ff">784&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#ae81ff">132&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:57 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x858c2420 svchost.exe &lt;span style="color:#ae81ff">1092&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">18&lt;/span> &lt;span style="color:#ae81ff">389&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:58 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x857d6030 spoolsv.exe &lt;span style="color:#ae81ff">1288&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">15&lt;/span> &lt;span style="color:#ae81ff">270&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:59 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x857d1030 dwm.exe &lt;span style="color:#ae81ff">1296&lt;/span> &lt;span style="color:#ae81ff">832&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#ae81ff">114&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:59 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x857c7030 svchost.exe &lt;span style="color:#ae81ff">1324&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">21&lt;/span> &lt;span style="color:#ae81ff">310&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:59 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x857a5d20 explorer.exe &lt;span style="color:#ae81ff">1384&lt;/span> &lt;span style="color:#ae81ff">1276&lt;/span> &lt;span style="color:#ae81ff">33&lt;/span> &lt;span style="color:#ae81ff">923&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:59 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x857c4d20 taskhost.exe &lt;span style="color:#ae81ff">1400&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> &lt;span style="color:#ae81ff">197&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:00:59 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85837898 svchost.exe &lt;span style="color:#ae81ff">1560&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">11&lt;/span> &lt;span style="color:#ae81ff">146&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:00 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x841d1030 VGAuthService. &lt;span style="color:#ae81ff">1720&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">85&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:01 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x841d7118 vmtoolsd.exe &lt;span style="color:#ae81ff">1736&lt;/span> &lt;span style="color:#ae81ff">1384&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> &lt;span style="color:#ae81ff">181&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:02 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85856030 vm3dservice.ex &lt;span style="color:#ae81ff">1836&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">60&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:03 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85857d20 vmtoolsd.exe &lt;span style="color:#ae81ff">1856&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">14&lt;/span> &lt;span style="color:#ae81ff">291&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:03 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x841e5678 vm3dservice.ex &lt;span style="color:#ae81ff">1880&lt;/span> &lt;span style="color:#ae81ff">1836&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">44&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:03 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85a26030 svchost.exe &lt;span style="color:#ae81ff">384&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#ae81ff">93&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:05 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85a6e5d0 dllhost.exe &lt;span style="color:#ae81ff">876&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">21&lt;/span> &lt;span style="color:#ae81ff">191&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:05 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85941c28 dllhost.exe &lt;span style="color:#ae81ff">1744&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">18&lt;/span> &lt;span style="color:#ae81ff">200&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:05 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85ab6260 msdtc.exe &lt;span style="color:#ae81ff">1128&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">15&lt;/span> &lt;span style="color:#ae81ff">154&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:06 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85ac8b00 WmiPrvSE.exe &lt;span style="color:#ae81ff">232&lt;/span> &lt;span style="color:#ae81ff">624&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> &lt;span style="color:#ae81ff">193&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:06 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x841f4470 SearchIndexer. &lt;span style="color:#ae81ff">2148&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">14&lt;/span> &lt;span style="color:#ae81ff">604&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:08 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85b2a030 VSSVC.exe &lt;span style="color:#ae81ff">2276&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span> &lt;span style="color:#ae81ff">118&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:11 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85b80cb8 SearchProtocol &lt;span style="color:#ae81ff">2372&lt;/span> &lt;span style="color:#ae81ff">2148&lt;/span> &lt;span style="color:#ae81ff">9&lt;/span> &lt;span style="color:#ae81ff">284&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:13 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85b855f8 SearchFilterHo &lt;span style="color:#ae81ff">2392&lt;/span> &lt;span style="color:#ae81ff">2148&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#ae81ff">104&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:13 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85b97d20 svchost.exe &lt;span style="color:#ae81ff">2480&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">15&lt;/span> &lt;span style="color:#ae81ff">232&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:15 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85bc5398 wmpnetwk.exe &lt;span style="color:#ae81ff">2632&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">11&lt;/span> &lt;span style="color:#ae81ff">212&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:16 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85bba030 WmiPrvSE.exe &lt;span style="color:#ae81ff">2860&lt;/span> &lt;span style="color:#ae81ff">624&lt;/span> &lt;span style="color:#ae81ff">15&lt;/span> &lt;span style="color:#ae81ff">319&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:25 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85c53030 WmiApSrv.exe &lt;span style="color:#ae81ff">3004&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#ae81ff">112&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:01:30 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x85c596c0 TrueCrypt.exe &lt;span style="color:#ae81ff">3196&lt;/span> &lt;span style="color:#ae81ff">1384&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">67&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:02:07 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x84d54d20 sppsvc.exe &lt;span style="color:#ae81ff">3736&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#ae81ff">154&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:03:05 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x84d567f0 svchost.exe &lt;span style="color:#ae81ff">3776&lt;/span> &lt;span style="color:#ae81ff">496&lt;/span> &lt;span style="color:#ae81ff">15&lt;/span> &lt;span style="color:#ae81ff">353&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:03:05 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x844fcd20 DumpIt.exe &lt;span style="color:#ae81ff">4072&lt;/span> &lt;span style="color:#ae81ff">1384&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">38&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:03:14 UTC+0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x844ba6e0 conhost.exe &lt;span style="color:#ae81ff">4080&lt;/span> &lt;span style="color:#ae81ff">400&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">51&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 2023-02-16 12:03:14 UTC+0000
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>重點：&lt;code>0x85c596c0 TrueCrypt.exe 3196 1384 2 67 1 0 2023-02-16 12:02:07 UTC+0000&lt;/code>
+&lt;a href="https://zh.wikipedia.org/zh-tw/TrueCrypt">TrueCrypt - Wiki&lt;/a>
+&lt;blockquote>
+&lt;p>TrueCrypt是一款已停止開發的動態（On-the-fly）磁碟加密軟體，支援Windows、macOS和Linux作業系統。它可在單個檔案和磁碟分割區中建立加密區，也可以加密整個作業系統，解密後使用者即可像普通分割區一樣使用其中的檔案。TrueCrypt支援使用密碼、金鑰檔案作為解密憑據。&lt;/p></description></item><item><title>CrewCTF - Encrypt10n(Part 2)</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---encrypt10npart-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/misc/crewctf---encrypt10npart-2/</guid><description>&lt;h1 id="crewctf---encrypt10npart-2">
+ CrewCTF - Encrypt10n(Part 2)
+ &lt;a class="anchor" href="#crewctf---encrypt10npart-2">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://kenfavors.com/code/how-to-open-a-truecrypt-container-using-cryptsetup/">How To Open A TrueCrypt Container Using cryptsetup&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>$ sudo cryptsetup --type tcrypt open container-to-mount container-name&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a href="https://blog.51cto.com/majesty/991565">什麽是塊設備，什麽是字符設備？有什麽區別？&lt;/a>&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題應該是沿用part 1得到的密碼進行解密&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>用&lt;code>cryptsetup&lt;/code>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>先進行解密&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo cryptsetup --type tcrypt open flag flag_decrypt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter passphrase &lt;span style="color:#66d9ef">for&lt;/span> flag:
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>則輸出的結果就是一個container儲存在&lt;code>/dev/mapper&lt;/code>，可以看到它是一個block device&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ll /dev/mapper
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>total &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>drwxr-xr-x &lt;span style="color:#ae81ff">2&lt;/span> root root &lt;span style="color:#ae81ff">80&lt;/span> Jul &lt;span style="color:#ae81ff">12&lt;/span> 21:44 .
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>drwxr-xr-x &lt;span style="color:#ae81ff">11&lt;/span> root root &lt;span style="color:#ae81ff">3140&lt;/span> Jul &lt;span style="color:#ae81ff">12&lt;/span> 21:44 ..
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>crw------- &lt;span style="color:#ae81ff">1&lt;/span> root root 10, &lt;span style="color:#ae81ff">236&lt;/span> Jul &lt;span style="color:#ae81ff">11&lt;/span> 23:06 control
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brw-rw---- &lt;span style="color:#ae81ff">1&lt;/span> root disk 252, &lt;span style="color:#ae81ff">3&lt;/span> Jul &lt;span style="color:#ae81ff">12&lt;/span> 21:44 flag_dec
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>再來就要把這個container掛起來，要掛起來才能讀取裡面的資料&lt;/p></description></item></channel></rss>

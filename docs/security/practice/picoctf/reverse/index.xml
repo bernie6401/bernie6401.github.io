@@ -1,0 +1,1557 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/picoctf/reverse/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF - ARMssembly 0</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---armssembly-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---armssembly-0/</guid><description>&lt;h1 id="picoctf---armssembly-0">
+ PicoCTF - ARMssembly 0
+ &lt;a class="anchor" href="#picoctf---armssembly-0">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler ARM assembly code&lt;/p>
+&lt;pre tabindex="0">&lt;code>	.arch armv8-a
+	.file	&amp;#34;chall.c&amp;#34;
+	.text
+	.align	2
+	.global	func1
+	.type	func1, %function
+func1:
+	sub	sp, sp, #16
+	str	w0, [sp, 12]
+	str	w1, [sp, 8]
+	ldr	w1, [sp, 12]
+	ldr	w0, [sp, 8]
+	cmp	w1, w0
+	bls	.L2
+	ldr	w0, [sp, 12]
+	b	.L3
+.L2:
+	ldr	w0, [sp, 8]
+.L3:
+	add	sp, sp, 16
+	ret
+	.size	func1, .-func1
+	.section	.rodata
+	.align	3
+.LC0:
+	.string	&amp;#34;Result: %ld\n&amp;#34;
+	.text
+	.align	2
+	.global	main
+	.type	main, %function
+main:
+	stp	x29, x30, [sp, -48]!
+	add	x29, sp, 0
+	str	x19, [sp, 16]
+	str	w0, [x29, 44]
+	str	x1, [x29, 32]
+	ldr	x0, [x29, 32]
+	add	x0, x0, 8
+	ldr	x0, [x0]
+	bl	atoi
+	mov	w19, w0
+	ldr	x0, [x29, 32]
+	add	x0, x0, 16
+	ldr	x0, [x0]
+	bl	atoi
+	mov	w1, w0
+	mov	w0, w19
+	bl	func1
+	mov	w1, w0
+	adrp	x0, .LC0
+	add	x0, x0, :lo12:.LC0
+	bl	printf
+	mov	w0, 0
+	ldr	x19, [sp, 16]
+	ldp	x29, x30, [sp], 48
+	ret
+	.size	main, .-main
+	.ident	&amp;#34;GCC: (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) 7.5.0&amp;#34;
+	.section	.note.GNU-stack,&amp;#34;&amp;#34;,@progbits
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - asm4</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---asm4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---asm4/</guid><description>&lt;h1 id="picoctf---asm4">
+ PicoCTF - asm4
+ &lt;a class="anchor" href="#picoctf---asm4">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="description">
+ Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What will asm4(&amp;ldquo;picoCTF_f97bb&amp;rdquo;) return? Submit the flag as a hexadecimal value (starting with &amp;lsquo;0x&amp;rsquo;). NOTE: Your submission for this question will NOT be in the normal flag format.&lt;/p>&lt;/blockquote>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-assembly" data-lang="assembly">asm4:
+	&amp;lt;+0&amp;gt;:	push ebp
+	&amp;lt;+1&amp;gt;:	mov ebp,esp
+	&amp;lt;+3&amp;gt;:	push ebx
+	&amp;lt;+4&amp;gt;:	sub esp,0x10
+	&amp;lt;+7&amp;gt;:	mov DWORD PTR [ebp-0x10],0x27a
+	&amp;lt;+14&amp;gt;:	mov DWORD PTR [ebp-0xc],0x0
+	&amp;lt;+21&amp;gt;:	jmp 0x518 &amp;lt;asm4+27&amp;gt;
+	&amp;lt;+23&amp;gt;:	add DWORD PTR [ebp-0xc],0x1
+	&amp;lt;+27&amp;gt;:	mov edx,DWORD PTR [ebp-0xc]
+	&amp;lt;+30&amp;gt;:	mov eax,DWORD PTR [ebp+0x8]
+	&amp;lt;+33&amp;gt;:	add eax,edx
+	&amp;lt;+35&amp;gt;:	movzx eax,BYTE PTR [eax]
+	&amp;lt;+38&amp;gt;:	test al,al
+	&amp;lt;+40&amp;gt;:	jne 0x514 &amp;lt;asm4+23&amp;gt;
+	&amp;lt;+42&amp;gt;:	mov DWORD PTR [ebp-0x8],0x1
+	&amp;lt;+49&amp;gt;:	jmp 0x587 &amp;lt;asm4+138&amp;gt;
+	&amp;lt;+51&amp;gt;:	mov edx,DWORD PTR [ebp-0x8]
+	&amp;lt;+54&amp;gt;:	mov eax,DWORD PTR [ebp+0x8]
+	&amp;lt;+57&amp;gt;:	add eax,edx
+	&amp;lt;+59&amp;gt;:	movzx eax,BYTE PTR [eax]
+	&amp;lt;+62&amp;gt;:	movsx edx,al
+	&amp;lt;+65&amp;gt;:	mov eax,DWORD PTR [ebp-0x8]
+	&amp;lt;+68&amp;gt;:	lea ecx,[eax-0x1]
+	&amp;lt;+71&amp;gt;:	mov eax,DWORD PTR [ebp+0x8]
+	&amp;lt;+74&amp;gt;:	add eax,ecx
+	&amp;lt;+76&amp;gt;:	movzx eax,BYTE PTR [eax]
+	&amp;lt;+79&amp;gt;:	movsx eax,al
+	&amp;lt;+82&amp;gt;:	sub edx,eax
+	&amp;lt;+84&amp;gt;:	mov eax,edx
+	&amp;lt;+86&amp;gt;:	mov edx,eax
+	&amp;lt;+88&amp;gt;:	mov eax,DWORD PTR [ebp-0x10]
+	&amp;lt;+91&amp;gt;:	lea ebx,[edx+eax*1]
+	&amp;lt;+94&amp;gt;:	mov eax,DWORD PTR [ebp-0x8]
+	&amp;lt;+97&amp;gt;:	lea edx,[eax+0x1]
+	&amp;lt;+100&amp;gt;:	mov eax,DWORD PTR [ebp+0x8]
+	&amp;lt;+103&amp;gt;:	add eax,edx
+	&amp;lt;+105&amp;gt;:	movzx eax,BYTE PTR [eax]
+	&amp;lt;+108&amp;gt;:	movsx edx,al
+	&amp;lt;+111&amp;gt;:	mov ecx,DWORD PTR [ebp-0x8]
+	&amp;lt;+114&amp;gt;:	mov eax,DWORD PTR [ebp+0x8]
+	&amp;lt;+117&amp;gt;:	add eax,ecx
+	&amp;lt;+119&amp;gt;:	movzx eax,BYTE PTR [eax]
+	&amp;lt;+122&amp;gt;:	movsx eax,al
+	&amp;lt;+125&amp;gt;:	sub edx,eax
+	&amp;lt;+127&amp;gt;:	mov eax,edx
+	&amp;lt;+129&amp;gt;:	add eax,ebx
+	&amp;lt;+131&amp;gt;:	mov DWORD PTR [ebp-0x10],eax
+	&amp;lt;+134&amp;gt;:	add DWORD PTR [ebp-0x8],0x1
+	&amp;lt;+138&amp;gt;:	mov eax,DWORD PTR [ebp-0xc]
+	&amp;lt;+141&amp;gt;:	sub eax,0x1
+	&amp;lt;+144&amp;gt;:	cmp DWORD PTR [ebp-0x8],eax
+	&amp;lt;+147&amp;gt;:	jl 0x530 &amp;lt;asm4+51&amp;gt;
+	&amp;lt;+149&amp;gt;:	mov eax,DWORD PTR [ebp-0x10]
+	&amp;lt;+152&amp;gt;:	add esp,0x10
+	&amp;lt;+155&amp;gt;:	pop ebx
+	&amp;lt;+156&amp;gt;:	pop ebp
+	&amp;lt;+157&amp;gt;:	ret 
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - droids1</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids1/</guid><description>&lt;h1 id="picoctf---droids1">
+ PicoCTF - droids1
+ &lt;a class="anchor" href="#picoctf---droids1">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="backgroud">
+ Backgroud
+ &lt;a class="anchor" href="#backgroud">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/"> Android App 逆向入門之一：拆開與重組 apk &lt;/a>: 強烈建議新手在打之前可以先看一下這篇，稍微了解一下整體怎麼包apk以及比要檔案有哪些，或是他們儲存的資料類型之類的&lt;/p>
+&lt;h2 id="tools">
+ Tools
+ &lt;a class="anchor" href="#tools">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://ibotpeaches.github.io/Apktool/">apktool&lt;/a>
+跟著&lt;a href="https://apktool.org/docs/install">installation guide&lt;/a>就可以安裝成功，此工具目的在於拆解apk，我們知道apk就是一個壓縮檔，如果直接用unzip這種指令，也可以打開，只不過一些經過編譯後的byte code就還是byte code，而apktool可以在解壓縮的同時還原這些byte code&lt;/li>
+&lt;li>&lt;a href="https://developer.android.com/studio">Android Studio&lt;/a>: 此工具目的在於利用emulator把該軟體安裝後跑起來&lt;/li>
+&lt;li>&lt;a href="https://github.com/skylot/jadx">JADX&lt;/a>: 和ApkTool一樣，可以反編譯apk，但有GUI(Recommended)
+&lt;pre tabindex="0">&lt;code class="language-bash!" data-lang="bash!"> $ wget https://github.com/skylot/jadx/releases/download/v1.1.0/jadx-1.1.0.zip
+ $ unzip jadx-1.1.0.zip -d jadx
+ $ cd jadx
+ $ cd ./bin
+ $ ./jadx-gui
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題有兩種方法可以反編譯apk，一種是利用ApkTool，另外一個是JADX，兩者差在有無GUI(JADX有)，主要是參考&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>的WP&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="apktools">
+ ApkTools
+ &lt;a class="anchor" href="#apktools">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ apktool d one.apk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Using Apktool 2.8.1 on one.apk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Loading resource table...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Decoding AndroidManifest.xml with resources...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Loading resource table from file: C:&lt;span style="color:#ae81ff">\U&lt;/span>sers&lt;span style="color:#ae81ff">\B&lt;/span>ernie&lt;span style="color:#ae81ff">\A&lt;/span>ppData&lt;span style="color:#ae81ff">\L&lt;/span>ocal&lt;span style="color:#ae81ff">\a&lt;/span>pktool&lt;span style="color:#ae81ff">\f&lt;/span>ramework&lt;span style="color:#ae81ff">\1&lt;/span>.apk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Regular manifest package...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Decoding file-resources...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Decoding values */* XMLs...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Baksmaling classes.dex...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Copying assets and libs...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Copying unknown files...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I: Copying original files...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果有按照上面的guide把apktool裝起來，就可以直接下指令，參數&lt;code>d&lt;/code>代表decode，對於比較熟Android架構的人來說應該綽綽有餘，畢竟要到哪邊找code/strings之類的，通常都會是那幾個地方，例如：
+Code會放在&lt;code>./smali/com/hellocmu/picoctf/&lt;/code>(PS: 只不過code很醜，畢竟是smali)
+Strings會放在&lt;code>./res/values/strings.xml&lt;/code>&lt;/p></description></item><item><title>PicoCTF - droids3</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids3/</guid><description>&lt;h1 id="picoctf---droids3">
+ PicoCTF - droids3
+ &lt;a class="anchor" href="#picoctf---droids3">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/"> Android App 逆向入門之一：拆開與重組 apk &lt;/a>
+&lt;a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-2/"> Android App 逆向入門之二：修改 smali 程式碼 &lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-java=" data-lang="java=">package com.hellocmu.picoctf;
+
+import android.content.Context;
+
+/* loaded from: classes.dex */
+public class FlagstaffHill {
+ public static native String cilantro(String str);
+
+ public static String nope(String input) {
+ return &amp;#34;don&amp;#39;t wanna&amp;#34;;
+ }
+
+ public static String yep(String input) {
+ return cilantro(input);
+ }
+
+ public static String getFlag(String input, Context ctx) {
+ String flag = nope(input);
+ return flag;
+ }
+}
+&lt;/code>&lt;/pre>&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>利用前一題學到的工具(JADX)，先decompiler一下原本的程式在幹嘛(source code如上)，會發現getFlag這個method所呼叫的nope只會吐出&lt;code>don't wanna&lt;/code>，而真正會print出flag的是yep這個method，所以我們可以修改一下，不過修改之前還是要知道一下流程
+Apktool decode apk file$\to$修改必要的地方$\to$Apktool重新打包$\to$簽名$\to$Align$\to$Done，這一個部分在&lt;a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-2/"> Android App 逆向入門之二：修改 smali 程式碼 &lt;/a>有詳細的說明&lt;/p></description></item><item><title>PicoCTF - droids4</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---droids4/</guid><description>&lt;h1 id="picoctf---droids4">
+ PicoCTF - droids4
+ &lt;a class="anchor" href="#picoctf---droids4">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/"> Android App 逆向入門之一：拆開與重組 apk &lt;/a>
+&lt;a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-2/"> Android App 逆向入門之二：修改 smali 程式碼 &lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">package&lt;/span> com.hellocmu.picoctf;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> android.content.Context;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">/* loaded from: classes.dex */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">FlagstaffHill&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">native&lt;/span> String &lt;span style="color:#a6e22e">cardamom&lt;/span>(String str);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> String &lt;span style="color:#a6e22e">getFlag&lt;/span>(String input, Context ctx) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> StringBuilder ace &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> StringBuilder(&lt;span style="color:#e6db74">&amp;#34;aaa&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> StringBuilder jack &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> StringBuilder(&lt;span style="color:#e6db74">&amp;#34;aaa&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> StringBuilder queen &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> StringBuilder(&lt;span style="color:#e6db74">&amp;#34;aaa&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> StringBuilder king &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> StringBuilder(&lt;span style="color:#e6db74">&amp;#34;aaa&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ace.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(0, (&lt;span style="color:#66d9ef">char&lt;/span>) (ace.&lt;span style="color:#a6e22e">charAt&lt;/span>(0) &lt;span style="color:#f92672">+&lt;/span> 4));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ace.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(1, (&lt;span style="color:#66d9ef">char&lt;/span>) (ace.&lt;span style="color:#a6e22e">charAt&lt;/span>(1) &lt;span style="color:#f92672">+&lt;/span> 19));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ace.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(2, (&lt;span style="color:#66d9ef">char&lt;/span>) (ace.&lt;span style="color:#a6e22e">charAt&lt;/span>(2) &lt;span style="color:#f92672">+&lt;/span> 18));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> jack.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(0, (&lt;span style="color:#66d9ef">char&lt;/span>) (jack.&lt;span style="color:#a6e22e">charAt&lt;/span>(0) &lt;span style="color:#f92672">+&lt;/span> 7));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> jack.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(1, (&lt;span style="color:#66d9ef">char&lt;/span>) (jack.&lt;span style="color:#a6e22e">charAt&lt;/span>(1) &lt;span style="color:#f92672">+&lt;/span> 0));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> jack.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(2, (&lt;span style="color:#66d9ef">char&lt;/span>) (jack.&lt;span style="color:#a6e22e">charAt&lt;/span>(2) &lt;span style="color:#f92672">+&lt;/span> 1));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> queen.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(0, (&lt;span style="color:#66d9ef">char&lt;/span>) (queen.&lt;span style="color:#a6e22e">charAt&lt;/span>(0) &lt;span style="color:#f92672">+&lt;/span> 0));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> queen.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(1, (&lt;span style="color:#66d9ef">char&lt;/span>) (queen.&lt;span style="color:#a6e22e">charAt&lt;/span>(1) &lt;span style="color:#f92672">+&lt;/span> 11));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> queen.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(2, (&lt;span style="color:#66d9ef">char&lt;/span>) (queen.&lt;span style="color:#a6e22e">charAt&lt;/span>(2) &lt;span style="color:#f92672">+&lt;/span> 15));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> king.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(0, (&lt;span style="color:#66d9ef">char&lt;/span>) (king.&lt;span style="color:#a6e22e">charAt&lt;/span>(0) &lt;span style="color:#f92672">+&lt;/span> 14));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> king.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(1, (&lt;span style="color:#66d9ef">char&lt;/span>) (king.&lt;span style="color:#a6e22e">charAt&lt;/span>(1) &lt;span style="color:#f92672">+&lt;/span> 20));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> king.&lt;span style="color:#a6e22e">setCharAt&lt;/span>(2, (&lt;span style="color:#66d9ef">char&lt;/span>) (king.&lt;span style="color:#a6e22e">charAt&lt;/span>(2) &lt;span style="color:#f92672">+&lt;/span> 15));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String password &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>.&lt;span style="color:#a6e22e">concat&lt;/span>(queen.&lt;span style="color:#a6e22e">toString&lt;/span>()).&lt;span style="color:#a6e22e">concat&lt;/span>(jack.&lt;span style="color:#a6e22e">toString&lt;/span>()).&lt;span style="color:#a6e22e">concat&lt;/span>(ace.&lt;span style="color:#a6e22e">toString&lt;/span>()).&lt;span style="color:#a6e22e">concat&lt;/span>(king.&lt;span style="color:#a6e22e">toString&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> input.&lt;span style="color:#a6e22e">equals&lt;/span>(password) &lt;span style="color:#f92672">?&lt;/span> &lt;span style="color:#e6db74">&amp;#34;call it&amp;#34;&lt;/span> : &lt;span style="color:#e6db74">&amp;#34;NOPE&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>基本上用眼睛看應該看的出來password是啥，不過他最後只會print出&lt;code>call it&lt;/code>或是&lt;code>NOPE&lt;/code>，所以我們要像上一題一樣改造一下smali，可以對照一下前一題的smali是怎麼call的&lt;/p></description></item><item><title>PicoCTF - Easy as GDB</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---easy-as-gdb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---easy-as-gdb/</guid><description>&lt;h1 id="picoctf---easy-as-gdb">
+ PicoCTF - Easy as GDB
+ &lt;a class="anchor" href="#picoctf---easy-as-gdb">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA Main Function&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-cpp=" data-lang="cpp=">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+ char *str_len; // eax
+ int v5; // [esp-8h] [ebp-20h]
+ int v6; // [esp-4h] [ebp-1Ch]
+ char *input_flag; // [esp+4h] [ebp-14h]
+ size_t str_len_1; // [esp+8h] [ebp-10h]
+ char *src; // [esp+Ch] [ebp-Ch]
+
+ input_flag = calloc(0x200u, 1u);
+ printf(&amp;#34;input the flag: &amp;#34;);
+ fgets(input_flag, 512, stdin);
+ str_len = strnlen(aZNh, 512, v5, v6);
+ src = enc_input(str_len, str_len);
+ sub_7C2(src, 1, 1);
+ if ( check_flag(src, str_len_1) == 1 )
+ puts(&amp;#34;Correct!&amp;#34;);
+ else
+ puts(&amp;#34;Incorrect.&amp;#34;);
+ return 0;
+}
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Forky</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---forky/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---forky/</guid><description>&lt;h1 id="picoctf---forky">
+ PicoCTF - Forky
+ &lt;a class="anchor" href="#picoctf---forky">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://burweisnote.blogspot.com/2017/09/fork.html"> fork用法與範例 &lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>Main Function From IDA&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#66d9ef">__cdecl&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>envp)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _DWORD &lt;span style="color:#f92672">*&lt;/span>v4; &lt;span style="color:#75715e">// [esp+8h] [ebp-Ch]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v4 &lt;span style="color:#f92672">=&lt;/span> mmap(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">4u&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">33&lt;/span>, &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>v4 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1000000000&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fork();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fork();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fork();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fork();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>v4 &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1234567890&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> doNothing(&lt;span style="color:#f92672">*&lt;/span>v4);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題很有趣，有了background之後其實對這一題的想法差不多就和&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>差不多，也就是parent process fork出child process後會繼續往下fork出grandchild process，直到parent process執行完成&lt;/p>
+&lt;blockquote>
+&lt;pre tabindex="0">&lt;code>+ 
+| 
++-----------------------------------+ 
+| | 
++-----------------+ +-----------------+ 
+| | | | 
++--------+ +--------+ +--------+ +--------+ 
+| | | | | | | | 
++---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ 
+| | | | | | | | | | | | | | | | 
+O O O O O O O O O O O O O O O O 
+&lt;/code>&lt;/pre>&lt;/blockquote>
+&lt;p>而且他們所操作的外部記憶體對象都會是一樣的，代表*v4最終會被加16次，只是我沒有考慮到負號的問題，因為該題是32bits，代表加到一定程度會overflow，所以都沒解出來&lt;/p></description></item><item><title>PicoCTF - gogo</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---gogo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---gogo/</guid><description>&lt;h1 id="picoctf---gogo">
+ PicoCTF - gogo
+ &lt;a class="anchor" href="#picoctf---gogo">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA Main Function&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-cpp=" data-lang="cpp=">// main.main
+void __cdecl main_main()
+{
+ _slice_interface_ typ[2]; // [esp+0h] [ebp-58h] BYREF
+ string *second_flag; // [esp+20h] [ebp-38h]
+ string *flag; // [esp+24h] [ebp-34h]
+ _slice_interface_ v3; // [esp+28h] [ebp-30h] BYREF
+ string *v4; // [esp+34h] [ebp-24h]
+ _DWORD v5[2]; // [esp+38h] [ebp-20h] BYREF
+ _DWORD v6[2]; // [esp+40h] [ebp-18h] BYREF
+ _slice_interface_ v7; // [esp+48h] [ebp-10h] BYREF
+ string *v8; // [esp+54h] [ebp-4h]
+
+ flag = runtime_newobject(&amp;amp;RTYPE_string_0);
+ typ[0].array = &amp;#34;Enter Password: &amp;#34;;
+ typ[0].len = 16;
+ memset(&amp;amp;typ[0].cap, 0, sizeof(_slice_interface_));
+ fmt_Printf(*&amp;amp;typ[0].array, *&amp;amp;typ[0].cap);
+ v6[0] = &amp;amp;RTYPE__ptr_string;
+ v6[1] = flag;
+ typ[0].array = &amp;#34;%s\n&amp;#34;;
+ typ[0].len = 3;
+ typ[0].cap = v6;
+ *&amp;amp;typ[1].array = 0x100000001LL;
+ fmt_Scanf(*&amp;amp;typ[0].array, *&amp;amp;typ[0].cap);
+ if ( main_checkPassword(*flag) )
+ {
+ v5[0] = &amp;amp;RTYPE_string_0;
+ v5[1] = &amp;amp;main_statictmp_0;
+ typ[0].array = v5;
+ *&amp;amp;typ[0].len = 0x100000001LL;
+ fmt_Println(typ[0]);
+ v3.cap = &amp;amp;RTYPE_string_0;
+ v4 = &amp;amp;main_statictmp_1;
+ typ[0].array = &amp;amp;v3.cap;
+ *&amp;amp;typ[0].len = 0x100000001LL;
+ fmt_Println(typ[0]);
+ v3.array = &amp;amp;RTYPE_string_0;
+ v3.len = &amp;amp;main_statictmp_2;
+ typ[0].array = &amp;amp;v3;
+ *&amp;amp;typ[0].len = 0x100000001LL;
+ fmt_Println(typ[0]);
+ second_flag = runtime_newobject(&amp;amp;RTYPE_string_0);
+ v7.cap = &amp;amp;RTYPE__ptr_string;
+ v8 = second_flag;
+ typ[0].array = &amp;#34;%s\n&amp;#34;;
+ typ[0].len = 3;
+ typ[0].cap = &amp;amp;v7.cap;
+ *&amp;amp;typ[1].array = 0x100000001LL;
+ fmt_Scanf(*&amp;amp;typ[0].array, *&amp;amp;typ[0].cap);
+ main_ambush(*second_flag);
+ runtime_deferproc(0, &amp;amp;stru_81046A0);
+ }
+ else
+ {
+ v7.array = &amp;amp;RTYPE_string_0;
+ v7.len = &amp;amp;main_statictmp_3;
+ typ[0].array = &amp;amp;v7;
+ *&amp;amp;typ[0].len = 0x100000001LL;
+ fmt_Println(typ[0]);
+ }
+ runtime_deferreturn(typ[0].array);
+}
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Let's get dynamic</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---lets-get-dynamic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---lets-get-dynamic/</guid><description>&lt;h1 id="picoctf---lets-get-dynamic">
+ PicoCTF - Let&amp;rsquo;s get dynamic
+ &lt;a class="anchor" href="#picoctf---lets-get-dynamic">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA Main Function&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-cpp=" data-lang="cpp=">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+ int i; // [rsp+1Ch] [rbp-114h]
+ char s2[64]; // [rsp+20h] [rbp-110h] BYREF
+ char s[64]; // [rsp+60h] [rbp-D0h] BYREF
+ char v7[8]; // [rsp+A0h] [rbp-90h] BYREF
+ __int64 v8; // [rsp+A8h] [rbp-88h]
+ __int64 v9; // [rsp+B0h] [rbp-80h]
+ __int64 v10; // [rsp+B8h] [rbp-78h]
+ __int64 v11; // [rsp+C0h] [rbp-70h]
+ __int64 v12; // [rsp+C8h] [rbp-68h]
+ __int16 v13; // [rsp+D0h] [rbp-60h]
+ __int64 v14[6]; // [rsp+E0h] [rbp-50h]
+ __int16 v15; // [rsp+110h] [rbp-20h]
+ unsigned __int64 v16; // [rsp+118h] [rbp-18h]
+
+ v16 = __readfsqword(0x28u);
+ *v7 = 0xFD872AC7CA737102LL;
+ v8 = 0x4915F12BF9F82DCBLL;
+ v9 = 0xA7EF0D4C54003C10LL;
+ v10 = 0x9399CCF74D02A843LL;
+ v11 = 0x2AC6F818989688D7LL;
+ v12 = 0x9F51EBCA33584C85LL;
+ v13 = 231;
+ v14[0] = 0x92D46893B5010A61LL;
+ v14[1] = 0xA6BDE59D58F4EB4LL;
+ v14[2] = 0xFC993A3238355027LL;
+ v14[3] = 0xEDA7B28D7054D179LL;
+ v14[4] = 0x419FBB499BD4CFBBLL;
+ v14[5] = 0x935AE3903F554688LL;
+ v15 = 185;
+ fgets(s, 49, _bss_start);
+ for ( i = 0; i &amp;lt; strlen(v7); ++i )
+ s2[i] = *(v14 + i) ^ v7[i] ^ i ^ 0x13;
+ if ( !memcmp(s, s2, 49uLL) )
+ {
+ puts(&amp;#34;No, that&amp;#39;s not right.&amp;#34;);
+ return 1;
+ }
+ else
+ {
+ puts(&amp;#34;Correct! You entered the flag.&amp;#34;);
+ return 0;
+ }
+}
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - No way out</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---no-way-out/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---no-way-out/</guid><description>&lt;h1 id="picoctf---no-way-out">
+ PicoCTF - No way out
+ &lt;a class="anchor" href="#picoctf---no-way-out">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>C Sharp / dn.spy / cheat engine&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>大概有三種解法，其中兩種是改變.dll中的內容，有點利用binary exploitation的方式顯示flag，另外一種就是利用cheat engine的方式找到儲存座標的memory然後手動改寫數值，就拿到flag&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="method-1---change-dll">
+ Method 1 - Change .dll
+ &lt;a class="anchor" href="#method-1---change-dll">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>可以看到&lt;code>No way out/pico_Data/Managed/Assembly-CSharp.dll&lt;/code>可能是一個可以用dn.spy decompile的文件，先看看有沒有甚麼可以更改的&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在APTX class中，一個Mysterious的member，而且當&lt;code>collision.gameObject == this.player&lt;/code>是true的時候，&lt;code>this.Mysterious.SetActive(true);&lt;/code>就會被trigger，所以這就有點像是我們在遊戲中，如果要碰到白色旗子的時候會觸發的statement，那如果我在初始化的階段就直接把&lt;code>this.Mysterious.SetActive(true);&lt;/code>設定成true，是不是就可以直接拿直到flag?
+&lt;img src="https://hackmd.io/_uploads/rylVM-rah.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Implementation
+直接右鍵edit class變成多加一個Start() method，然後不用任何的條件就達到剛剛說的效果，切記一定要是Start，因為Start是有被實際呼叫的method，如果取個aaa這種名字，他本來就不會被呼叫，那改成這樣也沒意義，當然，也可以取其他會被呼叫到的method name，例如Update, Awake之類的
+&lt;img src="https://hackmd.io/_uploads/rJ-UNZBp3.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://hackmd.io/_uploads/Hy_pE-HT2.png" alt="" />&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="method-2---change-dll">
+ Method 2 - Change .dll
+ &lt;a class="anchor" href="#method-2---change-dll">#&lt;/a>
+&lt;/h3>
+&lt;p>當然記得能改動.dll的method，我們也可以改變遊戲角色跳不過圍牆的問題，最直觀的作法是我可以直接無限制的往上跳，超過圍牆就抵達flag，不會只有跳一小段這個問題，可以查看一下&lt;code>EvolveGames/PlayerController/Update()&lt;/code>這個method，其中的第51行&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-csharp!" data-lang="csharp!">if (Input.GetButton(&amp;#34;Jump&amp;#34;) &amp;amp;&amp;amp; this.canMove &amp;amp;&amp;amp; this.characterController.isGrounded &amp;amp;&amp;amp; !this.isClimbing)
+{
+ this.moveDirection.y = this.jumpSpeed;
+}
+&lt;/code>&lt;/pre>&lt;p>如果改成&lt;/p></description></item><item><title>PicoCTF - not crypto</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---not-crypto/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---not-crypto/</guid><description>&lt;h1 id="picoctf---not-crypto">
+ PicoCTF - not crypto
+ &lt;a class="anchor" href="#picoctf---not-crypto">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA Pseudo Source COde&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-clike!" data-lang="clike!">__int64 __fastcall main(int a1, char **a2, char **a3)
+{
+ __int128 *v4; // rax
+ unsigned __int8 v5; // di
+ unsigned __int8 v6; // si
+ unsigned __int8 v7; // cl
+ unsigned __int8 v8; // dl
+ unsigned int v9; // r8d
+ unsigned __int8 v10; // r11
+ int v16; // eax
+ __int64 v17; // rdx
+ unsigned int v18; // r12d
+ char *v20; // r15
+ unsigned __int8 v25; // r8
+ int v30; // esi
+ unsigned __int8 v32; // r12
+ unsigned __int8 v36; // r14
+ unsigned __int8 v38; // dl
+ unsigned __int8 v40; // cl
+ char v42; // r12
+ char v43; // r14
+ char v44; // al
+ __int64 v45; // r13
+ unsigned __int8 v46; // r10
+ unsigned __int8 v47; // bp
+ unsigned __int8 v48; // bl
+ unsigned __int8 v49; // r8
+ unsigned __int8 v50; // r11
+ char v51; // dl
+ char v54; // r10
+ __int64 v63; // rdx
+ char v72; // al
+ unsigned __int8 v84; // [rsp+Ah] [rbp-1FEh]
+ unsigned __int8 v85; // [rsp+Bh] [rbp-1FDh]
+ int v86; // [rsp+Ch] [rbp-1FCh]
+ int v87; // [rsp+10h] [rbp-1F8h]
+ unsigned __int8 v88; // [rsp+14h] [rbp-1F4h]
+ unsigned __int8 v89; // [rsp+15h] [rbp-1F3h]
+ unsigned __int8 v90; // [rsp+16h] [rbp-1F2h]
+ unsigned __int8 v91; // [rsp+17h] [rbp-1F1h]
+ unsigned __int8 v92; // [rsp+18h] [rbp-1F0h]
+ unsigned __int8 v93; // [rsp+19h] [rbp-1EFh]
+ unsigned __int8 v94; // [rsp+1Ah] [rbp-1EEh]
+ unsigned __int8 v95; // [rsp+1Bh] [rbp-1EDh]
+ unsigned __int8 v96; // [rsp+1Ch] [rbp-1ECh]
+ char v97; // [rsp+1Dh] [rbp-1EBh]
+ char *v98; // [rsp+20h] [rbp-1E8h]
+ unsigned __int8 v99; // [rsp+2Ah] [rbp-1DEh]
+ char v100; // [rsp+50h] [rbp-1B8h]
+ char v101; // [rsp+52h] [rbp-1B6h]
+ char v102; // [rsp+54h] [rbp-1B4h]
+ char v103; // [rsp+56h] [rbp-1B2h]
+ char v104; // [rsp+58h] [rbp-1B0h]
+ char v105; // [rsp+5Ah] [rbp-1AEh]
+ char v106; // [rsp+5Ch] [rbp-1ACh]
+ char v107; // [rsp+5Eh] [rbp-1AAh]
+ __int128 v108; // [rsp+60h] [rbp-1A8h]
+ char ptr[64]; // [rsp+70h] [rbp-198h] BYREF
+ __int128 v110; // [rsp+B0h] [rbp-158h] BYREF
+ char v111; // [rsp+C0h] [rbp-148h] BYREF
+ char v112[15]; // [rsp+150h] [rbp-B8h] BYREF
+ __int128 v113; // [rsp+160h] [rbp-A8h]
+ __int128 v115[4]; // [rsp+180h] [rbp-88h] BYREF
+ char v116; // [rsp+1C0h] [rbp-48h] BYREF
+ unsigned __int64 v117; // [rsp+1C8h] [rbp-40h]
+
+ v117 = __readfsqword(0x28u);
+ puts(&amp;#34;I heard you wanted to bargain for a flag... whatcha got?&amp;#34;);
+ __asm { vmovdqa xmm0, cs:xmmword_21A0 }
+ v4 = &amp;amp;v110;
+ v5 = -104;
+ v6 = 50;
+ v7 = 108;
+ v8 = 28;
+ __asm { vmovdqa [rsp+208h+var_158], xmm0 }
+ v9 = 4;
+ do
+ {
+ if ( (v9 &amp;amp; 3) == 0 )
+ {
+ v10 = byte_20A0[v6];
+ v6 = byte_20A0[v7];
+ v7 = byte_20A0[v8];
+ v8 = byte_20A0[v5];
+ v5 = byte_2080[v9 &amp;gt;&amp;gt; 2] ^ v10;
+ }
+ v5 ^= *v4;
+ ++v9;
+ v4 = (v4 + 4);
+ v6 ^= *(v4 - 3);
+ v7 ^= *(v4 - 2);
+ v8 ^= *(v4 - 1);
+ *(v4 + 12) = v5;
+ *(v4 + 13) = v6;
+ *(v4 + 14) = v7;
+ *(v4 + 15) = v8;
+ }
+ while ( v9 != 44 );
+ __asm
+ {
+ vmovdqa xmm0, cs:xmmword_21B0
+ vmovdqa [rsp+208h+var_A8], xmm0
+ }
+ fread(ptr, 1uLL, 0x40uLL, stdin);
+ __asm
+ {
+ vmovdqa xmm0, cs:xmmword_21C0
+ vmovdqa [rsp+208h+var_88], xmm0
+ vmovdqa xmm0, cs:xmmword_21D0
+ }
+ v108 = v110;
+ __asm
+ {
+ vmovdqa [rsp+208h+var_78], xmm0
+ vmovdqa xmm0, cs:xmmword_21E0
+ vmovdqa [rsp+208h+var_68], xmm0
+ vmovdqa xmm0, cs:xmmword_21F0
+ vmovdqa [rsp+208h+var_58], xmm0
+ }
+ v100 = v112[0];
+ v101 = v112[2];
+ v102 = v112[4];
+ v103 = v112[6];
+ v104 = v112[8];
+ v105 = v112[10];
+ v106 = v112[12];
+ v107 = v112[14];
+ v98 = v115;
+ v16 = 16;
+ do
+ {
+ if ( v16 == 16 )
+ {
+ v20 = &amp;amp;v111;
+ __asm { vmovdqa xmm4, [rsp+208h+var_A8] }
+ LOBYTE(v87) = byte_20A0[(v113 ^ v108)];
+ __asm { vpextrb rax, xmm4, 4 }
+ LOBYTE(v86) = byte_20A0[(BYTE4(v108) ^ _RAX)];
+ v94 = byte_20A0[BYTE8(v113) ^ BYTE8(v108)];
+ __asm { vpextrb rax, xmm4, 0Ch }
+ v93 = byte_20A0[(BYTE12(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 1 }
+ v25 = byte_20A0[(BYTE1(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 5 }
+ v85 = byte_20A0[(BYTE5(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 9 }
+ v84 = byte_20A0[(BYTE9(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 0Dh }
+ v92 = byte_20A0[(BYTE13(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 2 }
+ LOBYTE(v30) = byte_20A0[(BYTE2(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 6 }
+ v32 = byte_20A0[(BYTE6(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 0Ah }
+ v91 = byte_20A0[(BYTE10(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 0Eh }
+ v96 = v32;
+ v88 = v25;
+ v90 = byte_20A0[(BYTE14(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 3 }
+ v36 = byte_20A0[(BYTE3(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 7 }
+ v95 = v36;
+ v38 = byte_20A0[(BYTE7(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 0Bh }
+ v40 = byte_20A0[(BYTE11(v108) ^ _RAX)];
+ __asm { vpextrb rax, xmm4, 0Fh }
+ v89 = byte_20A0[(HIBYTE(v108) ^ _RAX)];
+ do
+ {
+ v42 = v91 ^ v89 ^ v87 ^ v85;
+ v99 = v87 ^ v89;
+ v43 = v90 ^ v95 ^ v86 ^ v84;
+ v97 = v30 ^ v38 ^ v94 ^ v92;
+ v44 = v40 ^ v96 ^ v93 ^ v88;
+ v45 = ((2 * (v86 ^ v95)) ^ (27 * ((v86 ^ v95) &amp;gt;&amp;gt; 7)) ^ v95 ^ v43 ^ v20[7]);
+ v46 = v20[10] ^ v97 ^ v30 ^ (27 * ((v30 ^ v38) &amp;gt;&amp;gt; 7)) ^ (2 * (v30 ^ v38));
+ v47 = v20[11] ^ v97 ^ v38 ^ (2 * (v38 ^ v94)) ^ (27 * ((v38 ^ v94) &amp;gt;&amp;gt; 7));
+ v48 = v88 ^ v44 ^ v20[13] ^ (2 * (v88 ^ v96)) ^ (27 * ((v88 ^ v96) &amp;gt;&amp;gt; 7));
+ v49 = v96 ^ v44 ^ v20[14] ^ (27 * ((v40 ^ v96) &amp;gt;&amp;gt; 7)) ^ (2 * (v40 ^ v96));
+ v50 = v44 ^ v20[15] ^ v40 ^ (2 * (v40 ^ v93)) ^ (27 * ((v40 ^ v93) &amp;gt;&amp;gt; 7));
+ LOBYTE(v87) = byte_20A0[((2 * (v87 ^ v85)) ^ (27 * ((v87 ^ v85) &amp;gt;&amp;gt; 7)) ^ v42 ^ *v20 ^ v87)];
+ LOBYTE(v86) = byte_20A0[((2 * (v86 ^ v84)) ^ (27 * ((v86 ^ v84) &amp;gt;&amp;gt; 7)) ^ v86 ^ v43 ^ v20[4])];
+ v94 = byte_20A0[((2 * (v94 ^ v92)) ^ (27 * ((v94 ^ v92) &amp;gt;&amp;gt; 7)) ^ v94 ^ v97 ^ v20[8])];
+ v93 = byte_20A0[((27 * ((v93 ^ v88) &amp;gt;&amp;gt; 7)) ^ (2 * (v93 ^ v88)) ^ v93 ^ v20[12] ^ v44)];
+ v88 = byte_20A0[((2 * (v85 ^ v91)) ^ (27 * ((v85 ^ v91) &amp;gt;&amp;gt; 7)) ^ v85 ^ v42 ^ v20[1])];
+ v85 = byte_20A0[((27 * ((v84 ^ v90) &amp;gt;&amp;gt; 7)) ^ (2 * (v84 ^ v90)) ^ v84 ^ v43 ^ v20[5])];
+ v84 = byte_20A0[((27 * ((v30 ^ v92) &amp;gt;&amp;gt; 7)) ^ (2 * (v30 ^ v92)) ^ v20[9] ^ v97 ^ v92)];
+ v92 = byte_20A0[v48];
+ v51 = v91 ^ v42 ^ v20[2];
+ v20 += 16;
+ v30 = byte_20A0[((2 * (v91 ^ v89)) ^ (27 * ((v91 ^ v89) &amp;gt;&amp;gt; 7)) ^ v51)];
+ v96 = byte_20A0[((27 * ((v90 ^ v95) &amp;gt;&amp;gt; 7)) ^ (2 * (v90 ^ v95)) ^ v43 ^ *(v20 - 10) ^ v90)];
+ v91 = byte_20A0[v46];
+ v90 = byte_20A0[v49];
+ v40 = byte_20A0[v47];
+ v38 = byte_20A0[v45];
+ v95 = byte_20A0[((27 * (v99 &amp;gt;&amp;gt; 7)) ^ (2 * v99) ^ v89 ^ v42 ^ *(v20 - 13))];
+ v89 = byte_20A0[v50];
+ }
+ while ( v112 != v20 );
+ LOBYTE(v30) = v105 ^ v30;
+ LOBYTE(v87) = v100 ^ v87;
+ _R15D = v30;
+ __asm { vmovd xmm5, r15d }
+ v54 = v86;
+ LOBYTE(v86) = v103 ^ v90;
+ _R9D = (v101 ^ v91);
+ _R10D = (v102 ^ v54);
+ _EDX = (v107 ^ v96);
+ _R13D = (v104 ^ v94);
+ __asm
+ {
+ vmovd xmm4, edx
+ vmovd xmm7, r9d
+ vpinsrb xmm5, xmm5, ebx, 1
+ vmovd xmm3, r10d
+ }
+ v63 = 15LL;
+ _ESI = (v106 ^ v93);
+ __asm
+ {
+ vmovd xmm1, r13d
+ vmovd xmm0, [rsp+208h+var_1F8]
+ vmovd xmm6, [rsp+208h+var_1FC]
+ vpinsrb xmm7, xmm7, [rsp+208h+var_1FD], 1
+ vpinsrb xmm0, xmm0, eax, 1
+ vpinsrb xmm1, xmm1, r11d, 1
+ vpunpcklwd xmm0, xmm0, xmm7
+ }
+ v72 = HIBYTE(v113);
+ __asm
+ {
+ vpinsrb xmm3, xmm3, [rsp+208h+var_1FE], 1
+ vpinsrb xmm6, xmm6, [rsp+208h+var_1F4], 1
+ vpunpcklwd xmm1, xmm1, xmm5
+ vpunpcklwd xmm3, xmm3, xmm6
+ vmovd xmm2, esi
+ vpunpckldq xmm0, xmm0, xmm3
+ vpinsrb xmm2, xmm2, r8d, 1
+ vpinsrb xmm4, xmm4, ecx, 1
+ vpunpcklwd xmm2, xmm2, xmm4
+ vpunpckldq xmm1, xmm1, xmm2
+ vpunpcklqdq xmm0, xmm0, xmm1
+ vmovdqa [rsp+208h+var_98], xmm0
+ }
+ if ( HIBYTE(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE14(v113);
+ HIBYTE(v113) = 0;
+ v63 = 14LL;
+ if ( BYTE14(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE13(v113);
+ BYTE14(v113) = 0;
+ v63 = 13LL;
+ if ( BYTE13(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE12(v113);
+ BYTE13(v113) = 0;
+ v63 = 12LL;
+ if ( BYTE12(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE11(v113);
+ BYTE12(v113) = 0;
+ v63 = 11LL;
+ if ( BYTE11(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE10(v113);
+ BYTE11(v113) = 0;
+ v63 = 10LL;
+ if ( BYTE10(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE9(v113);
+ BYTE10(v113) = 0;
+ v63 = 9LL;
+ if ( BYTE9(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE8(v113);
+ BYTE9(v113) = 0;
+ v63 = 8LL;
+ if ( BYTE8(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE7(v113);
+ BYTE8(v113) = 0;
+ v63 = 7LL;
+ if ( BYTE7(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE6(v113);
+ BYTE7(v113) = 0;
+ v63 = 6LL;
+ if ( BYTE6(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE5(v113);
+ BYTE6(v113) = 0;
+ v63 = 5LL;
+ if ( BYTE5(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE4(v113);
+ BYTE5(v113) = 0;
+ v63 = 4LL;
+ if ( BYTE4(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE3(v113);
+ BYTE4(v113) = 0;
+ v63 = 3LL;
+ if ( BYTE3(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE2(v113);
+ BYTE3(v113) = 0;
+ v63 = 2LL;
+ if ( BYTE2(v113) != 0xFF )
+ goto LABEL_14;
+ v72 = BYTE1(v113);
+ BYTE2(v113) = 0;
+ v63 = 1LL;
+ if ( BYTE1(v113) == 0xFF &amp;amp;&amp;amp; (v72 = v113, BYTE1(v113) = 0, v63 = 0LL, v113 == 0xFF) )
+ {
+ LOBYTE(v113) = 0;
+ v16 = 0;
+ }
+ else
+ {
+LABEL_14:
+ *(&amp;amp;v113 + v63) = v72 + 1;
+ v16 = 0;
+ }
+ }
+ v17 = v16++;
+ *v98++ ^= *(&amp;amp;v115[-1] + v17);
+ }
+ while ( &amp;amp;v116 != v98 );
+ v18 = memcmp(v115, ptr, 0x40uLL);
+ if ( v18 )
+ {
+ v18 = 1;
+ puts(&amp;#34;Nope, come back later&amp;#34;);
+ }
+ else
+ {
+ puts(&amp;#34;Yep, that&amp;#39;s it!&amp;#34;);
+ }
+ return v18;
+}
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - OTP Implementation</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---otp-implementation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---otp-implementation/</guid><description>&lt;h1 id="picoctf---otp-implementation">
+ PicoCTF - OTP Implementation
+ &lt;a class="anchor" href="#picoctf---otp-implementation">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA Main Function&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#66d9ef">__cdecl&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>envp)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">char&lt;/span> v4; &lt;span style="color:#75715e">// al
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> v5; &lt;span style="color:#75715e">// dl
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> v6; &lt;span style="color:#75715e">// eax
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> i; &lt;span style="color:#75715e">// [rsp+18h] [rbp-E8h]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> j; &lt;span style="color:#75715e">// [rsp+1Ch] [rbp-E4h]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> input_key[&lt;span style="color:#ae81ff">112&lt;/span>]; &lt;span style="color:#75715e">// [rsp+20h] [rbp-E0h] BYREF
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> tmp_key[&lt;span style="color:#ae81ff">104&lt;/span>]; &lt;span style="color:#75715e">// [rsp+90h] [rbp-70h] BYREF
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">__int64&lt;/span> v11; &lt;span style="color:#75715e">// [rsp+F8h] [rbp-8h]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v11 &lt;span style="color:#f92672">=&lt;/span> __readfsqword(&lt;span style="color:#ae81ff">0x28u&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( argc &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strncpy(input_key, argv[&lt;span style="color:#ae81ff">1&lt;/span>], &lt;span style="color:#ae81ff">0x64uLL&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> input_key[&lt;span style="color:#ae81ff">100&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; valid_char(input_key[i]); &lt;span style="color:#f92672">++&lt;/span>i )&lt;span style="color:#75715e">// 確認字元是否在[0-9|a-f]之間
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( i )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v4 &lt;span style="color:#f92672">=&lt;/span> jumble(input_key[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v5 &lt;span style="color:#f92672">=&lt;/span> tmp_key[i &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">+&lt;/span> v4;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> v6 &lt;span style="color:#f92672">=&lt;/span> ((tmp_key[i &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">+&lt;/span> v4) &lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">31&lt;/span>) &lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">28&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tmp_key[i] &lt;span style="color:#f92672">=&lt;/span> ((v6 &lt;span style="color:#f92672">+&lt;/span> v5) &lt;span style="color:#f92672">&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">0xF&lt;/span>) &lt;span style="color:#f92672">-&lt;/span> v6;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tmp_key[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> jumble(input_key[&lt;span style="color:#ae81ff">0&lt;/span>]) &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">16&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( j &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; j &lt;span style="color:#f92672">&amp;lt;&lt;/span> i; &lt;span style="color:#f92672">++&lt;/span>j )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tmp_key[j] &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">0x61&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( i &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#f92672">!&lt;/span>strncmp(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tmp_key,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;bajbgfapbcclgoejgpakmdilalpomfdlkngkhaljlcpkjgndlgmpdgmnmepfikanepopbapfkdgleilhkfgilgabldofbcaedgfe&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">100uLL&lt;/span>) )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;You got the key, congrats! Now xor it with the flag!&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;Invalid key!&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;USAGE: %s [KEY]&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, &lt;span style="color:#f92672">*&lt;/span>argv);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Picker III</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---picker-iii/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---picker-iii/</guid><description>&lt;h1 id="picoctf---picker-iii">
+ PicoCTF - Picker III
+ &lt;a class="anchor" href="#picoctf---picker-iii">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python!" data-lang="python!">
+import re
+
+
+
+USER_ALIVE = True
+FUNC_TABLE_SIZE = 4
+FUNC_TABLE_ENTRY_SIZE = 32
+CORRUPT_MESSAGE = &amp;#39;Table corrupted. Try entering \&amp;#39;reset\&amp;#39; to fix it&amp;#39;
+
+func_table = &amp;#39;&amp;#39;
+
+def reset_table():
+ global func_table
+
+ # This table is formatted for easier viewing, but it is really one line
+ func_table = \
+&amp;#39;&amp;#39;&amp;#39;\
+print_table \
+read_variable \
+write_variable \
+getRandomNumber \
+&amp;#39;&amp;#39;&amp;#39;
+
+def check_table():
+ global func_table
+
+ if( len(func_table) != FUNC_TABLE_ENTRY_SIZE * FUNC_TABLE_SIZE):
+ return False
+
+ return True
+
+
+def get_func(n):
+ global func_table
+
+ # Check table for viability
+ if( not check_table() ):
+ print(CORRUPT_MESSAGE)
+ return
+
+ # Get function name from table
+ func_name = &amp;#39;&amp;#39;
+ func_name_offset = n * FUNC_TABLE_ENTRY_SIZE
+ for i in range(func_name_offset, func_name_offset+FUNC_TABLE_ENTRY_SIZE):
+ if( func_table[i] == &amp;#39; &amp;#39;):
+ func_name = func_table[func_name_offset:i]
+ break
+
+ if( func_name == &amp;#39;&amp;#39; ):
+ func_name = func_table[func_name_offset:func_name_offset+FUNC_TABLE_ENTRY_SIZE]
+ 
+ return func_name
+
+
+def print_table():
+ # Check table for viability
+ if( not check_table() ):
+ print(CORRUPT_MESSAGE)
+ return
+
+ for i in range(0, FUNC_TABLE_SIZE):
+ j = i + 1
+ print(str(j)+&amp;#39;: &amp;#39; + get_func(i))
+
+
+def filter_var_name(var_name):
+ r = re.search(&amp;#39;^[a-zA-Z_][a-zA-Z_0-9]*$&amp;#39;, var_name)
+ if r:
+ return True
+ else:
+ return False
+
+
+def read_variable():
+ var_name = input(&amp;#39;Please enter variable name to read: &amp;#39;)
+ if( filter_var_name(var_name) ):
+ eval(&amp;#39;print(&amp;#39;+var_name+&amp;#39;)&amp;#39;)
+ else:
+ print(&amp;#39;Illegal variable name&amp;#39;)
+
+
+def filter_value(value):
+ if &amp;#39;;&amp;#39; in value or &amp;#39;(&amp;#39; in value or &amp;#39;)&amp;#39; in value:
+ return False
+ else:
+ return True
+
+
+def write_variable():
+ var_name = input(&amp;#39;Please enter variable name to write: &amp;#39;)
+ if( filter_var_name(var_name) ):
+ value = input(&amp;#39;Please enter new value of variable: &amp;#39;)
+ if( filter_value(value) ):
+ exec(&amp;#39;global &amp;#39;+var_name+&amp;#39;; &amp;#39;+var_name+&amp;#39; = &amp;#39;+value)
+ else:
+ print(&amp;#39;Illegal value&amp;#39;)
+ else:
+ print(&amp;#39;Illegal variable name&amp;#39;)
+
+
+def call_func(n):
+ &amp;#34;&amp;#34;&amp;#34;
+ Calls the nth function in the function table.
+ Arguments:
+ n: The function to call. The first function is 0.
+ &amp;#34;&amp;#34;&amp;#34;
+
+ # Check table for viability
+ if( not check_table() ):
+ print(CORRUPT_MESSAGE)
+ return
+
+ # Check n
+ if( n &amp;lt; 0 ):
+ print(&amp;#39;n cannot be less than 0. Aborting...&amp;#39;)
+ return
+ elif( n &amp;gt;= FUNC_TABLE_SIZE ):
+ print(&amp;#39;n cannot be greater than or equal to the function table size of &amp;#39;+FUNC_TABLE_SIZE)
+ return
+
+ # Get function name from table
+ func_name = get_func(n)
+
+ # Run the function
+ eval(func_name+&amp;#39;()&amp;#39;)
+
+
+def dummy_func1():
+ print(&amp;#39;in dummy_func1&amp;#39;)
+
+def dummy_func2():
+ print(&amp;#39;in dummy_func2&amp;#39;)
+
+def dummy_func3():
+ print(&amp;#39;in dummy_func3&amp;#39;)
+
+def dummy_func4():
+ print(&amp;#39;in dummy_func4&amp;#39;)
+
+def getRandomNumber():
+ print(4) # Chosen by fair die roll.
+ # Guaranteed to be random.
+ # (See XKCD)
+
+def win():
+ # This line will not work locally unless you create your own &amp;#39;flag.txt&amp;#39; in
+ # the same directory as this script
+ flag = open(&amp;#39;flag.txt&amp;#39;, &amp;#39;r&amp;#39;).read()
+ #flag = flag[:-1]
+ flag = flag.strip()
+ str_flag = &amp;#39;&amp;#39;
+ for c in flag:
+ str_flag += str(hex(ord(c))) + &amp;#39; &amp;#39;
+ print(str_flag)
+
+def help_text():
+ print(
+ &amp;#39;&amp;#39;&amp;#39;
+This program fixes vulnerabilities in its predecessor by limiting what
+functions can be called to a table of predefined functions. This still puts
+the user in charge, but prevents them from calling undesirable subroutines.
+
+* Enter &amp;#39;quit&amp;#39; to quit the program.
+* Enter &amp;#39;help&amp;#39; for this text.
+* Enter &amp;#39;reset&amp;#39; to reset the table.
+* Enter &amp;#39;1&amp;#39; to execute the first function in the table.
+* Enter &amp;#39;2&amp;#39; to execute the second function in the table.
+* Enter &amp;#39;3&amp;#39; to execute the third function in the table.
+* Enter &amp;#39;4&amp;#39; to execute the fourth function in the table.
+
+Here&amp;#39;s the current table:
+ &amp;#39;&amp;#39;&amp;#39;
+ )
+ print_table()
+
+
+
+reset_table()
+
+while(USER_ALIVE):
+ choice = input(&amp;#39;==&amp;gt; &amp;#39;)
+ if( choice == &amp;#39;quit&amp;#39; or choice == &amp;#39;exit&amp;#39; or choice == &amp;#39;q&amp;#39; ):
+ USER_ALIVE = False
+ elif( choice == &amp;#39;help&amp;#39; or choice == &amp;#39;?&amp;#39; ):
+ help_text()
+ elif( choice == &amp;#39;reset&amp;#39; ):
+ reset_table()
+ elif( choice == &amp;#39;1&amp;#39; ):
+ call_func(0)
+ elif( choice == &amp;#39;2&amp;#39; ):
+ call_func(1)
+ elif( choice == &amp;#39;3&amp;#39; ):
+ call_func(2)
+ elif( choice == &amp;#39;4&amp;#39; ):
+ call_func(3)
+ else:
+ print(&amp;#39;Did not understand &amp;#34;&amp;#39;+choice+&amp;#39;&amp;#34; Have you tried &amp;#34;help&amp;#34;?&amp;#39;)
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Powershelly</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---powershelly/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---powershelly/</guid><description>&lt;h1 id="picoctf---powershelly">
+ PicoCTF - Powershelly
+ &lt;a class="anchor" href="#picoctf---powershelly">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://zh.wikipedia.org/zh-tw/PowerShell#%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83%E6%AF%94%E8%BE%83">Powershell 命令提示字元比較&lt;/a>
+&lt;a href="https://stackoverflow.com/questions/56965510/what-is-meaning-in-powershell">What is &amp;lsquo;@{}&amp;rsquo; meaning in PowerShell&lt;/a>
+&lt;a href="https://stackoverflow.com/questions/28732025/what-does-mean-in-powershell">What does @() mean in Powershell?&lt;/a>
+&lt;a href="https://wenyuangg.github.io/posts/python3/python-set.html">[Python] 學習使用集合 (Set)&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler Source Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-bash=" data-lang="bash=">$input = &amp;#34;.\input.txt&amp;#34;
+
+$out = Get-Content -Path $input
+$enc = [System.IO.File]::ReadAllBytes(&amp;#34;$input&amp;#34;)
+$encoding = [system.Text.Encoding]::UTF8
+$total = 264
+$t = ($total + 1) * 5 #1325
+$numLength = ($total * 30 ) + $t # 9245
+if ($out.Length -gt 5 -or $enc.count -ne $numLength)
+{
+ Write-Output &amp;#34;Wrong format 5&amp;#34;
+ Exit
+}
+
+else
+{
+ for($i=0; $i -lt $enc.count ; $i++)
+ {
+ if (($enc[$i] -ne 49) -and ($enc[$i] -ne 48) -and ($enc[$i] -ne 10) -and ($enc[$i] -ne 13) -and ($enc[$i] -ne 32))
+ {
+ Write-Output &amp;#34;Wrong format 1/0/&amp;#34;
+ Exit
+ }
+ }
+}
+
+$blocks = @{}
+for ($i=0; $i -lt $out.Length ; $i++)
+{
+ $r = $out[$i].Split(&amp;#34; &amp;#34;)
+ if ($i -gt 0)
+ {
+ for ($j=0; $j -lt $r.Length ; $j++)
+ {
+ if ($r[$j].Length -ne 6)
+ {
+ Write-Output &amp;#34;Wrong Format 6&amp;#34; $r[$j].Length
+ Exit
+ }
+ $blocks[$j] += $r[$j]
+ }
+ }
+ else
+ {
+ for ($j=0; $j -lt $r.Length ; $j++)
+ {
+ if ($r[$j].Length -ne 6)
+ {
+ Write-Output &amp;#34;Wrong Format 6&amp;#34; $r[$j].Length
+ Exit
+ }
+ $blocks[$j] = @()
+ $blocks[$j] += $r[$j]
+ }
+ }
+
+}
+
+
+function Exit {
+ exit
+}
+
+
+function Random-Gen {
+ $list1 = @()
+ for ($i=1; $i -lt ($blocks.count + 1); $i++)
+ {
+ $y = ((($i * 327) % 681 ) + 344) % 313
+ $list1 += $y
+ }
+ return $list1
+}
+
+
+function Scramble {
+ param (
+ $block,
+ $seed
+ )
+ $raw = [system.String]::Join(&amp;#34;&amp;#34;, $block)
+ $bm = &amp;#34;10 &amp;#34; * $raw.Length
+ $bm = $bm.Split(&amp;#34; &amp;#34;)
+ for ($i=0; $i -lt $raw.Length ; $i++)
+ {
+
+ $y = ($i * $seed) % $raw.Length
+ $n = $bm[$y]
+ while ($n -ne &amp;#34;10&amp;#34;)
+ {
+ $y = ($y + 1) % $raw.Length
+ $n = $bm[$y]
+ }
+ if ($raw[$i] -eq &amp;#34;1&amp;#34; )
+ {
+ $n = &amp;#34;11&amp;#34;
+ }
+ else
+ {
+ $n = &amp;#34;00&amp;#34;
+ }
+ $bm[$y] = $n
+ }
+ $raw2 = [system.String]::Join(&amp;#34;&amp;#34;, $bm)
+ $b = [convert]::ToInt64($raw2,2)
+ return $b
+}
+
+
+$result = 0
+$seeds = @()
+for ($i=1; $i -lt ($blocks.count +1); $i++)
+{
+ $seeds += ($i * 127) % 500
+}
+
+$randoms = Random-Gen
+$output_file = @()
+for ($i=0; $i -lt $blocks.count ; $i++)
+{
+
+ $fun = Scramble -block $blocks[$i] -seed $seeds[$i]
+ if($i -eq 263)
+ {
+ Write-Output $seeds[$i]
+ Write-Output $randoms[$i]
+ Write-Output $fun
+ }
+ $result = $fun -bxor $result -bxor $randoms[$i]
+ $output_file += $result
+}
+Add-Content -Path output_test.txt -Value $output_file
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Transformation</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---transformation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---transformation/</guid><description>&lt;h1 id="picoctf---transformation">
+ PicoCTF - Transformation
+ &lt;a class="anchor" href="#picoctf---transformation">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-picoctf-ctf-reverse">
+ tags: &lt;code>PicoCTF&lt;/code> &lt;code>CTF&lt;/code> &lt;code>Reverse&lt;/code>
+ &lt;a class="anchor" href="#tags-picoctf-ctf-reverse">#&lt;/a>
+&lt;/h6>
+&lt;p>Challenge: &lt;a href="https://play.picoctf.org/practice/challenge/104?category=3&amp;amp;page=1">Transformation&lt;/a>&lt;/p>
+&lt;h2 id="source-code">
+ Source code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>enc file content: &lt;code>灩捯䍔䙻ㄶ形楴獟楮獴㌴摟潦弸彥㜰㍢㐸㙽&lt;/code>
+Transformation Code&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python!" data-lang="python!">&amp;#39;&amp;#39;.join([chr((ord(flag[i]) &amp;lt;&amp;lt; 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+&lt;/code>&lt;/pre>&lt;p>Seems it shift the first character with 8 bits and concatenate the 2nd character then go through &lt;code>len(flag)&lt;/code>&lt;/p>
+&lt;h2 id="exploit">
+ Exploit
+ &lt;a class="anchor" href="#exploit">#&lt;/a>
+&lt;/h2>
+&lt;p>My perspective is just recover the strings
+:::spoiler&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-python=" data-lang="python=">flag = &amp;#39;灩捯䍔䙻ㄶ形楴獟楮獴㌴摟潦弸彥㜰㍢㐸㙽&amp;#39;
+enc = &amp;#39;&amp;#39;
+
+def decimalToBinary(n):
+ return bin(n).replace(&amp;#34;0b&amp;#34;, &amp;#34;&amp;#34;)
+
+def binToHexa(n):
+ bnum = int(n)
+ temp = 0
+ mul = 1
+ count = 1
+ hexaDeciNum = [&amp;#39;0&amp;#39;] * 100
+ i = 0
+ while bnum != 0:
+ rem = bnum % 10
+ temp = temp + (rem*mul)
+ if count % 4 == 0:
+ if temp &amp;lt; 10:
+ hexaDeciNum[i] = chr(temp+48)
+ else:
+ hexaDeciNum[i] = chr(temp+55)
+ mul = 1
+ temp = 0
+ count = 1
+ i = i+1
+ else:
+ mul = mul*2
+ count = count+1
+ bnum = int(bnum/10)
+ if count != 1:
+ hexaDeciNum[i] = chr(temp+48)
+ if count == 1:
+ i = i-1
+ hex_string = &amp;#39;&amp;#39;
+ while i &amp;gt;= 0:
+ hex_string += hexaDeciNum[i]
+ i = i-1
+ return hex_string
+
+
+for i in range(0, len(flag)):
+ plaintext1 = decimalToBinary(ord(flag[i]))
+ while(len(plaintext1) != 16):
+ plaintext1 = &amp;#39;0&amp;#39; + plaintext1
+ plaintext2 = plaintext1[-8:]
+ plaintext1 = plaintext1[0:8]
+ enc += binToHexa(plaintext1)
+ enc += binToHexa(plaintext2)
+print(bytes.fromhex(enc).decode(&amp;#39;utf-8&amp;#39;))
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item><item><title>PicoCTF - Wizardlike</title><link>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---wizardlike/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/picoctf/reverse/picoctf---wizardlike/</guid><description>&lt;h1 id="picoctf---wizardlike">
+ PicoCTF - Wizardlike
+ &lt;a class="anchor" href="#picoctf---wizardlike">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>這一題蠻有趣的，如果只是單純執行程式碼，會發現是一個迷宮的遊戲，不過走越多會發現兩個現象&lt;/p>
+&lt;ol>
+&lt;li>遊戲本身根本無法破關&lt;/li>
+&lt;li>有一些&amp;quot;道路&amp;quot;回隨著角色本身的移動慢慢浮現出來&lt;/li>
+&lt;/ol>
+&lt;p>我也不知道是哪來的想法直覺想要看他的地圖，因為看IDA翻出來的code，貌似有十個關卡，而如果把地圖翻出來會發現每一個關卡總共會有10000個字元，然後每一列都是100個字元呈現，然後就發現他其實是用地圖的方式呈現他的flag，則我們可以先把10個關卡的所有字元另存一個檔案(純手工)，再寫一點點script就可以把flag還原&lt;/p>
+&lt;h2 id="exploit---通靈">
+ Exploit - 通靈
+ &lt;a class="anchor" href="#exploit---%e9%80%9a%e9%9d%88">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>f &lt;span style="color:#f92672">=&lt;/span> open(&lt;span style="color:#e6db74">&amp;#39;./cipher.txt&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;r&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>read()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pt &lt;span style="color:#f92672">=&lt;/span> open(&lt;span style="color:#e6db74">&amp;#39;./flag.txt&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;w&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>flag &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>join([f[&lt;span style="color:#ae81ff">100&lt;/span> &lt;span style="color:#f92672">*&lt;/span> i : &lt;span style="color:#ae81ff">100&lt;/span> &lt;span style="color:#f92672">*&lt;/span> i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>] &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(len(f) &lt;span style="color:#f92672">//&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>)])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pt&lt;span style="color:#f92672">.&lt;/span>write(flag)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::spoiler flag&lt;/p>
+&lt;pre tabindex="0">&lt;code>######### 
+#.......# ......#................................... 
+#.......# ....................####.#####.#####..###. 
+#........ .####.#..###..###..#.......#...#......#... 
+#.......# .# #.#.#....# #.#.......#...###...#.... 
+#.......# .####.#.#....# #.#.......#...#......#... 
+#.......# .#....#..###..###...####...#...#......###. 
+#.......# .#........................................ 
+#.......# .......................................... 
+#.......# 
+#.......# 
+#.......# 
+#.......# 
+#.......# 
+#......&amp;gt;# 
+######### 
+#####. ............................................................. 
+#.&amp;lt;.#. ...............#..#.............##.......#..#........#....... 
+#...#. .#..#.###......#..#.......#...#..#.####..#..#.###....#....... 
+#...#. .#..#.#........####.......#.#.#..#...#...####.#...####....... 
+#...#. .####.#...####....#.#####..#.#..###.####....#.#...####.#####. 
+ . ............................................................. 
+ . ............................................................. 
+ . ............................................................. 
+#.... 
+#...# 
+#...# 
+#...# 
+#...# 
+#...# 
+#.&amp;gt;.# 
+##### 
+################# ....... 
+#&amp;lt;..............#. ..###.. 
+#...............#.. .#...#. 
+#..............#......###.. 
+#...#.......#...#.. .#...#. 
+#..###.....###..#. ..###.. 
+#...#...#...#...# ....... 
+#......#&amp;gt;#......# ....... 
+#...............# 
+#...#.......#...# 
+#..###.....###..# 
+#...#.......#...# 
+#...............# 
+#...............# 
+#...............# 
+################# 
+... .. ....... 
+.&amp;lt;. ####. .#####. 
+... ...#.. .#..... 
+... ...#....###... 
+ ..&amp;gt;#.. .#..... 
+ ####. .#..... 
+ .. ....... 
+ ....... 
+ 
+######################## 
+#&amp;lt;.............#.......# 
+#..............#.#...#.# 
+#..............#.#...#.# 
+#..............#.#####.# 
+#..............#.....#.# 
+#..............#.....#.# 
+#..............#.......# 
+#..............#.......# 
+######################## 
+....... 
+.&amp;lt;..... 
+....... 
+....... 
+....... 
+....... 
+....... 
+....... 
+....... 
+....... 
+....... 
+.....&amp;gt;. 
+....... 
+####### 
+....... 
+.####.. 
+.#...#. 
+.####.. 
+.#...#. 
+.####.. 
+....... 
+....... 
+... 
+.&amp;lt;......... 
+........... 
+... .. 
+ .. 
+ .. 
+ .. 
+ .. 
+ .. 
+ .. 
+ .............. 
+ ..##########.. 
+ .# #. 
+ .# ....... #. 
+ .# ..###.. #. 
+ .# .#...#. #. 
+ .# .#...#. #. 
+ .# .#...#. #. 
+ .# ..###.. #. 
+ .# ....... #. 
+ .# ....... #. 
+ .# #. 
+ ..##########.. 
+ .............&amp;gt; 
+######################### 
+#&amp;lt;#......#.#.......###..# 
+#.#.###..#.#.......##..## 
+#.#.#.#..#.#.......#..### 
+#.#.#.#..#.#.......#...## 
+#...#....#..#......#....# 
+#.######.##..###.###....# 
+#.#.....................# 
+#.###.#################.# 
+#.......................# 
+#########.###.#########.# 
+#.......#.#.#.#.........# 
+#.#...#.#.#...#.######### 
+#.#...#.#.#.#.#.........# 
+#.#####.#.#.#.#########.# 
+#.....#.#.#.#.#.........# 
+#.....#.#.#.#.#.######### 
+#.......#.#.#.#.........# 
+#.......#.#.#.#########.# 
+#########.#.#.#...#...#.# 
+#...........#.#.#.#.#.#.# 
+#########...#.#.#.#.#.#.# 
+#.......#...#.#.#.#.#.#.# 
+####.####...#.#.#.#.#.#.# 
+##..........#.#.#.#.#.#.# 
+#.#..####...#.#.#.#.#.#.# 
+#..#....#####.#.#.#.#.#.# 
+#...#...#...#.#.#...#...# 
+#....#........#.######### 
+#...........#.#........&amp;gt;# 
+########################. 
+... .......
+.&amp;lt;. ..###..
+... .#...#.
+... .#####.
+ .#...#.
+ .#...#.
+ .......
+ .......
+ 
+#####################################################################################..............#
+#####################################################################################.#####.###....#
+#####################################################################################.#.......#....#
+#####################################################################################.###......#...#
+#####################################################################################.#.......#....#
+#####################################################################################.#####.###....#
+#####################################################################################..............#
+#####################################################################################..............#
+&lt;/code>&lt;/pre>&lt;p>:::&lt;/p></description></item></channel></rss>

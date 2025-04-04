@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/reverse/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/crewctf/reverse/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://bernie6401.github.io/docs/security/practice/crewctf/reverse/crewctf---ohphp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/reverse/crewctf---ohphp/</guid><description>&lt;h1 id="crewctf---ohphp">
+ CrewCTF - OhPHP
+ &lt;a class="anchor" href="#crewctf---ohphp">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.wibibi.com/info.php?tid=96">PHP - substr()&lt;/a>
+:::spoiler
+&lt;blockquote>
+&lt;p>&lt;code>substr( $string , $start , $length )&lt;/code>
+&lt;code>$strting&lt;/code> 是原始的字串，&lt;code>$start&lt;/code> 是要開始擷取的位置，&lt;code>$length&lt;/code> 則為要截取的字串長度，要注要的是 &lt;code>$start&lt;/code> 與 $length 都必須為數字才有作用，可以是正整數，也可以是負整數，以下提供幾個範例參考。
+:::&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>&lt;a href="https://www.runoob.com/php/func-string-strstr.html">PHP - strstr()&lt;/a>
+:::spoiler
+&lt;blockquote>
+&lt;p>查找 &amp;ldquo;world&amp;rdquo; 在 &amp;ldquo;Hello world!&amp;rdquo; 中是否存在，如果是，返回該字符串及後面剩餘部分&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;?&lt;/span>&lt;span style="color:#a6e22e">php&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">echo&lt;/span> &lt;span style="color:#a6e22e">strstr&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Hello world!&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;world&amp;#34;&lt;/span>); &lt;span style="color:#75715e">// 輸出 world!
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">?&amp;gt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+:::&lt;/li>
+&lt;li>&lt;a href="https://www.runoob.com/php/func-string-strrev.html">PHP - strrev()&lt;/a>
+:::spoiler
+&lt;blockquote>
+&lt;p>反轉字符串 &amp;ldquo;Hello World!&amp;quot;：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;?&lt;/span>&lt;span style="color:#a6e22e">php&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">echo&lt;/span> &lt;span style="color:#a6e22e">strrev&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Hello world!&amp;#34;&lt;/span>); &lt;span style="color:#75715e">// 輸出!dlroW olleH 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">?&amp;gt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+:::&lt;/li>
+&lt;li>&lt;a href="https://www.w3school.com.cn/php/func_string_strnatcmp.asp">PHP strnatcmp()&lt;/a>
+:::spoiler
+&lt;blockquote>
+&lt;p>使用&amp;quot;自然&amp;quot;算法來比較兩個字符串（區分大小寫）：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;?&lt;/span>&lt;span style="color:#a6e22e">php&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">echo&lt;/span> &lt;span style="color:#a6e22e">strnatcmp&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;2Hello world!&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;10Hello world!&amp;#34;&lt;/span>); &lt;span style="color:#75715e">// 輸出-1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">echo&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;lt;br&amp;gt;&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">echo&lt;/span> &lt;span style="color:#a6e22e">strnatcmp&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;10Hello world!&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;2Hello world!&amp;#34;&lt;/span>); &lt;span style="color:#75715e">// 輸出+1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">?&amp;gt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>strnatcmp() 函數使用一種&amp;quot;自然&amp;quot;算法來比較兩個字符串。
+在自然算法中，數字 2 小於數字 10。在計算機排序中，10 小於 2，這是因為 10 中的第一個數字小於 2。
+:::&lt;/p></description></item><item><title>CrewCTF - ez rev</title><link>https://bernie6401.github.io/docs/security/practice/crewctf/reverse/crewctf---ez-rev/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/crewctf/reverse/crewctf---ez-rev/</guid><description>&lt;h1 id="crewctf---ez-rev">
+ CrewCTF - ez rev
+ &lt;a class="anchor" href="#crewctf---ez-rev">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="source-code">
+ Source Code
+ &lt;a class="anchor" href="#source-code">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler IDA Fake Main Function&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#66d9ef">__fastcall&lt;/span> __noreturn &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> a1, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>a2, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>a3)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> i; &lt;span style="color:#75715e">// [rsp+Ch] [rbp-4h]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> puts(&lt;span style="color:#e6db74">&amp;#34;[+] Another flag checker...&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fgets(byte_4200E0, &lt;span style="color:#ae81ff">256&lt;/span>, stdin);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( byte_4200E0[strlen(byte_4200E0) &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> byte_4200E0[strlen(byte_4200E0) &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">73&lt;/span>; &lt;span style="color:#f92672">++&lt;/span>i )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( byte_4200E0[i] &lt;span style="color:#f92672">!=&lt;/span> (byte_420060[i] &lt;span style="color:#f92672">^&lt;/span> &lt;span style="color:#ae81ff">0x70&lt;/span>) )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sub_401220();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sub_401202();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>:::&lt;/p>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;p>首先這一題真的太難了，超出我的守備範圍，所以我先寫一些當作紀錄，之後可以更快銜接繼續解&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>首先可以執行一下，如果是在Ubuntu 20.04(預設Libc版本是2.31)的版本和其他版本會有不一樣的output&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ldd --version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ldd &lt;span style="color:#f92672">(&lt;/span>Ubuntu GLIBC 2.31-0ubuntu9.9&lt;span style="color:#f92672">)&lt;/span> 2.31
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Copyright &lt;span style="color:#f92672">(&lt;/span>C&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#ae81ff">2020&lt;/span> Free Software Foundation, Inc.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>This is free software; see the source &lt;span style="color:#66d9ef">for&lt;/span> copying conditions. There is NO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>warranty; not even &lt;span style="color:#66d9ef">for&lt;/span> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Written by Roland McGrath and Ulrich Drepper.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./a.out
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>+&lt;span style="color:#f92672">]&lt;/span> Another flag checker...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">123456&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>-&lt;span style="color:#f92672">]&lt;/span> No :&lt;span style="color:#f92672">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ldd --version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ldd &lt;span style="color:#f92672">(&lt;/span>Ubuntu GLIBC 2.35-0ubuntu3&lt;span style="color:#f92672">)&lt;/span> 2.35
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Copyright &lt;span style="color:#f92672">(&lt;/span>C&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#ae81ff">2022&lt;/span> Free Software Foundation, Inc.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>This is free software; see the source &lt;span style="color:#66d9ef">for&lt;/span> copying conditions. There is NO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>warranty; not even &lt;span style="color:#66d9ef">for&lt;/span> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Written by Roland McGrath and Ulrich Drepper.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./a.out
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>+&lt;span style="color:#f92672">]&lt;/span> Another flag checker...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">123456&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>-&lt;span style="color:#f92672">]&lt;/span> Why you still here
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>這是因為他和這隻程式執行的過程有關係&lt;/p></description></item></channel></rss>

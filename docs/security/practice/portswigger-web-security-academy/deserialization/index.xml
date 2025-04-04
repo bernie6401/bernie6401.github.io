@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/index.xml" rel="self" type="application/rss+xml"/><item><title>Deserialization - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/deserialization---apprentice/</guid><description>&lt;h1 id="deserialization---apprentice">
+ Deserialization - APPRENTICE
+ &lt;a class="anchor" href="#deserialization---apprentice">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;h2 id="lab-modifying-serialized-objects">
+ Lab: Modifying serialized objects
+ &lt;a class="anchor" href="#lab-modifying-serialized-objects">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Description: This lab uses a serialization-based session mechanism and is vulnerable to privilege escalation as a result.&lt;/li>
+&lt;li>Goal: To solve the lab, edit the serialized object in the session cookie to exploit this vulnerability and gain administrative privileges. Then, delete Carlos&amp;rsquo;s account.
+You can log in to your own account using the following credentials: wiener:peter&lt;/li>
+&lt;/ul>
+&lt;h3 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>Login First &amp;amp; Recon the package
+According to the description, we know that the user verification has insecure deserialization. Therefore, we can recon the package first as below.
+&lt;img src="https://i.imgur.com/zuKHXRF.png" alt="" />
+You can notice the session is a base64-encoded string and we use the built-in feature in burp suite to decode it.
+Session: &lt;code>Tzo0OiJVc2VyIjoyOntzOjg6InVzZXJuYW1lIjtzOjY6IndpZW5lciI7czo1OiJhZG1pbiI7YjowO30%3d&lt;/code>
+Decoded String: &lt;code>O:4:&amp;quot;User&amp;quot;:2:{s:8:&amp;quot;username&amp;quot;;s:6:&amp;quot;wiener&amp;quot;;s:5:&amp;quot;admin&amp;quot;;b:0;}&lt;/code>&lt;/li>
+&lt;li>How about Modify the session directly
+&lt;img src="https://i.imgur.com/Ent5yuu.png" alt="" />&lt;/li>
+&lt;/ol>
+&lt;h3 id="exp---change-directly">
+ Exp - Change Directly
+ &lt;a class="anchor" href="#exp---change-directly">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>We can use the built-in feature to change our session to &lt;code>admin=1&lt;/code> directly to then send it forward.
+:::info
+Each package may contain the session that should be modified. So, pay attention to before sending it forward
+:::&lt;/li>
+&lt;li>Delete Carlos
+&lt;img src="https://i.imgur.com/9KGxgZD.png" alt="" />&lt;/li>
+&lt;/ol>
+&lt;p>:::spoiler Success Screenshot
+&lt;img src="https://i.imgur.com/eQEfiaw.png" alt="" />
+:::&lt;/p></description></item><item><title>Lab: Arbitrary object injection in PHP</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-arbitrary-object-injection-in-php/</guid><description>&lt;h1 id="lab-arbitrary-object-injection-in-php">
+ Lab: Arbitrary object injection in PHP
+ &lt;a class="anchor" href="#lab-arbitrary-object-injection-in-php">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab uses a serialization-based session mechanism and is vulnerable to arbitrary object injection as a result.&lt;/li>
+&lt;li>Goal: To solve the lab, create and inject a malicious serialized object to delete the morale.txt file from Carlos&amp;rsquo;s home directory. You will need to obtain source code access to solve this lab.
+You can log in to your own account using the following credentials: wiener:peter&lt;/li>
+&lt;li>Hint: You can sometimes read source code by appending a tilde (~) to a filename to retrieve an editor-generated backup file.&lt;/li>
+&lt;/ul>
+&lt;h2 id="constructor--deconstructor">
+ Constructor &amp;amp; Deconstructor
+ &lt;a class="anchor" href="#constructor--deconstructor">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://tw511.com/a/01/26451.html">Python建構函式與解構函式（&lt;strong>init&lt;/strong>()和__del__()）&lt;/a>
+其實概念就是Python的&lt;code>__init()__&lt;/code> function，在instanciate一個class的時候扮演初始化的功能而已
+而deconstructor就是Python中的&lt;code>__del__()&lt;/code> function用來回收不需要的class，以達到降低記憶體的使用量&lt;/p></description></item><item><title>Lab: Exploiting Java deserialization with Apache Commons</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-exploiting-java-deserialization-with-apache-commons/</guid><description>&lt;h1 id="lab-exploiting-java-deserialization-with-apache-commons">
+ Lab: Exploiting Java deserialization with Apache Commons
+ &lt;a class="anchor" href="#lab-exploiting-java-deserialization-with-apache-commons">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab uses a serialization-based session mechanism and loads the Apache Commons Collections library. Although you don&amp;rsquo;t have source code access, you can still exploit this lab using pre-built gadget chains.&lt;/li>
+&lt;li>Goal: To solve the lab, use a third-party tool to generate a malicious serialized object containing a remote code execution payload. Then, pass this object into the website to delete the morale.txt file from Carlos&amp;rsquo;s home directory.
+You can log in to your own account using the following credentials: wiener:peter&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://ccship.cn/2021/10/21/ysoserial%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">ysoserial使用方法&lt;/a>&lt;/p></description></item><item><title>Lab: Modifying serialized data types</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-modifying-serialized-data-types/</guid><description>&lt;h1 id="lab-modifying-serialized-data-types">
+ Lab: Modifying serialized data types
+ &lt;a class="anchor" href="#lab-modifying-serialized-data-types">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab uses a serialization-based session mechanism and is vulnerable to authentication bypass as a result&lt;/li>
+&lt;li>Goal: To solve the lab, edit the serialized object in the session cookie to access the administrator account. Then, delete Carlos.
+You can log in to your own account using the following credentials: wiener:peter&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>Loose Comparison Operator in &lt;code>PHP&lt;/code>&lt;/p></description></item><item><title>Lab: Using application functionality to exploit insecure deserialization</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/deserialization/lab_-using-application-functionality-to-exploit-insecure-deserialization/</guid><description>&lt;h1 id="lab-using-application-functionality-to-exploit-insecure-deserialization">
+ Lab: Using application functionality to exploit insecure deserialization
+ &lt;a class="anchor" href="#lab-using-application-functionality-to-exploit-insecure-deserialization">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>
+&lt;p>Description: This lab uses a serialization-based session mechanism. A certain feature invokes a dangerous method on data provided in a serialized object.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Goal: To solve the lab, edit the serialized object in the session cookie and use it to delete the morale.txt file from Carlos&amp;rsquo;s home directory.&lt;/p>
+&lt;p>You can log in to your own account using the following credentials: wiener:peter
+You also have access to a backup account: gregg:rosebud&lt;/p></description></item></channel></rss>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBK Hugo Site</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/</link><description>Recent content on SBK Hugo Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/index.xml" rel="self" type="application/rss+xml"/><item><title>CSRF - APPRENTICE</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/csrf---apprentice/</guid><description>&lt;h1 id="csrf---apprentice">
+ CSRF - APPRENTICE
+ &lt;a class="anchor" href="#csrf---apprentice">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;p>[TOC]&lt;/p>
+&lt;h2 id="lab-csrf-vulnerability-with-no-defenses">
+ Lab: CSRF vulnerability with no defenses
+ &lt;a class="anchor" href="#lab-csrf-vulnerability-with-no-defenses">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Description: This lab&amp;rsquo;s email change functionality is vulnerable to CSRF.&lt;/li>
+&lt;li>Goal: To solve the lab, craft some HTML that uses a CSRF attack to change the viewer&amp;rsquo;s email address and upload it to your exploit server.
+You can log in to your own account using the following credentials: &lt;code>wiener:peter&lt;/code>&lt;/li>
+&lt;li>Hint: You cannot register an email address that is already taken by another user. If you change your own email address while testing your exploit, make sure you use a different email address for the final exploit you deliver to the victim.&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>:::spoiler
+&lt;a href="https://medium.com/@Tommmmm/csrf-%e6%94%bb%e6%93%8a%e5%8e%9f%e7%90%86-d0f2a51810ca">CSRF 攻擊原理&lt;/a>
+&lt;a href="https://ithelp.ithome.com.tw/articles/10251769">[Day25]- 新手的Web系列CSRF&lt;/a>&lt;/p></description></item><item><title>Lab: CSRF where token is not tied to user session</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-is-not-tied-to-user-session/</guid><description>&lt;h1 id="lab-csrf-where-token-is-not-tied-to-user-session">
+ Lab: CSRF where token is not tied to user session
+ &lt;a class="anchor" href="#lab-csrf-where-token-is-not-tied-to-user-session">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab&amp;rsquo;s email change functionality is vulnerable to CSRF. It uses tokens to try to prevent CSRF attacks, but they aren&amp;rsquo;t integrated into the site&amp;rsquo;s session handling system.&lt;/li>
+&lt;li>Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer&amp;rsquo;s email address.
+You have two accounts on the application that you can use to help design your attack. The credentials are as follows:
+&lt;code>wiener:peter&lt;/code>
+&lt;code>carlos:montoya&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="background">
+ Background
+ &lt;a class="anchor" href="#background">#&lt;/a>
+&lt;/h2>
+&lt;p>CSRF token should tied to user session otherwise, it&amp;rsquo;ll exploited by attacker.&lt;/p></description></item><item><title>Lab: CSRF where token is tied to non-session cookie</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/not-complete/lab_-csrf-where-token-is-tied-to-non-session-cookie/</guid><description>&lt;h1 id="lab-csrf-where-token-is-tied-to-non-session-cookie">
+ Lab: CSRF where token is tied to non-session cookie
+ &lt;a class="anchor" href="#lab-csrf-where-token-is-tied-to-non-session-cookie">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>
+&lt;p>Description: This lab&amp;rsquo;s email change functionality is vulnerable to CSRF. It uses tokens to try to prevent CSRF attacks, but they aren&amp;rsquo;t fully integrated into the site&amp;rsquo;s session handling system.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer&amp;rsquo;s email address.
+You have two accounts on the application that you can use to help design your attack. The credentials are as follows:
+&lt;code>wiener:peter&lt;/code>
+&lt;code>carlos:montoya&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on request method</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-request-method/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-request-method">
+ Lab: CSRF where token validation depends on request method
+ &lt;a class="anchor" href="#lab-csrf-where-token-validation-depends-on-request-method">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab&amp;rsquo;s email change functionality is vulnerable to CSRF. It attempts to block CSRF attacks, but only applies defenses to certain types of requests.&lt;/li>
+&lt;li>Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer&amp;rsquo;s email address.
+You can log in to your own account using the following credentials: &lt;code>wiener:peter&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Login and update email to trace the package
+Like the previous lab, we first login to the website and update the email. At the same time, we can trace update email package shown below:
+&lt;img src="https://i.imgur.com/ju0fDUQ.png" alt="" />
+We can notice that the carried data including &lt;code>csrf_token&lt;/code>&lt;/p></description></item><item><title>Lab: CSRF where token validation depends on token being present</title><link>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/security/practice/portswigger-web-security-academy/csrf/%E9%87%9D%E5%B0%8Dcsrf-token%E8%88%87%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E7%9A%84%E7%B9%9E%E9%81%8E%E6%89%8B%E6%AE%B5/lab_-csrf-where-token-validation-depends-on-token-being-present/</guid><description>&lt;h1 id="lab-csrf-where-token-validation-depends-on-token-being-present">
+ Lab: CSRF where token validation depends on token being present
+ &lt;a class="anchor" href="#lab-csrf-where-token-validation-depends-on-token-being-present">#&lt;/a>
+&lt;/h1>
+&lt;h6 id="tags-portswigger-web-security-academy-web">
+ tags: &lt;code>Portswigger Web Security Academy&lt;/code> &lt;code>Web&lt;/code>
+ &lt;a class="anchor" href="#tags-portswigger-web-security-academy-web">#&lt;/a>
+&lt;/h6>
+&lt;ul>
+&lt;li>Description: This lab&amp;rsquo;s email change functionality is vulnerable to CSRF.&lt;/li>
+&lt;li>Goal: To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer&amp;rsquo;s email address.
+You can log in to your own account using the following credentials: &lt;code>wiener:peter&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="recon">
+ Recon
+ &lt;a class="anchor" href="#recon">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Login and update email to trace the package
+It&amp;rsquo;s very similar with previous lab $\to$ it contained &lt;code>CSRF_token&lt;/code> as its carried data:
+&lt;img src="https://i.imgur.com/69FaW1R.png" alt="" />&lt;/p></description></item></channel></rss>
