@@ -1,6 +1,6 @@
 {
-  "name": "SBK Hugo Site",
-  "short_name": "SBK Hugo Site",
+  "name": "SBK Site",
+  "short_name": "SBK Site",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
