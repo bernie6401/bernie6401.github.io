@@ -19,4 +19,4 @@ theme = 'hugo-book'
   BookRepo = https://github.com/bernie6401/bernie6401.github.io
   BookCommitPath = commit
   BookEditPath = 'edit/main/demo'
-  BookDateFormat: "January 2, 2006"
+  BookDateFormat = "January 2, 2006"
