@@ -12,9 +12,8 @@ theme = 'book'
     startLevel = 1
 
 [params]
-  BookTheme = 'auto'
+  BookTheme = 'dark'
   BookToC = true
-  BookLogo = 'logo.jpg'
   BookFavicon = "favicon.jpg"
   BookRepo = 'https://github.com/bernie6401/bernie6401.github.io'
   BookCommitPath = 'commit'
