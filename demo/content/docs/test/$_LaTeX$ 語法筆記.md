@@ -1,5 +1,5 @@
 ---
-title: {{< katex >}}\LaTeX{{< /katex >}} 語法筆記
+title: $\LaTeX$ 語法筆記
 tags: [LaTeX]
 
 ---
