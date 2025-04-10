@@ -1,29 +1,27 @@
 # Sample HackMD Test
 
-{% hint info %}
+:::info
 This is an info box.
-{% /hint %}
+:::
 
-{% hint warning %}
+:::warning
 This is a warning box.
-{% /hint %}
+:::
 
-{% hint danger %}
+:::danger
 This is a danger box.
-{% /hint %}
+:::
 
-{% details title="Click to reveal" open=false %}
+:::spoiler Click to reveal
 This is hidden content.
-{% /details %}
+:::
 
-Here is some inline math: {< katex >}E = mc^2{< /katex >}.
+Here is some inline math: $E = mc^2$.
 
 Here is display math:
 
-{< katex display=true >}
-
+$$
 \int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+$$
 
-{< /katex >}
-
-Here is some <mark>highlighted text</mark>.
+Here is some ==highlighted text==.

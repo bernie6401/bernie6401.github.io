@@ -4,8 +4,8 @@ import re
 def convert_hackmd_to_hugo(content):
     # Convert admonitions (info, warning, danger)
     content = re.sub(
-        r"::: *(info|warning|danger)\n(.*?)\n:::",
-        lambda m: f"{{% hint {m.group(1)} %}}\n{m.group(2)}\n{{% /hint %}}",
+        r"::: *(info|warning|danger|success)\n(.*?)\n:::",
+        lambda m: "{{% hint " + m.group(1) + " %}}\n" + m.group(2) + "\n{{% /hint %}}",
         content,
         flags=re.DOTALL
     )
@@ -13,7 +13,7 @@ def convert_hackmd_to_hugo(content):
     # Convert spoiler
     content = re.sub(
         r"::: *spoiler *(.*?)\n(.*?)\n:::",
-        lambda m: f'{{% details title="{m.group(1).strip()}" open=false %}}\n{m.group(2)}\n{{% /details %}}',
+        lambda m: '{{% details title=' + m.group(1).strip() + " open=false %}}\n" + m.group(2) + '\n{{% /details %}}',
         content,
         flags=re.DOTALL
     )
@@ -21,7 +21,7 @@ def convert_hackmd_to_hugo(content):
     # Convert LaTeX display math
     content = re.sub(
         r"\$\$(.*?)\$\$",
-        lambda m: f"{{< katex display=true >}}\n{m.group(1)}\n{{< /katex >}}",
+        lambda m: "{{< katex display=true >}}\n" + m.group(1) + "\n{{< /katex >}}",
         content,
         flags=re.DOTALL
     )
@@ -47,6 +47,7 @@ for filename in os.listdir(directory):
         with open(path, "r", encoding="utf-8") as f:
             original = f.read()
         converted = convert_hackmd_to_hugo(original)
+        path = os.path.join(directory, "test-1.md")
         with open(path, "w", encoding="utf-8") as f:
             f.write(converted)
 
