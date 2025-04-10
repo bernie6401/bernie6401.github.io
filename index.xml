@@ -43,7 +43,24 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">?&amp;gt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>strnatcmp() 函數使用一種&amp;quot;自然&amp;quot;算法來比較兩個字符串。
 在自然算法中，數字 2 小於數字 10。在計算機排序中，10 小於 2，這是因為 10 中的第一個數字小於 2。
-:::&lt;/p></description></item><item><title/><link>https://bernie6401.github.io/docs/tools/ctf/all-pentest-tools/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/all-pentest-tools/</guid><description>&lt;h1 id="all-pentest-tools">
+:::&lt;/p></description></item><item><title/><link>https://bernie6401.github.io/docs/test/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/test/</guid><description>&lt;h1 id="sample-hackmd-test">
+ Sample HackMD Test
+ &lt;a class="anchor" href="#sample-hackmd-test">#&lt;/a>
+&lt;/h1>
+&lt;p>{% hint info %}
+This is an info box.
+{% /hint %}&lt;/p>
+&lt;p>{% hint warning %}
+This is a warning box.
+{% /hint %}&lt;/p>
+&lt;p>{% hint danger %}
+This is a danger box.
+{% /hint %}&lt;/p>
+&lt;p>{% details title=&amp;ldquo;Click to reveal&amp;rdquo; open=false %}
+This is hidden content.
+{% /details %}&lt;/p>
+&lt;p>Here is some inline math: {&amp;lt; katex &amp;gt;}E = mc^2{&amp;lt; /katex &amp;gt;}.&lt;/p>
+&lt;p>Here is display math:&lt;/p></description></item><item><title/><link>https://bernie6401.github.io/docs/tools/ctf/all-pentest-tools/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/ctf/all-pentest-tools/</guid><description>&lt;h1 id="all-pentest-tools">
  All Pentest Tools
  &lt;a class="anchor" href="#all-pentest-tools">#&lt;/a>
 &lt;/h1>
@@ -96,7 +113,24 @@ WEP/WPA 注入攻擊是針對使用 WEP/WPA 安全協定的無線網路的針對
  Web Related
  &lt;a class="anchor" href="#web-related">#&lt;/a>
 &lt;/h1>
-&lt;p>以下分類是按照OWASP的Pentest框架順序分類&lt;/p></description></item><item><title>/wp-admin VS /wp-content VS /wp-include VS /wp-json</title><link>https://bernie6401.github.io/docs/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/</guid><description>&lt;h1 id="wp-admin-vs-wp-content-vs-wp-include-vs-wp-json">
+&lt;p>以下分類是按照OWASP的Pentest框架順序分類&lt;/p></description></item><item><title/><link>https://bernie6401.github.io/test/test/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/test/test/</guid><description>&lt;h1 id="sample-hackmd-test">
+ Sample HackMD Test
+ &lt;a class="anchor" href="#sample-hackmd-test">#&lt;/a>
+&lt;/h1>
+&lt;p>{% hint info %}
+This is an info box.
+{% /hint %}&lt;/p>
+&lt;p>{% hint warning %}
+This is a warning box.
+{% /hint %}&lt;/p>
+&lt;p>{% hint danger %}
+This is a danger box.
+{% /hint %}&lt;/p>
+&lt;p>{% details title=&amp;ldquo;Click to reveal&amp;rdquo; open=false %}
+This is hidden content.
+{% /details %}&lt;/p>
+&lt;p>Here is some inline math: {&amp;lt; katex &amp;gt;}E = mc^2{&amp;lt; /katex &amp;gt;}.&lt;/p>
+&lt;p>Here is display math:&lt;/p></description></item><item><title>/wp-admin VS /wp-content VS /wp-include VS /wp-json</title><link>https://bernie6401.github.io/docs/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/problem-solutions/_wp-admin-vs-_wp-content-vs-_wp-include-vs-_wp-json/</guid><description>&lt;h1 id="wp-admin-vs-wp-content-vs-wp-include-vs-wp-json">
  /wp-admin VS /wp-content VS /wp-include VS /wp-json
  &lt;a class="anchor" href="#wp-admin-vs-wp-content-vs-wp-include-vs-wp-json">#&lt;/a>
 &lt;/h1>
