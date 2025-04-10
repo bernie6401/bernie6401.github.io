@@ -29,7 +29,7 @@ def convert_hackmd_to_hugo(content):
     # Convert LaTeX inline math
     content = re.sub(
         r"\$(.+?)\$",
-        lambda m: f"{{< katex >}}{m.group(1)}{{< /katex >}}",
+        lambda m: "{{< katex >}}" + m.group(1) + "{{< /katex >}}",
         content
     )
 
@@ -39,7 +39,7 @@ def convert_hackmd_to_hugo(content):
     return content
 
 # Path to directory containing markdown files
-directory = "./demo/content/test/"
+directory = "./demo/content/docs/test/"
 
 for filename in os.listdir(directory):
     if filename.endswith(".md"):
@@ -47,7 +47,7 @@ for filename in os.listdir(directory):
         with open(path, "r", encoding="utf-8") as f:
             original = f.read()
         converted = convert_hackmd_to_hugo(original)
-        path = os.path.join(directory, "test-1.md")
+        # path = os.path.join(directory, "test-1.md")
         with open(path, "w", encoding="utf-8") as f:
             f.write(converted)
 
