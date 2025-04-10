@@ -16,6 +16,7 @@ homepage = "https://github.com/bernie6401/bernie6401.github.io"
   BookTheme = 'dark'
   BookToC = true
   BookLogo = 'logo.jpg'
+  BookFavicon = 'favicon.jpg'
   BookRepo = 'https://github.com/bernie6401/bernie6401.github.io'
   BookCommitPath = 'commit'
   BookEditPath = 'edit/main/demo'
