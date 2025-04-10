@@ -2,7 +2,7 @@ baseURL = 'https://bernie6401.github.io/'
 languageCode = 'en-us'
 title = 'SBK Site'
 theme = 'book'
-
+enableGitInfo = true
 
 [markup]
   [markup.goldmark]
