@@ -12,7 +12,7 @@ theme = 'hugo-book'
     startLevel = 1
 
 [params]
-  BookTheme = 'auto
+  BookTheme = 'auto'
   BookToC = true
   BookLogo = 'logo.jpg'
   BookFavicon = "favicon.jpg"
