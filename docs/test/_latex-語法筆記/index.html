@@ -1,42 +1,480 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
-  Sample HackMD Test
+HackMD 是透過 MathJax 支援 
+
+
+
+  \(\LaTeX\)
+
+ ，雖未支援所有語法，對多數人應已足夠，一起把 Web 上醜死的公式換成美美的吧～
+
+  
+  \(\LaTeX\)
+
+ 語法筆記
   #
-
-
-This is an info box.
-
-
-This is a warning box.
-
-
-This is a danger box.
-
-Click to reveal
-  
-This is hidden content.
-  
-
-Here is some inline math: {< katex >}E = mc^2{< /katex >}.
-Here is display math:
-
-
 
 
   \[
 
-\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+\LaTeX % 大小寫須正確
 
 \]
 
 
-Here is some highlighted text."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/test/test-1/"><meta property="og:site_name" content="SBK Site"><meta property="og:title" content="SBK Site"><meta property="og:description" content="Sample HackMD Test # This is an info box.
-This is a warning box.
-This is a danger box.
-Click to reveal This is hidden content.
-Here is some inline math: {< katex >}E = mc^2{< /katex >}.
-Here is display math:
-\[ \int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2} \] Here is some highlighted text."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="test"><meta property="article:modified_time" content="2025-04-11T00:19:49+08:00"><title>Test 1 | SBK Site</title>
-<link rel=icon href=/favicon.jpg><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/test/test-1/><link rel=stylesheet href=/book.min.2d7fec8e866046a7460a1cc86027535586803606a87c87da3098bcd8d5a2b62d.css integrity="sha256-LX/sjoZgRqdGChzIYCdTVYaANgaofIfaMJi82NWiti0=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.eda0b04a69ad66d997cee81e42c0951b055d919a998d76d7ddd87deb5f70b5ac.js integrity="sha256-7aCwSmmtZtmXzugeQsCVGwVdkZqZjXbX3dh9619wtaw=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+\LaTeX % 大小寫須正確
+
+
+  \(\textstyle\)
+
+
+
+  \[
+\displaystyle
+\]
+
+
+%comment
+
+  \[
+
+\grave apple % 標重音
+
+\]
+
+
+\grave apple % 標重音
+
+  \[
+
+{\bf AB} % 粗體 boldface
+
+\]
+
+
+{\bf AB} % 粗體 boldface
+
+  \[
+
+\bar{A}
+
+\]
+
+
+\bar{A}
+
+  \[
+
+{ a+b \brace c+d }
+
+\]
+
+
+{ a+b \brace c+d }
+
+  \[
+
+\overline{AB}
+
+\]
+
+
+\overline{AB}
+
+  \[
+
+\vec{v}
+
+\]
+
+
+\vec{v}
+
+  \[
+
+\frac{b}{a}
+
+\]
+
+
+\frac{b}{a}
+% 或
+{b \over a}
+
+  \[
+
+\dfrac{b}{a}
+
+\]
+
+
+\dfrac{b}{a}  % d for \displaystyle
+\tfrac{b}{a}  % t for \textstyle
+
+  \[
+
+90^\circ
+
+\]
+
+
+90^\circ
+
+  \[
+
+e^{\theta i}
+
+\]
+
+
+e^{\theta i}
+
+  \[
+
+S_{n}
+
+\]
+
+
+S_{n}
+
+  \[
+
+\lim\limits_{n\to \infty}
+
+\]
+
+
+\lim\limits_{n\to \infty}
+
+  \[
+
+\sum\limits_{x = 0}^k{x^2}
+
+\]
+
+
+\sum\limits_{x = 0}^k{x^2}
+
+  \[
+
+\bigcup\limits_{i = 1}^{\infty}{U_i}
+
+\]
+
+
+\bigcup\limits_{i = 1}^{\infty}{U_i}
+
+  \[
+
+\bigcap\limits_{i = 1}^{\infty}{U_i}
+
+\]
+
+
+\bigcap\limits_{i = 1}^{\infty}{U_i}
+
+  \[
+
+\mathop{\vcenter{\huge\times}}_\limits{i=1}^n{U_i}
+
+\]
+
+
+\mathop{\vcenter{\huge\times}}_\limits{i=1}^n{U_i}
+
+  \[
+
+\int_a^b x^2  \mathrm{d} x
+
+\]
+
+
+\int_a^b x^2  \mathrm{d} x
+
+  \[
+
+\sqrt[n]{1+x+x^2+x^3+\dots+x^n}
+
+\]
+
+
+\sqrt[n]{1+x+x^2+x^3+\dots+x^n}
+% 或
+\root n \of {1+x+x^2+x^3+\dots+x^n}
+
+  \[
+
+A \implies B
+
+\]
+
+
+A \implies B
+
+  \[
+
+A \impliedby B
+
+\]
+
+
+A \impliedby B
+
+  \[
+
+A \iff B
+
+\]
+
+
+A \iff B
+
+  \[
+
+f: A \to B
+
+\]
+
+
+f: A \to B
+
+  \[
+
+A \leftarrow B 
+
+\]
+
+
+A \leftarrow B
+
+  \[
+
+\xrightarrow{中文亦可}\ \xleftarrow{中文亦可}
+
+\]
+
+
+\xrightarrow{中文亦可}\ \xleftarrow{中文亦可}
+
+  \[
+
+a\,\overset{?}{=}\,b
+
+\]
+
+
+a\,\overset{?}{=}\,b
+
+  \[
+
+\forall x \in X, \exists x \in b
+
+\]
+
+
+\forall x \in X, \exists x \in b
+
+  \[
+
+\not\in, \not\gt, \not\lt, \not=
+
+\]
+
+
+\not\in, \not\gt, \not\lt, \not=   % 利用 \not 組合表示否定
+
+  \[
+
+a_{1}, a_{2}, \ldots, a_{n}
+
+\]
+
+
+a_{1}, a_{2}, \ldots, a_{n}
+
+  \[
+
+a_{1} + a_{2} + \cdots + a_{n}
+
+\]
+
+
+a_{1} + a_{2} + \cdots + a_{n}
+
+  \[
+
+\begin{pmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n}?
+  a_{21} & a_{22} & \cdots & a_{2n}\\
+  \vdots & \vdots & \ddots & \vdots\\
+  a_{m1} & \cdots & \cdots & a_{mn}
+\end{pmatrix}
+
+\]
+
+
+\begin{pmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n}\\
+  a_{21} & a_{22} & \cdots & a_{2n}\\
+  \vdots & \vdots & \ddots & \vdots\\
+  a_{m1} & \cdots & \cdots & a_{mn}
+\end{pmatrix}
+
+% ldots: low dots
+% cdots: center dots
+% ddots: diagonal dots
+% vdots: vertical dots
+
+  \[
+
+\left\{
+  \begin{array}{c}
+    a_1x+b_1y+c_1z=d_1 \\ 
+    a_2x+b_2y+c_2z=d_2 \\ 
+    a_3x+b_3y+c_3z=d_3
+  \end{array}
+\right.
+
+\]
+
+
+\left\{ 
+  \begin{array}{c}
+    a_1x+b_1y+c_1z=d_1 \\ 
+    a_2x+b_2y+c_2z=d_2 \\ 
+    a_3x+b_3y+c_3z=d_3
+  \end{array}
+\right.
+
+  Operator/Relation
+  #
+
+
+  \(A\times B\)
+
+ = A\times B
+
+  \(a\cdot b\)
+
+ = a\cdot b
+
+  \(\div\)
+
+ = \div
+
+  \(\pmod n\)
+
+ = \pmod n
+
+  \(\pm\)
+
+ = \pm (plus and minus)
+
+  \(\partial\)
+
+ = \partial
+
+  \(\oplus\)
+
+ = \oplus
+
+  \(\&\)
+
+= \&amp;
+
+  \(\gt\)
+
+ = \gt (greater than)
+
+  \(\lt\)
+
+ = \lt (less than)
+
+  \(\ge\)
+
+ = \ge (greater or equal)
+
+  \(\le\)
+
+ = \le (less or equal)
+
+  \(\lhd\)
+
+ = \lhd (normal subgroup)
+
+  \(\unlhd\)
+
+ = \unlhd
+
+  \(\ne\)
+
+ = \ne (not equal)
+
+  \(\approx\)
+
+ = \approx (approximate to)
+
+  \(\sim\)
+
+ = \sim (similar)
+
+  \(\cong\)
+
+ = \cong (congruent)
+
+  \(\equiv\)
+
+ = \equiv (equivalent)
+
+  \(\ll\)
+
+ = \ll, much less than
+
+  \(\gg\)
+
+ = \gg, much greater than
+
+  \(\nless\)
+
+ = \nless, not less than
+
+  \(\ngtr\)
+
+ = \ngtr, not greater than
+
+  \(\cap\)
+
+ = \cap, 像帽子, intersection
+
+  \(\cup\)
+
+ = \cup, 像杯子, union
+
+  \(\subset\)
+
+ = \subset, or implied
+
+  \(\supset\)
+
+ = \superset, or implies
+
+  \(\subseteq\)
+
+ = \subseteq
+
+  \(\supseteq\)
+
+ = \supseteq
+
+  \(\land\)
+
+ = \land (logical and); \wedge (wedge product)
+
+  \(\lor\)
+
+ = \lor (logical or)"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://bernie6401.github.io/docs/test/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"><meta property="og:site_name" content="SBK Site"><meta property="og:title" content="$\LaTeX$ 語法筆記"><meta property="og:description" content="HackMD 是透過 MathJax 支援 \(\LaTeX\) ，雖未支援所有語法，對多數人應已足夠，一起把 Web 上醜死的公式換成美美的吧～
+\(\LaTeX\) 語法筆記 # \[ \LaTeX % 大小寫須正確 \] \LaTeX % 大小寫須正確 \(\textstyle\) \[ \displaystyle \] %comment \[ \grave apple % 標重音 \] \grave apple % 標重音 \[ {\bf AB} % 粗體 boldface \] {\bf AB} % 粗體 boldface \[ \bar{A} \] \bar{A} \[ { a+b \brace c+d } \] { a+b \brace c+d } \[ \overline{AB} \] \overline{AB} \[ \vec{v} \] \vec{v} \[ \frac{b}{a} \] \frac{b}{a} % 或 {b \over a} \[ \dfrac{b}{a} \] \dfrac{b}{a} % d for \displaystyle \tfrac{b}{a} % t for \textstyle \[ 90^\circ \] 90^\circ \[ e^{\theta i} \] e^{\theta i} \[ S_{n} \] S_{n} \[ \lim\limits_{n\to \infty} \] \lim\limits_{n\to \infty} \[ \sum\limits_{x = 0}^k{x^2} \] \sum\limits_{x = 0}^k{x^2} \[ \bigcup\limits_{i = 1}^{\infty}{U_i} \] \bigcup\limits_{i = 1}^{\infty}{U_i} \[ \bigcap\limits_{i = 1}^{\infty}{U_i} \] \bigcap\limits_{i = 1}^{\infty}{U_i} \[ \mathop{\vcenter{\huge\times}}_\limits{i=1}^n{U_i} \] \mathop{\vcenter{\huge\times}}_\limits{i=1}^n{U_i} \[ \int_a^b x^2 \mathrm{d} x \] \int_a^b x^2 \mathrm{d} x \[ \sqrt[n]{1+x+x^2+x^3+\dots+x^n} \] \sqrt[n]{1+x+x^2+x^3+\dots+x^n} % 或 \root n \of {1+x+x^2+x^3+\dots+x^n} \[ A \implies B \] A \implies B \[ A \impliedby B \] A \impliedby B \[ A \iff B \] A \iff B \[ f: A \to B \] f: A \to B \[ A \leftarrow B \] A \leftarrow B \[ \xrightarrow{中文亦可}\ \xleftarrow{中文亦可} \] \xrightarrow{中文亦可}\ \xleftarrow{中文亦可} \[ a\,\overset{?}{=}\,b \] a\,\overset{?}{=}\,b \[ \forall x \in X, \exists x \in b \] \forall x \in X, \exists x \in b \[ \not\in, \not\gt, \not\lt, \not= \] \not\in, \not\gt, \not\lt, \not= % 利用 \not 組合表示否定 \[ a_{1}, a_{2}, \ldots, a_{n} \] a_{1}, a_{2}, \ldots, a_{n} \[ a_{1} + a_{2} + \cdots + a_{n} \] a_{1} + a_{2} + \cdots + a_{n} \[ \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n}? a_{21} & a_{22} & \cdots & a_{2n}\\ \vdots & \vdots & \ddots & \vdots\\ a_{m1} & \cdots & \cdots & a_{mn} \end{pmatrix} \] \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n}\\ a_{21} & a_{22} & \cdots & a_{2n}\\ \vdots & \vdots & \ddots & \vdots\\ a_{m1} & \cdots & \cdots & a_{mn} \end{pmatrix} % ldots: low dots % cdots: center dots % ddots: diagonal dots % vdots: vertical dots \[ \left\{ \begin{array}{c} a_1x+b_1y+c_1z=d_1 \\ a_2x+b_2y+c_2z=d_2 \\ a_3x+b_3y+c_3z=d_3 \end{array} \right. \] \left\{ \begin{array}{c} a_1x+b_1y+c_1z=d_1 \\ a_2x+b_2y+c_2z=d_2 \\ a_3x+b_3y+c_3z=d_3 \end{array} \right. Operator/Relation # \(A\times B\) = A\times B \(a\cdot b\) = a\cdot b \(\div\) = \div \(\pmod n\) = \pmod n \(\pm\) = \pm (plus and minus) \(\partial\) = \partial \(\oplus\) = \oplus \(\&\) = \& \(\gt\) = \gt (greater than) \(\lt\) = \lt (less than) \(\ge\) = \ge (greater or equal) \(\le\) = \le (less or equal) \(\lhd\) = \lhd (normal subgroup) \(\unlhd\) = \unlhd \(\ne\) = \ne (not equal) \(\approx\) = \approx (approximate to) \(\sim\) = \sim (similar) \(\cong\) = \cong (congruent) \(\equiv\) = \equiv (equivalent) \(\ll\) = \ll, much less than \(\gg\) = \gg, much greater than \(\nless\) = \nless, not less than \(\ngtr\) = \ngtr, not greater than \(\cap\) = \cap, 像帽子, intersection \(\cup\) = \cup, 像杯子, union \(\subset\) = \subset, or implied \(\supset\) = \superset, or implies \(\subseteq\) = \subseteq \(\supseteq\) = \supseteq \(\land\) = \land (logical and); \wedge (wedge product) \(\lor\) = \lor (logical or)"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:tag" content="LaTeX"><title>$\LaTeX$ 語法筆記 | SBK Site</title>
+<link rel=icon href=/favicon.jpg><link rel=manifest href=/manifest.json><link rel=canonical href=https://bernie6401.github.io/docs/test/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/><link rel=stylesheet href=/book.min.2d7fec8e866046a7460a1cc86027535586803606a87c87da3098bcd8d5a2b62d.css integrity="sha256-LX/sjoZgRqdGChzIYCdTVYaANgaofIfaMJi82NWiti0=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.10bccae7ced3895f80a5a0c46a46ee332ff946059cd61a904086e6b2f4301812.js integrity="sha256-ELzK587TiV+ApaDEakbuMy/5RgWc1hqQQIbmsvQwGBI=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><img src=/logo.jpg alt=Logo class=book-icon><span>SBK Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li class=book-section-flat><input type=checkbox id=section-10fec52a5e1f7edbb6bf72f13b10f02d class=toggle>
 <label for=section-10fec52a5e1f7edbb6bf72f13b10f02d class="flex justify-between"><a role=button>Books Notes</a></label><ul><li><a href=/docs/books-notes/jane-eyre-%E7%B0%A1%E6%84%9B/>Jane Eyre (簡愛)</a></li><li><a href=/docs/books-notes/the-decameron-%E5%8D%81%E6%97%A5%E8%AB%87/>The Decameron (十日談)</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-9f8d383ab5bb186e8abc39ef7de3dc4b class=toggle>
 <label for=section-9f8d383ab5bb186e8abc39ef7de3dc4b class="flex justify-between"><a role=button>Data Structure</a></label><ul><li><a href=/docs/data-structure/data-structure/>Data Structure</a></li><li><a href=/docs/data-structure/lecture-10/>Lecture 10</a></li><li><a href=/docs/data-structure/lecture-2/>Lecture 2</a></li><li><a href=/docs/data-structure/lecture-4/>Lecture 4</a></li><li><a href=/docs/data-structure/lecture-6/>Lecture 6</a></li><li><a href=/docs/data-structure/lecture-8/>Lecture 8</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-30857705f59422943f678c2a60430a22 class=toggle>
@@ -156,9 +594,605 @@ Here is display math:
 <label for=section-db0eebe8d1d890143ee9c222a4e10ac8 class="flex justify-between"><a role=button>Drozer</a></label><ul><li><a href=/docs/tools/others/android-related/drozer/drozer-cheat-sheet/>Drozer Cheat Sheet</a></li><li><a href=/docs/tools/others/android-related/drozer/test-diva/test-diva---activity-exported/>Test DIVA - activity exported</a></li><li><a href=/docs/tools/others/android-related/drozer/test-diva/test-diva---content-provider-exported---db-based/>Test DIVA - content provider exported - DB Based</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---activities-exported/>Test Sieve - activities exported</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---broadcast-receivers-exported/>Test Sieve - broadcast receivers exported</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---content-providers-exported---db-based/>Test Sieve - content providers exported - DB Based</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---content-providers-exported---file-systembased/>Test Sieve - content providers exported - File SystemBased</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---is-debuggable/>Test Sieve - is debuggable</a></li><li><a href=/docs/tools/others/android-related/drozer/test-sieve/test-sieve---services-exported/>Test Sieve - services exported</a></li></ul></li><li><input type=checkbox id=section-fc74d99f388fe49fbc4c3b23ec73b387 class=toggle>
 <label for=section-fc74d99f388fe49fbc4c3b23ec73b387 class="flex justify-between"><a role=button>Installation</a></label><ul><li><a href=/docs/tools/others/android-related/installation/drozer_mobsf-installation/>Drozer/MobSF Installation</a></li></ul></li><li><input type=checkbox id=section-34ca99ebbbb2bf1cbb65e28eaa68482b class=toggle>
 <label for=section-34ca99ebbbb2bf1cbb65e28eaa68482b class="flex justify-between"><a role=button>Mob Sf</a></label><ul><li><a href=/docs/tools/others/android-related/mobsf/test-sieve-by-mobsf/>Test Sieve by MobSF</a></li></ul></li></ul></li><li><input type=checkbox id=section-82ac018854df4173f87351bd0e93302d class=toggle>
-<label for=section-82ac018854df4173f87351bd0e93302d class="flex justify-between"><a role=button>Directory Fuzzing Traversal Tools</a></label><ul><li><a href=/docs/tools/others/directory-fuzzing---traversal-tools/directory-fuzzing_traversal-tools/>Directory Fuzzing/Traversal Tools</a></li><li><a href=/docs/tools/others/directory-fuzzing---traversal-tools/wfuzz/>WFuzz</a></li></ul></li><li><a href=/docs/tools/others/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/>$\LaTeX$ 語法筆記</a></li><li><a href=/docs/tools/others/command-cheat-sheet/>Command Cheat Sheet</a></li><li><a href=/docs/tools/others/docker-cheat-sheet/>Docker Cheat Sheet</a></li><li><a href=/docs/tools/others/real-world-tools/>Real World Tools</a></li><li><a href=/docs/tools/others/useful-link/>Useful Link</a></li><li><a href=/docs/tools/others/%E6%9C%89%E5%95%8F%E9%A1%8C%E7%9A%84%E7%B6%B2%E7%AB%99/>有問題的網站</a></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Test 1</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#sample-hackmd-test>Sample HackMD Test</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=sample-hackmd-test>Sample HackMD Test
-<a class=anchor href=#sample-hackmd-test>#</a></h1><blockquote class="book-hint info"><p>This is an info box.</p></blockquote><blockquote class="book-hint warning"><p>This is a warning box.</p></blockquote><blockquote class="book-hint danger"><p>This is a danger box.</p></blockquote><details><summary>Click to reveal</summary><div class=markdown-inner><p>This is hidden content.</p></div></details><p>Here is some inline math: {&lt; katex >}E = mc^2{&lt; /katex >}.</p><p>Here is display math:</p><link rel=stylesheet href=/katex/katex.min.css><script defer src=/katex/katex.min.js></script><script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>\[
-\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
-\]</span><p>Here is some <mark>highlighted text</mark>.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/bernie6401/bernie6401.github.io/commit/d9431087678c805ecac533859e3ff4a6cb2b78ba title='Last modified by bernie6401 | April 10, 2025' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt>
-<span>April 10, 2025</span></a></div><div><a class="flex align-center" href=https://github.com/bernie6401/bernie6401.github.io/edit/main/demo/content/test/test-1.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
-<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#sample-hackmd-test>Sample HackMD Test</a></li></ul></nav></div></aside></main></body></html>
+<label for=section-82ac018854df4173f87351bd0e93302d class="flex justify-between"><a role=button>Directory Fuzzing Traversal Tools</a></label><ul><li><a href=/docs/tools/others/directory-fuzzing---traversal-tools/directory-fuzzing_traversal-tools/>Directory Fuzzing/Traversal Tools</a></li><li><a href=/docs/tools/others/directory-fuzzing---traversal-tools/wfuzz/>WFuzz</a></li></ul></li><li><a href=/docs/tools/others/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/>$\LaTeX$ 語法筆記</a></li><li><a href=/docs/tools/others/command-cheat-sheet/>Command Cheat Sheet</a></li><li><a href=/docs/tools/others/docker-cheat-sheet/>Docker Cheat Sheet</a></li><li><a href=/docs/tools/others/real-world-tools/>Real World Tools</a></li><li><a href=/docs/tools/others/useful-link/>Useful Link</a></li><li><a href=/docs/tools/others/%E6%9C%89%E5%95%8F%E9%A1%8C%E7%9A%84%E7%B6%B2%E7%AB%99/>有問題的網站</a></li></ul></li></ul></li><li><a href=/docs/test/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/ class=active>$\LaTeX$ 語法筆記</a></li><li><a href=/docs/test/docker-cheat-sheet/>Docker Cheat Sheet</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>$\LaTeX$ 語法筆記</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#hahahugoshortcode596s1hbhb-語法筆記>HAHAHUGOSHORTCODE596s1HBHB 語法筆記</a></li><li><a href=#operatorrelation>Operator/Relation</a></li><li><a href=#function>Function</a></li><li><a href=#matrix>Matrix</a></li><li><a href=#greek>Greek</a></li><li><a href=#misc>Misc</a></li><li><a href=#format>Format</a><ul><li><a href=#style>Style</a></li><li><a href=#automatic-sizing>Automatic Sizing</a></li><li><a href=#alignment>Alignment</a></li></ul></li><li><a href=#advanced>Advanced</a><ul><li><a href=#微調字體字距>微調字體、字距</a><ul><li><a href=#font>Font</a></li><li><a href=#operator-class-assignment>Operator (Class Assignment)</a></li></ul></li></ul></li><li><a href=#more>More</a><ul><li><ul><li></li></ul></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><blockquote><p>HackMD 是透過 MathJax 支援
+<link rel=stylesheet href=/katex/katex.min.css><script defer src=/katex/katex.min.js></script><script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>\(\LaTeX\)
+</span>，雖未支援所有語法，對多數人應已足夠，一起把 Web 上醜死的公式換成美美的吧～</p></blockquote><h1 id=hahahugoshortcode596s1hbhb-語法筆記><span>\(\LaTeX\)
+</span>語法筆記
+<a class=anchor href=#hahahugoshortcode596s1hbhb-%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98>#</a></h1><span>\[
+\LaTeX % 大小寫須正確
+\]</span><pre tabindex=0><code>\LaTeX % 大小寫須正確
+
+<span>
+  \(\textstyle\)
+</span>
+
+<span>
+  \[
+\displaystyle
+\]
+</span>
+
+%comment
+</code></pre><span>\[
+\grave apple % 標重音
+\]</span><pre tabindex=0><code>\grave apple % 標重音
+</code></pre><span>\[
+{\bf AB} % 粗體 boldface
+\]</span><pre tabindex=0><code>{\bf AB} % 粗體 boldface
+</code></pre><span>\[
+\bar{A}
+\]</span><pre tabindex=0><code>\bar{A}
+</code></pre><span>\[
+{ a+b \brace c+d }
+\]</span><pre tabindex=0><code>{ a+b \brace c+d }
+</code></pre><span>\[
+\overline{AB}
+\]</span><pre tabindex=0><code>\overline{AB}
+</code></pre><span>\[
+\vec{v}
+\]</span><pre tabindex=0><code>\vec{v}
+</code></pre><span>\[
+\frac{b}{a}
+\]</span><pre tabindex=0><code>\frac{b}{a}
+% 或
+{b \over a}
+</code></pre><span>\[
+\dfrac{b}{a}
+\]</span><pre tabindex=0><code>\dfrac{b}{a}  % d for \displaystyle
+\tfrac{b}{a}  % t for \textstyle
+</code></pre><span>\[
+90^\circ
+\]</span><pre tabindex=0><code>90^\circ
+</code></pre><span>\[
+e^{\theta i}
+\]</span><pre tabindex=0><code>e^{\theta i}
+</code></pre><span>\[
+S_{n}
+\]</span><pre tabindex=0><code>S_{n}
+</code></pre><span>\[
+\lim\limits_{n\to \infty}
+\]</span><pre tabindex=0><code>\lim\limits_{n\to \infty}
+</code></pre><span>\[
+\sum\limits_{x = 0}^k{x^2}
+\]</span><pre tabindex=0><code>\sum\limits_{x = 0}^k{x^2}
+</code></pre><span>\[
+\bigcup\limits_{i = 1}^{\infty}{U_i}
+\]</span><pre tabindex=0><code>\bigcup\limits_{i = 1}^{\infty}{U_i}
+</code></pre><span>\[
+\bigcap\limits_{i = 1}^{\infty}{U_i}
+\]</span><pre tabindex=0><code>\bigcap\limits_{i = 1}^{\infty}{U_i}
+</code></pre><span>\[
+\mathop{\vcenter{\huge\times}}_\limits{i=1}^n{U_i}
+\]</span><pre tabindex=0><code>\mathop{\vcenter{\huge\times}}_\limits{i=1}^n{U_i}
+</code></pre><span>\[
+\int_a^b x^2 \mathrm{d} x
+\]</span><pre tabindex=0><code>\int_a^b x^2  \mathrm{d} x
+</code></pre><span>\[
+\sqrt[n]{1+x+x^2+x^3+\dots+x^n}
+\]</span><pre tabindex=0><code>\sqrt[n]{1+x+x^2+x^3+\dots+x^n}
+% 或
+\root n \of {1+x+x^2+x^3+\dots+x^n}
+</code></pre><span>\[
+A \implies B
+\]</span><pre tabindex=0><code>A \implies B
+</code></pre><span>\[
+A \impliedby B
+\]</span><pre tabindex=0><code>A \impliedby B
+</code></pre><span>\[
+A \iff B
+\]</span><pre tabindex=0><code>A \iff B
+</code></pre><span>\[
+f: A \to B
+\]</span><pre tabindex=0><code>f: A \to B
+</code></pre><span>\[
+A \leftarrow B
+\]</span><pre tabindex=0><code>A \leftarrow B
+</code></pre><span>\[
+\xrightarrow{中文亦可}\ \xleftarrow{中文亦可}
+\]</span><pre tabindex=0><code>\xrightarrow{中文亦可}\ \xleftarrow{中文亦可}
+</code></pre><span>\[
+a\,\overset{?}{=}\,b
+\]</span><pre tabindex=0><code>a\,\overset{?}{=}\,b
+</code></pre><span>\[
+\forall x \in X, \exists x \in b
+\]</span><pre tabindex=0><code>\forall x \in X, \exists x \in b
+</code></pre><span>\[
+\not\in, \not\gt, \not\lt, \not=
+\]</span><pre tabindex=0><code>\not\in, \not\gt, \not\lt, \not=   % 利用 \not 組合表示否定
+</code></pre><span>\[
+a_{1}, a_{2}, \ldots, a_{n}
+\]</span><pre tabindex=0><code>a_{1}, a_{2}, \ldots, a_{n}
+</code></pre><span>\[
+a_{1} + a_{2} + \cdots + a_{n}
+\]</span><pre tabindex=0><code>a_{1} + a_{2} + \cdots + a_{n}
+</code></pre><span>\[
+\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n}?
+  a_{21} & a_{22} & \cdots & a_{2n}\\
+  \vdots & \vdots & \ddots & \vdots\\
+  a_{m1} & \cdots & \cdots & a_{mn}
+\end{pmatrix}
+\]</span><pre tabindex=0><code>\begin{pmatrix}
+  a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}\\
+  a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}\\
+  \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+  a_{m1} &amp; \cdots &amp; \cdots &amp; a_{mn}
+\end{pmatrix}
+
+% ldots: low dots
+% cdots: center dots
+% ddots: diagonal dots
+% vdots: vertical dots
+</code></pre><span>\[
+\left\{
+\begin{array}{c}
+a_1x+b_1y+c_1z=d_1 \\
+a_2x+b_2y+c_2z=d_2 \\
+a_3x+b_3y+c_3z=d_3
+\end{array}
+\right.
+\]</span><pre tabindex=0><code>\left\{ 
+  \begin{array}{c}
+    a_1x+b_1y+c_1z=d_1 \\ 
+    a_2x+b_2y+c_2z=d_2 \\ 
+    a_3x+b_3y+c_3z=d_3
+  \end{array}
+\right.
+</code></pre><h1 id=operatorrelation>Operator/Relation
+<a class=anchor href=#operatorrelation>#</a></h1><p><span>\(A\times B\)
+</span>= A\times B
+<span>\(a\cdot b\)
+</span>= a\cdot b
+<span>\(\div\)
+</span>= \div
+<span>\(\pmod n\)
+</span>= \pmod n
+<span>\(\pm\)
+</span>= \pm (plus and minus)
+<span>\(\partial\)
+</span>= \partial
+<span>\(\oplus\)
+</span>= \oplus
+<span>\(\&\)
+</span>= \&
+<span>\(\gt\)
+</span>= \gt (greater than)
+<span>\(\lt\)
+</span>= \lt (less than)
+<span>\(\ge\)
+</span>= \ge (greater or equal)
+<span>\(\le\)
+</span>= \le (less or equal)
+<span>\(\lhd\)
+</span>= \lhd (normal subgroup)
+<span>\(\unlhd\)
+</span>= \unlhd
+<span>\(\ne\)
+</span>= \ne (not equal)
+<span>\(\approx\)
+</span>= \approx (approximate to)
+<span>\(\sim\)
+</span>= \sim (similar)
+<span>\(\cong\)
+</span>= \cong (congruent)
+<span>\(\equiv\)
+</span>= \equiv (equivalent)
+<span>\(\ll\)
+</span>= \ll, much less than
+<span>\(\gg\)
+</span>= \gg, much greater than
+<span>\(\nless\)
+</span>= \nless, not less than
+<span>\(\ngtr\)
+</span>= \ngtr, not greater than
+<span>\(\cap\)
+</span>= \cap, 像帽子, intersection
+<span>\(\cup\)
+</span>= \cup, 像杯子, union
+<span>\(\subset\)
+</span>= \subset, or implied
+<span>\(\supset\)
+</span>= \superset, or implies
+<span>\(\subseteq\)
+</span>= \subseteq
+<span>\(\supseteq\)
+</span>= \supseteq
+<span>\(\land\)
+</span>= \land (logical and); \wedge (wedge product)
+<span>\(\lor\)
+</span>= \lor (logical or)</p><p><a href=https://en.wikipedia.org/wiki/List_of_logic_symbols>List of Logic Symbols</a></p><h1 id=function>Function
+<a class=anchor href=#function>#</a></h1><p><span>\(\binom{a}{b}\)
+</span>= \binom{a}{b}</p><blockquote><p>Binomial : <span>\(\frac{C!}{n!(n-k)!}, where\ (n+k) = constant\)
+</span>或 \binom a b
+或 { a \choose b }
+\tbinom a b (t for \textstyle)
+\dbinom a b (d for \displaystyle)</p></blockquote><p><span>\(\cos{\theta}\)
+</span>= \cos{\theta}
+<span>\(\sin{\theta}\)
+</span>= \sin{\theta}
+<span>\(\log_{b}{x}\)
+</span>= \log_{b}{x}
+<span>\(\ln{x}\)
+</span>= \ln{x}
+<span>\(\lceil x \rceil\)
+</span>= \lceil x \rceil
+<span>\(\lfloor x \rfloor\)
+</span>= \lfloor x \rfloor</p><h1 id=matrix>Matrix
+<a class=anchor href=#matrix>#</a></h1><span>\[
+\begin{pmatrix}A\\B\end{pmatrix}
+\]</span><pre tabindex=0><code>\begin{pmatrix}
+  A\\B                % \\ 為 newline(換行)
+\end{pmatrix}
+
+% 或
+
+\pmatrix{A\\B}
+</code></pre><span>\[
+\begin{bmatrix}A\\B\end{bmatrix}
+\]</span><pre tabindex=0><code>\begin{bmatrix}
+  A\\B
+\end{bmatrix}
+</code></pre><span>\[
+\begin{vmatrix}A\\B\end{vmatrix}
+\]</span><pre tabindex=0><code>\begin{vmatrix}
+  A\\B
+\end{vmatrix}
+</code></pre><span>\[
+\begin{Vmatrix}A\\B\end{Vmatrix}
+\]</span><pre tabindex=0><code>\begin{Vmatrix}
+  A\\B
+\end{Vmatrix}
+</code></pre><span>\[
+\begin{bmatrix}
+a & b \\
+  c & d 
+\end{bmatrix}
+
+\]</span><pre tabindex=0><code>\begin{bmatrix}
+  a &amp; b \\
+  c &amp; d 
+\end{bmatrix}
+</code></pre><h1 id=greek>Greek
+<a class=anchor href=#greek>#</a></h1><p><span>\(\alpha\)
+</span>= \alpha
+<span>\(\beta\)
+</span>= \beta
+<span>\(\Delta\)
+</span>= \Delta, <span>\(\delta\)
+</span>= \delta
+<span>\(\epsilon\)
+</span>= \epsilon, <span>\(\varepsilon\)
+</span>= \varepsilon
+<span>\(\gamma\)
+</span>= \gamma
+<span>\(\theta\)
+</span>= \theta
+<span>\(\sigma\)
+</span>= \sigma
+<span>\(\pi\)
+</span>= \pi
+<span>\(\mu\)
+</span>= \mu
+<span>\(\lambda\)
+</span>= \lambda
+<span>\(\omega\)
+</span>= \omega
+<span>\(\phi\)
+</span>= \phi
+<span>\(\varphi\)
+</span>= \varphi
+<span>\(\rho\)
+</span>= \rho</p><h1 id=misc>Misc
+<a class=anchor href=#misc>#</a></h1><p><span>\(\angle\)
+</span>= \angle
+<span>\(\triangle\)
+</span>= \triangle
+<span>\(\square\)
+</span>= \square
+<span>\(\quad (space)\)
+</span>= \quad (space)
+<span>\(\propto\)
+</span>= \propto (propotional to)</p><p><span>\(\because\)
+</span>= \because
+<span>\(\therefore\)
+</span>= \therefore
+<span>\(\mathbb{Z}\)
+</span>= \mathbb{Z}
+<span>\(\mathbb{P}\)
+</span>= \mathbb{P}
+<span>\(\mathbb{R}\)
+</span>= \mathbb{R}
+<span>\(\mathbb{C}\)
+</span>= \mathbb{C}
+<span>\(\Im\)
+</span>= \Im (Imaginary Space)
+<span>\(\Re\)
+</span>= \Re (Real Space)</p><p><span>\(\emptyset\)
+</span>= \emptyset
+<span>\(\varnothing\)
+</span>= \varnothing (以此表示空集合較好看)
+<span>\(\in\)
+</span>= \in
+<span>\(\not\in\)
+</span>= \not\in
+<span>\(\langle S\rangle\)
+</span>= \langel S\rangle (generator)
+<span>\(\chi\)
+</span>= \chi
+<span>\(\circlearrowleft\)
+</span>= \circlearrowleft
+<span>\(\circlearrowright\)
+</span>= \circlearrowright
+<span>\(\curvearrowleft\)
+</span>= \curvearrowleft
+<span>\(\curvearrowright\)
+</span>= \curvearrowright
+<span>\(\hbar\)
+</span>= \hbar (Planck&rsquo;s Constant)</p><p><a href=https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Set_and.2For_logic_notation>https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Set_and.2For_logic_notation</a></p><h1 id=format>Format
+<a class=anchor href=#format>#</a></h1><h2 id=style>Style
+<a class=anchor href=#style>#</a></h2><span>\[
+\style{background-color:#eeeeee}{\frac{x+1}{y+2}}
+\]</span><pre tabindex=0><code>\style{background-color:#eeeeee}{\frac{x+1}{y+2}}  % 直接以 CSS 改變 style
+</code></pre><span>\[
+f(x) = a{\color{red}{x}} + b
+\]</span><pre tabindex=0><code>f(x) = a{\color{red}{x}} + b
+% 或
+f(x) = a{\color{#ff0000}{x}} + b
+</code></pre><span>\[
+\require{color}
+\colorbox{#eeeeee}{Color Box}
+\]</span><pre tabindex=0><code>\require{color}
+\colorbox{#eeeeee}{Color Box}
+</code></pre><span>\[
+{\cal ABCDE12345abcde}
+\]</span><pre tabindex=0><code>{\cal ABCDE12345abced} % callgraphic mode
+</code></pre><span>\[
+\fbox{boxed text}
+\]</span><pre tabindex=0><code>\fbox{boxed text}      % in textstyle
+</code></pre><span>\[
+\boxed{boxed\ text}
+\]</span><pre tabindex=0><code>\boxed{boxed\ text}    % in displaystyle
+</code></pre><span>\[
+\text{text <span>\(E=mc^2\)
+</span>}
+\]</span><pre tabindex=0><code>\text{text <span>
+  \(E=mc^2\)
+</span>
+}
+</code></pre><span>\[
+{\frak ABCDE12345abcde}
+\]</span><pre tabindex=0><code>{\frak ABCDE12345abcde}
+</code></pre><span>\[
+{\it abefg12345}\ abcdefg12345
+\]</span><pre tabindex=0><code>{\it abefg12345}\ abcdefg12345   % italic
+</code></pre><span>\[
+\min\limits_{n}
+\]</span><pre tabindex=0><code>\min\limits_{n}
+</code></pre><h2 id=automatic-sizing>Automatic Sizing
+<a class=anchor href=#automatic-sizing>#</a></h2><span>\[
+\{x \mid x\gt 1\}\text{ 與 }\{x | x\gt 1\}
+\]</span><pre tabindex=0><code>\{x \mid x\gt 1\}     % 請用 \mid 寫 Set 才好看
+</code></pre><span>\[
+\left( \dfrac{x^2}{y^3} \right)
+\]</span><pre tabindex=0><code>\left(\dfrac{x^2}{y^3}\right)
+</code></pre><span>\[
+\left\{ \dfrac{1}{2} \right\}
+\]</span><pre tabindex=0><code>\left\{ \dfrac{1}{2} \right\}
+</code></pre><span>\[
+f(x) = \left\{
+\begin{array}{r}
+x + by = c \\
+dx + ey = f
+\end{array}
+\right.
+\]</span><pre tabindex=0><code>f(x) = \left\{
+\begin{array}{r}
+   x + by = c \\
+  dx + ey = f 
+\end{array}
+\right.
+
+% {r} for right alignment within array
+% {l} for left alignment within array
+% 或
+
+\array{
+   x + by = c \\
+  dx + ey = f 
+}
+</code></pre><span>\[
+z = \overbrace{
+\underbrace{x}_\text{real} + i
+\underbrace{y}_\text{imaginary}
+}^\text{complex number}
+\]</span><pre tabindex=0><code>z = \overbrace{
+    \underbrace{x}_\text{real} + i
+    \underbrace{y}_\text{imaginary}
+}^\text{complex number}
+</code></pre><h2 id=alignment>Alignment
+<a class=anchor href=#alignment>#</a></h2><span>\[
+\begin{aligned}
+f(x) &= ax + by + cz + d \\
+     &= 2x + 3y + 5z + 1
+\end{aligned}
+\]</span><pre tabindex=0><code>\begin{aligned}
+f(x) &amp;= ax + by + cz + d \\
+     &amp;= 2x + 3y + 5z + 1
+\end{aligned}
+
+% 或
+
+\begin{align}
+f(x) &amp;= ax + by + cz + d \\
+     &amp;= 2x + 3y + 5z + 1
+\end{align}
+
+% 或
+
+\eqalign{
+f(x) &amp;= ax + by + cz + d \\
+     &amp;= 2x + 3y + 5z + 1
+}
+</code></pre><span>\[
+\begin{cases}n/2, & \text{if <span>\(n\)
+</span>is even} \\
+3n+1, & \text{if <span>\(n\)
+</span>is odd}
+\end{cases}
+\]</span><pre tabindex=0><code>\begin{cases}
+  n/2, &amp; \text{if <span>
+  \(n\)
+</span>
+ is even} \\
+  3n+1, &amp; \text{if <span>
+  \(n\)
+</span>
+ is odd}
+\end{cases}
+
+% 或
+
+\cases{
+  n/2, &amp; \text{if <span>
+  \(n\)
+</span>
+ is even} \\
+  3n+1, &amp; \text{if <span>
+  \(n\)
+</span>
+ is odd}
+}
+</code></pre><span>\[
+\begin{pmatrix}
+aaa & bbb \\
+ cc & dd
+\end{pmatrix}
+
+\]</span><pre tabindex=0><code>\begin{pmatrix}
+ aaa &amp; bbb \\
+ cc &amp; dd
+\end{pmatrix}
+</code></pre><span>\[
+\begin{matrix}
+xxxxxx & xxxxxx & xxxxxx \cr
+  ab & \hfil ab & ab\hfil \cr
+\end{matrix}
+
+\]</span><pre tabindex=0><code>\begin{matrix}
+  xxxxxx &amp; xxxxxx &amp; xxxxxx \cr
+  ab &amp; \hfil ab &amp; ab\hfil \cr    % 以 \hfil 自動填空
+\end{matrix}
+</code></pre><span>\[
+\begin{array}{rrrrrr|r}
+& x_1 & x_2 & s_1 & s_2 & s_3 &    \\ \hline
+s_1 &   0 &   1 &   1 &   0 &   0 &  8 \\
+s_2 &   1 &  -1 &   0 &   1 &   0 &  4 \\
+s_3 &   1 &   1 &   0 &   0 &   1 & 12 \\ \hline
+&  -1 &  -1 &   0 &   0 &   0 &  0
+\end{array}
+\]</span><pre tabindex=0><code>\begin{array}{rrrrrr|r}
+       &amp; x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp;    \\ \hline
+   s_1 &amp;   0 &amp;   1 &amp;   1 &amp;   0 &amp;   0 &amp;  8 \\
+   s_2 &amp;   1 &amp;  -1 &amp;   0 &amp;   1 &amp;   0 &amp;  4 \\
+   s_3 &amp;   1 &amp;   1 &amp;   0 &amp;   0 &amp;   1 &amp; 12 \\ \hline
+       &amp;  -1 &amp;  -1 &amp;   0 &amp;   0 &amp;   0 &amp;  0
+\end{array}
+</code></pre><h1 id=advanced>Advanced
+<a class=anchor href=#advanced>#</a></h1><span>\[
+\overset{上組合技}{\implies} 或\underset{下組合技}{\impliedby}
+\]</span><pre tabindex=0><code>\overset{上組合技}{\implies} 或 \underset{下組合技}{\impliedby}
+</code></pre><span>\[
+\require{extpfeil}
+x\xtofrom[f^{-1}]{f} y
+\]</span><pre tabindex=0><code>\require{extpfeil}
+x \xtofrom[f^{-1}]{f} y
+</code></pre><span>\[
+\require{mhchem}
+x \xrightleftharpoons[f^{-1}]{f} y
+\]</span><pre tabindex=0><code>\require{mhchem}
+x \xrightleftharpoons[f^{-1}]{f} y
+</code></pre><span>\[
+\require{ams}
+\begin{equation}
+\tag{1}\label{eq:eq_1} E = mc^2
+\end{equation}
+\]</span><pre tabindex=0><code>\require{ams}
+\begin{equation}
+   \tag{1}\label{eq:eq_1} E = mc^2 
+\end{equation}
+% MathJax 照理說已支援 Auto Number，但 HackMD 不支援。
+% 只能手動自己加 \tag{1}\label{eq:equation_name}
+</code></pre><span>\[
+reference\ equation\eqref{eq:eq_1}
+\]</span><pre tabindex=0><code>reference\ equation\eqref{eq:eq_1}
+</code></pre><span>\[
+\begin{equation*}
+E = mc^2
+\end{equation*}
+\]</span><pre tabindex=0><code>\begin{equation*}
+  E = mc^2
+\end{equation*}
+% 不加入 Auto Number，但在 HackMD 上沒差別。
+</code></pre><span>\[
+\def \kton{\sum\limits_{k=0}^{n}}
+\begin{aligned}
+(1+\frac{1}{n})^n &= \kton \binom{n}{k}1^{n-k}(\frac{1}{n})^{k}\\
+&= \kton \binom{n}{k} \frac{1}{n^{k}}\\
+&= \kton \frac{n!}{k!(n-k)!}\times\frac{1}{n^k}\\
+&= \kton \frac{1}{k!} \frac{\overbrace{n(n-1)(n-2)\ldots(n-k+1)}^{共\ k\ 項}}{n^k}\\
+&= \kton \frac{1}{k!} (\frac{n}{n}\frac{n-1}{n}\cdots\frac{n-k+1}{n})
+\end{aligned}
+\]</span><pre tabindex=0><code>% 若命令又長又重複，可用 \def 自訂
+
+\def \kton{\sum\limits_{k=0}^{n}}
+\begin{aligned}
+  (1+\frac{1}{n})^n &amp;= \kton \binom{n}{k}1^{n-k}(\frac{1}{n})^{k}\\
+  &amp;= \kton \binom{n}{k} \frac{1}{n^{k}}\\
+  &amp;= \kton \frac{n!}{k!(n-k)!}\times\frac{1}{n^k}\\
+  &amp;= \kton \frac{1}{k!} \frac{\overbrace{n(n-1)(n-2)\ldots(n-k+1)}^{共\ k\ 項}}{n^k}\\
+  &amp;= \kton \frac{1}{k!} (\frac{n}{n}\frac{n-1}{n}\cdots\frac{n-k+1}{n})
+\end{aligned}
+</code></pre><span>\[
+\DeclareMathOperator {\total}{總計}
+\total_a^b(x)
+\]</span><pre tabindex=0><code>\DeclareMathOperator {\total}{總計}
+\total_a^b(x)
+% 自訂 Operator，命名限 [a-z|A-Z]，不可含數字。
+</code></pre><h2 id=微調字體字距>微調字體、字距
+<a class=anchor href=#%e5%be%ae%e8%aa%bf%e5%ad%97%e9%ab%94%e5%ad%97%e8%b7%9d>#</a></h2><h3 id=font>Font
+<a class=anchor href=#font>#</a></h3><span>\[
+\mathbb{ABCDE12345abcde}
+\]</span><p>\mathbb - Used to turn on blackboard-bold for uppercase letters and lowercase &lsquo;k&rsquo;.</p><span>\[
+\mathbf{ABCDE12345abcde}
+\]</span><p>\mathbf - Used to turn on boldface for uppercase and lowercase letters and digits.</p><span>\[
+\mathit{ABCDE12345abcde}
+\]</span><p>\mathit - forces the math italic mode.</p><span>\[
+\mathcal{ABCDE12345abcde}
+\]</span><p>\mathcal - Used to turn on calligraphic font for uppercase letters and digits.</p><span>\[
+\mathfrak{ABCDE12345abcde}
+\]</span><p>\mathfrak - turn on fraktur font for uppercase and lowercase letters and digits (and a few other characters).</p><span>\[
+\mathrm{ABCDE12345abcde}
+\]</span><p>\mathrm - Used to turn on roman typestyle for uppercase and lowercase letters.</p><span>\[
+\mathscr{ABCDE12345abcde}
+\]</span><p>\mathscr - Used to turn on script typestyle for uppercase letters. If lowercase script letters are not available, then they are typeset in a roman typestyle.</p><span>\[
+\mathsf{ABCDE12345abcde}
+\]</span><p>\mathsf - Used to turn on sans serif typestyle for uppercase and lowercase letters and digits; also affects uppercase greek.</p><span>\[
+\mathtt{ABCDE12345abcde}
+\]</span><p>\mathtt - Used to turn on typewriter typestyle for uppercase and lowercase letters and digits.</p><span>\[
+\oldstyle{ABCDE12345abcde}
+\]</span><p>\oldstyle - Used to turn on oldstyle font.</p><h3 id=operator-class-assignment>Operator (Class Assignment)
+<a class=anchor href=#operator-class-assignment>#</a></h3><p>\mathord - forces the argument to be treated in the &lsquo;ordinary&rsquo; class.
+\mathrel - forces the argument to be treated in the &lsquo;relation&rsquo; class.
+\mathinner - forces the argument to appear &lsquo;inside&rsquo; other formulas, and should be surrounded by additional space in certain circumstances.
+\mathbin - Used to give the correct spacing to make an object into a binary operator.
+\mathstrut - Used to achieve more uniform appearance in adjacent formulas as an invisible box whose width is zero.
+\mathpunct
+\mathopen
+\mathclose
+\mathop</p><pre tabindex=0><code>\mathxxx{argument}
+</code></pre><p>\mathchoice - provides content that is dependent on the current style (display, text, script, or scriptscript).</p><pre tabindex=0><code>\mathchoice{D}{T}{S}{SS}
+</code></pre><h1 id=more>More
+<a class=anchor href=#more>#</a></h1><ul><li><a href=https://en.wikibooks.org/wiki/LaTeX/Mathematics>https://en.wikibooks.org/wiki/LaTeX/Mathematics</a></li><li><a href=https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#Custom_operators>https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#Custom_operators</a></li><li><a href=https://en.wikibooks.org/wiki/LaTeX/Mathematics#Adding_text_to_equations>https://en.wikibooks.org/wiki/LaTeX/Mathematics#Adding_text_to_equations</a></li><li><a href=https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference>MathJax Tutorial</a></li><li><a href=https://tex.stackexchange.com/>https://tex.stackexchange.com/</a></li><li><a href=http://detexify.kirelabs.org/classify.html>手寫辨認查詢</a></li><li><a href=http://docs.mathjax.org/en/latest/input/tex/macros/index.html>MathJax Commands</a></li><li><a href=https://www.sascha-frank.com/Arrow/latex-arrows.html>LaTeX Arrows</a></li><li><a href=https://en.wikipedia.org/wiki/List_of_logic_symbols>https://en.wikipedia.org/wiki/List_of_logic_symbols</a></li><li><a href=https://rintaroutw.github.io/LaTeX4TwitchChat/><span>\(\LaTeX\)
+</span>for Twitch Chat</a></li></ul><h6 id=tags-latex>tags: <code>LaTeX</code>
+<a class=anchor href=#tags-latex>#</a></h6></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/bernie6401/bernie6401.github.io/edit/main/demo/content/docs/test/$_LaTeX$%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#hahahugoshortcode596s1hbhb-語法筆記>HAHAHUGOSHORTCODE596s1HBHB 語法筆記</a></li><li><a href=#operatorrelation>Operator/Relation</a></li><li><a href=#function>Function</a></li><li><a href=#matrix>Matrix</a></li><li><a href=#greek>Greek</a></li><li><a href=#misc>Misc</a></li><li><a href=#format>Format</a><ul><li><a href=#style>Style</a></li><li><a href=#automatic-sizing>Automatic Sizing</a></li><li><a href=#alignment>Alignment</a></li></ul></li><li><a href=#advanced>Advanced</a><ul><li><a href=#微調字體字距>微調字體、字距</a><ul><li><a href=#font>Font</a></li><li><a href=#operator-class-assignment>Operator (Class Assignment)</a></li></ul></li></ul></li><li><a href=#more>More</a><ul><li><ul><li></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>

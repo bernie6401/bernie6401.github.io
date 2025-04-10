@@ -1,4 +1,478 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX on SBK Site</title><link>https://bernie6401.github.io/tags/latex/</link><description>Recent content in LaTeX on SBK Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml"/><item><title>$\LaTeX$ 語法筆記</title><link>https://bernie6401.github.io/docs/tools/others/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/</guid><description>&lt;blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX on SBK Site</title><link>https://bernie6401.github.io/tags/latex/</link><description>Recent content in LaTeX on SBK Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml"/><item><title>$\LaTeX$ 語法筆記</title><link>https://bernie6401.github.io/docs/test/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/test/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/</guid><description>&lt;blockquote>
+&lt;p>HackMD 是透過 MathJax 支援 
+&lt;link rel="stylesheet" href="https://bernie6401.github.io/katex/katex.min.css" />
+&lt;script defer src="https://bernie6401.github.io/katex/katex.min.js">&lt;/script>
+&lt;script defer src="https://bernie6401.github.io/katex/auto-render.min.js" onload="renderMathInElement(document.body);">&lt;/script>&lt;span>
+ \(\LaTeX\)
+&lt;/span>
+ ，雖未支援所有語法，對多數人應已足夠，一起把 Web 上醜死的公式換成美美的吧～&lt;/p>&lt;/blockquote>
+&lt;h1 id="hahahugoshortcode596s1hbhb-語法筆記">
+ &lt;span>
+ \(\LaTeX\)
+&lt;/span>
+ 語法筆記
+ &lt;a class="anchor" href="#hahahugoshortcode596s1hbhb-%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98">#&lt;/a>
+&lt;/h1>
+&lt;span>
+ \[
+
+\LaTeX % 大小寫須正確
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\LaTeX % 大小寫須正確
+
+&lt;span>
+ \(\textstyle\)
+&lt;/span>
+
+&lt;span>
+ \[
+\displaystyle
+\]
+&lt;/span>
+
+%comment
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\grave apple % 標重音
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\grave apple % 標重音
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+{\bf AB} % 粗體 boldface
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>{\bf AB} % 粗體 boldface
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\bar{A}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\bar{A}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+{ a+b \brace c+d }
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>{ a+b \brace c+d }
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\overline{AB}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\overline{AB}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\vec{v}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\vec{v}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\frac{b}{a}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\frac{b}{a}
+% 或
+{b \over a}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\dfrac{b}{a}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\dfrac{b}{a} % d for \displaystyle
+\tfrac{b}{a} % t for \textstyle
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+90^\circ
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>90^\circ
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+e^{\theta i}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>e^{\theta i}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+S_{n}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>S_{n}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\lim\limits_{n\to \infty}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\lim\limits_{n\to \infty}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\sum\limits_{x = 0}^k{x^2}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\sum\limits_{x = 0}^k{x^2}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\bigcup\limits_{i = 1}^{\infty}{U_i}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\bigcup\limits_{i = 1}^{\infty}{U_i}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\bigcap\limits_{i = 1}^{\infty}{U_i}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\bigcap\limits_{i = 1}^{\infty}{U_i}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\mathop{\vcenter{\huge\times}}_\limits{i=1}^n{U_i}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\mathop{\vcenter{\huge\times}}_\limits{i=1}^n{U_i}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\int_a^b x^2 \mathrm{d} x
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\int_a^b x^2 \mathrm{d} x
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\sqrt[n]{1+x+x^2+x^3+\dots+x^n}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\sqrt[n]{1+x+x^2+x^3+\dots+x^n}
+% 或
+\root n \of {1+x+x^2+x^3+\dots+x^n}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+A \implies B
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>A \implies B
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+A \impliedby B
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>A \impliedby B
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+A \iff B
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>A \iff B
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+f: A \to B
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>f: A \to B
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+A \leftarrow B 
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>A \leftarrow B
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\xrightarrow{中文亦可}\ \xleftarrow{中文亦可}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\xrightarrow{中文亦可}\ \xleftarrow{中文亦可}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+a\,\overset{?}{=}\,b
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>a\,\overset{?}{=}\,b
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\forall x \in X, \exists x \in b
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\forall x \in X, \exists x \in b
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\not\in, \not\gt, \not\lt, \not=
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\not\in, \not\gt, \not\lt, \not= % 利用 \not 組合表示否定
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+a_{1}, a_{2}, \ldots, a_{n}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>a_{1}, a_{2}, \ldots, a_{n}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+a_{1} + a_{2} + \cdots + a_{n}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>a_{1} + a_{2} + \cdots + a_{n}
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\begin{pmatrix}
+ a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}?
+ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}\\
+ \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+ a_{m1} &amp; \cdots &amp; \cdots &amp; a_{mn}
+\end{pmatrix}
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\begin{pmatrix}
+ a_{11} &amp;amp; a_{12} &amp;amp; \cdots &amp;amp; a_{1n}\\
+ a_{21} &amp;amp; a_{22} &amp;amp; \cdots &amp;amp; a_{2n}\\
+ \vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \vdots\\
+ a_{m1} &amp;amp; \cdots &amp;amp; \cdots &amp;amp; a_{mn}
+\end{pmatrix}
+
+% ldots: low dots
+% cdots: center dots
+% ddots: diagonal dots
+% vdots: vertical dots
+&lt;/code>&lt;/pre>&lt;span>
+ \[
+
+\left\{
+ \begin{array}{c}
+ a_1x+b_1y+c_1z=d_1 \\ 
+ a_2x+b_2y+c_2z=d_2 \\ 
+ a_3x+b_3y+c_3z=d_3
+ \end{array}
+\right.
+
+\]
+&lt;/span>
+
+&lt;pre tabindex="0">&lt;code>\left\{ 
+ \begin{array}{c}
+ a_1x+b_1y+c_1z=d_1 \\ 
+ a_2x+b_2y+c_2z=d_2 \\ 
+ a_3x+b_3y+c_3z=d_3
+ \end{array}
+\right.
+&lt;/code>&lt;/pre>&lt;h1 id="operatorrelation">
+ Operator/Relation
+ &lt;a class="anchor" href="#operatorrelation">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;span>
+ \(A\times B\)
+&lt;/span>
+ = A\times B
+&lt;span>
+ \(a\cdot b\)
+&lt;/span>
+ = a\cdot b
+&lt;span>
+ \(\div\)
+&lt;/span>
+ = \div
+&lt;span>
+ \(\pmod n\)
+&lt;/span>
+ = \pmod n
+&lt;span>
+ \(\pm\)
+&lt;/span>
+ = \pm (plus and minus)
+&lt;span>
+ \(\partial\)
+&lt;/span>
+ = \partial
+&lt;span>
+ \(\oplus\)
+&lt;/span>
+ = \oplus
+&lt;span>
+ \(\&amp;\)
+&lt;/span>
+= \&amp;amp;
+&lt;span>
+ \(\gt\)
+&lt;/span>
+ = \gt (greater than)
+&lt;span>
+ \(\lt\)
+&lt;/span>
+ = \lt (less than)
+&lt;span>
+ \(\ge\)
+&lt;/span>
+ = \ge (greater or equal)
+&lt;span>
+ \(\le\)
+&lt;/span>
+ = \le (less or equal)
+&lt;span>
+ \(\lhd\)
+&lt;/span>
+ = \lhd (normal subgroup)
+&lt;span>
+ \(\unlhd\)
+&lt;/span>
+ = \unlhd
+&lt;span>
+ \(\ne\)
+&lt;/span>
+ = \ne (not equal)
+&lt;span>
+ \(\approx\)
+&lt;/span>
+ = \approx (approximate to)
+&lt;span>
+ \(\sim\)
+&lt;/span>
+ = \sim (similar)
+&lt;span>
+ \(\cong\)
+&lt;/span>
+ = \cong (congruent)
+&lt;span>
+ \(\equiv\)
+&lt;/span>
+ = \equiv (equivalent)
+&lt;span>
+ \(\ll\)
+&lt;/span>
+ = \ll, much less than
+&lt;span>
+ \(\gg\)
+&lt;/span>
+ = \gg, much greater than
+&lt;span>
+ \(\nless\)
+&lt;/span>
+ = \nless, not less than
+&lt;span>
+ \(\ngtr\)
+&lt;/span>
+ = \ngtr, not greater than
+&lt;span>
+ \(\cap\)
+&lt;/span>
+ = \cap, 像帽子, intersection
+&lt;span>
+ \(\cup\)
+&lt;/span>
+ = \cup, 像杯子, union
+&lt;span>
+ \(\subset\)
+&lt;/span>
+ = \subset, or implied
+&lt;span>
+ \(\supset\)
+&lt;/span>
+ = \superset, or implies
+&lt;span>
+ \(\subseteq\)
+&lt;/span>
+ = \subseteq
+&lt;span>
+ \(\supseteq\)
+&lt;/span>
+ = \supseteq
+&lt;span>
+ \(\land\)
+&lt;/span>
+ = \land (logical and); \wedge (wedge product)
+&lt;span>
+ \(\lor\)
+&lt;/span>
+ = \lor (logical or)&lt;/p></description></item><item><title>$\LaTeX$ 語法筆記</title><link>https://bernie6401.github.io/docs/tools/others/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/tools/others/_latex-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/</guid><description>&lt;blockquote>
 &lt;p>HackMD 是透過 MathJax 支援 $\LaTeX$ ，雖未支援所有語法，對多數人應已足夠，一起把 Web 上醜死的公式換成美美的吧～&lt;/p>&lt;/blockquote>
 &lt;h1 id="latex-語法筆記">
  $\LaTeX$ 語法筆記
