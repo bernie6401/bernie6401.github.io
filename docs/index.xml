@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on SBK Site</title><link>https://bernie6401.github.io/docs/</link><description>Recent content in Docs on SBK Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://bernie6401.github.io/docs/test/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bernie6401.github.io/docs/test/</guid><description>&lt;h1 id="sample-hackmd-test">
- Sample HackMD Test
- &lt;a class="anchor" href="#sample-hackmd-test">#&lt;/a>
-&lt;/h1>
-&lt;p>{% hint info %}
-This is an info box.
-{% /hint %}&lt;/p>
-&lt;p>{% hint warning %}
-This is a warning box.
-{% /hint %}&lt;/p>
-&lt;p>{% hint danger %}
-This is a danger box.
-{% /hint %}&lt;/p>
-&lt;p>{% details title=&amp;ldquo;Click to reveal&amp;rdquo; open=false %}
-This is hidden content.
-{% /details %}&lt;/p>
-&lt;p>Here is some inline math: {&amp;lt; katex &amp;gt;}E = mc^2{&amp;lt; /katex &amp;gt;}.&lt;/p>
-&lt;p>Here is display math:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on SBK Site</title><link>https://bernie6401.github.io/docs/</link><description>Recent content in Docs on SBK Site</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bernie6401.github.io/docs/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
