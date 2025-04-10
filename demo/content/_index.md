@@ -12,7 +12,7 @@ This is a warning box.
 This is a danger box.
 {{% /hint %}}
 
-{{% details title=Click to reveal open=false %}}
+{{% details title="Click to reveal" open=false %}}
 This is hidden content.
 {{% /details %}}
 

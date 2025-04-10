@@ -13,7 +13,7 @@ def convert_hackmd_to_hugo(content):
     # Convert spoiler
     content = re.sub(
         r"::: *spoiler *(.*?)\n(.*?)\n:::",
-        lambda m: '{{% details title=' + m.group(1).strip() + " open=false %}}\n" + m.group(2) + '\n{{% /details %}}',
+        lambda m: '{{% details title="' + m.group(1).strip() + '" open=false %}}\n' + m.group(2) + '\n{{% /details %}}',
         content,
         flags=re.DOTALL
     )
