@@ -1,7 +1,7 @@
 ---
 title: Introduction
 type: docs
--
+---
 
 # Sample HackMD Test
 
