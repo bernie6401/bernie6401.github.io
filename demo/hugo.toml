@@ -14,7 +14,7 @@ theme = 'book'
 [params]
   BookTheme = 'dark'
   BookToC = true
-  BookFavicon = "favicon.jpg"
+  BookLogo = 'logo.jpg'
   BookRepo = 'https://github.com/bernie6401/bernie6401.github.io'
   BookCommitPath = 'commit'
   BookEditPath = 'edit/main/demo'
