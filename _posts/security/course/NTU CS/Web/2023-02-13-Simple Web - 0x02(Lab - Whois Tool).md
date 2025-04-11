@@ -2,6 +2,7 @@
 title: Simple Web - 0x02(Lab - Whois Tool)
 tags: [CTF, Web, eductf]
 
+category: "Security > Course > NTU CS > Web"
 ---
 
 # Simple Web - 0x02(Lab - Whois Tool)

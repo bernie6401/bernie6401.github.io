@@ -2,6 +2,7 @@
 title: PicoCTF - No way out
 tags: [PicoCTF, CTF, Reverse]
 
+category: "Security > Practice > PicoCTF > Reverse"
 ---
 
 # PicoCTF - No way out

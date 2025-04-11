@@ -2,6 +2,7 @@
 title: Simple Web 0x22(Lab - Pug)
 tags: [NTUSTWS, CTF, Web]
 
+category: "Security > Course > NTUST WS > SSTI"
 ---
 
 # Simple Web 0x22(Lab - Pug)

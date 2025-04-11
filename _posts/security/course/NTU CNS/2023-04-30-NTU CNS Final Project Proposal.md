@@ -2,6 +2,7 @@
 title: NTU CNS Final Project Proposal
 tags: [NTUCNS, NTU]
 
+category: "Security > Course > NTU CNS"
 ---
 
 # NTU CNS Final Project Proposal

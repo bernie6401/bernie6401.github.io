@@ -2,6 +2,7 @@
 title: PicoCTF - john_pollard
 tags: [PicoCTF, CTF, Crypto]
 
+category: "Security > Practice > PicoCTF > Crypto > RSA"
 ---
 
 # PicoCTF - john_pollard

@@ -1,6 +1,7 @@
 ---
 title: Emoji Test
 tags:
+category: "原始文章"
 ---
 
 This is an emoji test. :smile: lol.

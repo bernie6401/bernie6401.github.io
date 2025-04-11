@@ -2,6 +2,7 @@
 title: NTU CS 2023 HW1 Write Up
 tags: [eductf, CTF, Crypto]
 
+category: "Security > Course > NTU CS > Crypto"
 ---
 
 # NTU CS 2023 HW1 Write Up

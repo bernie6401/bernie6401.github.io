@@ -2,6 +2,7 @@
 title: Adworld - Misc文件類型
 tags: [Adworld, CTF, Misc]
 
+category: "Security > Practice > Adworld > Misc"
 ---
 
 # Adworld - Misc文件類型

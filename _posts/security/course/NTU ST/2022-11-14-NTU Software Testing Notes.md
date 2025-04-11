@@ -2,6 +2,7 @@
 title: NTU Software Testing Notes
 tags: [NTU_ST, Software Testing, NTU]
 
+category: "Security > Course > NTU ST"
 ---
 
 # NTU Software Testing Notes

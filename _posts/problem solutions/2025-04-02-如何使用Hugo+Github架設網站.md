@@ -2,6 +2,7 @@
 title: 如何使用Hugo+Github架設網站
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # 如何使用Hugo+Github架設網站

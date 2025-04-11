@@ -2,6 +2,7 @@
 title: PicoCTF - buffer overflow 2
 tags: [PicoCTF, CTF, PWN]
 
+category: "Security > Practice > PicoCTF > PWN"
 ---
 
 # PicoCTF - buffer overflow 2

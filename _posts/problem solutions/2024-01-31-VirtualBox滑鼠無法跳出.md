@@ -2,6 +2,7 @@
 title: VirtualBox滑鼠無法跳出
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # VirtualBox滑鼠無法跳出

@@ -2,6 +2,7 @@
 title: HackTheBox
 tags: [CTF, hackthebox]
 
+category: "Security > Practice > HackTheBox"
 ---
 
 # HackTheBox

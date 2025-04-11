@@ -2,6 +2,7 @@
 title: PicoCTF - Very Smooth
 tags: [PicoCTF, CTF, Crypto]
 
+category: "Security > Practice > PicoCTF > Crypto > RSA"
 ---
 
 # PicoCTF - Very Smooth

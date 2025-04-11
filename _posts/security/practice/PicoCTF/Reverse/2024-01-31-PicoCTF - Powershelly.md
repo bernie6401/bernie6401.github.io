@@ -2,6 +2,7 @@
 title: PicoCTF - Powershelly
 tags: [PicoCTF, CTF, Reverse]
 
+category: "Security > Practice > PicoCTF > Reverse"
 ---
 
 # PicoCTF - Powershelly

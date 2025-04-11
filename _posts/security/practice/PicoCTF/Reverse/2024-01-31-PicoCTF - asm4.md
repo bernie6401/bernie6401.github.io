@@ -2,6 +2,7 @@
 title: PicoCTF - asm4
 tags: [PicoCTF, CTF, Reverse]
 
+category: "Security > Practice > PicoCTF > Reverse"
 ---
 
 # PicoCTF - asm4

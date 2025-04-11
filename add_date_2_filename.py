@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 
 # 修改這裡成你存放文章的資料夾
-POSTS_DIR = "myblog/_posts/"
+POSTS_DIR = "_posts/"
 
 # 確保資料夾存在
 if not os.path.isdir(POSTS_DIR):

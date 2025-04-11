@@ -2,6 +2,7 @@
 title: PicoCTF - Stonk Market
 tags: [PicoCTF, CTF, PWN]
 
+category: "Security > Practice > PicoCTF > PWN"
 ---
 
 # PicoCTF - Stonk Market

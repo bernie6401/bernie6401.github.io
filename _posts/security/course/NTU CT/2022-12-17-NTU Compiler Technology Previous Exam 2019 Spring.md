@@ -2,6 +2,7 @@
 title: NTU Compiler Technology Previous Exam 2019 Spring
 tags: [NTU_CT, NTU]
 
+category: "Security > Course > NTU CT"
 ---
 
 # NTU Compiler Technology Previous Exam 2019 Spring

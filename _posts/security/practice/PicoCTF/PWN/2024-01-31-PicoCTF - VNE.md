@@ -2,6 +2,7 @@
 title: PicoCTF - VNE
 tags: [PicoCTF, PWN, CTF]
 
+category: "Security > Practice > PicoCTF > PWN"
 ---
 
 # PicoCTF - VNE

@@ -2,6 +2,7 @@
 title: Node Related
 tags: [名詞解釋]
 
+category: "Terminology"
 ---
 
 # Node Related

@@ -2,6 +2,7 @@
 title: TaiwanHolyHigh - Windows Forensics - Background
 tags: [TaiwanHolyHigh, Forensics, Windows]
 
+category: "Security > Course > Tai.HolyHigh > Windows OS Forensics"
 ---
 
 # TaiwanHolyHigh - Windows Forensics - Background

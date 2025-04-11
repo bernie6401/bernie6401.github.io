@@ -2,6 +2,7 @@
 title: 'CrewCTF - :-1: Questions'
 tags: [CrewCTF, CTF]
 
+category: "Security > Practice > CrewCTF > Bad"
 ---
 
 # Challenge: findme

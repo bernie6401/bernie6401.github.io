@@ -5,6 +5,7 @@ tags: [problem solution]
 draft: false
 toc: true
 comments: true
+category: "Problem Solutions"
 ---
 
 # 如何使用Jekyll架設Blog

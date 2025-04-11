@@ -2,6 +2,7 @@
 title: Programming Related
 tags: [名詞解釋]
 
+category: "Terminology"
 ---
 
 # Programming Related

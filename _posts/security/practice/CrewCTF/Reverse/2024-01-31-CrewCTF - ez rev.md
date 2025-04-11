@@ -2,6 +2,7 @@
 title: CrewCTF - ez rev
 tags: [CTF, CrewCTF, Reverse]
 
+category: "Security > Practice > CrewCTF > Reverse"
 ---
 
 # CrewCTF - ez rev

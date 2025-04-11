@@ -2,6 +2,7 @@
 title: BTLO - Bruteforce
 tags: [BTLO, Incident Response]
 
+category: "Security > Practice > BTLO > Incident Response"
 ---
 
 # BTLO - Bruteforce

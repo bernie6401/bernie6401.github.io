@@ -2,6 +2,7 @@
 title: NTU Machine Learning Homework 2
 tags: [NTU_ML, Machine Learning, NTU]
 
+category: "Security > Course > NTU ML"
 ---
 
 # NTU Machine Learning Homework 2

@@ -2,6 +2,7 @@
 title: How How to use Mailgun/Resend as SMTP server?
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # How How to use Mailgun/Resend as SMTP server?

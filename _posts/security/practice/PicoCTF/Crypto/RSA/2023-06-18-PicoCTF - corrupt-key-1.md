@@ -2,6 +2,7 @@
 title: PicoCTF - corrupt-key-1
 tags: [PicoCTF, CTF, Crypto]
 
+category: "Security > Practice > PicoCTF > Crypto > RSA"
 ---
 
 # PicoCTF - corrupt-key-1

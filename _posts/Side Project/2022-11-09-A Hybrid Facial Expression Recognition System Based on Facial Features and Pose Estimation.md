@@ -2,6 +2,7 @@
 title: A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation
 tags: [NTUST, Special Topic]
 
+category: "Side Project"
 ---
 
 # A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation

@@ -2,6 +2,7 @@
 title: Simple PWN 0x35(2023 Lab - Stack Pivot)
 tags: [eductf, CTF, PWN]
 
+category: "Security > Course > NTU CS > PWN"
 ---
 
 # Simple PWN 0x35(2023 Lab - Stack Pivot)

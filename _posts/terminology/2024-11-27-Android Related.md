@@ -2,6 +2,7 @@
 title: Android Related
 tags: [名詞解釋]
 
+category: "Terminology"
 ---
 
 # Android Related

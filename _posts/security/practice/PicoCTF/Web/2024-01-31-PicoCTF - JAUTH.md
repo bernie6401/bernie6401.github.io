@@ -2,6 +2,7 @@
 title: PicoCTF - JAUTH
 tags: [Web, PicoCTF, CTF]
 
+category: "Security > Practice > PicoCTF > Web"
 ---
 
 # PicoCTF - JAUTH

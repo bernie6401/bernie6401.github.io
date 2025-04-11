@@ -2,6 +2,7 @@
 title: PicoCTF - Sequences
 tags: [PicoCTF, CTF, Crypto]
 
+category: "Security > Practice > PicoCTF > Crypto > Classic"
 ---
 
 # PicoCTF - Sequences

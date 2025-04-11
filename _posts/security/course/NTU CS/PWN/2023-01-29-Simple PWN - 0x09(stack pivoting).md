@@ -2,6 +2,7 @@
 title: Simple PWN - 0x09(stack pivoting)
 tags: [CTF, PWN, eductf]
 
+category: "Security > Course > NTU CS > PWN"
 ---
 
 # Simple PWN - 0x09(stack pivoting)

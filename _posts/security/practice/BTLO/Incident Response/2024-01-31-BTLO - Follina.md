@@ -2,6 +2,7 @@
 title: BTLO - Follina
 tags: [Incident Response, BTLO]
 
+category: "Security > Practice > BTLO > Incident Response"
 ---
 
 # BTLO - Follina

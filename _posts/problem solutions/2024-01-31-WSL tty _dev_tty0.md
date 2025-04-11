@@ -2,6 +2,7 @@
 title: WSL tty /dev/tty0
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # WSL tty /dev/tty0

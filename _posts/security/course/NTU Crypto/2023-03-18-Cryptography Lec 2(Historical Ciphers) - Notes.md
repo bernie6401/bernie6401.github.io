@@ -2,6 +2,7 @@
 title: Cryptography Lec 2(Historical Ciphers) - Notes
 tags: [Cryptography, NTU]
 
+category: "Security > Course > NTU Crypto"
 ---
 
 # Cryptography Lec 2(Historical Ciphers) - Notes

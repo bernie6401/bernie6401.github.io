@@ -5,6 +5,7 @@ categories:
 - Foo
 tags:
 - Foo
+category: "原始文章"
 ---
 
 This post has a long title. Make sure the title displayed right.

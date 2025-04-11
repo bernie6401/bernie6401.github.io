@@ -2,6 +2,7 @@
 title: Simple PWN - 0x11(format string bug)
 tags: [CTF, PWN, eductf]
 
+category: "Security > Course > NTU CS > PWN"
 ---
 
 # Simple PWN - 0x11(format string bug)

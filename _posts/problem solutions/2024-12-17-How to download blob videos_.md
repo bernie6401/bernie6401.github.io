@@ -2,6 +2,7 @@
 title: How to download blob videos?
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # How to download blob videos?

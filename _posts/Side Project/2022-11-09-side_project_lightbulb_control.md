@@ -2,6 +2,7 @@
 title: side_project_lightbulb_control
 tags: [Side Project]
 
+category: "Side Project"
 ---
 
 # side_project_lightbulb_control

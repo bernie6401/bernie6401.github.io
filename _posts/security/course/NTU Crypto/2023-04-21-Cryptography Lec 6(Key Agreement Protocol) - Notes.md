@@ -2,6 +2,7 @@
 title: Cryptography Lec 6(Key Agreement Protocol) - Notes
 tags: [Cryptography, NTU]
 
+category: "Security > Course > NTU Crypto"
 ---
 
 # Cryptography Lec 6(Key Agreement Protocol) - Notes

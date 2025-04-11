@@ -3,6 +3,7 @@ title: Highlight Test
 categories:
  - Test
 tags:
+category: "原始文章"
 ---
 
 This is a highlight test.

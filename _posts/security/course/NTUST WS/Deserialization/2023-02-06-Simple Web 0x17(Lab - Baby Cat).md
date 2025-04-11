@@ -2,6 +2,7 @@
 title: Simple Web 0x17(Lab - Baby Cat)
 tags: [NTUSTWS, CTF, Web]
 
+category: "Security > Course > NTUST WS > Deserialization"
 ---
 
 # Simple Web 0x17(Lab - Baby Cat)

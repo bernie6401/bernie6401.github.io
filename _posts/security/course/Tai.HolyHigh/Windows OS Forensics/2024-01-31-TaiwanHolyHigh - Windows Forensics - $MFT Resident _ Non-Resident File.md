@@ -2,6 +2,7 @@
 title: TaiwanHolyHigh - Windows Forensics - $MFT Resident / Non-Resident File
 tags: [TaiwanHolyHigh, Forensics, Windows]
 
+category: "Security > Course > Tai.HolyHigh > Windows OS Forensics"
 ---
 
 # TaiwanHolyHigh - Windows Forensics - \$MFT Resident / Non-Resident File

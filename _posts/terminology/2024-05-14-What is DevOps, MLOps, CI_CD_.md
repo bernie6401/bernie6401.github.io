@@ -2,6 +2,7 @@
 title: 'What is DevOps, MLOps, CI/CD?'
 tags: [名詞解釋]
 
+category: "Terminology"
 ---
 
 * [什麼是 DevOps？](https://ithelp.ithome.com.tw/articles/10184557)

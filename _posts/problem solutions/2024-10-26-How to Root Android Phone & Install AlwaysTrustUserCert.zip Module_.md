@@ -2,6 +2,7 @@
 title: How to Root Android Phone & Install AlwaysTrustUserCert.zip Module?
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # How to Root Android Phone & Install AlwaysTrustUserCert.zip Module?

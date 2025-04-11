@@ -2,6 +2,7 @@
 title: A&D of Network Security Note
 tags: [NTU, NTU_PADNS]
 
+category: "Security > Course > NTU PADNS"
 ---
 
 # A&D of Network Security Note

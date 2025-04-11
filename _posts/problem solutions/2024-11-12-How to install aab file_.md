@@ -2,6 +2,7 @@
 title: How to install aab file?
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # How to install aab file?

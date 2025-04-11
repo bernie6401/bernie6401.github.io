@@ -2,6 +2,7 @@
 title: UiAutomatorViewer 常見問題整理
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # UiAutomatorViewer 常見問題整理

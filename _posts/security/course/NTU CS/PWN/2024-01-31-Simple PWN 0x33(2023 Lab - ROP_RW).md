@@ -2,6 +2,7 @@
 title: Simple PWN 0x33(2023 Lab - ROP_RW)
 tags: [eductf, CTF, PWN]
 
+category: "Security > Course > NTU CS > PWN"
 ---
 
 # Simple PWN 0x33(2023 Lab - ROP_RW)

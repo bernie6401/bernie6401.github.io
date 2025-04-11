@@ -2,6 +2,7 @@
 title: NISRA - different places
 tags: [CTF, Web, NISRA, Book]
 
+category: "Security > Practice > NISRA > Web"
 ---
 
 # NISRA - different places

@@ -2,6 +2,7 @@
 title: Simple Web 0x12(Lab - Web Preview Card)
 tags: [NTUSTWS, CTF, Web]
 
+category: "Security > Course > NTU CS > Web"
 ---
 
 # Simple Web 0x12(Lab - Web Preview Card)

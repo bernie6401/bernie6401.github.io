@@ -2,6 +2,7 @@
 title: Cryptography and Network Security – Comparative Critique 2
 tags: [NTUCNS, NTU]
 
+category: "Security > Course > NTU CNS > Paper Critique"
 ---
 
 # Cryptography and Network Security – Comparative Critique 2

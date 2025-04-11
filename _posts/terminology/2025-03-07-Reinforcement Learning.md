@@ -2,6 +2,7 @@
 title: Reinforcement Learning
 tags: [名詞解釋]
 
+category: "Terminology"
 ---
 
 # Reinforcement Learning

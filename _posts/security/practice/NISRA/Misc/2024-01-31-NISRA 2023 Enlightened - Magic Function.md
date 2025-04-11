@@ -2,6 +2,7 @@
 title: NISRA 2023 Enlightened - Magic Function
 tags: [NISRA, CTF, Misc]
 
+category: "Security > Practice > NISRA > Misc"
 ---
 
 # NISRA 2023 Enlightened - Magic Function

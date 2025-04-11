@@ -2,6 +2,7 @@
 title: How to check if the paper is Top Conference or Q1 Journal?
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # How to check if the paper is Top Conference or Q1 Journal?

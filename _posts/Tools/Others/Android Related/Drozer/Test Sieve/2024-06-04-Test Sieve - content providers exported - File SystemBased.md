@@ -2,6 +2,7 @@
 title: Test Sieve - content providers exported - File SystemBased
 tags: [Android, Drozer]
 
+category: "Tools > Others > Android Related > Drozer > Test Sieve"
 ---
 
 # Test Sieve - content providers exported - File SystemBased

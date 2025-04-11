@@ -2,6 +2,7 @@
 title: Machine Learning Hand-write Homework & Answer
 tags: [NTU_ML, Machine Learning, NTU, Book]
 
+category: "Security > Course > NTU ML"
 ---
 
 Machine Learning Hand-write Homework & Answer

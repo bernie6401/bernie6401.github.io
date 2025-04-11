@@ -2,6 +2,7 @@
 title: PicoCTF - gogo
 tags: [PicoCTF, CTF, Reverse]
 
+category: "Security > Practice > PicoCTF > Reverse"
 ---
 
 # PicoCTF - gogo

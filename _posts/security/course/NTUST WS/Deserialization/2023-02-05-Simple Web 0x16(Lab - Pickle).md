@@ -2,6 +2,7 @@
 title: Simple Web 0x16(Lab - Pickle)
 tags: [NTUSTWS, CTF, Web]
 
+category: "Security > Course > NTUST WS > Deserialization"
 ---
 
 # Simple Web 0x16(Lab - Pickle)

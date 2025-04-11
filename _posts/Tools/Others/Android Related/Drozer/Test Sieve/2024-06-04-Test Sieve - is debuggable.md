@@ -2,6 +2,7 @@
 title: Test Sieve - is debuggable
 tags: [Android, Drozer]
 
+category: "Tools > Others > Android Related > Drozer > Test Sieve"
 ---
 
 # Test Sieve - is debuggable

@@ -2,6 +2,7 @@
 title: Endnote - Invalid Citation
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # Endnote - Invalid Citation

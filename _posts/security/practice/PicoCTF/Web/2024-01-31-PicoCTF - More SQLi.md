@@ -2,6 +2,7 @@
 title: PicoCTF - More SQLi
 tags: [PicoCTF, CTF, Web]
 
+category: "Security > Practice > PicoCTF > Web"
 ---
 
 # PicoCTF - More SQLi

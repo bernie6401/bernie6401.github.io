@@ -2,6 +2,7 @@
 title: PicoCTF - Scavenger Hunt
 tags: [PicoCTF, CTF, Web]
 
+category: "Security > Practice > PicoCTF > Web"
 ---
 
 # PicoCTF - Scavenger Hunt

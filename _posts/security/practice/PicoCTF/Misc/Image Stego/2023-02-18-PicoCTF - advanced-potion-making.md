@@ -2,6 +2,7 @@
 title: PicoCTF - advanced-potion-making
 tags: [PicoCTF, CTF, Misc]
 
+category: "Security > Practice > PicoCTF > Misc > Image Stego"
 ---
 
 # PicoCTF - advanced-potion-making

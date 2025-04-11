@@ -2,6 +2,7 @@
 title: PicoCTF - Forky
 tags: [PicoCTF, CTF, Reverse]
 
+category: "Security > Practice > PicoCTF > Reverse"
 ---
 
 # PicoCTF - Forky

@@ -2,6 +2,7 @@
 title: PicoCTF - seed-sPRiNG
 tags: [PicoCTF, CTF, PWN]
 
+category: "Security > Practice > PicoCTF > PWN"
 ---
 
 # PicoCTF - seed-sPRiNG

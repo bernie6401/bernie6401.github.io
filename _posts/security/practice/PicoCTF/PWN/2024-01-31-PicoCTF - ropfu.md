@@ -2,6 +2,7 @@
 title: PicoCTF - ropfu
 tags: [PicoCTF, CTF, PWN]
 
+category: "Security > Practice > PicoCTF > PWN"
 ---
 
 # PicoCTF - ropfu

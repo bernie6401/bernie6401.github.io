@@ -2,6 +2,7 @@
 title: Simple Crypto - 0x06(2023 HW - LFSR)
 tags: [CTF, Crypto, eductf]
 
+category: "Security > Course > NTU CS > Crypto"
 ---
 
 # Simple Crypto - 0x06(2023 HW - LFSR)

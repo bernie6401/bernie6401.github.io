@@ -2,6 +2,7 @@
 title: Simple Crypto - 0x10(2023 Lab - coppersmith)
 tags: [CTF, Crypto, eductf]
 
+category: "Security > Course > NTU CS > Crypto"
 ---
 
 # Simple Crypto - 0x10(2023 Lab - coppersmith)

@@ -2,6 +2,7 @@
 title: PicoCTF - Surfing the Waves
 tags: [PicoCTF, CTF, Misc]
 
+category: "Security > Practice > PicoCTF > Misc > Audio"
 ---
 
 # PicoCTF - Surfing the Waves

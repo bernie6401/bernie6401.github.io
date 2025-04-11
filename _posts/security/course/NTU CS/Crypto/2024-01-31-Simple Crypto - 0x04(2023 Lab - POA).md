@@ -2,6 +2,7 @@
 title: Simple Crypto - 0x04(2023 Lab - POA)
 tags: [CTF, Crypto, eductf]
 
+category: "Security > Course > NTU CS > Crypto"
 ---
 
 # Simple Crypto - 0x04(2023 Lab - POA)

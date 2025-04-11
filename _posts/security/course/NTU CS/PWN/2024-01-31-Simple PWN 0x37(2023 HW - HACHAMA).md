@@ -2,6 +2,7 @@
 title: Simple PWN 0x37(2023 HW - HACHAMA)
 tags: [eductf, CTF, PWN]
 
+category: "Security > Course > NTU CS > PWN"
 ---
 
 # Simple PWN 0x37(2023 HW - HACHAMA)

@@ -2,6 +2,7 @@
 title: PicoCTF - Dachshund Attacks
 tags: [PicoCTF, CTF, Crypto]
 
+category: "Security > Practice > PicoCTF > Crypto > RSA"
 ---
 
 # PicoCTF - Dachshund Attacks

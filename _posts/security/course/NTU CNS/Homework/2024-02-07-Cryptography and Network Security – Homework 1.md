@@ -2,6 +2,7 @@
 title: Cryptography and Network Security – Homework 1
 tags: [NTUCNS, NTU]
 
+category: "Security > Course > NTU CNS > Homework"
 ---
 
 # Cryptography and Network Security – Homework 1

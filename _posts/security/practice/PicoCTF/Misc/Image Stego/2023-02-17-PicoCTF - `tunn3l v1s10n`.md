@@ -2,6 +2,7 @@
 title: PicoCTF - `tunn3l v1s10n`
 tags: [PicoCTF, CTF, Misc]
 
+category: "Security > Practice > PicoCTF > Misc > Image Stego"
 ---
 
 # PicoCTF - `tunn3l v1s10n`

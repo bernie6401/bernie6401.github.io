@@ -2,6 +2,7 @@
 title: 'WIGHT: Wired Ghost Touch Attack on Capacitive Touchscreens'
 tags: [Meeting Paper, NTU]
 
+category: "Survey Papers > Android + Security"
 ---
 
 # WIGHT: Wired Ghost Touch Attack on Capacitive Touchscreens

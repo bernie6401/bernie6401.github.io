@@ -2,6 +2,7 @@
 title: PicoCTF - two-sum
 tags: [PicoCTF, CTF, PWN]
 
+category: "Security > Practice > PicoCTF > PWN"
 ---
 
 # PicoCTF - two-sum

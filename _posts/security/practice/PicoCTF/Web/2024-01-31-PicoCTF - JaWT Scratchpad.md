@@ -2,6 +2,7 @@
 title: PicoCTF - JaWT Scratchpad
 tags: [PicoCTF, CTF, Web]
 
+category: "Security > Practice > PicoCTF > Web"
 ---
 
 # PicoCTF - JaWT Scratchpad

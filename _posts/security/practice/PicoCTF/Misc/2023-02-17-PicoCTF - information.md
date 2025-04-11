@@ -2,6 +2,7 @@
 title: PicoCTF - information
 tags: [PicoCTF, CTF, Misc]
 
+category: "Security > Practice > PicoCTF > Misc"
 ---
 
 # PicoCTF - information

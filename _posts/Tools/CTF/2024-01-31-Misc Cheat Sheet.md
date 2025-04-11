@@ -2,6 +2,7 @@
 title: Misc Cheat Sheet
 tags: [Tools, CTF, Misc]
 
+category: "Tools > CTF"
 ---
 
 # Misc Cheat Sheet

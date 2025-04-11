@@ -2,6 +2,7 @@
 title: Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))
 tags: [CTF, Web, eductf]
 
+category: "Security > Course > NTU CS > Web"
 ---
 
 # Simple Web - 0x03(Lab - Normal Login Panel (Flag 1))

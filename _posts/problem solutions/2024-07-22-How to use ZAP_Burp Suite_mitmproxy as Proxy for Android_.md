@@ -2,6 +2,7 @@
 title: How to use ZAP/Burp Suite/mitmproxy as Proxy for Android?
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # How to use ZAP as Proxy?

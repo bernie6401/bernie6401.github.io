@@ -2,6 +2,7 @@
 title: PicoCTF - dont-use-client-side
 tags: [PicoCTF, CTF, Web]
 
+category: "Security > Practice > PicoCTF > Web"
 ---
 
 # PicoCTF - dont-use-client-side

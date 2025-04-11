@@ -2,6 +2,7 @@
 title: PicoCTF - SQLiLite
 tags: [PicoCTF, CTF, Web]
 
+category: "Security > Practice > PicoCTF > Web"
 ---
 
 # PicoCTF - SQLiLite

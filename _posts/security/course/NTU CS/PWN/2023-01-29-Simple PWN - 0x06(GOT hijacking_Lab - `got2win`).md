@@ -2,6 +2,7 @@
 title: Simple PWN - 0x06(GOT hijacking/Lab - `got2win`)
 tags: [CTF, PWN, eductf]
 
+category: "Security > Course > NTU CS > PWN"
 ---
 
 # Simple PWN - 0x06(GOT hijacking/Lab - `got2win`)

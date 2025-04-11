@@ -2,6 +2,7 @@
 title: Simple Buffer Overflow - 0x00
 tags: [CTF, PWN, NTUSTISC]
 
+category: "Security > Course > NTU CS > PWN"
 ---
 
 # Simple Buffer Overflow - 0x00

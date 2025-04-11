@@ -2,6 +2,7 @@
 title: Reverse Overview
 tags: [CTF, Reverse, Tools]
 
+category: "Tools > CTF"
 ---
 
 # Reverse Overview

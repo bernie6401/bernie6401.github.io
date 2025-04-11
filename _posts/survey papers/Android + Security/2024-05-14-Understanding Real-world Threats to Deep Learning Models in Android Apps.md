@@ -2,6 +2,7 @@
 title: Understanding Real-world Threats to Deep Learning Models in Android Apps
 tags: [Meeting Paper, NTU]
 
+category: "Survey Papers > Android + Security"
 ---
 
 # Understanding Real-world Threats to Deep Learning Models in Android Apps

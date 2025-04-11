@@ -2,6 +2,7 @@
 title: PicoCTF - WebNet0
 tags: [PicoCTF, CTF, Misc]
 
+category: "Security > Practice > PicoCTF > Misc > Flow"
 ---
 
 # PicoCTF - WebNet0

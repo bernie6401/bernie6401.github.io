@@ -2,6 +2,7 @@
 title: 'CreateProcessEntryCommon:586: Create process not expected to return'
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # CreateProcessEntryCommon:586: Create process not expected to return

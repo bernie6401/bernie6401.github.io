@@ -2,6 +2,7 @@
 title: PicoCTF - SideChannel
 tags: [PicoCTF, CTF, Misc]
 
+category: "Security > Practice > PicoCTF > Misc > General"
 ---
 
 # PicoCTF - SideChannel

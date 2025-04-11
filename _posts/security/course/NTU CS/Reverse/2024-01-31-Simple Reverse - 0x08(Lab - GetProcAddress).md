@@ -2,6 +2,7 @@
 title: Simple Reverse 0x08(Lab - GetProcAddress)
 tags: [CTF, Reverse, eductf]
 
+category: "Security > Course > NTU CS > Reverse"
 ---
 
 # Simple Reverse 0x08(Lab - GetProcAddress)

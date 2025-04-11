@@ -2,6 +2,7 @@
 title: PicoCTF - Easy Peasy
 tags: [PicoCTF, CTF, Crypto]
 
+category: "Security > Practice > PicoCTF > Crypto > Classic"
 ---
 
 # PicoCTF - Easy Peasy

@@ -2,6 +2,7 @@
 title: Web Cheat Sheet
 tags: [Tools, CTF, Web]
 
+category: "Tools > CTF"
 ---
 
 # Web Cheat Sheet

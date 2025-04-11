@@ -2,6 +2,7 @@
 title: TaiwanHolyHigh - SoC基礎維運 - HW2
 tags: [TaiwanHolyHigh]
 
+category: "Security > Course > Tai.HolyHigh > SoC基礎維運"
 ---
 
 # TaiwanHolyHigh - SoC基礎維運 - HW2

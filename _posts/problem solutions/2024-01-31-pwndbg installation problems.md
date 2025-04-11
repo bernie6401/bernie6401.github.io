@@ -2,6 +2,7 @@
 title: pwndbg installation problems
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # pwndbg installation problems

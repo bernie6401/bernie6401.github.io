@@ -2,6 +2,7 @@
 title: Test Sieve - broadcast receivers exported
 tags: [Android, Drozer]
 
+category: "Tools > Others > Android Related > Drozer > Test Sieve"
 ---
 
 # Test Sieve - broadcast receivers exported

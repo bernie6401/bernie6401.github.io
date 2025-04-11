@@ -2,7 +2,7 @@
 title: The Decameron (十日談)
 tags: [讀書心得]
 
-category: "books notes"
+category: "Books Notes"
 ---
 
 # The Decameron (十日談)

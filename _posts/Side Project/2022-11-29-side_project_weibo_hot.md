@@ -2,6 +2,7 @@
 title: side_project_weibo_hot
 tags: [Side Project]
 
+category: "Side Project"
 ---
 
 # side_project_weibo_hot

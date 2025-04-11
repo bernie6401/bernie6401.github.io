@@ -2,6 +2,7 @@
 title: How to address docker compose not found?
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # How to address docker compose not found?

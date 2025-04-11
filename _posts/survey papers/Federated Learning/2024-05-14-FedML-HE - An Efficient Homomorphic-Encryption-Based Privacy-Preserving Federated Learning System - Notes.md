@@ -2,6 +2,7 @@
 title: FedML-HE - An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System - Notes
 tags: [Meeting Paper, NTU]
 
+category: "Survey Papers > Federated Learning"
 ---
 
 # FedML-HE - An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System - Notes

@@ -2,6 +2,7 @@
 title: PicoCTF - Mini RSA
 tags: [PicoCTF, CTF, Crypto]
 
+category: "Security > Practice > PicoCTF > Crypto > RSA"
 ---
 
 # PicoCTF - Mini RSA

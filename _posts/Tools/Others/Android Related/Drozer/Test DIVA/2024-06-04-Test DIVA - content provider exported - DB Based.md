@@ -2,6 +2,7 @@
 title: Test DIVA - content provider exported - DB Based
 tags: [Android, Drozer]
 
+category: "Tools > Others > Android Related > Drozer > Test DIVA"
 ---
 
 # Test DIVA - content provider exported - DB Based

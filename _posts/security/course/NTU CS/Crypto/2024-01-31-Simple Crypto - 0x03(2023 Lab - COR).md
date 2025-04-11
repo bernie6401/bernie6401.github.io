@@ -2,6 +2,7 @@
 title: Simple Crypto - 0x03(2023 Lab - COR)
 tags: [eductf, Crypto, CTF]
 
+category: "Security > Course > NTU CS > Crypto"
 ---
 
 # Simple Crypto - 0x03(2023 Lab - COR)

@@ -2,6 +2,7 @@
 title: PicoCTF - droids1
 tags: [PicoCTF, CTF, Reverse]
 
+category: "Security > Practice > PicoCTF > Reverse"
 ---
 
 # PicoCTF - droids1

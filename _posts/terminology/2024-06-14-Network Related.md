@@ -2,6 +2,7 @@
 title: Network Related
 tags: [名詞解釋]
 
+category: "Terminology"
 ---
 
 # What is HTTP/SSH Tunnel, TLS/SSL, WebSocket?

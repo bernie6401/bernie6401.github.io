@@ -2,6 +2,7 @@
 title: Special Topic of Tzu-Chi at TCIVS
 tags: [Side Project, Special Topic, TCIVS]
 
+category: "Side Project"
 ---
 
 # Special Topic of Tzu-Chi at TCIVS

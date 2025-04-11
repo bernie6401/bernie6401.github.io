@@ -2,6 +2,7 @@
 title: A MITM Based Penetration Test Efficiency Improvement Approach for Traffic-Encrypted Mobile Apps of Power Industry
 tags: [NTU, Meeting Paper]
 
+category: "Survey Papers > Android + Security"
 ---
 
 # A MITM Based Penetration Test Efficiency Improvement Approach for Traffic-Encrypted Mobile Applications of Power Industry

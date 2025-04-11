@@ -2,6 +2,7 @@
 title: Test Sieve - services exported
 tags: [Android, Drozer]
 
+category: "Tools > Others > Android Related > Drozer > Test Sieve"
 ---
 
 # Test Sieve - services exported

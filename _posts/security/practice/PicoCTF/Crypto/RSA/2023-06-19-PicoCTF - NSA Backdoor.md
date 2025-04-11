@@ -2,6 +2,7 @@
 title: PicoCTF - NSA Backdoor
 tags: [PicoCTF, CTF, Crypto]
 
+category: "Security > Practice > PicoCTF > Crypto > RSA"
 ---
 
 # PicoCTF - NSA Backdoor

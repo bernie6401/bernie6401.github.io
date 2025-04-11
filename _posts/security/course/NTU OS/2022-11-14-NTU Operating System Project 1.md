@@ -2,6 +2,7 @@
 title: NTU Operating System Project 1
 tags: [NTU_OS, NTU]
 
+category: "Security > Course > NTU OS"
 ---
 
 # NTU Operating System Project 1

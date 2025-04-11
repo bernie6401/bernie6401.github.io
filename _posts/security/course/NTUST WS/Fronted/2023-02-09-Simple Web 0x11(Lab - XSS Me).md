@@ -2,6 +2,7 @@
 title: Simple Web 0x11(Lab - XSS Me)
 tags: [NTUSTWS, CTF, Web]
 
+category: "Security > Course > NTUST WS > Fronted"
 ---
 
 # Simple Web 0x11(Lab - XSS Me)

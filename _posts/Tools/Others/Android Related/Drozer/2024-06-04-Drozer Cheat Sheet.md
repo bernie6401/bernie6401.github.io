@@ -2,6 +2,7 @@
 title: Drozer Cheat Sheet
 tags: [Android, Drozer]
 
+category: "Tools > Others > Android Related > Drozer"
 ---
 
 # Drozer Cheat Sheet

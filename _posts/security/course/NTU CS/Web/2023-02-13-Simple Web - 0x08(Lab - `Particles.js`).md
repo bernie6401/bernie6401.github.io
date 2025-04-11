@@ -2,6 +2,7 @@
 title: Simple Web - 0x08(Lab - `Particles.js`)
 tags: [CTF, Web, eductf]
 
+category: "Security > Course > NTU CS > Web"
 ---
 
 # Simple Web - 0x08(Lab - `Particles.js`)

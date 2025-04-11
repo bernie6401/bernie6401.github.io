@@ -2,6 +2,7 @@
 title: /wp-admin VS /wp-content VS /wp-include VS /wp-json
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # /wp-admin VS /wp-content VS /wp-include VS /wp-json

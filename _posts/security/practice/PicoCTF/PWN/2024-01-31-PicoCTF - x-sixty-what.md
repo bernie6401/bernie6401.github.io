@@ -2,6 +2,7 @@
 title: PicoCTF - x-sixty-what
 tags: [PicoCTF, CTF, PWN]
 
+category: "Security > Practice > PicoCTF > PWN"
 ---
 
 # PicoCTF - x-sixty-what

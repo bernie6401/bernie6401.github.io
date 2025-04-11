@@ -2,6 +2,7 @@
 title: PicoCTF - hijacking
 tags: [PicoCTF, CTF, PWN]
 
+category: "Security > Practice > PicoCTF > PWN"
 ---
 
 # PicoCTF - hijacking

@@ -2,6 +2,7 @@
 title: PicoCTF - Easy as GDB
 tags: [PicoCTF, CTF, Reverse]
 
+category: "Security > Practice > PicoCTF > Reverse"
 ---
 
 # PicoCTF - Easy as GDB

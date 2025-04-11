@@ -2,6 +2,7 @@
 title: PicoCTF - stack cache
 tags: [PicoCTF, CTF, PWN]
 
+category: "Security > Practice > PicoCTF > PWN"
 ---
 
 # PicoCTF - stack cache

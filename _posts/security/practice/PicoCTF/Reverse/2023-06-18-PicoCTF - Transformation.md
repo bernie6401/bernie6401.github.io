@@ -2,6 +2,7 @@
 title: PicoCTF - Transformation
 tags: [PicoCTF, CTF, Reverse]
 
+category: "Security > Practice > PicoCTF > Reverse"
 ---
 
 # PicoCTF - Transformation

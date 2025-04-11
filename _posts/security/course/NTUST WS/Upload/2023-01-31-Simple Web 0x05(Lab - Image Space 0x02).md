@@ -2,6 +2,7 @@
 title: Simple Web 0x05(Lab - Image Space 0x02)
 tags: [NTUSTWS, CTF, Web]
 
+category: "Security > Course > NTUST WS > Upload"
 ---
 
 # Simple Web 0x05(Lab - Image Space 0x02)

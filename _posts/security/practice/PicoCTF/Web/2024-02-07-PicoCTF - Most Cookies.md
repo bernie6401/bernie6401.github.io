@@ -2,6 +2,7 @@
 title: PicoCTF - Most Cookies
 tags: [PicoCTF, CTF, Web]
 
+category: "Security > Practice > PicoCTF > Web"
 ---
 
 # PicoCTF - Most Cookies

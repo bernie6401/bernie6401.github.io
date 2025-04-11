@@ -2,6 +2,7 @@
 title: PicoCTF - notepad
 tags: [PicoCTF, CTF, Web]
 
+category: "Security > Practice > PicoCTF > Web"
 ---
 
 # PicoCTF - notepad

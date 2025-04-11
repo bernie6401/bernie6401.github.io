@@ -2,6 +2,7 @@
 title: How to adjust Endnote's Paragraph in Word?
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # How to adjust Endnote's Paragraph in Word?

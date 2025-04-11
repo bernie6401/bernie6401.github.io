@@ -2,6 +2,7 @@
 title: Useful Link
 tags: [Tools]
 
+category: "Tools > Others"
 ---
 
 # Useful Link

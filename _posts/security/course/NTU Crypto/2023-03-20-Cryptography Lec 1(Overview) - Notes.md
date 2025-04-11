@@ -2,6 +2,7 @@
 title: Cryptography Lec 1(Overview) - Notes
 tags: [Cryptography, NTU]
 
+category: "Security > Course > NTU Crypto"
 ---
 
 # Cryptography Lec 1(Overview) - Notes

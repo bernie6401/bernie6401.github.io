@@ -2,6 +2,7 @@
 title: Simple Web 0x08(Lab - My First Meow Website)
 tags: [NTUSTWS, CTF, Web]
 
+category: "Security > Course > NTUST WS > LFI"
 ---
 
 # Simple Web 0x08(Lab - My First Meow Website)

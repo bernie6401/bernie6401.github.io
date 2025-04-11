@@ -2,6 +2,7 @@
 title: PicoCTF - Java Script Kiddie
 tags: [PicoCTF, CTF, Web]
 
+category: "Security > Practice > PicoCTF > Web"
 ---
 
 # PicoCTF - Java Script Kiddie

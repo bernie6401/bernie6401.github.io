@@ -2,6 +2,7 @@
 title: PicoCTF - Compress and Attack
 tags: [PicoCTF, CTF, Crypto]
 
+category: "Security > Practice > PicoCTF > Crypto"
 ---
 
 # PicoCTF - Compress and Attack

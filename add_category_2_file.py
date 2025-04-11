@@ -2,7 +2,7 @@ import os
 import re
 from datetime import datetime
 
-POSTS_DIR = "myblog/_posts/"
+POSTS_DIR = "_posts/"
 date_prefix_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}-")
 
 # 確保資料夾存在

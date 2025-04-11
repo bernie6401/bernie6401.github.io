@@ -2,6 +2,7 @@
 title: '`sudo chmod 777 -R /usr` Problem'
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # `sudo chmod 777 -R /usr` Problem

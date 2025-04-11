@@ -2,6 +2,7 @@
 title: How to install LogonTracer?
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # How to install LogonTracer?

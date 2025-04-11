@@ -2,6 +2,7 @@
 title: PicoCTF - PW Crack 4
 tags: [PicoCTF, CTF, General Skill]
 
+category: "Security > Practice > PicoCTF > General Skills"
 ---
 
 # PicoCTF - PW Crack 4

@@ -2,6 +2,7 @@
 title: How to build apk file on React-Native Project?
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # How to build apk file on React-Native Project?

@@ -2,6 +2,7 @@
 title: Simple Web 0x07(Lab - `HakkaMD`)
 tags: [NTUSTWS, CTF, Web]
 
+category: "Security > Course > NTUST WS > LFI"
 ---
 
 # Simple Web 0x07(Lab - `HakkaMD`)

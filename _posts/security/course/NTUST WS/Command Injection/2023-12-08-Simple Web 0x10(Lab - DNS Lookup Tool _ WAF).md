@@ -2,6 +2,7 @@
 title: Simple Web 0x10(Lab - DNS Lookup Tool | WAF)
 tags: [NTUSTWS, CTF, Web]
 
+category: "Security > Course > NTUST WS > Command Injection"
 ---
 
 # Simple Web 0x10(Lab - DNS Lookup Tool | WAF)

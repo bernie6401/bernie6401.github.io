@@ -2,6 +2,7 @@
 title: PicoCTF - Wizardlike
 tags: [PicoCTF, CTF, Reverse]
 
+category: "Security > Practice > PicoCTF > Reverse"
 ---
 
 # PicoCTF - Wizardlike

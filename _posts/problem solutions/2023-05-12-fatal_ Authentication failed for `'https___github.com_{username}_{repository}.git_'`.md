@@ -2,6 +2,7 @@
 title: 'fatal: Authentication failed for `''https://github.com/{username}/{repository}.git/''`'
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # fatal: Authentication failed for `'https://github.com/{username}/{repository}.git/'`

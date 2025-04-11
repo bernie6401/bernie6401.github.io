@@ -2,6 +2,7 @@
 title: PicoCTF - Special & Specialer
 tags: [PicoCTF, CTF, General Skill]
 
+category: "Security > Practice > PicoCTF > General Skills"
 ---
 
 # PicoCTF - Special & Specialer

@@ -2,6 +2,7 @@
 title: Simple PWN - 0x13(Lab - `how2know`)
 tags: [CTF, PWN, eductf]
 
+category: "Security > Course > NTU CS > PWN"
 ---
 
 # Simple PWN - 0x13(Lab - `how2know`)

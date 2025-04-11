@@ -5,6 +5,7 @@ categories:
 - Foo
 - Bar
 - Baz
+category: "原始文章"
 ---
 
 This post contains 3 categories. Make sure your theme can display all of the categories.

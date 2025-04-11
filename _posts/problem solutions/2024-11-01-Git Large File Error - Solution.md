@@ -2,6 +2,7 @@
 title: Git Large File Error - Solution
 tags: [problem solution]
 
+category: "Problem Solutions"
 ---
 
 # Git Large File Error - Solution

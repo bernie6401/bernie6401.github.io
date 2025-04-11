@@ -2,6 +2,7 @@
 title: Docker Cheat Sheet
 tags: [Tools]
 
+category: "Tools > Others"
 ---
 
 # Docker Cheat Sheet
