@@ -32,15 +32,17 @@ category: "Problem Solutions"
     $ jekyll server
     ```
     之後就可以request http://localhost:4000 查看目前的網站
-3. 改Themes
-	和hugo差不多，網路上也是有很多種themes，看哪一種順眼，我是使用[NexT](https://github.com/Simpleyyt/jekyll-theme-next.git)([Official Guide](https://theme-next.simpleyyt.com/getting-started.html))，把該repo下載下來後解壓縮，把全部的內容複製到myblog folder，建議刪除Gemfile.lock，因為他使用的bundler version是1.17.1，現在有一些function已經廢棄了，可能會出現一些問題
-	```bash
-	$ bundle install
-	$ bundle exec jekyll server --incremental
-	```
-	`--incremental`的意思是只重新生成有變動的檔案，而不是每次都從零開始建整個網站。是 Jekyll 的一種加速機制
-4. (Optional) 解決大括號的問題
+## 改Themes
+和hugo差不多，網路上也是有很多種themes，看哪一種順眼，我是使用[NexT](https://github.com/Simpleyyt/jekyll-theme-next.git)([Official Guide](https://theme-next.simpleyyt.com/getting-started.html))，把該repo下載下來後解壓縮，把全部的內容複製到myblog folder，建議刪除Gemfile.lock，因為他使用的bundler version是1.17.1，現在有一些function已經廢棄了，可能會出現一些問題
+```bash
+$ bundle install
+$ bundle exec jekyll server --incremental
+```
+`--incremental`的意思是只重新生成有變動的檔案，而不是每次都從零開始建整個網站。是 Jekyll 的一種加速機制
+* (Optional) 解決大括號的問題
 	因為Jekyll是支援Liquid語言並render成靜態的網站，因此在文章中如果出現{}語法，e.g., 嵌入YT的影片之類的，在啟動jekyll server時會出現error，解決的方式可以參考[解決Jekyll將大括號識別成Liquid語言](https://hackmd.io/@CynthiaChuang/Raw-in-Jekyll)，只要在大括號前後加入raw標籤就可以了
 	```liquid
 	{% raw %}{%youtube 27fBCKKZdpY %}{% endraw %}
 	```
+## 改Github Pages Setting
+因為之前使用Hugo的時候是使用actions script，讓github使用Hugo，而不是預設的Jekyll，但現在就非常簡單，只要把`Setting > Pages > Build and deployment`中的Branch改回main就可以了，另外如果之前是使用Hugo並且有寫actions script的要把workflow folder刪掉
