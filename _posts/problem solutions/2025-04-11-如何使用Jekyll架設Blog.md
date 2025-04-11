@@ -32,6 +32,7 @@ category: "Problem Solutions"
     $ jekyll server
     ```
     之後就可以request http://localhost:4000 查看目前的網站
+
 ## 改Themes
 和hugo差不多，網路上也是有很多種themes，看哪一種順眼，我是使用[NexT](https://github.com/Simpleyyt/jekyll-theme-next.git)([Official Guide](https://theme-next.simpleyyt.com/getting-started.html))，把該repo下載下來後解壓縮，把全部的內容複製到myblog folder，建議刪除Gemfile.lock，因為他使用的bundler version是1.17.1，現在有一些function已經廢棄了，可能會出現一些問題
 ```bash
@@ -44,5 +45,6 @@ $ bundle exec jekyll server --incremental
 	```liquid
 	{% raw %}{%youtube 27fBCKKZdpY %}{% endraw %}
 	```
+
 ## 改Github Pages Setting
 因為之前使用Hugo的時候是使用actions script，讓github使用Hugo，而不是預設的Jekyll，但現在就非常簡單，只要把`Setting > Pages > Build and deployment`中的Branch改回main就可以了，另外如果之前是使用Hugo並且有寫actions script的要把workflow folder刪掉
