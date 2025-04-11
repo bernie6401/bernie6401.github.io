@@ -2,7 +2,7 @@
 title: PicoCTF - tic-tac
 tags: [PicoCTF, CTF, PWN]
 
-category: "Security > Practice > PicoCTF > PWN"
+category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - tic-tac

@@ -24,7 +24,7 @@ for dirpath, _, filenames in os.walk(POSTS_DIR):
 
         # 最後一段是檔名（移除）
         category_parts = parts[:-1]
-        category = " > ".join(category_parts)
+        category = "/".join(category_parts)
 
         # 讀檔案內容
         with open(filepath, "r", encoding="utf-8") as f:

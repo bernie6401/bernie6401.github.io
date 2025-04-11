@@ -2,7 +2,7 @@
 title: LeetCode - Valid Parentheses
 tags: [LeetCode, Easy]
 
-category: "LeetCode > Easy"
+category: "LeetCode/Easy"
 ---
 
 # LeetCode - Valid Parentheses

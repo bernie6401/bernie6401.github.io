@@ -2,11 +2,11 @@
 title: Test Sieve - activities exported
 tags: [Android, Drozer]
 
-category: "Tools > Others > Android Related > Drozer > Test Sieve"
+category: "Tools/Others/Android Related/Drozer/Test Sieve"
 ---
 
 * Drozer Seive - [官網](https://labs.withsecure.com/tools/drozer#3.1), [Download](https://github.com/WithSecureLabs/drozer/releases/download/2.3.4/sieve.apk)
-    > Sieve is a small password manager app created to showcase some of the common vulnerabilities found in Android applications.
+  > Sieve is a small password manager app created to showcase some of the common vulnerabilities found in Android applications.
     
 # Test Sieve - activities exported
 參考[^csdn-sieve-1][^hacktricks-diva-sieve]，在測試之前要先點進去Sieve App中設定password和email之類的基本資訊，這樣之後測試才知道哪邊其實是漏洞

@@ -2,7 +2,7 @@
 title: Uncovering Intent based Leak of Sensitive Data in Android Framework
 tags: [Meeting Paper, NTU]
 
-category: "Survey Papers > Android + Security"
+category: "Survey Papers/Android + Security"
 ---
 
 # Uncovering Intent based Leak of Sensitive Data in Android Framework

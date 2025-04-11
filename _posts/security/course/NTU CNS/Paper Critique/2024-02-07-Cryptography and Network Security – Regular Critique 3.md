@@ -2,7 +2,7 @@
 title: Cryptography and Network Security – Regular Critique 3
 tags: [NTUCNS, NTU]
 
-category: "Security > Course > NTU CNS > Paper Critique"
+category: "Security/Course/NTU CNS/Paper Critique"
 ---
 
 # Cryptography and Network Security – Regular Critique 3

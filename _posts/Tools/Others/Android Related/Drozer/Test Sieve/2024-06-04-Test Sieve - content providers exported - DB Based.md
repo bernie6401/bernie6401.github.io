@@ -2,7 +2,7 @@
 title: Test Sieve - content providers exported - DB Based
 tags: [Android, Drozer]
 
-category: "Tools > Others > Android Related > Drozer > Test Sieve"
+category: "Tools/Others/Android Related/Drozer/Test Sieve"
 ---
 
 # Test Sieve - content providers exported - DB Based

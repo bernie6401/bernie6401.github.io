@@ -2,7 +2,7 @@
 title: Cryptography Lec 3(Mathematical Background) - Notes
 tags: [Cryptography, NTU]
 
-category: "Security > Course > NTU Crypto"
+category: "Security/Course/NTU Crypto"
 ---
 
 # Cryptography Lec 3(Mathematical Background) - Notes

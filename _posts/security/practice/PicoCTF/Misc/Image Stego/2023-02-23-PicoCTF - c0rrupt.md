@@ -2,7 +2,7 @@
 title: PicoCTF - c0rrupt
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security > Practice > PicoCTF > Misc > Image Stego"
+category: "Security/Practice/PicoCTF/Misc/Image Stego"
 ---
 
 # PicoCTF - c0rrupt

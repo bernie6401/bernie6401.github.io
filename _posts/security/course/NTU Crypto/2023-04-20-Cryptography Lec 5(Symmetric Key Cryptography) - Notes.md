@@ -2,7 +2,7 @@
 title: Cryptography Lec 5(Symmetric Key Cryptography) - Notes
 tags: [Cryptography, NTU]
 
-category: "Security > Course > NTU Crypto"
+category: "Security/Course/NTU Crypto"
 ---
 
 # Cryptography Lec 5(Symmetric Key Cryptography) - Notes

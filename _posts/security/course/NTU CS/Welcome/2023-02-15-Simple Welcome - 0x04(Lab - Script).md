@@ -2,7 +2,7 @@
 title: Simple Welcome - 0x04(Lab - Script)
 tags: [CTF, Web, eductf]
 
-category: "Security > Course > NTU CS > Welcome"
+category: "Security/Course/NTU CS/Welcome"
 ---
 
 # Simple Welcome - 0x04(Lab - Script)

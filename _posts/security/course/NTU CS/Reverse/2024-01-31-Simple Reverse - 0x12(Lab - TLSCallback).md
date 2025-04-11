@@ -2,7 +2,7 @@
 title: Simple Reverse 0x12(Lab - TLSCallback)
 tags: [CTF, Reverse, eductf]
 
-category: "Security > Course > NTU CS > Reverse"
+category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse 0x12(Lab - TLSCallback)

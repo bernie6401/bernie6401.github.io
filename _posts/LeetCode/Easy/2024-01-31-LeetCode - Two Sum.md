@@ -2,7 +2,7 @@
 title: LeetCode - Two Sum
 tags: [LeetCode, Easy]
 
-category: "LeetCode > Easy"
+category: "LeetCode/Easy"
 ---
 
 # LeetCode - Two Sum

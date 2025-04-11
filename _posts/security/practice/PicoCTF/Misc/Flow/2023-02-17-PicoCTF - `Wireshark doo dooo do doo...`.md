@@ -2,7 +2,7 @@
 title: PicoCTF - `Wireshark doo dooo do doo...`
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security > Practice > PicoCTF > Misc > Flow"
+category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - `Wireshark doo dooo do doo...`

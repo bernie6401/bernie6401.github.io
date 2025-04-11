@@ -2,7 +2,7 @@
 title: AppCrawler
 tags: [Tools]
 
-category: "Tools > Others > Android App Crawler"
+category: "Tools/Others/Android App Crawler"
 ---
 
 # AppCrawler

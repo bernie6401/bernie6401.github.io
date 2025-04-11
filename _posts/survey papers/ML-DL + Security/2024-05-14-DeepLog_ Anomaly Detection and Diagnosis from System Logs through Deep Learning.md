@@ -2,7 +2,7 @@
 title: 'DeepLog: Anomaly Detection and Diagnosis from System Logs through Deep Learning'
 tags: [Meeting Paper, NTU]
 
-category: "Survey Papers > ML-DL + Security"
+category: "Survey Papers/ML-DL + Security"
 ---
 
 # DeepLog: Anomaly Detection and Diagnosis from System Logs through Deep Learning

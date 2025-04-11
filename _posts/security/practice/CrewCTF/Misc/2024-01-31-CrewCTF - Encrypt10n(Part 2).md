@@ -2,7 +2,7 @@
 title: CrewCTF - Encrypt10n(Part 2)
 tags: [CTF, CrewCTF, Misc]
 
-category: "Security > Practice > CrewCTF > Misc"
+category: "Security/Practice/CrewCTF/Misc"
 ---
 
 # CrewCTF - Encrypt10n(Part 2)

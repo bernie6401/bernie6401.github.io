@@ -2,7 +2,7 @@
 title: PicoCTF - ARMssembly 0
 tags: [PicoCTF, CTF, Reverse]
 
-category: "Security > Practice > PicoCTF > Reverse"
+category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - ARMssembly 0

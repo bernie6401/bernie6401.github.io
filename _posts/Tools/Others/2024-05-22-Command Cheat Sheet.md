@@ -2,7 +2,7 @@
 title: Command Cheat Sheet
 tags: [Tools]
 
-category: "Tools > Others"
+category: "Tools/Others"
 ---
 
 # Command Cheat Sheet

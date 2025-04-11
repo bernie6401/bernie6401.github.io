@@ -2,7 +2,7 @@
 title: EOF AIS3 Final
 tags: [CTF, AIS3]
 
-category: "Security > Competition"
+category: "Security/Competition"
 ---
 
 # EOF AIS3 Final

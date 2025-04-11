@@ -2,7 +2,7 @@
 title: PicoCTF - fermat-strings
 tags: [PicoCTF, CTF, PWN]
 
-category: "Security > Practice > PicoCTF > PWN"
+category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - fermat-strings

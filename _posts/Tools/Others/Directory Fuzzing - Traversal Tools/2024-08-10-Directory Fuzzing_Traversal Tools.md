@@ -2,7 +2,7 @@
 title: Directory Fuzzing/Traversal Tools
 tags: [Tools]
 
-category: "Tools > Others > Directory Fuzzing - Traversal Tools"
+category: "Tools/Others/Directory Fuzzing - Traversal Tools"
 ---
 
 # Directory Fuzzing/Traversal Tools

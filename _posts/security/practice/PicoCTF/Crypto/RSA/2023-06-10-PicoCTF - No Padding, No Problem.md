@@ -2,7 +2,7 @@
 title: 'PicoCTF - No Padding, No Problem'
 tags: [PicoCTF, CTF, Crypto]
 
-category: "Security > Practice > PicoCTF > Crypto > RSA"
+category: "Security/Practice/PicoCTF/Crypto/RSA"
 ---
 
 # PicoCTF - No Padding, No Problem

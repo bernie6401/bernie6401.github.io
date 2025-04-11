@@ -2,7 +2,7 @@
 title: PicoCTF - function overwrite
 tags: [PicoCTF, CTF, PWN]
 
-category: "Security > Practice > PicoCTF > PWN"
+category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - function overwrite

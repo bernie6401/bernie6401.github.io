@@ -2,7 +2,7 @@
 title: PicoCTF - Unsubscriptions Are Free
 tags: [PicoCTF, CTF, PWN]
 
-category: "Security > Practice > PicoCTF > PWN"
+category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - Unsubscriptions Are Free

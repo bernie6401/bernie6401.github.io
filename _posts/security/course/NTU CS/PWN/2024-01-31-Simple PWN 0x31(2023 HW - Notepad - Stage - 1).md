@@ -2,7 +2,7 @@
 title: Simple PWN 0x31(2023 HW - Notepad - Stage - 1)
 tags: [eductf, CTF, PWN]
 
-category: "Security > Course > NTU CS > PWN"
+category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x31(2023 HW - Notepad - Stage - 1)

@@ -2,7 +2,7 @@
 title: Identifying vulnerabilities of SSL/TLS certificate verification in Android apps with static and dynamic analysis
 tags: [Meeting Paper, NTU]
 
-category: "Survey Papers > Android + Security"
+category: "Survey Papers/Android + Security"
 ---
 
 # Identifying vulnerabilities of SSL_TLS certificate verification in Android apps with static and dynamic analysis

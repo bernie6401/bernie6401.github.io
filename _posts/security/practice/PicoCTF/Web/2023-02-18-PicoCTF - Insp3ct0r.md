@@ -2,7 +2,7 @@
 title: PicoCTF - Insp3ct0r
 tags: [PicoCTF, CTF, Web]
 
-category: "Security > Practice > PicoCTF > Web"
+category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Insp3ct0r

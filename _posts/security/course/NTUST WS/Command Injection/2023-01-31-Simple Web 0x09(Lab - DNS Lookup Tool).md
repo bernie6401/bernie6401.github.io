@@ -2,7 +2,7 @@
 title: Simple Web 0x09(Lab - DNS Lookup Tool)
 tags: [NTUSTWS, CTF, Web]
 
-category: "Security > Course > NTUST WS > Command Injection"
+category: "Security/Course/NTUST WS/Command Injection"
 ---
 
 # Simple Web 0x09(Lab - DNS Lookup Tool)

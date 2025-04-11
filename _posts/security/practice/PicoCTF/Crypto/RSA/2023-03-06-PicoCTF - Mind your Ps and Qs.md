@@ -2,7 +2,7 @@
 title: PicoCTF - Mind your Ps and Qs
 tags: [PicoCTF, CTF, Crypto]
 
-category: "Security > Practice > PicoCTF > Crypto > RSA"
+category: "Security/Practice/PicoCTF/Crypto/RSA"
 ---
 
 # PicoCTF - Mind your Ps and Qs

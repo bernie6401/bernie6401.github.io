@@ -2,7 +2,7 @@
 title: Simple Web 0x03(Lab - Log me in + Revenge)
 tags: [NTUSTWS, CTF, Web]
 
-category: "Security > Course > NTUST WS > SQL Injection"
+category: "Security/Course/NTUST WS/SQL Injection"
 ---
 
 # Simple Web 0x03(Lab - Log me in + Revenge)

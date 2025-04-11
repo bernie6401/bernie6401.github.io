@@ -2,7 +2,7 @@
 title: NTU CS 2023 HW4 Write Up
 tags: [eductf, Web]
 
-category: "Security > Course > NTU CS > Web"
+category: "Security/Course/NTU CS/Web"
 ---
 
 # NTU CS 2023 HW4 Write Up

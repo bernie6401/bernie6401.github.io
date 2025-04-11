@@ -2,7 +2,7 @@
 title: PicoCTF - Trivial Flag Transfer Protocol
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security > Practice > PicoCTF > Misc > Flow"
+category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - Trivial Flag Transfer Protocol

@@ -2,7 +2,7 @@
 title: 'Fastbot2: Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning'
 tags: [Meeting Paper]
 
-category: "Survey Papers > Android + Security > GUI Testing"
+category: "Survey Papers/Android + Security/GUI Testing"
 ---
 
 # Fastbot2: Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning

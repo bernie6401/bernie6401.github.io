@@ -2,7 +2,7 @@
 title: Simple PWN 0x19(Lab - `babyums` - flag 1)
 tags: [CTF, PWN, eductf]
 
-category: "Security > Course > NTU CS > PWN"
+category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x19(Lab - `babyums` - flag 1)

@@ -2,7 +2,8 @@
 title: Trapa Interview
 tags: [Interview]
 
-category: "Job > Interview"
+categories: 
+- "Job/Interview"
 ---
 
 # Trapa Interview

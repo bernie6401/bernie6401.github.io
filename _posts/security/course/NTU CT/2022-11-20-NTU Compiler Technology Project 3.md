@@ -2,7 +2,7 @@
 title: NTU Compiler Technology Project 3
 tags: [NTU_CT, NTU]
 
-category: "Security > Course > NTU CT"
+category: "Security/Course/NTU CT"
 ---
 
 # NTU Compiler Technology Project 3

@@ -2,7 +2,7 @@
 title: Simple Crypto 0x11(2023 HW - invalid_curve_attack)
 tags: [CTF, Crypto, eductf]
 
-category: "Security > Course > NTU CS > Crypto"
+category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto 0x11(2023 HW - invalid_curve_attack)

@@ -2,7 +2,7 @@
 title: PicoCTF - m00nwalk2
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security > Practice > PicoCTF > Misc > Image Stego"
+category: "Security/Practice/PicoCTF/Misc/Image Stego"
 ---
 
 # PicoCTF - m00nwalk2

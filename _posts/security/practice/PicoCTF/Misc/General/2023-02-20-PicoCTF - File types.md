@@ -2,7 +2,7 @@
 title: PicoCTF - File types
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security > Practice > PicoCTF > Misc > General"
+category: "Security/Practice/PicoCTF/Misc/General"
 ---
 
 # PicoCTF - File types

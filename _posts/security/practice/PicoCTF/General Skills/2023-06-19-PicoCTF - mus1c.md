@@ -2,7 +2,7 @@
 title: PicoCTF - mus1c
 tags: [PicoCTF, CTF, General Skill]
 
-category: "Security > Practice > PicoCTF > General Skills"
+category: "Security/Practice/PicoCTF/General Skills"
 ---
 
 # PicoCTF - mus1c

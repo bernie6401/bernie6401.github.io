@@ -2,7 +2,7 @@
 title: PicoCTF - Picker III
 tags: [PicoCTF, CTF, Reverse]
 
-category: "Security > Practice > PicoCTF > Reverse"
+category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Picker III

@@ -2,7 +2,7 @@
 title: Crypto Cheat Sheet
 tags: [Tools, CTF, Crypto]
 
-category: "Tools > CTF"
+category: "Tools/CTF"
 ---
 
 # Crypto Cheat Sheet

@@ -2,7 +2,7 @@
 title: PicoCTF - Wireshark twoo twooo two twoo...
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security > Practice > PicoCTF > Misc > Flow"
+category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - Wireshark twoo twooo two twoo...

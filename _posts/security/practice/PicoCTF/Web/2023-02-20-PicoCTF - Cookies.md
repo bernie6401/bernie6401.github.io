@@ -2,7 +2,7 @@
 title: PicoCTF - Cookies
 tags: [PicoCTF, CTF, Web]
 
-category: "Security > Practice > PicoCTF > Web"
+category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Cookies

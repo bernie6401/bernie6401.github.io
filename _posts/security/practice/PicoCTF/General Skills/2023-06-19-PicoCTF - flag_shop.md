@@ -2,7 +2,7 @@
 title: PicoCTF - flag_shop
 tags: [PicoCTF, CTF, General Skill]
 
-category: "Security > Practice > PicoCTF > General Skills"
+category: "Security/Practice/PicoCTF/General Skills"
 ---
 
 # PicoCTF - flag_shop

@@ -2,7 +2,7 @@
 title: PicoCTF - Eavesdrop
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security > Practice > PicoCTF > Misc > Flow"
+category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - Eavesdrop

@@ -2,7 +2,7 @@
 title: BTLO - Phishing Analysis
 tags: [BTLO, Security Operation]
 
-category: "Security > Practice > BTLO > Security Operation"
+category: "Security/Practice/BTLO/Security Operation"
 ---
 
 # BTLO - Phishing Analysis

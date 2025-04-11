@@ -2,7 +2,7 @@
 title: PicoCTF - babygame02
 tags: [PicoCTF, CTF, PWN]
 
-category: "Security > Practice > PicoCTF > PWN"
+category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - babygame02

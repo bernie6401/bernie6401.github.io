@@ -2,7 +2,7 @@
 title: PicoCTF - Easy Peasy Or Bad Questions
 tags: [PicoCTF, CTF]
 
-category: "Security > Practice > PicoCTF > Bad Questions"
+category: "Security/Practice/PicoCTF/Bad Questions"
 ---
 
 # PicoCTF - Easy Peasy Or Bad Questions

@@ -2,7 +2,7 @@
 title: PicoCTF - OTP Implementation
 tags: [PicoCTF, CTF, Reverse]
 
-category: "Security > Practice > PicoCTF > Reverse"
+category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - OTP Implementation

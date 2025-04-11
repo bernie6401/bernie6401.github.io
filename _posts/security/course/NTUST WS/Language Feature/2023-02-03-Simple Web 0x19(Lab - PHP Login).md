@@ -2,7 +2,7 @@
 title: Simple Web 0x19(Lab - PHP Login)
 tags: [NTUSTWS, CTF, Web]
 
-category: "Security > Course > NTUST WS > Language Feature"
+category: "Security/Course/NTUST WS/Language Feature"
 ---
 
 # Simple Web 0x19(Lab - PHP Login)
