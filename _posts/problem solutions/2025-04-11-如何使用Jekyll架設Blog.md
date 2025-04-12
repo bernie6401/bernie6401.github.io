@@ -48,3 +48,18 @@ $ bundle exec jekyll server --incremental
 
 ## 改Github Pages Setting
 因為之前使用Hugo的時候是使用actions script，讓github使用Hugo，而不是預設的Jekyll，但現在就非常簡單，只要把`Setting > Pages > Build and deployment`中的Branch改回main就可以了，另外如果之前是使用Hugo並且有寫actions script的要把workflow folder刪掉
+
+## (Optional) 新增 Disqus / LeanCloud
+* [在Jekyll上使用LeanCloud統計訪問人數](https://brian90191.github.io/blog/2018-04-04/leancloud-In-Jekyll/)
+* [使用 Disqus 在 Jekyll 增加留言區塊](https://mmiooimm.github.io/2018/09/19/2018-09-19-add-disqus-to-jekyll/)
+
+## (Optional) Fine Tune Website
+如果有其他需要，例如製作alert或是highlight之類的，可以參考Cynthia的其他文章，幫助很大
+* [【種樹】顯示文章最後修改時間](https://hackmd.io/@CynthiaChuang/Show-the-Last-Modified-Time-in-Jekyll-NextT-Theme)
+* [【種樹】修改 Jekyll 生成的靜態網址](https://hackmd.io/@CynthiaChuang/Controlling-Permalinks-in-Jekyll)
+* [解決 Jekyll 將大括號識別成 Liquid 語言](https://hackmd.io/@CynthiaChuang/Raw-in-Jekyll)
+* [【種樹】在時間軸上顯示完整日期](https://hackmd.io/@CynthiaChuang/Show-Full-Timestamp-on-Timeline)
+* [【種樹】複製網頁文字時，加上網站的作者與網址](https://hackmd.io/@CynthiaChuang/Copy-Text-to-Clipboard-and-Append-Source-Hyperlink)
+* [【種樹】HTML Mark Tag 實作 Highlighting](https://hackmd.io/@CynthiaChuang/Mark-Element-is-Used-to-Highlight-Content)
+* [【種樹】新增版權訊息](https://hackmd.io/@CynthiaChuang/Add-Post-Copyright)
+* [【種樹】實作 CSS 凸顯文字內容： Alert 與 Highlighting](https://hackmd.io/@CynthiaChuang/Accent-the-Text-by-CSS-Alert-and-Highlighting)
