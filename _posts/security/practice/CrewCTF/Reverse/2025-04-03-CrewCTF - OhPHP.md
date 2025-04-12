@@ -1,3 +1,10 @@
+---
+title: CrewCTF - ez rev
+tags: [CTF, CrewCTF, Reverse]
+
+category: "Security/Practice/CrewCTF/Reverse"
+---
+
 # CrewCTF - OhPHP
 ## Background
 * [PHP - substr()](https://www.wibibi.com/info.php?tid=96)

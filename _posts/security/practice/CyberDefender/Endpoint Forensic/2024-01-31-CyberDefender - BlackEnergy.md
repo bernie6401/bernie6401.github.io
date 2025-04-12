@@ -802,6 +802,7 @@ Flags: CommitCharge: 9, MemCommit: 1, PrivateMemory: 1, Protection: 6
 0x0098003d 0000             ADD [EAX], AL
 0x0098003f 00               DB 0x0
 ```
+
 :::spoiler Flag
 Flag: `0x980000`
 :::
