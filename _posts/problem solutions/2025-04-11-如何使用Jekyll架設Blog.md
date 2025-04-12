@@ -49,10 +49,11 @@ $ bundle exec jekyll server --incremental
 ## 改Github Pages Setting
 因為之前使用Hugo的時候是使用actions script，讓github使用Hugo，而不是預設的Jekyll，但現在就非常簡單，只要把`Setting > Pages > Build and deployment`中的Branch改回main就可以了，另外如果之前是使用Hugo並且有寫actions script的要把workflow folder刪掉
 
-## (Optional) 新增 Disqus / LeanCloud / Gitalk
+## (Optional) 新增 Disqus / LeanCloud / Gitalk / Swiftype
 * [在Jekyll上使用LeanCloud統計訪問人數](https://brian90191.github.io/blog/2018-04-04/leancloud-In-Jekyll/)
 * [使用 Disqus 在 Jekyll 增加留言區塊](https://mmiooimm.github.io/2018/09/19/2018-09-19-add-disqus-to-jekyll/)
 * [利用Gitalk在靜態網頁裡面新增留言區](https://wjohn1483.github.io/2021/02/07/gitalk-introduction/)
+* [使用SWIFTYPE為jekyll部落格新增搜尋引擎](https://www.cnblogs.com/dapenson/p/12822539.html)
 
 ## (Optional) Fine Tune Website
 如果有其他需要，例如製作alert或是highlight之類的，可以參考Cynthia的其他文章，幫助很大
