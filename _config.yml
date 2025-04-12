@@ -437,7 +437,7 @@ changyan:
 gitalk:
   enable: true
   clientID: Ov23litQSJuUkOQ8xHTB
-  clientSecret: 
+  clientSecret: c685ecc81f6ee873645f92dc514e94119430f372
   repo: bernie6401.github.io
   owner: bernie6401
   admin: bernie6401
