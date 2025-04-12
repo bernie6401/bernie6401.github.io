@@ -25,7 +25,7 @@ def generate_post(file_path):
     # 產生時間與檔名
     now = datetime.now()
     date_str = now.strftime("%Y-%m-%d")
-    date_full = now.strftime("%Y-%m-%d %H:%M:%S %z")
+    date_full = now.strftime("%Y-%m-%d")
     new_filename = f"{date_str}-{name}.md"
 
     # 組成 front matter
