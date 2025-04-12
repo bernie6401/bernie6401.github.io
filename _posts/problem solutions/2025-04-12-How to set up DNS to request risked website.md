@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to set up DNS to request risked website"
-date: 2025-04-12 21:52:04 
+date: 2025-04-12
 categories: "Problem Solutions"
 tags: [problem solution]
 draft: false
@@ -10,7 +10,7 @@ comments: true
 ---
 
 # How to set up DNS to request risked website
-<!--more-->
+<!-- more -->
 
 ## Problem Statement
 因為學校的宿舍DNS有filter我自己的blog URL，所以為了要能夠訪問自己的blog，要修改電腦的DNS preference
