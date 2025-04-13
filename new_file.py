@@ -33,7 +33,7 @@ def generate_post(file_path):
 layout: post
 title: "{name}"
 date: {date_full}
-categories: "{category_str}"
+category: "{category_str}"
 tags: []
 draft: false
 toc: true
