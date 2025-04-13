@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # Endnote - Invalid Citation
+<!-- more -->
 目前遇到的怪問題，先紀錄起來，之後再解決
 
 ## Problem

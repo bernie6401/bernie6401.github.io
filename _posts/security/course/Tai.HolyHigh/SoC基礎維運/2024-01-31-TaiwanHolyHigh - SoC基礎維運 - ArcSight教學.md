@@ -6,6 +6,7 @@ category: "Security/Course/Tai.HolyHigh/SoC基礎維運"
 ---
 
 # TaiwanHolyHigh - SoC基礎維運 - ArcSight教學
+<!-- more -->
 
 ## Set Up
 先進到https://bit.ly/44IFecN下載ArcSight Console，並且全部default下一步

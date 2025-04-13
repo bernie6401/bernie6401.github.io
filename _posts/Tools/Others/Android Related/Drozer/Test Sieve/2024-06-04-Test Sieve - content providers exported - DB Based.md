@@ -6,6 +6,7 @@ category: "Tools/Others/Android Related/Drozer/Test Sieve"
 ---
 
 # Test Sieve - content providers exported - DB Based
+<!-- more -->
 如果想知道實際的狀況和content URI是什麼，可以參考[ChatGPT的說明](https://chatgpt.com/share/3a06c1d4-8117-4b27-ad02-1189b931066d)
 1. 起手式
     從以下command的結果可以知道`com.mwr.example.sieve.DBContentProvider`和`com.mwr.example.sieve.FileBackupProvider`的狀況，並且從結果可以知道URI的形式長怎樣

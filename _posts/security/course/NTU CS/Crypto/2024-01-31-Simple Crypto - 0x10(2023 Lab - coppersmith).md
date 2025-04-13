@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x10(2023 Lab - coppersmith)
+<!-- more -->
 
 ## Background
 [coppersmith相關攻擊](https://ctf-wiki.org/crypto/asymmetric/rsa/rsa_coppersmith_attack/)

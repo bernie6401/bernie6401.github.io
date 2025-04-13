@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/SSTI"
 ---
 
 # Simple Web 0x15(Lab - `Jinja`)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8700/
 

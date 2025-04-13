@@ -6,6 +6,7 @@ category: "Terminology"
 ---
 
 # What is HTTP/SSH Tunnel, TLS/SSL, WebSocket?
+<!-- more -->
 在讀When TLS Meets Proxy on Mobile[^paper]這篇paper的時候一直提到這些觀念，有時候會差點搞混中間的意思
 
 ## SSL Tunnel

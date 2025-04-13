@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Welcome"
 ---
 
 # Simple Welcome 0x01(Lab - Let's meet at class)
+<!-- more -->
 
 ## Description
 Crypto part of homework 0. The key space is $10^{15}$. I used my supercomputer(i5 7th gen) to solve it in about 10 minutes. It's impossible for you guys to enumerate all the keys in 2 weeks, or maybe you can... (Use `pip3 install pycryptodome` to install Crypto)

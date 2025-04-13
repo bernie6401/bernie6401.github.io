@@ -6,6 +6,7 @@ category: "Security/Course/NTU Crypto"
 ---
 
 # Cryptography Lec 2(Historical Ciphers) - Notes
+<!-- more -->
 ###### tags: `Cryptography` `NTU`
 
 :::spoiler [資訊安全筆記2 The Vigenere Cipher](https://ithelp.ithome.com.tw/articles/10160406)

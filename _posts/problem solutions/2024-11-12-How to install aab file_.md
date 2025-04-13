@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # How to install aab file?
+<!-- more -->
 
 ## Problem Statement
 有時候我們會直接拿到aab檔案而非apk，尤其是用React Native寫的專案，但又無法直接安裝這個aab檔案，他需要經過一些步驟才能轉成apk

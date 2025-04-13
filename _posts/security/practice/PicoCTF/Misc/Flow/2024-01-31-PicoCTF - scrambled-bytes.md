@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - scrambled-bytes
+<!-- more -->
 
 ## Background
 [盤點一款 Python 發包收包利器 - scapy](https://www.readfog.com/a/1635090435931213824)

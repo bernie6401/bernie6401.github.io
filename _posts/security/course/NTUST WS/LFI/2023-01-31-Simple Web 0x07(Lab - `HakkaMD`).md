@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/LFI"
 ---
 
 # Simple Web 0x07(Lab - `HakkaMD`)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8401
 

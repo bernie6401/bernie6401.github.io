@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Crypto/Classic"
 ---
 
 # PicoCTF - XtraORdinary
+<!-- more -->
 
 ## Background
 [How to Convert Hex String to Bytes in Python?](https://blog.finxter.com/how-to-convert-hex-string-to-bytes-in-python/)

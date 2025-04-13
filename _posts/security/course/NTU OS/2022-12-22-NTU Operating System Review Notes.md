@@ -6,6 +6,7 @@ category: "Security/Course/NTU OS"
 ---
 
 # NTU Operating System Review Notes
+<!-- more -->
 ###### tags: `NTU_OS` `Operating System`
 [TOC]
 

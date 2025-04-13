@@ -6,6 +6,7 @@ category: "Security/Practice/CrewCTF/Bad"
 ---
 
 # Challenge: findme
+<!-- more -->
 
 ## Source
 :::spoiler

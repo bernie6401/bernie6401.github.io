@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender/Threat Intel"
 ---
 
 # CyberDefender - GrabThePhisher
+<!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/95
 
 :::spoiler TOC

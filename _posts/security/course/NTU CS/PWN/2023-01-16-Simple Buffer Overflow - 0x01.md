@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple Buffer Overflow - 0x01
+<!-- more -->
 ###### tags: `CTF` `PWN`
 
 Follow the concept of lecture [0x00](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/SJAt7Pd5s)

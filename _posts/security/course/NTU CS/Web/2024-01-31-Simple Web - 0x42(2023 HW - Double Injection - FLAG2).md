@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Web"
 ---
 
 # Simple Web 0x42(2023 HW - Double Injection - FLAG2)
+<!-- more -->
 
 ## Background
 Node JS ejs SSTI

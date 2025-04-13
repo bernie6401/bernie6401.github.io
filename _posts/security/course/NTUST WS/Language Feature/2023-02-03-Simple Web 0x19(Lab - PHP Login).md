@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/Language Feature"
 ---
 
 # Simple Web 0x19(Lab - PHP Login)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8081
 

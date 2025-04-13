@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # `sudo chmod 777 -R /usr` Problem
+<!-- more -->
 ###### tags: `problem solution`
 
 [解决普通用户sudo时出现/usr/bin/sudo must be owned by uid 0 and have the setuid bit set](https://www.cnblogs.com/silentdoer/p/8946946.html)

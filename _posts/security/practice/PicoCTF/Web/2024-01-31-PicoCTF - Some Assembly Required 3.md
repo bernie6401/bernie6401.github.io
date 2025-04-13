@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Some Assembly Required 3
+<!-- more -->
 
 ## Background
 [WebAssembly/wabt](https://github.com/WebAssembly/wabt)

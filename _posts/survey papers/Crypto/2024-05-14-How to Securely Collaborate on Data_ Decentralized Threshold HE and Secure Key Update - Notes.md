@@ -6,6 +6,7 @@ category: "Survey Papers/Crypto"
 ---
 
 # How to Securely Collaborate on Data: Decentralized Threshold HE and Secure Key Update - Notes
+<!-- more -->
 ###### tags: `Meeting Paper` `NTU`
 :::info
 Kim, E., Jeong, J., Yoon, H., Kim, Y., Cho, J., & Cheon, J. H. (2020). How to securely collaborate on data: Decentralized threshold he and secure key update. IEEE Access, 8, 191319-191329.

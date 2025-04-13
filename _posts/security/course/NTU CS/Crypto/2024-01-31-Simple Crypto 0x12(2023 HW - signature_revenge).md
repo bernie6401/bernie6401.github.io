@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto 0x12(2023 HW - signature_revenge)
+<!-- more -->
 
 ## Background
 ![](https://hackmd.io/_uploads/Skf4o1tGp.png)

@@ -6,6 +6,7 @@ category: "Security/Course/NTU OS"
 ---
 
 # NTU Operating System Project 1
+<!-- more -->
 ###### tags: `NTU_OS` `Operating System` `NachOS` `Thread Management` 
 :::spoiler
 [TOC]

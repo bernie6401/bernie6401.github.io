@@ -6,6 +6,7 @@ category: "Security/Practice/Adworld/Misc"
 ---
 
 # Adworld - Misc文件類型
+<!-- more -->
 
 ## Source Code
 ```

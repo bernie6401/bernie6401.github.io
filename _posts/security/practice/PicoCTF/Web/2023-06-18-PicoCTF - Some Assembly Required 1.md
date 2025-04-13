@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Some Assembly Required 1
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 Challenge: [Some Assembly Required 1](https://play.picoctf.org/practice/challenge/152?category=1&page=1)
 

@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # VirtualBox滑鼠無法跳出
+<!-- more -->
 
 ## Problem Description
 在VirtualBox中如果滑鼠無法跳回本機，請先按照其他blog提出的solution自行排除[^vb-mouse-solution-csdn][^vb-mouse-solution-huawei][^vb-mouse-solution-baidu]，如果暫時找不到解決辦法，也可以參考[^vb-mouse-solution-moa]的做法，Ctrl+Alt+Del強制本機電腦跳出windows選項，此時滑鼠的控制權就會交回到本機端

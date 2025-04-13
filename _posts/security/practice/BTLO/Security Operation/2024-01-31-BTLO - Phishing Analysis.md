@@ -6,6 +6,7 @@ category: "Security/Practice/BTLO/Security Operation"
 ---
 
 # BTLO - Phishing Analysis
+<!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/phishing-analysis-f92ef500ce
 
 :::spoiler TOC

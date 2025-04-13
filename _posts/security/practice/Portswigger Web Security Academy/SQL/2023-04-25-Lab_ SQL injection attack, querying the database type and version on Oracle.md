@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/SQL"
 ---
 
 # Lab: SQL injection attack, querying the database type and version on Oracle
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 * Description: This lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query. 
 * Our Goal: To solve the lab, display the database version string.

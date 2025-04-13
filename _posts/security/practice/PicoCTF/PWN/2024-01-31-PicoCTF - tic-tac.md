@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - tic-tac
+<!-- more -->
 
 ## Background
 [後端工程師面試考什麼 - Race Condition 篇](https://myapollo.com.tw/blog/interview-question-race-condition/)

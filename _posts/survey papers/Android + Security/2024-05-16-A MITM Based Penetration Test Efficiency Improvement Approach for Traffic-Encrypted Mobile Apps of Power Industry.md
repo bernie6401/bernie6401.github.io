@@ -6,6 +6,7 @@ category: "Survey Papers/Android + Security"
 ---
 
 # A MITM Based Penetration Test Efficiency Improvement Approach for Traffic-Encrypted Mobile Applications of Power Industry
+<!-- more -->
 :::info
 Zhang, L., Wang, B., Shen, Q., Song, Y., Guo, N., & Xie, L. (2021, April). A MITM Based Penetration Test Efficiency Improvement Approach for Traffic-Encrypted Mobile Applications of Power Industry. In 2021 IEEE 6th International Conference on Computer and Communication Systems (ICCCS) (pp. 743-747). IEEE.
 :::

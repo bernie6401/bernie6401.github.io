@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/CSRF/針對CSRF To
 ---
 
 # Lab: CSRF where token is not tied to user session
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 * Description: This lab's email change functionality is vulnerable to CSRF. It uses tokens to try to prevent CSRF attacks, but they aren't integrated into the site's session handling system. 
 * Goal:  To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer's email address.

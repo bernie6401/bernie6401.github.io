@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Crypto/Classic"
 ---
 
 # PicoCTF - New Caesar
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Crypto`
 Challenge: [New Caesar](https://play.picoctf.org/practice/challenge/158?category=2&page=1)
 

@@ -6,6 +6,7 @@ category: "Security/Practice/NISRA/Misc"
 ---
 
 # NISRA 2023 Enlightened - Pixel
+<!-- more -->
 
 ## Source Code
 ![](https://hackmd.io/_uploads/HkF8f_702.png)

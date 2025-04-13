@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - gogo
+<!-- more -->
 
 ## Source code
 :::spoiler IDA Main Function

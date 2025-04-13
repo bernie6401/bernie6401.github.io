@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple Buffer Overflow - 0x05(Leak Canary)
+<!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
 ## Canary Background

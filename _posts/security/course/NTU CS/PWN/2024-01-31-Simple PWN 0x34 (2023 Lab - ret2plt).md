@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x34 (2023 Lab - ret2plt)
+<!-- more -->
 
 ## Background
 Got Hijack / BoF

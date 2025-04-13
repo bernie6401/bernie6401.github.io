@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/Deserialization"
 ---
 
 # Lab: Modifying serialized data types
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 * Description: This lab uses a serialization-based session mechanism and is vulnerable to authentication bypass as a result
 * Goal: To solve the lab, edit the serialized object in the session cookie to access the administrator account. Then, delete Carlos.

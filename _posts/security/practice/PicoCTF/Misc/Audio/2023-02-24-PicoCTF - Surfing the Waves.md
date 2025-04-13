@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Audio"
 ---
 
 # PicoCTF - Surfing the Waves
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [Surfing the Waves](https://play.picoctf.org/practice/challenge/117?category=4&page=3)
 

@@ -6,6 +6,7 @@ category: "Security/Practice/CrewCTF/Reverse"
 ---
 
 # CrewCTF - OhPHP
+<!-- more -->
 
 ## Background
 * [PHP - substr()](https://www.wibibi.com/info.php?tid=96)

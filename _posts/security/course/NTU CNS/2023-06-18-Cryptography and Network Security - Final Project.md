@@ -6,6 +6,7 @@ category: "Security/Course/NTU CNS"
 ---
 
 # Cryptography and Network Security - Final Project
+<!-- more -->
 
 ## Threshold HE Description
 With a designed scheme in place for threshold homomorphic encryption, private keys are divided into various shares among participating individuals who then work together to collaborate on computations without revealing plaintext material. 

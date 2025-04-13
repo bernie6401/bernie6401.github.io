@@ -6,6 +6,7 @@ category: "Security/Course/NTU ST"
 ---
 
 # NTU Software Testing Notes
+<!-- more -->
 ###### tags: `NTU_ST` `Software Testing`
 **All content in this presentation is refer to [Pro. Farn Wang Website](http://cc.ee.ntu.edu.tw/~farn/courses/ST/2021.Spring/)**
 

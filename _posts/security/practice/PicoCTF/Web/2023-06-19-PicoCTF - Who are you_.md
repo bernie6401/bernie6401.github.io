@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Who are you?
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 
 ## Background

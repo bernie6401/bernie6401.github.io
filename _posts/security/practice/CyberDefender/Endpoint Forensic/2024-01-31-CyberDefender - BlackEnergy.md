@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender/Endpoint Forensic"
 ---
 
 # CyberDefender - BlackEnergy
+<!-- more -->
 :::spoiler TOC
 [TOC]
 :::

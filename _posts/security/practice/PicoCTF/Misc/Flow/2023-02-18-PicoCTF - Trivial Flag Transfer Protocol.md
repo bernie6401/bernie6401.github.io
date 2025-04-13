@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - Trivial Flag Transfer Protocol
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [Trivial Flag Transfer Protocol](https://play.picoctf.org/practice/challenge/103?bookmarked=0&category=4&page=1&search=&solved=0)
 

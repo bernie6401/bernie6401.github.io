@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x28(2023 Lab - Super Angry)
+<!-- more -->
 
 ## Source code
 :::spoiler main function

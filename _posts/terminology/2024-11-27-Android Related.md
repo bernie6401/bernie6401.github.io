@@ -6,6 +6,7 @@ category: "Terminology"
 ---
 
 # Android Related
+<!-- more -->
 
 ## Android App本身
 * [[Android] Activity基本介紹](https://ironglion.com/archives/334)

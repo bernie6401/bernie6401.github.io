@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x02(Random Number Generator - LCG)
+<!-- more -->
 ###### tags: `CTF` `Crypto` `eductf`
 
 ## Background

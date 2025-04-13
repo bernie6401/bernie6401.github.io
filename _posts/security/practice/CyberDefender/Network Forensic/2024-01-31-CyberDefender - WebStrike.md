@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender/Network Forensic"
 ---
 
 # CyberDefender - WebStrike
+<!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/149
 
 :::spoiler TOC

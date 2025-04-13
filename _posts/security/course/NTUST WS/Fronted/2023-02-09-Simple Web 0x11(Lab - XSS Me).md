@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/Fronted"
 ---
 
 # Simple Web 0x11(Lab - XSS Me)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8800/
 

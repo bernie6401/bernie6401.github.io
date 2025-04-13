@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x15(2023 HW - crackme_vectorization)
+<!-- more -->
 
 ## Source Code
 :::spoiler IDA Main Function

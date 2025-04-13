@@ -6,6 +6,7 @@ category: "Tools/Others/Android App Crawler"
 ---
 
 # Android App Crawler
+<!-- more -->
 目前僅針對以下功能進行查找
 1. 可以自行判斷目前activity有哪些可以interact
 2. 自行與這些interactable的view進行interact，不管是DFS或是BFS，反正就是全部都互動就對了

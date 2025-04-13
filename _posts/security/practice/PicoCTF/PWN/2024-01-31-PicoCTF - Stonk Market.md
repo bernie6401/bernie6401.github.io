@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - Stonk Market
+<!-- more -->
 
 ## Background
 FMT

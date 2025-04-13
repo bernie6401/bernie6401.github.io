@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender/Endpoint Forensic/MrRobot - Medium"
 ---
 
 # CyberDefender - MrRobot - POS
+<!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/88
 Target 1: https://hackmd.io/@SBK6401/SkJAThwla
 Target 2: https://hackmd.io/@SBK6401/HJz2FPne6

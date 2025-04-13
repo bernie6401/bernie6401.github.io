@@ -6,6 +6,7 @@ category: "Security/Course/NTU ML"
 ---
 
 # NTU Machine Learning Final Project Proposal Notes
+<!-- more -->
 ###### tags: `NTU_ML` `Machine Learning`
 
 ## Deep6mAPred: A CNN and Bi-LSTM-based deep learning method for predicting DNA N6-methyladenosine sites across plant species

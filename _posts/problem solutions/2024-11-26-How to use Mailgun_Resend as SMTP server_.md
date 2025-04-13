@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # How to use Mailgun/Resend as SMTP server?
+<!-- more -->
 會有這個紀錄是因為deploy Mastodon Instance時需要用到SMTP Server，雖然是Optional，但還是嘗試建立一個試看看
 
 ## Prerequisite

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Web"
 ---
 
 # NTU CS 2023 HW4 Write Up
+<!-- more -->
 
 ## Lab-Cat Shop
 Flag: `FLAG{omg_y0u_hack3d_th3_c4t_sh0p!}`

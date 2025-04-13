@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Secrets
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 
 ## Recon

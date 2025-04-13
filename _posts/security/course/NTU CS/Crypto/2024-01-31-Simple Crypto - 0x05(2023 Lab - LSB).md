@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x05(2023 Lab - LSB)
+<!-- more -->
 
 ## Background
 [ [edu-ctf 2023] week01 - crypto1 ](https://www.youtube.com/live/mqQ2zgK8a0Y?si=GRgtEKGHsCNcKuqU&t=7176)

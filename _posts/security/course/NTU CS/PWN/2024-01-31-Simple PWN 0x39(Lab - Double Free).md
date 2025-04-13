@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x39(Lab - Double Free)
+<!-- more -->
 
 ## Background
 [0x18(Lab - `babynote`)](https://hackmd.io/@SBK6401/rkD83kaji)

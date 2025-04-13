@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - hijacking
+<!-- more -->
 
 ## Background
 Privilege Escalation

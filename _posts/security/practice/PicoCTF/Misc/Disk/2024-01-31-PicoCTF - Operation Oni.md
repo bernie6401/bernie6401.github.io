@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Disk"
 ---
 
 # PicoCTF - Operation Oni
+<!-- more -->
 
 ## Background
 [How to View Your SSH Keys in Linux, macOS and Windows](https://www.techrepublic.com/article/how-to-view-your-ssh-keys-in-linux-macos-and-windows/)

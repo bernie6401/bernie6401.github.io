@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x07(2023 HW - Oracle)
+<!-- more -->
 
 ## Background
 POA/RSA

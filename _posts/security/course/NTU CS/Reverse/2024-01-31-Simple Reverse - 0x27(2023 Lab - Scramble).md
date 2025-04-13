@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x27(2023 Lab - Scramble)
+<!-- more -->
 
 ## Source code
 :::spoiler scramble.py

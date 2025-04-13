@@ -73,6 +73,7 @@ Default language is English.
 ```yml
 language: en
 # language: zh-Hans
+<!-- more -->
 # language: fr-FR
 # language: zh-hk
 # language: zh-tw

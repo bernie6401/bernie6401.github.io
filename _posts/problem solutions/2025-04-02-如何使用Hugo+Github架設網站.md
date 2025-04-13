@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # 如何使用Hugo+Github架設網站
+<!-- more -->
 參考資料: [為了 SEO！我離開了 Medium，改在 GitHub 上自架個人網站](https://kucw.io/blog/2021/1/from-medium-to-github/)
 
 ## 註冊Github Account & Create Github Page

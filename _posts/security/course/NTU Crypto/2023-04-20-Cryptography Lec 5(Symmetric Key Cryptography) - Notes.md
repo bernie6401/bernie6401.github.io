@@ -6,6 +6,7 @@ category: "Security/Course/NTU Crypto"
 ---
 
 # Cryptography Lec 5(Symmetric Key Cryptography) - Notes
+<!-- more -->
 ###### tags: `Cryptography` `NTU`
 
 ## Background

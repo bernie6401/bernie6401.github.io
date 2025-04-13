@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Disk"
 ---
 
 # PicoCTF - Disk, disk, sleuth! II
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [Disk, disk, sleuth! II](https://play.picoctf.org/practice/challenge/137?category=4&page=2)
 

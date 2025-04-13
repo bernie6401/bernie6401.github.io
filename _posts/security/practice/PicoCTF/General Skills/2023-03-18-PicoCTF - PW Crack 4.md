@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/General Skills"
 ---
 
 # PicoCTF - PW Crack 4
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `General Skills`
 Challenge: [PW Crack 4](https://play.picoctf.org/practice/challenge/248?category=5&page=2)
 

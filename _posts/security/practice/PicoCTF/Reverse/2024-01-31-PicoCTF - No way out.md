@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - No way out
+<!-- more -->
 
 ## Background
 C Sharp / dn.spy / cheat engine

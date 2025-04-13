@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # Git Large File Error - Solution
+<!-- more -->
 
 ## Reference
 [解决git不小心提交大文件导致无法提交问题 ](https://blog.51cto.com/frytea/4143701)

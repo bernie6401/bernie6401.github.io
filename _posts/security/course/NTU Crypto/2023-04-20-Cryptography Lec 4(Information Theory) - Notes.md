@@ -6,6 +6,7 @@ category: "Security/Course/NTU Crypto"
 ---
 
 # Cryptography Lec 4(Information Theory) - Notes
+<!-- more -->
 ###### tags: `Cryptography` `NTU`
 
 ## Background

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse 0x13(Lab - Meow)
+<!-- more -->
 
 ## Background
 [課程影片 - Process Injection](https://www.youtube.com/live/4-hgyiCV3ZA?feature=share&t=7028)

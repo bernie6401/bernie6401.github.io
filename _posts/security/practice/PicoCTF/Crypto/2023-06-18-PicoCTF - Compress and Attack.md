@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Crypto"
 ---
 
 # PicoCTF - Compress and Attack
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Crypto`
 
 ## Background

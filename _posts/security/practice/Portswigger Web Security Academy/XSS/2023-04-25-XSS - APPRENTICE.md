@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/XSS"
 ---
 
 # XSS - APPRENTICE
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 [TOC]
 

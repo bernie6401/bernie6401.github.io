@@ -6,6 +6,7 @@ category: "Tools/Others/Android Related/Drozer/Test Sieve"
 ---
 
 # Test Sieve - is debuggable
+<!-- more -->
 ```bash
 dz> run app.package.debuggable
 Attempting to run shell module

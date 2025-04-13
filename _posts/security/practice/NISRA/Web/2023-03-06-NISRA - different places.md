@@ -6,6 +6,7 @@ category: "Security/Practice/NISRA/Web"
 ---
 
 # NISRA - different places
+<!-- more -->
 ###### tags: `NISRA` `CTF` `Web`
 Challenge: [different places](http://chall2.nisra.net:41025/)
 

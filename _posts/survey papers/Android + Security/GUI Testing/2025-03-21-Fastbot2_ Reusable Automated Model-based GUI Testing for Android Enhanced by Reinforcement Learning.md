@@ -6,6 +6,7 @@ category: "Survey Papers/Android + Security/GUI Testing"
 ---
 
 # Fastbot2: Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning
+<!-- more -->
 :::info
 Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbot2: Reusable automated model-based gui testing for android enhanced by reinforcement learning. In Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering (pp. 1-5).
 :::

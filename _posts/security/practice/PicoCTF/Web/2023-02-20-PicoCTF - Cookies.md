@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Cookies
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 Challenge: http://mercury.picoctf.net:64944/
 

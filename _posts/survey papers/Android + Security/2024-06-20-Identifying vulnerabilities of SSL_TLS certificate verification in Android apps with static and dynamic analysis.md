@@ -6,6 +6,7 @@ category: "Survey Papers/Android + Security"
 ---
 
 # Identifying vulnerabilities of SSL_TLS certificate verification in Android apps with static and dynamic analysis
+<!-- more -->
 :::info
 Wang, Y., Xu, G., Liu, X., Mao, W., Si, C., Pedrycz, W., & Wang, W. (2020). Identifying vulnerabilities of SSL/TLS certificate verification in Android apps with static and dynamic analysis. Journal of Systems and Software, 167, 110609.
 :::

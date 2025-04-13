@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Web"
 ---
 
 # Simple Web - 0x08(Lab - `Particles.js`)
+<!-- more -->
 ###### tags: `CTF` `Web` `eductf`
 Challenge: https://particles.ctf.zoolab.org
 

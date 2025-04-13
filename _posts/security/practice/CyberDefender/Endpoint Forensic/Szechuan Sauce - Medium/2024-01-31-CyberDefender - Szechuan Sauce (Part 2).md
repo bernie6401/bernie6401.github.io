@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender/Endpoint Forensic/Szechuan Sauce - Me
 ---
 
 # CyberDefender - Szechuan Sauce (Part 2)
+<!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/31
 Part 1: https://hackmd.io/@SBK6401/rkp952e76
 

@@ -6,6 +6,7 @@ category: "Survey Papers/Digital Currency"
 ---
 
 # The State of Ethereum Smart Contracts Security: Vulnerabilities, Countermeasures, and Tool Support - Notes
+<!-- more -->
 ###### tags: `Meeting Paper` `NTU` `Seminar`
 :::info
 Zhou, H., Milani Fard, A., & Makanju, A. (2022). The state of ethereum smart contracts security: Vulnerabilities, countermeasures, and tool support. Journal of Cybersecurity and Privacy, 2(2), 358-378.

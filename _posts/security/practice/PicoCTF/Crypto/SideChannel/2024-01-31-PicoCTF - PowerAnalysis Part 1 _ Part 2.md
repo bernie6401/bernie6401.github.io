@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Crypto/SideChannel"
 ---
 
 # PicoCTF - PowerAnalysis Part 1 / Part 2
+<!-- more -->
 
 ## Background
 [Simple Welcome 0x13(2023 HW - Power Analysis):two:](https://hackmd.io/@SBK6401/HJNScTc-T)

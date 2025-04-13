@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - notepad
+<!-- more -->
 
 ## Background
 [Flask實作_基礎_03_簡述url_for與route](https://hackmd.io/@shaoeChen/BkApyHhgf?type=view)

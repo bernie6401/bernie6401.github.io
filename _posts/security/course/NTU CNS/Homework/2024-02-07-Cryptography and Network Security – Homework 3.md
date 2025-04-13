@@ -6,6 +6,7 @@ category: "Security/Course/NTU CNS/Homework"
 ---
 
 # Cryptography and Network Security – Homework 3
+<!-- more -->
 
 [![hackmd-github-sync-badge](https://hackmd.io/JO7xByQgQWK67eU0goHMeA/badge)](https://hackmd.io/JO7xByQgQWK67eU0goHMeA)
 

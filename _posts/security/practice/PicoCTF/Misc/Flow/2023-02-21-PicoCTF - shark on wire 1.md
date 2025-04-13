@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - shark on wire 1
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [shark on wire 1](https://play.picoctf.org/practice/challenge/30?category=4&page=2)
 

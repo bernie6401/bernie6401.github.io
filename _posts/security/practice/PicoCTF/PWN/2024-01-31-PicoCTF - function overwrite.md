@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - function overwrite
+<!-- more -->
 
 ## Background
 Array Bound

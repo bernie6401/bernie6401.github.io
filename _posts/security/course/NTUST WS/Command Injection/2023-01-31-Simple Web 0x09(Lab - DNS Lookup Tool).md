@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/Command Injection"
 ---
 
 # Simple Web 0x09(Lab - DNS Lookup Tool)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8300/
 

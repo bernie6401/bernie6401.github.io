@@ -6,6 +6,7 @@ category: "Security/Course/NTU CT"
 ---
 
 # NTU Compiler Technology Previous Exam 2019 Spring
+<!-- more -->
 ###### tags: `NTU_CT` `NTU` `Compiler Techonology of Programming Language` `Final Exam`
 
 1. Please explain three different compiler optimization techniques :

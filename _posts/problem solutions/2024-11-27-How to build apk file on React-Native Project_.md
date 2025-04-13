@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # How to build apk file on React-Native Project?
+<!-- more -->
 
 ## **1. 確保已完成的環境設置**
 

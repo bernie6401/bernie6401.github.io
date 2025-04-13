@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender"
 ---
 
 # CyberDefender - KrakenKeylogger
+<!-- more -->
 :::spoiler TOC
 [TOC]
 :::

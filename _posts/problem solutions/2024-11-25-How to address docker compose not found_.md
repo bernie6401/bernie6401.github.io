@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # How to address docker compose not found?
+<!-- more -->
 
 ## Problem Statement
 如果之前有安裝過docker-compose，而且主要的command是中間有個dash，那是舊的版本，可以參考["docker compose"和"docker-compose"之間的區別](https://stackoverflow.com/questions/66514436/difference-between-docker-compose-and-docker-compose)，但更新的版其實是把dash拿掉，因為要把compose合併到docker的command，這樣的話就需要安裝plugin

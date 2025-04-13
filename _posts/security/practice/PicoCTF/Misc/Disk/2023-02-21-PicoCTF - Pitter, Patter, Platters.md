@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Disk"
 ---
 
 # PicoCTF - Pitter, Patter, Platters
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [Pitter, Patter, Platters](https://play.picoctf.org/practice/challenge/87?category=4&page=2)
 

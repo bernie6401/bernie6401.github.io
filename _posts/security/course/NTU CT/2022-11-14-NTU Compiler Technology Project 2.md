@@ -6,6 +6,7 @@ category: "Security/Course/NTU CT"
 ---
 
 # NTU Compiler Technology Project 2
+<!-- more -->
 ###### tags: `NTU_CT` `NTU` `Compiler Techonology of Programming Language` `Scanner`
 :::spoiler
 [TOC]

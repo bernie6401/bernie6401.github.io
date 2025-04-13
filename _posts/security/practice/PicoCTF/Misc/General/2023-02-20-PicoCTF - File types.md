@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/General"
 ---
 
 # PicoCTF - File types
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [File types]()
 

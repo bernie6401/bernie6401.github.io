@@ -7,6 +7,7 @@ category: "原始文章"
 This is a highlight test.
 
 # Normal block
+<!-- more -->
 
 ```
 alert('Hello World!');

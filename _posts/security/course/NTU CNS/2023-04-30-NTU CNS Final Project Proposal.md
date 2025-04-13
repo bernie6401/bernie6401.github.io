@@ -6,6 +6,7 @@ category: "Security/Course/NTU CNS"
 ---
 
 # NTU CNS Final Project Proposal
+<!-- more -->
 ###### tags: `NTUCNS`
 
 ## Problem description / Research question(秉學)

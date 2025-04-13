@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Crypto/Classic"
 ---
 
 # PicoCTF - Easy Peasy
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Crypto`
 Challenge: [Easy Peasy]()
 

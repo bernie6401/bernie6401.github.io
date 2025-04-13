@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto 0x13(2023 HW - Power Analysis)
+<!-- more -->
 
 ## Background
 [ [edu-ctf 2023] week04 - crypto3 [1:30:36]](https://www.youtube.com/live/Q-gaGLJpJHc?si=DZgJm62AnoPHWiZF&t=5433)

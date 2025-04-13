@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - SQLiLite
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 Challenge: http://saturn.picoctf.net:55837/
 

@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Some Assembly Required 2
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 
 ## Background

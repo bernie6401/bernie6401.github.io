@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x38(Lab - UAF)
+<!-- more -->
 
 ## Background
 ![圖片](https://hackmd.io/_uploads/ByxvsvNr6.png)

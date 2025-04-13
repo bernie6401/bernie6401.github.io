@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x03(2023 Lab - COR)
+<!-- more -->
 
 ## Background
 [Simple Crypto - 0x03(Lab - LFSR)](https://hackmd.io/@SBK6401/rkiE18Kas)

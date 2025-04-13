@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/SQL Injection"
 ---
 
 # Simple Web 0x03(Lab - Log me in + Revenge)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8200/
 Challenge: http://h4ck3r.quest:8201/

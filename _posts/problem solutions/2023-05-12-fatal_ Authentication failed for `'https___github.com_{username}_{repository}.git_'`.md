@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # fatal: Authentication failed for `'https://github.com/{username}/{repository}.git/'`
+<!-- more -->
 ###### tags: `problem solution`
 
 ## Solution

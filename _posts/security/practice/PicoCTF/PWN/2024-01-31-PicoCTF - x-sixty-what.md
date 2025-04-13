@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - x-sixty-what
+<!-- more -->
 
 ## Source code
 :::spoiler

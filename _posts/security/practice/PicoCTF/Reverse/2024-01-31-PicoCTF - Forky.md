@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Forky
+<!-- more -->
 
 ## Background
 [ fork用法與範例 ](https://burweisnote.blogspot.com/2017/09/fork.html)

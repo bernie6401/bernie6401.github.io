@@ -6,6 +6,7 @@ category: "Security/Course/NTU PADNS"
 ---
 
 # A&D of Network Security - Lab 13
+<!-- more -->
 ###### tags: `Practicum of A&D of NS` `NTU`
 
 ## Metasploit with Bluekeep Vulnerability (CVE-2019-0708)

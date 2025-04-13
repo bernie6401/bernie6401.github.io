@@ -6,6 +6,7 @@ category: "Security/Practice/NISRA/Misc"
 ---
 
 # NISRA 2023 Enlightened - Jack的flag
+<!-- more -->
 
 ## Background
 Microsoft Word Forensics

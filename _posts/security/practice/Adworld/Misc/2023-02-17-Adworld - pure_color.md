@@ -6,6 +6,7 @@ category: "Security/Practice/Adworld/Misc"
 ---
 
 # Adworld - pure_color
+<!-- more -->
 ###### tags: `Adworld` `CTF` `Misc`
 Challenge: https://adworld.xctf.org.cn/challenges/details?hash=f216ffab-e01d-46b8-9d4d-d91ab5229eed_2&task_category_id=1
 

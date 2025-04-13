@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Insp3ct0r
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 Challenge: [Insp3ct0r](http://jupiter.challenges.picoctf.org:9670/)
 

@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Powershelly
+<!-- more -->
 
 ## Background
 [Powershell 命令提示字元比較](https://zh.wikipedia.org/zh-tw/PowerShell#%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83%E6%AF%94%E8%BE%83)

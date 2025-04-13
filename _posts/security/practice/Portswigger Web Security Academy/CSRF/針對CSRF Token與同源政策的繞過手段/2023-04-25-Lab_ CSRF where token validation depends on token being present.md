@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/CSRF/針對CSRF To
 ---
 
 # Lab: CSRF where token validation depends on token being present
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 * Description: This lab's email change functionality is vulnerable to CSRF.
 * Goal:  To solve the lab, use your exploit server to host an HTML page that uses a CSRF attack to change the viewer's email address.

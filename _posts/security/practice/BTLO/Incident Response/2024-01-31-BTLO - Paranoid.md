@@ -6,6 +6,7 @@ category: "Security/Practice/BTLO/Incident Response"
 ---
 
 # BTLO - Paranoid
+<!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/paranoid-e5e164befb
 
 :::spoiler TOC

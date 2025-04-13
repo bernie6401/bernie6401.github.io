@@ -6,6 +6,7 @@ category: "Survey Papers/Android + Security/GUI Testing"
 ---
 
 # Fastbot: A Multi-Agent Model-Based Test Generation System
+<!-- more -->
 :::info
 Cai, T., Zhang, Z., & Yang, P. (2020, October). Fastbot: A multi-agent model-based test generation system Beijing Bytedance Network Technology Co., Ltd. In Proceedings of the IEEE/ACM 1st International Conference on Automation of Software Test (pp. 93-96).
 :::

@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/General"
 ---
 
 # PicoCTF - Investigative Reversing 0
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [Investigative Reversing 0](https://play.picoctf.org/practice/challenge/70?category=4&page=3)
 

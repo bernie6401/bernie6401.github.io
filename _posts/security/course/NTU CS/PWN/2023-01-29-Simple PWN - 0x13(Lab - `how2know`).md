@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN - 0x13(Lab - `how2know`)
+<!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
 challenge: `nc edu-ctf.zoolab.org 10002`

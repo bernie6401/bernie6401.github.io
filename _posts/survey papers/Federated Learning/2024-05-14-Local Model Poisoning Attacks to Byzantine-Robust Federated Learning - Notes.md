@@ -6,6 +6,7 @@ category: "Survey Papers/Federated Learning"
 ---
 
 # Local Model Poisoning Attacks to Byzantine-Robust Federated Learning - Notes
+<!-- more -->
 ###### tags: `Meeting Paper` `NTU`
 :::info
 Fang, M., Cao, X., Jia, J., & Gong, N. (2020). Local model poisoning attacks to {Byzantine-Robust} federated learning. In 29th USENIX security symposium (USENIX Security 20) (pp. 1605-1622).

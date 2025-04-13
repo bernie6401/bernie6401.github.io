@@ -6,6 +6,7 @@ category: "Security/Course/NTU Crypto"
 ---
 
 # Cryptography Lec 3(Mathematical Background) - Notes
+<!-- more -->
 ###### tags: `Cryptography` `NTU`
 
 ## Background

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse 0x12(Lab - TLSCallback)
+<!-- more -->
 
 ## Background
 [課程相關影片](https://www.youtube.com/live/4-hgyiCV3ZA?feature=share&t=6624)

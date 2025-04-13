@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Welcome"
 ---
 
 # Simple Welcome 0x02 & 0x05(Lab - Nine & Nine-Revenge)
+<!-- more -->
 
 ## Background
 [Convert.FromBase64String(String) Method in C#](https://www.tutorialspoint.com/convert-frombase64string-string-method-in-chash#)

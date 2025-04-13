@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender/Network Forensic"
 ---
 
 # CyberDefender - Tomcat Takeover
+<!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/135#nav-questions
 
 :::spoiler TOC

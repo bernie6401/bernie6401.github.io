@@ -6,6 +6,7 @@ category: "Tools/Others"
 ---
 
 # Command Cheat Sheet
+<!-- more -->
 
 ## Python 基本用語
 * Bytes $\to$ Hex

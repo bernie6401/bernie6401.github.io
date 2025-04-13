@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/General Skills"
 ---
 
 # PicoCTF - Special & Specialer
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `General Skill`
 
 ## Recon

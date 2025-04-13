@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN - 0x06(GOT hijacking/Lab - `got2win`)
+<!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
 challenge: `nc edu-ctf.zoolab.org 10004`

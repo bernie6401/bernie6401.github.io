@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - ARMssembly 0
+<!-- more -->
 
 ## Source code
 :::spoiler ARM assembly code
