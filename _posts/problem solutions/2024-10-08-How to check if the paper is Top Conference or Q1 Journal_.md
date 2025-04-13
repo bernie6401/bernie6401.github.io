@@ -6,11 +6,13 @@ category: "Problem Solutions"
 ---
 
 # How to check if the paper is Top Conference or Q1 Journal?
+
 ## Preliminary
 * 先判斷該篇論文是Conference還是Journal
     > 有出現Conference, Symposium, Proceedings, ACM: SIG…, Ex. SIGSOFT, SIGGRAPH等關鍵字時，基本上是Conference
     > 有出現Journal或是Transactions基本上是Journal
     > [name=ianyang]
+
 ## Conference
 * (不推薦)直接看有沒有在Google Scholar Ranking當中
     如果是Engineer & Computer Science的，可以直接看 https://scholar.google.com/citations?view_op=top_venues&hl=zh-TW&vq=eng ，不過這個方法也要知道該篇論文在Subcatecory當中的哪一個類別，可能該篇論文有用到很多元素，就不太好判斷
@@ -25,5 +27,6 @@ category: "Problem Solutions"
 :::info
 如果是IEEE或是ACM出版的，大部分都可能是頂會，但也要看，如果是自己論文的主要比較對象，就要再確定，但如果只是一般的引用，可以不用那麼detail或是執著一定要是頂會
 :::
+
 ## Journal
 這個就簡單很多，直接用Clarivate查JCI，如果沒有就代表沒有收錄在JCR，那可能就先不要引用，或者是有Transactions的關鍵字，代表他一定曾經是頂會，https://jcr.clarivate.com/jcr/home

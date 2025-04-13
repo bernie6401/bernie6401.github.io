@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto 0x12(2023 HW - signature_revenge)
+
 ## Background
 ![](https://hackmd.io/_uploads/Skf4o1tGp.png)
 ![](https://hackmd.io/_uploads/B16No1FzT.png)
@@ -46,6 +47,7 @@ print(f'sig2 = ({sig2.r}, {sig2.s})')
 # sig2 = (8256687378196792904669428303872036025324883507048772044875872623403155644190, 90323515158120328162524865800363952831516312527470472160064097576156608261906)
 ```
 :::
+
 ## Recon
 仔細看source code會發現他和上課講的例子很不一樣，上課講的方式是考慮已知$k1$, $k2$的長度是符合用lattice找的情況，用LLL找到$k1, k2$再回推d，但這一題一開始遇到最大的困難在於
 $$

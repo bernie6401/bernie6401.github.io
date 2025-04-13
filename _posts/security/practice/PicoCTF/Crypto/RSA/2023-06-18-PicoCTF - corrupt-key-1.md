@@ -38,6 +38,7 @@ category: "Security/Practice/PicoCTF/Crypto/RSA"
     9033 63d5 6a13 7b64 1fc3 8709 2416 f7fb
     eb4c 4c94 cc8e 157f cc0e d122 159c 27d5
     ```
+
 ## Recon
 可見private.key的內文被corrupted了，必須要修復才能夠解密ciphertext，但看來看去也找不到相關的write up，或是修復的方法，從[連結](https://connor-mccartney.github.io/cryptography/rsa/corrupt-key-1-picoMini)這篇write up也看不懂如何修復，雖然他有附上code，但是很多error也無法debug(主要是看不懂)，總而言之我們的目標就是找出$p$為何
 

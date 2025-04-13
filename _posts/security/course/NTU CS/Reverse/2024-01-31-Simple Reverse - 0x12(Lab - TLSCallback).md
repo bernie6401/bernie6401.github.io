@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse 0x12(Lab - TLSCallback)
+
 ## Background
 [課程相關影片](https://www.youtube.com/live/4-hgyiCV3ZA?feature=share&t=6624)
 [[C語言] function pointer的應用[四]: function pointer array](https://medium.com/@racktar7743/c語言-function-pointer的應用-四-function-pointer-array-d0d624db8406)
@@ -53,6 +54,7 @@ LABEL_7:
 }
 ```
 :::
+
 ## Recon
 這一題也蠻簡單的，只要有耐心分析一下就可以了
 1. 首先執行一下這隻程式，發現沒啥特別的，就和之前的題目一樣
@@ -117,6 +119,7 @@ LABEL_7:
     Note: 相加的部分最後只會取==低位byte==喔，所以如果減回去發現是負的，就要在加0x100導正回來
     :::
 7. 開寫script
+
 ## Exploit
 ```python=
 key = [0x21, 0xCE, 0x39, 0x40]

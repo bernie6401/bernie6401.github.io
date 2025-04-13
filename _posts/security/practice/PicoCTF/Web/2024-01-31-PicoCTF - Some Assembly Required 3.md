@@ -6,11 +6,13 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Some Assembly Required 3
+
 ## Background
 [WebAssembly/wabt](https://github.com/WebAssembly/wabt)
 ```bash!
 $ ./build/wasm2c qCCYI0ajpD.wasm -o dump.c
 ```
+
 ## Source code
 :::spoiler rTEuOmSfG3.js
 ```javascript=
@@ -1154,6 +1156,7 @@ void w2c_qCCYI0ajpD_copy_char_0(w2c_qCCYI0ajpD* instance, u32 var_p0, u32 var_p1
 
 ```
 :::
+
 ## Recon
 這一題沒有寫出來，太難了，應該說複雜很多，即使看了maple和martin的WP還是做不出來，大概知道就是兩個list之間的XOR，不過具體的流程和解題思路是比較模糊的，沒有通透的感覺QQ
 

@@ -9,10 +9,13 @@ category: "Security/Course/NTU CS/PWN"
 ###### tags: `CTF` `PWN` `eductf`
 
 Version: Ubuntu 20.04
+
 ## HEAP background
 [Advanced Binary Exploitation (Pwn) - Heap Exploitation](https://youtu.be/rMqvL9j0QaM)
 [SS111-Pwn2](https://youtu.be/Xppj8lA04qQ)
+
 ## Allocate a memory
+
 ### Original Code
 ```cpp!=
 #include <stdio.h>
@@ -28,6 +31,7 @@ int main()
 ```bash!
 $ sudo gcc -o simple_heap simple_heap.c -no-pie
 ```
+
 ### Analyze
 * Before executing `malloc`, there is no `heap` space in memory layout
 ![](https://imgur.com/h9ibSyk.png)
@@ -42,6 +46,7 @@ DON'T BE PANIC!!! We have useful tool to parse it automatically → `pwngdb` fro
 
 
 ## How about if we free the memory?
+
 ### Original Code
 ```cpp!=
 #include <stdio.h>
@@ -56,6 +61,7 @@ int main()
 }
 ```
 * Note that `0x30`is for `Tcache bin` size
+
 ### Analyze
 * Before freeing memory, we can observe the memory that system gave to us.
 ![](https://imgur.com/8Mt5ZpW.png)
@@ -66,6 +72,7 @@ Moreover, the data section told us that the system actually gave us a memory wit
 ![](https://imgur.com/ZuA3bIX.png)
 
 ## How about we malloc another 0x30 and free it later?
+
 ### Original Code
 ```cpp!
 #include <stdio.h>
@@ -81,6 +88,7 @@ int main()
     return 0;
 }
 ```
+
 ### Analyze
 * After malloc, before free
 ![](https://imgur.com/hRyBYRW.png)

@@ -7,8 +7,10 @@ category: "Problem Solutions"
 
 # How How to use Mailgun/Resend as SMTP server?
 會有這個紀錄是因為deploy Mastodon Instance時需要用到SMTP Server，雖然是Optional，但還是嘗試建立一個試看看
+
 ## Prerequisite
 * 有一台具有domain的device
+
 ## Mailgun Step 
 1. 先到[官網](https://app.mailgun.com)註冊帳號
 2. 在Sending > Domains中新增Domain，我是只有domain name，而不是包含subdomain
@@ -38,6 +40,7 @@ category: "Problem Solutions"
     而auto_method、openssl_verify和enable_starttls則是有其他的選項可以選，可以視情況自行使用，from_address則是看要用什麼身份傳送mail，我是直接使用mastodon的預設模式
 6. Done!!!
     通常這樣沒有什麼問題的話就完成了，只要mastodon有出現任何被Follow、登入、被tag發文等操作，都應該要發送信件通知才對
+
 ## Resend Step
 我發現在設定Bluesky的SMTP的時候，無法用mailgun當作server，不確定是什麼原因，但官方doc說建議用[Resend](https://resend.com)或是[SendGrid](https://sendgrid.com/)，然後和Mailgun設定的差不多，先新增一個自己的domain，然後他會給4個DNS config的紀錄(3個TXT和1個MX)
 ![image](https://hackmd.io/_uploads/ryI8KTzX1g.png)

@@ -10,7 +10,9 @@ category: "Survey Papers/Federated Learning"
 :::info
 Fang, M., Cao, X., Jia, J., & Gong, N. (2020). Local model poisoning attacks to {Byzantine-Robust} federated learning. In 29th USENIX security symposium (USENIX Security 20) (pp. 1605-1622).
 :::
+
 ## Background
+
 ### [What is Non-IID?](https://www.zhihu.com/question/395555567)
 > 首先：什麽是獨立同分布？
 > * 同分布：所有items均來自同一種概率分布； e.g. 你丟骰子，每次丟骰子到任何一個數字的概率都是1/6，是相等概率。或者說，在概率空間里面，你不論進行幾次抽樣實驗，他們都服從同樣一個分布。
@@ -33,7 +35,9 @@ Fang, M., Cao, X., Jia, J., & Gong, N. (2020). Local model poisoning attacks to 
 > * 活性：可以接受並且執行非拜占庭客戶端的請求，不會被任何因素影響而導致非拜占庭客戶端的請求不能執行。在區塊鏈系統中，可以理解為，系統需要持續生成區塊，為用戶記賬，這主要靠挖礦的激勵機制來保證。
 
 ## Aggregation Rules
+
 ### [Krum Algorithm](https://www.royc30ne.com/krum-algorithm/)
+
 #### Krum算法原理
 > Krum算法的核心思想是在每輪訓練結束後，對參與者的本地模型權重進行一種特殊的排序和選擇。具體來說，Krum算法遵循以下步驟：
 > 1. 計算模型權重之間的距離：對於每對參與者i和j，計算其本地模型權重向量之間的歐氏距離。

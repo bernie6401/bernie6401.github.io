@@ -178,6 +178,7 @@ $$xy\ mod\ q=(x\ mod q)(y\ mod\ q)\ mod\ q$$
 :::
 
 ---
+
 ## Chinese Remainder Theorem $\to$ RSA
 :::spoiler Fermat's Little Theorem
 {% raw %}{%youtube SyK3IXPITco %}{% endraw %}
@@ -192,6 +193,7 @@ $\downarrow$
 [韓信點兵問題$\to$RSA 密碼系統上的應用](https://youtu.be/NkvCZ8qJ34w)
 
 ---
+
 ## Discrete Logarithms
 :::spoiler Basic Definition
 If $g$ is a generator of $\mathbb{Z}_n^*$, then for all $y$ there is a unique $x$ such that
@@ -268,6 +270,7 @@ $$
 :::
 
 :::spoiler [橢圓曲線密碼學Elliptic Curve Cryptography, ECC(觀念篇)](https://ithelp.ithome.com.tw/articles/10251031)
+
 ### Description
 > 橢圓曲線密碼學（英語：Elliptic Curve Cryptography，縮寫：ECC）是一種基於橢圓曲線數學的公開密鑰加密演算法。橢圓曲線在密碼學中的使用是在1985年由Neal Koblitz和Victor Miller分別獨立提出的。
 >

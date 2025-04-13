@@ -6,8 +6,10 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x34 (2023 Lab - ret2plt)
+
 ## Background
 Got Hijack / BoF
+
 ## Source code
 ```cpp
 //gcc -no-pie -fno-stack-protector -z norelro ret2plt.c -o ret2plt
@@ -22,6 +24,7 @@ int main(){
 	puts("boom !");	
 }
 ```
+
 ## Recon
 1. checksec + file
     ```bash
@@ -76,6 +79,7 @@ int main(){
     bss_addr
     puts_plt
     ```
+
 ## Exploit - Ret2Plt(leak base address) + Got Hijack(call system)
 ```python
 from pwn import *

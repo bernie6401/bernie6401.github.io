@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x06(2023 HW - LFSR)
+
 ## Background
 * [Python – List XOR](https://www.geeksforgeeks.org/python-list-xor/)
     > ```python
@@ -33,6 +34,7 @@ category: "Security/Course/NTU CS/Crypto"
     $ sage <.py/.sage file> # 用sage運行腳本
     $ sage # 直接開啟sage interactive shell
     ```
+
 ## Recon
 這一題和前面的triLFSR不一樣的地方在於他只有一層的LFSR，但他只會每個70個才會給一個state，換句話說我們只能拿到$S_{71*0+70},\ S_{71*1+70},\ S_{71*2+70},\ S_{71*3+70}...$(從0開始算)，而前面256個拿到的State最後會和flag進行XOR，只有最後70個是最純粹的State
 

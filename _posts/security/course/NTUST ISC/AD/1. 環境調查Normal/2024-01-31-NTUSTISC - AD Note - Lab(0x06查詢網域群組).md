@@ -11,6 +11,7 @@ category: "Security/Course/NTUST ISC/AD/1. 環境調查Normal"
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)
 
 ## Lab Time - 環境調查
+
 ### ==查詢網域群組==
 常用的cheat sheet
 `Domain Admins`, `Schema Admins`, `Enterprise Admins`是預設的權限，通常一進到AD網域都會先看這幾個權限有哪些成員
@@ -104,5 +105,6 @@ Administrator
     重開任何主機(超重要)
 
 ---
+
 ### ==小提醒：加入網域的電腦是沒有隱私的==
 尤其是C槽，加入網域後C槽預設是共享的，Domain Admin可以任意查看，但是會留下足跡，所以站在加入網域的角度來說，不要隨便放私人的東西在C槽，而站在Domain Admin的角度來說，不要隨便亂看別人的C槽，因為這樣會留下認證足跡，可能會供攻擊者一些必要資訊

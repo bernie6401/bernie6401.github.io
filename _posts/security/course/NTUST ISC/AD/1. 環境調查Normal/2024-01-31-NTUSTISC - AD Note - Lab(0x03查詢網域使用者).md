@@ -11,6 +11,7 @@ category: "Security/Course/NTUST ISC/AD/1. 環境調查Normal"
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)
 
 ## Lab Time - 環境調查
+
 ### ==查詢網域使用者==
 常用的cheat sheet
 ```bash!

@@ -6,6 +6,7 @@ category: "Tools/CTF"
 ---
 
 # Misc Cheat Sheet
+
 ## Online Tools
 | Encode & Decode |
 | -------- |
@@ -23,6 +24,7 @@ $ stat [filename]
 $ file [filename]
 ```
 * `$ binwalk -e` 的範例可以參考[Deadface - Electric Steel ](https://hackmd.io/@SBK6401/BJgwrxWM6#Electric-Steel)
+
 ## Steganography
 * text: [zsteg](https://github.com/zed-0xff/zsteg)(just for `bmp` and `png` files), [Quick Crypto](http://quickcrypto.com/download.html)
 * file: steghide(`sudo apt-get install steghide`)(`$ steghide extract -sf atbash.jpg`)
@@ -32,6 +34,7 @@ $ file [filename]
     $ sudo apt install ./stegseek_0.6-1.deb -y
     $ stegseek [stegofile.jpg] [wordlist.txt]
     ```
+
 ## Disk Analysis
 * [Foremost](https://darkranger.no-ip.org/archives/v5/document/linux/foremost_recovery.htm): 針對所支援的檔案結構去進行資料搜尋與救援
     `$ foremost -v {filename}`
@@ -98,6 +101,7 @@ $ file [filename]
 * [PST Viewer](https://goldfynch.com/goldfynch-pst-viewer)
 * [eml Viewer](https://products.groupdocs.app/zh-hant/viewer/eml)
 * [ThunderBird Client](https://www.thunderbird.net/zh-TW/)
+
 ## Overall
 * [All stego decrypt tools](https://aperisolve.fr/)
 * [All stego encrypt tools](https://tools.miku.ac/)

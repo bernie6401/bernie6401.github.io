@@ -13,6 +13,7 @@ category: "Security/Practice/PicoCTF/Web"
 * Hint: folders folders folders
 
 這一題也是蠻有趣的
+
 ## Exploit - <font color="FF0000">通靈</font>
 1. 首先看一下網頁的source code，沒什麼特別的地方，但有看到`secret/assets/index.css`，所以有一個route是secrets，試看看有甚麼東西
 ![](https://hackmd.io/_uploads/HywRa08_n.png)

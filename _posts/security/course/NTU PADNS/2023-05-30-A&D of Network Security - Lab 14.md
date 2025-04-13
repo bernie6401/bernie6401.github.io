@@ -27,6 +27,7 @@ category: "Security/Course/NTU PADNS"
 
 
 ## Lab
+
 ### Lab 1: Packet sniffer Mode show出 sniff ICMP封包的結果
 Payload:
 ```bash!
@@ -38,7 +39,9 @@ $ sudo snort -vd -i eth0 -q
 
 
 ---
+
 ### Lab 2: Attacker SSH爆破攻擊，利用 Snort偵測攻擊行為是否發生，show出偵測結果 ，並說明snort rule
+
 #### Threat Model
 ![](https://hackmd.io/_uploads/SkDltNQU3.png)
 * Attacker use SSH brute force attack and try to log in the victim snort
@@ -107,7 +110,9 @@ Payload:
 
 
 ---
+
 ### Lab 3-1: 使用Nmap進行攻擊並使用 Wireshark側錄封包分析可能可以成為snort的規則
+
 #### Threat Model
 ![](https://hackmd.io/_uploads/H1LrJHQ83.png)
 1. Nmap to the snort machine. (Any Nmap scan command is available)
@@ -130,6 +135,7 @@ Payload:
     :::
 
 ---
+
 ###  Lab 3-2: 撰寫snort rule並偵測出攻擊，偵測的 lert需包含你的學號
 From the result above, try to observe the common rules of these <font color="FF0000">Red</font> packets(unsuccessful packets) $\to$ The length of each packets are $0$
 

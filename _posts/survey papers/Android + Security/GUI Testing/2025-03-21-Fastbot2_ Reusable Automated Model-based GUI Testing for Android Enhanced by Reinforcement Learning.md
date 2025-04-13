@@ -16,6 +16,7 @@ Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbo
 現有的GUI testing都是無法重複使用之前測試的結果，但fastbot2可以(特別是event-activity transitions)。有兩個貢獻
 1. 提出reusable automated model-based GUI testing technique，並且利用reinforcement learning進行增強，以滿足持續測試的實際需求
 2. Fastbot2 優於最先進的技術。它也已成功部署在位元組跳動的 CI 流程中，並因其改善應用程式品質的能力而獲得了積極的回饋
+
 ## 主要流程
 1. 其實很簡單，就是2個東西合併，一個是可以儲存過往測試的流程中，event和activity之間的關係(transitions)，該機率模型就是在記憶每一次的測試round中，獲得的一些knowledge，比方說哪一個哪些event會跑到哪個activity之類的；
 > 旨在根據曾經探索的頁面的情況，對當前的備選組件進行挑選，從中選出最有可能觸發未曾探索過的頁面的組件，也就更有可能提升測試結果的 Activity 覆蓋率
@@ -34,6 +35,7 @@ Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbo
 > 如果此應用從未被測試過，也並未儲存過概率模型，那麽 Fastbot 會以隨機選擇組件的方式應對冷啟動的問題。
 
 ### 
+
 ## Code Analysis
 可以直接看官方的說明: https://github.com/bytedance/Fastbot_Android/blob/main/fastbot_code_analysis.md
 總之如果想要研究具體決策的model，要看Native Folder(c++)，如果想要知道native怎麼和mobile溝通，要看mokey folder(java)

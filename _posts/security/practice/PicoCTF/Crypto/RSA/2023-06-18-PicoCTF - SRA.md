@@ -39,6 +39,7 @@ else:
 
 ```
 :::
+
 ## Recon
 這一題也蠻有趣的，有給$e, d, c$，而我們知道$ed\equiv 1\ (mod\ \phi(n))$但目前不知道$n$是多少，這也是這一題比較難的地方，不過仔細看$p, q$的bits range只有128 bits，感覺有機會可以爆破，試想:
 $$
@@ -48,6 +49,7 @@ $$
 :::spoiler Screenshot
 ![](https://hackmd.io/_uploads/BJPyZn3D3.png)
 :::
+
 ## Exploit
 * Note: 使用以下的script，需要利用這個[online tool](https://www.dcode.fr/prime-factors-decomposition)，然後把結果以逗號分開，再用list的方式當作input, e.g. `[2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 5, 7, 17, 19, 151, 2363909, 75519055285493, 6681450981644264152589, 118264780684392418025651473217]`
 * Note2: 我寫的script沒辦法處理候選的$p$有三個以上的情況，因為我懶得寫，所以它會自動斷線再重新連線重新計算一次，以我的經驗大約3-4次就可以拿到flag了

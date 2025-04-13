@@ -6,11 +6,13 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Java Code Analysis!?!
+
 ## Background
 JWT
 
 ## Source code
 Too Much to list
+
 ## Hint
 * Maybe try to find the JWT Signing Key ("secret key") in the source code? Maybe it's hardcoded somewhere? Or maybe try to crack it?
 * The 'role' and 'userId' fields in the JWT can be of interest to you!
@@ -87,5 +89,6 @@ Too Much to list
 
     
 Flag: `picoCTF{w34k_jwt_n0t_g00d_6e5d7df5}`
+
 ## Reference
 [ picoCTF 2023 Java Code Analysis?!? ](https://youtu.be/tsTkxWxLTqk)

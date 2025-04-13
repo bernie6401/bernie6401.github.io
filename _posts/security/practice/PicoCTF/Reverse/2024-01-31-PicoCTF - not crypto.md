@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - not crypto
+
 ## Source code
 :::spoiler IDA Pseudo Source COde
 ```clike!
@@ -355,8 +356,10 @@ LABEL_14:
 }
 ```
 :::
+
 ## Recon
 這一題一開始要我們輸入些東西，應該是flag，不用管中間的一些操作，可以先考慮最後怎麼判斷是不是回答正確就好，可以看到他最後call了一個memcmp的system function，應該就是用來判斷，所以我們只要continue到那裡，應該就會知道原本的flag是多少了
+
 ## Exploit
 ```bash!
 $ gdb not-crypto
@@ -371,5 +374,6 @@ gef➤  x/s 0x00007fffffffd730
 ![](https://hackmd.io/_uploads/r1p1fwk6h.png)
 
 Flag: `picoCTF{c0mp1l3r_0pt1m1z4t10n_15_pur3_w1z4rdry_but_n0_pr0bl3m?}`
+
 ## Reference
 [pico reverse - not crypto wp - ](https://www.ctfwriteup.com/picoctf/picomini-by-redpwn/reverse-engineering#not-crypto)

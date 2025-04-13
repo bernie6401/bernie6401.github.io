@@ -9,10 +9,12 @@ category: "Security/Course/NTU CS/PWN"
 ###### tags: `CTF` `PWN` `eductf`
 
 Version: Ubuntu 20.04
+
 ## Background
 ![](https://imgur.com/teWNhbh.png)
 
 ![](https://imgur.com/kCTN7cs.png)
+
 ## Original Code
 :::spoiler code
 ```cpp!=
@@ -43,6 +45,7 @@ int main()
 }
 ```
 :::
+
 ### Description & Analyze
 * First things first, the program will call malloc to get `0x108`*8(`0x110 chunk size`)
 ![](https://imgur.com/dW8WU8v.png)

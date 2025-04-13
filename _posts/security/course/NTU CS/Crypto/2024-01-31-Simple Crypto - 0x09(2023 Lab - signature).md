@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x09(2023 Lab - signature)
+
 ## Background
 [ [edu-ctf 2023] week03 - crypto2 - ECDSA](https://www.youtube.com/live/u4ZVc8PuJC0?si=ychlqdZnGVfFYRAV&t=4075)
 >![](https://hackmd.io/_uploads/ryVbmdMWp.png)
@@ -64,6 +65,7 @@ for _ in range(3):
 
 ```
 :::
+
 ## Recon
 這一題主要就是利用上課提到的nonce $k$不隨機的問題，因為$k$只能用一次，也就代表他需要夠隨機，如果像LCG這樣的psudo random generator產生的話，一但被compromise，就會被推導出private key $d$，而這個lab就是有這樣的問題
 1. 觀察source code會發現不同的nonce $k$之間會產生一個1337倍數的關係，然後如果request `Give me the FLAG.`的signature會被拒絕，所以只能自己產生`Give me the FLAG.`的signature再丟給server檢查，如果過了就可以拿到flag，但重點是要怎麼偽造signature假裝是server簽的?就是要想辦法拿到server產生的private key $d$，可以詳細看一下source code中提到，通常public key都一樣，所以重點是$d$才能產生private key，然後用private key簽署message
@@ -98,6 +100,7 @@ for _ in range(3):
     \hookrightarrow d = {1337\cdot r_1\cdot {s_1}^{-1}-r_2\cdot {s_2}^{-1} \over H_2\cdot {s_2}^{-1} - 1337\cdot H_1\cdot {s_1}^{-1}}
     $$
 4. 得到原本的private key $d$之後就可以直接選一個亂數nonce $k$，然後重新自己簽署`Give me the FLAG.`的signature
+
 ## Exploit
 :::spoiler Whole Exploit
 ```python=

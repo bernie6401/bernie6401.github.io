@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - RPS
+
 ## Background
 [strstr() in C/C++](https://www.geeksforgeeks.org/strstr-in-ccpp/)
 > In C++, std::strstr() is a predefined function used for string handling. string.h is the header file required for string functions. This function takes two strings s1 and s2 as an argument and finds the first occurrence of the sub-string s2 in the string s1. The process of matching does not include the terminating null-characters(‘\0’), but function stops there. 
@@ -18,6 +19,7 @@ category: "Security/Practice/PicoCTF/PWN"
 > s2: This is the sub-string to be searched in s1 string.
 > ```
 > Return Value: This function returns a pointer points to the first character of the found s2 in s1 otherwise a null pointer if s2 is not present in s1. If s2 points to an empty string, s1 is returned. 
+
 ## Source code
 :::spoiler Source Code
 ```cpp=
@@ -178,8 +180,10 @@ int main () {
 
 ```
 :::
+
 ## Recon
 這一題有reverse的感覺，主要是利用`strstr()`這個function拿到win++，在第100行的地方是利用`strstr()`搜索字串達到判斷勝利的功能，但是如果我們把三種結果結合在一起，則這一段結果就一定會試true
+
 ## Exploit
 Payload: `paperscissorsrock`
 :::spoiler Whole Progress
@@ -255,5 +259,6 @@ Type '2' to exit the program
 ```
 :::
 Flag: `picoCTF{50M3_3X7R3M3_1UCK_58F0F41B}`
+
 ## Reference
 [picoCTF 2022: binary-exploitation – RPS](https://www.it-sec.fail/picoctf-2022-binary-exploitation-rps/)

@@ -9,6 +9,7 @@ category: "Security/Course/NTU CNS"
 ###### tags: `NTUCNS`
 
 ## Problem description / Research question(秉學)
+
 ### Terminology
 Federated Learning is a decentralized machine learning method that enables training models without exposing data. Traditional machine learning methods require all data to be centralized in one location for training, but Federated Learning enables models to be trained on many distributed devices, such as smartphones, tablets, or embedded devices, with each device training its own local data. This greatly reduces data transmission and storage requirements and better protects user privacy.
 

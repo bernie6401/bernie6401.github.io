@@ -59,6 +59,7 @@ Challenge: http://h4ck3r.quest:9012
 ```
 :::
 It has 2 extra constraint must be bypassed. Use `burpsuite` and change valid file signature
+
 ## Exploit - bypass `IMAGETYPE` + bypass `$_FILES['image_file']['type']`
 1. `HxD` - bypass `IMAGETYPE`
 Add valid file signature at the beginning from [wiki page](https://en.wikipedia.org/wiki/List_of_file_signatures)

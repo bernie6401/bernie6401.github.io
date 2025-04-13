@@ -21,9 +21,11 @@ Payload: `<script>alert(123)</script>`
 
 
 ---
+
 ## Lab: Stored XSS into HTML context with nothing encoded
 * Description: This lab contains a stored cross-site scripting vulnerability in the comment functionality. 
 * Goal:  To solve this lab, submit a comment that calls the alert function when the blog post is viewed. 
+
 ### Exp
 You need to click into one post and comment something that contained script tag.
 Payload: `<script>alert(123)</script>`
@@ -33,9 +35,11 @@ Payload: `<script>alert(123)</script>`
 
 
 ---
+
 ## Lab: DOM XSS in `document.write` sink using source `location.search`
 * Description: This lab contains a `DOM-based` cross-site scripting vulnerability in the search query tracking functionality. It uses the JavaScript `document.write` function, which writes data out to the page. The `document.write` function is called with data from `location.search`, which you can control using the website URL. 
 * Goal: To solve this lab, perform a cross-site scripting attack that calls the alert function.
+
 ### Recon
 1. Tried in random strings
 I tried everything I learned but nothing prompt appeared. But, I noticed something strange using view page source and inspect.
@@ -44,6 +48,7 @@ Payload: `<script>alert(123)</script>`
 You can see that the normal payload is not working, however, there has another place to inject script tag $\to$ `document.write(...)`
 So, I inspect it in original page
 ![](https://i.imgur.com/NCJUJXj.png)
+
 ### Exp
 Payload: `"><script>alert(123)</script>"`
 :::spoiler Success Screenshot
@@ -53,9 +58,11 @@ Payload: `"><script>alert(123)</script>"`
 
 
 ---
+
 ## Lab: DOM XSS in `innerHTML` sink using source `location.search`
 * Description: This lab contains a DOM-based cross-site scripting vulnerability in the search blog functionality. It uses an `innerHTML` assignment, which changes the HTML contents of a `div` element, using data from `location.search`. 
 * Goal:  To solve this lab, perform a cross-site scripting attack that calls the alert function. 
+
 ### Recon
 :::spoiler Source Code
 ```javascript!
@@ -84,6 +91,7 @@ Payload: `"><script>alert(123)</script>"`
 Nothing prompt appeared though it's included in `span` tag
 
 3. So, how about using `img` tag to achieve XSS?
+
 ### Exp
 Payload: `<img src=1 onerror=alert(1)>`
 ![](https://i.imgur.com/FonVo3L.png)
@@ -95,9 +103,11 @@ It's rendered successfully.
 
 
 ---
+
 ## Lab: DOM XSS in jQuery anchor `href` attribute sink using `location.search` source
 * Description: This lab contains a DOM-based cross-site scripting vulnerability in the submit feedback page. It uses the `jQuery` library's `$` selector function to find an anchor element, and changes its `href` attribute using data from `location.search`. 
 * Goal: To solve this lab, make the "back" link alert document.cookie.
+
 ### Recon
 According to the description and our goal, we must find where `back` is. By using the string search of each page, I found it in `feedback` sub-page.
 :::spoiler Source code
@@ -115,6 +125,7 @@ According to the description and our goal, we must find where `back` is. By usin
 ```
 :::
 According to the source code, we can inject some malicious path to replace `/`
+
 ### Exp
 Payload: `/feedback?returnPath=javascript:alert(document.cookie);`
 After you modified the URL, then you hit enter and click `Back` button down the page. Then it should be triggered.
@@ -137,6 +148,7 @@ After you modified the URL, then you hit enter and click `Back` button down the 
 :::
 
 ---
+
 ## Lab: Reflected XSS into a JavaScript string with angle brackets HTML encoded
 * Description: This lab contains a reflected cross-site scripting vulnerability in the search query tracking functionality where angle brackets are encoded. The reflection occurs inside a JavaScript string.
 * Goal: To solve this lab, perform a cross-site scripting attack that breaks out of the JavaScript string and calls the `alert` function.
@@ -170,6 +182,7 @@ Payload: `\\';alert(123);//` or `';alert(123);//`
 
 
 ---
+
 ## Lab: Stored XSS into anchor `href` attribute with double quotes HTML-encoded
 * Description: This lab contains a stored cross-site scripting vulnerability in the comment functionality.
 * Goal: To solve this lab, submit a comment that calls the `alert` function when the comment author name is clicked.
@@ -206,9 +219,11 @@ Website Payload: `javascript:alert(1)`
 
 
 ---
+
 ## Lab: Reflected XSS into attribute with angle brackets HTML-encoded
 * Description: This lab contains a reflected cross-site scripting vulnerability in the search blog functionality where angle brackets are HTML-encoded.
 * Goal: To solve this lab, perform a cross-site scripting attack that injects an attribute and calls the alert function.
+
 ### Recon
 1. Find the place to inject
 Input: `abc`
@@ -235,6 +250,7 @@ Input: `" onmouseover="alert(1)`
 
 
 ---
+
 ## Lab: DOM XSS in jQuery selector sink using a hashchange event:four:
 * Description: This lab contains a DOM-based cross-site scripting vulnerability on the home page. It uses jQuery's `$()` selector function to auto-scroll to a given post, whose title is passed via the `location.hash` property. 
 * Goal: To solve the lab, deliver an exploit to the victim that calls the `print()` function in their browser.

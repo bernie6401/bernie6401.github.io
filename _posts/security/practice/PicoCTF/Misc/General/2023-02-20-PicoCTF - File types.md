@@ -10,6 +10,7 @@ category: "Security/Practice/PicoCTF/Misc/General"
 Challenge: [File types]()
 
 ## Background
+
 ### For Shell Script
 [Linux MD5](https://blog.gtwang.org/linux/generate-verify-check-files-md5-sha1-checksum-linux/)
 [Linux egrep命令](https://www.runoob.com/linux/linux-comm-egrep.html)
@@ -319,6 +320,7 @@ $cat flag | xxd -r -p
 picoCTF{f1len@m3_m@n1pul@t10n_f0r_0b2cur17y_3c79c5ba}
 ```
 :::
+
 ## Reference
 [Bash script – "/bin/bash^M: bad interpreter: No such file or directory"](https://stackoverflow.com/questions/14219092/bash-script-bin-bashm-bad-interpreter-no-such-file-or-directory)
 [Convert Hex to ASCII](https://www.baeldung.com/linux/character-hex-to-ascii)

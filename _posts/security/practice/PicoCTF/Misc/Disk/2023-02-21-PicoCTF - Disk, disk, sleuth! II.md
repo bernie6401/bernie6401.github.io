@@ -14,6 +14,7 @@ All we know is the file with the flag is named `down-at-the-bottom.txt`... Disk 
 Hint 1: The sleuthkit has some great tools for this challenge as well.
 Hint 2: Sleuthkit docs here are so helpful: [TSK Tool Overview](http://wiki.sleuthkit.org/index.php?title=TSK_Tool_Overview)
 Hint 3: This disk can also be booted with [qemu](https://idobest.pixnet.net/blog/post/22040213)!
+
 ## Background
 [Linux安装、使用Sleuth kit/Autopsy](https://blog.csdn.net/wxh0000mm/article/details/99447206)
 

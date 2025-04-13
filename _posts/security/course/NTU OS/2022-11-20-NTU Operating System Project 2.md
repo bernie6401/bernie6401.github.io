@@ -14,6 +14,7 @@ category: "Security/Course/NTU OS"
 * For the second task, we'd like to implement CPU scheduling by FIFO(First-In-First-Out), SJF(Shortest-Job-First), Priority, RR(Round-Robin), and multi-level queue.
 
 ## Implementation
+
 ### Task1 - System Call
 
 1. First of all, we need to define a new token, SC_Sleep,  that compiler(scanner) can recognize in `code/userprog/syscall.h`.
@@ -167,6 +168,7 @@ category: "Security/Course/NTU OS"
 
    
 ### Task2 - CPU Scheduling
+
 #### Testing
 1. **_threads/thread.cc_** - create a test case
 
@@ -270,6 +272,7 @@ category: "Security/Course/NTU OS"
    }
    ```
 ***
+
 #### Implement
 5. **_machine/machine.h_** - let NumPhysPage bigger to avoid **segmentation fault (core dumped)** which is an error message about memory allocation **(note that this error is hard to debug)**.
 
@@ -384,6 +387,7 @@ category: "Security/Course/NTU OS"
    }
    ```
 ***
+
 #### Revise Some files
 You have to include `scheduler.h` to each header file that we'll use that including `kernel.h`, `userkernel.h`, and `netkernel.h`. Then initial the scheduler type in each c file such as `kernel.cc`, `userkernel.cc`, and `netkernel.cc`. Most of them are very similar.
 

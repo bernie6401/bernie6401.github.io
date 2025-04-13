@@ -10,8 +10,10 @@ category: "Security/Course/NTU OS"
 [TOC]
 
 ## Ch 6 Synchronization
+
 ### Process communication
 ![](https://imgur.com/zQM1oNq.png)
+
 #### Race condition
 就是Project1提到的共享記憶體的問題，導致multi-thread執行的結果會完全錯誤
 * 解決策略
@@ -26,6 +28,7 @@ category: "Security/Course/NTU OS"
     ![](https://imgur.com/q1iDFSC.png)
     * spinlock
     * busy waiting
+
 #### Critical section design的方法
 * Software solution
     * 兩個processes
@@ -55,6 +58,7 @@ category: "Security/Course/NTU OS"
 Sender和receiver是透過shared mailbox建立溝通管道
 
 ## Ch 7 Deadlock
+
 ### 形成deadlock的必要條件
 * Mutual exclusion
     在任何時間點，此類型的資源最多只允許一個process使用，不可多個processes同時持有使用
@@ -81,9 +85,12 @@ process不能任意剝奪其他process正在持有的資源，給自己用，要
             * 先kill一個，再用detection檢查有沒有deadlock，若還有就再repeat，cost很高
         * Resources preemptive: 選擇一些lower priority的victim process，強行把資源搶過來，再紀錄這些victim是哪些，cost很高
 * ignore deadlock
+
 ## Ch 8 Memory Management Strategies
+
 ### Contiguous Memory Management
 連續性配置: process必須占用一個連續的記憶體空間，OS用link-list的方式管理free memory block
+
 #### 配置方法
 ![](https://imgur.com/RSE8mst.png)
 * First-Fit
@@ -94,6 +101,7 @@ process不能任意剝奪其他process正在持有的資源，給自己用，要
 找最大的那個hole
 
 ### External & Internal Fragmentation
+
 #### External Fragmentation
 * 在連續性的配置策略下，全部的hole size加總**大於**要放入的process，但是卻沒有一個hole能夠容納此process就是外部碎裂
 ![](https://imgur.com/yAzl5ty.png)
@@ -104,6 +112,7 @@ process不能任意剝奪其他process正在持有的資源，給自己用，要
 
 #### Internal Fragmentation
 * 配置給process的空間超過process需求大小，兩者之間的差值就是內部碎裂，這個概念比較直觀，就像前面說的，這樣的hole，對於其他process來說，大機率也是不能用的，形成浪費
+
 ### Page memory Management
 ![](https://imgur.com/9qCCfyJ.png)
 * 優點：沒有external fragmentation，可支援virtual memory的實施
@@ -120,6 +129,7 @@ $P*(TLB time+memory access time) + (1-P)*(TLBtime+2*memory access time)$
     * Inverted page table
     以physical memory為記錄對象，若physical memory有n個frames，則Inverted page table就有n個entry，每個entry紀錄此frame是存放哪個process的哪個page
     ![](https://imgur.com/VYnsfwi.png)
+
 ### Segment Memory Management
 其實就是以原始的logical memory中的每一個segmentation為一單位，當然每一個section的大小都不一樣(例如：code segment/data segment/stack segment等)，並分配到練續性的physical memory(單一一個segment，segment之間不一定要連續)
 Kernel會替每個process建立一個segment table，並記錄每個segment的base和limit
@@ -127,15 +137,20 @@ Kernel會替每個process建立一個segment table，並記錄每個segment的ba
 ![](https://imgur.com/pRkWwOa.png)
 
 ![](https://imgur.com/rLgPK6W.png)
+
 ## Ch 9 Virtual-Memory Management
 主要目的：允許process size在大於free physical memory space的情況下，仍能讓process執行，主要的概念是，我只把一些要用到的部分(目前需要的資源，比方說程式片段或是data)從disk存取到physical memory中，這樣就可以了，如果現在要用的page不在physical memory中，就再從disk中讀取近來
+
 ### Demand Paging
 是建立在page memory management的基礎上，為了達到上述的要求，需要在page table中新增一個bit，用來表達此page有沒有在physical memory中
 ![](https://imgur.com/FRTWkX2.png)
+
 ### Page fault處理
 ![](https://imgur.com/yPid5OG.png)
+
 ### Effective memory access time計算
 ![](https://imgur.com/LYe7SjL.png)
+
 ### Page Replacement
 當page fault發生，且physical memory已經沒有多餘的free frame時，就要做page replacement，也就是找一個苦主，寫回去disk，並把要存取的部分放到memory中
 * FIFO: 最早仔入的page就要成為victim page
@@ -151,6 +166,7 @@ Lease frequently used & Most frequently used
 選擇使用次數最少/多的page當作victim page
 * Page buffering
 系統保留一個free frame(私房錢)
+
 ### Thrashing及解決方法
 1. CPU utilization急速下降
 2. I/O-device 異常忙碌

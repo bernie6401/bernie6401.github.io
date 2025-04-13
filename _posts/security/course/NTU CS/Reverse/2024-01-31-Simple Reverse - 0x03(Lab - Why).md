@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x03(Lab - Why)
+
 ## Background
 * [What is function pointer?](https://chenhh.gitbooks.io/parallel_processing/content/cython/function_pointer.html)
 * [Lecture Vid.](https://www.youtube.com/live/IJlYPH1ljIY?feature=share&t=9587)
@@ -71,6 +72,7 @@ int sub_11f8()
 }
 ```
 :::
+
 ## Recon
 這一題如果以解題的觀點來說的話，其實很簡單，但他想要傳達的概念很重要，也就是.init和.fini的事情
 1. 先執行看看，發現有兩種字串可以先注意，一個是`Give me flag: `和`Wrong :(`

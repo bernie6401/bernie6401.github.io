@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - shark on wire 2
+
 ## Recon
 這一提出的很硬要，誰知道會把flag藏在這種地方，也沒有任何的提示，如果不是看[^pico-misc-shark-on-wire-2-wp-zomry1]根本不知道這題要表達甚麼，也可能是我太蔡
 
@@ -18,6 +19,7 @@ category: "Security/Practice/PicoCTF/Misc/Flow"
 ![](https://hackmd.io/_uploads/BJq71UvC2.png)
 3. Extract Flag
 所以只要把所有的port擷取出來拚在一起，就可以拿到flag了
+
 ## Exploit
 ```python!
 import pyshark
@@ -32,5 +34,6 @@ print("".join(data))
 ```
 
 Flag: `picoCTF{p1LLf3r3d_data_v1a_st3g0}`
+
 ## Reference
 [^pico-misc-shark-on-wire-2-wp-zomry1]:[PicoCTF 2019 - shark on wire 2:-1:](https://zomry1.github.io/shark-on-wire-2/)

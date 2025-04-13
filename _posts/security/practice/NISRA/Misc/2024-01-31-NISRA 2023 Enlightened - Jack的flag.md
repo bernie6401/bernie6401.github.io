@@ -6,11 +6,13 @@ category: "Security/Practice/NISRA/Misc"
 ---
 
 # NISRA 2023 Enlightened - Jack的flag
+
 ## Background
 Microsoft Word Forensics
 
 ## Recon
 這是第一次寫到有關word的隱寫，蠻特別的就紀錄一下，但看得出來應該是考古古古古古古題了ㄅ
+
 ## Exploit
 有兩種方法
 1. 強制解壓縮

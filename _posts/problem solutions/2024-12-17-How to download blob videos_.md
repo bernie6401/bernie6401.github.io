@@ -23,6 +23,7 @@ sudo add-apt-repository ppa:tomtomtom/yt-dlp    # Add ppa repo to apt
 sudo apt update                                 # Update package list
 sudo apt install yt-dlp                         # Install yt-dlp
 ```
+
 ## Step
 1. 透過Browser的F12找出m3u8的封包
     ![image](https://hackmd.io/_uploads/HyrYRTR4kl.png)

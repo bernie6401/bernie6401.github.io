@@ -6,10 +6,12 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - ropfu
+
 ## Background
 ROP Chain
 x86 Calling Convention:
 [Linux System Call Table](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit)
+
 ## Source code
 :::spoiler Source Code
 ```cpp=
@@ -42,6 +44,7 @@ int main(int argc, char **argv){
 }
 ```
 :::
+
 ## Recon
 ```bash!
 $ file vuln
@@ -65,6 +68,7 @@ pop eax -> 0x0068732f -> /sh\x00
 mov DWORD PTR [edx] eax
 ```
 寫完`/bin/sh\x00`就直接call execve的syscall開shell
+
 ## Exploit - ROP Chain
 ```python!
 from pwn import *
@@ -104,6 +108,7 @@ r.interactive()
 ```
 
 Flag: `picoCTF{5n47ch_7h3_5h311_1b5a4b40}`
+
 ## Reference
 [^ropfu_wp]:[ PicoCTF 2022: Beginner's Compilation ](https://enscribe.dev/ctfs/pico22/beginners-compilation/#ropfu)
 [^pico_pwn_guessing_game]:[PicoCTF - Guessing Game 1](https://hackmd.io/@SBK6401/SkxoLuwoh)

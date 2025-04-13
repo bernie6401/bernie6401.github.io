@@ -12,11 +12,13 @@ category: "Security/Course/NTU CS/Welcome"
 
 ## Easy C2
 * Flag: `FLAG{C2_cmd_in_http_header}`
+
 ### Description
 我們獵捕到一隻惡意程式，它似乎有與 C2 進行互動的行為。請找出它發送給 C2 的訊息。Flag 格式為：FLAG{...}。
 此題模仿惡意程式與 C2 進行溝通的行為，期望能在對不熟悉逆向的同學而言不過度困難的情況下，讓同學對惡意程式行為有初步的認識。題目本身並沒有實際的惡意或影響系統運作的行為，因此可以安心執行。建議同學可以先嘗試執行程式，觀察程式的行為，嘗試找出 C2 位址以及如何與其溝通。
 
 Google 關鍵字：IDA freeware、Ghidra、malware C2
+
 ### 解題思路
 1. Simple 解題思路
     ```bash!
@@ -47,6 +49,7 @@ Google 關鍵字：IDA freeware、Ghidra、malware C2
     }
     ```
     可以看得出來他會連localhost:11187，然後把decode過後的flag給送出去，所以只要會nc的都可以直接聽該port的訊息
+
 ### Exploit
 ```bash!
 $ nc -lvp 11187
@@ -58,8 +61,10 @@ User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
 
 ## Baby Crackme
 * Flag: `FLAG{r0ll1ng_4nd_3xtr4ct_t0_m3m0ry}`
+
 ### Description
 透過此題目希望學生們可以先自行摸索過各種 SRE(Software Reverse-Engineering) 的工具與流程。 給你一些關鍵字用: IDA Freeware, Ghidra, gdb (GNU Debugger), Dynamic Analysis
+
 ### 解題思路
 1. Simple 解題思路
     ```bash!
@@ -124,6 +129,7 @@ User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
     :::
     
 3. 如果按照上面得到的code寫script會出事，具體來說會出啥事不好說，但總之IDA時不時會翻不出來也見怪不怪，反正有問題一率動態跟，至於要跟到哪裡(因為沒有main symbol，所以也不好定位)，我是直接用pwntools的raw_input()強制斷在input的地方，接著就跳到比對的部分，然後flag就出現在stack上了
+
 ### Exploit
 ```bash!
 $ gdb
@@ -135,13 +141,16 @@ gef➤ c
 
 ## Baby Hook
 * Flag: `FLAG{B4by_Ld_Pr3L0aD_L1bR1rY_:)}`
+
 ### Description
 Try to Hook Me :)
 
 nc edu-ctf.zoolab.org 10002
 Flag Format：FLAG{...}
+
 ### 解題思路
 這一題主要的想法很簡單，就是給他一個so file，然後她會直接用這個so file當作LD_PRELOAD，執行./chall，所以我們要做的事情概念很簡單，就是給他一個有問題的so file，然後當他執行椅面的function時，就會執行我們給他的惡意指令，例如開shell
+
 ### Exploit
 ```cpp!
 #define _GNU_SOURCE
@@ -202,10 +211,12 @@ FLAG{B4by_Ld_Pr3L0aD_L1bR1rY_:)}
 
 ## Extreme Xorrrrr
 * Flag: `flag{xor_ThEN_><OR_1qUal_ZEr0}`
+
 ### Description
 Easy crypto problem with simple tricks.
 
 Flag Format: FLAG{...}
+
 ### Source Code
 :::spoiler Source Code
 ```python=
@@ -235,6 +246,7 @@ print(f"mods = {xorrrrr(mods)}")
 
 ```
 :::
+
 ### 解題思路
 我真的脫離crypto太久了，久沒做題就生疏了，這題其實也...沒那麼難，應該還是有點難啦
 1. Analyze Process
@@ -277,6 +289,7 @@ secret\equiv\ hint[2]*{muls[2]}^{-1}\ (mod\ mods[2])\\
 ...
 $$
 再利用CRT的解法，secret就出來了
+
 ### Exploit
 ```python=
 from Crypto.Util.number import *

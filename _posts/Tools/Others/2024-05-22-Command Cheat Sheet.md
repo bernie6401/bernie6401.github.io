@@ -6,6 +6,7 @@ category: "Tools/Others"
 ---
 
 # Command Cheat Sheet
+
 ## Python 基本用語
 * Bytes $\to$ Hex
     ```python
@@ -162,6 +163,7 @@ category: "Tools/Others"
     [1, 2, 3]
     ```
 ---
+
 ## Python 組合技
 * XOR Two Decimal
     ```python

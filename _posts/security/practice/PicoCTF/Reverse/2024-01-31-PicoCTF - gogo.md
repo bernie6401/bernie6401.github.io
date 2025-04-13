@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - gogo
+
 ## Source code
 :::spoiler IDA Main Function
 ```cpp=
@@ -149,6 +150,7 @@ void __golang main_ambush(string second_flag)
 }
 ```
 :::
+
 ## Recon
 終於有一點像樣的題目出現了，這一題有兩個關卡需要克服
 ```bash
@@ -158,6 +160,7 @@ enter_password: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), static
 用IDA和gdb跟一下整體的流程
 1. 首先他先把我們輸入的flag，丟到main_checkPassword function檢查，而跟了一下gdb發現他是先跟`861836f13e3d627dfa375bdb8389214e`的每一個數值進行xor然後跟enc_flag的字元做比較，而enc_flag是run time的時候需要從memory撈的資料，這就需要慢慢跟然後慢慢看，大概就像下面撈的那樣，反著作就可以得到第一階段的flag
 2. 過了第一階段後他還會叫你要再輸入一次另外一個flag，然後會丟到main_ambush function做檢查，他會先把我們輸入的second flag進行md5的hash，然後和`861836f13e3d627dfa375bdb8389214e`進行比對，所以我們要做的事情是推測甚麼樣的字串，他的md5 hash是`861836f13e3d627dfa375bdb8389214e`，這個可以用online tool做到這件事情
+
 ## Exploit
 1. Script For 1st Stage
     ```python

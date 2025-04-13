@@ -6,8 +6,10 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - two-sum
+
 ## Background
 BoF
+
 ## Source code
 :::spoiler
 ```cpp!
@@ -65,8 +67,10 @@ int main() {
 
 ```
 :::
+
 ## Recon
 以初學的角度來說還蠻有趣的，看了一下source code，顯然是要滿足`addIntOvf()`的條件，也就是輸入的兩個數都大於零，但相加小於零，==OR==，兩個數都小於零但相加卻大於零，我是用第一種啦，比較直觀，首先輸入兩個超大的數，但還落在int正數的範圍，這樣就可以滿足一開始都大於零的條件，接著相加就會落在int負數的地方，這樣就滿足第三個條件，我有再另外輸入一次，這次是$9999999999999999+9999999999999999=19999999999999998$，這個就落在int負數的地方，解析出來的結果是`-545128450`
+
 ## Exploit
 ```bash
 $ nc saturn.picoctf.net 50369

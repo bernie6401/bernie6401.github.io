@@ -6,8 +6,10 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - Stonk Market
+
 ## Background
 FMT
+
 ## Source code
 :::spoiler
 ```cpp=
@@ -161,6 +163,7 @@ int main(int argc, char *argv[])
 
 ```
 :::
+
 ## Recon
 這一題是參考了[^pico_pwn_stonk_market_wp]，可以看到source code中的buy_stonks function出現format string bug，我一開始看了很久，以為這一題是和heap有關的問題
 
@@ -250,6 +253,7 @@ gef➤  bt 10
 #6  0x0000000000400c66 in main ()
 ```
 :::
+
 ## Exploit - FMT
 ```python=
 from pwn import *
@@ -268,5 +272,6 @@ r.interactive()
 ```
 
 Flag: `picoCTF{explo1t_m1t1gashuns_641dcdf1}`
+
 ## Reference
 [^pico_pwn_stonk_market_wp]:[ picoCTF 2021 Stonk Market ](https://youtu.be/gLFJFXpY44w)

@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - ARMssembly 0
+
 ## Source code
 :::spoiler ARM assembly code
 ```
@@ -71,8 +72,10 @@ main:
 
 ```
 :::
+
 ## Recon
 這一題是ARM架構的組語，真的懶得看，想說可以先compile完之後用IDA看一下psudo code，但search半天都找不到如何compile，compile完的東西還不能執行，要瘋了，所幸最後有找到repo的相關資料[^compile_arm_file]
+
 ## Exploit
 ```bash
 $ sudo apt install gcc-aarch64-linux-gnu -y
@@ -81,5 +84,6 @@ $ aarch64-linux-gnu-as -o a.o [the name of your source file]
 $ aarch64-linux-gnu-gcc -static -o [the name of the executable] a.o
 ```
 再用IDA反編譯就完事了
+
 ## Reference
 [^compile_arm_file]:[Running ARMv8 via Linux Command Line](https://github.com/joebobmiles/ARMv8ViaLinuxCommandline)

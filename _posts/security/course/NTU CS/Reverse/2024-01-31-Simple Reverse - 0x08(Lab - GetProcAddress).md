@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse 0x08(Lab - GetProcAddress)
+
 ## Background
 [GetModuleFileNameA 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulefilenamea?ns-enrollment-type=Collection&ns-enrollment-id=rdg3b1j45ye486)
 [createFileA 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/fileapi/nf-fileapi-createfilea)
@@ -67,6 +68,7 @@ LABEL_11:
 }
 ```
 :::
+
 ## Recon
 這一題一樣，如果是以解題為目的話，其實很簡單，但還是想要提到重要的主題也就是PEB，但我覺得與其用IDA一個一個分析，不如直接用x64dbg幫你跑好就可以直接知道哪個API在哪個address，會比較方便，雖然不排除會有一些方式可以繞過或是混淆，但...有遇到在說吧，反正之後在還債吧!
 
@@ -75,6 +77,7 @@ LABEL_11:
 3. 如果遇到x64dbg中顯示一些import dll function，可以對照IDA並且rename，這樣大概就可以用IDA的反組譯的方式查看整體的流程
 4. 看到main function最下面的else$\to$if statement，在看回去x64dbg就可以知道byte_14001e000的那些char是哪些
 5. 開寫script
+
 ## Exploit
 ```python=
 str1 = [0x12, 0x24, 0x28, 0x34, 0x5B, 0x3A, 0x07, 0x1C, 0x13, 0x2D, 0x00, 0x32, 0x43, 0x16, 0x12, 0x1A, 0x01, 0x02, 0x1D, 0x5A, 0x07, 0x01, 0x7F, 0x35, 0x10, 0x1A, 0x70, 0x1B, 0x01, 0x43, 0x05, 0x2B, 0x37, 0x52, 0x08, 0x1C, 0x17, 0x44, 0x53]

@@ -13,6 +13,7 @@ Jin, W., Yao, Y., Han, S., Joe-Wong, C., Ravi, S., Avestimehr, S., & He, C. (202
 [TOC]
 
 ## Background
+
 ### [聯邦學習：攻擊方式](https://ithelp.ithome.com.tw/articles/10302263?sc=iThelpR)
 :::spoiler 
 > 成員推理攻擊
@@ -22,6 +23,7 @@ Jin, W., Yao, Y., Han, S., Joe-Wong, C., Ravi, S., Avestimehr, S., & He, C. (202
 推理攻擊的準確性隨著類別數量的增加而增加。
 :::
 ---
+
 ### [What is Multi Party Computation (MPC)?](https://www.eettaiwan.com/20220609nt21-multi-party-computation/)
 :::spoiler 
 > 一方面，這突破了我們對溝通、合作與娛樂方式的想像，但另一方面，這也使得我們更容易受到資料誤用與竊取的侵害，尤其當這些資料與內部安全金鑰全都列為集中式管理。於是朝向安全多方運算(multi-party computation，MPC)技術發展。
@@ -34,6 +36,7 @@ Jin, W., Yao, Y., Han, S., Joe-Wong, C., Ravi, S., Avestimehr, S., & He, C. (202
 :::
 
 ---
+
 ### [What is Differential Privacy? - Apple 怎麼安全的收集我們的隱私？Differential Privacy 的簡介與應用](https://zhuanlan.zhihu.com/p/371101755)
 :::spoiler 
 > ### Differential Privacy
@@ -50,12 +53,14 @@ Jin, W., Yao, Y., Han, S., Joe-Wong, C., Ravi, S., Avestimehr, S., & He, C. (202
 >但是 DP 對於數據無可避免的傷害也限制了他的可用性，因此對於一些對於數據要求較高的機器學習算法，例如機器視覺，就不太能夠直接使用。
 :::
 ---
+
 ### [What is CKKS?](https://blog.csdn.net/weixin_43466027/article/details/118792866)
 > CKKS是2017年提出的同態加密方案。它支持浮點向量在密文空間的加減乘運算並保持同態，但是只支持有限次乘法的運算。
 
 詳細的算法可以參考原文章
 
 ---
+
 ### [什麼是 DevOps？](https://ithelp.ithome.com.tw/articles/10184557)
 :::spoiler 
 > DevOps 簡而言之，就是 Development + Operations ，也就是開發與維運。但大部分的文章都會說是「開發」「測試」「維運」三者的結合。如同下面這張圖想表示的意義一樣，當三者有了交集，即是 DevOps
@@ -78,15 +83,18 @@ DevOps 到底在做什麼？
 :::
 
 ---
+
 ### [什麼是MLOps？-30 Days of MLOps](https://ithelp.ithome.com.tw/articles/10238335)
 :::spoiler 
 > 用最短的一句話來解釋它的話，MLOps 就是 Machine Learning 的 DevOps
 > 在 Machine Learning 團隊中，除了資料科學家、資料工程師、DevOps 工程師作為固定班底外，協作單位還有產品經理、後端工程師等等。我們要讓所有人可以彼此良好的協作，這需要依賴更好的維運架構。除了最直覺想到的 Model 部署外，常見的挑戰還有例如：訓練 Model、測試與分析 Model、資料的預處理等等。
 > ![](https://github.com/alincode/30-days-of-mlops/raw/master/assets/mlops-collenges.png)
 :::
+
 ## Homomorphic Encryption Libraries
 * [Palisade](https://zhigang-chen.github.io/Palisade/)
 * [SEAL - Microsoft](https://hackernoon.com/zh/%E5%BE%AE%E8%BD%AF%E5%8D%B0%E7%AB%A0%E5%92%8C%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86%E7%9A%84%E9%BB%8E%E6%98%8E)
+
 ### [微軟開源同態加密函式庫SEAL](https://www.ithome.com.tw/news/127457)
 :::spoiler 
 > 微軟宣布開源簡單加密演算法函式庫（Microsoft Simple Encrypted Arithmetic Library，Microsoft SEAL），這是一個由微軟加密研究小組研發，容易使用的同態加密（Homomorphic Encryption）函式庫，現在於GitHub以MIT授權許可開源。
@@ -98,6 +106,7 @@ DevOps 到底在做什麼？
 >同態加密則能解決這個問題，同態加密允許在加密資料上進行額外的處理，包括檢索或是比較等操作，整個過程不需要對資料進行解密，就能獲得正確的結果，而這在根本上解決了將資料及操作委託給第三方時，遭遇的保密問題。同態加密函式庫Microsoft SEAL的出現，允許微軟在不暴露個人訊息的狀況下，提供第三方應用雲端操作。
 
 ---
+
 ## Model Compression
 [Low Rank Decomposition 低秩矩阵分解 - Vid.](https://www.bilibili.com/video/BV15E411A7hB/?share_source=copy_web&vd_source=31529c2d248aba29c9cc1e3cbd720cb6)
 [Lec06 深度學習的模型壓縮與加速 Low Rank Approximation (6/9)](https://youtu.be/cbFkMGQqAOA)
@@ -108,10 +117,12 @@ DevOps 到底在做什麼？
 ![](https://hackmd.io/_uploads/HyKxwjdH3.png)
 
 ---
+
 ## Implementation Note
 [Federated Learning on AWS with FedML: Health analytics without sharing sensitive data – Part 1](https://aws.amazon.com/tw/blogs/machine-learning/part-1-federated-learning-on-aws-with-fedml-health-analytics-without-sharing-sensitive-data/)
 
 ---
+
 ### [Cross-Silo VS. Cross-Device in FL](https://worktile.com/kb/p/48518)
 :::spoiler 
 > #### 模式不同
@@ -130,6 +141,7 @@ DevOps 到底在做什麼？
 :::
 
 ---
+
 ### [什麼是 Amazon EC2？](https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/concepts.html)
 :::spoiler
 > Amazon Elastic Compute Cloud (Amazon EC2) 在 Amazon Web Services (AWS) Cloud 中提供可擴展的運算容量。使用 Amazon EC2 可減少前期所需的硬體投資，讓您更快速開發並部署應用程式。您可使用 Amazon EC2 按需要啟動任意數量的虛擬伺服器，設定安全性和聯網功能以及管理儲存。使用 Amazon EC2 可擴展與縮減規模，以處理需求或熱門峰值的變更，從而降低您預測流量的需求。
@@ -142,6 +154,7 @@ DevOps 到底在做什麼？
 :::
 
 ---
+
 ### [MQTT教學（一）：認識MQTT](https://swf.com.tw/?p=1002)
 :::spoiler 
 > #### 比較HTTP和MQTT通訊協定
@@ -157,5 +170,6 @@ DevOps 到底在做什麼？
 :::
 
 ---
+
 ### [What is Amazon S3?](https://docs.aws.amazon.com/zh_tw/iot/latest/developerguide/s3-rule-action.html)
 > S3 (s3) 動作會從 MQTT 訊息將資料寫入 Amazon Simple Storage Service (Amazon S3) 儲存貯體。

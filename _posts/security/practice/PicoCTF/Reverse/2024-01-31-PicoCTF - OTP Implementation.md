@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - OTP Implementation
+
 ## Source code
 :::spoiler IDA Main Function
 ```cpp
@@ -92,6 +93,7 @@ _BOOL8 __fastcall valid_char(char a1)
 }
 ```
 :::
+
 ## Recon
 這一題頗難，我寫的script也沒有很好，readability頗低，但我就爛，懶得優化了
 1. 這一題簡單來說就是把我們輸入的key做一些操作，然後把它和`bajbgfa...`做比較，如果對了我們就可以直接和他提供的flag進行xor，然後轉換成ASCII

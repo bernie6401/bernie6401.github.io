@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Java Script Kiddie
+
 ## Background
 [JavaScript Array slice()](https://www.w3schools.com/jsref/jsref_slice_array.asp)
 > ```javascript
@@ -81,6 +82,7 @@ category: "Security/Practice/PicoCTF/Web"
 </html>
 ```
 :::
+
 ## Recon
 這一題很難，應該說scramble的方式很難看出來，而且他結合了web(js)/reverse/misc的各種概念在裡面，討論的WP也比較少，沒有甚麼script可以參考，但[^pico-reverse-java-script-kiddle-wp-walkthru]這一部影片討論的非常詳細，再搭配自己寫的script就可以尻出原本的圖檔
 1. 首先題目的頁面剛載入的時候，會直接傳送一個bytes的矩陣，內涵720個bytes，也就是Code:`5-8`在做的事情(記得善用browser內建的debugger和觀察network封包)
@@ -93,6 +95,7 @@ category: "Security/Practice/PicoCTF/Web"
 ![](https://hackmd.io/_uploads/rk9K_sUea.png)
 
 註一: 修改的地方在於前面的known_bytes，因為Walkthru的作法是前8bytes對照png前面的magic header，而後8bytes就看最後面的IEND block，但因為Code:`24-26`的while loop會把多餘的padding截掉，也就是說圖檔的bytes length不會和一開始打亂後的一樣，這樣在輪轉讓就沒辦法alignment，所以我就直接參考[^pico-java-script-kiddle-wp]的作法，也就是全部16bytes都依照第一列的16bytes當作對照，也就是`[0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0D, 0x49, 0x48, 0x44, 0x52]`，而這樣的結果就是有多達36種組合會出現，所以我才會寫一個自動填入候選key的script，這樣省了一點時間
+
 ## Exploit - Reverse / Javascript / Misc
 :::spoiler 把bytes寫入圖片檔中
 ```python
@@ -175,6 +178,7 @@ Key: `5108180345363640`
 QRCode:
 ![](https://hackmd.io/_uploads/r16cCqIxT.png)
 Flag: `picoCTF{066cad9e69c5c7e5d2784185c0feb30b}`
+
 ## Reference
 [^pico-java-script-kiddle-wp]:[ [網頁漏洞] Javascript - 修正圖檔 ](https://ithelp.ithome.com.tw/articles/10250802)
 [^pico-reverse-java-script-kiddle-wp-walkthru]:[ PicoCTF Walkthru [101] - Java Script Kiddie (JavaScript debugging/reversing) ](https://youtu.be/ltLA-q3FLvI?si=_jtjyl6mwsT0mnVV)

@@ -6,6 +6,7 @@ category: "Terminology"
 ---
 
 # Node Related
+
 ## What is Node.JS
 **Node.js** 是一個基於 Chrome V8 引擎的 JavaScript 運行環境，最初由 Ryan Dahl 於 2009 年開發，用於讓開發者在服務器端運行 JavaScript 代碼。它突破了 JavaScript 只能在瀏覽器端運行的限制，從而可以用 JavaScript 構建完整的後端應用。
 

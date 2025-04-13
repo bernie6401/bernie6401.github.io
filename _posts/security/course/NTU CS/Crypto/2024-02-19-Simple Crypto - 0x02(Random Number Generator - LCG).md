@@ -59,6 +59,7 @@ Derive m
 $$
 m=gcd((t_{n+1}t_{n-1}-t_n^2),(t_nt_{n-2}-t_{n-1}^2))
 $$
+
 ## Implement Code
 ```python=
 import random

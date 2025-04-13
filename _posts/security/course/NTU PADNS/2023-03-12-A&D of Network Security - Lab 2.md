@@ -9,6 +9,7 @@ category: "Security/Course/NTU PADNS"
 ###### tags: `Practicum of A&D of NS` `NTU`
 
 ## Lab Cheat Sheet(Cisco Packet Tracer)
+
 ### Setting VLAN
 :::spoiler Switch
 ```bash!

@@ -49,8 +49,10 @@ Setting 2 VMs' network config as above.
 
 ## Reconstruct ARP cache by iteratively PING all subnet IP addresses
 Objective: scanning all the machine in the same LAN
+
 ### Note
 DO NOT EXECUTE IN DORM... YOU'LL BE BANNED...
+
 ### Source Code
 ```bash=
 #!/bin/bash
@@ -69,6 +71,7 @@ wait
 # show scan results (arp table)
 arp -n | grep -v incomplete
 ```
+
 ### Detailed Process
 :::spoiler Detailed Process
 1. Setting to Host-Only Adapter

@@ -9,6 +9,7 @@ category: "Security/Course/NTUST ISC/AD"
 [TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)
+
 ## Background
 * What is Directory Service?[^fei-directory-service]
     > ![](https://i.imgur.com/QVJYCoG.jpg)
@@ -39,6 +40,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
 :::info
 這一整個lab雖然是從講師的drive下載下來的(連結爛掉了，有需要可以跟我拿)，但還是可以從網路中自己創一個有這麼多漏洞的lab環境。可以先安裝win2016的虛擬機，然後到[WazeHell/vulnerable-AD](https://github.com/WazeHell/vulnerable-AD)下載script，在該環境中跑起來，就可以了，不果因為跑完之後的所有帳號或密碼都是隨機的，所以如果要看別人或是後續我寫的WP會有點困難
 :::
+
 ### 實驗環境拓樸
 ![](https://hackmd.io/_uploads/B14swTr62.png)
 

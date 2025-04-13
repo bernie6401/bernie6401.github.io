@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x15(2023 HW - crackme_vectorization)
+
 ## Source Code
 :::spoiler IDA Main Function
 ```cpp
@@ -348,6 +349,7 @@ LABEL_44:
 }
 ```
 :::
+
 ## Recon
 一陣基本操作處理完比較好看的狀態後，首先發現一開始先輸入字串的長度(應該是49)，然後我們要輸入一些東西(就是按照前面輸入，總共也是49次)，接著就會進到很醜沒辦法解析的function(我暫時不理他)，一開始我在猜應該是做encryption之類的事情，接著就比對mem，一樣就噴correct這樣，我認為超級醜的function應該不是這次出題的重點，因為要全部逆完真的很有難度，對於學習也沒必要，此時我開始用動態+通靈的方式猜他在幹嘛，依照題目的標題和後面對比字串長度必須要等於`7`這兩個東西判斷，他應該是在做矩陣之類的操作，而那個醜不拉基的function應該是類似乘法或是加法之類的功能，有了想法就可以實驗他的操作
 如果輸入長度49
@@ -473,6 +475,7 @@ LABEL_44:
     :::
     
 由以上實驗可以大致確認醜不拉基function做的事情就是矩陣乘法，而我們知道他比較的乘法結果，也知道和我們輸入的矩陣相乘的乘數，換言之可以反推回我們應該輸入的東西為何
+
 ## Exploit
 ```python
 from pwn import *

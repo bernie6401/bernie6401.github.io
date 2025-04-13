@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - babygame02
+
 ## Source
 :::spoiler IDA Main Function
 ```cpp
@@ -110,6 +111,7 @@ int win()
 
 ## Recon
 這一題超難，主要是看了ref[^babygame02_martin_wp][^babygame02_ryan_wp]也不太知道怎麼做的，跟了gdb也分析不出個所以然，大概是和[前一題](https://hackmd.io/@SBK6401/rytbWvp5h)概念很像，從IDA分析的main function可以知道這次我們要想辦法跳到一個叫做win function的地方，但是這個function從來沒有被呼叫過，也沒有明顯的bof，所以要先用一些奇淫技巧改變return address，也就是到零零座標之後要先往上走(但是stack的變化我看不懂，總之y軸的數值變成0xfffffff，但不像上一題一樣會表現出來)，總之再往左邊走39次，並改變原本玩家的表示字元(0x40)成win()對應的最後一個byte，例如0x50, 0x5e, 0x60, 0x61, 0x64, 0x69, 0x6f, 0x70 - 0x78...，此時就會看到stack的return value就會是0x80497xx，他就會跳到win function吐出flag
+
 ## Exploit
 Payload:
 ```bash
@@ -119,6 +121,7 @@ l]
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 s
 ```
+
 ## Reference
 [^babygame02_martin_wp]:[ picoCTF babygame02 - Martin Carlisle](https://youtu.be/y2E9fGfV6sI)
 [^babygame02_ryan_wp]:[babygame02 picoCTF writeup](https://blog.ry4n.org/babygame02-picoctf-writeup-6bf57b54f7b3)

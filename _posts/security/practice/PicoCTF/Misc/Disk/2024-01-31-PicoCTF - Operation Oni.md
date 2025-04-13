@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Disk"
 ---
 
 # PicoCTF - Operation Oni
+
 ## Background
 [How to View Your SSH Keys in Linux, macOS and Windows](https://www.techrepublic.com/article/how-to-view-your-ssh-keys-in-linux-macos-and-windows/)
 
@@ -91,6 +92,7 @@ Connection to saturn.picoctf.net closed.
 ```
 
 Flag: `picoCTF{k3y_5l3u7h_af277f77}`
+
 ## Reference
 [^ssh-error-permission-too-open]:[ssh "permissions are too open"](https://stackoverflow.com/questions/9270734/ssh-permissions-are-too-open)
 [^picoctf-forensics-wp-almond-force]:[ picoGym (picoCTF) Exercise: Operation Oni ](https://youtu.be/fGWdueqArzE?si=Ci0W715ZjQ3vPD8m)

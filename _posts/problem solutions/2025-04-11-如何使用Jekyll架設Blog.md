@@ -10,6 +10,7 @@ category: "Problem Solutions"
 
 # 如何使用Jekyll架設Blog
 參考資料: [【種樹】使用 Jekyll 和搭建 Github Pages](https://hackmd.io/@CynthiaChuang/Setting-Up-a-GitHub-Pages-Site-with-Jekyll)
+
 ## Install Jekyll
 1. Install [Ruby](https://rubyinstaller.org/)
     務必要安裝MSYS2，這是一個在 Windows 上提供 Unix-like 開發環境 的套件系統，它是許多 Windows 上的開發工具（尤其是 Ruby、Python、Node.js 的原生編譯擴充套件）運作的關鍵。安裝的時候只要按照rubyinstaller的流程就會看到，如果在安裝ruby的時候跳過了，可以直接`$ ridk install`並按照guide進行安裝

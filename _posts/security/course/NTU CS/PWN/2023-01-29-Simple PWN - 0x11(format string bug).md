@@ -46,6 +46,7 @@ $ gcc -o fmt fmt.c -no-pie -fno-stack-protector -z norelro -zexecstack
     * Because...
     `puts` just needs one argument like `system` function, but how about `printf`?
     Unfortunately, it appeared before 2nd read function, because 2nd `read` needs to store the argument for `system` function such as `sh\x00`.
+
 ## Exploit - GOT hijacking + format string bug
 **Our goal is hijack `puts GOT` to `system plt`**
 1. Find `puts GOT` address and `system plt` → <font color="FF0000">`0x403318` and `0x401090`</font>

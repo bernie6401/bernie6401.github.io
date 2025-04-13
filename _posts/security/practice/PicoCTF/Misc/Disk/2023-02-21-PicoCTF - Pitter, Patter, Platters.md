@@ -11,6 +11,7 @@ Challenge: [Pitter, Patter, Platters](https://play.picoctf.org/practice/challeng
 
 ## Background
 [sda](https://blog.gtwang.org/linux/linux-add-format-mount-harddisk/)
+
 ## Source code
 
 ## Exploit - Use FTK Imager

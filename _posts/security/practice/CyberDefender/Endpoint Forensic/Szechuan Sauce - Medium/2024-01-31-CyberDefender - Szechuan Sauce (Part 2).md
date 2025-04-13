@@ -27,14 +27,17 @@ Part 1: https://hackmd.io/@SBK6401/rkp952e76
 
 ## ==Q11==
 > What's the name of the attack tool you think this malware belongs to? (one word) 
+
 ### Recon
 和malware相關的資訊，直覺會先看virustotal上的資訊，也的確發現答案的蹤跡
 
 :::spoiler Flag
 Flag: `Metasploit`
 :::
+
 ## ==Q12==
 > One of the involved malicious IP's is based in Thailand. What was the IP? 
+
 ### Recon
 這個在virustotal上也有完整的資訊，只能說那個network graph真的太屌了，不只清楚也很炫泡
 ![圖片.png](https://hackmd.io/_uploads/BJw07aEX6.png)
@@ -42,10 +45,13 @@ Flag: `Metasploit`
 :::spoiler Flag
 Flag: `203.78.103.109`
 :::
+
 ## ==Q13==
 > Another malicious IP once resolved to klient-293.xyz . What is this IP? 
+
 ### Recon
 我是直接在network packets裡面撈比較常見的IP，不過看[^szechuan-sauce-wp]才知道也可以直接用virustotal搜URL
+
 ### Exploit
 * 方法一:
     我看最多次request的IP有點可疑
@@ -58,8 +64,10 @@ Flag: `203.78.103.109`
 :::spoiler Flag
 Flag: `194.61.24.102`
 :::
+
 ## ==Q14==
 > The attacker performed some lateral movements and accessed another system in the environment via RDP. What is the hostname of that system? 
+
 ### Background
 * [LLMNR](https://netpc.pixnet.net/blog/post/12409336)
     > LLMNR 是定義於標題為 "Link-local Multicast Name Resolution (LLMNR)" (連結-本機多點傳送名稱解析 (LLMNR)) (draft-ietf-dnsext-mdns-47.txt) 之網際網路草稿中的通訊協定，同時允許 IPv6 和 IPv4 主機為鄰接電腦執行名稱解析，而不需設定 DNS 伺服器或 DNS 用戶端。
@@ -86,8 +94,10 @@ WP中有提到兩種解析方式，一種是看network packets，另外一種是
 :::spoiler Flag
 Flag: `DESKTOP-SDN1RPT`
 :::
+
 ## ==Q15==
 > Other than the administrator, which user has logged into the Desktop machine? (two words) 
+
 ### Recon
 這一題直覺就是延續上一題的狀況，直接看timeline explorer有登入的target
 ![圖片.png](https://hackmd.io/_uploads/HyOgT0E76.png)
@@ -95,13 +105,16 @@ Flag: `DESKTOP-SDN1RPT`
 :::spoiler Flag
 Flag: `rick sanchez`
 :::
+
 ## ==Q16==
 > What was the password for "jerrysmith" account? 
+
 ### Recon
 原本的直覺是follow之前寫的[0x13 - Brute Force SAM](https://hackmd.io/@SBK6401/S1KgaEz0h)可以爆破密碼，但我似乎搞錯題目的意思，應該說要找`jerrysmith`的密碼，直覺要對domain controller下手，不過應該不是找SAM hive，因為這個只有存取單一主機的認證authentication，所以如果要找儲存其他AD的密碼資訊，算是一個新的觀念:
 
 [What is NTDS.DIT?](https://medium.com/@harikrishnanp006/understanding-ntds-dit-the-core-of-active-directory-faac54cc628a)
 > NTDS.DIT stands for New Technology Directory Services Directory Information Tree. It serves as the primary database file within Microsoft’s Active Directory Domain Services (AD DS). Essentially, NTDS.DIT stores and organizes all the information related to objects in the domain, including users, groups, computers, and more. It acts as the backbone of Active Directory, housing critical data such as user account details, passwords, group memberships, and other object attributes.
+
 ### Exploit
 1. Export NTDS.DIT & SYSTEM
     NTDS.DIT在Domain Server的`C:\Windows\NTDS\ntds.dit`，而SYSTEM在`C:\Windows\System32\config\SAM`
@@ -194,31 +207,39 @@ Flag: `rick sanchez`
 :::spoiler Flag
 Flag: `!BETHEYBOO12!`
 :::
+
 ## ==Q17==
 > What was the original filename for Beth’s secrets? 
+
 ### Recon
 直覺會用volatility看filescan的結果，不過沒有甚麼收穫，看了答案的hint才知道要去撈recycle bin的東西(誰知道啊)
+
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/rysZqVH76.png)
 
 :::spoiler Flag
 Flag: `SECRET_beth.txt`
 :::
+
 ## ==Q18==
 > What was the content of Beth’s secret file? ( six words, spaces in between) 
+
 ### Recon
 直接呈上題，下一個檔案就是他的file content
 
 :::spoiler Flag
 Flag: `Earth beth is the real beth`
 :::
+
 ## ==Q19==
 > The malware tried to obtain persistence in a similar way to how Carbanak malware obtains persistence. What is the corresponding MITRE technique ID? 
+
 ### Exploit
 直接看Carbanak的MITRE頁面，詳細的訊息可以看[這邊](https://attack.mitre.org/groups/G0008/)
 
 :::spoiler Flag
 Flag: `T1543.003`
 :::
+
 ## Reference
 [^szechuan-sauce-wp]:[CyberDefenders: Szechuan Sauce CTF Writeup](https://ellisstannard.medium.com/cyberdefenders-szechuan-sauce-writeup-ab172eb7666c)

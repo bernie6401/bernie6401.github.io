@@ -6,12 +6,15 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - babygame01
+
 ## Background
 Bof
+
 ## Description & Hint
 > Get the flag and reach the exit. Welcome to BabyGame! Navigate around the map and see what you can find! The game is available to download here. There is no source available, so you'll have to figure your way around the map. You can connect with it using nc saturn.picoctf.net 50227.
 > Hint 1: Use 'w','a','s','d' to move around.
 > Hint 2: There may be secret commands to make your life easy.
+
 ## Source Code
 :::spoiler IDA Main Function
 ```cpp=
@@ -52,8 +55,10 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 }
 ```
 :::
+
 ## Recon
 這一題蠻有趣的，一樣是觸發類似Bof的概念，可以先用靜態的方式看，如果要用動態的方式看得話，需要讓glibc可以解析x32的檔案，另外glibc的版本也需要2.34，所以可以從[^gdb_problem][^x32_glibc_problem]這兩個ref解決gdb版本的問題
+
 ## Exploit
 1. Hint當中有提到金手指的操作，觀察source code當中的move_player function中可以按p可以直接跑到終點，這樣就可以不用這麼麻煩
 
@@ -73,6 +78,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 
 
 Flag: `picoCTF{gamer_m0d3_enabled_054c1d5a}`
+
 ## Reference
 [^babygame01_WP]:[picoCTF 2023 babygame01](https://youtu.be/I9BL3fZOj1M)
 [^gdb_problem]:[version `GLIBC_2.34‘ not found简单有效解决方法](https://blog.csdn.net/huazhang_001/article/details/128828999)

@@ -53,6 +53,7 @@ def login():
     return resp
 ```
 :::
+
 ### Description & Analyze
 In main function, it'll request session and parse it by `base64` then deserialize it.
 If session is none, you can enter your name and age then it'll serialize the data and transfer by base64.

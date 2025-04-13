@@ -21,14 +21,17 @@ Here is the ticket:
 
 ## ==Q1==
 > Can you identify the name of the token? (Format: String)
+
 ### Recon
 看到三段用`.`拼起來就直覺是jwt
 
 :::spoiler Flag
 Flag: `jwt`
 :::
+
 ## ==Q2==
 > What is the structure of this token? (Format: Section.Section.Section)
+
 ### Recon
 Common Sense就是header + payload + signature
 ![圖片](https://hackmd.io/_uploads/rk--WjCva.png)
@@ -36,18 +39,23 @@ Common Sense就是header + payload + signature
 :::spoiler Flag
 Flag: `header.payload.signature`
 :::
+
 ## ==Q3==
 > What is the hint you found from this token? (Format: String)
+
 ### Recon
 這一題真的不知道在衝三小，最後參考[^wp1]才知道，但實在是太隱晦了，不管是問題還是答案出乎意料
 
 :::spoiler Flag
 Flag: `_4_Eyes`
 :::
+
 ## ==Q4==
 > What is the Secret? (Format: String)
+
 ### Recon
 這個直覺就是要爆破簽署的secrets，因為看來看去都沒有其他地方有leak出來，所以可以用hashcat或是john爆破出來
+
 ### Exploit
 * Hashcat - [Hacking JWT Tokens: Bruteforcing Weak Signing Key (Hashcat)](https://blog.pentesteracademy.com/hacking-jwt-tokens-bruteforcing-weak-signing-key-hashcat-7dba165e905e)
     ```bash
@@ -119,8 +127,10 @@ Flag: `_4_Eyes`
 :::spoiler Flag
 Flag: `bT!0`
 :::
+
 ## ==Q5==
 > Can you generate a new verified signature ticket with a low privilege? (Format: String.String.String)
+
 ### Recon
 我們知道了secrets===bT!0==，所以我們可以用這個secrets簽章新的payload
 ![圖片](https://hackmd.io/_uploads/ByhNToRvT.png)
@@ -128,5 +138,6 @@ Flag: `bT!0`
 :::spoiler Flag
 Flag: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmbGFnIjoiQlRMe180X0V5ZXN9IiwiaWF0Ijo5MDAwMDAwMCwibmFtZSI6IkdyZWF0RXhwIiwiYWRtaW4iOmZhbHNlfQ.nMXNFvttCvtDcpswOQA8u_LpURwv6ZrCJ-ftIXegtX4`
 :::
+
 ## Reference
 [^wp1]:[BTLO — Secrets Walkthrough](https://medium.com/@prajjwal029/btlo-secrets-5314312e4aef)

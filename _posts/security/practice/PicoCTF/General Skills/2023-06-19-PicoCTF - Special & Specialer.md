@@ -61,6 +61,7 @@ category: "Security/Practice/PicoCTF/General Skills"
     # Method 10
     $ vim .
     ```
+
 ## Reference
 [Cat without cat on the commandline](https://jarv.org/posts/cat-without-cat/)
 [Alternatives to the 'ls' command to list the contents of a directory](https://ubunlog.com/en/alternativas-al-comando-ls/)

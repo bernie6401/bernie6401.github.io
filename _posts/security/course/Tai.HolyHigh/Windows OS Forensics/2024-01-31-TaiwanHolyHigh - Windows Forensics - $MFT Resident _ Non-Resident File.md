@@ -44,6 +44,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
     ![](https://hackmd.io/_uploads/BJWMBtKMT.png)
 
 ## Lab - Resident File
+
 ### Lab - Offset 43208704(d)
 先找檔名，後面會跟著`18 00 00 00 01 00`，前面會有non-resident flag(前面第二個byte)，再後面會跟著檔案大小`D0 01`，再後面一點會跟著原本這個file的signature
 * Non-Resident Flag: `00`
@@ -54,6 +55,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
 * File Size: `FE 01` = 510 bytes
 
 ## Lab - Non-Resident File
+
 ### Lab - Offset 43462656(d)
 * Non-Resident Flag: `01`
 * File Size: `F6 09` = 2550 bytes
@@ -68,6 +70,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
 
 
 ## 現場考試
+
 ### Offset 51472384(d)
 Non-Resient File
 * Status: `01 00` $\to$ file
@@ -78,6 +81,7 @@ Non-Resient File
 * Filename Timestamp: `2010, 8, 11, 2, 30, 18, 151785`
 * Non-Resident Flag: `01`
 * File Size: `FD 02` $\to$ 765 bytes
+
 ### Offset 65898496(d)
 Resident File
 * Status: `00 00` $\to$ file
@@ -89,6 +93,7 @@ Resident File
 * Filename Timestamp: `2011, 2, 9, 2, 16, 36, 547024`
 * Non-Resident Flag: `00`
 * File Size: `99 01` $\to$ 409 bytes
+
 ### Offset 64329728(d)
 Non-Resident File(曾經是resident file)
 * Status: `01 00` $\to$ file
@@ -100,6 +105,7 @@ Non-Resident File(曾經是resident file)
 * Filename Time: `2011, 2, 3, 1, 17, 53, 184265`
 * Non-Resident Flag: `01`
 * File Size: `21 01` $\to$ 289 bytes
+
 ### Offset 65873920(d)
 Non-Resident File
 * Status: `00 00` $\to$ deleted file

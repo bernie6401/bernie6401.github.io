@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x38(Lab - UAF)
+
 ## Background
 ![圖片](https://hackmd.io/_uploads/ByxvsvNr6.png)
 
@@ -144,6 +145,7 @@ int main(void)
 
 ```
 :::
+
 ## Recon
 這是個經典的表單題，總共有四種command(註冊entity / 刪除entity / 設定entity name / 觸發entitiy function pointer)，這種題目因為格局比較大，所以我都會先看哪裡有malloc或是free，首先
 
@@ -173,6 +175,7 @@ int main(void)
     0x560bb1125300: "sh"
     ```
 5. 最後我們再利用entity 0的名義，trigger function pointer，就拿到shell了
+
 ## Exploit
 ```python
 from pwn import *
@@ -240,7 +243,9 @@ Name: (null)
 $ cat /home/chal/flag.txt
 flag{https://www.youtube.com/watch?v=CUSUhXqThjY}
 ```
+
 ## 同場加映
+
 ### 如何用UAF leak heap address?
 主要的大方向是設法讓free的chunk進入tcache，這樣的話他就會儲存chunk address的info，我們再利用他沒有設為null的UAF漏洞，把他讀出來
 ```python
@@ -291,6 +296,7 @@ choice: $
 ### 如何用UAF leak libc address?
 主要的大方向是設法讓chunk進入unsorted bin中，這樣他就會儲存有關libc的資訊，之後我們再像前面的UAF方法一樣，把值leak出來
 ```python
+
 ## Leak libc address
 for i in range(0x9):
     register(i)

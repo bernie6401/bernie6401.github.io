@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Crypto/SideChannel"
 ---
 
 # PicoCTF - PowerAnalysis Part 1 / Part 2
+
 ## Background
 [Simple Welcome 0x13(2023 HW - Power Analysis):two:](https://hackmd.io/@SBK6401/HJNScTc-T)
 
@@ -176,6 +177,7 @@ category: "Security/Practice/PicoCTF/Crypto/SideChannel"
 Flag: `picoCTF{4999139026d84bf20427eb48d4edec53}`
 
 ---
+
 ### Exploit Part 2
 為了不要讓主程式的變化太大，因此我有調整了一下data preprocessing的部分，還找到了一個bug，
 :::spoiler Exp

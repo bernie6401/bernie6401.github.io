@@ -10,8 +10,10 @@ category: "Survey Papers/Android + Security"
 Wang, Y., Xu, G., Liu, X., Mao, W., Si, C., Pedrycz, W., & Wang, W. (2020). Identifying vulnerabilities of SSL/TLS certificate verification in Android apps with static and dynamic analysis. Journal of Systems and Software, 167, 110609.
 :::
 這一篇論文對我要做的東西非常類似，雖然本質上不一樣但有很多的觀點以及解決方式是可以參照的
+
 ## Introduction
 這篇文章探討了在Android應用程式中SSL/TLS憑證驗證的弱點，並提出了一種名為DCDroid的工具來偵測這些弱點。作者結合靜態和動態分析，分析了來自Google Play和360app的2213個應用程式，發現其中有20.65%可能存在弱點。透過DCDroid在兩部Android智慧手機上執行這些應用程式，最終確認了11.07%的應用程式對MITM和釣魚攻擊存在真正的弱點。
+
 ## Background
 * SSL/TLS and Android
     一般來說，正確的驗證憑證的步驟為
@@ -47,12 +49,15 @@ Wang, Y., Xu, G., Liu, X., Mao, W., Si, C., Pedrycz, W., & Wang, W. (2020). Iden
 整體的分析流程如下，首先給定一個App，然後先進行靜態分析，並且分析取得的smali code，用一開始定義的演算法以及漏洞方法，找到潛在的漏洞，並且把vulnerable activity給動態分析，實際安裝與執行後，利用MITM工具攔截流量，並使用VPNService捕獲智能手機上的流量。最後，我們通過比較智慧手機和攻擊工具之間的流量來確認那些真正易受攻擊的應用程式。
 ![圖片](https://hackmd.io/_uploads/SkfW7I6SC.png)
 '
+
 ### 如何定義潛在的易受攻擊代碼並觸發它們
+
 #### 如何定義vulnerable method
 1. X509TrustManager: 如果開發者有擴充這個class，他就會實際的看==checkClientTrusted==和==checkServerTrusted==這兩個method，如果這兩個method只有`return void`這一行code，那就代表這個App信任具有X509TrustManager 介面的所有證書，那當然就是有問題的地方
 2. HostNameVerifier: 先檢查HostNameVerifier有沒有被實作，如果有就往下檢查==verify== method，他直接查看這個方法如果第一行是const開頭，第二行直接return的話，就代表他沒有檢查Domain Name，也一樣是有問題的
 4. X509HostnameVerifier: 先檢查X509TrustManager extend class的類別中是否有sget-object的指令。如果有，我們檢查它是否以 ==ALLOW_ALL_HOSTNAME_VERIFIER Lorg/apache/http/conn/ssl/X509Hostname Verifier== 結尾。如果還是成立，我們檢查下一指令是否為 ==-> setHostname Verifier (Lorg/apache/ http/n/ssl/X509Hostname Verifier);V== 。如果存在，我們就認為該方法有漏洞。
 3. WebViewClient sslError: 先檢查程式有無擴充WebVieClient這個class，如果有就檢查==onReceivedSslError==這個方法，如果這個method只有兩個instructions，而且第一行是invoke-virtual開頭、Landroid/webkit/SslErrorHandler;->proceed()V結尾，另外第二行就直接return void的話，代表這個method是有問題的
+
 #### 如何判斷這些vulnerable method會被觸發
 1. Vulnerable Method最後會被誰call到
     這段演算法的目的是通過遍歷Method Call Graph，找到所有可能調用Vulnerable Method的入口點方法，這些入口點方法是應用啟動時首先執行的方法或初始化方法。這樣可以幫助開發者了解潛在的Vulnerable Method是如何被call的，在動態分析階段優先考慮這些entry point，以便執行它們。這個演算法的概念是，從vulnerable method的角度出發一直往上走(看誰有call到)，比方說A call B, B call C, C call vulnerable method v1，而因為A是最後一個和VM有關係的class，那就直接看A裡面的constructor，並且向剛剛一樣，不斷往上看誰call了這個class method，找到最後，如果有一個class constructor是沒有被app任何一個code所呼叫，代表他一定是被系統所呼叫，這樣的話這個constructor就是我們要找的entry point
@@ -104,6 +109,7 @@ Wang, Y., Xu, G., Liu, X., Mao, W., Si, C., Pedrycz, W., & Wang, W. (2020). Iden
         end for
     endfunction
     ```
+
 ### 如何模擬人類操作
 UI自動化元件有三個任務:
 1. 取得UI元素並操作它們
@@ -111,6 +117,7 @@ UI自動化元件有三個任務:
 3. 運行App並管理UI狀態
 
 當應用程式進入一個Activity時，需要取得該Activity的每一個元素，並提取該元素的屬性，例如按鈕的文字、文字方塊的輸入形式等。根據所獲得的信息，系統創建適當的事件來操作元素，以便Activity可以正常地從一個元素跳到另一個元素。例如，為複選框建立選擇事件，為文字方塊建立輸入事件。為了實現這個目標，我們使用[AndroidViewClient](https://github.com/dtmilano/AndroidViewClient)來管理元件。它可以取得UI元素，為UI元素建立適當的事件並執行特定應用程式的動態操作
+
 ### 如何高效運行-加速
 為了避免相似的view重複被執行，所以用了另外一個演算法找出類似的view，以及最多只取前四個
 ![螢幕擷取畫面 2024-06-17 161914](https://hackmd.io/_uploads/B1A1zOTrA.png)
@@ -143,6 +150,7 @@ function SimilarViewsFinder (Views)
     return potientalVulnerableViews 
 end function
 ```
+
 ### 如何有效運行
 這就回到一開始的問題，要如何保證proxy所攔截到的流量是我們正在測試的App所發出去的，作者使用Android內建的VPNService解決這個問題
 ![圖片](https://hackmd.io/_uploads/r1qzUdar0.png)
@@ -153,7 +161,9 @@ end function
 4. 最後，VPN將資料發送到NIC。VPN應用使用的socket必須顯式綁定到NIC，以避免data packet的無限迴圈
 
 方法是讀取`/proc/net/tcp`和`/proc/net/tcp6`檔案來取得PID的IP及其URL。使用UsageStatsManager class可以取得目前正在執行的應用程式的PID。 PackageManager class可以取得PID和app之間的對應關係。這樣我們就可以得到每個HTTPS流量和應用程式之間的對應關係。透過比較智慧型手機和MITM攻擊工具所獲得的HTTPS流量，可以確認存在漏洞的應用程式。我們開發了一款Android流量抓取工具來實現這個功能。
+
 ## Experiment
+
 ### Dataset
 從360app和google play商店中分別於2018/12以及2016/06取得1253 apps和960 apps，特別說明，他們把超過100M的app刪除，因為大部分這些app都是複雜的遊戲程式，在動態測試時會頻繁的crash
 ![圖片](https://hackmd.io/_uploads/HkY1KOaHA.png)
@@ -166,6 +176,7 @@ end function
 ![圖片](https://hackmd.io/_uploads/rJFitdaHA.png=500x)
 作者把以上的結果和之前的工具AndroBugs, kingkong and appscan進行比較，結果如下，AndroBugs 在靜態檢測的檢測精度方面略優於DCDroid。但是，在沒有動態檢測的情況下，它會生成大量誤報。至於kingkong和appscan，DCDroid在靜態檢測的檢測精度方面更好。此外，他們無法檢測到 HostNameVerifier 漏洞。這兩個工具還包含許多誤報。因此，DCDroid 在靜態檢測階段並不是最好的。但是，DCDroid 的**主要優點是我們可以動態運行應用程式並刪除誤報**
 ![圖片](https://hackmd.io/_uploads/H1Rm6_prA.png =600x)
+
 ### Dynamic Analysis
 在動態分析中，我們使用AndroidViewClient操作兩部 Android 智慧手機並運行應用程式。平均而言，每個應用程序花費 183 秒。動態檢測結果如表1所示。可以看出，來自 360app 和 Google Play 的 245 個應用被識別為存在證書驗證漏洞，占潛在漏洞代碼的 53.61%，佔所有應用的 11.07%。這表明我們數據集中有 11.07% 的應用存在證書驗證漏洞。從表中可以看出，360app中的證書驗證漏洞佔比為12.05%，Google Play中的證書驗證漏洞佔比為9.79%。360app中的易受攻擊的應用程式比Google Play中的應用程式更多。
 ![圖片](https://hackmd.io/_uploads/Sk8aK_TSA.png =600x)

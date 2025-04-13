@@ -11,7 +11,9 @@ category: "Survey Papers/Crypto"
 Kim, E., Jeong, J., Yoon, H., Kim, Y., Cho, J., & Cheon, J. H. (2020). How to securely collaborate on data: Decentralized threshold he and secure key update. IEEE Access, 8, 191319-191329.
 :::
 [TOC]
+
 ## Background
+
 ### [Threshold Homomorphic Encryption - 閾值同態加密在隱私計算中的應用](https://www.cnblogs.com/pam-sh/p/16446840.html)
 :::spoiler 
 > 1. 單密鑰同態加密
@@ -71,6 +73,7 @@ Kim, E., Jeong, J., Yoon, H., Kim, Y., Cho, J., & Cheon, J. H. (2020). How to se
 
 
 ## In This Paper
+
 ### Threshold HE VS. Multi-Key HE
 兩者的差別依照原文的解釋是整合之前產生共同的公鑰的就是Threshold HE，而在整合之後產生公鑰的就是Multi-Key HE
 

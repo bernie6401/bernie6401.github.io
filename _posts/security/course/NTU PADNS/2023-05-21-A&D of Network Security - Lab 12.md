@@ -26,6 +26,7 @@ Return Value
 
 
 ## Recon
+
 ### Static - IDA Pro
 :::spoiler Main Source Code
 ```clike=
@@ -102,6 +103,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 :::
 
 * If we execute it directly, nothing happened.
+
 ## Lab 9-1 Questions
 1. How can you get this malware to install itself?
 Ans: You can get the program to install itself by providing it with the `-in` option, along with the password. Alternatively, you can patch the binary to skip the password verification check.
@@ -117,6 +119,7 @@ Ans: The malware creates the registry key HKLM\Software\Microsoft \XPS\ Configur
 Ans: The malware can be instructed to execute one of five commands via the network: SLEEP, UPLOAD, DOWNLOAD, CMD, or NOTHING. The SLEEP command instructs the malware to perform no action for a given period of time. The UPLOAD command reads a file from the network and writes it to the local system at a specified path. The DOWNLOAD command instructs the malware to send the contents of a local file over the network to the remote host. The CMD command causes the malware to execute a shell command on the local system. The NOTHING command is a no-op command that causes the malware to do nothing.
 6. Are there any useful network-based signatures for this malware?
 Ans: By default, the malware beacons http://www.practicalmalwareanalysis.com/ ; however, this is configurable. The beacons are HTTP/1.0 GET requests for resources in the form xxxx/xxxx.xxx, where x is a random alphanumeric ASCII character. The malware does not provide any HTTP headers with its requests
+
 ## Lab 9-2 Questions
 1. What strings do you see statically in the binary?
 Ans: The imports and the string cmd are the only interesting strings that appear statically in the binary.

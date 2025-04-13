@@ -27,6 +27,7 @@ Note that you must change your test file's `main()` to <font color="FF0000">`MAI
 
 ## Implementation
 Just show the mainly implementation concept
+
 ### Assignment statements
 ```clike
 void genAssignStmt(AST_NODE *assignNode)
@@ -71,6 +72,7 @@ void genVariableAssign(AST_NODE *idNode, REG val)
     return;
 }
 ```
+
 ### Arithmetic expressions
 ```clike
 REG genRelopExpr(AST_NODE *exprNode)
@@ -239,6 +241,7 @@ REG genRelopExpr(AST_NODE *exprNode)
     }
 }
 ```
+
 ### Control statements: while, if-then-else
 ```clike
 void genWhile(AST_NODE *whileNode)
@@ -292,6 +295,7 @@ void genIf(AST_NODE *ifNode)
     fprintf(output, "_END_IF_%d:\n", if_n);
 }
 ```
+
 ### Parameterless procedure calls
 ```clike
 void genFunctionCall(AST_NODE *functionCallNode)
@@ -311,6 +315,7 @@ void genFunctionCall(AST_NODE *functionCallNode)
     }
 }
 ```
+
 ### Read and Write I/O calls
 ```clike
 void genWrite(AST_NODE *functionCallNode){

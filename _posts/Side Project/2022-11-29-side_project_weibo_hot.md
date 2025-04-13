@@ -11,6 +11,7 @@ category: "Side Project"
 :::spoiler
 [TOC]
 :::
+
 ## Side Project Background
 * Inspired by Bilingual Podcast is the best podcast channel in Taiwan that introduces interesting news happening around the world. They said they had a problem that they can not get the hot news from Weibo immediately before Xi made it disappear. For instance, Shuai Peng(彭帥) and Zhang Gaoli(張高麗) event. So, I wrote a side project about an automatic web system that can refresh the web page and download it automatically and keep the data safe.
 

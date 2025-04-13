@@ -6,8 +6,10 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x05(2023 Lab - LSB)
+
 ## Background
 [ [edu-ctf 2023] week01 - crypto1 ](https://www.youtube.com/live/mqQ2zgK8a0Y?si=GRgtEKGHsCNcKuqU&t=7176)
+
 ## Source code
 :::spoiler Source Code
 ```python
@@ -36,6 +38,7 @@ while True:
     print(pt % 3)
 ```
 :::
+
 ## Recon
 這一題是變形過的Lease Significant Bit，上課教的例子是mod 2下的結果，而看source code可以知道目前他是mod 3下的結果，但換湯不換藥，只要把上課教的部分全部換成mod 3就可以了
 

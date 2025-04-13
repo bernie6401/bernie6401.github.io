@@ -31,7 +31,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCM
             Sysinternals - www.sysinternals.com
             RW C:\Program Files
             ```
+
 ## Lab Time - 本地提權
+
 ### ==錯誤配置==
 找出low有存取權限的service檔案
 ```bash!

@@ -6,8 +6,10 @@ category: "Security/Practice/PicoCTF/Misc/Disk"
 ---
 
 # PicoCTF - Operation Orchid
+
 ## Recon
 這一題過於簡單
+
 ## Exploit - Forensics / Openssl
 1. Find Encryption Flag File(Autopsy)
 可以在/root中找到，然後.ash_history的command紀錄中知道加密的password phrase

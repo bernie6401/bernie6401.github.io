@@ -13,19 +13,23 @@ Part 2: https://hackmd.io/@SBK6401/HJlmeuwfT
 :::spoiler TOC
 [TOC]
 :::
+
 ## Tools
 * [JLECmd](https://ericzimmerman.github.io/#!index.md)
 
 ## ==Q21==
 > One of the installed applications is a file shredder. What is the name of the application? (two words space separated) 
+
 ### Recon
 承接上一題，我們已經知道BCWipe就是題目要的答案，也就是類似file shredder的工具，但前面六個字還是沒有想法，看了一下外層資料夾才發現[Jetico](https://www.jetico.com/)是啥東西啊，上網查才發現是提供各種data encryption/data wiping/endpoint data protection之類的公司，所以這一題的正確答案是`Jetico BCWipe`
 
 :::spoiler Flag
 Flag: `Jetico BCWipe`
 :::
+
 ## ==Q22==
 > How many prefetch files were discovered on the system? 
+
 ### Recon
 就只是到`/root/Windows/Prefetch/`中數有多少的.pf檔案(善用排序)
 ![圖片.png](https://hackmd.io/_uploads/ByDB9sgX6.png)
@@ -36,8 +40,10 @@ Flag: `174`
 
 ## ==Q23==
 > How many times was the file shredder application executed? 
+
 ### Recon
 我們已經知道file shredder就是BCWipe這個軟體，那我們如果要知道這個軟體的相關資訊可以直接看prefetch file(就像[Part 1 - Q9](https://hackmd.io/@SBK6401/By1BpZIf6#Q9)一樣)
+
 ### Exploit
 從結果可以得知共執行五次
 :::spoiler Result
@@ -213,32 +219,40 @@ Files referenced: 113
 :::spoiler Flag
 Flag: `5`
 :::
+
 ## ==Q24==
 > Using prefetch, determine when was the last time ZENMAP.EXE-56B17C4C.pf was executed? 
+
 ### Recon
 直接看[Part 1 - Q9](https://hackmd.io/@SBK6401/By1BpZIf6#Q9)的輸出結果就好了
 
 :::spoiler Flag
 Flag: `06/21/2016 12:08:13 PM`
 :::
+
 ## ==Q25==
 > A JAR file for an offensive traffic manipulation tool was executed. What is the absolute path of the file? 
+
 ### Recon
 通常直覺會是到program file去看一下，不過有時候載下來的軟體可能是portable version，所以我也到downloads去看，發現唯一一個jar file就是burpsuite
 
 :::spoiler Flag
 Flag: `C:\Users\Hunter\Downloads\burpsuite_free_v1.7.03.jar`
 :::
+
 ## ==Q26==
 > The suspect employee tried to exfiltrate data by sending it as an email attachment. What is the name of the suspected attachment? 
+
 ### Recon
 用[pst viewer](https://goldfynch.com/pst-viewer/index.html#0/33474)瀏覽一下信件就知道了
 
 :::spoiler Flag
 Flag: `Pictures.7z`
 :::
+
 ## ==Q27==
 > Shellbags shows that the employee created a folder to include all the data he will exfiltrate. What is the full path of that folder? 
+
 ### Recon
 看一下pictures裡面的資料夾很明顯的Exfil就是我們的目標
 ![圖片.png](https://hackmd.io/_uploads/SksFlnlXa.png)
@@ -246,8 +260,10 @@ Flag: `Pictures.7z`
 :::spoiler Flag
 Flag: `C:\Users\Hunter\Pictures\Exfil`
 :::
+
 ## ==Q28==
 > The user deleted two JPG files from the system and moved them to $Recycle-Bin. What is the file name that has the resolution of 1920x1200? 
+
 ### Recon
 這應該是嘗試，如果刪除檔案會直接丟到recycle bin，所以可以直接到這邊去撈，不過從recycle bin撈到的檔案貌似損毀，紙看到應該是貓貓的耳朵
 ![$RP3TBNW.jpg](https://hackmd.io/_uploads/SJzGb3lmT.jpg)
@@ -259,8 +275,10 @@ Flag: `C:\Users\Hunter\Pictures\Exfil`
 :::spoiler Flag
 Flag: `ws_Small_cute_kitty_1920x1200.jpg`
 :::
+
 ## ==Q29==
 > Provide the name of the directory where information about jump lists items (created automatically by the system) is stored? 
+
 ### Background
 [ChatGPT](https://chat.openai.com/c/80f38bc8-4d9b-41a2-ae96-2a0e1f0b3e68)
 * 甚麼是windows jump list
@@ -275,6 +293,7 @@ Flag: `ws_Small_cute_kitty_1920x1200.jpg`
     > Jump List通常會顯示在相應應用程序的任務欄圖標上，並提供一個方便的方式來訪問最近的活動。
     > 
     > 請注意，某些應用程序可能會選擇不支持Jump List功能，這取決於開發人員的實現方式。
+
 ### Recon
 我直接問ChatGPT後得到以下回答: 
 > The directory where information about jump list items (created automatically by the system) is stored in Windows is:
@@ -286,10 +305,13 @@ Flag: `ws_Small_cute_kitty_1920x1200.jpg`
 :::spoiler Flag
 Flag: `AutomaticDestinations`
 :::
+
 ## ==Q30==
 > Using JUMP LIST analysis, provide the full path of the application with the AppID of "aa28770954eaeaaa" used to bypass network security monitoring controls. 
+
 ### Recon
 該用到新工具的時候了，下載[JLECmd](https://ericzimmerman.github.io/#!index.md)後可以直接查看.ms file，就是我們上一題找到的地方，在`Recent/CustomDestinations`的地方有這一題著重探到的`aa28770954eaeaaa`，export出來之後就可以開始分析
+
 ### Exploit
 ```shell
 $ ./JLECmd.exe -f aa28770954eaeaaa.customDestinations-ms
@@ -343,5 +365,6 @@ AppID: aa28770954eaeaaa, Description: null
 :::spoiler Flag
 Flag: `C:\Users\Hunter\Desktop\Tor Browser\Browser\firefox.exe`
 :::
+
 ## Reference
 [Cyberdefenders.org Hunter Walkthrough](https://medium.com/@cyberforensicator57/cyberdefenders-org-hunter-walkthrough-65c0c6cb8e87)

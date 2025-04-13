@@ -18,6 +18,7 @@ Zhang, L., Wang, B., Shen, Q., Song, Y., Guo, N., & Xie, L. (2021, April). A MIT
 :::info
 這個架構會需要三層其實是因為他所測試的App，不只是傳輸的那一層會被SSL加密，而在傳送的封包body還會再加密一次，所以需要三層，不然照理來說，一層的MITM Proxy就可以解決SSL加解密的問題，不需要用到三層那麼多，而且也不需要深入探索他用的是哪一套加解密演算法，因為傳輸層的演算法都一樣才對，這是和學長討論出來的結果
 :::
+
 ## Proposed Method
 * First Layer Proxy: Mitm1
     ![圖片](https://hackmd.io/_uploads/ryZzTLofA.png)
@@ -25,6 +26,7 @@ Zhang, L., Wang, B., Shen, Q., Song, Y., Guo, N., & Xie, L. (2021, April). A MIT
 * Third Layer Proxy: Mitm2
     ![圖片](https://hackmd.io/_uploads/SJqj68ozA.png)
     上圖就是把response和request要做的事情反過來而已
+
 ## Experiment
 * 重要事項:
     加解密的腳本需要事先準備好，意即我們要先確定該App是用哪種方式做到加解密，所以我們需要做到App的逆向工程，論文中有提到在電力工業中會用到的幾種方式:
@@ -47,5 +49,6 @@ Zhang, L., Wang, B., Shen, Q., Song, Y., Guo, N., & Xie, L. (2021, April). A MIT
     從上圖來看，傳統手動的方式進行加解密會很花時間，內文有提到:
     > 測試時間顯著縮短了96%左右。理論上，手動方法的測試時間等於加解密時間加上腳本和工具切換時間
     > 對於手動方法，大部分時間都浪費在不同工具之間的切換上
+
 ## Future Work
 因為MITM Proxy適合支援HTTP和HTTPS協定的加解密，所以未來如果可以針對IoT設備的[MQTT協定](https://resource.webduino.io/blog/mqtt-guide)以及工控常用的[Modbus協定](https://www.dusuniot.com/zh-TW/blog/what-is-the-modbus-protocol-and-how-does-it-work/)，則coverage會更大

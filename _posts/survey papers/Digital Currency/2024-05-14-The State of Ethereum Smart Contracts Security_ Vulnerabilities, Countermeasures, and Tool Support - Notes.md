@@ -10,6 +10,7 @@ category: "Survey Papers/Digital Currency"
 :::info
 Zhou, H., Milani Fard, A., & Makanju, A. (2022). The state of ethereum smart contracts security: Vulnerabilities, countermeasures, and tool support. Journal of Cybersecurity and Privacy, 2(2), 358-378.
 :::
+
 ## Background
 :::spoiler [以太幣(Ether) VS 以太坊(Ethereum)](https://rich01.com/what-is-ether-ethereum/)
 >以太坊是一個區塊鏈平台，而以太幣是裡面所使用的貨幣，智能合約的運算費用、區塊鏈上的交易手續費、礦工挖礦的獎勵等，都會用以太幣支付。

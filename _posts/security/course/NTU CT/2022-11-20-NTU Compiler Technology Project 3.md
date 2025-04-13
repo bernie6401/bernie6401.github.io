@@ -62,6 +62,7 @@ category: "Security/Course/NTU CT"
         yydebug = 1;
     #endif
     ```
+
 ## For TA
 * I changed a little bit `functions.c` that will generate `AST_Graph.gv` at `test/` folder.
 ```cpp=150
@@ -73,6 +74,7 @@ void printGV(AST_NODE *root, char* fileName)
     ...
 }
 ```
+
 ## Analysis
 * You can see the relationship between structure map and test code by yourself.
 * **control.c**

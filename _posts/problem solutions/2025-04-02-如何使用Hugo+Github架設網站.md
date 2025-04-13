@@ -26,6 +26,7 @@ category: "Problem Solutions"
     $ hugo version
     hugo v0.145.0-666444f0a52132f9fec9f71cf25b441cc6a4f355 windows/amd64 BuildDate=2025-02-26T15:41:25Z VendorInfo=gohugoio
     ```
+
 ### Deploy Website on Local
 1. Create New Site
     ```bash
@@ -93,6 +94,7 @@ category: "Problem Solutions"
     ```
     ![圖片](https://hackmd.io/_uploads/SkoITccp1e.png)
     現在Local的deployment已經完成，剩下的就是deploy到Github Page
+
 ## 利用Github Action Deploy Hugo
 1. 如果沒有碰過github action的人可能要先熟悉一下，這東西就是github的自動化流程，網路上有很多種action script，應該大同小異，我是用[peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages#getting-started)
     ```bash

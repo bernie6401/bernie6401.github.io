@@ -6,9 +6,11 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x30(2023 HW - Evil FlagChecker)
+
 ## Background
 Anti Disassembly - 這一部分可以看一下碩一修的malware reverse的anti disassembly的修復(就是d和c的交錯使用)
 Anti Debugging - 首推scylla hide
+
 ## Source code
 :::spoiler IDA main
 ```cpp
@@ -339,6 +341,7 @@ void __fastcall check(char *input, unsigned int len)
 }
 ```
 :::
+
 ## Recon
 這一題沒有那麼難，難的是怎麼用工具寫出來，本來想要直接用z3或angr直接噴出來，但是不知道為啥就完全沒有奇蹟發生，所以還是硬幹
 
@@ -383,6 +386,7 @@ void __fastcall check(char *input, unsigned int len)
 :::danger
 在寫ROR的實作時有一個非常重要的重點要注意，也就是最後一個右旋的bit如果是0，在下一次右旋時會被忽略，也就是那個bit會消失，被當成0x的一部分，舉例來說，0x111001，右旋兩次後變成0x011110，但是最左邊的0會被當成0x的一部分，所以下一次再右旋兩次的結果會變成0x10111而不是0x100111，所以我的作法是在每次右旋之前都檢查bit length是不是都是32 bits，如果有少就padding 0在最左邊
 :::
+
 ## Exploit
 另外說明一下，z3或angr的解法都沒辦法實作出來，不確定是甚麼原因，但有機會還是會想解看看，所以先放著看看
 ```python

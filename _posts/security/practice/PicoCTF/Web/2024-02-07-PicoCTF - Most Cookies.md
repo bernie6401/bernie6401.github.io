@@ -76,6 +76,7 @@ if __name__ == "__main__":
 
 ```
 :::
+
 ## Recon
 這一題看起來很簡單，我一開始也想說只要用Burp的intruder爆破name就好，不過看了一下sauce，發現他還有一個驗證機制，就是判斷cookie的value要是admin，但看了一下cookie的形式發現有點類似JWT的感覺`eyJ2ZXJ5X2F1dGgiOiJibGFuayJ9.ZJEZ8A.b5j77V6nA0V6dzYvM_hg3yYRgJc`(當然它不是JWT只是形式有點像)，尤其是這學期修了CNS，所以對JWT直覺有點難搞，果不其然，在sauce的第7行有設定`secret_key`當作session簽章的依據，然後在`/display`的地方進行驗證
 1. `name`參數要有值且必須是`cookie_names` list的其中一種
@@ -122,6 +123,7 @@ if __name__=='__main__':
 			print(r.text)
 			break
 ```
+
 ## Reference
 [picoCTF 2021 Most Cookies](https://youtu.be/8DrqOFr_SV8)
 [manageFlaskSession.py source code](https://gist.github.com/aescalana/7e0bc39b95baa334074707f73bc64bfe)

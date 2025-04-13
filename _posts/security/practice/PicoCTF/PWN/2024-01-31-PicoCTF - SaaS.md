@@ -6,8 +6,10 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - SaaS
+
 ## Background
 seccomp-tool
+
 ## Source code
 :::spoiler Source Code
 ```cpp=
@@ -76,6 +78,7 @@ int main()
 
 ```
 :::
+
 ## Recon
 這題算簡單，很適合新手打shell code，但不知道為啥很少人解，和之前計安的某一題很像但忘記在哪邊了，也有可能是在EOF的時候打的，關於seccomp可以看這篇[^seccomp-tools-note]
 ```bash
@@ -111,6 +114,7 @@ Welcome to Shellcode as a Service!
 1. 觀察source code發現有設定seccomp的保護，只開放write和exit，但在輸入之前已經先讀了flag，此時就可以直接想辦法call syswrite把東西印出來就完事了
 2. 要注意libc的版本，我的local端原本是2.31但不知道為啥變成2.35，所以又花了一點時間用VM才解出來
 3. 這一題難的地方在於一開始有一串shell code(HEADER)，經過online tool[^online-tool-assemble]可以知道它就是把stack上和register的東西全部清空，所以如果要找到flag所在的位址就需要撈一下memory，我的做法是直接把memory dump下來，然後string search(記得是little endian)，然後用offset算他和rip之間的相對位置
+
 ## Exploit - seccomp-tools / syswrite
 算offset是這一題最煩的地方，以我的例子來說(記憶體區段如下)，flag是放在==0x000055e109602060==的地方，我執行shell code的地方是在==0x7fbb78c21000==，所以我先把0x00007f1d391e5000~0x00007f1d39215000的東西dump下來，發現在0x2e590的地方存的是==0x55e109400448==，和原本的0x000055e109602060差了一點，所以我先把後1.5bytes變成0(and operator)，然後加上offset(0x202060)，在依序把其他必要的register擺好就可以call function了
 ![](https://hackmd.io/_uploads/r1FxFRy23.png)
@@ -185,6 +189,7 @@ picoCTF{f0ll0w_th3_m4p_t0_g3t_th3_fl4g}
 ```
 
 Flag: `picoCTF{f0ll0w_th3_m4p_t0_g3t_th3_fl4g}`
+
 ## Reference
 [^seccomp-tools-note]:[Simple PWN - 0x010(seccomp/Lab - rop2win)](https://hackmd.io/@SBK6401/H1NX6Bloj)
 [^online-tool-assemble]:[Online x86 / x64 Assembler and Disassembler](https://defuse.ca/online-x86-assembler.htm)

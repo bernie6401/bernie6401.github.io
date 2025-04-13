@@ -28,16 +28,20 @@ Part 4: https://hackmd.io/@SBK6401/H1rAEV87p
 
 ## ==Q19==
 > Which user installed LibreCAD on the system?
+
 ### Exploit
 我是直接看該檔案在哪個user的資料夾來判斷，當然這個做法有點問題
 
 :::spoiler Flag
 Flag: `miriam.grapes`
 :::
+
 ## ==Q20==
 > How many times "admin" logged into the system? 
+
 ### Recon
 呈第14題
+
 ### Exploit
 不過我不知道為甚麼答案是21，然後我只有找到20個，看了4672也沒有紀錄(怪怪的)
 ![圖片.png](https://hackmd.io/_uploads/Syfldc8Xa.png)
@@ -45,8 +49,10 @@ Flag: `miriam.grapes`
 :::spoiler Flag
 Flag: `21`
 :::
+
 ## ==Q21==
 > What is the name of the DHCP domain the device was connected to? 
+
 ### Recon
 直接看`SYSTEM/ControlSet001/Services/Tcpip/Parameters/Interfaces/`
 ![圖片.png](https://hackmd.io/_uploads/HJqjU5IQ6.png)
@@ -54,19 +60,24 @@ Flag: `21`
 :::spoiler Flag
 Flag: `fruitinc.xyz`
 :::
+
 ## ==Q22==
 > What time did Tim download his background image?
 (Oh Boy 3AM . Answer in MM/DD/YYYY HH:MM format (UTC).) 
+
 ### Recon
 原本的直覺是像第18題一樣把db file export出來看他的網路操作行為，不過其實可以直接看他下載的file，看他的create time就好
+
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/SJfBFLvXa.png)
 
 :::spoiler Flag
 Flag: `04/05/2020 03:49`
 :::
+
 ## ==Q23==
 > How many times did Jim launch the Tor Browser?
+
 ### Exploit
 直接把Jim的NTUSER.dat export出來後用timeline explorer看userassist，不過我不確定為甚麼答案是2，因為我查到的都是3
 ![圖片.png](https://hackmd.io/_uploads/rJz_098Q6.png)
@@ -185,10 +196,13 @@ Files referenced: 58
 :::spoiler Flag
 Flag: `2`
 :::
+
 ## ==Q24==
 > There is a png photo of an iPhone in Grapes's files. Find it and provide the SHA-1 hash. 
+
 ### Recon
 看了第一個hint才知道有stego的成分在裡面，首先要找到藏圖片的檔案是哪一張，我判斷是`samplePhone.jpg`這一張
+
 ### Exploit
 有了圖片之後就是最擅長的misc基本操作，結果在binwalk的時候發現有附加檔案在裡面，就直接foremost提出來
 ```bash
@@ -237,11 +251,14 @@ $ file *
 :::spoiler Flag
 Flag: `537fe19a560ba3578d2f9095dc2f591489ff2cde`
 :::
+
 ## ==Q25==
 > When was the last time a docx file was opened on the device?
 (An apple a day keeps the docx away. Answer in UTC, YYYY-MM-DD HH:MM:SS) 
+
 ### Recon
 我原本的直覺是想可以parse \$MFT或是該檔案的lnk去看他的改動時間，但很不幸的MFT沒有這筆資料(?)，另外也沒有lnk檔案，所以只能通靈，以下解題過程是參考解完的hint
+
 ### Exploit
 直接看RecentDocs的資訊就找的到了，該紀錄在Jim的NTUSER.DAT中，`Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs`
 ![圖片.png](https://hackmd.io/_uploads/SJvJlOw7p.png)
@@ -249,8 +266,10 @@ Flag: `537fe19a560ba3578d2f9095dc2f591489ff2cde`
 :::spoiler Flag
 Flag: `2020-04-11 23:23:36`
 :::
+
 ## ==Q26==
 > How many entries does the MFT of the filesystem have?
+
 ### Exploit
 我是直接在`/root`的地方export出\$MFT file，然後去看magic header(`FILE0`)的數量有多少(`219811`)，但這樣不準確(不清楚為甚麼)，我記得之前[@Jimmy說過](https://hackmd.io/@SBK6401/HJ-hG7Kzp#Lab---Offset-43110400d)
 > $MFT長度一段就是1024 Bytes(0x400)
@@ -280,13 +299,16 @@ Flag: `2020-04-11 23:23:36`
 :::spoiler Flag
 Flag: `219904`
 :::
+
 ## ==Q27==
 > Tim wanted to fire an employee because they were ......?(Be careful what you wish for)
+
 ### Exploit
 呈第15題，直接看Tim的瀏覽紀錄就會知道了
 
 :::spoiler Flag
 Flag: `stinky`
 :::
+
 ## Reference
 [^wp]:[CyberDefenders: CorporateSecrets](https://forensicskween.com/ctf/cyberdefenders/corporatesecrets/)

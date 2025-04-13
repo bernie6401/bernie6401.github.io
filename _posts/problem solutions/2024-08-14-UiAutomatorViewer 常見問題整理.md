@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # UiAutomatorViewer 常見問題整理
+
 ## Java版本不相容
 參考來源1: [Setting up Appium configuration on windows / Mac](https://khemlall-mangal.medium.com/setting-up-appium-configuration-on-windows-mac-efbc4d4a7bc3)
 參考來源2: [uiautomatorviewer閃退、提示Could not create the Java Virtual Machine等問題的處理](https://blog.csdn.net/zyself/article/details/124084171)
@@ -21,6 +22,7 @@ category: "Problem Solutions"
         $ set java_exe=C:\Program Files\Java\jdk-1.8\bin\java.exe
         ```
         ![圖片](https://hackmd.io/_uploads/BktkRCFcR.png)
+
 ## Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn't exist!
 這個的解決方案有很多，我是在使用Spotify的時候出現這個問題，解決的方案是第一個
 參考來源1: [CSDN - adb常用命令](https://blog.csdn.net/YiLiuF/article/details/109601968)

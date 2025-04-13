@@ -28,17 +28,21 @@ Part 3: https://hackmd.io/@SBK6401/HyHp4NLQT
 
 ## ==Q28==
 > What cloud service was a Startup item for the user admin? 
+
 ### Recon
 直接看admin的NTUSER.DAT中的`./Software/Microsoft/Windows/CurrentVersion/Run`就可以了
+
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/BJodWuDmp.png)
 
 :::spoiler Flag
 Flag: `OneDrive`
 :::
+
 ## ==Q29==
 > Which Firefox prefetch file has the most runtimes?
 (Flag format is )
+
 ### Exploit
 直接export出和firefox有關的prefetch file，再用PECmd去parse他就可以看到各個執行檔執行的次數
 ```bash!
@@ -57,8 +61,10 @@ Run count: 1
 :::spoiler Flag
 Flag: `FIREFOX.EXE-A606B53C.pf/21`
 :::
+
 ## ==Q30==
 > What was the last IP address the machine was connected to?
+
 ### Exploit
 直接看`SYSTEM/ControlSet001/Services/Tcpip/Parameters/Interfaces/`
 ![圖片.png](https://hackmd.io/_uploads/S18wduPQT.png)
@@ -66,10 +72,13 @@ Flag: `FIREFOX.EXE-A606B53C.pf/21`
 :::spoiler Flag
 Flag: `192.168.2.242`
 :::
+
 ## ==Q31==
 > Which user had the most items pinned to their taskbar? 
+
 ### Recon
 這一題也是新的觀念，taskbar items會在`C:\Users\USERNAME\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar`
+
 ### Exploit
 * admin
     ![圖片.png](https://hackmd.io/_uploads/Hk8oCKw76.png)
@@ -85,11 +94,14 @@ Flag: `192.168.2.242`
 :::spoiler Flag
 Flag: `admin`
 :::
+
 ## ==Q32==
 > What was the last run date of the executable with an MFT record number of 164885?
 (Format: MM/DD/YYYY HH:MM:SS (UTC).) 
+
 ### Recon
 直覺會看第26題用mftdump的結果，然後去看164885的offset address，再去看\$MFT的timestamp，不過後來想想，\$MFT的timestamp所記錄的是`Creat Time + Modified Time + $MFT Modified Time + Access Time`，並不是最後執行的timestamp，所以應該是去看是哪一個檔案，然後去看他的prefetch file
+
 ### Exploit
 1. Record No. 164885 $\to$ 0x0a105400
 2. `7zG.exe`
@@ -105,10 +117,13 @@ Flag: `admin`
 :::spoiler Flag
 Flag: `04/12/2020 02:32:09`
 :::
+
 ## ==Q33==
 > What is the log file sequence number for the file "fruit_Assortment.jpg"? 
+
 ### Recon
 這也是一個新觀念，log file sequence number就是在\$MFT的magic header(FILE0)的後面(SO=8, LE=8)，並且倒著看再轉換成十進制就可以了，當然也可以直接用像[MFTEcmd](https://ericzimmerman.github.io/#!index.md)這樣的parser
+
 ### Exploit
 ```bash
 >>> num = '60 BA 1A 4C 00 00 00 00'
@@ -119,11 +134,14 @@ Flag: `04/12/2020 02:32:09`
 :::spoiler Flag
 Flag: `1276820064`
 :::
+
 ## ==Q34==
 > Jim has some dirt on the company stored in a docx file. Find it, the flag is the fourth secret, in the format of <"The flag is a sentence you put in quotes">.
 (Secrets, secrets are no fun) 
+
 ### Recon
 這一題很複雜，一開始想說是類似docx forensics的這種CTF類型，所以找了一下其他的.docx files
+
 ### Exploit
 1. Search .docx Files
     從recycle bin中可以看到Jim的SID(1003)有丟棄一些docx file的痕跡，直接把這些file export出來
@@ -134,8 +152,10 @@ Flag: `1276820064`
 :::spoiler Flag
 Flag: `Customer data is not stored securely`
 :::
+
 ## ==Q35==
 > In the company Slack, what is threatened to be deactivated if the user gets their email deactivated? 
+
 ### Recon
 
 ### Exploit
@@ -165,5 +185,6 @@ Flag: `Customer data is not stored securely`
 :::spoiler Flag
 Flag: `kneecaps`
 :::
+
 ## Reference
 [^wp]:[CyberDefenders: CorporateSecrets](https://forensicskween.com/ctf/cyberdefenders/corporatesecrets/)

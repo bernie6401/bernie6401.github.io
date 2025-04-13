@@ -64,8 +64,10 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
     c:\Users\Bernie\OneDrive\Personal Vault.lnk
     ```
     :::
+
 ## Lab
 可以先到[這邊](https://code.google.com/archive/p/lnk-parser/downloads)下載`lnk_parser_cmd.exe`
+
 ### ==利用lnk parser leak info==
 ```bash
 $ lnk_parser_cmd.exe
@@ -529,6 +531,7 @@ Unknown data at end of file.
 Press any key to continue . . .
 ```
 :::
+
 ### ==利用手動的方式parse lnk file==
 SO代表offset，LE代表取多少個bytes
 1. 標的檔案路徑
@@ -623,6 +626,7 @@ SO代表offset，LE代表取多少個bytes
     >>> int(hex(int(uuid_num[0], 16)-0x80)[2:]+uuid_num[1], 16)
     4263
     ```
+
 ## 延伸閱讀
 [Analyzing malicious LNK file](https://lifeinhex.com/analyzing-malicious-lnk-file/)
 [EMF - Enhanced MetaFile format](https://web.archive.org/web/20190723103847/http://www.undocprint.org/formats/winspool/emf)

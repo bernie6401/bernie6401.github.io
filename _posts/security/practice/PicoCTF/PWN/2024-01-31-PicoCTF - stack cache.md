@@ -6,8 +6,10 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - stack cache
+
 ## Background
 BoF
+
 ## Source code
 :::spoiler
 ```cpp!
@@ -78,8 +80,10 @@ int main(int argc, char **argv){
 
 ```
 :::
+
 ## Recon
 這一題也蠻簡單的，不過也是比較少人解，可以看到他有讀取flag的win function和print出stack value的UnderConstruction function，重點是win function只有讀取flag沒有print出來，所以直接跳rip到win function後再跳到UnderConstruction function就可以print出flag的資訊
+
 ## Exploit
 ```python!
 from pwn import *

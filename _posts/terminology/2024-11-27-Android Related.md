@@ -6,6 +6,7 @@ category: "Terminology"
 ---
 
 # Android Related
+
 ## Android App本身
 * [[Android] Activity基本介紹](https://ironglion.com/archives/334)
     :::spoiler
@@ -139,6 +140,7 @@ category: "Terminology"
     更準確的說，deeplink在做的事情是實現跨App之間的跳轉，資料來源: [Android App Links 設定心得筆記](https://louis383.medium.com/android-app-links-設定心得筆記-6bd8ab212297)
 
 ## Android Framework
+
 ### React-Native 檔案結構與說明
 ```
 $ tree -L 3 ./android
@@ -172,6 +174,7 @@ $ tree -L 3 ./android
 ├── gradlew.bat
 └── settings.gradle
 ```
+
 #### **頂層目錄的文件和Folder**
 ##### **`build.gradle`**
 - 項目級的 Gradle 配置文件。
@@ -194,11 +197,13 @@ $ tree -L 3 ./android
   rootProject.name = "YourProjectName"
   include ':app'
   ```
+
 #### **`gradle/wrapper/` Folder**
 - 包含 Gradle Wrapper 的配置和二進制文件（`gradle-wrapper.jar`）。
 - **`gradle-wrapper.properties`**：
     - 定義使用的 Gradle 版本。
     - 包含 Gradle 下載的路徑配置。
+
 #### **`app/` Folder**
 ##### **1. `build/`**
 - 自動生成的Folder，包含構建過程中的中間文件。
@@ -227,10 +232,12 @@ $ tree -L 3 ./android
     - **`res/`**：應用的資源文件（XML、圖像等）。
     - **`AndroidManifest.xml`**：定義應用的權限、活動和服務等。
   - **`release/`**：特定於 Release 構建的配置或資源。
+
 #### **`build/` Folder**
 ##### **1. `kotlin/sessions/`**
 - 用於存儲 Kotlin 編譯會話信息。
 - 輔助增量編譯，加快編譯速度。
+
 #### **總結**
 - 項目級文件（如 `build.gradle` 和 `settings.gradle`）配置全局的項目環境。
 - 應用模塊（`app` Folder）包含具體的代碼和資源。

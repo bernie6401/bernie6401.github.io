@@ -6,6 +6,7 @@ category: "Security/Practice/CrewCTF/Reverse"
 ---
 
 # CrewCTF - OhPHP
+
 ## Background
 * [PHP - substr()](https://www.wibibi.com/info.php?tid=96)
     :::spoiler 
@@ -111,6 +112,7 @@ category: "Security/Practice/CrewCTF/Reverse"
 
 ## Recon
 這一題很複雜也需要很多的步驟
+
 ## Exploit
 1. 先利用別人的腳本把PHP fuck轉換回原本的code
     :::spoiler Script
@@ -369,5 +371,6 @@ category: "Security/Practice/CrewCTF/Reverse"
     
 
 Flag: `crew{php_1s_4_l4ngu4ge_0f_m4g1c_5b0e7b6a}`
+
 ## Reference
 [^crc32_tool]:[crc32 Tool](https://github.com/theonlypwner/crc32)

@@ -6,6 +6,7 @@ category: "Security/Practice/NISRA/Misc"
 ---
 
 # NISRA 2023 Enlightened - Magic Function
+
 ## Background
 [Magic Function of Python](https://hacktricks.boitatech.com.br/misc/basic-python/magic-methods)
 

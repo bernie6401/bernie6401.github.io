@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - hijacking
+
 ## Background
 Privilege Escalation
 
@@ -15,6 +16,7 @@ Hint 2: No place like Home:)
 ---
 [Linux sudo命令](https://www.runoob.com/linux/linux-comm-sudo.html)
 > -l 顯示出自己（執行 sudo 的使用者）的權限
+
 ## Recon
 第一次遇到提權的問題，感覺很新鮮也很好玩，不過因為沒啥概念所以主要是參考[^pico_pwn_hijacking_wp_martin]
 1. 首先觀察一下各個file或folders，根目錄有個challenge folder，另外家目錄有一個.server.py檔案，裡面的內容不太重要，只需要知道他import哪些library
@@ -29,6 +31,7 @@ Hint 2: No place like Home:)
     ...
     -rw-r--r-- 1 root root  35243 Nov 14  2022 socket.py
     ```
+
 ## Exploit
 ```bash
 $ ssh picoctf@saturn.picoctf.net -p 58219
@@ -70,5 +73,6 @@ socket.gaierror: [Errno -5] No address associated with hostname
 ```
 
 Flag: `picoCTF{pYth0nn_libraryH!j@CK!n9_566dbbb7}`
+
 ## Reference
 [^pico_pwn_hijacking_wp_martin]:[ picoCTF 2023 hijacking ](https://youtu.be/BIzu0AtOq5w)

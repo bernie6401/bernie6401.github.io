@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - VNE
+
 ## Background
 System Environment
 Command Injection
@@ -75,8 +76,10 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 }
 ```
 :::
+
 ## Recon
 這一題也是蠻有趣的，題目有說要先執行bin，可以用winscp遠端把執行檔dump到local端，然後用IDA逆一下，就會發現它其實就是執行ls而已，所以我們就要用簡單的command injection達到RCE
+
 ## Exploit
 ```bash
 $ ssh ctf-player@saturn.picoctf.net -p 58395

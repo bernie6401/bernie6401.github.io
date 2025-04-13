@@ -6,6 +6,7 @@ category: "Tools/Others/Android Related/Drozer"
 ---
 
 # Drozer Cheat Sheet
+
 ## Basic Console
 基本上最常用的command就是
 ```bash!
@@ -27,6 +28,7 @@ Attack Surface:
         is debuggable
 ```
 接著根據得到的資訊看要用以下哪一種的攻擊模式
+
 ### activities exported
 如果確定該app的AndroidManifest.xml有設定==android:export="true"==，就代表有機會bypass他的權限，根據[^csdn-androidmanifest-xml]這個地方的風險如下:
 > android:exported
@@ -66,6 +68,7 @@ Attack Surface:
           value (float) : 0.1324
           test (string) : value
     ```
+
 ### broadcast receivers exported
 根據[^pixnet-android-broadcast]的說明，broadcast屬於process之間的通訊，根據教學:
 > 發現這些廣播接收器後，您應該檢查它們的代碼。特別注意**onReceive**函數，因為它將處理接收到的消息。
@@ -92,6 +95,7 @@ Attack Surface:
         java.lang.SecurityException: Permission Denial: not allowed to send broadcast
     android.intent.action.BOOT_COMPLETED from pid=955, uid=10044
     ```
+
 ### content providers exported
 1. 檢查Content Provider的exported狀況
     ```bash
@@ -143,6 +147,7 @@ Attack Surface:
         #4. Download File to Local
         run app.provider.download <URI+path> hosts
         ```
+
 ### is debuggable
 可以直接用drozer找，或者是直接看AndroidManifest.xml中有無提到==debuggable="true"==
 ```bash

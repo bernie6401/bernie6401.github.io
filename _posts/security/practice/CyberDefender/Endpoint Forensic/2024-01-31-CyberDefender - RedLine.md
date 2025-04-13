@@ -10,13 +10,16 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/106
 :::spoiler TOC
 [TOC]
 :::
+
 ## Background
 這一次的instance必須要使用volatility3才能解
+
 ## ==Q1==
 > What is the name of the suspicious process? 
 
 ### Recon
 直覺會想到直接pslist看有哪一些正在執行的process，不過[^redline-wp]提供了不一樣的想法，既然他是可疑的process，那就代表有機會操作一些malware會有的pattern例如injection之類的，所以可以先從malfind下手，看一下有哪一個process正在執行類似的操作
+
 ### Exploit
 * 方法一: 直接pslist
     :::spoiler Command Result
@@ -177,25 +180,30 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/106
 :::spoiler Flag
 Flag: `oneetx.exe`
 :::
+
 ## ==Q2==
 > What is the child process name of the suspicious process?
 
 ### Recon
 透過上一題的結果可以知道PID 5896的`oneetx.exe`創造了`rundll32.exe`，所以`rundll32.exe`就是`oneetx.exe`的子程序
+
 ### Exploit
 :::spoiler Flag
 Flag: `rundll32.exe`
 :::
+
 ## ==Q3==
 > What is the memory protection applied to the suspicious process memory region?
 
 ### Recon
 這一題因為不知道他到底在問甚麼，所以是參考[^redline-wp]的說明，主要可以從Q1的結果看他的protection，這應該就有點像是unix的權限ㄅ
+
 ### Exploit
 
 :::spoiler Flag
 Flag: `PAGE_EXECUTE_READWRITE  `
 :::
+
 ## ==Q4==
 > What is the name of the process responsible for the VPN connection?
 
@@ -207,6 +215,7 @@ Flag: `PAGE_EXECUTE_READWRITE  `
     > 它通過確保各種服務和進程共享資源來幫助減少CPU負荷。動態鏈接庫有被各種軟體應用程式所利用的代碼。它們需要svchost.exe作為額外的軟體來確保運行這些不同服務的效率。這可以確保Windows或其他程式所需的DLL文件被有效加載。
 * [dllhost.exe](https://baike.baidu.com/item/dllhost.exe/8193205)
     > dllhost.exe是微軟Windows操作系統的一部分。dllhost.exe用於管理DLL應用，在任務管理器中可以找到，這個程序對是微軟Windows系統的正常運行是非常重要的。
+
 ### Exploit
 [Outline](https://getoutline.org/zh-TW/)
 > Outline 可讓任何人建立和執行自己專屬的 VPN，以及分享 VPN 的存取權。由於經過特殊設計，Outline 可防禦封鎖機制，並讓你控制自己的伺服器設定，包含伺服器的所在位置。Outline 採用公開透明的技術及完整開放原始碼，而且經過兩家安全性機構的稽核，確保這款軟體採用最新技術且安全無虞。
@@ -214,11 +223,13 @@ Flag: `PAGE_EXECUTE_READWRITE  `
 :::spoiler Flag
 Flag: `Outline.exe`
 :::
+
 ## ==Q5==
 > What is the attacker's IP address?
 
 ### Recon
 直覺就是netscan
+
 ### Exploit
 :::spoiler Command Result
 ```bash
@@ -347,11 +358,13 @@ Offset  Proto   LocalAddr       LocalPort       ForeignAddr     ForeignPort     
 :::spoiler Flag
 Flag: `77.91.124.20`
 :::
+
 ## ==Q6==
 > Based on the previous artifacts. What is the name of the malware family?
 
 ### Recon
 這題也找了超久，[^redline-wp]是直接用string search看有沒有readline stealer的字樣，但也沒說key words哪來的，所以就直接先送flag後看官解
+
 ### Exploit
 1. 因為這是一隻真正的trojan樣本，所以可以從上一題看到他傳送資訊給C2C server的IP，而我們可以把該IP透過virustotal查看
 2. 從community中，最下面有一個[RedLine的討論](https://www.virustotal.com/gui/collection/f6cb8976174a8e375963a0821b3a0a19205d9d739b4522be61e8408eaf5534d0)
@@ -362,11 +375,13 @@ Flag: `77.91.124.20`
 :::spoiler Flag
 Flag: `Redline Stealer`
 :::
+
 ## ==Q7==
 > What is the full URL of the PHP file that the attacker visited?
 
 ### Recon
 這一題也不到怎麼用正規的方式知道他訪問了哪些頁面，所以也是參考[^redline-wp]的解法才知道可以用string search
+
 ### Exploit
 從前面可以知道C&C server IP是`77.91.124.20`，則我們可以知道他應該是request這個IP所建立的網站
 ```bash
@@ -384,11 +399,13 @@ http://77.91.124.20/store/games/index.php
 :::spoiler Flag
 Flag: `http://77.91.124.20/store/games/index.php`
 :::
+
 ## ==Q8==
 > What is the full path of the malicious executable?
 
 ### Recon
 最後一題也超簡單，直接看filescan搭配findstr把有關`oneetx.exe`的string print出來後就知道位置在哪裡
+
 ### Exploit
 ```bash
 $ python vol.py -f MemoryDump.mem windows.filescan | findstr oneetx.exe
@@ -400,5 +417,6 @@ $ python vol.py -f MemoryDump.mem windows.filescan | findstr oneetx.exe
 :::spoiler Flag
 Flag: `C:\Users\Tammam\AppData\Local\Temp\c3912af058\oneetx.exe`
 :::
+
 ## Reference
 [^redline-wp]:[CyberDefenders Challenges: RedLine Walkthrough](https://medium.com/@iCreaM/cyberdefenders-challenges-redline-walkthrough-1212bca626)

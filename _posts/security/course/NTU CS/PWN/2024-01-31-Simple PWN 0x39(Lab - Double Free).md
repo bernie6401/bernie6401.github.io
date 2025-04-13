@@ -6,8 +6,10 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x39(Lab - Double Free)
+
 ## Background
 [0x18(Lab - `babynote`)](https://hackmd.io/@SBK6401/rkD83kaji)
+
 ## Source code
 :::spoiler Source Code
 ```cpp
@@ -131,11 +133,13 @@ int main(void)
 }
 ```
 :::
+
 ## Recon
 :::warning
 Run On Ubuntu 20.04
 :::
 這一題有很多種方式可以拿到shell，不過原理都是一樣的，前置作業都是一樣的，也就是要利用UAF去leak出libc address，接著算出`__free_hook`以及`system`的位址，接著想辦法把`system`寫到`__free_hook`的位址，此時就有兩種方式可以寫，一種是利用此次學到的double free，把值寫到最後一個在tcache的free chunk，蓋掉他的fd，接著就可以用add_note把tcache的值要回來，並寫system的address進到__free_hook；另一種方式就比較簡單，也就是把free chunk的fd利用UAF的特性改掉，並且直接add_note把東西從tcache要回來，之後就一樣寫system_addr，後free掉一個帶有/bin/sh的chunk，此時就會開一個shell給我們了
+
 ### 前置作業: Leak Libc Address
 關於這一點可以參考[如何用UAF leak libc address?](https://hackmd.io/@SBK6401/SJWc9v4Bp#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-libc-address)，方法都一樣，首先要想辦法讓free chunk進到unsorted bin中(最簡單的方法就是設定超過0x410的空間)，接著因為malloc的時候沒有實作清空原本的資料，導致我們可以leak其中有關libc section的資訊。底下的設定意思是我們先設定三個notes，#14的意思是不要讓#13被free掉的時候被consolidate用的，接著我們把前兩個free掉，結果如下
 ![image](https://hackmd.io/_uploads/r14opZfL6.png)
@@ -161,6 +165,7 @@ log.success(f'System Address = {hex(system_addr)}')
 log.success(f'Free Hook = {hex(free_hook)}')
 r.recv(0x420 - 0x8)
 ```
+
 ### 方法一: Double Fee
 有了libc address後，我們要想辦法把system address寫到`__free_hook`的位置，如果是要用double free的方法的話可以參考上課的講義:
 ![image](https://hackmd.io/_uploads/SJNM1Mf8T.png)
@@ -204,6 +209,7 @@ write_note(11, p64(system_addr))
 ![image](https://hackmd.io/_uploads/SydnNzMIa.png)
 
 最後的結果如上圖，會發現note #11已經變成==0x7f900aa8ae48==，這個就是`__free_hook`的位址，進去看發現已經被我們寫入system address，這個時候我們只要把含有`/bin/sh\x00`的note #9 free掉，就可以開shell了
+
 ### 方法二: 一般的寫入
 這一個方法比較方便，也和double free沒關係，反正我們只要利用UAF的特性，也可以把free chunk的fd改掉，再用像前面的方法就可以開shell
 

@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Let's get dynamic
+
 ## Source code
 :::spoiler IDA Main Function
 ```cpp=
@@ -56,6 +57,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 }
 ```
 :::
+
 ## Recon
 這一題也沒有很難，就要用dbg細心的跟一下，然後不太確定這一題設計的用意，但無論如何還是蠻直觀的
 可以看到IDA解析的source code中間有一段是在進行encryption，然後只要反著做就可以拿到flag，但重點是他實際跑起來會和肉眼觀察到的有一點不一樣，一開始讀取的時候會從v7的後端以及v14[0]的後端開始xor，所以如果像我要從兩者最後一個byte開始解密的話，index的i就要特別注意，不過我也是建議要從第一個byte開始解密，因為這樣會對應到flag的第一個字元，所以如果不知道這支程式怎麼加密的話，可以直接跑下面的script，用debugger追一下就知道了

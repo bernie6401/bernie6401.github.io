@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse 0x11(Lab - Exception)
+
 ## Background
 [乘法、除法的運用 — 組合語言筆記](https://mycollegenotebook.medium.com/%E4%B9%98%E6%B3%95-%E9%99%A4%E6%B3%95%E7%9A%84%E9%81%8B%E7%94%A8-%E7%B5%84%E5%90%88%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98-638b1eac4696)
 [try-except 陳述式](https://learn.microsoft.com/zh-tw/cpp/cpp/try-except-statement?view=msvc-170&viewFallbackFrom=msvc-170%3Fns-enrollment-type%3DCollection&ns-enrollment-id=rdg3b1j45ye486)
@@ -42,6 +43,7 @@ LABEL_7:
 }
 ```
 :::
+
 ## Recon
 這一題真的頗複雜(應該也還好...)，但有一些陷阱和套路，這一題是有關於exception的結構分析
 
@@ -111,5 +113,6 @@ print("".join(FLAG))
 ```
 
 Flag: `FLAG{__C_specific_handler_is_hooked:O}`
+
 ## Reference
 [^exception_return_value]:[try-except 陳述式](https://learn.microsoft.com/zh-tw/cpp/cpp/try-except-statement?view=msvc-170&viewFallbackFrom=msvc-170%3Fns-enrollment-type%3DCollection&ns-enrollment-id=rdg3b1j45ye486)

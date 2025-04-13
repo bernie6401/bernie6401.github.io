@@ -8,6 +8,7 @@ category: "Security/Practice/Portswigger Web Security Academy/CSRF"
 # CSRF - APPRENTICE
 ###### tags: `Portswigger Web Security Academy` `Web`
 [TOC]
+
 ## Lab: CSRF vulnerability with no defenses
 * Description: This lab's email change functionality is vulnerable to CSRF. 
 * Goal: To solve the lab, craft some HTML that uses a CSRF attack to change the viewer's email address and upload it to your exploit server. 

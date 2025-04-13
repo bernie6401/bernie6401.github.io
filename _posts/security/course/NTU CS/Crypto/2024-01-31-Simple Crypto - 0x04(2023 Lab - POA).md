@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x04(2023 Lab - POA)
+
 ## Background
 [ Crypto I - Timmy](https://youtu.be/dYyNeMeDM20?si=BEvBPBzCsg8oWv_Q&t=8317)
 
@@ -70,6 +71,7 @@ while True:
 ![](https://hackmd.io/_uploads/H1yKboMlp.png)
 
 所以套用到今天的lab意思也是一樣，如果要知道padding是否正確可以問oracle，反正只要符合明文+0x80+(0...15)\*0x00，這一題的flag長度可以從題目給的ciphertext看出來，顯然扣掉16bytes的initial vector後，flag的長度是32 bytes，也就是說我們從第二個block開始解，我們可以單獨把第一個ciphertext block當成第二個ciphertext block的initial vector，合併後再一起送出去，然後不斷變化IV的最後一個byte，如果oracle回傳`Well received :)`代表第一個bytes猜對了，我們就可以把flag的最後一個bytes求出來$\to$我們猜的byte⊕原本ciphertext的最後一個byte⊕0x80(0x80是我們判斷padding正確的依據)，當然找到真正的plaintext byte後要把我們猜測的block恢復原狀，接著繼續找下一個byte
+
 ## Exploit
 :::spoiler Whole Exploit Script
 ```python

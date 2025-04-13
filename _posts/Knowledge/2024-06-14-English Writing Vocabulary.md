@@ -88,5 +88,6 @@ category: "Knowledge"
     > * As for:
     > 在關於人的事情時很常使用。（例：as for me, as for him, as for my mother等）
     > 很常用來代替「Regarding」使用，一定要放在句首。比起「Regarding」，它有一點話題轉換的感覺。
+
 ## Reference
 [英文作文常用單字](https://www.clearnotebooks.com/zh-TW/notebooks/807795)

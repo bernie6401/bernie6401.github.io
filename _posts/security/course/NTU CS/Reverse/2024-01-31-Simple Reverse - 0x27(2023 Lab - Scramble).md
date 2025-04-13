@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x27(2023 Lab - Scramble)
+
 ## Source code
 :::spoiler scramble.py
 ```python
@@ -71,6 +72,7 @@ print("Scrambled Result:", scrambled_result)
 
 ```
 :::
+
 ## Recon
 這一題先看source code會發現他做了一連串的scramble動作，包含加減和移位，而次數也不一定，他主要是針對flag中的每一個字元都做1~6次不等的操作，可能是加也可能是減甚至是移位，不過題目也有給我們這些pattern所以應該是可以直接透過這些pattern進行還原，但我們可以用z3下一大堆constraint就可以不用那麼麻煩了
 
@@ -79,6 +81,7 @@ z3的大致步驟:
 2. 建立符號 - 以此lab來說就是建立43個符號對應每一個flag字元
 3. 加上constraint - 以此lab來說每一個flag字元都應該限制在空白到0x7f之間，另外還要加上每一個符號(就是flag字元)，經過我們已知的scramble pattern之後應該要是最後的target
 4. 判斷有無解，如果有的話就把每一個符號的值取出來
+
 ## Exploit
 ```python
 from z3 import *

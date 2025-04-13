@@ -12,6 +12,7 @@ category: "Security/Course/NTU PADNS"
 [What is foremost and How to use it?](https://darkranger.no-ip.org/archives/v5/document/linux/foremost_recovery.htm)
 
 ## RSA CTF
+
 ### Exercise - RSA
 Given
 ```
@@ -103,6 +104,7 @@ Just using the [online tool](http://factordb.com/index.php) and you'll get `p` a
     Flag: `FLAG_IS_WeAK_rSA`
 
 ## Stego CTF
+
 ### Exercise 1 - `zip` Extension
 1. Use `binwalk` to Recon
     ```bash
@@ -320,6 +322,7 @@ Thus, you can change the extension manually and `unzip` it
         print('Flag: ' + flag)
     ```
     :::
+
 ### Exercise 5 - Change Palette
 1. Recon
 First, I used [online tool](https://aperisolve.fr/) to fetch some info but all of them are useless.
@@ -397,6 +400,7 @@ if __name__ == '__main__':
     swap_palette(sys.argv[2], int(sys.argv[3]))
 ```
 :::
+
 ### Exercise 6
 TA's Hint: LSB and brute force
 1. Fetch LSB from Each Pixel
@@ -449,16 +453,20 @@ However if we'd like to unzip it, it needs 5 char password. So, I found a wordli
 You'll get a `flag.txt` and the flag is: `LSB_is_ubiquitous`
 
 ## Reference
+
 ### Exercise Decrypt_RSA
 [How do I use the openssl command to decode a public key .PEM file?](https://superuser.com/questions/1644533/how-do-i-use-the-openssl-command-to-decode-a-public-key-pem-file)
+
 ### Exercise 4
 [PNG (Portable Network Graphics) Specification](https://www.w3.org/TR/PNG-Filters.html)
 [CONFidence CTF Teaser A PNG Tale - Write Up](https://github.com/ctfs/write-ups-2015/blob/master/confidence-ctf-teaser-2015/stegano/a-png-tale-200/README.md)
 [Misc 总结 ----隐写术之图片隐写(二）](https://xz.aliyun.com/t/1836)
+
 ### Exercise 5
 [Plaid CTF 2014: doge_stege](https://github.com/ctfs/write-ups-2014/blob/master/plaid-ctf-2014/doge-stege/README.md)
 [doge_stege write up - 第8回資料](https://wiki.jyoken.net/ctf/lesson/%E7%AC%AC8%E5%9B%9E)
 [二進制處理方式](https://kuanyuchen.gitbooks.io/python3-tutorial/content/er_jin_zhi_chu_li_fang_shi.html)
+
 ### Exercise 6
 [Multimedia - 정말 커다란 이미지가 있습니다.](https://whitesnake1004.tistory.com/352)
 [PIL Image.getdata() 教程](https://liam.page/2017/08/06/pil-tutorial-pixel-operations-and-image-filter/)

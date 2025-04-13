@@ -6,6 +6,7 @@ category: "Terminology"
 ---
 
 # Programming Related
+
 ## What is namespace in programming?
 From ChatGPT
 在程式語言中，**namespace**（命名空間）是一種用來**組織和管理代碼**的機制，目的是避免名稱衝突並提升代碼的可讀性和結構化。
@@ -26,6 +27,7 @@ From ChatGPT
 ---
 
 ### **Namespace 的具體表現**
+
 #### 1. **C++**  
 在 C++ 中，命名空間是通過 `namespace` 關鍵字來實現的。
 ```cpp
@@ -142,6 +144,7 @@ fn main() {
 
 ### **總結**
 命名空間的核心目的是為了**組織代碼並避免名稱衝突**。它在不同語言中的具體實現可能有所不同，但基本理念是一致的：提供一個結構化的方式來管理代碼名稱和功能。
+
 ## What is decorator in Python?
 參考資料: https://myapollo.com.tw/blog/python-decorator-tutorial/
 以下為Chat-GPT提供
@@ -204,6 +207,7 @@ my_function = decorator1(decorator2(my_function))
 ```
 
 装饰器是 Python 中非常强大的特性，可以用于简化代码、提高代码的可读性和可维护性。
+
 ### 在Flask中，常常看到route也有用@這個東西，意思是一樣的嗎
 是的，在 Flask 中，`@route` 裝飾器的作用與 Python 中的其他裝飾器類似。它們都是用於在不修改原始函數代碼的情況下，動態地修改函數或方法的行為。
 
@@ -236,7 +240,9 @@ if __name__ == '__main__':
 裝飾器的作用是將函數與特定的 URL 路徑關聯起來，而不需要在函數內部處理 URL 路徑的邏輯。這使得代碼更加簡潔和易於維護。
 
 裝飾器在 Flask 中的使用示例展示了它們在 Web 開發中的強大功能。通過使用裝飾器，可以輕松地將 URL 路徑與視圖函數關聯起來，從而實現路由功能。裝飾器的這種特性使得代碼更加模塊化和可讀。
+
 ## What is CMake/GCC/G++
+
 ### **CMake vs. GCC/G++ 的區別**
 CMake 和 GCC/G++ 在 C/C++ 專案的開發中扮演不同的角色：
 
@@ -346,6 +352,7 @@ g++ main.cpp -o main
 ---
 
 ### **4. `gcc` 和 `g++` 在多檔案專案的行為**
+
 #### **混合 C 和 C++ 的專案**
 假設我們有兩個檔案：
 - `main.cpp`（C++ 代碼）

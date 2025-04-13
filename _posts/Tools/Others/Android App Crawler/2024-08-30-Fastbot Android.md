@@ -7,6 +7,7 @@ category: "Tools/Others/Android App Crawler"
 
 # Fastbot Android
 以下流程皆是參考[CSDN-Android APP穩定性測試工具Fastbot](https://blog.csdn.net/u010698107/article/details/127347704)和[官方中文教學](https://github.com/bytedance/Fastbot_Android/blob/main/handbook-cn.md)
+
 ## 一般使用
 1. 把repo clone下來，並且把一些檔案複製到手機
     ```bash
@@ -36,6 +37,7 @@ category: "Tools/Others/Android App Crawler"
     ---
     $ adb shell CLASSPATH=/sdcard/monkeyq.jar:/sdcard/framework.jar:/sdcard/fastbot-thirdpart.jar exec app_process /system/bin com.android.commands.monkey.Monkey -p com.spotify.music --agent reuseq --running-minutes 1 --throttle 500 -v -v --output-directory /sdcard/fastbot_results&adb pull /sdcard/fastbot_results D:\Downloads
     ```
+
 ## 輸入自訂Strings
 1. Download ADBKeyBoard，安裝後設定預設keyboard為ADBKeyboard
     ```bash
@@ -72,8 +74,10 @@ category: "Tools/Others/Android App Crawler"
     $ adb shell am broadcast -a ADB_INPUT_CODE --ei code 67
     ```
 :::
+
 ## 自訂前期的Script
 如果想要自行設定前期的登入或是註冊這樣的flow，就可以利用這個模式，只要先設定好XPATH和action，Fastbot就會按照我們給定的config去執行，執行完了之後就會繼續執行我們前面給的command依序crawl
+
 ### 設定config
 這個部分有點複雜，如果是像spotify這樣因為無法screenshot而無法使用Appium Inspector工具的就會更複雜
 1. 在PC上創一個`max.xpath.actions`文件
@@ -233,6 +237,7 @@ category: "Tools/Others/Android App Crawler"
     ```bash
     $ adb push max.xpath.actions /sdcard
     ```
+
 ### 注意
 :::info
 1. 如果有想要填寫文字的情況就一定要保證是用ADBKeyboard的狀態下才會如實的填寫我們設定好的text

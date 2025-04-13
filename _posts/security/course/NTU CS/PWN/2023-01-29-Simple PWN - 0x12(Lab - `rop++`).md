@@ -147,5 +147,6 @@ In order to achieve our idea, we need another read to write `/bin/sh\x00` to `.b
     r.interactive()
     ```
     :::
+
 ## Appendix
 This payload will call `sys_read` and read something that we send, that is `0x68732f6e69622f`(`/bin/sh\x00`), and then it'll call `sys_execve`.

@@ -24,7 +24,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
             ```bash
             $ Sysmon64.exe -i sysmonconfig-export.xml
             ```
+
 ## Lab
+
 ### ==偵測LSASS==
 利用Sysmon Event ID: 10
 1. 準備sysmonconfig

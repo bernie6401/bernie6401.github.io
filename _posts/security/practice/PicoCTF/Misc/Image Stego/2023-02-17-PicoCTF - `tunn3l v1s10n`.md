@@ -91,5 +91,6 @@ The height should be 850 pixels $\to$ `0x352` $\to$ `52 03 00 00`
     :::spoiler flag
     ![](https://i.imgur.com/IJMO8Pd.jpg)
     :::
+
 ## Reference
 [CTFtime Write Up](https://ctftime.org/writeup/28157)

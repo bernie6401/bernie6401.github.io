@@ -6,9 +6,11 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - droids4
+
 ## Background
 [ Android App 逆向入門之一：拆開與重組 apk ](https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/)
 [ Android App 逆向入門之二：修改 smali 程式碼 ](https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-2/)
+
 ## Source code
 ```java
 package com.hellocmu.picoctf;
@@ -41,8 +43,10 @@ public class FlagstaffHill {
     }
 }
 ```
+
 ## Recon
 基本上用眼睛看應該看的出來password是啥，不過他最後只會print出`call it`或是`NOPE`，所以我們要像上一題一樣改造一下smali，可以對照一下前一題的smali是怎麼call的
+
 ## Exploit
 * 前一題的FlagstaffHill和smali
     ```java

@@ -10,8 +10,10 @@ Name: 何秉學    Student ID: R11921A16
 :::spoiler TOC
 [TOC]
 :::
+
 ## Lab-COR
 Flag: `FLAG{Corre1ati0n_Attack!_!}`
+
 ### 解題流程與思路
 這一題是簡單的padding oracle attack，他一樣是應用在CBC mode上，只是他padding的方式和上課教的有一點不一樣，他會先在最後放一個0x80然後接續放0x00直到長度%16==0，同樣的，我們可以用上課教的方式:
 * What we have: 我們有的東西就是密文，所以可以利用它動一些手腳
@@ -22,8 +24,10 @@ Flag: `FLAG{Corre1ati0n_Attack!_!}`
 ![](https://hackmd.io/_uploads/H1yKboMlp.png)
 
 所以套用到今天的lab意思也是一樣，如果要知道padding是否正確可以問oracle，反正只要符合明文+0x80+(0...15)\*0x00，這一題的flag長度可以從題目給的ciphertext看出來，顯然扣掉16bytes的initial vector後，flag的長度是32 bytes，也就是說我們從第二個block開始解，我們可以單獨把第一個ciphertext block當成第二個ciphertext block的initial vector，合併後再一起送出去，然後不斷變化IV的最後一個byte，如果oracle回傳`Well received :)`代表第一個bytes猜對了，我們就可以把flag的最後一個bytes求出來$\to$我們猜的byte⊕原本ciphertext的最後一個byte⊕0x80(0x80是我們判斷padding正確的依據)，當然找到真正的plaintext byte後要把我們猜測的block恢復原狀，接著繼續找下一個byte
+
 ## Lab-LSB
 Flag: `FLAG{Viycx_qsklsjgmeld_fgd_spkgjo}`
+
 ### 解題流程與思路
 這一題是變形過的Lease Significant Bit，上課教的例子是mod 2下的結果，而看source code可以知道目前他是mod 3下的結果，但換湯不換藥，只要把上課教的部分全部換成mod 3就可以了
 
@@ -32,8 +36,10 @@ Flag: `FLAG{Viycx_qsklsjgmeld_fgd_spkgjo}`
     1. 密文*$(3^{-1})^e$
     2. 合併要減掉的部分，也就是把之前已知道所有部分都乘以table上對應的反元素
     3. 再把oracle回傳的假明文減掉上面合併的部分(記得mod)，就是我們要的bit
+
 ## Lab-POA
 Flag: `FLAG{pAdd1NG_0rAcL3_A77aCK}`
+
 ### 解題流程與思路
 這一題是簡單的padding oracle attack，他一樣是應用在CBC mode上，只是他padding的方式和上課教的有一點不一樣，他會先在最後放一個0x80然後接續放0x00直到長度%16==0，同樣的，我們可以用上課教的方式:
 * What we have: 我們有的東西就是密文，所以可以利用它動一些手腳
@@ -44,8 +50,10 @@ Flag: `FLAG{pAdd1NG_0rAcL3_A77aCK}`
 ![](https://hackmd.io/_uploads/H1yKboMlp.png)
 
 所以套用到今天的lab意思也是一樣，如果要知道padding是否正確可以問oracle，反正只要符合明文+0x80+(0...15)\*0x00，這一題的flag長度可以從題目給的ciphertext看出來，顯然扣掉16bytes的initial vector後，flag的長度是32 bytes，也就是說我們從第二個block開始解，我們可以單獨把第一個ciphertext block當成第二個ciphertext block的initial vector，合併後再一起送出去，然後不斷變化IV的最後一個byte，如果oracle回傳`Well received :)`代表第一個bytes猜對了，我們就可以把flag的最後一個bytes求出來$\to$我們猜的byte⊕原本ciphertext的最後一個byte⊕0x80(0x80是我們判斷padding正確的依據)，當然找到真正的plaintext byte後要把我們猜測的block恢復原狀，接著繼續找下一個byte
+
 ## HW-LFSR
 Flag: `FLAG{Lf5r_15_50_eZZzZzZZZzzZzzz}`
+
 ### 解題流程與思路
 這一題和前面的triLFSR不一樣的地方在於他只有一層的LFSR，但他只會每個70個才會給一個state，換句話說我們只能拿到$S_{71*0+70},\ S_{71*1+70},\ S_{71*2+70},\ S_{71*3+70}...$(從0開始算)，而前面256個拿到的State最後會和flag進行XOR，只有最後70個是最純粹的State
 
@@ -61,6 +69,7 @@ Flag: `FLAG{Lf5r_15_50_eZZzZzZZZzzZzzz}`
 ![](https://hackmd.io/_uploads/SJcl-JGep.jpg)
 
 ## HW-Oracle
+
 ### 解題流程與思路
 這一題真的非常難，而且要通靈很久，首先Oracle.py的工作是把一張flag image用AES加密，並且把AES會用到的key/iv都用RSA再加密，然後通通傳給Alice，而Alice.py的工作才是本次作業實際上的Oracle，他會吃key/iv/ciphertext，前兩者是decimal，後者是hex形式，一開始可以先試看看把這三者傳過去，理論上只要格式對了就會回傳`OK! Got it.`
 ```python=
@@ -88,15 +97,19 @@ print(r.recvline().decode().strip())
 則我們開始改變`self_pt`的最後一個byte，也就是`b'0...00'`,`b'0...01'`,`b'0...02'`...，讓他和`encrypted_iv`進行XOR之後判斷padding正確與否
 
     如果padding正確也就代表目前的padding結果是`0x01`，而此時的`self_pt=b'0...0e'`，所以想當然`encrypted_iv=XXX...f`，而換到下一round，我們也改造一下`self_pt`，首先原本最後一個byte(0xe)要改成$0xe\oplus 0x2=0xc$，因為下一round的padding必須要是`0x0202`才會正確，然後我們就可以改變倒數第二個byte(一樣從零開始)，也就是`b'0...0c'`,`b'0...1c'`,`b'0...2c'`...，以此類推就可以得出真正的IV是多少了，而`encrypted_key`的做法也和IV一模一樣
+
 ## Lab-dlog
 Flag: `FLAG{YouAreARealRealRealRealDiscreteLogMaster}`
+
 ### 解題流程與思路
 基本上這一題和上一個學期上的CNS中，作業二的Little Knowledge Proof概念一模一樣，當時還不知道這是啥騷操作，現在覺得非常簡單，就是套用了Pohlig-Hellman的原理進行破解
 
 1. 首先看source code需要我們提供一個prime($N$)，然後跟一個不重要的底數$g$，接著題目return一個hint就是$hint=g^{flag}\ mod(N)$，因此按照discrete log的難度，我們很難針對hint進行brute force，縱使我們知道N,g,hint也一樣，但因為N是我們提供的，所以我可以故意給他一個smooth prime，也就是$N-1$是由多個prime相乘而得
 2. 我們可以用上課教過的Pohlig-Hellman原理去思考，也就是先把群的範圍縮小，再利用BSGS的方法找到$x_i$，這時雖然得到$x_i$但由於是mod $p_i$的結果，就不是真正的$x$，要利用CRT把多個$x_i$還原成原本的$x$，幸虧以上操作sage都做好了
+
 ## Lab-signature
 Flag: `FLAG{EphemeralKeyShouldBeRandom}`
+
 ### 解題流程與思路
 這一題主要就是利用上課提到的nonce $k$不隨機的問題，因為$k$只能用一次，也就代表他需要夠隨機，如果像LCG這樣的psudo random generator產生的話，一但被compromise，就會被推導出private key $d$，而這個lab就是有這樣的問題
 1. 觀察source code會發現不同的nonce $k$之間會產生一個1337倍數的關係，然後如果request `Give me the FLAG.`的signature會被拒絕，所以只能自己產生`Give me the FLAG.`的signature再丟給server檢查，如果過了就可以拿到flag，但重點是要怎麼偽造signature假裝是server簽的?就是要想辦法拿到server產生的private key $d$，可以詳細看一下source code中提到，通常public key都一樣，所以重點是$d$才能產生private key，然後用private key簽署message
@@ -131,8 +144,10 @@ Flag: `FLAG{EphemeralKeyShouldBeRandom}`
     \hookrightarrow d = {1337\cdot r_1\cdot {s_1}^{-1}-r_2\cdot {s_2}^{-1} \over H_2\cdot {s_2}^{-1} - 1337\cdot H_1\cdot {s_1}^{-1}}
     $$
 4. 得到原本的private key $d$之後就可以直接選一個亂數nonce $k$，然後重新自己簽署`Give me the FLAG.`的signature
+
 ## Lab-coppersmith
 Flag: `FLAG{RandomPaddingIsImportant}`
+
 ### 解題流程與思路
 這一題看到`e=3`直覺會想到[小明文攻擊](https://zhuanlan.zhihu.com/p/76228394)，但是前提除了$e$要很小以外，明文也不能太大，要不然會找很久，他的原理是(假設`e=3`):
 $$
@@ -239,8 +254,10 @@ $$
         由以上過程，我們已經取得了$Q(x)$，則我們就可以在實數域中求$Q(x)$的根$x_0$
 
 * 基本上這一題就是按照上面講的這樣解就可以了
+
 ## HW-invalid_curve_attack
 Flag: `FLAG{YouAreARealECDLPMaster}`
+
 ### 解題流程與思路
 1. 觀察source code會發現maple實作了一個沒有檢查我們傳送的點是否在一開始創的橢圓曲線上的elliptiv curve class，然後他把我們給的point當作參數，創立一個初始點，可以看一下下面裡個範例，如果是maple的實作，給予一個根本不在該Elliptic Curve的點他還是會算一個G+G的點給你，只是該點其實是在別的曲線上的2G這個點，反觀正常的sage中的實作會發現只要給予的點不在該曲線上就會直接報錯
     ![](https://hackmd.io/_uploads/H15TTzBZa.png)
@@ -345,7 +362,9 @@ flag\equiv flag'''\ (mod\ prime_3)\\
 ...
 $$
 所以重點在於要找到足夠多的$flag'$和$prime_n$組合
+
 ## HW-signature_revenge
+
 ### 解題流程與思路
 這一題沒有做出來，但跟一些朋友討論有得出解題的思路
 1. 首先$k_1, k_2$是很特別的組合，他們符合以下式子
@@ -368,8 +387,10 @@ $$
 3. 建立B matrix
 4. 解LLL找最小的vector
 5. 有了$magic_1, magic_2$之後就可以爆搜找$d$，並還原出原本的flag
+
 ## HW-Power Anaylysis
 Flag: `FLAG{W0ckAwocKaWoCka1}`
+
 ### 解題流程與思路
 這一題全部都是刻出來的，也包含算correlation coefficient，後面才知道numpy有這東西，但反正根據老師上課的作法一步一步跟著做是絕對沒有問題的，包含以下步驟:
 1. Preprocessing
@@ -382,6 +403,8 @@ Flag: `FLAG{W0ckAwocKaWoCka1}`
 7. repeat以上操作後共可得16 bytes的flag
 * 加速的方法:
     可以把整個trace的圖片plot出來看看，會發現題目給的json file是把整段加密的過程記錄下來，所以我們可以只取前一兩百個point就可以完成key的還原
+
 ## Reference
+
 ### LFSR
 [Easiest way to perform modular matrix inversion with Python?](https://stackoverflow.com/questions/4287721/easiest-way-to-perform-modular-matrix-inversion-with-python)

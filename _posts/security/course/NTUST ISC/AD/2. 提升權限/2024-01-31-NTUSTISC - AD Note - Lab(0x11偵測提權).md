@@ -17,7 +17,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCM
     * Guess Password
     * 管理服務
     * 錯誤配置
+
 ## Lab Time - 本地提權
+
 ### ==偵測Network Service提權==
 利用Event ID: 4624
 * 類型: 5

@@ -29,7 +29,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
         下載後解壓縮即可使用，裡面分為Win32和X64，Win32是針對Windows32位，而X64是針對64位作業系統，目前絕大部分作業系統為64位
         * ==lsass.exe VS SAM==
         SAM只會存取本地用戶的NTLM Hash，而lsass.exe是只要有存取過目前電腦的使用者都會被記錄，例如domain admin或是其他使用者利用smb連過來也會被lsass紀錄
+
 ## Lab
+
 ### ==透過Mimikatz取得Local Admin的NTLM==
 1. Activate Mimikatz
 進入`C:\tools\mimikatz_trunk\x64`右鍵以系統管理員身分執行mimikatz.exe(一定要用系統管理員才能執行提權的debug)
