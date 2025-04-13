@@ -27,8 +27,32 @@
     toc: true
     comments: true
     ---
-
+	
     # {name}
     <!--more-->
     
 	```
+* `add_new_line_before_header`
+	由於HackMD的特性是，blockquote後面如果是接header(##,###,####...)，會主動render出header對應的layer，但在Jekyll中，他會承接blockquote的效果，所以我在每一個header前面判斷，如果header前一行不是`\n`，就直接加一行
+	```
+	# jjj
+    lll
+    ## aaa
+    xxx
+    ### bbb
+    zzz
+    #### ccc
+    ```
+    會變成
+    ```
+    # jjj
+    lll
+    
+    ## aaa
+    xxx
+    
+    ### bbb
+    zzz
+    
+    #### ccc
+    ```
