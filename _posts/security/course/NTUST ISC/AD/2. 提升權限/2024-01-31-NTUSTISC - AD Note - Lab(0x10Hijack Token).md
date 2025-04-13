@@ -20,7 +20,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCM
     * Guess Password
     * 管理服務
     * 錯誤配置
+
 ## Lab Time - 本地提權
+
 ### ==Hijack Token(Network Service)==
 這邊講師示範的是，如何利用IIS的特殊權限，達成提權。
 先解釋一下，如果要使用PrintSpoofer之類的工具有個特殊的條件，就是需要有特殊權限，也就是
@@ -60,5 +62,6 @@ SeAddignPrimaryToekn => CreateProcessAsUser()
 這一串指令是利用PrintSpoofer執行cmd.exe再執行whoami的command並寫道tmp.txt中
 ![](https://hackmd.io/_uploads/rk0pwGzRh.png)
 目前權限已經從`iis apppool\defaultapppool`轉換成`nt authority\system`也就是前面說的==本地端真正的最高權限使用者==
+
 ## Reference
 [^iis-windows-impersonation]:[ [2020鐵人賽] Day29 - 切換身分Impersonation ](https://ithelp.ithome.com.tw/articles/10252658)

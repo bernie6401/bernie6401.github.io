@@ -49,8 +49,10 @@ category: "Problem Solutions"
     android.auto_generated_rro_vendor__                            com.android.soundpicker
     ...
     ```
+
 ## ASUS ZenFone 3(Z017DA)
 這一台是Lab的手機，我拿到的時候就已經進入Bootloader了，所以我就直接跳到後半段，但是這一台應該是刷壞了，我先紀錄一下整個過程，現在是已經無線迴圈同一個畫面了QAQ
+
 ### Install Third Party Recovery
 我是參考[給老手的 Zenfone 3 刷機快速上手（Bootloader, Recovery, Root, Rom…）](https://medium.com/ishengp-laboratory/zenfone-3-softmod-879377e4ba4e)
 1. 我是以[OrangeFox](https://xdaforums.com/t/twrp-treble-zenfone3-official-orangefox-recovery-project-r10-0.3956604/)為例，因為如果實際去看[TWRP](https://twrp.me/Devices/)，會發現唯獨缺了ZenFone3的Img
@@ -74,7 +76,9 @@ category: "Problem Solutions"
     5. 到這邊理論上都沒有什麼問題，但是我按照[這個影片](https://youtu.be/p1MgtWuvqTM?si=gi5vKJSCNeFRJrgh)提到的要把剛剛載的image zip檔案丟進去並且安裝，但是就會跑出如下錯誤:
         ![125588](https://hackmd.io/_uploads/rymaNviC6.jpg =200x)
         看了XDA的留言串，發現也有人有這個問題，雖然時間有點久，但我還是嘗試問看看該名網友有沒有找到解決方法
+
 ## HTC 10
+
 ### Unlock Bootloader
 1. 註冊[HTCdev](https://www.htcdev.com/bootloader/unlock-instructions)
 2. 選擇標的
@@ -127,6 +131,7 @@ category: "Problem Solutions"
     Finished. Total time: 1.050s
     ```
 11. 按下Enter之後，在手機端應該會出現要不要解鎖的訊息，直接用音量鍵選擇Yes並且用電源鍵確認就會直接解鎖了
+
 ### Install Third Party Recovery
 我是參考[ How to Root the HTC 10 ](https://youtu.be/VubMLsETfpA?si=o4wVZP3LwP0jE-dh)
 1. 直接去[TWRP - HTC 10](https://twrp.me/htc/htc10.html)下載img，然後按照上面的guidelines進行安裝
@@ -169,10 +174,13 @@ category: "Problem Solutions"
     htc_pmeuhl:/ # whoami
     root
     ```
+
 ### 後記
 因為要做實驗，也就是為了繞過SSL Pinning的問題要安裝==AlwaysTrustUserCerts==這個模組，所以magisk我是安裝
+
 ## SONY Xperia 10 III(XQ-BT52)
 結論：這一隻root的過程還蠻順利的，但最後結果還是失敗，不是說root失敗而是出現wifi網卡不能用的情況，但只要連接SIM卡還是可以用的，但就跟我的研究沒關係了
+
 ### Unlock Bootloader
 1. 在通話的地方輸入`*#*#7378423#*#*`就會進入工程機畫面
 2. 選擇Service Info -> Configuration中會出現Bootloader unlock allowed: Yes(No)的提示，如果是Yes再往下進行
@@ -243,8 +251,10 @@ category: "Problem Solutions"
     XQ-BT52:/ # whoami
     root
     ```
+
 ## SONY Xperia Z3
 解鎖Bootloader的方法和上面一模一樣
+
 ## Install AlwaysTrustUserCert.zip Module
 前面的手機取得Root權限後，就要安裝這個模組，我們才能部分Bypass SSL Pinning的問題，步驟如下
 1. 在電腦下載[這個模組](https://github.com/NVISOsecurity/MagiskTrustUserCerts)，並且按照指示進行壓縮後丟到手機端
@@ -258,5 +268,6 @@ category: "Problem Solutions"
 :::info
 有一點要特別注意，如果先安裝模組再進行安裝，或是先前已經安裝過第一個憑證後續又再安裝另外一個但沒有重起，會造成和之前遇到的SSL Pinning一樣的狀況，也就是在第二個憑證的裝置只能抓到GET封包，所以正確的步驟是按照上面的流程，如果有多一台裝置的話，最保險的做法是先把之前所有安裝的憑證刪除→重新啟動→重新安裝"所有"的憑證→重新安裝Magisk模組→Reboot，就可以了
 :::
+
 ## 結論
 最後只有HTC 10成功取得Root權限並且安裝`AlwaysTrustUserCert.zip`的模組，所以我的研究就圍繞在Google Pixel6a這一台原本已經Root好並且安裝好模組的手機以及HTC 10這一台

@@ -6,11 +6,14 @@ category: "Security/Practice/CrewCTF/Bad"
 ---
 
 # Challenge: findme
+
 ## Source
 :::spoiler
 ![](https://hackmd.io/_uploads/HkL1AbiKn.png)
 :::
+
 ## Recon
 這一題就只是找一張照片的經緯度，不二法門就是慢慢找，真TM累
+
 ## Exploit
 Flag: `crew{35.6682,138.5699}`

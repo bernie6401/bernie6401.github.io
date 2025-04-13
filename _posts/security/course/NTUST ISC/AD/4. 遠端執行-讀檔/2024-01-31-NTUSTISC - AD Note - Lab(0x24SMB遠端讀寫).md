@@ -12,6 +12,7 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz
 
 ## Lab
 這個lab主要和之前不太一樣的地方在於都是利用SMB的功能達到遠端電腦讀寫的效果，雖然遠端執行也可以做到，但這樣會比較方便
+
 ### ==遠端讀寫(w/ GUI)==
 1. Open File Explorer
 2. Enter `\\<IP>\c$`

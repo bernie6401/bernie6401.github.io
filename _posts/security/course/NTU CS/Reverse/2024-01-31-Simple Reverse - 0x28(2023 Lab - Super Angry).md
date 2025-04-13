@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x28(2023 Lab - Super Angry)
+
 ## Source code
 :::spoiler main function
 ```cpp
@@ -92,6 +93,7 @@ unsigned __int64 __fastcall scramble_fn(char *user_input, uint32_t *output, unsi
 }
 ```
 :::
+
 ## Recon
 可以從IDA解析出來的結果得知，這支程式的主要流程是我們執行的時候command多帶一個參數，而這個參數會直接進到scramble_fn做一些操作，最後會再跟verify_key進行memcmp，大略分析一下scramble_fn後發先他是一個偏簡單但我們懶得看得操作，所以可以試看看用angr解看看
 
@@ -100,6 +102,7 @@ angr基本流程:
 2. 建立claripy symbol - 以這個lab的例子來說就是建立我們輸入進去的程式的input string
 3. 建立初始的state - 以這個lab來說就是我們一開始輸入的input string
 4. 有了proj / symbol / initial state之後就要開始讓他跑起來
+
 ## Exploit
 ```python
 import angr

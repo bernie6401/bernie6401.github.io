@@ -14,6 +14,7 @@ One of our employees at the company complained about suspicious behavior on the 
 
 ## ==Attaaaaack 1==
 > Q1. What is the best profile for the the machine?
+
 ### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memdump.raw imageinfo
@@ -34,8 +35,10 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
 ```
 
 Flag: `crew{Win7SP1x86_23418}`
+
 ## ==Attaaaaack 2==
 > Q2. How many processes were running ? (number)
+
 ### Exploit
 :::spoiler Command Result
 ```bash
@@ -94,10 +97,13 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 :::
 
 Flag: `47`
+
 ## ==Attaaaaack 3==
 > Q3. i think the user left note on the machine. can you find it ?
+
 ### Recon
 這一題真的要通靈，看到note第一直覺應該是想到要看有沒有類似notepad這樣的文字編輯器，果不其然pslist有這個process，所以可以把該process的memory dump出來，然後strings search再grep特定的regular expression，不過這邊有一個需要通靈的地方，就是通靈regular expression的形式，還必須要注意strings的形式是16 bits和little endian的形式才找的到，上述方法是參考[^crewctf-attaaaaack3-wp]，另外一個方法是可以通靈到作者有可能會把字串暫存在clipboard上，這樣就可以搭配clipboard這個plugin，可以直接print出clipboard中的內容
+
 ### Exploit
 * 方法一
     ```bash
@@ -133,16 +139,21 @@ Flag: `47`
     ```
 
 Flag: `crew{1_l0v3_M3m0ry_F0r3ns1cs_S0_muchhhhhhhhh}`
+
 ## ==Attaaaaack 4==
 > Q4. What is the name and PID of the suspicious process ?
 > example : crew{abcd.exe_111}
+
 ### Recon
 因為是賽後解，所以其實...如果是線上解的話可以try&error，反正這一題也是頗單純，如果觀察pslist的process，會發現有一個runddl32.exe他就是在模仿rundll32，所以這就是一個怪可疑的process
+
 ### Exploit
 Flag: `crew{runddl32.exe_300}`
+
 ## ==Attaaaaack 5==
 > Q5. What is the another process that is related to this process and it's strange ?
 > example : crew{spotify.exe}
+
 ### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memdump.raw --profile Win7SP1x86_23418 pslist
@@ -156,11 +167,14 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 ```
 
 Flag: `crew{notepad.exe}`
+
 ## ==Attaaaaack 6==
 > Q6. What is the full path (including executable name) of the hidden executable?
 example : crew{C:\Windows\System32\abc.exe}
+
 ### Recon
 這一題指的是runddl32.exe在哪邊，就直接filescan然後string search就找到了
+
 ### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memdump.raw --profile Win7SP1x86_23418 filescan | findstr runddl32.exe
@@ -170,11 +184,14 @@ Volatility Foundation Volatility Framework 2.6
 ```
 
 Flag: `crew{C:\Users\0XSH3R~1\AppData\Local\Temp\MSDCSC\runddl32.exe}`
+
 ## ==Attaaaaack 7==
 > Q7. What is the API used by the malware to retrieve the status of a specified virtual key on the keyboard ?
 flag format: crew{AbcDef}
+
 ### Recon
 仔細分析題目的話，會知道他要我們找出malware使用哪個API(method/function)取得keyboard上的虛擬按鍵，所以直覺的做法是直接把該執行檔dump出來，然後string search這隻檔案有哪些和key相關的東西
+
 ### Exploit
 如果把該支malware丟到virustotal後，結果可以看[這邊](https://www.virustotal.com/gui/file/25aaa2657e649d8976cb321a6bf63eb56e8451ebde550003ef98782dd1b5ae62)
 ```bash
@@ -226,21 +243,27 @@ UntControlKey
 一個一個try就可以了
 
 Flag: `crew{GetKeyState}`
+
 ## ==Attaaaaack 8==
 > Q8. What is the Attacker's C2 domain name and port number ? (domain name:port number)
 example : crew{abcd.com:8080}
+
 ### Background
 [CyberDefender - MrRobot - POS - Q21](https://hackmd.io/@SBK6401/B1LqaNGCh/https%3A%2F%2Fhackmd.io%2F%40SBK6401%2FBJpJqDhlp#Q21)
+
 ### Recon
 這一題直覺會想用netscan，畢竟從前面的題目以及找到的資訊，還有virustotal上的資訊，幾乎確定他就是一個keylogger，然後會把得到的資訊傳回去C&C server中，但奇怪的是察看netscan沒有相關的connection，不確定到底是怎麼樣，找了很久，最後是參考[siunam321](https://siunam321.github.io/ctf/CrewCTF-2023/Forensics/Attaaaaack1-13/#attaaaaack8)的writeup，他也是找了很久，結果其實virustotal都已經寫好了，
+
 ### Exploit
 ![](https://hackmd.io/_uploads/S1-f44e-p.png)
 在Behavior的地方
 
 Flag: `crew{test213.no-ip.info:1604}`
+
 ## ==Attaaaaack 9==
 > Q9. Seems that there is Keylogger, can you find it's path ?
 example : crew{C:\Windows\System32\abc.def}
+
 ### Background
 
 ### Recon
@@ -259,13 +282,17 @@ Volatility Foundation Volatility Framework 2.6
 ```
 
 Flag: `crew{C:\Users\0xSh3rl0ck\AppData\Roaming\dclogs\2023-02-20-2.dc}`
+
 ## ==Attaaaaack 10==
 > Q10. we think that the malware uses persistence technique can you detect it ?
 example : crew{Scheduled_tasks} (first letter of the first word is uppercase and the first letter of other is lowercase)
+
 ### Background
 [NTUSTISC - CyberDefender - MrRobot - Target 1 - Q5](https://hackmd.io/@SBK6401/B1LqaNGCh/https%3A%2F%2Fhackmd.io%2F%40SBK6401%2FSkJAThwla#Q5)
+
 ### Recon
 這題background可以看前面寫的文章，然後基本上都差不多，只是要特別注意-K後面帶的參數，一定要是從Software開始，他和原本cyberdefender的版本有點不太一樣，下-k參數之前先看printkey印出甚麼東西，然後再從他的subkey往後推看是要接Software還是Mircosoft，基本上都會寫在**`\REGISTRY\USER\`**的部分
+
 ### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memdump.raw --profile Win7SP1x86_23418 printkey -K "Software\Microsoft\Windows\CurrentVersion\Run"
@@ -302,19 +329,25 @@ REG_EXPAND_SZ Sidebar         : (S) %ProgramFiles%\Windows Sidebar\Sidebar.exe /
 ```
 
 Flag: `crew{Registry_keys}`
+
 ## ==Attaaaaack 11==
 > Q11. can you find the key name and it's value ?
 example : crew{CurrentVersion_ProductName}
+
 ### Exploit
 從上一題的輸出就知道key name是run，然後value是MicroUpdate
 Flag: `crew{Run_MicroUpdate}`
+
 ## ==Attaaaaack 12==
 > Q12. What is the strange handle used by the malware ?
 example : crew{the name of the handle}
+
 ### Background
 [NTUSTISC - CyberDefender - MrRobot - Target 1 - Q6](https://hackmd.io/@SBK6401/B1LqaNGCh/https%3A%2F%2Fhackmd.io%2F%40SBK6401%2FSkJAThwla#Q6)
+
 ### Recon
 基本上就和之前寫的文章一樣，
+
 ### Exploit
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memdump.raw --profile Win7SP1x86_23418 handles --pid 300 | findstr Mutant
@@ -329,12 +362,16 @@ Offset(V)     Pid     Handle     Access Type             Details
 ```
 
 Flag: `crew{DC_MUTEX-KHNEW06}`
+
 ## ==Attaaaaack 13==
 > Q13. Now can you help us to know the Family of this malware ?
 example : crew{Malware}
+
 ### Recon
 這一題在第7題就找到了
+
 ### Exploit
 Flag: `crew{DarkKomet}`
+
 ## Reference
 [^crewctf-attaaaaack3-wp]:[Attaaaaack3](https://github.com/daffainfo/ctf-writeup/tree/main/CrewCTF%202023/Attaaaaack3)

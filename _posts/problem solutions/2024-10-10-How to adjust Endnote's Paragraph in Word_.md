@@ -7,8 +7,10 @@ category: "Problem Solutions"
 
 # How to adjust Endnote's Paragraph in Word?
 參考資料: [善用Word與EndNote協助論文編排[臺大圖書館HELP講堂20201229]](https://youtu.be/YMthTCU5isA?si=ZZSlAP0rfPdMAKFY&t=2798)
+
 ## Problem Statement
 在寫論文的時候會使用到Endnote進行引用索引，但cite paper到word的時候，往往會和投稿的Format不一樣，最直接的方式就是，到確定要投稿之前再選取所有的reference section，並進行調整，但每次看到不正確的Format會很討厭，而且不能夠確定之後是不是不需要在修改，只有重新Update Citation，格式就會跑掉，這是一個蠻麻煩的問題
+
 ## Solution
 1. 先確定投稿的Reference Format長怎樣
     例如要左右對齊、固定行高、特殊縮排等等

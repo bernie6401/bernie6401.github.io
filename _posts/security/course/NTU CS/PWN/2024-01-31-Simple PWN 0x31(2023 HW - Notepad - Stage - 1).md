@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x31(2023 HW - Notepad - Stage - 1)
+
 ## Description & Hint
 > nc 10.113.184.121 10044
 >
@@ -393,6 +394,7 @@ int main()
 }
 ```
 :::
+
 ## Recon
 這一題是等到助教給出hint才之到大概的方向，我一開始也是有一些初步的方向，不過不知道怎麼把卡住的地方解決，最後也是求助@davidchen學長才知道確切的方法。
 
@@ -404,6 +406,7 @@ int main()
 
 ## Exploit - Path Traversal
 因為這一題需要進行pow，才能順利開一個vm給我們，並且把port number讓我們連過去
+
 ### ==PoW.py==
 這是助教寫的script
 ```python
@@ -430,6 +433,7 @@ while True:
         print(i)
         exit(0)
 ```
+
 ### ==pow.py==
 這是我寫的pow，就是簡單的subprocess的執行助教給的script，然後傳送和接收一些IO
 ```python

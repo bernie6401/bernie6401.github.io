@@ -9,7 +9,9 @@ category: "Security/Course/NTUST ISC/AD"
 [TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=JAnGtFoJlij-03nk&t=6024)
+
 ## Background
+
 ### [EDR(Endpoint Detection and Response)](https://www.trendmicro.com/zh_tw/what-is/xdr/edr.html)
 > 端點偵測及回應 (EDR) 結合了即時的持續監控、端點資料蒐集，以及進階交叉關聯，來偵測並回應主機和端點連線的可疑活動。這套方法可讓資安團隊快速發掘並交叉分析各種活動來產生高可信度的偵測事件，並提供手動和自動化回應選項。
 > 
@@ -91,6 +93,7 @@ What is IR(incident response)?
 > Incident Response 事件響應（事件管理）是企業或組織管理資安事件的處理方法。機敏資訊外洩或遭到攻擊破壞系統，且影響到客戶（遭詐騙、騷擾等）、知識產權、營業秘密、品牌價值等。IR用意是在為了減少企業損害並進快復原且避免再次發生同樣狀況。做調查就是為了從攻擊中吸取教訓並改善資安防護措施，由於當今有許多公司都會遇到類似的問題，因此制定完善且有明確的ＳＯＰ事件回報計畫是保護公司的不錯方式。
 
 ## 會後提及有用的工具
+
 ### [Ping Castle](https://www.pingcastle.com/)
 這個工具可以幫AD環境做快速的稽核，然後會產生報表，讓使用者可以一目了然目前AD的狀況
 

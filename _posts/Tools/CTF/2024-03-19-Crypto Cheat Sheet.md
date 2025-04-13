@@ -6,6 +6,7 @@ category: "Tools/CTF"
 ---
 
 # Crypto Cheat Sheet
+
 ## Online Tools - Classic Crypto
 | Complex| Substitution Cipher| Vigenère Cipher|
 | - | - | - |
@@ -112,6 +113,7 @@ category: "Tools/CTF"
     openssl x509 -inform pem -in cert1.pem
     ```
     :::
+
 ## Factoring Tools
 * [Factor DB](http://factordb.com/index.php)
 * [Yafu](https://github.com/DarkenCode/yafu)

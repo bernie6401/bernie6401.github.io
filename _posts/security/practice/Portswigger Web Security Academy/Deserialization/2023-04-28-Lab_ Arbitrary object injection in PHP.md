@@ -82,6 +82,7 @@ Obviously, you can not access the content first.
     :::
     
     In this example, we notice that it has constructor and deconstructor so we can constuct a serialization string to delete something
+
 ## Exp - Deconstructor
 Exploit Payload:
 ```php!

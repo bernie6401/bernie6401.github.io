@@ -7,6 +7,7 @@ category: "Tools/CTF"
 
 # 利用Metasploit Framework測試一些網站
 [TOC]
+
 ## [Cheat Sheet](https://ithelp.ithome.com.tw/articles/10279483?sc=hot)
 ```bash
 $ sudo msfdb init && msfconsole
@@ -16,9 +17,11 @@ msf6 > use {腳本位置} # e.g. use exploit/unix/http/cacti_filter_sqli_rce
 msf6 exploit(XXX) > show option # 顯示該腳本需要哪一些參數
 msf6 exploit(XXX) > set {option name} {參數} # e.g. set RHOST 127.0.0.1
 ```
+
 ## [SmartDaily](https://www.smartdaily.com.tw/)
 IP: `34.81.5.101`
 [Security Header Result](https://securityheaders.com/?q=https%3A%2F%2Fwww.smartdaily.com.tw%2F&followRedirects=on)
+
 ### nmap
 :::spoiler nmap Result
 ```bash
@@ -55,9 +58,11 @@ Nmap done: 1 IP address (1 host up) scanned in 75.09 seconds
 開的Port: 80/443
 
 ---
+
 ## [NatureTEL](http://www.naturaltel.com/)
 IP: `219.84.199.120`
 [Security Header Result](https://securityheaders.com/?q=https%3A%2F%2Fwww.naturaltel.com%2F&followRedirects=on)
+
 ### nmap
 :::spoiler nmap Result
 ```bash
@@ -98,9 +103,11 @@ Nmap done: 1 IP address (1 host up) scanned in 4.67 seconds
 開的Port: 21/25/80/110/143/443
 
 ---
+
 ## [飛像資訊](https://www.flyelephant.com.tw/)
 IP: `199.15.163.148`
 [Security Header Result](https://securityheaders.com/?q=https%3A%2F%2Fwww.flyelephant.com.tw%2F&followRedirects=on)
+
 ### nmap
 :::spoiler nmap Result
 ```bash

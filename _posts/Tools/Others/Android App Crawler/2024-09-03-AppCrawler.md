@@ -7,6 +7,7 @@ category: "Tools/Others/Android App Crawler"
 
 # AppCrawler
 前面踩了超多坑，所以一切都以底下最新的配置為主
+
 ## Infra
 1. Appium - 1.22.3
     一定要是2.0.0以下(未包含)，所以不要用default latest version，可以用CLI也可以用Desktop，因為Desktop Version預設已經no longer supported，所以一定是1.22.3，而CLI安裝就需要指定(以下是已經安裝npm為前提)
@@ -22,6 +23,7 @@ category: "Tools/Others/Android App Crawler"
 4. AppCrawler - latest (2.7.4)
     就直接到github release去下載build好的jar file，不需要看其他教學是用2.4.0或是2.3.1去用stb或是maven build原本的專案
     Official Link: https://github.com/seveniruby/AppCrawler/releases/tag/2.7.4
+
 ## 測試前
 1. app activity name
     如果已經在手機安裝好，就直接看dumpsys中該package的main activity是哪一個
@@ -70,10 +72,12 @@ category: "Tools/Others/Android App Crawler"
     $ curl http://127.0.0.1:4723/wd/hub/status
     {"value":{"build":{"version":"1.22.3"}},"sessionId":null,"status":0}
     ```
+
 ## 實際測試
 ```bash
 $ java -jar appcrawler-2.7.4-hogwarts.jar --capability "appPackage=com.spotify.music,appActivity=MainActivity"
 ```
+
 ## 注意事項
 :::danger
 基本上這個tool還是依照大量截圖的方式判斷有無換頁，所以依照現在android版本的更新，開發商如果設定成無法截圖的方式，就無法做後續的測試

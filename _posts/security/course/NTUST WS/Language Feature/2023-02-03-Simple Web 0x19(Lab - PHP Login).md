@@ -43,6 +43,7 @@ highlight_file(__file__);
 ?>
 
 ```
+
 ## Exploit
 Must change `GET` method to `POST` method and add `Content-Type: application/x-www-form-urlencoded` in header
 

@@ -6,9 +6,11 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x08(2023 Lab - dlog)
+
 ## Background
 [ [edu-ctf 2023] week03 - crypto2 ](https://www.youtube.com/live/u4ZVc8PuJC0?si=2wbiGreg_BZQ-dff)
 [Cryptography and Network Security – Homework 2 - Little Knowledge Proof](https://hackmd.io/@SBK6401/SJobiaxQ3#5-Little-Knowledge-Proof)
+
 ## Source code
 :::spoiler Source Code
 ```python
@@ -33,6 +35,7 @@ print('The hint about my secret:', pow(g, flag, p))
 
 ```
 :::
+
 ## Recon
 基本上這一題和上一個學期上的CNS中，作業二的[Little Knowledge Proof](https://hackmd.io/@SBK6401/SJobiaxQ3#5-Little-Knowledge-Proof)概念一模一樣，當時還不知道這是啥騷操作，現在覺得非常簡單，就是套用了Pohlig-Hellman的原理進行破解
 

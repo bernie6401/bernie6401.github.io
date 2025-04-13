@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Picker III
+
 ## Source code
 :::spoiler Source Code
 ```python!
@@ -210,8 +211,10 @@ while(USER_ALIVE):
 
 ```
 :::
+
 ## Recon
 這一題算有趣，但想了超久就放棄直接看[^pico-reverse-picker-iii-wp]，我原本還想說要怎麼用function pointer之類的東西，看來還是想的太複雜了，既然write_variable function可以新增一個全域變數，就代表我們可以直接覆蓋掉getRandomNumber這個string，變成win function，所以當我們直接call getRandomNumber function的時候其實是在call getRandomNumber這個global variable，此時就會直接call win()，我覺得有一點點通靈的性質，實在想不出來
+
 ## Exploit
 ```bash!
 $ nc saturn.picoctf.net 62200
@@ -223,5 +226,6 @@ Please enter new value of variable: win
 ```
 
 Flag: `picoCTF{7h15_15_wh47_w3_g37_w17h_u53r5_1n_ch4rg3_c20f5222}`
+
 ## Reference
 [^pico-reverse-picker-iii-wp]:[picker III WP - akshayrkapadia](https://gitlab.com/akshayrkapadia/CTF/-/blob/main/PicoCTF/ReverseEngineering/Picker-III/Picker-III.txt)

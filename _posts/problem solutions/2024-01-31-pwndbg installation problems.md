@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # pwndbg installation problems
+
 ## Normal Installation
 ```bash
 $ git clone https://github.com/pwndbg/pwndbg

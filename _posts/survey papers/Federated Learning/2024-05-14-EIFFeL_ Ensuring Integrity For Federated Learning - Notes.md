@@ -10,6 +10,7 @@ category: "Survey Papers/Federated Learning"
 :::info
 Roy Chowdhury, A., Guo, C., Jha, S., & van der Maaten, L. (2022, November). Eiffel: Ensuring integrity for federated learning. In Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (pp. 2535-2549).
 :::
+
 ## Background
 * [聯邦學習的簡單介紹](https://medium.com/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9F%A5%E8%AD%98%E6%AD%B7%E7%A8%8B/%E8%81%AF%E9%82%A6%E5%AD%B8%E7%BF%92%E7%9A%84%E7%B0%A1%E5%96%AE%E4%BB%8B%E7%B4%B9-776924277d13)
     > 聯邦學習的流程大致上可以分成4步驟：

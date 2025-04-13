@@ -21,6 +21,7 @@ It's important to note that while threshold homomorphic encryption offers increa
 Moreover, they proposed (t, n)-threshold FHE is decentralized if all the parties have the same level of information and play the same role in the `KeyGen` and `Dec` protocols.
 
 ## Pros & Cons
+
 ### Pros
 * Decentralized: This paper also proposed a scheme that can achieve decentralized property can improve the security of a system. Moreover, decentralized systems are more reliable, resilient and enhanced transparency as well.
 

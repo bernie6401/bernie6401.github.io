@@ -72,6 +72,7 @@ int main()
 :::
 
 ## Analyze
+
 ### fopen
 * Flow chart
     ![](https://i.imgur.com/CZgCWFL.png)
@@ -352,6 +353,7 @@ int main()
     }
     ```
     :::
+
 ### fread
 * Flow chart
     ![](https://i.imgur.com/gESVUEE.png)

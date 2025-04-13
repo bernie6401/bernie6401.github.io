@@ -6,6 +6,7 @@ category: "LeetCode/Easy"
 ---
 
 # LeetCode - Two Sum
+
 ## Recon & Description
 :::spoiler Description
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -34,6 +35,7 @@ Output: [0,1]
 ```
 :::
 簡單來說就是回傳一個list，包含兩個element，也就是原本nums的index位置，對應的兩個數值相會等於target，就這樣，不過他給的test case算蠻佛心的，可以更完善原本沒有想到的exception
+
 ## PoC
 重要的事情是list變數不能直接assign，因為記憶體是一樣的，詳細可以參考[^python_list_nee_2_know]，之前就有發生過這個問題，這次是詳細的閱讀底層的說明，另外我覺得我有一點把poc弄得太複雜了，畢竟要考慮的東西頗多，就先不管一些complexity的optimization
 ```python=
@@ -57,6 +59,7 @@ class Solution:
             else:
                 pass
 ```
+
 ## Result
 ![](https://hackmd.io/_uploads/ryzB3YAs2.png)
 看來還有很多進步的空間，不過就先這樣ㄅ

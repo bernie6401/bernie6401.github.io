@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - Kit Engine
+
 ## Background
 [Google V8 Engine](https://ithelp.ithome.com.tw/articles/10216397)
 > V8 引擎是 Google 做出來讓 JS 跟瀏覽器溝通的的開源專案，這個引擎被使用的非常廣泛，在 Chrome 瀏覽器跟 Node.js ，以及桌面應用程式框架 Electron 之中都有他的身影。而在 V8 出現前，最早最早的 JavaScript 引擎，叫做 SpiderMonkey ，同時也是另一個知名瀏覽器 FireFox 的渲染引擎。
@@ -172,6 +173,7 @@ index a6a1037cff..4591d27f65 100644
                              ReportExceptions report_exceptions,
 ```
 :::
+
 ## Recon
 這一題很有趣，不過我原本不知道v8或d8是啥東東，以為是類似老舊攝影機???但看了[^pico_pwn_kit_engine_nickchen][^pico_pwn_kit_engine_maple]的WP，發現沒有想像中的複雜，首先他給了一個d8(也就是local端可以使用的v8，類似psysh的感覺，可以執行js的環境)，然後他有給一個patch，所以不用管其他的部分，只要專注在他patch的內容即可。
 
@@ -281,6 +283,7 @@ Stderr b''
 :::
 
 Flag: `picoCTF{vr00m_vr00m_48f07b402a4020e0}`
+
 ## Reference
 [^pico_pwn_kit_engine_nickchen]:[V8 exploitation - picoCTF Kit Engine](https://nickchen120235.github.io/2022/04/22/kit-engine.html)
 [^pico_pwn_kit_engine_maple]:[Kit Engine - maple](https://blog.maple3142.net/2021/03/30/picoctf-2021-writeups/#kit-engine)

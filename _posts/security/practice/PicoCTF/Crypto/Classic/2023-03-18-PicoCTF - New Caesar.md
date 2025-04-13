@@ -43,6 +43,7 @@ print(enc)
 
 ```
 :::
+
 ## Recon
 1. Hint in the code
 It gave two hints in the code that represented by `assert`

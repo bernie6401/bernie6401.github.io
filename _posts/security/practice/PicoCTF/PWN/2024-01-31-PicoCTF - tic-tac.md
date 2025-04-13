@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - tic-tac
+
 ## Background
 [後端工程師面試考什麼 - Race Condition 篇](https://myapollo.com.tw/blog/interview-question-race-condition/)
 [ [Day24]攻擊篇 ](https://ithelp.ithome.com.tw/articles/10208763)
@@ -16,6 +17,7 @@ category: "Security/Practice/PicoCTF/PWN"
 >
 >這種攻擊可能發生在共享資源中。
 >可能導致程式在資源處於意外狀態時執行無效操作。
+
 ## Source code
 :::spoiler Source code
 ```cpp=
@@ -61,6 +63,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 :::
+
 ## Recon
 第一次寫這一種題目，具@ccccctw所說算是考古題了，看了[^pico_pwn_wp_maple_tic_tac][^pico_pwn_wp_martin_tic_tac][^pico_pwn_wp_aydin_tic_tac]還是不知道怎麼做出來的，所以問了@ccccctw
 1. 可以看到source code是檢查root權限才可以讀到flag
@@ -69,6 +72,7 @@ int main(int argc, char *argv[]) {
 具體來說是這樣：
 test的link會在flag.txt和test1之間切換，若我們用txtreader讀取test時，會有權限檢查，如果此時的link是test1，權限檢查就會通過，此時如果剛好test的link指向flag.txt，那我們就可以無縫的讀取到flag.txt的內容
 5. 接著就可以用他的txtreader讀取test，如果幸運的話就可以讀到需要root權限的flag
+
 ## Exploit
 ```bash
 $ ssh ctf-player@saturn.picoctf.net -p 59620
@@ -86,6 +90,7 @@ picoCTF{ToctoU_!s_3a5y_007659c9}
 ```
 
 Flag: `picoCTF{ToctoU_!s_3a5y_007659c9}`
+
 ## Reference
 [^pico_pwn_wp_maple_tic_tac]:[tic-tac maple](https://blog.maple3142.net/2023/03/29/picoctf-2023-writeups/#tic-tac)
 [^pico_pwn_wp_martin_tic_tac]:[picoCTF 2023 tic-tac](https://youtu.be/ONMVfKDqCr0)

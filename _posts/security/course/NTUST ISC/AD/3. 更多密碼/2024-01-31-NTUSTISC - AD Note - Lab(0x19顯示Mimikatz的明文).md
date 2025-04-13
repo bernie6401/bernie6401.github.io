@@ -20,7 +20,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 > 安全性識別碼可用來唯一識別安全性主體或安全性群組。 安全性主體可以代表可由作業系統驗證的任何實體，例如使用者帳戶、電腦帳戶，或在使用者或電腦帳戶的安全性內容中執行的執行緒或進程。
 >
 > 每個帳戶或群組，或帳戶安全性內容中執行的每個進程，都有由授權單位發出的唯一 SID，例如 Windows 網域控制站。 SID 會儲存在安全性資料庫中。 系統會產生 SID，以識別建立帳戶或群組時的特定帳戶或群組。 當 SID 做為使用者或群組的唯一識別碼時，永遠不會再次用來識別其他使用者或群組。
+
 ## Lab
+
 ### ==顯示Mimikatz的明文==
 1. 只要打開regedit，在`電腦\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest`可能會看到`UseLogonCredential`的名稱，只要把對應的數值改成1就可以了，當然如果沒看到的話也可以自己新增
 ![](https://hackmd.io/_uploads/BkQAC8ERn.png)

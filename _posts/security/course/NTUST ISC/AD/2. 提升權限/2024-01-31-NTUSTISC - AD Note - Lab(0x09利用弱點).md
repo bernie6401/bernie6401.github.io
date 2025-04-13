@@ -52,7 +52,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCM
         * Solution: 可以參考[本機系統管理員密碼解決方案(LAPS)](https://learn.microsoft.com/zh-tw/windows-server/identity/laps/laps-overview)
     * 管理服務
     * 錯誤配置
+
 ## Lab Time - 本地提權
+
 ### ==利用弱點==
 ```bash
 $ git clone https://github.com/bitsadmin/wesng.git --depth 1

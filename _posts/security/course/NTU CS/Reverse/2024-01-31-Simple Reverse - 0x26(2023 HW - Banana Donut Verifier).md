@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)
+
 ## Source Code
 :::spoiler Source Code
 ```python
@@ -151,6 +152,7 @@ __int64 __fastcall main(int a1, char **a2, char **a3)
 }
 ```
 :::
+
 ## Recon
 初步的基礎操作逆完之後，主要流程是這樣:
 1. 先輸入1023個char
@@ -178,6 +180,7 @@ __int64 __fastcall main(int a1, char **a2, char **a3)
     ```
     
 從以上的memory dump出來的結果就知道全部輸入\x00和要比對的key只有前面48 bytes不一樣，但後面都一樣，而和全部都是\x10的輸出結果比較發現都是差\x10(不管正負)，因此我有大膽的想法，這該不會是XOR的操作ㄅ，經過比對果然無誤，所以我只要把要比對的key和全部都是\x00的結果進行XOR就知道我應該輸入甚麼了
+
 ## Exploit
 ```python
 root = "./Reverse/HW2/Banana Donut Verifier/"

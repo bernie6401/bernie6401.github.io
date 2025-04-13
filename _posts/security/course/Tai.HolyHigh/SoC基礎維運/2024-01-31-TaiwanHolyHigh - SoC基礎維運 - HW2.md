@@ -6,6 +6,7 @@ category: "Security/Course/Tai.HolyHigh/SoC基礎維運"
 ---
 
 # TaiwanHolyHigh - SoC基礎維運 - HW2
+
 ## Background
 * [Sysmon Event ID](https://learn.microsoft.com/zh-tw/sysinternals/downloads/sysmon)
     > ### 事件識別碼 1：處理程序建立
@@ -22,6 +23,7 @@ category: "Security/Course/Tai.HolyHigh/SoC基礎維運"
     > ---
     > ### 事件識別碼 13：RegistryEvent (值已設定)
     > 此登錄事件類型會識別登錄值修改。 事件會記錄針對類型為 `DWORD` 和 `QWORD` 的登錄值所寫入的值。
+
 ## Recon - Event Log呈現的攻擊順序
 1. Event ID: 8 → CreateRemoteThread
     首先看到23/12/17 15:1024的時候，由==NT AUTHORITY\SYSTEM==發起的新的thread，從原本的Process(ID: 820)幫另外一個Process(ID: 7464)建立，誠如MSDN上的說明這應該是惡意程式為了不要被砍掉
@@ -235,6 +237,7 @@ category: "Security/Course/Tai.HolyHigh/SoC基礎維運"
     OriginalFileName: sc.exe
     CommandLine: sc  delete CMDTestService
     ```
+
 ## Conclusion
 總結以上的操作，會發現auto-attack.bat在做的事情只有幾件事:
 1. (攻擊1)利用comsvcs.dll搭配MiniDump把lsass拿到手
@@ -243,6 +246,7 @@ category: "Security/Course/Tai.HolyHigh/SoC基礎維運"
 4. (攻擊4)利用mavinject.exe把lsass process注入到正常執行且可信度高的process，如果我們是注入惡意的process，是不是就可以達到更大的受害範圍?詳細可以參考[Mitre T1218-013](https://attack.mitre.org/techniques/T1218/013/)
 5. (攻擊5)有點像攻擊2的另一個版本，其實是利用更強大的powershell進行一樣的攻擊，payload的靈活度也大大提升
 6. (攻擊6)利用sc.exe設定registry，可以先看看[Mitre T1569-002](https://attack.mitre.org/techniques/T1569/002/)的說明，攻擊者可以利用這類型的手法和工具，諸如PsExec, sc.exe等，達到遠端執行command的功能
+
 ## 建議處理措施
 * 根據Mitre針對T1055(Reflective DLL Injection)的mitigations就是針對該行為的patter進行endpoint的偵測(prevention)
 * 至於針對T1218-013(Mavinject)的mitigations有兩種，

@@ -35,6 +35,7 @@ Decoded String: `O:4:"User":2:{s:8:"username";s:6:"wiener";s:12:"access_token";s
 
 2. What if we modify the string?
 The verification mechanism workflow is comparing the query user's `access_token` with its database data.
+
 ## Exp
 1. Modify the string like below
 Change the user to `administrator` and access token to integer `0` so that the comparison is always true.

@@ -64,6 +64,7 @@ usage: aureport [options]
         If no report is given, the summary report will be displayed
 ```
 ![圖片](https://hackmd.io/_uploads/B17xQgJOa.png)
+
 ## 起手式
 ```bash
 $ sudo aureport --summary -if audit.log
@@ -96,8 +97,10 @@ Number of keys: 1
 Number of process IDs: 10679
 Number of events: 16732
 ```
+
 ## ==Q1==
 > What account was compromised?
+
 ### Recon
 既然是和帳號有關那就是和authentication有關，所以可以先用summary看他有多少user(結果如上)，再用`-au`指令看成功(失敗)的認證有多少
 ```bash
@@ -126,24 +129,30 @@ Authentication Report
 :::spoiler Flag
 Flag: `btlo`
 :::
+
 ## ==Q2==
 > What attack type was used to gain initial access?
+
 ### Recon
 呈上題
 
 :::spoiler Flag
 Flag: `bruteforce`
 :::
+
 ## ==Q3==
 > What is the attacker's IP address?
+
 ### Recon
 呈上題
 
 :::spoiler Flag
 Flag: `192.168.4.155`
 :::
+
 ## ==Q4==
 > What tool was used to perform system enumeration?
+
 ### Recon
 根據[^wp1]的說明，此時要使用到`--tty`的參數列出登入進來之後下甚麼command
 ```bash
@@ -180,10 +189,13 @@ TTY Report
 :::spoiler Flag
 Flag: `linpeas`
 :::
+
 ## ==Q5==
 > What is the name of the binary and pid used to gain root?
+
 ### Recon
 既然我們已經知道他下載了一個evil tar並且執行其中的script，那麼在process紀錄中一定有相關資訊，此時可以下`-p`列出所有process list，然後我們要著重在evil這個key word，所以記得grep
+
 ### Exploit
 ```bash
 $ sudo aureport -if audit.log -p | grep "evil"
@@ -194,8 +206,10 @@ $ sudo aureport -if audit.log -p | grep "evil"
 :::spoiler Flag
 Flag: `evil, 829992`
 :::
+
 ## ==Q6==
 > What CVE was exploited to gain root access? (Do your research!)
+
 ### Recon
 只要上網找這一題的題目就會出現相關的CVE
 ![圖片](https://hackmd.io/_uploads/HyiwqlydT.png)
@@ -203,21 +217,26 @@ Flag: `evil, 829992`
 :::spoiler Flag
 Flag: `CVE-2021-3156`
 :::
+
 ## ==Q7==
 > What type of vulnerability is this?
+
 ### Recon
 呈上題，也可以看[chatgpt的回答](https://chat.openai.com/share/197d29c6-3298-45b2-b332-cd0f6e814a2f)
 
 :::spoiler Flag
 Flag: `heap_based buffer overflow`
 :::
+
 ## ==Q8==
 > What file was exfiltrated once root was gained?
+
 ### Recon
 呈第4題
 
 :::spoiler Flag
 Flag: `/etc/shadow`
 :::
+
 ## Reference
 [^wp1]:[BTLO - Paranoid](https://05t3.github.io/posts/Paranoid/)

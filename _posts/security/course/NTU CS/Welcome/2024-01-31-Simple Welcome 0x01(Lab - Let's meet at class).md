@@ -6,8 +6,10 @@ category: "Security/Course/NTU CS/Welcome"
 ---
 
 # Simple Welcome 0x01(Lab - Let's meet at class)
+
 ## Description
 Crypto part of homework 0. The key space is $10^{15}$. I used my supercomputer(i5 7th gen) to solve it in about 10 minutes. It's impossible for you guys to enumerate all the keys in 2 weeks, or maybe you can... (Use `pip3 install pycryptodome` to install Crypto)
+
 ## Source Code
 :::spoiler Source
 ```python
@@ -40,6 +42,7 @@ enc = 87051682992840829567429886737255563980229964191963649650455667117285375334
 hint = 112112804524582393858675176460595338484428048338611753655869733059768929120327158352572131172253127933611583356499525126040647290513660017529498493355846656594143774393256151536590212031416153303085867445488047592792290033548349001067687775149867134619114482370143917491889371548968347491490942978508386339813
 ```
 :::
+
 ## Recon
 這一題也是看了別人的WP[^wp_1]，有了一些想法，其實題目的敘述有一點點玄機(但我當時沒想到)，因為題目有提到key space是$10^{15}$，因為看了一下簡單的source code，他是創了五把key
 $$
@@ -56,6 +59,7 @@ $$
 hint\oplus key_5\oplus key_4\oplus key_3=key_1\oplus key_2
 $$
 而TA也有給$key_5=pow(4668, 65537, p)$，代表key space真的減少超多($10^6$)
+
 ## Exploit
 :::info
 不同的寫法所處理的time complexity會不一樣
@@ -109,5 +113,6 @@ print(long_to_bytes(flag))
 ```
 
 Flag: `FLAG{enCrypTIon_wI7H_A_kEy_i5_N0t_secur3_7Hen_h0w_ab0u7_f1ve_Keys}`
+
 ## Reference
 [^wp_1]:[Write Up from eric070021](https://hackmd.io/@eric070021/r1UnR5KWi)

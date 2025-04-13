@@ -6,8 +6,10 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - asm4
+
 ## Description
 > What will asm4("picoCTF_f97bb") return? Submit the flag as a hexadecimal value (starting with '0x'). NOTE: Your submission for this question will NOT be in the normal flag format.
+
 ## Source code
 :::spoiler Source Code
 ```assembly
@@ -71,8 +73,10 @@ asm4:
 	<+157>:	ret    
 ```
 :::
+
 ## Recon
 這一題和前幾個系列的題目差不多，只是變得更臭更長，一直在找能夠動態執行的工具或腳本，不過忍不住看了[^pico-asm4-wp-Dvd848]的script後，才發現自己幹一個比較快
+
 ## Exploit
 ```cpp
 #include <stdio.h>
@@ -169,5 +173,6 @@ $ gcc -masm=intel -m32 exp.c -o exp
 $ ./exp
 0x265
 ```
+
 ## Reference
 [^pico-asm4-wp-Dvd848]:[asm4](https://github.com/Dvd848/CTFs/blob/master/2019_picoCTF/asm4.md

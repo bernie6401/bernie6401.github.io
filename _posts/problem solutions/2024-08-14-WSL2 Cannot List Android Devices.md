@@ -6,8 +6,10 @@ category: "Problem Solutions"
 ---
 
 # WSL2 Cannot List Android Devices
+
 ## 問題描述
 這個問題的前題是Windows CMD以及WSL2都有正確安裝adb，但前者可以正常list出連接的device，後者卻為空
+
 ## How to Solve
 這是參考[StackOverflow - ADB device list empty using WSL2](https://stackoverflow.com/a/71414575/15036381)的說明，具體原理就是我們直接把Windows安裝adb的path，soft link給WSL2的path就可以了
 1. 先找出Windows安裝adb的path

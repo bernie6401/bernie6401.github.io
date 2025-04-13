@@ -14,6 +14,7 @@ category: "Security/Course/NTU ST"
 :::
 
 # 2.5 Graph Coverage for Specifications
+
 ## Design Spec.
 * What is design specification?
     * 描述軟體應該有的行為(可見或不可見都有可能)

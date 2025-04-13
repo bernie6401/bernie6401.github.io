@@ -6,6 +6,7 @@ category: "Tools/Others/Directory Fuzzing - Traversal Tools"
 ---
 
 # Directory Fuzzing/Traversal Tools
+
 ## According Survey Paper
 :::info
 Aggarwal, V., Kaur, D., Mittal, S., Prasad, T. J. S., Batra, D., & Garg, A. (2023, August). A Comparative Study of Directory Fuzzing Tools. In 2023 International Conference on Circuit Power and Computing Technologies (ICCPCT) (pp. 1368-1374). IEEE.

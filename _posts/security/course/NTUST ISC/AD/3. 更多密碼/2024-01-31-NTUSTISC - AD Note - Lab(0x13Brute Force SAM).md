@@ -19,7 +19,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
     * Password Spraying(用猜的)
     * GPO
     * 記憶體(lsass)
+
 ## Lab
+
 ### ==Brute Force SAM==
 前面有提到SAM在哪裡，所以只要直接打開就看的到密碼了嗎?你會得到一個access denied的錯誤，原因是他已經被設定成read lock了，導致目前無法正常存取
 ![](https://hackmd.io/_uploads/SyEUVnMRn.png)

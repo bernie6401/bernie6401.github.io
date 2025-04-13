@@ -6,6 +6,7 @@ category: "Security/Course/Tai.HolyHigh/SoC基礎維運"
 ---
 
 # TaiwanHolyHigh - SoC基礎維運 - ArcSight教學
+
 ## Set Up
 先進到https://bit.ly/44IFecN下載ArcSight Console，並且全部default下一步
 1. (editor需要admin權限)進入localhost host DNS解析 -> C:\Windows\System32\drivers\etc\host

@@ -7,6 +7,7 @@ category: "Problem Solutions"
 
 # /wp-admin VS /wp-content VS /wp-include VS /wp-json
 From Chat-GPT:
+
 ### 1. **`wp-admin`**
    - **用途**: WordPress 的後台管理系統。
    - **位置**: `/wp-admin/`

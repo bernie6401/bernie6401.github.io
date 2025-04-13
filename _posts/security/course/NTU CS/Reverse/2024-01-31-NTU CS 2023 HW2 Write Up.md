@@ -10,8 +10,10 @@ Name: 何秉學    Student ID: R11921A16
 :::spoiler TOC
 [TOC]
 :::
+
 ## Lab-HelloRevWorld
 Flag: `FLAG{h311O_revers1ng_3ngineer5}`
+
 ### 解題流程與思路
 這一題主要是練習如何把如何把bytes變成字串:
 1. 可以先把bytes的型別定義好(單獨的bytes變成array)，變成array有兩種方法，第一種是直接用`Y`定義他的型別成`int dword_2008[32]`，前面的int就看每一個字元是來決定，後面`[32]`就代表有多少字元變成array；第二種方法就是直接按`d`改變一個字元的型態變成int，然後在`edit/Array`的地方可以叫出`Convert to array`的視窗(如果前面沒有先用`d`改變型態的話，他會以為所有字元都是一個byte，然後總共有128個字元這樣換算，但其實我們是總共32個字元，每一個字元是4個bytes，也就是int，這一點要特別注意)
@@ -161,15 +163,19 @@ $\downarrow$
 .rodata:0000000000002008 text "UTF-32LE", 'FLAG{h311O_revers1ng_3ngineer5}',0
 ```
 :::
+
 ## Lab-AssemblyDev
 Flag: `FLAG{c0d1Ng_1n_a5s3mB1y_i5_sO_fun!}`
+
 ### 解題流程與思路
 這一題有三小題，包含`arithmatic.py`, `data_movement.py`, 以及`condition.py`，過關的條件是要自己寫assembly然後達帶這三個關卡的register或stack條件，我是直接用[compiler explorer](https://godbolt.org/)幫我把c code直接轉assembly然後再利用[assembly x86 emulator](https://carlosrafaelgn.com.br/Asm86/)做double check，速度應該會快很多
 * 題目一: 就是一般的運算(\+\-*/)
 * 題目二: 這邊是考register和stack之間的搬運和運算
 * 題目三: 需要考慮condition，然後看要跳轉到哪邊，重點是jump有分signed和unsigned，而仔細看source code他只有考慮unsinged，所以我們要特別挑選[jump的類別](https://redirect.cs.umbc.edu/courses/undergraduate/CMSC313/spring04/burt_katz/lectures/Lect05/unsignedCondJumps.html)
+
 ## HW-crackme_vectorization
 Flag: `FLAG{yOu_kn0w_hOw_to_r3v3r53_4_m47riX!}`
+
 ### 解題流程與思路
 一陣基本操作處理完比較好看的狀態後，首先發現一開始先輸入字串的長度(應該是49)，然後我們要輸入一些東西(就是按照前面輸入，總共也是49次)，接著就會進到很醜沒辦法解析的function(我暫時不理他)，一開始我在猜應該是做encryption之類的事情，接著就比對mem，一樣就噴correct這樣，我認為超級醜的function應該不是這次出題的重點，因為要全部逆完真的很有難度，對於學習也沒必要，此時我開始用動態+通靈的方式猜他在幹嘛，依照題目的標題和後面對比字串長度必須要等於`7`這兩個東西判斷，他應該是在做矩陣之類的操作，而那個醜不拉基的function應該是類似乘法或是加法之類的功能，有了想法就可以實驗他的操作
 如果輸入長度49
@@ -295,8 +301,10 @@ Flag: `FLAG{yOu_kn0w_hOw_to_r3v3r53_4_m47riX!}`
     :::
     
 由以上實驗可以大致確認醜不拉基function做的事情就是矩陣乘法，而我們知道他比較的乘法結果，也知道和我們輸入的矩陣相乘的乘數，換言之可以反推回我們應該輸入的東西為何
+
 ## HW-Banana Donut Verifier
 Flag: `FLAG{d0_Y0u_l1k3_b4n4Na_d0Nut?}`
+
 ### 解題流程與思路
 初步的基礎操作逆完之後，主要流程是這樣:
 1. 先輸入1023個char
@@ -324,8 +332,10 @@ Flag: `FLAG{d0_Y0u_l1k3_b4n4Na_d0Nut?}`
     ```
     
 從以上的memory dump出來的結果就知道全部輸入\x00和要比對的key只有前面48 bytes不一樣，但後面都一樣，而和全部都是\x10的輸出結果比較發現都是差\x10(不管正負)，因此我有大膽的想法，這該不會是XOR的操作ㄅ，經過比對果然無誤，所以我只要把要比對的key和全部都是\x00的結果進行XOR就知道我應該輸入甚麼了
+
 ## Lab-Clipboard Stealer 1 -- sub_140001C80
 Flag: `FLAG{T1547.001}`
+
 ### 解題流程與思路
 從解析版中開始由上而下可以知道攻擊者的完整意圖
 1. 取得目前執行程式的名稱和名稱長度
@@ -339,8 +349,10 @@ Flag: `FLAG{T1547.001}`
 
 從ATT&CK的網站可以看到persistence的子頁面出現autostart其實和目前的狀態最吻合，就看他是用甚麼方法達到該目的，從其中的技巧來看會發現有很多種方法可以達到此效果，例如改變機碼或是改變lsass driver之類的，而我們的技巧被歸類在T1547.001
 [Att&CK - T1547](https://attack.mitre.org/techniques/T1547/)
+
 ## Lab-Clipboard Stealer 2 -- sub_140001030
 Flag: `FLAG{1480}`
+
 ### 解題流程與思路
 攻擊者的完整意圖
 1. 設定一個時間(2023/11/18 0:0:0)
@@ -354,14 +366,17 @@ Flag: `FLAG{1480}`
 > Adversaries may use execution guardrails to constrain execution or actions based on adversary supplied and environment specific conditions that are expected to be present on the target. Guardrails ensure that a payload only executes against an intended target and reduces collateral damage from an adversary’s campaign. Values an adversary can provide about a target system or environment to use as guardrails may include specific network share names, attached physical devices, files, joined Active Directory (AD) domains, and local/external IP addresses.
 
 常見的條件有: 漏洞、系統語言、時間、Hostname...
+
 ## Lab-Clipboard Stealer 3 -- sub_140001C80
 Flag: `FLAG{th15_I4_4_mut3x_k1LL_SwitcH}`
+
 ### 解題流程與思路
 這一題有個小地方要注意，雖然觀察過source code是非常簡單的建立mutex的操作，題目想要知道的mutex name也非常簡單，只是個xor就知道的東西，不過在實作上需要注意endian的問題，一開始我是直接按照`0x64, 0x63, 0x62, 0x7A`的順序，但結果輸出一些ascii的字元，其實他是從後面讀進來再開始操作xor
 
 * Malware使用Mutex的用途
     * 與一般程式相同，用於跨 process / thread 間的 synchronization
     * 避免重複感染、勒索 (LockBit 3.0、RedLine Stealer)
+
 ### Exploit
 ```python
 f = [0x0E, 0x0A, 0x52, 0x51, 0x25, 0x2B, 0x57, 0x3B, 0x4E, 0x3D, 0x0E, 0x11, 0x0E, 0x51, 0x1B, 0x3B, 0x11, 0x53, 0x2F, 0x28, 0x25, 0x31, 0x14, 0x0D, 0x0E, 0x01, 0x2B, 0x64]
@@ -374,8 +389,10 @@ for i in range(len(f)):
 
 print("Flag: FLAG{" + "".join(Name) + "}")
 ```
+
 ## Lab-Clipboard Stealer 4 -- sub_140001C80
 Flag: `FLAG{462fe0007f86957f59824e113f78947c}`
+
 ### 解題流程與思路
 1. 進到`sub_140001BF0`之後可以先觀察`sub_140001870`，前面有source code可以看到他正在比對`byte_140005040`的前面兩個字元是不是等於`MZ`，也就是一支PE file的magic header，並且又比對了後面0x18的位置是不是等於0x20B，也就是另外一個magic header(用來判斷該程式是否可於64-bits運行)，由以上操作幾乎可以確定駭客把真正的程式(可能是惡意的)塞在正常的PE file中
     :::info
@@ -386,6 +403,7 @@ Flag: `FLAG{462fe0007f86957f59824e113f78947c}`
 
 ## Lab-Clipboard Stealer 5 -- sub_140001C80
 Flag: `FLAG{C2_cU540m_Pr0t0C01}`
+
 ### 解題流程與思路
 1. `connet_to_c2`
     目標是取得c2 server的IP和port number
@@ -439,8 +457,10 @@ Flag: `FLAG{C2_cU540m_Pr0t0C01}`
         Key: `f0 c7 d3 0e 7f 2c 15 ba`
         Cipher: `43 60 5b 5f 4e ba 9f 9e e3 78 6f 55 cb 81 24 fa e7 bf 0d 1b 3c 24 b7 4e`
         接下來就可以直接用cipherchef的線上功能decrypt其中的內容
+
 ## Lab-Clipboard Stealer 6 -- sub_140001C80
 Flag: `FLAG{MessageBoxA}`
+
 ### 解題流程與思路
 在my_start函數中
 1. #5的for-loop就是找 exported_next-stage.dll 的檔案起點
@@ -459,8 +479,10 @@ do
     hash += __ROL4__(hash, 11) + 1187 + *api_name++;// do self-defined hash function
 while ( *api_name );
 ```
+
 ## Lab-Scramble
 Flag: `FLAG{scramble_and_using_solver_to_solve_it}`
+
 ### 解題流程與思路
 這一題先看source code會發現他做了一連串的scramble動作，包含加減和移位，而次數也不一定，他主要是針對flag中的每一個字元都做1~6次不等的操作，可能是加也可能是減甚至是移位，不過題目也有給我們這些pattern所以應該是可以直接透過這些pattern進行還原，但我們可以用z3下一大堆constraint就可以不用那麼麻煩了
 
@@ -469,8 +491,10 @@ z3的大致步驟:
 2. 建立符號 - 以此lab來說就是建立43個符號對應每一個flag字元
 3. 加上constraint - 以此lab來說每一個flag字元都應該限制在空白到0x7f之間，另外還要加上每一個符號(就是flag字元)，經過我們已知的scramble pattern之後應該要是最後的target
 4. 判斷有無解，如果有的話就把每一個符號的值取出來
+
 ## Lab-Super Angry
 Flag: `FLAG{knowing_how_2_angr!}`
+
 ### 解題流程與思路
 可以從IDA解析出來的結果得知，這支程式的主要流程是我們執行的時候command多帶一個參數，而這個參數會直接進到scramble_fn做一些操作，最後會再跟verify_key進行memcmp，大略分析一下scramble_fn後發先他是一個偏簡單但我們懶得看得操作，所以可以試看看用angr解看看
 
@@ -479,8 +503,10 @@ angr基本流程:
 2. 建立claripy symbol - 以這個lab的例子來說就是建立我們輸入進去的程式的input string
 3. 建立初始的state - 以這個lab來說就是我們一開始輸入的input string
 4. 有了proj / symbol / initial state之後就要開始讓他跑起來
+
 ## Lab-Unpackme
 Flag: `FLAG{just_4_simple_unpackme_challenge!}`
+
 ### 解題流程與思路
 這一題一開始就知道是UPX加殼，但是直接試了upx幫忙decompress，卻遇到error，代表可能有一些問題(在Unix環境底下?)，所以我嘗試使用手動脫殼，去分析其中的內容
 
@@ -598,8 +624,10 @@ Flag: `FLAG{just_4_simple_unpackme_challenge!}`
        $rcx = 0x00007ffff7ffa030 → "just_a_key"
     )
     ```
+
 ## HW-Baby Ransom 1
 Flag: `FLAG{e6b77096375bcff4c8bc765e599fbbc0}`
+
 ### 解題流程與思路
 這一題很難的地方在於很多東西都是runtime才決定的，包含embedded pe file，或者是一些function pointer，所以只能慢慢跟著動態去猜他的行為
 1. main function中可以直接看到下面一點的地方，上面只是一些初始化，不用管他，真正在import embedded payload或是進行攻擊的地方在下面的NetworkConfig_1DBB
@@ -619,8 +647,10 @@ Flag: `FLAG{e6b77096375bcff4c8bc765e599fbbc0}`
     * 因此只要利用Scylla把這一部分的memory dump出來再拿去md5 file取得hash就可以了
         ![圖片.png](https://hackmd.io/_uploads/S1CGXjum6.png)
         ![圖片.png](https://hackmd.io/_uploads/H1JEmjOXa.png)
+
 ## HW-Baby Ransom 2
 Flag: `FLAG{50_y0u_p4y_7h3_r4n50m?!hmmmmm}`
+
 ### 解題流程與思路
 這一題只要慢慢分析其實很簡單，也有很多是上課就有教到的地方，一樣從上到下(source code)
 1. 首先，如果直接執行這個程式的話，過沒多久會跳出一個視窗，其他部分"好像"沒有甚麼特別攻擊的行為，從`WinMain`中可以大略知曉這些事情，也就是攻擊者事先決定好一個通知的視窗(就是要叫你付錢的視窗)的一些設定(包含顏色、字形、字體等等)，接著就進到`MainPayload`搞事
@@ -662,8 +692,10 @@ Flag: `FLAG{50_y0u_p4y_7h3_r4n50m?!hmmmmm}`
     3. 第二個parameter就是加密所需要的key，大小是0x8，位置是`0x324E556613F`，所以加密所需的key是==2F 37 32 38 33 33 31 33==
         ![圖片.png](https://hackmd.io/_uploads/S1Oagqc76.png)
 5. 既然已經知道所有的流程就直接使用線上工具解密即可
+
 ## HW-Evil FlagChecker
 Flag: `FLAG{jmp1ng_a1l_ar0und}`
+
 ### 解題流程與思路
 首先，先用ida看主要的流程，會發現有很多jmp系列的位址都跑掉了，此時就要修復，就是data(d)和code( c)之間交錯使用，並且把那些奇怪的data byte換成nop，修把patch好的部分，就會呈現上面的source code這樣
 

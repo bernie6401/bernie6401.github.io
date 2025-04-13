@@ -6,7 +6,9 @@ category: "Problem Solutions"
 ---
 
 # How to build apk file on React-Native Project?
+
 ## **1. 確保已完成的環境設置**
+
 ### 必備工具：
 1. 安裝 [Node.js](https://nodejs.org/).
 2. 安裝 [Java JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) (推薦 11 或更高版本)。
@@ -24,6 +26,7 @@ category: "Problem Solutions"
    ```
 
 ---
+
 ## **2. 檢查 React Native 項目配置**
 在項目中，確保以下內容已經配置：
 

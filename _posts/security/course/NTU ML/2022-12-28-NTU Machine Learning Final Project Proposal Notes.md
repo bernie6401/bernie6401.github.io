@@ -9,11 +9,13 @@ category: "Security/Course/NTU ML"
 ###### tags: `NTU_ML` `Machine Learning`
 
 ## Deep6mAPred: A CNN and Bi-LSTM-based deep learning method for predicting DNA N6-methyladenosine sites across plant species
+
 ### Introduction & Motivation
 * DNA methylation alters activities of DNA segments without changing the sequence, which thus yields a wide variety of roles in the cellular processes across organisms or tissues
 * DNA methylation is widely distributed both in prokaryote and in eukaryote, but the proportion of methylated residues differs greatly with species
 * DNA methylation is essential for normal development
 * DNA methylation is increasingly attracting attentions from biologists
+
 ### Related works
 * Even Luo et al.[41] - proposed the DNA 6mA as a new epigenetic mark in eukaryotes
 * 2 major ways to detect DNA 6mA sites: 
@@ -58,8 +60,10 @@ The 6mA refers to a biological process where the methyl group is attached to the
 A large volume of evidence suggested that the DNA 6mA would play vital roles in many key biological processes.
 The DNA 6mA participated in regulation of gene expression both in prokaryotes and in some eukaryotes, and was responsible for DNA repair as well as DNA replication.
 The 6mA distinguished invading foreign DNAs from host DNA in prokaryotes, was closely associated with many disease including tumor in human genome, and was involved in regulation of drug resistance in triple negative breast cancer
+
 ### My Opinions
 For this paper, my perspective is this is a little bit trivial to solve the problem. For simplicity speaking, they just change the stacking model structure to a sequence structure. In addition, the result of this paper is exaggerating.
+
 ### Comparison
 * The result below is the experience on `6mA-rice-LV`(rice) dataset, and this paper method is `Deep6mAPred`. They used 5-fold cross validation on this data(`6mA-rice-LV`). In the original context, they said:
     > The `Deep6mAPred` reached better Sn than three baseline methods (`Deep6mA` , `SNNRice6mA-large` and `Deep6mAPred`), and achieved competitive SP, ACC and MCC in contrast with the `Deep6mA`, which completely outperformed the `SNNRice6mA-large` and MM-6mAPred.
@@ -93,15 +97,18 @@ We can see that in each experiment of different species, with attention mechanis
 * They also used attention mechanism to improve their model and it's really helpful proved by ablation experiment.
 * In addition, they developed a user-friendly webserver to automatically detect 6mA sites
 * Deep6mAPred can also detect other plants
+
 ### References
 
 
 ## Ensemble Learning of Convolutional Neural Network, Support Vector Machine, and Best Linear Unbiased Predictor for Brain Age Prediction: ARAMIS Contribution to the Predictive Analytics Competition 2019 Challenge
+
 ### Introduction & Motivation
 * Chronological age is an important risk factor for many conditions such as neurological disorders (e.g., Alzheimer’s and Parkinson’s), chronic (including cardiovascular) disorders, cancer, or stroke, to name a few.
 * However, it is an imperfect predictor of disease risk or of healthy individuals’ functional capability
 * Brain age (and PAD(predicted age difference)) trained on healthy participants may be applied to case-control samples where they have been shown to be non-specific predictors of disease status: Alzheimer’s disease and conversion[8-10], schizophrenia[11], alcohol dependence[12], cognitive impairment[13], or functional abilities[6, 14]
 * However, chronological age cannot explain everything, brain age correlates with disease, mortality, and function beyond what chronological age can explain
+
 ### Related works
 [2]Cole J, Marioni RE, Harris SE, Deary IJ. Brain age and other bodily “ages”: implications for neuropsychiatry. Mol Psychiatr. (2019) 24:266–81. doi: 10.1038/s41380-018-0098-1 
 [3]Horvath S, Raj K. DNA methylation-based biomarkers and the epigenetic clock theory of ageing. Nat Rev Genet. (2018) 19:371–84. doi: 10.1038/s41576-018-0004-3 
@@ -122,6 +129,7 @@ We can see that in each experiment of different species, with attention mechanis
 
 ### My Opinions
 The main opinion to this paper is that it's report of the competition they attended. And listed as clear as possible what problems they encountered, what techniques they used etc.
+
 ### Comparison
 * The * symbol represents a significant reduction in $MAE$ by Ensemble Learning compared to Inception alone ($p\ value < 0.05$)
     * For the objective of minimize MAE, the way of deep learning is better than `BLUP` and `SVM` ($pvalue\ of\ paired\ t-test<3.1e-4$)
@@ -143,6 +151,7 @@ The main opinion to this paper is that it's report of the competition they atten
 * The participant is older, the prediction error is larger. → Therefore, the predictor will tends to underestimate the age of older participants and overestimate the age of younger participants.
 We did not observe significant associations of prediction errors with gender or location
 ![](https://imgur.com/a3ugXLy.png)
+
 ### Other Issue
 * They didn't explain why they used two `6-Layers CNN` to combine and the effect in detailed.
 * They also didn't explain the gray/white matter map difference and the properties of these maps in detailed.
@@ -153,10 +162,12 @@ We did not observe significant associations of prediction errors with gender or 
 * Ranked third in PAC2019
 * Ranking of prediction accuracy may be highly dependent on the metric chosen as well as on the test data
 * Evaluated the effect on performance of algorithm choice, ensemble learning methods, feature input/data processing, number and type of scores in ensemble learning, and covariates such as age, sex, and site
+
 ### References
 
 
 ## Machine learning workflows to estimate class probabilities for precision cancer diagnostics on DNA methylation microarray data
+
 ### Introduction & Motivation
 * DNA methylation data-based precision cancer diagnostics
 * Application for class probability (CP): Stratified Medicine
@@ -187,12 +198,15 @@ We did not observe significant associations of prediction errors with gender or 
 * The number of features (p) vastly outnumbers the sample size (n)
     [9]. Hastie, T., Tibshirani, R. & Friedman, J. The Elements of Statistical Learning: Data Mining, Inference and Prediction 2nd edn (Springer, New York, NY, 2009).
     [20]. Simon, R. Class probability estimation for medical studies. Biom. J. 56, 597–600 (2014).
+
 ### Background
 * The problem of stratified medicine
     1. Unbiased classification problem (there are fewer patients in some categories, of course there will be inequality problems)
     2. Usually medical diagnosis is to classify patients in several categories of interest, but real medical behavior should be able to achieve multi-category diagnosis (50 or more than 100 categories)
+
 ### My Opinions
 This paper is just like a `Readme` file that wanna teach someone how to use their tool, each technique they used, each problem they encountered, and also which programming package they used etc. as clear as possible. Although the paper should be as clear as possible, but too much unnecessary information is really a waste of time and annoying.
+
 ### Comparison
 * **Random Forest(RFs)**
     * Vanilla RF(vRF)
@@ -222,9 +236,12 @@ This paper is just like a `Readme` file that wanna teach someone how to use thei
     * Overall ME of 5.1% and AUC of 99.9%, with the second lowest BS (0.15) and LL (0.43) among the base ML classifiers studied
 
     ![](https://imgur.com/XXdGN2p.png)
+
 ### Other Issue
+
 ### Conclusion
 * We performed extensive comparative analyses of four well-established classifier algorithms including RF, `ELNET`, `SVM` and boosted ensemble trees in combination with `Platt scaling` and `multinomial ridge regression`
 * The best overall two-stage workflow was MR-calibrated `SVM-LK`, and it generated the best overall BS, LL and AUC metrics.
 * For calibration, `multinomial ridge-penalized regression` was the most effective regardless of the primary classifier
+
 ### References

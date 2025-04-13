@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Crypto/Classic"
 ---
 
 # PicoCTF - XtraORdinary
+
 ## Background
 [How to Convert Hex String to Bytes in Python?](https://blog.finxter.com/how-to-convert-hex-string-to-bytes-in-python/)
 [Python 好用模組介紹 - itertools & more-itertools](https://myapollo.com.tw/blog/python-itertools-more-itertools/)
@@ -59,6 +60,7 @@ with open('output.txt', 'w') as f:
     f.write(ctxt.hex())
 ```
 :::
+
 ## Recon
 這一題我覺得出的不錯，首先他把flag和secret-key做XOR，然後做了一大堆random_strs之間的XOR，但我們都知道XOR做了兩次等於沒做，所以最後的output其實就是
 $$
@@ -72,6 +74,7 @@ $$
 5. `break it`
 
 之間的排列組合，進行XOR，然後我們可以用itertools中的combinations method，先把所有組合排出來(這個寫法還不錯，可以學起來)，然後依序把結果存起來，接著我們就要找出key是多少，由於第14行會把key延伸(反正大概就是這個意思)，而我們唯一知道的是最後的flag一定是`picoCTF{`開頭，也就是說這個key有大機率應該只有8個字元，那我們就可以拿前面得到的32種結果，直接和`picoCTF{`進行XOR然後查看一下最後的strings有沒有有意義且長度小於8的，從結果來看，的確有一個`Africa!`的東西印入眼簾，看起來應該就是我們的key，所以我們就可以直接進行最後的XOR得到flag
+
 ## Exploit
 ```python!
 from itertools import product
@@ -142,6 +145,7 @@ for i in range(len(cipher)):
         print(f"Flag = {bytes.fromhex(ptxt.hex()).decode('cp437')}")
         break
 ```
+
 ## Reference
 [pico crypto XtraORdinary wp - partender810](https://partender810.hatenablog.com/entry/2021/05/19/210459#XtraORdinary-150pt)
 [XtraORdinary WP - whiteSHADOW1234](https://github.com/whiteSHADOW1234/picoCTF_writeup/blob/main/picoCTF_writeup(11~15page).md#xtraordinary)

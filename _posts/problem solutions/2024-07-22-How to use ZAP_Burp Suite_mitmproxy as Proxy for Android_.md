@@ -16,6 +16,7 @@ category: "Problem Solutions"
     2. 設定成如下
         ![圖片](https://hackmd.io/_uploads/HJoGB9CTa.png =400x)
     只要ZAP有打開，就可以連線出去，但如果Proxy已經setup，卻沒有打開ZAP會通不到外面喔
+
 ## 補充
 1. 如果上述的步驟已經執行完但Proxy只能攔截到GET Method的封包，就代表憑證爛掉了，和在手機上一樣，但手機會出現這個問題還有可能是SSL Pinning，網頁端只需要重新安裝ZAP Generate的新憑證就好
 2. 如果設定Firefox的Proxy時，是設定成`使用系統Proxy設定`，那就要在電腦的設定中，更改Proxy的config
@@ -29,6 +30,7 @@ category: "Problem Solutions"
 這個完全是翻譯並且按照[ Intercepting Android App Traffic with BurpSuite ](https://youtu.be/xp8ufidc514?si=4y0JhxW0kbnO1HjF)的影片教學
 
 ## Prepare
+
 ### (有取得Root實機的情況下)
 如果要保險一點零失敗的達成目標，按照影片的步驟和環境比較好，如果是已經有一台取得Root的實機，就可以忽略用VMware開的Emulator
 * 取得Burp Suite Cert(在開啟Burp Suite的前提下)
@@ -47,6 +49,7 @@ category: "Problem Solutions"
     重新安裝Magisk模組→
     Reboot
     接著就直接跳到下一段(實際攔截前)
+
 ### (利用VMware開Emulator)
 * VMware 記得啟動 Virtualization
 * 安裝Genymotion, virtualbox, adb
@@ -111,6 +114,7 @@ category: "Problem Solutions"
     # exit
     $ adb push 9a5ba575.0 /system/etc/security/cacerts/
     ```
+
 ## 實際攔截前
 1. 打開的Burp Suite一定要把Bind to address改成All interfaces
     ![圖片](https://hackmd.io/_uploads/B1HBnVVPR.png =400x)
@@ -184,11 +188,14 @@ category: "Problem Solutions"
     `-f`代表腳本的目標為何
 5. 查看Burp Suite
     此時如果Burp Suite有開Intercept，並且App有送出一些東西，理論上都會被攔截到
+
 ## 對比
+
 ### 沒有使用Frida的時候
 會得到以下截圖
 ![Screenshot_20240523-101015](https://hackmd.io/_uploads/Bk7aFN37R.png#pic_center =200x)
 並且Burp Suite沒有得到任何關於instagram的封包
+
 ### 有使用Frida的時候
 例如我在前面的登入介面輸入一些東西，可以在封包紀錄中找到我輸入的Username和Password
 ![Screenshot_20240523-120440](https://hackmd.io/_uploads/H1-tlBhXR.png =200x)

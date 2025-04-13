@@ -10,6 +10,7 @@ category: "Security/Course/NTU CNS/Paper Critique"
 [![hackmd-github-sync-badge](https://hackmd.io/zB9SPcdEQkaaEMKlOtSAQg/badge)](https://hackmd.io/zB9SPcdEQkaaEMKlOtSAQg)
 
 ## Reading Topic: Reflections on trusting distributed trust
+
 ## Reading Topic: Reflections on Trusting Trust
 ###### tags: `NTUCNS`
 Name: 何秉學	Student ID: R11921A16
@@ -32,6 +33,7 @@ Name: 何秉學	Student ID: R11921A16
 ---
 
 :::
+
 ## Summary of Reflections on Trusting Trust
 It attempts to convey the concept that there are vulnerabilities in the compiler that are not easy to find. The main concept is if the compiler itself is tampered with maliciously, then the whole system will become vulnerable.
 In this paper, the author tried to demo how his perspective and actual attack concept.

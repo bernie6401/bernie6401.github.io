@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - JAUTH
+
 ## Background
 [NTUCNS - HW3 - JWT Authentication](https://hackmd.io/JO7xByQgQWK67eU0goHMeA?view#c)
 
@@ -17,5 +18,6 @@ Payload: `eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdXRoIjoxNjg3NzY0MjM1MTAzLCJhZ2
 
 
 Flag: `picoCTF{succ3ss_@u7h3nt1c@710n_72bf8bd5}`
+
 ## Reference
 [ picoCTF : JAUTH (Challenge 8) ](https://youtu.be/njsjTVcwGwY)

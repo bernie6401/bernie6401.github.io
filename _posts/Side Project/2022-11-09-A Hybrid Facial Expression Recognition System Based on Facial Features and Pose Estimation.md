@@ -57,6 +57,7 @@ python test_leave_one_out.py -p --data_type GEMEP --num_classes 12
 ```
 
 ## Result
+
 ### 7 Classes - Face / Body / Whole
 <img src="./Confusion_matrix/GEMEP_Face7_acc0.66.png"/>
 <img src="./Confusion_matrix/GEMEP_Body7_acc0.5833.png"/>

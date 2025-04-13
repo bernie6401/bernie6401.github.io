@@ -26,8 +26,10 @@ Part 2: https://hackmd.io/@SBK6401/HkAbt-NXT
 
 ## 前提
 這一題有分兩個裝置，一個是Desktop，另外一個是server，也分別對這兩個進行FTK packet和export memory，所以在分析的時候要特別注意，以下問題的順序會在這兩個裝置之間切換
+
 ## ==Q1==
 > What’s the Operating System version of the Server? (two words) 
+
 ### Recon
 這一題是針對server，所以可以直接用volatility對server memory進行分析，或者是直接用FTK對register進行稽核
 起手式
@@ -53,20 +55,26 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
 :::spoiler Flag
 Flag: `2012 R2`
 :::
+
 ## ==Q2==
 > What’s the Operating System of the Desktop? (four words separated by spaces) 
+
 ### Recon
 這一題可以參考[Hunter - Part 1 - Q5](https://hackmd.io/@SBK6401/By1BpZIf6#Q5)，我可以直接把Software的registry export出來，然後用registry explorer查看`/root/Microsoft/Windows NT/CurrentVersion`就會知道==Desktop==的OS
+
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/SJlmnxMmT.png)
 
 :::spoiler Flag
 Flag: `Windows 10 Enterprise Evaluation`
 :::
+
 ## ==Q3==
 > What was the IP address assigned to the domain controller? 
+
 ### Recon
 可以參考[Hunter - Part 1 - Q2](https://hackmd.io/@SBK6401/By1BpZIf6#Q2)
+
 ### Exploit
 就是察看Server的SYSTEM中，`ControlSet001/Services/Tcpip/Parameters/Interfaces/`
 ![圖片.png](https://hackmd.io/_uploads/rkCmT0Xma.png)
@@ -74,10 +82,13 @@ Flag: `Windows 10 Enterprise Evaluation`
 :::spoiler Flag
 Flag: `10.42.85.10`
 :::
+
 ## ==Q4==
 > What was the timezone of the Server? 
+
 ### Recon
 可以先參考[Hunter Part 1 - Q6](https://hackmd.io/@SBK6401/By1BpZIf6#Q6)
+
 ### Exploit
 這一題很迷，先查看Server的SYSTEM的`ControlSet001/Control/TimeZoneInformation/`的TimeZoneKeyName是Pacific Standard Time，代表不是UTC-8就是UTC-7，但這兩個都不是答案，隨便try了以後再看hint發現，原來是Admin設定錯時區，要發現這一件事情真的很難，看了[^szechuan-sauce-wp]還是一知半解，不過我試著自己操作和解釋
 
@@ -99,21 +110,26 @@ Flag: `10.42.85.10`
 :::spoiler Flag
 Flag: `UTC-6`
 :::
+
 ## ==Q5==
 > What was the initial entry vector (how did they get in)?. Provide protocol name. 
+
 ### Recon
 從上一題就可以知道他是利用RDP連到domain controller
 
 :::spoiler Flag
 Flag: `RDP`
 :::
+
 ## ==Q6==
 > What was the malicious process used by the malware? (one word) 
+
 ### Recon
 這一題提到malware馬上就要想到
 1. 他怎麼傳送過去到受害主機$\to$wireshark$\to$Export Object
 2. 如果他有跑起來，可不可以直接知道是哪一支檔案$\to$memory analysis$\to$volatility$\to$pslist
 3. 如果可以dump出來就送到virustotal看
+
 ### Exploit
 1. 首先我先用volatility看他執行process的狀況
     :::spoiler Result
@@ -221,10 +237,13 @@ Flag: `RDP`
 :::spoiler Flag
 Flag: `coreupdater`
 :::
+
 ## ==Q7==
 > Which process did malware migrate to after the initial compromise? (one word) 
+
 ### Recon
 這一題的直覺是利用volatility的malfind看有沒有利用coreupdater去inject哪一些process
+
 ### Exploit
 從結果可以看到有幾個process有問題: 
 `Process: Microsoft.Acti Pid: 1292 Address: 0x10500120000`
@@ -852,20 +871,26 @@ Flags: PrivateMemory: 1, Protection: 6
 :::spoiler Flag
 Flag: `spoolsv`
 :::
+
 ## ==Q8==
 > Identify the IP Address that delivered the payload. 
+
 ### Recon
 直覺會想要volatility的netscan，但是結果實在是太多了，後來轉念一想直接看封包不就好了，所以我直接看原本傳送`coreupdater.exe`到server的IP
+
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/Syh-4-4Qp.png)
 
 :::spoiler Flag
 Flag: `194.61.24.102`
 :::
+
 ## ==Q9==
 > What IP Address was the malware calling to? 
+
 ### Recon
 直覺就是volatility netscan再grep
+
 ### Exploit
 ```bash
 $ ./volatility_2.6_win64_standalone.exe -f citadeldc01.mem --profile Win2012R2x64 netscan | grep coreupdater
@@ -877,10 +902,13 @@ Volatility Foundation Volatility Framework 2.6
 :::spoiler Flag
 Flag: `203.78.103.109`
 :::
+
 ## ==Q10==
 > Where did the malware reside on the disk? 
+
 ### Recon
 這一題直覺會在FTK上找，不過仔細想想可以直接volatility filescan再grep還比較快
+
 ### Exploit
 ```bash
 $ ./volatility_2.6_win64_standalone.exe -f citadeldc01.mem --profile Win2012R2x64 filescan | grep coreupdater.exe
@@ -894,5 +922,6 @@ Volatility Foundation Volatility Framework 2.6
 :::spoiler Flag
 Flag: `C:\Windows\System32\coreupdater.exe`
 :::
+
 ## Reference
 [^szechuan-sauce-wp]:[CyberDefenders: Szechuan Sauce CTF Writeup](https://ellisstannard.medium.com/cyberdefenders-szechuan-sauce-writeup-ab172eb7666c)

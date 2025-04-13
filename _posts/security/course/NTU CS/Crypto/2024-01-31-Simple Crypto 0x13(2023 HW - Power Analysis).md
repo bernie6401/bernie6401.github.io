@@ -6,10 +6,13 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto 0x13(2023 HW - Power Analysis)
+
 ## Background
 [ [edu-ctf 2023] week04 - crypto3 [1:30:36]](https://www.youtube.com/live/Q-gaGLJpJHc?si=DZgJm62AnoPHWiZF&t=5433)
+
 ## Source code
 json file recorded by TA
+
 ## Recon
 這一題全部都是刻出來的，也包含算correlation coefficient，後面才知道numpy有這東西，但反正根據老師上課的作法一步一步跟著做是絕對沒有問題的，包含以下步驟:
 1. Preprocessing
@@ -146,5 +149,6 @@ print('The key of AES is: FLAG{' + flag + '}')
 有嘗試過只選擇常見可使用的字元也就是`abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`，以及trace只選擇前95個data，也可以正常解析出AES key並且算的更快(大約快77倍左右)
 
 Flag: `FLAG{W0ckAwocKaWoCka1}`
+
 ## Reference
 [NTU Computer Security HW1 - AES](https://hackmd.io/@asef18766/NTU-CS-2022-hw1#AES)

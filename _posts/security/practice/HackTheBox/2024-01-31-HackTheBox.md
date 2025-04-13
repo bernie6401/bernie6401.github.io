@@ -9,8 +9,10 @@ category: "Security/Practice/HackTheBox"
 [TOC]
 
 ## [Web Requests-GET](https://academy.hackthebox.com/module/35/section/247)
+
 ### Background
 cURL - GET/Header
+
 ### Exploit
 ```bash
 $ curl 'http://144.126.206.249:31846/search.php?search=flag' -H 'Authorization: Basic YWRtaW46YWRtaW4='
@@ -18,8 +20,10 @@ flag: HTB{curl_g3773r}
 ```
 
 ## [Web Requests-POST](https://academy.hackthebox.com/module/35/section/224)
+
 ### Background
 cURL - POST/Cookie/Json Data/Header
+
 ### Exploit
 ```bash!
 $ curl 'http://142.93.47.151:30718/search.php' -b 'PHPSESSID=darsv7lbe3aa22nv4v82h039p6' -X POST -d '{"search":"flag"}' -H 'Content-Type: application/json'
@@ -27,7 +31,9 @@ $ curl 'http://142.93.47.151:30718/search.php' -b 'PHPSESSID=darsv7lbe3aa22nv4v8
 ```
 
 ## [Web Requests-CRUD](https://academy.hackthebox.com/module/35/section/227)
+
 ### Background
+
 ### Exploit
 ```bash!
 # Read all the city
@@ -46,6 +52,7 @@ $ curl -s http://165.232.44.246:32034/api.php/city/ \| jqcurl -s http://165.232.
 ```
 
 ## [JavaScript Deobfuscation-Decoding](https://academy.hackthebox.com/module/41/section/445)
+
 ### Exploit
 Use CypherChef First to decode `N2gxNV8xNV9hX3MzY3IzN19tMzU1NGcz`
 ```bash!
@@ -54,6 +61,7 @@ HTB{ju57_4n07h3r_r4nd0m_53r14l}
 ```
 
 ## [JavaScript Deobfuscation-Skills Assessment](https://academy.hackthebox.com/module/41/section/519)
+
 ### Exploit
 1. Ans: `api.min.js`
 2. Ans: `HTB{j4v45cr1p7_3num3r4710n_15_k3y}`
@@ -95,10 +103,12 @@ Must use Ubuntu 18.04.6 LTS to connect SMB server
 $ sudo openvpn {ovpn file}
 ```
 :::
+
 ### Background
 NMAP/SMB
 [Ubuntu SMB Command](https://blog.csdn.net/FruitDrop/article/details/66475465)
 [Ubuntu SMB Command 2](https://www.itprotoday.com/linux/linuxs-smbclient-command#close-modal)
+
 ### Exploit
 1. Ans: Apache Tomcat
 2. Ans: 2323

@@ -19,7 +19,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
         * Tool: [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec) - 結合各種功能的內網滲透神器
     * GPO
     * 記憶體(lsass)
+
 ## Lab
+
 ### ==Lab: How to detect Password Spraying==
 利用Event ID: 4625, 4648, 4771的認證失敗紀錄
 ![](https://hackmd.io/_uploads/ryxGszmR2.png)

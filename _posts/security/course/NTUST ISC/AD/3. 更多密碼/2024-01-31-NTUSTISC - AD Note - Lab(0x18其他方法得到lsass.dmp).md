@@ -12,8 +12,11 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 
 ## Background
 有了Mimikatz也不一定能夠用，因為Windows的defender也知道這是個好用的東西，對於攻擊方而言，所以會盡可能的直接刪除，那要怎麼bypass或用其他方法把LSASS帶走?
+
 ## Lab
+
 ### ==Take LSASS with other ways==
+
 #### 方法一
 在windows工作管理員中，找到Local Security Authority Process(LSASS)，右鍵選==建立傾印檔案==，就可以直接dump memory，然後再把這一份檔案丟到自己可以開mimikatz的電腦，就可以分析了，會有一樣的效果
 ![](https://hackmd.io/_uploads/ryINQ7NRh.png)
@@ -360,4 +363,5 @@ SID               : S-1-5-18
         cloudap :
 ```
 :::
+
 ## Reference

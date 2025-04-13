@@ -6,6 +6,7 @@ category: "Security/Practice/NISRA/Misc"
 ---
 
 # NISRA - Hidden?
+
 ## Background
 [advanced-potion-making:two::+1:](/uwox6r5hQ6St_8G-4mv1_g)
 
@@ -16,6 +17,7 @@ $ pngcheck haha.png
 haha.png  additional data after IEND chunk
 ERROR: haha.png
 ```
+
 ## Exploit - Recover + Unzip
 1. Recover PNG File
 先找文件尾（00 00 00 00 49 45 4E 44 AE 42 60 82）

@@ -6,8 +6,10 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Forky
+
 ## Background
 [ fork用法與範例 ](https://burweisnote.blogspot.com/2017/09/fork.html)
+
 ## Source code
 Main Function From IDA
 ```cpp
@@ -26,6 +28,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
   return 0;
 }
 ```
+
 ## Recon
 這一題很有趣，有了background之後其實對這一題的想法差不多就和[^Forky-wp]差不多，也就是parent process fork出child process後會繼續往下fork出grandchild process，直到parent process執行完成
 >  ```
@@ -42,6 +45,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 >  O   O    O   O    O   O    O   O    O   O    O   O    O   O    O   O  
 >  ```
 而且他們所操作的外部記憶體對象都會是一樣的，代表\*v4最終會被加16次，只是我沒有考慮到負號的問題，因為該題是32bits，代表加到一定程度會overflow，所以都沒解出來
+
 ## Exploit
 ```bash
 >>> base = np.array(1000000000).astype(np.int32)
@@ -51,5 +55,6 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 ```
 
 Flag: `picoCTF{-721750240}`
+
 ## Reference
 [^Forky-wp]:[Forky - WP](https://github.com/Dvd848/CTFs/blob/master/2019_picoCTF/Forky.md)

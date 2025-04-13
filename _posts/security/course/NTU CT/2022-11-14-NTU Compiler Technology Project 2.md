@@ -10,6 +10,7 @@ category: "Security/Course/NTU CT"
 :::spoiler
 [TOC]
 :::
+
 ## Objective
 
 This is compiler project 2 that aim to construct the scanner by handmade with some sample code. The output is symbol table that the frequency of each identifier and the result is sorted.

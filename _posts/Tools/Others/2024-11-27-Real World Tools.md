@@ -6,6 +6,7 @@ category: "Tools/Others"
 ---
 
 # Real World Tools
+
 ## Kali-Linux
 有關Kali的所有工具可以直接參考[Operating Systems for Ethical Hackers - A Platform Comparison of Kali Linux and Parrot OS](https://www.researchgate.net/profile/Syed-Zain-Ul-Hassan-2/publication/369305777_Operating_Systems_for_Ethical_Hackers_-_A_Platform_Comparison_of_Kali_Linux_and_Parrot_OS/links/6414544c315dfb4cce89b6a3/Operating-Systems-for-Ethical-Hackers-A-Platform-Comparison-of-Kali-Linux-and-Parrot-OS.pdf)
 :::info
@@ -73,6 +74,7 @@ ul Hassan, S. Z., Muzaffar, Z., & Ahmad, S. Z. (2021). Operating Systems for Eth
     # JWT
     $ hashcat -a 3 -m 16500 {jwt.txt} {secrets format, e.g. ?a?a?a?a}
     ```
+
 ## Escalation
 * For Windows: [Mimikatz](https://github.com/ParrotSec/mimikatz)
 
@@ -85,6 +87,7 @@ ul Hassan, S. Z., Muzaffar, Z., & Ahmad, S. Z. (2021). Operating Systems for Eth
 * [Alien Vault](https://otx.alienvault.com)
 * [IBM X-Force](https://exchange.xforce.ibmcloud.com)
 * [Any.Run](https://app.any.run/): Online Sandbox
+
 ## OSINT
 * [sherlock](https://github.com/sherlock-project/sherlock)
     ```bash

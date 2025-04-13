@@ -6,8 +6,10 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - function overwrite
+
 ## Background
 Array Bound
+
 ## Source code
 :::spoiler Source Code
 ```cpp=
@@ -115,6 +117,7 @@ int main(int argc, char **argv)
 
 ```
 :::
+
 ## Recon
 ```bash!
 $ file vuln
@@ -132,6 +135,7 @@ $ checksec vuln
 題目故意叫我們輸入兩個數字還特別在hint的地方說
 > Don't be so negative
 其實就是題是array bound的問題，所以簡單用gdb跟一下就可以換算fun array和check function pointer之間的差距還有該加上多少會變成easy_checker的地址
+
 ## Exploit
 ```python!
 from pwn import *

@@ -6,8 +6,10 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x36(2023 HW - Notepad-Stage 3)
+
 ## Source code
 呈上上題
+
 ## Recon
 這一題沒時間解出來，所以僅僅做個紀錄，包含和各位大老討論的結果以及流程
 1. 首先，後端有一個洞，就是在login的write，他的buf仔細和其他有call到write做對比會發現，他並沒有清掉buf的內容，這代表他會完完整整的把裡面的內容送到前端，但為甚麼前面兩題都沒有這個問題呢?因為前端並沒有把buf的內容印出來，所以首要目標是找到一個方法可以leak出內容的shellcode之類的，這樣我們就可以抓到text / libc base address

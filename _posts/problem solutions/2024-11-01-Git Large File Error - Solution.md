@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # Git Large File Error - Solution
+
 ## Reference
 [解决git不小心提交大文件导致无法提交问题 ](https://blog.51cto.com/frytea/4143701)
 [git filter-branch remove folder failed](https://stackoverflow.com/questions/30316723/git-filter-branch-remove-folder-failed)
@@ -23,6 +24,7 @@ $ git push #Then it works
 :::info
 如果在變更過程中出現`Cannot rewrite branches: You have unstaged changes.`，代表以一些檔案沒有被add以及commit，需要先把其他檔案都做完整的commit後才可以執行上述操作
 :::
+
 ## Scenario 2
 如果是加入後commit但在push之前就發現檔案太大並且自行刪除後再push，要用以下解法
 ```bash

@@ -109,6 +109,7 @@ E9 33 FF FF FF                          jmp     loc_401056
                                         end start
 ```
 :::
+
 ## Recon
 這一題就只是單純的用工人智慧看組語，我的想法是先看一下system call，他先把`/tmp/flag`打開[^system_call_大全][^note1]，如果有找到該檔案就會通過cmp然後跳到loc_40106F，並且讀取裡面的內容，然後loc_4010C3就看不懂了，==這時候就直接用gdb跟一下流程==，就會發現其實IDA的翻譯是有問題的，因為後面有一個`cmp rax, QWORD PTR [rbx+rdx*1]`，所以就稍微看一下內容是甚麼，
 ```
@@ -135,6 +136,7 @@ qword_40108B    dq 8D909984B8BEBAB3h    ; DATA XREF: .text:loc_4010CA↓o
 所以整體流程應該就蠻清楚了，這支程式就是先讀取/tmp/flag的資料然後從後面讀取8個bytes後==做了一些操作==和qword_40108B的每一個dq做比較，如果比較的結果不符合就會跳到loc_401035(print出wrong後直接exit(0))，如果每一個dq都是正確的就會到下面的loc_4010FD然後print出一些東西，所以很明顯的是那些<b>==操作==</b>到底做了甚麼事情，如果跟一下gdb就會發現只是
 1. 把數值變成負數
 2. 交換ah和al暫存器
+
 ## Exploit
 1. 先把ah和al的數值交換
 2. 取補數
@@ -150,6 +152,7 @@ for i in fake_flag:
 
 print("".join(FLAG))
 ```
+
 ## Reference
 [^system_call_大全]:[Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
 [^note1]:如果要打開的檔案存在則$rax的數值就會是一個大於零的數值，反之就會是小於零

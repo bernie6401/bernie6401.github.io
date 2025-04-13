@@ -15,6 +15,7 @@ category: "Security/Course/NTU CNS/Homework"
 :::
 
 ## 1. DDoS
+
 ### 1)
 * Hint: You can use I/O Graphs to find the time that the flow starts to burst. Then you can find the first packet near there.
 
@@ -44,6 +45,7 @@ category: "Security/Course/NTU CNS/Homework"
     :::spoiler Result Screenshot
     ![](https://hackmd.io/_uploads/HJ4hkte8n.png)
     :::
+
 ### 3)
 * Ans: 
 
@@ -322,6 +324,7 @@ How to deploy your service? You can refer to [this video](https://www.youtube.co
     Your service should output the token directly in the HTTP response body.
     Then I will execute 'GET /' with the token.
     :::
+
 ### b)
 * Basic HTTP Authentication:
     * Pros:
@@ -348,7 +351,9 @@ How to deploy your service? You can refer to [this video](https://www.youtube.co
         The server needs to maintain the secret key securely to prevent unauthorized JWT issuance or tampering.
         If a JWT is compromised, it remains valid until its expiration time, as tokens are self-contained and don't require round-trips to the server for validation.
     * JWT-based Authentication is a stateless and scalable method, making it suitable for distributed systems. It allows for fine-grained control and doesn't require server-side storage. However, the server needs to securely manage the secret key. If a JWT is compromised, it remains valid until expiration.
+
 ### c)
+
 #### Recon
 Alice implemented a great web service that uses the `JWT` stored in the cookie to authenticate users. So, we can access the token as below:
 * Header: `{"alg":"RS256","typ":"JWT"}`
@@ -357,6 +362,7 @@ Alice implemented a great web service that uses the `JWT` stored in the cookie t
     `Wz1mXQiYh3OvEdrQ2y1nWTwAbNs7HE1rjBQ8HBv9DhFLax9im4J4CQqS-vXymyuLJGXnrq18b4HlurRwjoIo1036ecsHM_dQfkkUZm9NqhYMmRwl1DRjQx7RvH4FccBIXhhOBu2Jzw3pSHfILFmMUqg26weWiu4f-gE3u5by0ylMqfIwZtG-J-VLA9QFSth9vobjM610MNIuTPQODH9r8Cy1cpttZ2QPuHfPMPARF11kIIJ-ebDXnV6t1I7FB6Nv4-Mk3JUsBOKBRMVh1eiZ2_3Xx4YzNUfZb5LQzCMcjsMpHWoV1WvIEEMW5SXAVOCbCyRUhcVtqXVI_VodM_hnKA`
     :::
 * Flag 1: Just hide in cookie and use `base64` online decoder, you'll obtain `CNS{JW7_15_N07_a_900d_PLACE_70_H1DE_5ecrE75}`
+
 #### Exp for another flag
 The description said another flag is hidden in the account with the username `admin`. Thus, we can tamper the token that used different algorithm to sign the payload.
 
@@ -482,6 +488,7 @@ Now, we know what `N` is, so we can generate a `.pem` file with properly format.
 Note that the expire time in payload should be careful.
 
 * Flag 2: `CNS{4L9_15_un7Ru573d_u53r_1nPU7}`
+
 ### d)
 * Just follow the [library code](https://github.com/pyauth/pyotp/tree/develop)
     :::spoiler Script Code
@@ -601,10 +608,12 @@ Note that the expire time in payload should be careful.
     ```
     :::
     Flag: `CNS{2FA_15_9R347_y0U_5H0Uld_h4v3_0N3}`
+
 ### e)
 * Hint 1: There are strings in the cookie that look like hashes, what could they be? 
 * Hint 2: If you failed to figure out what hint 1 means, here’s another method. It’s the era of Machine Learning. Even babies know what Convolutional Neural Network is. 
 * Hint 3: What are some common ways to get the user’s IP when the web service is behind a reverse proxy? Are these common practices secure?
+
 #### Recon and Hint
 * From the hint and description, we know that our goal is to brute force this login authentication with <font color="FF0000">captcha challenge</font> and <font color="FF0000">rate limitations(3 attempts)</font>.
 * As the [reference here](https://xxgblog.com/2018/10/12/x-forwarded-for-header-trick/), we can bypass the rate limitation.
@@ -637,6 +646,7 @@ Intercept the packet and send to <font color="FF0000">Intruder</font>
         :::
         Password: `everett`
         Flag: `CNS{8Ru73_f0Rc3_Pr3v3n710N_C4n_83_C0mPl1c473d}`
+
 ### f)
 One modern authentication method is the FIDO2 security key. This is a physical device that can be used to sign in to web-based applications and Windows 10 devices with your Azure AD account without entering a username or password. It is based on the open standards of FIDO2, which include the WebAuthn protocol and the Client to Authentication Protocol (CTAP).
 
@@ -649,6 +659,7 @@ It is more convenient, as it does not require remembering or typing passwords or
 It is more scalable, as it can work across thousands of accounts and services that support FIDO2 without sharing any secrets.
 
 ## 4. Accumulator
+
 ### a)
 * Just following the TODO hint and complete the each sub-function
     :::spoiler Exp
@@ -792,6 +803,7 @@ It is more scalable, as it can work across thousands of accounts and services th
             print( "The proof is wrong." )
     ```
     :::
+
 ### b) Really thx for R11944034 許智翔 for inspiration
 * Goal: We have to construct a fake member $m' \notin S$
 * We know: 
@@ -863,6 +875,7 @@ r.interactive()
 ```
 :::
 Flag: `cns{ph4k3_m3m83r5H1p!}`
+
 ### c)
 Like the previous question mentioned, we'd like to give a fake proof that can pass the verification process even the member is not in member set.
 * We know that if $gcd(m,\ delta)=1$, then we can find coefficient $a$ and $b$ so that $a\cdot m+b\cdot delta=1$: 
@@ -935,26 +948,33 @@ r.interactive()
 ```
 :::
 Flag: `cns{N0N_n0n_m3M83RSh1p!}`
+
 ### d)
 (Skip)
 
 ## Reference
+
 ### 1. DDoS
 * [使用Wireshark分析並發現DDoS攻擊](https://security.tencent.com/index.php/blog/msg/3)
 * [Kali Linux網絡掃描秘籍第六章拒絕服務(二)](https://cloud.tencent.com/developer/article/2182801)
 * [NTP放大DDoS攻擊](https://www.cloudflare.com/zh-tw/learning/ddos/ntp-amplification-ddos-attack/)
 * [分散式阻斷服務攻擊(DDoS)趨勢與防護](https://www.twcert.org.tw/tw/cp-157-6408-e0c62-1.html)
+
 ### 3. Web Authentication
+
 #### Basic Authentication
 * [How To Create Flask Web App In Digital Ocean Using App Deployment](https://www.youtube.com/watch?v=G1EVWLjwvrE&ab_channel=TechieBlogging)
 * [Python Flask – Read Form Data from Request](https://pythonexamples.org/python-flask-read-form-data-from-request/)
+
 #### Cookie-Based Authentication
 * [Get and set cookies with Flask](https://pythonbasics.org/flask-cookies/)
 * [Python Flask – Read Form Data from Request](https://pythonexamples.org/python-flask-read-form-data-from-request/)
+
 #### JWT-Based
 * [[筆記] 透過 JWT 實作驗證機制](https://medium.com/麥克的半路出家筆記/筆記-透過-jwt-實作驗證機制-2e64d72594f8)
 * [JWT(JSON Web Token) — 原理介紹](https://medium.com/企鵝也懂程式設計/jwt-json-web-token-原理介紹-74abfafad7ba)
 * [JSON Web Tokens Encoder/Decoder](https://jwt.io/)
+
 #### 3.C
 * [在Python中使用GMP（gmpy2）](https://kexue.fm/archives/3026)
 * [binascii.Error: Incorrect padding](https://blog.csdn.net/qq_38463737/article/details/117637783)
@@ -968,10 +988,12 @@ Flag: `cns{N0N_n0n_m3M83RSh1p!}`
 * [How can I generate rsa public key with specified n and e parameter by using openssl?](https://stackoverflow.com/questions/76458680/how-can-i-generate-rsa-public-key-with-specified-n-and-e-parameter-by-using-open)
 * [How can I generate JWT token using HMAC? How is the signature created?](https://stackoverflow.com/questions/74063656/how-can-i-generate-jwt-token-using-hmac-how-is-the-signature-created)
 * [JWT encoding using HMAC with asymmetric key as secret](https://security.stackexchange.com/questions/187265/jwt-encoding-using-hmac-with-asymmetric-key-as-secret)
+
 #### 3.E
 * [X-Forwarded-For](https://xxgblog.com/2018/10/12/x-forwarded-for-header-trick/)
 * [Intruder帳密暴力破解與列舉FUZZING找漏洞的好幫手](https://ithelp.ithome.com.tw/articles/10245914)
 * [Intruder Attack type & Payloads - 擁有千種姿態的攻擊模式](https://ithelp.ithome.com.tw/articles/10246457)
+
 ### 4. Accumulator
 * [淺談 RSA Accumulator](https://antonassocareer.medium.com/淺談-rsa-accumulator-與stateless-client-a75f00ad388e)
 * [歐拉定理的介紹](https://youtu.be/fm8L6k1lu8E)

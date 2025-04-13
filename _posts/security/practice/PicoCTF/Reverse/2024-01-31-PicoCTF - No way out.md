@@ -6,11 +6,15 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - No way out
+
 ## Background
 C Sharp / dn.spy / cheat engine
+
 ## Recon
 大概有三種解法，其中兩種是改變.dll中的內容，有點利用binary exploitation的方式顯示flag，另外一種就是利用cheat engine的方式找到儲存座標的memory然後手動改寫數值，就拿到flag
+
 ## Exploit
+
 ### Method 1 - Change .dll
 1. 可以看到`No way out/pico_Data/Managed/Assembly-CSharp.dll`可能是一個可以用dn.spy decompile的文件，先看看有沒有甚麼可以更改的
 2. 在APTX class中，一個Mysterious的member，而且當`collision.gameObject == this.player`是true的時候，`this.Mysterious.SetActive(true);`就會被trigger，所以這就有點像是我們在遊戲中，如果要碰到白色旗子的時候會觸發的statement，那如果我在初始化的階段就直接把`this.Mysterious.SetActive(true);`設定成true，是不是就可以直接拿直到flag?
@@ -60,6 +64,7 @@ if (Input.GetButton("Jump"))
 ![](https://hackmd.io/_uploads/B1qMJFNp2.png)
 
 Flag: `picoCTF{WELCOME_TO_UNITY!!}`
+
 ## Reference
 [^pico-reverse-no-way-out-wp-martin]:[ picoCTF 2023 No Way Out ](https://youtu.be/XzHJir0vtOk?si=U9RWOVUSnoQ9NEpw)
 [^pico-reverse-no-way-out-wp-cryptocat]:[ Teleporting Through Walls with Cheat Engine - "No Way Out" [PicoCTF 2023] ](https://youtu.be/QgF4PQjeG-o?si=OBHfUigE0J1rT9jw)

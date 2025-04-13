@@ -150,6 +150,7 @@ int main()
 }
 ```
 :::
+
 ### Something wrong
 * Heap overflow
 * Used after free(UAF)
@@ -157,6 +158,7 @@ int main()
 
 
 ## Exploit
+
 ### Hard solution - leak heap base address + heap overflow
 If we can use heap overflow to overlap the `user k`'s `*data`, then we can let it point to admin's password and use `show_users()` to print it out
 1. leak admin password address

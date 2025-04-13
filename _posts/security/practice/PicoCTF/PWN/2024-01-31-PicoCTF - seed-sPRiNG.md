@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - seed-sPRiNG
+
 ## Source code
 :::spoiler IDA Main Function
 ```cpp=
@@ -60,8 +61,10 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 }
 ```
 :::
+
 ## Recon
 看了[^seed-sPRiNG]，才發現意外的簡單，就只是implement IDA分析的psuedo code，讓server和exploit的seed達成一致，原本看了老半天都沒發現明顯的洞，蠻有趣的，喜歡
+
 ## Exploit
 ```cpp=
 #include <stdio.h> 
@@ -89,5 +92,6 @@ $ ./exp | nc jupiter.challenges.picoctf.org 34558
 ```
 
 Flag: `picoCTF{pseudo_random_number_generator_not_so_random_81b0dd7e}`
+
 ## Reference
 [^seed-sPRiNG]:[seed-sPRiNG](https://github.com/Dvd848/CTFs/blob/master/2019_picoCTF/seed-sPRiNG.md)

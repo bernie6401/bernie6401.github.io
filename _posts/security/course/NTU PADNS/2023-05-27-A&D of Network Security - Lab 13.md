@@ -9,6 +9,7 @@ category: "Security/Course/NTU PADNS"
 ###### tags: `Practicum of A&D of NS` `NTU`
 
 ## Metasploit with Bluekeep Vulnerability (CVE-2019-0708)
+
 ### Setting up environment
 * Open Windows 7 and Kali-Linux with `localhost only` mode
     :::spoiler Screenshot

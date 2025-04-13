@@ -23,8 +23,10 @@ Apache Log Analyzer
 
 ## ==Q1==
 > Identify the URI of the admin login panel that the attacker gained access to (include the token)
+
 ### Recon
 這個算是有用過wordpress就會知道的事情，預設的admin login的file name通常是`wp-login.php`，所以可以用這個當作key word
+
 ### Exploit
 ```bash
 $ cat access.log | grep "wp-login.php" | more | grep "token" -n --color=auto
@@ -37,10 +39,13 @@ $ cat access.log | grep "wp-login.php" | more | grep "token" -n --color=auto
 :::spoiler Flag
 Flag: `/wp-login.php?itsec-hb-token=adminlogin`
 :::
+
 ## ==Q2==
 > Can you find two tools the attacker used?
+
 ### Recon
 這一題我是參考[^wp1]，因為access.log內部資料的格式都一樣，所以可以用cut這個指令切出每一塊相同的部分，再用`-f {number}`的參數挑出要哪一塊
+
 ### Exploit
 ```bash
 $ cat access.log | cut -d '"' -f 6 | sort | uniq > aaa.txt
@@ -74,8 +79,10 @@ sqlmap/1.4.11#stable (http://sqlmap.org)
 :::spoiler Flag
 Flag: `wpscan sqlmap`
 :::
+
 ## ==Q3==
 > The attacker tried to exploit a vulnerability in ‘Contact Form 7’. What CVE was the plugin vulnerable to? (Do some research!)
+
 ### Recon
 直接上網找Contact Form 7 CVE就會出現[CVE-2020-35489](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35489)
 > The contact-form-7 (aka Contact Form 7) plugin before 5.3.2 for WordPress allows Unrestricted File Upload and remote code execution because a filename may contain special characters.
@@ -83,8 +90,10 @@ Flag: `wpscan sqlmap`
 :::spoiler Flag
 Flag: `CVE-2020-35489`
 :::
+
 ## ==Q4==
 > What plugin was exploited to get access?
+
 ### Recon
 這一題可以搭配grep做出比較精確的filtering，我們想要找出plugins的部分，所以先grep出`/plugins/`的關鍵字，再用上面新學到的方式進階filter，到最後就只有一小部分的數量而已，
 ```bash
@@ -127,8 +136,10 @@ Format: Plugin Name Here X.X.X
 :::spoiler Flag
 Flag: `Simple File List 4.2.2`
 :::
+
 ## ==Q5==
 > What is the name of the PHP web shell file?
+
 ### Recon
 透過上一題我們知道該網站有一個任意上傳的洞，所以我們該找的是uploads這個key words，必且搭配前面學的filtering就可以找出奇異的檔案
 ```bash
@@ -157,8 +168,10 @@ test.png HTTP
 :::spoiler Flag
 Flag: `fr34k.php`
 :::
+
 ## ==Q6==
 > What was the HTTP response code provided when the web shell was accessed for the final time?
+
 ### Recon
 從前面我們知道了web shell的檔名，那我們就可以針對該檔案進行grep
 ```bash

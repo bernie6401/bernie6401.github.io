@@ -47,14 +47,17 @@ category: "Tools/Others/Android App Crawler"
     Toyama, D., Hamel, P., Gergely, A., Comanici, G., Glaese, A., Ahmed, Z., ... & Precup, D. (2021). Androidenv: A reinforcement learning platform for android. arXiv preprint arXiv:2105.13231.
     :::
     年代較近，也有教學
+
 ## 實驗的來源以及標準
 如果僅僅是要app本身是開源的可以從[F-Droid](https://f-droid.org/zh_Hant/)當中去找，這個網站就是一個免費的Google Play Store，但是我要找的除了是app本身開源，後端本身也要開源，k因為這樣我才知道後端的URL有多少，如果想要知道有哪些可能可以拿來實驗的App，可以看`Guided, stochastic model-based GUI testing of Android apps.`這一篇論文(就是前面提到的第一篇)
+
 ### 透過CodePilot幫我找
 * [awesome-appwrite](https://github.com/appwrite/awesome-appwrite)
 * [FoodMagic](https://github.com/Sameerkash/FoodMagic):
     > 這是一個使用 Flutter 和 Appwrite 構建的應用程式
 * [ao](https://github.com/klaudiosinani/ao):
     > 這是一個使用 Ionic 和 Appwrite 構建的待辦事項應用程式
+
 ## Reference
 [^app_crawler-1]:[如何使用Android官方提供的自動進行UI掃描測試? (AppCrawler)](https://jefflin1982.medium.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8android%E5%AE%98%E6%96%B9%E6%8F%90%E4%BE%9B%E7%9A%84%E8%87%AA%E5%8B%95%E9%80%B2%E8%A1%8Cui%E6%8E%83%E6%8F%8F%E6%B8%AC%E8%A9%A6-appcrawler-a05c9ac3c07)
 [^app_crawler-2]:[How to run Android “App Crawler” testing tool](https://medium.com/@denysiakimov/how-to-run-android-app-crawler-testing-tool-a0d6f387e89e)

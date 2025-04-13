@@ -9,6 +9,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
 [TOC]
 
 ## Background
+
 ### ==資安事件的流程==
 ![](https://hackmd.io/_uploads/BkbVWYmz6.png)
 * Prepare
@@ -69,6 +70,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
             * Registry(非揮發性)
             * Log
             * Recycle Bin
+
 ### ==網路攻擊鍊(Cyber Kill Chain)==
 詳細資料: [TeamT5 - Cyber Kill Chain](https://teamt5.org/tw/posts/what-is-cyber-kill-chain/)
 1. 偵查 Reconnaissance

@@ -10,6 +10,7 @@ category: "Survey Papers/Android + Security"
 :::info
 Deng, Z., Chen, K., Meng, G., Zhang, X., Xu, K., & Cheng, Y. (2022, November). Understanding real-world threats to deep learning models in android apps. In Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (pp. 785-799).
 :::
+
 ## Background
 :::spoiler [What is Adversarial Example? - 運用對抗例攻擊深度學習模型](https://medium.com/trustableai/%E9%87%9D%E5%B0%8D%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9A%84%E6%83%A1%E6%84%8F%E8%B3%87%E6%96%99%E6%94%BB%E6%93%8A-%E4%B8%80-e94987742767)
 > 所謂對抗例，是一種刻意製造的、讓機器學習模型判斷錯誤的輸入資料。最早是 Szegedy et al（2013）發現對於用 ImageNet、AlexNet 等資料集訓練出來的影像辨識模型，常常只需要輸入端的微小的變動，就可以讓輸出結果有大幅度的改變。例如取一張卡車的照片，可以被模型正確辨識，但只要改變影像中的少數像素，就可以讓模型辨識錯誤，而且前後對影像的改變非常少，對肉眼而言根本分不出差異。

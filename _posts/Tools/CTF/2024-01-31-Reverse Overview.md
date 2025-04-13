@@ -6,11 +6,13 @@ category: "Tools/CTF"
 ---
 
 # Reverse Overview
+
 ## Tools
 | Type| App| .NET| x86/x64| Packer| Python| C|General|
 | - | - | - | - | - | - | - | - |
 | Description | <li> MobSF: Must run in python `3.8`</li><li>ApkTool: Just follow the step in [install guide](https://apktool.org/docs/install/)</li>|To decompile C#(.NET)|| 指令：`$ upx -d {filename}`|| 一個可以把組語轉換成c pseudo code的線上工具 |一個線上的decompiler，結合多種工具，只要上傳檔案(小於2MB)就可以呈現多種decompiler tools的結果|
 | Link| [MobSF](https://ithelp.ithome.com.tw/articles/10215522)</br>[ApkTools](https://apktool.org/) | [dnSpy](https://github.com/dnSpy/dnSpy/releases) | [x86模擬器](https://carlosrafaelgn.com.br/Asm86/)</br>[x86/x64 assembler/disassembler](https://defuse.ca/online-x86-assembler.htm#disassembly) | [UPX Packer](https://github.com/upx/upx/releases/tag/v4.0.2) | [Pyc disassemble](https://tool.lu/pyc/) | [Compiler Explorer](https://godbolt.org/)   |[Decompiler Explorer](https://dogbolt.org/)|
+
 ## IDA 常用快捷鍵
 * [IDA Interface](https://blog.30cm.tw/2018/01/ida.html)
 * 型別
@@ -221,6 +223,7 @@ category: "Tools/CTF"
     :::spoiler
     ![](https://hackmd.io/_uploads/SkOXU4AMa.png)
     :::
+
 ## x64dbg 常用快捷鍵
 * F2: 設定中斷點
 * F9: 繼續執行
@@ -234,6 +237,7 @@ category: "Tools/CTF"
 * PEview
 * PEViewer
 * PE-bear
+
 ### 動態分析
 * OllyDbg
 * x64dbg
@@ -241,6 +245,7 @@ category: "Tools/CTF"
 * Ghidra
 * Windbg
 * PEtool
+
 ### Process相關的操作與資訊
 * Procexp & Process Hacker
     好看版的工作管理員
@@ -250,6 +255,7 @@ category: "Tools/CTF"
     File system
     Network
     Process/Thread
+
 ### 好用的解題工具
 * [angr - cheatsheet](https://docs.angr.io/en/latest/appendix/cheatsheet.html): `$ pip install angr claripy`
 * z3: `$ pip install z3-solver`

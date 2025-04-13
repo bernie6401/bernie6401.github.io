@@ -11,6 +11,7 @@ category: "Security/Practice/Portswigger Web Security Academy/XXE"
 * Goal: To solve the lab, inject an XML external entity to retrieve the contents of the `/etc/passwd` file. 
 
 ## Lab: Exploiting XXE using external entities to retrieve files
+
 ### Recon
 1. Use Burp Suite to intercept package
 ![](https://i.imgur.com/gMn3Cbu.png)

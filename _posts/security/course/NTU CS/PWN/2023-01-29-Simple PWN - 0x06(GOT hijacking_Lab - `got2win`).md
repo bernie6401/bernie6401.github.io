@@ -9,6 +9,7 @@ category: "Security/Course/NTU CS/PWN"
 ###### tags: `CTF` `PWN` `eductf`
 
 challenge: `nc edu-ctf.zoolab.org 10004`
+
 ## GOT Background
 [Lecture Vid. - Pwn week1](https://youtu.be/ktoVQB99Gj4?t=4423)
 [NTUSTISC - Pwn Basic 2 [2019.03.19]](https://youtu.be/PBgHHWtjtFA?t=6017)
@@ -56,6 +57,7 @@ int main()
 * In addition, it doesn't have buffer overflow, so that we can not use the technique before to get flag.
 * Thus, our perspective is we can <font color="FF0000">overlap the `read GOT` by `write plt`</font>, so that it can execute write function:
 `int nr=write(1, flag, 0x30);`
+
 ## Exploit
 * First, we should find the address of `read GOT` and `write plt`
     ```bash!

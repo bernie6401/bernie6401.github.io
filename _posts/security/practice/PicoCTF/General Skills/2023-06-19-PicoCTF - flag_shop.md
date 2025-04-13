@@ -106,6 +106,7 @@ int main()
 
 ```
 :::
+
 ## Recon
 這是一個互動題，一開始持有的金額是1100，但看了source code發現他把flag放在`1337 Flag`這邊，但需要花10000元購買，所以一定有可以增加錢錢的漏洞，就是BoF，看了source code應該是在`1. Defintely not the flag Flag`這邊，只要輸入足夠大的數字即可
 
@@ -164,4 +165,5 @@ We sell flags
  Enter a menu selection
 3
 ```
+
 ## Reference

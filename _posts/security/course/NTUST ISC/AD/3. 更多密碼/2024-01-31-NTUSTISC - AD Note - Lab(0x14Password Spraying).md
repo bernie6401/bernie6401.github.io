@@ -18,7 +18,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
         * Tool: [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec) - 結合各種功能的內網滲透神器
     * GPO
     * 記憶體(lsass)
+
 ## Lab
+
 ### ==Password Spraying==
 1. How to use?
     * Cheat Sheet

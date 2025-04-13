@@ -6,6 +6,7 @@ category: "Security/Practice/CrewCTF/Web"
 ---
 
 # CrewCTF - sequence_gallery
+
 ## Background
 [Command Injection](https://lab.feifei.tw/practice/ci/l1.php)
 [dc command in Linux with examples](https://www.geeksforgeeks.org/dc-command-in-linux-with-examples/)
@@ -81,6 +82,7 @@ CompletedProcess(args=['dc', '`id`'], returncode=0)
 dc: Could not open file "$(id)"
 CompletedProcess(args=['dc', '"$(id)"'], returncode=0)
 ```
+
 ## Exploit - Command Injection
 1. 先測試一般的id能不能顯示
 Payload: `-e !id` $\to$ Wrong(不能有空格)
@@ -107,6 +109,7 @@ Payload: `-e%60!id%0a` $\to$ Correct(所以其實中間的dummy string可以隨�
 
 3. Trick
 用`dc` command執行`10 63 67 68 101 107 105 76 85 111 68[dan10!=m]smlmx`會顯示`DouULikeDC`的字樣，算是作者的小趣味
+
 ## Reference
 [^CTFTime_WP]:[CTFTime WP](https://ctftime.org/writeup/37413)
 [^dc_linux_command_eg]:[dc command in Linux with examples](https://www.geeksforgeeks.org/dc-command-in-linux-with-examples/)

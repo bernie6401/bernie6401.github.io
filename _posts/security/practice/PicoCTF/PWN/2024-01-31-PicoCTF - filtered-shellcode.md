@@ -6,9 +6,11 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - filtered-shellcode
+
 ## Background
 Shell Code
 Reverse
+
 ## Source code
 :::spoiler Source Code Got From Server After Get Shell
 ```cpp!
@@ -63,6 +65,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 :::
+
 ## Recon
 這一題沒有很難，但我沒有解出來，主要是因為reverse看不懂，完了QAQ，IDA都亂翻，只能求助於[^pico_pwn_filtered_shellcode_wp]，其實很簡單，好像也沒有filter的成分在，如果限制只能用每次兩bytes寫shell code不算的話
 1. 其實就兩個function，一個是main function，另外一個是execute function，execute function主要會每一個shell code中間插入兩個nop，然後用function pointer的方式執行，所以我們的目標是寫一個shell code script開server的shell
@@ -87,6 +90,7 @@ int main(int argc, char *argv[]) {
         int 0x80
     """)
     ```
+
 ## Exploit - Write Properly Shell Code
 ```python!
 from pwn import *
@@ -160,5 +164,6 @@ r.sendline(payload)
 
 r.interactive()
 ```
+
 ## Reference
 [^pico_pwn_filtered_shellcode_wp]:[PicoCTF - Filtered Shellcode [Pwn]](https://cyb3rwhitesnake.medium.com/picoctf-filtered-shellcode-pwn-3d69010376df)

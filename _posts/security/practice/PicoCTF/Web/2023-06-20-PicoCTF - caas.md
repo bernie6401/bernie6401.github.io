@@ -31,11 +31,13 @@ app.listen(3000, () => {
 });
 
 ```
+
 ## Recon
 直覺是command injection
 
 ## Exploit - Easy Command Injection
 Payload: `/cowsay/123;ls;cat falg.txt`
 Flag: `picoCTF{moooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo0o}`
+
 ## Reference
 [ CaaS | Web Category | PicoCTF | CTF For beginners ](https://youtu.be/ZP3kLVaMQIE)

@@ -6,6 +6,7 @@ category: "Security/Practice/CrewCTF/Reverse"
 ---
 
 # CrewCTF - ez rev
+
 ## Source Code
 :::spoiler IDA Fake Main Function
 ```cpp
@@ -95,6 +96,7 @@ void __fastcall __noreturn main(int a1, char **a2, char **a3)
         ```
     5. 放完之後就call `memcpy(src=0x00007ffffffed9b0, dest=0x00007ffffffed8b0, n=0x6e50)`，然後執行ROP，沒錯就是ROP，所以他要先在前面檢查libc的版本，讓他可以取得正確的gadget
     6. 現在的問題是因為他存放的ROP太多也很複雜，導致我不知道哪邊其實是確切在執行check flag的環節，我有想說要找system call之類的gadget，但還找不到，所以分析了老半天還是沒結果
+
 ## Exploit
 Discord上別人的腳本
 :::spoiler Script

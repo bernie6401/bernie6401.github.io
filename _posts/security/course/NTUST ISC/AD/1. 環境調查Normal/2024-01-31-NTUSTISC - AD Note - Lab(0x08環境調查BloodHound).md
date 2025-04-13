@@ -9,6 +9,7 @@ category: "Security/Course/NTUST ISC/AD/1. 環境調查Normal"
 [TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)
+
 ## Background
 [[Windows Programming] IPC 通知機制與安全設定](https://medium.com/renee0918/how-to-protect-windows-global-event-c19bba0ce890)
 > 當系統中需要同步處理某些資源的存取權時，可以使用 Windows 的同步處理物件協調不同 process 間對於共同資源的互動，Windows 提供的同步處理物件有四種，分別是: Event, Mutex, Semaphore, Waitable timer，本篇只會提到 Event 喔！
@@ -17,6 +18,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
 
 
 ## Lab Time - 環境調查
+
 ### BloodHound AD
 * 說明: 環境調查的視覺化工具
 * 版本: 4.0.3 
@@ -84,6 +86,7 @@ bloodhound喜歡存取的對象是: ==lsarpc/samr/srvsvc==，所以只要有這�
 
     可以使用Event Viewer中的Create Custom View，自動的filter出想要的Event
 ![](https://hackmd.io/_uploads/HkDjhnWR3.png)
+
 #### Result
 :::spoiler Screenshot of Event 4662
 ![](https://hackmd.io/_uploads/rJRXT3Z0n.png)

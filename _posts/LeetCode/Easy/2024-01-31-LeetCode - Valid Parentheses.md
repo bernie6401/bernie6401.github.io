@@ -6,6 +6,7 @@ category: "LeetCode/Easy"
 ---
 
 # LeetCode - Valid Parentheses
+
 ## Recon & Description
 :::spoiler Description
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
@@ -35,6 +36,7 @@ Output: false
 ```
 :::
 這一題非常簡單，就只是分辨輸入進來的括號有沒有符合使用的設定，也就是正確的配對小中大括號彼此對應這樣，一開始用了第一種方法(付在下面)發現coverage很低，所以就想第二種方法比較符合正確的實作，所以分數也比較高
+
 ## PoC
 ```python!
 right_brackets = ['(', '[', '{']
@@ -123,5 +125,6 @@ class Solution:
         '''
 ```
 :::
+
 ## Result
 ![](https://hackmd.io/_uploads/BJgRaNb3n.png)

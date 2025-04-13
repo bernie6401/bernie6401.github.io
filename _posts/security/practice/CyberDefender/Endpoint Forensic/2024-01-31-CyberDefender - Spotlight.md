@@ -24,8 +24,10 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/34#nav-questions
 
 ## ==Q1==
 > What version of macOS is running on this image? 
+
 #### Recon
 這個是參考[^wp]
+
 #### Exploit
 在`./root/System/Library/CoreServices/`中可以找到`SystemVersion.plist`
 ![圖片](https://hackmd.io/_uploads/HJqsQEjQp.png)
@@ -33,8 +35,10 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/34#nav-questions
 :::spoiler Flag
 Flag: `10.15`
 :::
+
 ## ==Q2==
 > What "competitive advantage" did Hansel lie about in the file AnotherExample.jpg? (two words)
+
 #### Exploit
 直接翻一下`AnotherExample.jpg`所在的資料夾，就可以發現有一個secret的text檔案，裡面就有這題的flag，不太知道和這張圖片有甚麼關係
 :::info
@@ -44,10 +48,13 @@ Flag: `10.15`
 :::spoiler Flag
 Flag: `flip phone`
 :::
+
 ## ==Q3==
 > How many bookmarks are registered in safari? 
+
 #### Recon
 這個是參考[^wp]
+
 #### Exploit
 首先可以在`./root/Users/hansel.apricot/Library/Safari`的地方找到`Bookmarks.plist`，只要利用plistutil轉換成一般的xml格式就可以了
 ```bash
@@ -58,10 +65,13 @@ $ plistutil -i Bookmarks.plist | grep "URLString" | wc -l
 :::spoiler Flag
 Flag: `13`
 :::
+
 ## ==Q4==
 > What's the content of the note titled "Passwords"? 
+
 #### Recon
 這一題是參考[^wp-1]，mac會把使用者的Note放在`./root/Users/hansel.apricot/Library/Group Containers/group.com.apple.notes`中的==NoteStore.sqlite==
+
 #### Exploit
 可以看到Title是Passwords但沒有內容，依照[^wp-1]的說明，他是覺得答案應該是視title為content的一部份
 ![圖片](https://hackmd.io/_uploads/ryf4P6kVa.png)
@@ -69,10 +79,13 @@ Flag: `13`
 :::spoiler Flag
 Flag: `Passwords`
 :::
+
 ## ==Q5==
 > Provide the MAC address of the ethernet adapter for this machine. 
+
 #### Recon
 這一題是參考[^wp-1]，就是直接grep search ==en0==
+
 #### Exploit
 可以發現`root/private/var/log/daily.out`有符合
 ```bash
@@ -92,19 +105,24 @@ grep: root/Users/sneaky/.Trash/silenteye-0.4.1b-snowleopard.dmg: binary file mat
 :::spoiler Flag
 Flag: `00:0c:29:c4:65:77`
 :::
+
 ## ==Q6==
 > Name the data URL of the quarantined item. 
+
 #### Recon
 這一題是參考[^wp-1]
 > Quarantined Events are a log of all downloaded items on MacOS.
+
 #### Exploit
 主要macOS會把==com.apple.LaunchServices.QuarantineEventsV2==放在`./root/Users/sneaky/Library/Preferences/`，目前只有一個quarantined目標
 
 :::spoiler Flag
 Flag: `https://futureboy.us/stegano/encode.pl`
 :::
+
 ## ==Q7==
 > What app did the user "sneaky" try to install via a .dmg file? (one word)
+
 #### Exploit
 我是直接翻`./root/Users/sneaky/.Trash`就直接看到了
 ![圖片](https://hackmd.io/_uploads/H1Hk-Vo7T.png)
@@ -112,11 +130,14 @@ Flag: `https://futureboy.us/stegano/encode.pl`
 :::spoiler Flag
 Flag: `silenteye`
 :::
+
 ## ==Q8==
 > What was the file 'Examplesteg.jpg' renamed to?
+
 #### Recon
 這一題是參考[^wp-1]，必須使用`mac_apt`這套工具中的==FSEVENTS==幫忙parse `.fseventsd`中所有的event logs files
 > FSEVENTS: Reads file system event logs (from .fseventsd)
+
 #### Exploit
 ```bash
 $ ./mac_apt_artifact_only.exe -i .fseventsd -o ./ FSEVENTS
@@ -144,13 +165,16 @@ File ID: `12885043806`
 :::spoiler Flag
 Flag: `GoodExample.jpg`
 :::
+
 ## ==Q9==
 > How much time was spent on mail.zoho.com on 4/20/2020? 
+
 #### Recon
 這一題是參考[^wp-1]，有關於screentime這個資訊會放在`./root/private/var/folders/bf/r04p_gb17xxg37r9ksq855mh0000gn/0/com.apple.ScreenTimeAgent/Store/`的==RMAdminStore-Local.sqlite== db file中，也是一樣透過mac_apt幫忙parse(SCREENTIME)
 :::info
 記得要把`RMAdminStore-Local.sqlite-wal`和`RMAdminStore-Local.sqlite`這個檔案放在一起再執行
 :::
+
 #### Exploit
 ```bash
 $ ls
@@ -174,11 +198,14 @@ MAIN-INFO-Review the Log file and report any ERRORs or EXCEPTIONS to the develop
 :::spoiler Flag
 Flag: `20:58`
 :::
+
 ## ==Q10==
 > What's hansel.apricot's password hint? (two words) 
+
 ### Recon
 這一題是參考[^wp-1]
 > Password information can be found in the user plist, in private/db/dslocal/nodes/Default/users/(username).plist
+
 ### Exploit
 ```bash
 $ plistutil -i hansel.apricot.plist -o hansel.apricot.plist.txt
@@ -189,32 +216,40 @@ $ vim hansel.apricot.plist.txt
 :::spoiler Flag
 Flag: `Family Opinion`
 :::
+
 ## ==Q11==
 > The main file that stores Hansel's iMessages had a few permissions changes. How many times did the permissions change? 
+
 ### Recon
 直覺是承接第8題，看他的event log，而根據[^wp-1]的說明
 > The mail file storing iMessages in MacOS is `chat.db`
+
 ### Exploit
 ![圖片](https://hackmd.io/_uploads/HkTk4-fNa.png)
 
 :::spoiler Flag
 Flag: `7`
 :::
+
 ## ==Q12==
 > What's the UID of the user who is responsible for connecting mobile devices? 
+
 ### Recon
 這一題是參考[^wp-1]，主要是找到位於`root/private/var/db/dslocal/nodes/Default/users/`的`_usbmuxd.plist`，這個file主要是:
 > The process responsible for connecting iPhones/iPads with MacOS is lockdown
 
 但就算不找到這個file，應該還是有其他file是可以擷取出UID的資訊
+
 ### Exploit
 ![圖片](https://hackmd.io/_uploads/S1R8U-f4a.png)
 
 :::spoiler Flag
 Flag: `213`
 :::
+
 ## ==Q13==
 > Find the flag in the GoodExample.jpg image. It's hidden with better tools. 
+
 #### Exploit
 這個直接用steghide隱藏起來，密碼為空，解出來的file內容如下
 ```bash
@@ -229,8 +264,10 @@ other phone has those features!%
 :::spoiler Flag
 Flag: `helicopter`
 :::
+
 ## ==Q14==
 > What was exactly typed in the Spotlight search bar on 4/20/2020 02:09:48 
+
 ### Recon
 因為本身不是mac使用者，所以不知道Spotlight功能具體功用為何
 [在 Mac 上使用 Spotlight 搜尋](https://support.apple.com/zh-tw/guide/mac-help/mchlp1008/mac)
@@ -238,6 +275,7 @@ Flag: `helicopter`
 
 感覺有點類似windows的cortona?
 根據[ChatGPT的說明](https://chat.openai.com/c/0279d872-547b-4ebd-b0fd-2ae9096b6b96)，兩者有部分功能類似，不過Cortana比較像是智能助理的感覺，而spotlight只是能夠快速找到一些使用者像要找的file/app/email之類的個人資訊
+
 ### Exploit
 ```bash
 $ grep -r -i '2020-04-20' *
@@ -284,8 +322,10 @@ $ cat macOS\ Catalina\ -\ Data\ \[volume_0\]/root/Users/sneaky/Library/Applicati
 :::spoiler Flag
 Flag: `term`
 :::
+
 ## ==Q15==
 > What is hansel.apricot's Open Directory user UUID? 
+
 ### Recon
 這一題還是參考[^wp-1]，主要是承接第10題的結果，可以在下面看到generateduid的strings
 ![圖片](https://hackmd.io/_uploads/HkQyHfzV6.png)
@@ -293,6 +333,7 @@ Flag: `term`
 :::spoiler Flag
 Flag: `5BB00259-4F58-4FDE-BC67-C2659BA0A5A4`
 :::
+
 ## Reference
 [^wp]:[Spotlight Blue Team Challenge](https://medium.com/@nishadbabu1015/spotlight-blue-team-challenge-f3edaea5dba3)
 [^wp-1]:[CyberDefenders: Spotlight](https://forensicskween.com/ctf/cyberdefenders/spotlight/)

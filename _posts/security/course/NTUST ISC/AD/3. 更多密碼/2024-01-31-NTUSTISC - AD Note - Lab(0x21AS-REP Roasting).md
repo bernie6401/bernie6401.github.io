@@ -27,6 +27,7 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=CRVWKo
 
 
 ## Lab
+
 ### ==AS-REP Roasting==
 * 攻擊情境：在Win2016的Server Manager中的Tools可以找到Active Directory User and Computer
     ![](https://hackmd.io/_uploads/H1JCrlEyT.png)
@@ -45,6 +46,7 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=CRVWKo
     $ Rubeus.exe asreproast /format:hashcat /outfile:out.txt
     ```
 ---
+
 #### 實際執行
 1. Using Rubeus.exe
 :::spoiler Result

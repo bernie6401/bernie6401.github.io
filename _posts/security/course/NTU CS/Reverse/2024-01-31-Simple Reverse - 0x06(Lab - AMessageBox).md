@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse 0x06(Lab - AMessageBox)
+
 ## Background
 [組合語言ROL和RCL的區別](https://www.796t.com/content/1550025925.html)
 

@@ -18,7 +18,9 @@ category: "Security/Course/NTU CNS/Homework"
 :::
 Student ID: `R11921A16`
 Name: 何秉學
+
 ## Handwriting
+
 ### 1. CIA
 **Ans:** 
 **Confidentiality** means all of the sensitive messages or information that can be protected so that just the people who have the authentication can edit or browse the information.
@@ -377,7 +379,9 @@ Assume $f(\cdot )$ is a guessing function that adversary used to guess $b'$ by t
 
 
 ## CTF
+
 ### 5. Simple Crypto
+
 #### Recon
 * Round 1
 Just simple ROT-13
@@ -393,6 +397,7 @@ Just simple rail fence cipher
     1. You can observe that every time the cipher is just changed the capital of the letter and the semantic sentence is preserved. So, we can assume that it encrypt every bits in alphabetic with its upper or lower letter(i.e. upper letter is represented to 1, otherwise, is represented to 0). Therefore, you can use the script below to transfer every character to binary.
     2. After the conversion, the length of the binary is $155$, it means we have to find something like morse code to decode it. At the beginning, my perspective is baudot code that encrypt/decrypt the code with every 5 bits. This is perfectly coincide the factor of $155$, however, nothing plaintext-like string appeared. Then I continued looking for another baudot-like cipher. The answer is bacon cipher that similar to baudot which is also encrypt/decrypt the code with every 5 bits.
     3. After the conversion, the string was still incorrect. So, I tried various methods to decrypt it. Then I think the this question mentioned fence again that means this is the advanced fence question that I should address. Therefore, I tried rail fence cipher again to decrypt it to semantic meaningful string(means I can read it as normal English).
+
 #### Exploit
 * Round 1 [ROT-Based online solver](https://gchq.github.io/CyberChef/#recipe=ROT13(true,true,false,5)&input=RGlham1odm9kamktb2N6am16b2R4dmdndCBuenhwbXo)
 * Round 2 [Rail Fense Cipher online solver](https://gchq.github.io/CyberChef/#recipe=Rail_Fence_Cipher_Decode(5,0))
@@ -417,7 +422,9 @@ Just simple rail fence cipher
 * Round 5 Base64 decode
 
    Flag 5: `CNS{5upeR_3asy_c1a55ic@l_cryp70!}`
+
 ### 6. ElGamal Cryptosystem
+
 #### Recon
 1. 6-1
 ![](https://i.imgur.com/2gSBJin.png)
@@ -574,6 +581,7 @@ $$flag1 = c_2*inverse(tmp,\ self.P)\ \%\ self.P$$
     
     
 ### 7. Bank
+
 #### Recon
 If I register an account, I earn `$10`. In addition, If the register name contain `I love CNS`, I can earn `$15` that `$5` for extra.
 Obviously, I should find SHA-1 collision for earning extra money to buy the flag.
@@ -697,6 +705,7 @@ Flag 7-1: `CNS{ha$h_i5_m15used}`
 Flag 7-2: `CNS{$ha1_15_n0t_c0ll1510n_r3s1st@nt}`
 
 ### 8. Clandestine Operation
+
 #### Recon
 1. Encrypted by AES
 2. Mode: CBC
@@ -732,6 +741,7 @@ Flag 7-2: `CNS{$ha1_15_n0t_c0ll1510n_r3s1st@nt}`
     ...
     ```
     :::
+
 #### Exploit
 Just padding oracle attack
 :::spoiler 8-1 source code
@@ -970,6 +980,7 @@ log.info("flag = {}".format(flag))
 Flag 8-2: `CNS{W15h_y0U_hav3_a_n1c3_d@y!}`
 
 ## Reference
+
 ### Multi-prime RSA
 [多素数RSA系统简介](https://blog.csdn.net/bhw98/article/details/19676)
 [Why should the primes used in RSA be distinct?](https://crypto.stackexchange.com/questions/26861/why-should-the-primes-used-in-rsa-be-distinct)
@@ -977,6 +988,7 @@ Flag 8-2: `CNS{W15h_y0U_hav3_a_n1c3_d@y!}`
 [What is multi-prime RSA (RSA-MP)?](https://crypto.stackexchange.com/questions/67043/what-is-multi-prime-rsa-rsa-mp)
 
 ---
+
 ### Classic
 [MAC訊息驗證碼](https://ithelp.ithome.com.tw/articles/10188333)
 [密碼雜湊函式](https://zh.wikipedia.org/wiki/%E5%AF%86%E7%A2%BC%E9%9B%9C%E6%B9%8A%E5%87%BD%E6%95%B8)
@@ -987,10 +999,12 @@ Flag 8-2: `CNS{W15h_y0U_hav3_a_n1c3_d@y!}`
 [How to Check SHA1 Hash of a String](https://osxdaily.com/2012/06/06/check-sha1-hash-of-string/)
 
 ---
+
 ### ElGamal Cryptosystem
 [Known plaintext attack on ElGamal encryption](https://crypto.stackexchange.com/questions/18362/known-plaintext-attack-on-elgamal-encryption?newreg=56d9dd5e0e4e4270854809dd8c47eeca)
 
 ---
+
 ### Bank
 [長度擴充攻擊 | Length Extension Attack (LEA)](https://maojui.me/Crypto/LEA/)
 [SHA-1 psuedo code](https://zh.wikipedia.org/wiki/SHA-1#SHA-0%E7%9A%84%E7%A0%B4%E8%A7%A3)
@@ -1000,6 +1014,7 @@ Flag 8-2: `CNS{W15h_y0U_hav3_a_n1c3_d@y!}`
 [SHA-1 is a Shambles](https://sha-mbles.github.io/)
 
 ---
+
 ### Clandestine Operation:
 [Padding Oracle Attack - github](https://github.com/mpgn/Padding-oracle-attack/blob/master/exploit.py)
 [[2022 fall] 0923 Crypto](https://youtu.be/hnXtaiyvQ3s?t=7801)

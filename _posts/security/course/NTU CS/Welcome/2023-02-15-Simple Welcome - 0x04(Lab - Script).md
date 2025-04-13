@@ -23,6 +23,7 @@ Challenge: https://pyscript.ctf.zoolab.org/
         echo 'Fail :(';
 ?>
 ```
+
 ### Analysis
 Must write a script that can be executed in python and node language simultaneously.
 
@@ -84,6 +85,7 @@ Some tips:
     print(f.read().split('\n')[0])
     # */
     ```
+
 ## Reference
 [【已解决】PHP中函数前面加上at符号@的作用](https://www.crifan.com/php_function_front_at_sign_meaning/)
 [[shell 2>&1是甚麼意思]](https://charleslin74.pixnet.net/blog/post/405455902)

@@ -6,9 +6,11 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - droids3
+
 ## Background
 [ Android App 逆向入門之一：拆開與重組 apk ](https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/)
 [ Android App 逆向入門之二：修改 smali 程式碼 ](https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-2/)
+
 ## Source code
 ```java=
 package com.hellocmu.picoctf;
@@ -33,9 +35,11 @@ public class FlagstaffHill {
     }
 }
 ```
+
 ## Recon
 利用前一題學到的工具(JADX)，先decompiler一下原本的程式在幹嘛(source code如上)，會發現getFlag這個method所呼叫的nope只會吐出`don't wanna`，而真正會print出flag的是yep這個method，所以我們可以修改一下，不過修改之前還是要知道一下流程
 Apktool decode apk file$\to$修改必要的地方$\to$Apktool重新打包$\to$簽名$\to$Align$\to$Done，這一個部分在[ Android App 逆向入門之二：修改 smali 程式碼 ](https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-2/)有詳細的說明
+
 ## Exploit
 1. 修改smali(`./three/smali/com/hellcmu/picoctf/FlagstaffHill.smali`)
 只要把
@@ -54,6 +58,7 @@ $ java -jar uber-apk-signer-1.3.0.jar --apks three_new.apk
 ![](https://hackmd.io/_uploads/Hk3kHQbeT.png)
 
 Flag: `picoCTF{tis.but.a.scratch}`
+
 ## Reference
 [^pico-reverse-droids3-wp]:[droids3](https://picoctf2019.haydenhousen.com/reverse-engineering/droids3)
 [^apk-signer-tool]:[Uber Apk Signer](https://github.com/patrickfav/uber-apk-signer)

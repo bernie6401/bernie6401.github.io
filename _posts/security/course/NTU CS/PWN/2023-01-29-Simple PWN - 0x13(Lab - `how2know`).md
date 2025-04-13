@@ -82,6 +82,7 @@ talk is cheap, show me the code
 ```
 * Note that, if you want to use `seccomp-tools`, you should modify `/home/chal/flag` to `./flag`
 * It just allow `exit` function
+
 ### Description & Preliminary idea
 * At line 16, it create a writable, readable and executable space with size `0x1000`
 * And it read the flag to global variable without buffer overflow
@@ -89,6 +90,7 @@ talk is cheap, show me the code
 * In addition, turn on `seccomp` rules to protect itself
 * <font color="FF0000">**MOST IMPORTANT AT LINE 35**</font>: it'll call `addr` as function
 * So, the preliminary idea is to put some instructions to `addr` and it'll execute at line 35
+
 ## Exploit - brute force + assembly instruction
 1. Observe register and try to leak flag info.
     ```bash!
@@ -243,5 +245,6 @@ If compare correct, the program will exit directly and pwntools will trigger tim
 5th thread: `mov rax, [r10+0x20]`        output:e8ddecfb
 6th thread: `mov rax, [r10+0x28]`        output:8ec}
 FLAG{piano_d113f1c3f9ed8019288f4e8ddecfb8ec}
+
 ## Reference
 [linux 中mmap的用法](https://www.cnblogs.com/bittorrent/p/3267736.html)

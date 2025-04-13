@@ -6,13 +6,16 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x32(2023 HW - Notepad-Stage 2)
+
 ## Description & Hint
 > Try to get /flag_backend.
 >
 >Hint1: The only intended vulnerability in the frontend (notepad) is the path traversal.
 >Hint2: Try to write the shellcode into process memory by the path traversal vulnerability.
+
 ## Source code
 呈上題
+
 ## Recon
 :::success
 Special Thanks @cs-otaku For the most of the Inspiration of the WP
@@ -236,6 +239,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
         """
         ```
 4. 接著我們就只要透過command 4的write note功能把構建好的shellcode，寫到/proc/self/mem對應的位置就好，也就是置換掉puts原本的操作，讓他再次call到puts的時候就會執行我們的shellcode
+
 ## Exploit - Arbitrary Read → Arbitrary Write → Shellcode
 :::spoiler
 ```python

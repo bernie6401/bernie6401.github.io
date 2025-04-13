@@ -13,6 +13,7 @@ category: "Security/Practice/PicoCTF/Web"
 
 ## Hint
 * The flag is at ../flag
+
 ## Recon
 這一題設了太多套路了，但從題目的Title可以猜到應該要用不安全的反序列化
 1. robot.txt
@@ -232,6 +233,7 @@ if(isset($_COOKIE["login"])){
     }
 }
 ```
+
 ## Exploit - Unserialization
 1. php -a
     ```php

@@ -26,10 +26,13 @@ Part 3: https://hackmd.io/@SBK6401/HylP8ixQp
 ## Tools
 AccessData FTK Imager
 Registry Explorer
+
 ## ==Q1==
 > What is the computer name of the suspect machine? 
+
 ### Recon
 首先看到題目給的檔案就知道他是用FTK Access Data輸出的檔案，所以先用FTK觀察裡面的一些資料
+
 ### Exploit
 如果要知道電腦名稱，可以先從`/root/Windows/System32/config/`中找到`SYSTEM`這個檔案，它裡面紀錄了很多registry
 ![](https://hackmd.io/_uploads/H18pCZLGp.png)
@@ -41,8 +44,10 @@ Registry Explorer
 :::spoiler Flag
 Flag: `4ORENSICS`
 :::
+
 ## ==Q2==
 > What is the computer IP?
+
 ### Exploit
 在同樣的檔案也可以找到這個資訊，就在`\ControlSet001\Services\Tcpip\Parameters\Interfaces\`中可以看到這一題的答案是DhcpIPAddress=`10.0.2.15`
 ![](https://hackmd.io/_uploads/B10tmMIG6.png)
@@ -61,10 +66,13 @@ Flag: `4ORENSICS`
 :::spoiler Flag
 Flag: `10.0.2.15`
 :::
+
 ## ==Q3==
 > What was the DHCP LeaseObtainedTime? 
+
 ### Recon
 我們知道DHCP會固定一段時間就換掉來request的機器的IP，所以就會有"租約"的概念出現，當一台電腦像DHCP server請求一個IP，則除了會拿到一組動態IP之外，也會拿到一個租約開始與結束的時間，則下一次該機器向server請求時會判斷目前時間是不是在租約的範圍中，若不是就會換到下一個IP
+
 ### Exploit
 也是在同樣的Hive file就可以看到相關的訊息，轉換的方式很簡單，可以直接用datatime這個library或是用[線上工具](https://www.unixtimestamp.com/)，參數就在`\ControlSet001\Services\Tcpip\Parameters\Interfaces\`
 ![](https://hackmd.io/_uploads/HkL6N7UG6.png)
@@ -95,12 +103,16 @@ Flag: `10.0.2.15`
 :::spoiler Flag
 Flag: `21/06/2016 02:24:12 UTC`
 :::
+
 ## ==Q4==
 > What is the computer SID? 
+
 ### Background
 [深入了解安全性識別碼(SID Deep Dive)](https://www.lijyyh.com/2015/08/sid-deep-dive.html)
+
 ### Recon
 可以先了解SID在幹嘛，然後這個基碼是儲存在`SOFTWARE`中，所以可以先dump出來
+
 ### Exploit
 在`\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\`，同樣的，`SOFTWARE`也是對應到自己電腦的`電腦\HKEY_LOCAL_MACHINE\SOFTWARE`
 ![](https://hackmd.io/_uploads/ByJHnmUzp.png)
@@ -123,8 +135,10 @@ S-1-5-21-1994825736-962948173-1409654112
 :::spoiler Flag
 Flag: `S-1-5-21-2489440558-2754304563-710705792`
 :::
+
 ## ==Q5==
 > What is the Operating System(OS) version?
+
 ### Exploit
 在`\SOFTWARE\Microsoft\Windows NT\CurrentVersion`中可以看到
 ![](https://hackmd.io/_uploads/HJTB0mLfT.png)
@@ -132,8 +146,10 @@ Flag: `S-1-5-21-2489440558-2754304563-710705792`
 :::spoiler Flag
 Flag: `8.1`
 :::
+
 ## ==Q6==
 > What was the computer timezone?
+
 ### Exploit
 主要是在`\SYSTEM\ControlSet001\Control\TimeZoneInformation`中，可以看到他的時區是Pacific Standard Time，根據[時區換算](https://redbean101.pixnet.net/blog/post/36971406)的說明，有兩種轉換若有考慮夏令時間就是UTC-7，如果沒有就是UTC-8
 ![](https://hackmd.io/_uploads/B1Yf4NLGT.png)
@@ -146,8 +162,10 @@ Flag: `8.1`
 :::spoiler Flag
 Flag: `UTC-07:00`
 :::
+
 ## ==Q7==
 > How many times did this user log on to the computer? 
+
 ### Background
 [二刀流Windows日誌分析　精準掌握資安蛛絲馬跡](https://www.netadmin.com.tw/netadmin/zh-tw/technology/84E5EAA4BC494BB6A4B15607E62418A0)
 
@@ -156,6 +174,7 @@ Event Log在`/root/Windows/System32/winevt/Logs/`中
 
 ### Recon
 看到題目需要知道使用者操作，直覺會想到稽核的log紀錄，所以可以先把evtx檔案dump出來
+
 ### Exploit
 原本想說要用logontracer，有美美的GUI好香，但實際用過之後不僅一大堆問題，包括安裝環境和內部source code的瑕疵，重點是還不給我parse，連正常運作都不給用，詳細安裝說明、遇到的問題以及為甚麼不給parse可以看我寫的[這一篇](https://hackmd.io/@SBK6401/SJOwGrUfa)，所以還是乖乖用內建的或是像[^hunter-wp]一樣先把evtx檔案用[EvtxECmd](https://ericzimmerman.github.io/#!index.md)轉成csv檔案再用[timeline explorer]()篩選各種event，不得不說，timeline explorer是真的好用，設定各種filter跟喝水一樣簡單
 
@@ -168,8 +187,10 @@ $ EvtxECmd.exe -f Security.evtx --csv out
 :::spoiler Flag
 Flag: `3`
 :::
+
 ## ==Q8==
 > When was the last login time for the discovered account? Format: one-space between date and time
+
 ### Exploit
 呈上題
 ![](https://hackmd.io/_uploads/HkS4upIMa.png)
@@ -177,10 +198,13 @@ Flag: `3`
 :::spoiler Flag
 Flag: `2016-06-21 01:42:40`
 :::
+
 ## ==Q9==
 > There was a “Network Scanner” running on this computer, what was it? And when was the last time the suspect used it? Format: program.exe,YYYY-MM-DD HH:MM:SS UTC
+
 ### Recon
 題目要求要找一個類似nmap之類的掃port的工具，然後還要看最後一次使用的時間，所以要先找到該軟體再哪裡，思路應該是既然他有使用過就一定會有prefetch，所以可以從裡面撈點東西出來這樣，位置就在`\root\Windows\Prefetch`
+
 ### Exploit
 首先從這一大堆的prefetch中看有哪一個工具很可疑，發現zenmap.exe的pf感覺有點熟悉，[查了一下](https://blog.csdn.net/wkl_venus/article/details/109491200)，原來是nmap的近親(有視覺化功能)，看起來就是他了，接著又是使用新工具的時候，到[這邊](https://ericzimmerman.github.io/#!index.md)載PECmd，(Eric Zimmerman很屌耶，甚麼工具都有做)，下command就會出現Last run的時間了
 ```bash
@@ -217,8 +241,10 @@ Volume information:
 :::spoiler Flag
 Flag: `zenmap.exe,2016-06-21 12:08:13 UTC`
 :::
+
 ## ==Q10==
 > When did the port scan end? (Example: Sat Jan 23 hh:mm:ss 2016) 
+
 ### Recon
 如果有用過nmap這種工具應該會有一個log file或是最後結果的report，所以直覺應該是找到個這file，但...我不知道去哪裡找，所以求助大神的WP[^hunter-wp-2]
 在上一題的結果中，我們會發現一些可疑的資料夾或是檔案，例如:
@@ -231,6 +257,7 @@ Flag: `zenmap.exe,2016-06-21 12:08:13 UTC`
 其他可能有一些原因導致資料遺失，所以感覺上這個路徑會有一些資訊可以撈
 ![](https://hackmd.io/_uploads/BJMH0DDMT.png)
 大概看過一遍之後發現他的target是`scanme.nmap.org`，結果的路徑會放在`recent_scans.txt`中$\to$`C:\Users\Hunter\Desktop\nmapscan.xml`，實際去翻了一下發現真的有一些重要資訊
+
 ### Exploit
 :::spoiler xml檔案內容
 ```xml
@@ -436,6 +463,7 @@ Nmap done: 1 IP address (1 host up) scanned in 87.13 seconds
 :::spoiler Flag
 Flag: `Tue Jun 21 05:12:09 2016`
 :::
+
 ## Reference
 [第二章、簡易網路基礎架構](https://linux.vbird.org/linux_server/redhat9/0110network_basic.php)
 [第十六章、簡易 DHCP 伺服器設定](https://linux.vbird.org/linux_server/redhat9/0340dhcp.php#theory_Whatisdhcp)

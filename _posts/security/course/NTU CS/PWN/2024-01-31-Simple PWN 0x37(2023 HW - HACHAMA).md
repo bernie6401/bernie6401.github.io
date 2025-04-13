@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x37(2023 HW - HACHAMA)
+
 ## Background
 stack pivot
 rop
@@ -93,6 +94,7 @@ int main(void)
 
 ```
 :::
+
 ## Recon
 :::warning
 切記題目用read接，所以不需要null byte做結尾，另外題目使用的libc是ubuntu 22.04.2的版本，所以可以用docker把libc資料撈出來，再針對這個做應用
@@ -196,6 +198,7 @@ int main(void)
 3. IO problem
     這個問題也是很弔詭，會發現我在最後一個send之前還有一個raw_input()，如果拿掉的話在remote一樣會爛掉，這有可能是IO之類的問題，但總之一定要加
 :::
+
 ## Exploit - BOF + Stack Pivot + ROP
 
 ```python

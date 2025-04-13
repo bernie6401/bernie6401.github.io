@@ -6,12 +6,14 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - x-sixty-what
+
 ## Source code
 :::spoiler
 ```cpp=
 
 ```
 :::
+
 ## Recon
 這一題有點奇怪，沒有想像中簡單，看起來就是一個簡單的return 2 function的問題，但是看了objdump的flag function原本應該是0x401236，但是會友segmentation fault，看了其他的WP[^x_sixty_what_WP]，發現應該return到0x40123b，不太知道為甚麼
 * 第一張是return 2 0x401236
@@ -43,5 +45,6 @@ r.interactive()
 ```
 
 Flag: `picoCTF{b1663r_15_b3773r_e79d5a75}`
+
 ## Reference
 [^x_sixty_what_WP]:[x-sixty-what WP](https://ctftime.org/writeup/33199)

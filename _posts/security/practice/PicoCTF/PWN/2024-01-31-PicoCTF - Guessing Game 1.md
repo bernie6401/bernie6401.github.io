@@ -6,9 +6,11 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - Guessing Game 1
+
 ## Background
 ROP Chain
 [Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
+
 ## Source code
 :::spoiler
 ```cpp
@@ -81,6 +83,7 @@ int main(int argc, char **argv){
 }
 ```
 :::
+
 ## Recon
 1. Recon
     ```bash!
@@ -181,6 +184,7 @@ ROP_payload = flat(
 r.sendline(b'a' * 0x78 + ROP_payload)
 r.interactive()
 ```
+
 ## Reference
 [PicoCTF - Guessing Game 1 [Pwn]](https://cyb3rwhitesnake.medium.com/picoctf-guessing-game-1-pwn-bdc1c87016f9)
 [^0x12_rop++]:[Simple PWN - 0x12(Lab - rop++)](https://hackmd.io/@SBK6401/rysBjQfjs)

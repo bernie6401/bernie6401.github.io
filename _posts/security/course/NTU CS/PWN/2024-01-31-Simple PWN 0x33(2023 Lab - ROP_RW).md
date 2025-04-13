@@ -6,8 +6,10 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x33(2023 Lab - ROP_RW)
+
 ## Background
 ROP chain
+
 ## Source code
 :::spoiler Source Code
 ```cpp
@@ -61,6 +63,7 @@ int main(void)
 
 ```
 :::
+
 ## Recon
 先看這個程式的行為，在main當中，他會打開flag.txt和urandom這兩個file，然後做兩者的XOR，並且回傳urandom的內容給我們，並且有BOF的漏洞存在
 :::info
@@ -106,6 +109,7 @@ $$
     )
     ```
 2. 等到跳到check function後就可以開始接return output，並按照上面的公式回推flag
+
 ## Exploit - ROP + BOF
 ```python
 from pwn import *

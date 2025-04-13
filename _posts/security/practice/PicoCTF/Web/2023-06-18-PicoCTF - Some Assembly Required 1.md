@@ -54,6 +54,7 @@ function onButtonPress() {
 }
 ```
 :::
+
 ## Exploit - Beautify JS + Analyze
 Please check line 24, the process will fetch `./JIFxzHyW8W` file at main webpage. We can check it out what this file is.
 Payload: `mercury.picoctf.net:40226/JIFxzHyW8W`

@@ -10,6 +10,7 @@ category: "Security/Course/NTU CNS/Paper Critique"
 [![hackmd-github-sync-badge](https://hackmd.io/bP2EPLmtSHWEM-XnakrMkA/badge)](https://hackmd.io/bP2EPLmtSHWEM-XnakrMkA)
 
 ## Reading Topic: The Password Reset MitM Attack
+
 ## Reading Topic: Is Real-time Phishing Eliminated with FIDO? Social Engineering Downgrade Attacks against FIDO Protocols
 ###### tags: `NTUCNS`
 Name: 何秉學	Student ID: R11921A16

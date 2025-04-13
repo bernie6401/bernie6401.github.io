@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - scrambled-bytes
+
 ## Background
 [盤點一款 Python 發包收包利器 - scapy](https://www.readfog.com/a/1635090435931213824)
 > ### 只發不收
@@ -22,6 +23,7 @@ category: "Security/Practice/PicoCTF/Misc/Flow"
 [time-時間的訪問和轉換](https://docs.python.org/zh-tw/3/library/time.html#time.time)
 [python 的pyshark庫如何使用](https://zhuanlan.zhihu.com/p/602431298)
 [PyShark入門(2)：FileCapture和LiveCapture模塊](https://segmentfault.com/a/1190000006064442)
+
 ## Source code
 :::spoiler Source Code
 ```python=
@@ -73,6 +75,7 @@ if __name__=='__main__':
   main(parser.parse_args())
 ```
 :::
+
 ## Recon
 這一題真的沒必要出的那麼複雜，有點硬要的感覺，不喜歡...，不看[^picoMini-misc-scrambled-bytes-wp-0x534b]我已經猜到八成了，但我感受到一股惡意...
 
@@ -174,6 +177,7 @@ f.close()
 
 ![](https://hackmd.io/_uploads/S1R0qhQp3.png)
 Flag: `picoCTF{n0_t1m3_t0_w4st3_5hufflin9_ar0und}`
+
 ## Reference
 [^picoMini-misc-scrambled-bytes-wp-0x534b]:[PicoMini Misc scrambled-bytes WP - 0x534b](https://github.com/0x534b/ctf-writeups/blob/master/picoMini%20by%20redpwn%202021/scrambled-bytes.md)
 [^permissionerror-operation-not-permitted]:[PermissionError: [Errno 1] Operation not permitted](https://stackoverflow.com/questions/44304988/permissionerror-errno-1-operation-not-permitted)

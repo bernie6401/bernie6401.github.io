@@ -11,6 +11,7 @@ category: "Security/Course/NTUST ISC/AD/1. 環境調查Normal"
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)
 
 ## Lab Time - 環境調查
+
 ### ==Lab - Leak Password from Description==
 在Win2016的server manager當中，可以從`Dashboard/Tools/Active Directory Users and Computers`中看到整個網域使用者的部分資料，例如Name, Type和Description，而這個東西其實是所有整個網域使用者都看地到，所以==不可以把機敏資料寫在這裡例如帳密之類的==，就像下面截圖一樣，`Fara Iseabal`和`Lina Allene`的密碼都被leak出去了
 ![](https://hackmd.io/_uploads/HktYdvUTh.png)

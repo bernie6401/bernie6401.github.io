@@ -6,7 +6,9 @@ category: "Tools/CTF"
 ---
 
 # Forensics Cheat Sheet
+
 ## Windows
+
 ### Where
 * SOFTWARE: `root/Windows/System32/config/SOFTWARE`
 * SYSTEM: `root/Windows/System32/config/SYSTEM`
@@ -22,11 +24,13 @@ category: "Tools/CTF"
     `SOFTWARE/Microsoft/Windows NT/CurrentVersion/Winlogon`
 * StartUp Run:
     `SOFTWARE/Microsoft/Windows/CurrentVersion/Run`
+
 #### NTUSER.DAT(每個使用者都不一樣)
 * UserAssit:
     `root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/UserAssist`
 * Recent Docs:
     `root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/RecentDocs`
+
 ### System Information
 * 電腦名稱:
     `SYSTEM/ControlSet001/Control/ComputerName/ComputerName`
@@ -53,6 +57,7 @@ category: "Tools/CTF"
 
 
 ## mac-OS
+
 ### plist
 ```bash
 $ sudo apt install libplist-utils -y
@@ -68,11 +73,13 @@ $ plistutil -i {plist file} -o {output file}
     `./root/private/var/db/dslocal/nodes/Default/users/_usbmux.plist`
 * Spotlight(這個不需要透過plistutil就可以直接cat)
     `./root/Users/{username}/Library/Application Support/com.apple.spotlight/com.apple.spotlight.Shortcuts`
+
 ### Event Log
 * 短期檔案系統變更儲存在`.fseventsd`中，必須使用`mac_apt`這個工具幫忙parse(FSEVENTS)
     `./root/.fseventsd/`
 * ScreenTime: 一樣要透過`mac_apt`幫忙parse(SCREENTIME)，記得要把`RMAdminStore-Local.sqlite-wal`這個檔案和`RMAdminStore-Local.sqlite`放在一起執行
     `./root/private/var/folders/bf/{random strings}/0/com.apple.ScreenTimeAgent/Store/RMAdminStore-Local.sqlite`
+
 ### Database
 * Note
     `./root/Users/{username}/Library/Group Containers/group.com.apple.notes`

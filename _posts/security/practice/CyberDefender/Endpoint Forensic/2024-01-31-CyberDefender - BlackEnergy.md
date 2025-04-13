@@ -10,10 +10,13 @@ category: "Security/Practice/CyberDefender/Endpoint Forensic"
 [TOC]
 :::
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/99
+
 ## Scenario
 > A multinational corporation has been hit by a cyber attack that has led to the theft of sensitive data. The attack was carried out using a variant of the BlackEnergy v2 malware that has never been seen before. The company's security team has acquired a memory dump of the infected machine, and they want you, as a soc analyst, to analyze the dump to understand the attack scope and impact.
+
 ## ==Q1==
 > Which volatility profile would be best for this machine?
+
 ### Exploit
 就是起手式:
 ```bash
@@ -37,8 +40,10 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
 :::spoiler Flag
 Flag: `WinXPSP2x86`
 :::
+
 ## ==Q2==
 > How many processes were running when the image was acquired? 
+
 ### Exploit
 直覺是pslist，然後扣掉exit的那些process，就是答案
 ```bash
@@ -76,24 +81,30 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 :::spoiler Flag
 Flag: `19`
 :::
+
 ## ==Q3==
 > What is the process ID of cmd.exe? 
+
 ### Exploit
 呈上題
 
 :::spoiler Flag
 Flag: `1960`
 :::
+
 ## ==Q4==
 > What is the name of the most suspicious process? 
+
 ### Exploit
 呈第3題，感覺這個process應該就是提權的工具
 
 :::spoiler Flag
 Flag: `rootkit.exe`
 :::
+
 ## ==Q5==
 > Which process shows the highest likelihood of code injection? 
+
 ### Exploit
 直覺會看`malfind`，然後找相關的process
 :::spoiler malfind result
@@ -565,8 +576,10 @@ Flags: CommitCharge: 9, MemCommit: 1, PrivateMemory: 1, Protection: 6
 :::spoiler Flag
 Flag: `svchost.exe`
 :::
+
 ## ==Q6==
 > There is an odd file referenced in the recent process. Provide the full path of that file. 
+
 ### Exploit
 這一題是靠賽出來的，所以還是參考[^wp]比較正常的解法，從上一題已經知道svchost.exe是已經被注入的process，所以我們可以把已經注入過的process dump出來，因為已經很久沒有做相關的題目所以有點卡，如果直接procdump的話是直接把沒有注入過且完整的process dump下來，放到virustotal只會一堆綠，所以要做的應該是malfind搭配dump才對，接著再去分析裡面的strings
 ```bash
@@ -602,13 +615,16 @@ C:\WINDOWS\system32\drivers\str.sys
 :::spoiler Flag
 Flag: `C:\WINDOWS\system32\drivers\str.sys`
 :::
+
 ## ==Q7==
 > What is the name of the injected dll file loaded from the recent process? 
+
 ### Recon
 這一題完全沒有想法，同樣是參考[^wp]，學到一個新東西，不過思路差不多，我是想如果可以利用dlllist直接看pid 880 load進甚麼樣的dll就可以篩選出正確的答案，不過有一個新的plugin更強，叫做==ldrmodules==
 > The ldrmodules plugin can be used to list the loaded modules (DLLs) in a process, and it can also be used to detect unlinked/hidden DLLs. We can use this plugin to examine the malicious svchost.exe process, which has a PID of 880.
 
 如果比對我的方法和[^wp]的方法會發現就是只有差在答案的那一個dll沒有顯示出來而已
+
 ### Exploit
 :::spoiler dlllist (我的方法)
 ```bash
@@ -752,8 +768,10 @@ Pid      Process              Base       InLoad InInit InMem MappedPath
 :::spoiler Flag
 Flag: `msxml3r.dll`
 :::
+
 ## ==Q8==
 > What is the base address of the injected dll?
+
 ### Exploit
 承接第六題，知道malfind之後，他會顯示base address
 ```bash
@@ -806,5 +824,6 @@ Flags: CommitCharge: 9, MemCommit: 1, PrivateMemory: 1, Protection: 6
 :::spoiler Flag
 Flag: `0x980000`
 :::
+
 ## Reference
 [^wp]:[BlackEnergy Walkthrough — Cyberdefenders](https://responderj01.medium.com/blackenergy-walkthrough-cyberdefenders-8502d4e37301)

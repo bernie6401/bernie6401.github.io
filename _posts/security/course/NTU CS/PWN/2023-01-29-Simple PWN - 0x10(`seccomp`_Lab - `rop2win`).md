@@ -9,6 +9,7 @@ category: "Security/Course/NTU CS/PWN"
 ###### tags: `CTF` `PWN` `eductf`
 
 challenge: `nc edu-ctf.zoolab.org 10005`
+
 ## `seccomp` background
 [Pwn week1](https://youtu.be/ktoVQB99Gj4?t=8457)
 

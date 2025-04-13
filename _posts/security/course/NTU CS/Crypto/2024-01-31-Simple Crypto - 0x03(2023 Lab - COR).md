@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x03(2023 Lab - COR)
+
 ## Background
 [Simple Crypto - 0x03(Lab - LFSR)](https://hackmd.io/@SBK6401/rkiE18Kas)
 
@@ -62,6 +63,7 @@ print(output)
 ![](https://hackmd.io/_uploads/ryG6Y5Gep.png)
 
 2. 等到個別找到LFSR2/3後，就可以模擬一開始的算法，題目一開始產生output的方式是`x2 if x1 else x3`，所以就像找LFSR2/3一樣，只是把threshold調到1，全部找完之後久可以得到flag了
+
 ## Exploit
 :::spoiler Whole Script
 ```python

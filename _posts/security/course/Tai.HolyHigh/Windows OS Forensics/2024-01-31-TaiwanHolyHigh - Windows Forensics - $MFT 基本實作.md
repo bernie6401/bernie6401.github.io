@@ -31,6 +31,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
 :::info
 以下三個練習都是Resident File
 :::
+
 ## Lab - Offset 43110400(d)
 * \$MFT長度一段就是1024 Bytes，我把結束的位址減掉開頭的位置就知道了，或是可以直接用HxD底下看長度(0x400)
     ![](https://hackmd.io/_uploads/rk0s7QKza.png)
@@ -40,6 +41,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
     1024
     ```
 * 從上圖也可以看到magical word就是`FILE0`$\to$`46 49 4C 45 30`
+
 ### Overview(從上到下)
 ![](https://hackmd.io/_uploads/S1l-DgEtzp.png)
 
@@ -93,6 +95,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
     datetime.datetime(2011, 1, 27, 0, 5, 23, 349211)
     ```
     Filename Timestamp都是`2011, 1, 27, 0, 5, 23, 349211`，和前面的create time相同
+
 ## Lab - Offset 43208704(d)
 * Staus: `01 00`$\to$File
 * \$MFT Record: `D4 A4`

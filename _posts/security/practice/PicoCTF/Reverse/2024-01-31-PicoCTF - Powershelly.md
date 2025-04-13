@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Powershelly
+
 ## Background
 [Powershell 命令提示字元比較](https://zh.wikipedia.org/zh-tw/PowerShell#%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83%E6%AF%94%E8%BE%83)
 [What is '@{}' meaning in PowerShell](https://stackoverflow.com/questions/56965510/what-is-meaning-in-powershell)
@@ -149,6 +150,7 @@ for ($i=0; $i -lt $blocks.count ; $i++)
 Add-Content -Path output_test.txt -Value $output_file
 ```
 :::
+
 ## Recon
 這一題太難了，花了好多時間，不看[^pico-reverse-powershelly-wp-IRS-Cybersec]的WP大概猜到了六七成，不過最後的部分才是關鍵，再加上不是很懂powershell的語法
 1. Check File Format
@@ -513,6 +515,7 @@ Add-Content -Path output_test.txt -Value $output_file
         ```
 5. Find Flag
 透過上述的形式，我們已經把input.txt還原出來了，仔細觀察會發現每一個row，都只有包含兩種字串，舉例：第一個row就只包含`100001`和`110011`而已，而第二個row則只有包含`001100`和`100011`，寫CTF也這麼久了，直覺就是一個binary encoding，試著把`100001`當成`0`，另外一個當成`1`，再傳換成utf-8應該就會產生flag了
+
 ## Exploit
 ```python=
 output = open('./PicoCTF/Reverse/Powershelly/output.txt', 'r').readlines()
@@ -562,5 +565,6 @@ print(bytes.fromhex(hex(int(finalFlagArr[0], 2))[2:]).decode('cp437'))
 ```
 
 Flag: `picoCTF{2018highw@y_2_pow3r$hel!}`
+
 ## Reference
 [^pico-reverse-powershelly-wp-IRS-Cybersec]:[Powershelly [180 Points] - 101 Solves](https://github.com/IRS-Cybersec/ctfdump/tree/master/picoCTF/2021/RE/Powershelly)

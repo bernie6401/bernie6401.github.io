@@ -10,6 +10,7 @@ category: "Survey Papers/Android + Security"
 :::info
 Zhou, H., Luo, X., Wang, H., & Cai, H. (2022, November). Uncovering Intent based Leak of Sensitive Data in Android Framework. In Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (pp. 3239-3252).
 :::
+
 ## Background
 :::spoiler [[Android] Activity基本介紹](https://ironglion.com/archives/334)
 > * 什麼是Activity?
@@ -72,6 +73,7 @@ Activity是App中，提供畫面的一個元件，
 :::
 
 :::spoiler What is field in Android?
+
 #### [Documentation](https://developer.android.com/reference/java/lang/reflect/Field)
 > A Field provides information about, and dynamic access to, a single field of a class or an interface. The reflected field may be a class (static) field or an instance field.
 >

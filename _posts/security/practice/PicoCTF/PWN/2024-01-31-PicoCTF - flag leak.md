@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - flag leak
+
 ## Background
 Format String Bug
 ![](https://hackmd.io/_uploads/BkqBmpOih.png)
@@ -63,9 +64,11 @@ int main(int argc, char **argv){
 
 ```
 :::
+
 ## Recon
 這一題比計安教的還簡單，不過我全忘了QQ
 先用gdb跟一下，發現在stack的地方有flag的痕跡，記一下相對位置就可以print出來，如果怕不同device會有問題的話就多幾個
+
 ## Exploit
 Payload: `%20$s%21$s%22$s%23$s%24$s%25$s%26$s`
 ```bash!

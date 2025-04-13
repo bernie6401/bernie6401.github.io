@@ -6,13 +6,16 @@ category: "Security/Practice/CrewCTF/Misc"
 ---
 
 # CrewCTF - Encrypt10n(Part 2)
+
 ## Background
 [How To Open A TrueCrypt Container Using cryptsetup](https://kenfavors.com/code/how-to-open-a-truecrypt-container-using-cryptsetup/)
 > `$ sudo cryptsetup --type tcrypt open container-to-mount container-name`
 
 [什麽是塊設備，什麽是字符設備？有什麽區別？](https://blog.51cto.com/majesty/991565)
+
 ## Recon
 這一題應該是沿用part 1得到的密碼進行解密
+
 ## Exploit
 1. 用`cryptsetup`[^cryptsetup_tutorial]先進行解密
     ```bash
@@ -56,5 +59,6 @@ A lots of base64 encoding
     ```
 
 Flag: `crew{Tru33333_Crypt_w1th_V014t1l1ty!}`
+
 ## Reference
 [^cryptsetup_tutorial]:[How To Open A TrueCrypt Container Using cryptsetup](https://kenfavors.com/code/how-to-open-a-truecrypt-container-using-cryptsetup/)

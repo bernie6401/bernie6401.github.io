@@ -47,6 +47,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
     5. VBR
     6. $MFT
     7. ...
+
 ## \$MFT Background
 * What is \$MFT?
     > 常見之 NTFS 系統檔案如下，多以`$`符號為開頭。

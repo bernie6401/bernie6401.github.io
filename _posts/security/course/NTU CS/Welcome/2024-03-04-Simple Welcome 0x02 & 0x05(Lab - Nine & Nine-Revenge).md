@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Welcome"
 ---
 
 # Simple Welcome 0x02 & 0x05(Lab - Nine & Nine-Revenge)
+
 ## Background
 [Convert.FromBase64String(String) Method in C#](https://www.tutorialspoint.com/convert-frombase64string-string-method-in-chash#)
 [String.Substring 方法](https://learn.microsoft.com/zh-tw/dotnet/api/system.string.substring?view=net-7.0)
@@ -42,6 +43,7 @@ private void Flag()
     ![](https://hackmd.io/_uploads/HkHxLuUYh.png)
     ![](https://hackmd.io/_uploads/SyW-8OUK3.png)
     :::
+
 ## Exploit
 也是可以直接用C#的線上editor，不過如果不會寫的話就可以直接看source code然後用熟悉的語言寫script
 * Nine Exp
@@ -72,5 +74,6 @@ private void Flag()
 
     print(bytes.fromhex(flag).decode('utf-8'))
     ```
+
 ## Reference
 [^wp_1]:[Write Up from eric070021](https://hackmd.io/@eric070021/r1UnR5KWi)

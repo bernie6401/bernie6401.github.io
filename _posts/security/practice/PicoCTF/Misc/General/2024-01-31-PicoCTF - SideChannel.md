@@ -6,14 +6,17 @@ category: "Security/Practice/PicoCTF/Misc/General"
 ---
 
 # PicoCTF - SideChannel
+
 ## Description
 > There's something fishy about this PIN-code checker, can you figure out the PIN and get the flag? Download the PIN checker program here pin_checker Once you've figured out the PIN (and gotten the checker program to accept it), connect to the master server using nc saturn.picoctf.net 50364 and provide it the PIN to get your flag.
 > 
 > Hint 1: Read about "timing-based side-channel attacks."
 > Hint 2: Attempting to reverse-engineer or exploit the binary won't help you, you can figure out the PIN just by interacting with it and measuring certain properties about it.
 > Hint 3: Don't run your attacks against the master server, it is secured against them. The PIN code you get from the pin_checker binary is the same as the one for the master server.
+
 ## Recon
 這一題也是直接看[^this-problem-wp]才知道怎麼解，應該說原本大概也猜到是這樣解，但過程一直不順利，所以沒寫出來，最主要是一開始沒看hint所以reverse/binary exploitation花了太多時間，結果一無所獲，但大致上思路沒差多少，也就是輸入的pin digit如我是對的就會比一般錯誤的pin digit還要多花點時間處理，所以我們就可以鎖定每一個digit原本到底是甚麼
+
 ## Exploit
 ```python
 from time import *
@@ -51,5 +54,6 @@ picoCTF{t1m1ng_4tt4ck_9803bd25}
 ```
 
 Flag: `picoCTF{t1m1ng_4tt4ck_9803bd25}`
+
 ## Reference
 [^this-problem-wp]:[ picoGym (picoCTF) Exercise: SideChannel ](https://youtu.be/6-GmrNobEyA?si=0HVfVpNwLT_yNm3G)

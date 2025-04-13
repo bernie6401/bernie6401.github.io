@@ -9,6 +9,7 @@ category: "Security/Practice/PicoCTF/Web"
 ###### tags: `PicoCTF` `CTF` `Web`
 
 ## Background
+
 ### [【Chrome 85 更新】淺談 Referer-Policy 和更新影響](https://www.maxlist.xyz/2020/08/03/chrome-85-referer-policy/)
 > ### HTTP Referer 是什麼?
 >
@@ -46,6 +47,7 @@ category: "Security/Practice/PicoCTF/Web"
 
 ## Recon
 雖然這一題是for beginner但是想了超級無敵久還是不知道在考啥，因此也是只能拜讀別人的WP然後在印度口音的薰陶下找到解答，簡單來說就是考packet的header而已
+
 ## Exploit - Header<font color="FF0000">通靈</font>
 1. Only people who use the official PicoBrowser are allowed on this site!
 改`User-Agent`成`PicoBrowser`

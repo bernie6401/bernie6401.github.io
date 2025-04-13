@@ -6,9 +6,11 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x35(2023 Lab - Stack Pivot)
+
 ## Background
 [Simple PWN - 0x09(stack pivoting)](https://hackmd.io/@SBK6401/rylybxgji)
 [Simple PWN - 0x10(seccomp/Lab - rop2win)](https://hackmd.io/@SBK6401/H1NX6Bloj)
+
 ## Source code
 ```cpp
 #include <stdio.h>
@@ -21,6 +23,7 @@ int main(void)
 	return 0;
 }
 ```
+
 ## Recon
 這一題助教是預設我們必須要使用stack pivot的技巧拿到flag，不過沒有時間設定seccomp，所以我們自己假裝只能使用read / write / open這三個syscall
 1. checksec + file
@@ -158,6 +161,7 @@ $ docker exec -it {container name} /bin/bash
 > python3 exp.py
 ```
 :::
+
 ## Exploit - ROPchain + stack pivot
 ```python
 from pwn import *

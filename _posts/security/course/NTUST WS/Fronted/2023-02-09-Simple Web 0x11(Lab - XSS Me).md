@@ -18,6 +18,7 @@ Challenge: http://h4ck3r.quest:8800/
 
 ![](https://i.imgur.com/q9fwa6z.png)
 :::
+
 ## Source code
 ```javascript!
 ...
@@ -29,6 +30,7 @@ Challenge: http://h4ck3r.quest:8800/
 </script>
 ...
 ```
+
 ## Exploit
 1. Check XSS
     ```javascript!

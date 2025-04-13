@@ -6,6 +6,7 @@ category: "Security/Practice/Adworld/Misc"
 ---
 
 # Adworld - Misc文件類型
+
 ## Source Code
 ```
 3436455341425F554573444242514141
@@ -59,5 +60,6 @@ print(f)
 $ python exp.py
 flag{0bec0ad3da2113c70e50fd5617b8e7f9}
 ```
+
 ## Reference
 [XCTF-MISC-Misc文件類型](https://juejin.cn/post/7166166845395828772)

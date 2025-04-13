@@ -6,8 +6,10 @@ category: "Security/Practice/Adworld/Misc"
 ---
 
 # Adworld - miao~
+
 ## Recon
 這題也是看了別人的WP[^miao_WP_1]和官解
+
 ## Exploit
 1. 用foremost搜索或救援檔案(神奇的解法，一開始完全想不到)
     ```bash!
@@ -56,5 +58,6 @@ category: "Security/Practice/Adworld/Misc"
     ![](https://hackmd.io/_uploads/S1xdjTy9h.png)
 
 Flag: `CatCTF{d0_y0u_Hate_c4t_ba3k1ng_?_M1ao~}`
+
 ## Reference
 [^miao_WP_1]:[ZimaBlue WP](https://www.cnblogs.com/ZimaBlue/articles/17024728.html)

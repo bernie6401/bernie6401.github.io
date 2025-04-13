@@ -11,6 +11,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
 :::info
 以下引用若無特別說明皆來自於講師的上課簡報
 :::
+
 ## Artifacts Background
 > 使用者操作 Windows 作業系統時會在系統中留下或產生許多行為紀錄，稱之為 Artifacts
 
@@ -35,6 +36,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
         * Volatility的malfind可以看到惡意注入的payload...
     * 網路行為
         * Volatility的netscan
+
 ## Most Recently Used(MRU) Background
 就是泛指各種windows存取使用者最近access過的檔案、路徑或網路位置，是一種行為，攻防兩端都會注意的地方
 * Overview

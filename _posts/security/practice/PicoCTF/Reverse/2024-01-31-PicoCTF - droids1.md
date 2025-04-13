@@ -6,8 +6,10 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - droids1
+
 ## Backgroud
 [ Android App 逆向入門之一：拆開與重組 apk ](https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/): 強烈建議新手在打之前可以先看一下這篇，稍微了解一下整體怎麼包apk以及比要檔案有哪些，或是他們儲存的資料類型之類的
+
 ## Tools
 * [apktool](https://ibotpeaches.github.io/Apktool/)
 跟著[installation guide](https://apktool.org/docs/install)就可以安裝成功，此工具目的在於拆解apk，我們知道apk就是一個壓縮檔，如果直接用unzip這種指令，也可以打開，只不過一些經過編譯後的byte code就還是byte code，而apktool可以在解壓縮的同時還原這些byte code
@@ -20,9 +22,12 @@ category: "Security/Practice/PicoCTF/Reverse"
      $ cd ./bin
      $ ./jadx-gui
     ```
+
 ## Recon
 這一題有兩種方法可以反編譯apk，一種是利用ApkTool，另外一個是JADX，兩者差在有無GUI(JADX有)，主要是參考[^pico-reverse-droids1-wp-haydenhousen]的WP
+
 ## Exploit
+
 ### ApkTools
 ```bash
 $ apktool d one.apk

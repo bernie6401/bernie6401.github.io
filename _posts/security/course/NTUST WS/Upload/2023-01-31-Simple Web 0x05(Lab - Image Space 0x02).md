@@ -46,5 +46,6 @@ Challenge: http://h4ck3r.quest:9011
 ```
 :::
 * Extension checked by white list: `.png`, `.jpeg`, `jpg`
+
 ## Exploit - bypass extension
 Change the filename to `webshell.png.php` then upload to get shell.

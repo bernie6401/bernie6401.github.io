@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Web"
 ---
 
 # Simple Web 0x41(2023 HW - Double Injection - FLAG1)
+
 ## Background
 Time Based SQLi
 :::info
@@ -119,6 +120,7 @@ app.post('/login', (req, res) => {
 app.listen(3000, () => console.log('Listening on port 3000'));
 ```
 :::
+
 ## Recon
 這一題超爆難，應該可以預見被splitline凌虐，先看Dockerfile寫了甚麼，安裝的前置作業結束以後，分別把FLAG1和FLAG2的內容丟到`/flag1.txt`,`/flag2-{random string}.txt`中，並且執行db的初始化，也就是把FLAG1當成admin的密碼，接著比較重要的一步是把存取db內容的file(`/etc/db.sqlite3`)的權限設定read-only，這個操作後續會說明重要的地方，最後就是執行app.js
 
@@ -196,6 +198,7 @@ app.listen(3000, () => console.log('Listening on port 3000'));
                 AND IIF(substr(c, 1, 5) = 'FLAG{', (SELECT randomblob(1000000000 % 10) FROM sqlite_master WHERE 1 LIMIT 1), 1); -- # 
             ```
     4. 此時就可以開寫script去server端爆破FLAG1
+
 ## Exploit - Time Based SQLi
 ```python!
 from requests import *

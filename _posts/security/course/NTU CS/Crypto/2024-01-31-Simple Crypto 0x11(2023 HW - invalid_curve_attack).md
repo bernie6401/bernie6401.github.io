@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto 0x11(2023 HW - invalid_curve_attack)
+
 ## Background
 [pekobot - maple](https://github.com/maple3142/My-CTF-Challenges/blob/7d9141ac7b61fdbb71f29c07d489018d7c0a0aaa/AIS3%20Pre-exam%202022/pekobot/README.md)
 > 這邊我會嘗試用簡單的講法把這個攻擊簡述一遍，詳細還是建議 [Crypton](https://github.com/ashutosh1206/Crypton/blob/master/Diffie-Hellman-Key-Exchange/Attack-Invalid-Curve-Point/README.md) 或是其他地方的說明。
@@ -156,6 +157,7 @@ class Point:
 INFINITY = Point(None, None, None)
 ```
 :::
+
 ## Recon
 1. 觀察source code會發現maple實作了一個沒有檢查我們傳送的點是否在一開始創的橢圓曲線上的elliptiv curve class，然後他把我們給的point當作參數，創立一個初始點，可以看一下下面裡個範例，如果是maple的實作，給予一個根本不在該Elliptic Curve的點他還是會算一個G+G的點給你，只是該點其實是在別的曲線上的2G這個點，反觀正常的sage中的實作會發現只要給予的點不在該曲線上就會直接報錯
     ![](https://hackmd.io/_uploads/H15TTzBZa.png)
@@ -260,6 +262,7 @@ flag\equiv flag'''\ (mod\ prime_3)\\
 ...
 $$
 所以重點在於要找到足夠多的$flag'$和$prime_n$組合
+
 ## Exploit
 實作的部分主要是參考[^hackthebox-invalid-curve-attack-wp]的幫忙，大致上就和上面提到的差不多
 ```python=
@@ -394,5 +397,6 @@ Flag: FLAG{YouAreARealECDLPMaster}
 :::
 
 Flag: `FLAG{YouAreARealECDLPMaster}`
+
 ## Reference
 [^hackthebox-invalid-curve-attack-wp]:[Business CTF 2022: Invalid curve attack - 400 Curves](https://www.hackthebox.com/blog/business-ctf-2022-400-curves-write-up)
