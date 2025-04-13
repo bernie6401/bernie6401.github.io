@@ -24,9 +24,11 @@ paginate: 10
 #archive:
   #paginate: 10
   #paginate_path: "/page:num/"
-#category:
-  #paginate: 10
-  #paginate_path: "/page:num/"
+category:
+  paginate: 10
+  sort_reverse: true
+  sort_field: "date"
+  paginate_path: "/page:num/"
 #tag:
   #paginate: 10
   #paginate_path: "/page:num/"
