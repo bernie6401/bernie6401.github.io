@@ -6,6 +6,7 @@ category: "Survey Papers/Federated Learning"
 ---
 
 # EIFFeL: Ensuring Integrity For Federated Learning - Notes
+<!-- more -->
 ###### tags: `Meeting Paper` `NTU`
 :::info
 Roy Chowdhury, A., Guo, C., Jha, S., & van der Maaten, L. (2022, November). Eiffel: Ensuring integrity for federated learning. In Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (pp. 2535-2549).

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Web"
 ---
 
 # Simple Web - 0x09(Lab - Simple Note)
+<!-- more -->
 ###### tags: `CTF` `Web` `eductf`
 Challenge: https://note.ctf.zoolab.org/
 

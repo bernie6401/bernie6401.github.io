@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - babygame01
+<!-- more -->
 
 ## Background
 Bof

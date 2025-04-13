@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Web"
 ---
 
 # Simple Web 0x17(Lab - Baby Cat)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8601/
 

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Web"
 ---
 
 # Simple Web 0x41(2023 HW - Double Injection - FLAG1)
+<!-- more -->
 
 ## Background
 Time Based SQLi

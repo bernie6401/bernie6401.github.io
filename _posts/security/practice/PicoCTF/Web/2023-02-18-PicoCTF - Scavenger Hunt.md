@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Scavenger Hunt
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 Challenge: [Scavenger Hunt](http://mercury.picoctf.net:55079/)
 

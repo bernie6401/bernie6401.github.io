@@ -6,6 +6,7 @@ category: "Survey Papers/Android + Security"
 ---
 
 # WIGHT: Wired Ghost Touch Attack on Capacitive Touchscreens
+<!-- more -->
 ###### tags: `Meeting Paper` `NTU`
 :::info
 Jiang, Y., Ji, X., Wang, K., Yan, C., Mitev, R., Sadeghi, A. R., & Xu, W. (2022, May). Wight: Wired ghost touch attack on capacitive touchscreens. In 2022 IEEE Symposium on Security and Privacy (SP) (pp. 984-1001). IEEE.

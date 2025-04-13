@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto 0x11(2023 HW - invalid_curve_attack)
+<!-- more -->
 
 ## Background
 [pekobot - maple](https://github.com/maple3142/My-CTF-Challenges/blob/7d9141ac7b61fdbb71f29c07d489018d7c0a0aaa/AIS3%20Pre-exam%202022/pekobot/README.md)

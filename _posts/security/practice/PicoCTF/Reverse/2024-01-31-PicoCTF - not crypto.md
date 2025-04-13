@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - not crypto
+<!-- more -->
 
 ## Source code
 :::spoiler IDA Pseudo Source COde

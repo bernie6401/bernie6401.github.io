@@ -6,6 +6,7 @@ category: "Security/Practice/CrewCTF/Misc"
 ---
 
 # CrewCTF - Encrypt10n(Part 2)
+<!-- more -->
 
 ## Background
 [How To Open A TrueCrypt Container Using cryptsetup](https://kenfavors.com/code/how-to-open-a-truecrypt-container-using-cryptsetup/)

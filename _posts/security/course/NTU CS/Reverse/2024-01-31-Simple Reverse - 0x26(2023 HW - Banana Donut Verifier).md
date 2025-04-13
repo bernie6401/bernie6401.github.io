@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)
+<!-- more -->
 
 ## Source Code
 :::spoiler Source Code

@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/SQL"
 ---
 
 # Lab: SQL injection UNION attack, retrieving multiple values in a single column
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 * Description: This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application's response so you can use a UNION attack to retrieve data from other tables. 
 * Hint:  The database contains a different table called users, with columns called username and password.

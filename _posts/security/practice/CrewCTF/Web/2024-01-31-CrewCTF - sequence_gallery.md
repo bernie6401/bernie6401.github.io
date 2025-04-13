@@ -6,6 +6,7 @@ category: "Security/Practice/CrewCTF/Web"
 ---
 
 # CrewCTF - sequence_gallery
+<!-- more -->
 
 ## Background
 [Command Injection](https://lab.feifei.tw/practice/ci/l1.php)

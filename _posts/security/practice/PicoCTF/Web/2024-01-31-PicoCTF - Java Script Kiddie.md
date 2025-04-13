@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Java Script Kiddie
+<!-- more -->
 
 ## Background
 [JavaScript Array slice()](https://www.w3schools.com/jsref/jsref_slice_array.asp)

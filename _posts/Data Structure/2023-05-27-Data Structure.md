@@ -6,6 +6,7 @@ category: "Data Structure"
 ---
 
 # Data Structure
+<!-- more -->
 ###### tags: `Data Structure` `NYCU`
 
 - [Lecture 1](/@S7deXzLKQkGUhZX374ALMg/HyyY4lwk2)

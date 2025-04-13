@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x04(2023 Lab - POA)
+<!-- more -->
 
 ## Background
 [ Crypto I - Timmy](https://youtu.be/dYyNeMeDM20?si=BEvBPBzCsg8oWv_Q&t=8317)

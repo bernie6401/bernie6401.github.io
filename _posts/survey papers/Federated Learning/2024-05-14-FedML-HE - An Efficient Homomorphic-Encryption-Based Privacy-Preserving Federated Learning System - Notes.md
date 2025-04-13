@@ -6,6 +6,7 @@ category: "Survey Papers/Federated Learning"
 ---
 
 # FedML-HE - An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System - Notes
+<!-- more -->
 ###### tags: `Meeting Paper` `NTU`
 :::info
 Jin, W., Yao, Y., Han, S., Joe-Wong, C., Ravi, S., Avestimehr, S., & He, C. (2023). FedML-HE: An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System. arXiv preprint arXiv:2303.10837.

@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender/Endpoint Forensic/MrRobot - Medium"
 ---
 
 # NTUSTISC - CyberDefender - MrRobot - Target 1
+<!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/88
 Target 2: https://hackmd.io/@SBK6401/HJz2FPne6
 POS: https://hackmd.io/@SBK6401/BJpJqDhlp

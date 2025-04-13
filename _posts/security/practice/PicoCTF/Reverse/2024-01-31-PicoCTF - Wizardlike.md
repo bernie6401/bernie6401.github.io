@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Wizardlike
+<!-- more -->
 
 ## Recon
 這一題蠻有趣的，如果只是單純執行程式碼，會發現是一個迷宮的遊戲，不過走越多會發現兩個現象

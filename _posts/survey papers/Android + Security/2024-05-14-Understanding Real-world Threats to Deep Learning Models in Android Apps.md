@@ -6,6 +6,7 @@ category: "Survey Papers/Android + Security"
 ---
 
 # Understanding Real-world Threats to Deep Learning Models in Android Apps
+<!-- more -->
 ###### tags: `Meeting Paper` `NTU`
 :::info
 Deng, Z., Chen, K., Meng, G., Zhang, X., Xu, K., & Cheng, Y. (2022, November). Understanding real-world threats to deep learning models in android apps. In Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (pp. 785-799).

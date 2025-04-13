@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/Upload"
 ---
 
 # Simple Web 0x06(Lab - Image Space 0x03)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:9012
 

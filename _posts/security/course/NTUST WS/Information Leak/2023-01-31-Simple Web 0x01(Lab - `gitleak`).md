@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/Information Leak"
 ---
 
 # Simple Web 0x01(Lab - `gitleak`)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:9000/
 

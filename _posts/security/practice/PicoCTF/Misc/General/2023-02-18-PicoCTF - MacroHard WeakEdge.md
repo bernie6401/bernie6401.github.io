@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/General"
 ---
 
 # PicoCTF - MacroHard WeakEdge
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [MacroHard WeakEdge](https://play.picoctf.org/practice/challenge/130?bookmarked=0&category=4&page=1&search=&solved=0)
 

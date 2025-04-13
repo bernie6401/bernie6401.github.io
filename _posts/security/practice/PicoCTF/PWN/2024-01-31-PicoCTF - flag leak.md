@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - flag leak
+<!-- more -->
 
 ## Background
 Format String Bug

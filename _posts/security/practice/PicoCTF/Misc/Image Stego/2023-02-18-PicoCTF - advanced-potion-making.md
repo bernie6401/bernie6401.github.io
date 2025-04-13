@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Image Stego"
 ---
 
 # PicoCTF - advanced-potion-making
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [advanced-potion-making](https://play.picoctf.org/practice/challenge/205?bookmarked=0&category=4&page=1&search=&solved=0)
 

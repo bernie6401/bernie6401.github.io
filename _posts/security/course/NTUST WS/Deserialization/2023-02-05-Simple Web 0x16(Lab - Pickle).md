@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/Deserialization"
 ---
 
 # Simple Web 0x16(Lab - Pickle)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8600/
 Note: open a brand new window that haven't login `http://h4ck3r.quest`

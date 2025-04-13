@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x03(Lab - Why)
+<!-- more -->
 
 ## Background
 * [What is function pointer?](https://chenhh.gitbooks.io/parallel_processing/content/cython/function_pointer.html)

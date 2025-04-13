@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - filtered-shellcode
+<!-- more -->
 
 ## Background
 Shell Code

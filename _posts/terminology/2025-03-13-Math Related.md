@@ -6,6 +6,7 @@ category: "Terminology"
 ---
 
 # Math Related
+<!-- more -->
 
 ## 數學字母使用規則
 在 LaTeX 中，數學符號（如 `\mathscr`, `\mathbb`, `\mathcal`）通常有特定的用途和限制，主要在於 **哪些類型的變數或集合適合使用哪種格式**。以下是一些常見的數學字母風格以及它們的用途：

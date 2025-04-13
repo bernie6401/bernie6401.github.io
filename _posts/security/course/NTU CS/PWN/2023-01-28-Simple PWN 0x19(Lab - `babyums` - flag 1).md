@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x19(Lab - `babyums` - flag 1)
+<!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
 Version: Ubuntu 20.04

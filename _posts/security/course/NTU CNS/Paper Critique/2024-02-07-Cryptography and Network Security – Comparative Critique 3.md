@@ -6,6 +6,7 @@ category: "Security/Course/NTU CNS/Paper Critique"
 ---
 
 # Cryptography and Network Security – Comparative Critique 3
+<!-- more -->
 
 [![hackmd-github-sync-badge](https://hackmd.io/MLHx12AhT-S-DUoRfGUn4A/badge)](https://hackmd.io/MLHx12AhT-S-DUoRfGUn4A)
 

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse 0x08(Lab - GetProcAddress)
+<!-- more -->
 
 ## Background
 [GetModuleFileNameA 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulefilenamea?ns-enrollment-type=Collection&ns-enrollment-id=rdg3b1j45ye486)

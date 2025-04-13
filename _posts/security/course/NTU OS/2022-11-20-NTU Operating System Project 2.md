@@ -6,6 +6,7 @@ category: "Security/Course/NTU OS"
 ---
 
 # NTU Operating System Project 2
+<!-- more -->
 ###### tags: `NTU_OS` `Operating System` `NachOS` `CPU Scheduling` `System Call`
 [TOC]
 

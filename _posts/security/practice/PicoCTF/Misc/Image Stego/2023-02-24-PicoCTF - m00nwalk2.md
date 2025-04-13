@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Image Stego"
 ---
 
 # PicoCTF - m00nwalk2
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [m00nwalk2](https://play.picoctf.org/practice?category=4&page=3)
 

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x29(2023 Lab - Unpackme)
+<!-- more -->
 
 ## Source code
 ```cpp

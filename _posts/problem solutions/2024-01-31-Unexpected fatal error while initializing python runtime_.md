@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # Unexpected fatal error while initializing python runtime.
+<!-- more -->
 Complete error message: Unexpected fatal error while initializing python runtime. Please run idapyswitch to confirm or change the used Python runtime
 
 ## Solution

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x08(2023 Lab - dlog)
+<!-- more -->
 
 ## Background
 [ [edu-ctf 2023] week03 - crypto2 ](https://www.youtube.com/live/u4ZVc8PuJC0?si=2wbiGreg_BZQ-dff)

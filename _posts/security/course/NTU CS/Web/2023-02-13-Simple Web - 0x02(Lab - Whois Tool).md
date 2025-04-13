@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Web"
 ---
 
 # Simple Web - 0x02(Lab - Whois Tool)
+<!-- more -->
 ###### tags: `CTF` `Web` `eductf`
 Challenge: https://whoistool.ctf.zoolab.org/
 

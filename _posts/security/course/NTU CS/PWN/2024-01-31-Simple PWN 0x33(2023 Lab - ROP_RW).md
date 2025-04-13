@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x33(2023 Lab - ROP_RW)
+<!-- more -->
 
 ## Background
 ROP chain

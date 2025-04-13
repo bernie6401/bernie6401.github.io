@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/Command Injection"
 ---
 
 # Simple Web 0x10(Lab - DNS Lookup Tool | WAF)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 
 ## Background

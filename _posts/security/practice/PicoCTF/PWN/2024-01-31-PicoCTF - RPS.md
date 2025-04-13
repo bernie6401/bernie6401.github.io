@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - RPS
+<!-- more -->
 
 ## Background
 [strstr() in C/C++](https://www.geeksforgeeks.org/strstr-in-ccpp/)

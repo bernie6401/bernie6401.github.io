@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse 0x11(Lab - Exception)
+<!-- more -->
 
 ## Background
 [乘法、除法的運用 — 組合語言筆記](https://mycollegenotebook.medium.com/%E4%B9%98%E6%B3%95-%E9%99%A4%E6%B3%95%E7%9A%84%E9%81%8B%E7%94%A8-%E7%B5%84%E5%90%88%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98-638b1eac4696)

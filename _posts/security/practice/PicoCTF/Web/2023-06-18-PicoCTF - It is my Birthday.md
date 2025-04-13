@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - It is my Birthday
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 Challenge: [It is my Birthday](https://play.picoctf.org/practice/challenge/109?category=1&page=1)
 

@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Bad Questions"
 ---
 
 # PicoCTF - Easy Peasy Or Bad Questions
+<!-- more -->
 [TOC]
 
 ## Challenge: [logon](https://play.picoctf.org/practice/challenge/46?category=1&page=1)🍰

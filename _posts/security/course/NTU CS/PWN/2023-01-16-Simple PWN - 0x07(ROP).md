@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN - 0x07(ROP)
+<!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
 ## Background

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Reverse"
 ---
 
 # Simple Reverse - 0x30(2023 HW - Evil FlagChecker)
+<!-- more -->
 
 ## Background
 Anti Disassembly - 這一部分可以看一下碩一修的malware reverse的anti disassembly的修復(就是d和c的交錯使用)

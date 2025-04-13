@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x32(2023 HW - Notepad-Stage 2)
+<!-- more -->
 
 ## Description & Hint
 > Try to get /flag_backend.

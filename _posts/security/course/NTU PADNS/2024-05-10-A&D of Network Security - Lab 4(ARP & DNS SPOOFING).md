@@ -6,6 +6,7 @@ category: "Security/Course/NTU PADNS"
 ---
 
 # A&D of Network Security - Lab 4(ARP & DNS SPOOFING)
+<!-- more -->
 ###### tags: `Practicum of A&D of NS` `NTU`
 
 ## Background

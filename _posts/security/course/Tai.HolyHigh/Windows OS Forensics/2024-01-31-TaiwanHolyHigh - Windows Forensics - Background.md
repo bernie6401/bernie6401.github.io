@@ -6,6 +6,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
 ---
 
 # TaiwanHolyHigh - Windows Forensics - Background
+<!-- more -->
 [TOC]
 
 ## Background

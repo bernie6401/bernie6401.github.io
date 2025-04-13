@@ -6,6 +6,7 @@ category: "Tools/Others/Android Related/Drozer/Test Sieve"
 ---
 
 # Test Sieve - broadcast receivers exported
+<!-- more -->
 這個就不是用Sieve做示範，因為這個App沒有match的receiver
 ```bash
 dz> run app.broadcast.info -a com.mwr.example.sieve

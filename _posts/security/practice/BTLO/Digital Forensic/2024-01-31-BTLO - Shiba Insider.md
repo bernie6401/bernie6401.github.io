@@ -6,6 +6,7 @@ category: "Security/Practice/BTLO/Digital Forensic"
 ---
 
 # BTLO - Shiba Insider
+<!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/shiba-insider-5b48123711
 
 :::spoiler TOC

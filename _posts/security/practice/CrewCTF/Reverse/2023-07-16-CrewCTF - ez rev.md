@@ -6,6 +6,7 @@ category: "Security/Practice/CrewCTF/Reverse"
 ---
 
 # CrewCTF - ez rev
+<!-- more -->
 
 ## Source Code
 :::spoiler IDA Fake Main Function

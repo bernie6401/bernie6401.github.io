@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/General"
 ---
 
 # PicoCTF - Matryoshka doll
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [](https://play.picoctf.org/practice/challenge/129?category=4&page=1)
 

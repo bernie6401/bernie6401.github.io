@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # /wp-admin VS /wp-content VS /wp-include VS /wp-json
+<!-- more -->
 From Chat-GPT:
 
 ### 1. **`wp-admin`**

@@ -6,6 +6,7 @@ category: "Security/Course/NTU Crypto"
 ---
 
 # Cryptography Lec 1(Overview) - Notes
+<!-- more -->
 ###### tags: `Cryptography` `NTU`
 
 ## Background

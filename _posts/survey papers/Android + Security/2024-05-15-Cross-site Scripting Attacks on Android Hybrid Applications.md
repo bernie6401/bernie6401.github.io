@@ -6,6 +6,7 @@ category: "Survey Papers/Android + Security"
 ---
 
 # Cross-site Scripting Attacks on Android Hybrid Applications
+<!-- more -->
 :::info
 Bao, W., Yao, W., Zong, M., & Wang, D. (2017, March). Cross-site scripting attacks on android hybrid applications. In Proceedings of the 2017 International Conference on Cryptography, Security and Privacy (pp. 56-61).
 :::

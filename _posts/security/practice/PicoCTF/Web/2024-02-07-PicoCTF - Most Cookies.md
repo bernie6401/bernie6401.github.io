@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Most Cookies
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 
 ## Background

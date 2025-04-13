@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/SSRF"
 ---
 
 # Simple Web 0x12(Lab - Web Preview Card)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8500/
 

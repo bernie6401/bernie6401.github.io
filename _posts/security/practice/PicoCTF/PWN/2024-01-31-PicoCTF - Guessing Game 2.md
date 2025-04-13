@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - Guessing Game 2
+<!-- more -->
 
 ## Background
 fmt / leak libc / ret2libc / leak canary

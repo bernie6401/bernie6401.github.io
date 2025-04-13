@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/Deserialization"
 ---
 
 # Deserialization - APPRENTICE
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 
 ## Lab: Modifying serialized objects

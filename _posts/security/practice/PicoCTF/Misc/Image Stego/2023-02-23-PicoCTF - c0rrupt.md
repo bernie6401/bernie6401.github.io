@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Image Stego"
 ---
 
 # PicoCTF - c0rrupt
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [c0rrupt](https://play.picoctf.org/practice/challenge/53?category=4&page=3)
 

@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/Deserialization"
 ---
 
 # Simple Web 0x18(Lab - Magic Cat)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8602/
 

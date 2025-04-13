@@ -6,6 +6,7 @@ category: "Survey Papers/Android + Security"
 ---
 
 # Uncovering Intent based Leak of Sensitive Data in Android Framework
+<!-- more -->
 ###### tags: `Meeting Paper` `NTU`
 :::info
 Zhou, H., Luo, X., Wang, H., & Cai, H. (2022, November). Uncovering Intent based Leak of Sensitive Data in Android Framework. In Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (pp. 3239-3252).

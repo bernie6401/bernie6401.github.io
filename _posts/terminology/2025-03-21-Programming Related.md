@@ -6,6 +6,7 @@ category: "Terminology"
 ---
 
 # Programming Related
+<!-- more -->
 
 ## What is namespace in programming?
 From ChatGPT

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x06(2023 HW - LFSR)
+<!-- more -->
 
 ## Background
 * [Python – List XOR](https://www.geeksforgeeks.org/python-list-xor/)

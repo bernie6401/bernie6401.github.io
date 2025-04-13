@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - buffer overflow 2
+<!-- more -->
 
 ## Background
 Bof

@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender/Endpoint Forensic"
 ---
 
 # CyberDefender - Spotlight
+<!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/34#nav-questions
 
 :::spoiler TOC

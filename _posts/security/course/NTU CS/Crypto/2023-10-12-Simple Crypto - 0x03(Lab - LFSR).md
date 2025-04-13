@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x03(Lab - LFSR)
+<!-- more -->
 ###### tags: `eductf` `CTF` `Crypto`
 
 ## Background

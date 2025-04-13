@@ -6,6 +6,7 @@ category: "Tools/Others/Android App Crawler"
 ---
 
 # App Crawler 無法使用紀錄
+<!-- more -->
 根據[Android Studio官網](https://developer.android.com/studio/test/other-testing-tools/app-crawler)的說明
 ```bash!
 $ java -jar crawl_launcher.jar --apk-file path/to/my/app.apk --android-sdk path/to/my/android/sdk

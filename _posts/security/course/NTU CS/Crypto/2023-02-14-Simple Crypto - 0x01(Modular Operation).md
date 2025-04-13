@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # Simple Crypto - 0x01(Modular Operation)
+<!-- more -->
 ###### tags: `CTF` `Crypto` `eductf`
 
 ## Background

@@ -6,6 +6,7 @@ category: "Tools/CTF"
 ---
 
 # Web Cheat Sheet
+<!-- more -->
 
 ## Online Tools
 | Fuck                             | Beautifier                       |

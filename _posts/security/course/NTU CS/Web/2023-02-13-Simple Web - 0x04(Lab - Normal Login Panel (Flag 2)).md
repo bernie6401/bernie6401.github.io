@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Web"
 ---
 <!--more-->
 # Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))
+<!-- more -->
 ###### tags: `CTF` `Web` `eductf`
 Challenge: https://login.ctf.zoolab.org/
 {% raw %}

@@ -6,6 +6,7 @@ category: "Security/Practice/CrewCTF/Misc"
 ---
 
 # CrewCTF - Encrypt10n(Part 1)
+<!-- more -->
 
 ## Background
 [Volatility 3](https://github.com/volatilityfoundation/volatility3)

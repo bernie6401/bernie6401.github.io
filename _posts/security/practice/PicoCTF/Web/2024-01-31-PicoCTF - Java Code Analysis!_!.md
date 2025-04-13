@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Java Code Analysis!?!
+<!-- more -->
 
 ## Background
 JWT

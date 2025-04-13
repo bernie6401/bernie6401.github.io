@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - droids1
+<!-- more -->
 
 ## Backgroud
 [ Android App 逆向入門之一：拆開與重組 apk ](https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/): 強烈建議新手在打之前可以先看一下這篇，稍微了解一下整體怎麼包apk以及比要檔案有哪些，或是他們儲存的資料類型之類的

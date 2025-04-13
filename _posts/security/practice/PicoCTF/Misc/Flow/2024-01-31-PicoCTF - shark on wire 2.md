@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - shark on wire 2
+<!-- more -->
 
 ## Recon
 這一提出的很硬要，誰知道會把flag藏在這種地方，也沒有任何的提示，如果不是看[^pico-misc-shark-on-wire-2-wp-zomry1]根本不知道這題要表達甚麼，也可能是我太蔡

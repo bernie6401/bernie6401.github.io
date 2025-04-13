@@ -6,6 +6,7 @@ category: "Security/Practice/BTLO/Incident Response"
 ---
 
 # BTLO - Follina
+<!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/follina-f1a3452f34
 
 :::spoiler TOC

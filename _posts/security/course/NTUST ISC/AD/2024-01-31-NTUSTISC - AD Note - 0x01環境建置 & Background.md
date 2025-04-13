@@ -6,6 +6,7 @@ category: "Security/Course/NTUST ISC/AD"
 ---
 
 # NTUSTISC - AD Note - 環境建置 & Background
+<!-- more -->
 [TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x35(2023 Lab - Stack Pivot)
+<!-- more -->
 
 ## Background
 [Simple PWN - 0x09(stack pivoting)](https://hackmd.io/@SBK6401/rylybxgji)

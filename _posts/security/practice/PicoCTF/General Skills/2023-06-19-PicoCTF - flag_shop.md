@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/General Skills"
 ---
 
 # PicoCTF - flag_shop
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `General Skill`
 
 ## Background

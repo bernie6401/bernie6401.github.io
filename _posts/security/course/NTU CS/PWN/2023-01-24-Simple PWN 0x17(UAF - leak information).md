@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x17(UAF - leak information)
+<!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
 Version: Ubuntu 20.04

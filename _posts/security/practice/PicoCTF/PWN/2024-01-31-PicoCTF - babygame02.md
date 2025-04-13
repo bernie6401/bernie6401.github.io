@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - babygame02
+<!-- more -->
 
 ## Source
 :::spoiler IDA Main Function

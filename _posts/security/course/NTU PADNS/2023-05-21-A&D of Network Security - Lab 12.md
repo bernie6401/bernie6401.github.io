@@ -6,6 +6,7 @@ category: "Security/Course/NTU PADNS"
 ---
 
 # A&D of Network Security - Lab 12
+<!-- more -->
 ###### tags: `Practicum of A&D of NS` `NTU`
 
 ## Video

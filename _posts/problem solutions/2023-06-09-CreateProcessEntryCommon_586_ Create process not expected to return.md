@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # CreateProcessEntryCommon:586: Create process not expected to return
+<!-- more -->
 ###### tags: `problem solution`
 
 

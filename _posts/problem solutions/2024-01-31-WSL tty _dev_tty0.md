@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # WSL tty /dev/tty0
+<!-- more -->
 
 ## Problem Description
 之前重灌電腦，重新載了WSL，但不知道為甚麼WSL沒有升到version 2，這會導致我在用gdb的時候(我是用gef)，想要設定redirect，但是看了別的視窗的tty都顯示/dev/tty1，而不是/dev/pts/1，導致無法如設定一樣可以分開視窗

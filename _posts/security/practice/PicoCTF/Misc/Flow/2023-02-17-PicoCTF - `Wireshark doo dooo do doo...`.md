@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - `Wireshark doo dooo do doo...`
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: https://play.picoctf.org/practice/challenge/115?category=4&page=1
 

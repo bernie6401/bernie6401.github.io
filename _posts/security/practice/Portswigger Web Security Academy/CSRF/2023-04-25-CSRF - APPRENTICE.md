@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/CSRF"
 ---
 
 # CSRF - APPRENTICE
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 [TOC]
 

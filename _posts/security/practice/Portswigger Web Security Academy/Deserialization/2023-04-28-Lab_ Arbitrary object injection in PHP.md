@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/Deserialization"
 ---
 
 # Lab: Arbitrary object injection in PHP
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 * Description: This lab uses a serialization-based session mechanism and is vulnerable to arbitrary object injection as a result.
 * Goal: To solve the lab, create and inject a malicious serialized object to delete the morale.txt file from Carlos's home directory. You will need to obtain source code access to solve this lab.

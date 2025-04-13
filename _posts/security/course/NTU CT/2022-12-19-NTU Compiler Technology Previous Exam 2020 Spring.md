@@ -6,6 +6,7 @@ category: "Security/Course/NTU CT"
 ---
 
 # NTU Compiler Technology Previous Exam 2020 Spring
+<!-- more -->
 ###### tags: `NTU_CT` `NTU` `Compiler Techonology of Programming Language` `Final Exam`
 
 1. According to the grammar of AC in the right , please write down the recursive descent parsing procedure for nonterminal Expr. (10 points/10)

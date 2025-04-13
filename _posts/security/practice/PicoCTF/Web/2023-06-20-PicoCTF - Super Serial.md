@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Web"
 ---
 
 # PicoCTF - Super Serial
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Web`
 
 ## Background

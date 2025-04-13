@@ -6,6 +6,7 @@ category: "Tools/Others/Android Related/Drozer/Test Sieve"
 ---
 
 # Test Sieve - services exported
+<!-- more -->
 1. 列出exported services有哪些
     ```bash
     dz> run app.service.info -a com.mwr.example.sieve

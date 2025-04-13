@@ -6,6 +6,7 @@ category: "Side Project"
 ---
 
 # side_project_lightbulb_control
+<!-- more -->
 ###### tags: `Side Project` `Arduino`
 :::spoiler
 [TOC]

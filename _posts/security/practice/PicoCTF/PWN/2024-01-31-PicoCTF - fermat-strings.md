@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/PWN"
 ---
 
 # PicoCTF - fermat-strings
+<!-- more -->
 
 ## Background
 [C 庫函數 - strcspn()](https://www.runoob.com/cprogramming/c-function-strcspn.html)

@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender/Threat Intel"
 ---
 
 # CyberDefender - L'espion
+<!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/73
 
 :::spoiler TOC

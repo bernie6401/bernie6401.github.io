@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Flow"
 ---
 
 # PicoCTF - Eavesdrop
+<!-- more -->
 
 ## Recon
 這一題是有關eavesdropping，代表有一個中間人監聽了所有conversation，先用一些基本的手段看一下整體的pcap packets(strings searching/IO Graphs/Statistic/Extract Default Protocol File...)，但是如果跟一下tcp的packets，可以發現傳輸兩方的對話紀錄，包括傳輸資料的加密方式等等，所以我們就可以直接把傳輸資料解密得到flag

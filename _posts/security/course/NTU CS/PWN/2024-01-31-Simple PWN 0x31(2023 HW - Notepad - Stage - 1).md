@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN 0x31(2023 HW - Notepad - Stage - 1)
+<!-- more -->
 
 ## Description & Hint
 > nc 10.113.184.121 10044

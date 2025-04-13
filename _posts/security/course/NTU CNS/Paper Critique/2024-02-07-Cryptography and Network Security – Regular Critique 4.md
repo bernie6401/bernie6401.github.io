@@ -6,6 +6,7 @@ category: "Security/Course/NTU CNS/Paper Critique"
 ---
 
 # Cryptography and Network Security – Regular Critique 4
+<!-- more -->
 
 [![hackmd-github-sync-badge](https://hackmd.io/pkjE25TQSNmDRBm-9OJL8A/badge)](https://hackmd.io/pkjE25TQSNmDRBm-9OJL8A)
 

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Crypto"
 ---
 
 # NTU CS 2023 HW1 Write Up
+<!-- more -->
 Name: 何秉學    Student ID: R11921A16
 :::spoiler TOC
 [TOC]

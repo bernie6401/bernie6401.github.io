@@ -6,6 +6,7 @@ category: "Security/Course/NTU ML"
 ---
 
 # NTU Machine Learning Homework 1
+<!-- more -->
 ###### tags: `NTU_ML` `Machine Learning`
 
 ## How to choose features of data

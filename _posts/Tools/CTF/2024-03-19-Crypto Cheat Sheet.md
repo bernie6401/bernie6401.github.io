@@ -6,6 +6,7 @@ category: "Tools/CTF"
 ---
 
 # Crypto Cheat Sheet
+<!-- more -->
 
 ## Online Tools - Classic Crypto
 | Complex| Substitution Cipher| Vigenère Cipher|

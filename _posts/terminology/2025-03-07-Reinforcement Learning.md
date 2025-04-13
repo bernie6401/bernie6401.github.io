@@ -6,6 +6,7 @@ category: "Terminology"
 ---
 
 # Reinforcement Learning
+<!-- more -->
 
 ## 什麼是RL
 Reinforcement Learning（強化學習）是一種機器學習方法，通過試錯和獎勵機制來學習最佳行為。以下是強化學習的幾個應用面向，以及一些相關論文的參考：

@@ -6,6 +6,7 @@ category: "Security/Practice/BTLO/Incident Response"
 ---
 
 # BTLO - Secrets
+<!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/secrets-85aa2bb3a9
 
 :::spoiler TOC

@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Transformation
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Reverse`
 Challenge: [Transformation](https://play.picoctf.org/practice/challenge/104?category=3&page=1)
 

@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Disk"
 ---
 
 # PicoCTF - Operation Orchid
+<!-- more -->
 
 ## Recon
 這一題過於簡單

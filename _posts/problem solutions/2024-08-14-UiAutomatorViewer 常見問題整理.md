@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # UiAutomatorViewer 常見問題整理
+<!-- more -->
 
 ## Java版本不相容
 參考來源1: [Setting up Appium configuration on windows / Mac](https://khemlall-mangal.medium.com/setting-up-appium-configuration-on-windows-mac-efbc4d4a7bc3)

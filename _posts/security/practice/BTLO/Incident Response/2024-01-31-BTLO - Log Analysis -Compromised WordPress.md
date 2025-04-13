@@ -6,6 +6,7 @@ category: "Security/Practice/BTLO/Incident Response"
 ---
 
 # BTLO - Log Analysis -Compromised WordPress
+<!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/log-analysis-compromised-wordpress-ce000f5b59
 
 :::spoiler TOC

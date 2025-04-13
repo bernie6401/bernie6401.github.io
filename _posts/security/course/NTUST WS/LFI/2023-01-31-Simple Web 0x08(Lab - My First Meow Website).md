@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/LFI"
 ---
 
 # Simple Web 0x08(Lab - My First Meow Website)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8400/
 Target: Login as Admin

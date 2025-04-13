@@ -9,6 +9,7 @@ category: "Tools/Others/Android Related/Drozer/Test Sieve"
   > Sieve is a small password manager app created to showcase some of the common vulnerabilities found in Android applications.
     
 # Test Sieve - activities exported
+<!-- more -->
 參考[^csdn-sieve-1][^hacktricks-diva-sieve]，在測試之前要先點進去Sieve App中設定password和email之類的基本資訊，這樣之後測試才知道哪邊其實是漏洞
 1. 起手式-確認基本資訊
     ```bash!

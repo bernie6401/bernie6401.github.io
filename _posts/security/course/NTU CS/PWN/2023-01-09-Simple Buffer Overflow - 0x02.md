@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple Buffer Overflow - 0x02
+<!-- more -->
 ###### tags: `CTF` `PWN`
 
 ## Why we'd like to create shellcode?

@@ -9,6 +9,7 @@ category: "Problem Solutions"
 ---
 
 # 如何使用Jekyll架設Blog
+<!-- more -->
 參考資料: [【種樹】使用 Jekyll 和搭建 Github Pages](https://hackmd.io/@CynthiaChuang/Setting-Up-a-GitHub-Pages-Site-with-Jekyll)
 
 ## Install Jekyll

@@ -6,6 +6,7 @@ category: "LeetCode/Easy"
 ---
 
 # LeetCode - Two Sum
+<!-- more -->
 
 ## Recon & Description
 :::spoiler Description

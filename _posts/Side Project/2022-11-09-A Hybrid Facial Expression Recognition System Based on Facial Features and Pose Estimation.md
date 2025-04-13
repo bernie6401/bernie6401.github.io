@@ -6,6 +6,7 @@ category: "Side Project"
 ---
 
 # A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation
+<!-- more -->
 ###### tags: `NTUST` `Emotional Recognition` `Openpose` `PyTorch` `Special Topic`
 :::spoiler
 [TOC]

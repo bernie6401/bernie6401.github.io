@@ -6,6 +6,7 @@ category: "LeetCode/Easy"
 ---
 
 # LeetCode - Valid Parentheses
+<!-- more -->
 
 ## Recon & Description
 :::spoiler Description

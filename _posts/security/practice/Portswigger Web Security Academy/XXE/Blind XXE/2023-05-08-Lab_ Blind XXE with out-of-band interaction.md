@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/XXE/Blind XXE"
 ---
 
 # Lab: Blind XXE with out-of-band interaction
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 * Description: This lab has a "Check stock" feature that parses XML input but does not display the result.
 You can detect the blind XXE vulnerability by triggering out-of-band interactions with an external domain.

@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple PWN - 0x08(one_gadget with ROP)
+<!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
 ## one_gadget background

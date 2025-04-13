@@ -6,6 +6,7 @@ category: "Security/Course/NTU ML"
 ---
 
 # NTU Machine Learning Homework 2
+<!-- more -->
 ###### tags: `NTU_ML` `Machine Learning`
 :::spoiler Click to open TOC
 [TOC]

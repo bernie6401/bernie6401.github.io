@@ -6,6 +6,7 @@ category: "Books Notes"
 ---
 
 # The Decameron (十日談)
+<!-- more -->
 * 諷刺: 1.5, 1.8, 1.9, 1.10
     * 教會: 1.1, 1.2, 1.6
 * 歷史相關: 2.6

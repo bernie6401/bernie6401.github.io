@@ -6,6 +6,7 @@ category: "Security/Practice/Portswigger Web Security Academy/XXE"
 ---
 
 # XXE - APPRENTICE
+<!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 * Description: This lab has a "Check stock" feature that parses XML input and returns any unexpected values in the response. 
 * Goal: To solve the lab, inject an XML external entity to retrieve the contents of the `/etc/passwd` file. 

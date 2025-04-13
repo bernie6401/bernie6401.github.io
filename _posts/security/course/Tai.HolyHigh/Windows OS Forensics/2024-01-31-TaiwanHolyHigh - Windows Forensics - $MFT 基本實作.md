@@ -6,6 +6,7 @@ category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
 ---
 
 # TaiwanHolyHigh - Windows Forensics - \$MFT 基本實作
+<!-- more -->
 :::spoiler TOC
 [TOC]
 :::

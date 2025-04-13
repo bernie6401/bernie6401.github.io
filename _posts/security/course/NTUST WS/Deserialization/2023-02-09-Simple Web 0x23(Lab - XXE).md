@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/Deserialization"
 ---
 
 # Simple Web 0x23(Lab - XXE)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8604/
 

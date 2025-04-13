@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/PWN"
 ---
 
 # Simple Buffer Overflow - 0x00
+<!-- more -->
 ###### tags: `CTF` `PWN`
 
 ## Original Code

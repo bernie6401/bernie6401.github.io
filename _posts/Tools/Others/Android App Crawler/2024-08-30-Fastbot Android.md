@@ -6,6 +6,7 @@ category: "Tools/Others/Android App Crawler"
 ---
 
 # Fastbot Android
+<!-- more -->
 以下流程皆是參考[CSDN-Android APP穩定性測試工具Fastbot](https://blog.csdn.net/u010698107/article/details/127347704)和[官方中文教學](https://github.com/bytedance/Fastbot_Android/blob/main/handbook-cn.md)
 
 ## 一般使用

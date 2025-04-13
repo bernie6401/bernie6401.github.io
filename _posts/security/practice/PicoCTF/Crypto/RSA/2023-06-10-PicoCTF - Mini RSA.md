@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Crypto/RSA"
 ---
 
 # PicoCTF - Mini RSA
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Crypto`
 Challenge: [Mini RSA](https://play.picoctf.org/practice/challenge/188?category=2&page=1)
 

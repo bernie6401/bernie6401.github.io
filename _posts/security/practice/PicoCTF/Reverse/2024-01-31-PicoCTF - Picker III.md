@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Picker III
+<!-- more -->
 
 ## Source code
 :::spoiler Source Code

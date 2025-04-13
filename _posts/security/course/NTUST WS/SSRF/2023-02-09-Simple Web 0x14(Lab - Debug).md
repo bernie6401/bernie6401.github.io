@@ -6,6 +6,7 @@ category: "Security/Course/NTUST WS/SSRF"
 ---
 
 # Simple Web 0x14(Lab - Debug)
+<!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:9020/
 

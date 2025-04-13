@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc"
 ---
 
 # PicoCTF - information
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: https://play.picoctf.org/practice/challenge/186?category=4&page=1
 

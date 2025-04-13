@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/General"
 ---
 
 # PicoCTF - WhitePages
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [WhitePages](https://play.picoctf.org/practice/challenge/51?category=4&page=3)
 

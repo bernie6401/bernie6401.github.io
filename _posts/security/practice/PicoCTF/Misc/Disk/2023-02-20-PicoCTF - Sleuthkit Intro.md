@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Misc/Disk"
 ---
 
 # PicoCTF - Sleuthkit Intro
+<!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [Sleuthkit Intro](https://play.picoctf.org/practice/challenge/301?category=4&page=2)
 

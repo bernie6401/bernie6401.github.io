@@ -6,6 +6,7 @@ category: "Security/Practice/CyberDefender/Endpoint Forensic/CorporateSecrets - 
 ---
 
 # CyberDefender - CorporateSecrets (Part 2)
+<!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/33
 Part 1: https://hackmd.io/@SBK6401/r18z7VIm6
 Part 3: https://hackmd.io/@SBK6401/HyHp4NLQT

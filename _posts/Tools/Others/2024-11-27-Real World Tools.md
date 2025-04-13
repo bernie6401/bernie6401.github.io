@@ -6,6 +6,7 @@ category: "Tools/Others"
 ---
 
 # Real World Tools
+<!-- more -->
 
 ## Kali-Linux
 有關Kali的所有工具可以直接參考[Operating Systems for Ethical Hackers - A Platform Comparison of Kali Linux and Parrot OS](https://www.researchgate.net/profile/Syed-Zain-Ul-Hassan-2/publication/369305777_Operating_Systems_for_Ethical_Hackers_-_A_Platform_Comparison_of_Kali_Linux_and_Parrot_OS/links/6414544c315dfb4cce89b6a3/Operating-Systems-for-Ethical-Hackers-A-Platform-Comparison-of-Kali-Linux-and-Parrot-OS.pdf)

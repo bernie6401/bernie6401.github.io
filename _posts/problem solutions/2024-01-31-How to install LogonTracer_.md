@@ -6,6 +6,7 @@ category: "Problem Solutions"
 ---
 
 # How to install LogonTracer?
+<!-- more -->
 
 ## Installation
 

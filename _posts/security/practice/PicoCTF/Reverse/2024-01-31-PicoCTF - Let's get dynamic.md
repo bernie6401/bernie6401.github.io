@@ -6,6 +6,7 @@ category: "Security/Practice/PicoCTF/Reverse"
 ---
 
 # PicoCTF - Let's get dynamic
+<!-- more -->
 
 ## Source code
 :::spoiler IDA Main Function

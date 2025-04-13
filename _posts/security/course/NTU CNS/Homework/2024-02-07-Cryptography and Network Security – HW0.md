@@ -6,6 +6,7 @@ category: "Security/Course/NTU CNS/Homework"
 ---
 
 # Cryptography and Network Security – HW0
+<!-- more -->
 
 [![hackmd-github-sync-badge](https://hackmd.io/_JU7eHmcRF-v8G6yQ3YHWQ/badge)](https://hackmd.io/_JU7eHmcRF-v8G6yQ3YHWQ)
 

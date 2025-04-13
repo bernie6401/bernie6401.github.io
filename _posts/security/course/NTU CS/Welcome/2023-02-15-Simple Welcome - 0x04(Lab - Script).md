@@ -6,6 +6,7 @@ category: "Security/Course/NTU CS/Welcome"
 ---
 
 # Simple Welcome - 0x04(Lab - Script)
+<!-- more -->
 ###### tags: `CTF` `Web` `eductf`
 Challenge: https://pyscript.ctf.zoolab.org/
 
