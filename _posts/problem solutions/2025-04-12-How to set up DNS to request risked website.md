@@ -2,7 +2,7 @@
 layout: post
 title: "How to set up DNS to request risked website"
 date: 2025-04-12
-categories: "Problem Solutions"
+category: "Problem Solutions"
 tags: [problem solution]
 draft: false
 toc: true
