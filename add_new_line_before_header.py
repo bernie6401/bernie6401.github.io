@@ -6,6 +6,7 @@ def process_markdown_file(filepath):
         lines = f.readlines()
 
     new_lines = []
+    add_excerpt = False
     for i, line in enumerate(lines):
         stripped_line = line.lstrip()
 
@@ -16,6 +17,12 @@ def process_markdown_file(filepath):
                 new_lines.append('\n')
 
         new_lines.append(line)
+
+        # if re.match(r'^(#)\s', stripped_line) and not add_excerpt:
+        #     # 如果前一行不是空行，就補一個空行
+        #     if i > 0 and lines[i + 1].strip() != '<!-- more -->':
+        #         new_lines.append('<!-- more -->\n')
+        #         add_excerpt = True
 
     with open(filepath, 'w', encoding='utf-8') as f:
         f.writelines(new_lines)
