@@ -51,6 +51,18 @@ $ bundle exec jekyll server --incremental
 ## 改Github Pages Setting
 因為之前使用Hugo的時候是使用actions script，讓github使用Hugo，而不是預設的Jekyll，但現在就非常簡單，只要把`Setting > Pages > Build and deployment`中的Branch改回main就可以了，另外如果之前是使用Hugo並且有寫actions script的要把workflow folder刪掉
 
+## Sort Categories
+訪問/categories的時候，會發現Jekyll預設是按照該category中的文章更新當作排序，從舊到新，也就是說假設aaa這個分類中最新的更新時間是昨天，而bbb這個分類中最新的更新時間是今天，那順序就是aaa>bbb，所以如果想要讓分類可以按照字母順序的話，要修改`./_includes/_helper/list_categories.html`
+{% raw %}
+```liquid
+{% for cat_posts in site.categories %}
+↓
+{% assign sort_categories = site.categories | sort %}
+{% for cat_posts in sort_categories %}
+```
+{% endraw %}
+這樣就可以了，不需要更改其他的設定，另外這個檔案中也不能出現comment，這樣Jekyll在render的時候不知道為什麼就是會出錯
+
 ## (Optional) 新增 Disqus / LeanCloud / Gitalk / Swiftype
 * [在Jekyll上使用LeanCloud統計訪問人數](https://brian90191.github.io/blog/2018-04-04/leancloud-In-Jekyll/)
 * [使用 Disqus 在 Jekyll 增加留言區塊](https://mmiooimm.github.io/2018/09/19/2018-09-19-add-disqus-to-jekyll/)
