@@ -66,6 +66,7 @@ $ bundle exec jekyll server --incremental
 ## (Optional) 新增 Disqus / LeanCloud / Gitalk / Swiftype
 * [在Jekyll上使用LeanCloud統計訪問人數](https://brian90191.github.io/blog/2018-04-04/leancloud-In-Jekyll/)
 * [使用 Disqus 在 Jekyll 增加留言區塊](https://mmiooimm.github.io/2018/09/19/2018-09-19-add-disqus-to-jekyll/)
+    * [ 6 Things To Do After Installing Disqus ](https://youtu.be/wTRsNa8kzTw?si=iHPjNu-Nidoeeeve)
 * [利用Gitalk在靜態網頁裡面新增留言區](https://wjohn1483.github.io/2021/02/07/gitalk-introduction/)
 * [使用SWIFTYPE為jekyll部落格新增搜尋引擎](https://www.cnblogs.com/dapenson/p/12822539.html)
 
