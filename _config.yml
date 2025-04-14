@@ -582,6 +582,10 @@ algolia_search:
     input_placeholder: Search for Posts
     hits_empty: "We didn't find any results for the search: ${query}"
     hits_stats: "${hits} results found in ${time} ms"
+algolia:
+  application_id: HAFUTAPSZ0
+  index_name: jekyll
+  search_only_api_key: e33a15a3b944afd726faf55da762589d
 
 
 # Local search
