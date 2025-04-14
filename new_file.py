@@ -41,7 +41,7 @@ comments: true
 ---
 
 # {name}
-<!--more-->
+<!-- more -->
 
 """
 
