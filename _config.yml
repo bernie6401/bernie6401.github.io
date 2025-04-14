@@ -370,7 +370,7 @@ mathjax:
 han: false
 
 # Swiftype Search API Key
-swiftype_key: #Xksy8bz_tNBbbwTHnswk
+swiftype_key: Xksy8bz_tNBbbwTHnswk
 
 # Baidu Analytics ID
 #baidu_analytics:
@@ -575,18 +575,13 @@ calendar:
 
 # Algolia Search
 algolia_search:
-  enable: true
+  enable: false
   hits:
     per_page: 10
   labels:
     input_placeholder: Search for Posts
     hits_empty: "We didn't find any results for the search: ${query}"
     hits_stats: "${hits} results found in ${time} ms"
-algolia:
-  application_id: HAFUTAPSZ0
-  index_name: jekyll
-  search_only_api_key: e33a15a3b944afd726faf55da762589d
-
 
 # Local search
 local_search:
