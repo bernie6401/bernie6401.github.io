@@ -63,6 +63,12 @@ $ bundle exec jekyll server --incremental
 {% endraw %}
 這樣就可以了，不需要更改其他的設定，另外這個檔案中也不能出現comment，這樣Jekyll在render的時候不知道為什麼就是會出錯
 
+## 改Mathjax的來源
+因為原本的cdn網址是舊的，所以我寫的latex無法被render，看來看去應該就是這個cdn的問題，把原本的cdn來源換成以下的就可以了
+```
+//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+```
+
 ## (Optional) 新增 Disqus / LeanCloud / Gitalk / Swiftype
 * [在Jekyll上使用LeanCloud統計訪問人數](https://brian90191.github.io/blog/2018-04-04/leancloud-In-Jekyll/)
 * [使用 Disqus 在 Jekyll 增加留言區塊](https://mmiooimm.github.io/2018/09/19/2018-09-19-add-disqus-to-jekyll/)
