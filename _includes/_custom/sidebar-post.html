@@ -1,0 +1,60 @@
+<aside id="custom-sidebar" class="custom-sidebar">
+  <div class="custom-sidebar-inner">
+    <div class="custom-sidebar-logo">Post Tree</div>
+      <ul class="custom-sidebar-menu">
+        {% assign posts = site.posts | sort: "path" %}
+        {% assign level1_groups = posts | group_by_exp: "post", "post.path | split: '/' | slice: 1,1 | join: ''" %}
+        {% for level1 in level1_groups %}
+          <li>
+            <details>
+              <summary>{{ level1.name }}</summary>
+              <ul>
+                {% assign level2_groups = level1.items | group_by_exp: "post", "post.path | split: '/' | slice: 2,1 | join: ''" %}
+                {% for level2 in level2_groups %}
+                  {% capture level2_name %}{{ level2.name }}{% endcapture %}
+                  {% if level2_name contains 'md' %}
+                    <ul>
+                      {% for post in level2.items %}
+                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <li>
+                      <details>
+                        <summary>{{ level2.name }}</summary>
+                        <ul>
+                          {% assign level3_groups = level2.items | group_by_exp: "post", "post.path | split: '/' | slice: 3,1 | join: ''" %}
+                          {% for level3 in level3_groups %}
+                            {% capture level3_name %}{{ level3.name }}{% endcapture %}
+                            {% if level3_name contains '.md' %}
+                              <ul>
+                                {% for post in level3.items %}
+                                  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                                {% endfor %}
+                              </ul>
+                            {% else %}
+                              {% assign filenames = level3.items | map: "path" | map: "split" | map: "last" %}
+                              <li>
+                                <details>
+                                  <summary>{{ level3.name }}</summary>
+                                  <ul>
+                                    {% for post in level3.items %}
+                                      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                                    {% endfor %}
+                                  </ul>
+                                </details>
+                              </li>
+                            {% endif %}
+                          {% endfor %}
+                        </ul>
+                      </details>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </details>
+          </li>
+        {% endfor %}
+    </ul>
+  </div>
+</aside>
