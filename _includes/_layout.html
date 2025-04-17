@@ -22,7 +22,7 @@
   {% if site.sidebar.position %}
     {% assign container_class = container_class | append: 'sidebar-position-' | append: site.sidebar.position %}
   {% endif %}
-
+  
   <div class="{{ container_class }} {{ page_class }} ">
     <div class="headband"></div>
 
@@ -32,6 +32,7 @@
 
     <main id="main" class="main">
       <div class="main-inner">
+      {% include _custom/sidebar-post.html %}
         <div class="content-wrap">
           <div id="content" class="content">
             {{ content }}
