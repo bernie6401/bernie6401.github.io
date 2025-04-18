@@ -1,8 +1,8 @@
 ---
-title: pwndbg installation problems
-tags: [problem solution]
+title: "pwndbg installation problems"
+tags: [Tutorial]
 
-category: "Problem Solutions"
+category: "Tutorial"
 ---
 
 # pwndbg installation problems

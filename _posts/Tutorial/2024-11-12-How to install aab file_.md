@@ -1,8 +1,8 @@
 ---
-title: How to install aab file?
-tags: [problem solution]
+title: "How to install aab file"
+tags: [Tutorial]
 
-category: "Problem Solutions"
+category: "Tutorial"
 ---
 
 # How to install aab file?

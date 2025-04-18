@@ -1,15 +1,14 @@
 ---
-title: 'React Native - Error resolving plugin [id: ''com.facebook.react.settings'']'
+title: 'React Native - Error resolving plugin [id: com.facebook.react.settings]'
 tags: [problem solution]
 
 category: "Problem Solutions"
 ---
 
 # React Native - Error resolving plugin [id: 'com.facebook.react.settings']
-<!-- more -->
-
 ## Problem Statement
 這個錯誤是發生在我想要創建一個新的React Native專案，但不管是用[Official Document](https://reactnative.cn/docs/environment-setup)還是其他網路文章的分享，我都無法順利創建，確切的錯誤message如下
+<!-- more -->
 ```
 $ yarn android
 yarn run v1.22.22

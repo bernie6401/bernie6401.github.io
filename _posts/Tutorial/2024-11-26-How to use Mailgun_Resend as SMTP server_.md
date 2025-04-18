@@ -1,13 +1,13 @@
 ---
-title: How to use Mailgun/Resend as SMTP server?
-tags: [problem solution]
+title: "How to use Mailgun/Resend as SMTP server"
+tags: [Tutorial]
 
-category: "Problem Solutions"
+category: "Tutorial"
 ---
 
-# How to use Mailgun/Resend as SMTP server?
-<!-- more -->
+# How to use Mailgun/Resend as SMTP server
 會有這個紀錄是因為deploy Mastodon Instance時需要用到SMTP Server，雖然是Optional，但還是嘗試建立一個試看看
+<!-- more -->
 
 ## Prerequisite
 * 有一台具有domain的device

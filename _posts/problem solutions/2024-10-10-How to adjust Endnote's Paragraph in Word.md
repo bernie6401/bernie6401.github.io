@@ -1,11 +1,11 @@
 ---
-title: How to adjust Endnote's Paragraph in Word?
+title: "How to adjust Endnote's Paragraph in Word"
 tags: [problem solution]
 
 category: "Problem Solutions"
 ---
 
-# How to adjust Endnote's Paragraph in Word?
+# How to adjust Endnote's Paragraph in Word
 <!-- more -->
 參考資料: [善用Word與EndNote協助論文編排[臺大圖書館HELP講堂20201229]](https://youtu.be/YMthTCU5isA?si=ZZSlAP0rfPdMAKFY&t=2798)
 

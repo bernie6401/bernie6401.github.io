@@ -1,11 +1,11 @@
 ---
-title: How to use VScode / Web Storm Debug JS?
-tags: [problem solution]
+title: "How to use VScode / Web Storm Debug JS"
+tags: [Tutorial]
 
-category: "Problem Solutions"
+category: "Tutorial"
 ---
 
-# How to use VScode / Web Storm Debug JS?
+# How to use VScode / Web Storm Debug JS
 <!-- more -->
 
 ## Background
