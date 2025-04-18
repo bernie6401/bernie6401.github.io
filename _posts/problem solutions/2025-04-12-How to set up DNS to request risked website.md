@@ -10,10 +10,9 @@ comments: true
 ---
 
 # How to set up DNS to request risked website
-<!-- more -->
-
 ## Problem Statement
 因為學校的宿舍DNS有filter我自己的blog URL，所以為了要能夠訪問自己的blog，要修改電腦的DNS preference
+<!-- more -->
 
 ## Solution
 1. 開啟「控制台」→「網路和網際網路」→「網路和共用中心」。

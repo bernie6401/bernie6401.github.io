@@ -1,13 +1,13 @@
 ---
-title: MITMProxy相關問題整理
+title: "MITMProxy相關問題整理"
 tags: [problem solution]
 
 category: "Problem Solutions"
 ---
 
 # MITMProxy相關問題整理
-<!-- more -->
 資料來源: https://github.com/mitmproxy/mitmproxy/issues/5442
+<!-- more -->
 
 ## Server TLS handshake failed. The remote server does not speak TLS.
 代表連線的標的無法處理https的scheme，如果確定連線的目標是開在localhost或是一定是http scheme的話，可以利用script去hook流量把https改掉

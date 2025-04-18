@@ -1,13 +1,12 @@
 ---
-title: 'fatal: Authentication failed for `''https://github.com/{username}/{repository}.git/''`'
+title: 'fatal: Authentication failed for https://github.com/{username}/{repository}.git/'
 tags: [problem solution]
 
 category: "Problem Solutions"
 ---
 
-# fatal: Authentication failed for `'https://github.com/{username}/{repository}.git/'`
+# fatal: Authentication failed for `https://github.com/{username}/{repository}.git/`
 <!-- more -->
-###### tags: `problem solution`
 
 ## Solution
 According to [this page](https://www.wongwonggoods.com/all-posts/debug_error/git-remote-support/)

@@ -1,12 +1,14 @@
 ---
-title: How to use ZAP/Burp Suite/mitmproxy as Proxy for Android?
-tags: [problem solution]
+title: "How to use ZAP/Burp Suite/mitmproxy as Proxy for Android"
+tags: [Tutorial]
 
-category: "Problem Solutions"
+category: "Tutorial"
 ---
 
-# How to use ZAP as Proxy?
+# How to use ZAP/Burp Suite/mitmproxy as Proxy for Android
 <!-- more -->
+
+# How to use ZAP as Proxy?
 * 根據[^zap-turorial]我大概知道怎麼使用，我們通常會使用zap的command line形式進行操作，詳細的參數可以參考[Official Document](https://www.zaproxy.org/docs/desktop/cmdline/)，另外我看ZAP如果要當作Proxy的角色會需要用到ROOT CA憑證，所以如果單純用之前的教學文章會不知到在哪裡產生憑證，他已經移動到Network底下了
 ![image](https://hackmd.io/_uploads/B11DaMnpT.png =400x)
 

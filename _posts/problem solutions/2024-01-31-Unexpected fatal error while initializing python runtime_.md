@@ -1,13 +1,13 @@
 ---
-title: Unexpected fatal error while initializing python runtime.
+title: "Unexpected fatal error while initializing python runtime"
 tags: [problem solution]
 
 category: "Problem Solutions"
 ---
 
-# Unexpected fatal error while initializing python runtime.
-<!-- more -->
+# Unexpected fatal error while initializing python runtime
 Complete error message: Unexpected fatal error while initializing python runtime. Please run idapyswitch to confirm or change the used Python runtime
+<!-- more -->
 
 ## Solution
 [IDA出错unexpected fatal error while intitailizing python runtime.](https://zhuanlan.zhihu.com/p/434575474)

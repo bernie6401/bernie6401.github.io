@@ -1,16 +1,16 @@
 ---
-title: Endnote - Invalid Citation
+title: "Endnote - Invalid Citation"
 tags: [problem solution]
 
 category: "Problem Solutions"
 ---
 
 # Endnote - Invalid Citation
-<!-- more -->
 目前遇到的怪問題，先紀錄起來，之後再解決
 
 ## Problem
-使用Endnote寫論文，因不明原因導致關閉Word之後，出現某一些references不見了，而且經過一些測試，不見的論文都是同樣幾篇，
+使用Endnote寫論文，因不明原因導致關閉Word之後，出現某一些references不見了，而且經過一些測試，不見的論文都是同樣幾篇
+<!-- more -->
 
 ## 已嘗試的方法
 1. 重新remove該reference後，再cite一次，但只要關閉word，重開後就還是回復原樣

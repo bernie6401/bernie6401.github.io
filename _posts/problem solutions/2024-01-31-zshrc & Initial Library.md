@@ -1,11 +1,11 @@
 ---
-title: ~/.zshrc & Initial Library
+title: "zshrc & Initial Library"
 tags: [problem solution]
 
 category: "Problem Solutions"
 ---
 
-# ~/.zshrc & Initial Library
+# zshrc & Initial Library
 <!-- more -->
 
 ## Zsh

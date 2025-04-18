@@ -1,13 +1,13 @@
 ---
-title: 如何使用Hugo+Github架設網站
-tags: [problem solution]
+title: "如何使用Hugo+Github架設網站"
+tags: [Tutorial]
 
-category: "Problem Solutions"
+category: "Tutorial"
 ---
 
 # 如何使用Hugo+Github架設網站
-<!-- more -->
 參考資料: [為了 SEO！我離開了 Medium，改在 GitHub 上自架個人網站](https://kucw.io/blog/2021/1/from-medium-to-github/)
+<!-- more -->
 
 ## 註冊Github Account & Create Github Page
 參考資料: [使用 GitHub Pages 架設個人網站](https://hackmd.io/@flagmaker/BkvQphP65)
@@ -16,7 +16,6 @@ category: "Problem Solutions"
 參考資料: [Github Pages 自訂網域教學](https://medium.com/zrealm-ios-dev/github-pages-%E8%87%AA%E8%A8%82%E7%B6%B2%E5%9F%9F%E6%95%99%E5%AD%B8-483af5d93297)
 
 ## Hugo Step
-
 參考資料: [使用 Hugo 在 github 部署個人網站](https://sean22492249.medium.com/%E4%BD%BF%E7%94%A8-hugo-%E5%9C%A8-github-%E9%83%A8%E7%BD%B2%E5%80%8B%E4%BA%BA%E7%B6%B2%E7%AB%99-5b2ff19f8b6)
 
 ### 安裝Hugo(latest version)

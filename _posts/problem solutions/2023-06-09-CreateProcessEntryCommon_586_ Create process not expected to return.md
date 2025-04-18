@@ -6,10 +6,6 @@ category: "Problem Solutions"
 ---
 
 # CreateProcessEntryCommon:586: Create process not expected to return
-<!-- more -->
-###### tags: `problem solution`
-
-
 ## Problem
 ```bash
 $ wsl
@@ -20,6 +16,7 @@ Processing fstab with mount -a failed.
 <3>WSL (8) ERROR: CreateProcessEntryCommon:577: execvpe /bin/sh failed 2
 <3>WSL (8) ERROR: CreateProcessEntryCommon:586: Create process not expected to return
 ```
+<!-- more -->
 
 ## Solution
 ```bash

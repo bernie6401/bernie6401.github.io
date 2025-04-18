@@ -1,15 +1,14 @@
 ---
-title: How to install LogonTracer?
-tags: [problem solution]
+title: "How to install LogonTracer"
+tags: [tutorial]
 
-category: "Problem Solutions"
+category: "tutorial"
 ---
 
-# How to install LogonTracer?
+# How to install LogonTracer
 <!-- more -->
 
 ## Installation
-
 ### 環境
 WSL2 - Ubuntu 20.04
 Docker

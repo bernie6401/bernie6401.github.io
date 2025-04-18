@@ -1,16 +1,16 @@
 ---
-title: 如何使用Jekyll架設Blog
+title: "如何使用Jekyll架設Blog"
 date: 2025-04-11
-tags: [problem solution]
+tags: [Tutorial]
 draft: false
 toc: true
 comments: true
-category: "Problem Solutions"
+category: "Tutorial"
 ---
 
 # 如何使用Jekyll架設Blog
-<!-- more -->
 參考資料: [【種樹】使用 Jekyll 和搭建 Github Pages](https://hackmd.io/@CynthiaChuang/Setting-Up-a-GitHub-Pages-Site-with-Jekyll)
+<!-- more -->
 
 ## Install Jekyll
 1. Install [Ruby](https://rubyinstaller.org/)

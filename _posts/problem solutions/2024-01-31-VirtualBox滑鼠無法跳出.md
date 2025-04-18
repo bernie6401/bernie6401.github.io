@@ -1,15 +1,14 @@
 ---
-title: VirtualBox滑鼠無法跳出
+title: "VirtualBox滑鼠無法跳出"
 tags: [problem solution]
 
 category: "Problem Solutions"
 ---
 
 # VirtualBox滑鼠無法跳出
-<!-- more -->
-
 ## Problem Description
 在VirtualBox中如果滑鼠無法跳回本機，請先按照其他blog提出的solution自行排除[^vb-mouse-solution-csdn][^vb-mouse-solution-huawei][^vb-mouse-solution-baidu]，如果暫時找不到解決辦法，也可以參考[^vb-mouse-solution-moa]的做法，Ctrl+Alt+Del強制本機電腦跳出windows選項，此時滑鼠的控制權就會交回到本機端
+<!-- more -->
 
 ## Solution
 我的狀況是鍵盤是新買的小鍵盤，所以沒有Right Ctrl可以用，只有左邊，而且安裝增強功能VirtualBox會一直跳出"無法掛載映像檔"的字樣，最後是參考[^vb-mouse-solution-jinnsblog]中下面有一半教學是示範linux遇到這個問題要如何解決，簡單說就是手動在控制器的地方加入光碟機，並且選擇VBoxGuestAddition.iso，之後重開機就可以了

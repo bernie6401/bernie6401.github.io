@@ -1,14 +1,14 @@
 ---
-title: How to download blob videos?
-tags: [problem solution]
+title: "How to download blob videos"
+tags: [Tutorial]
 
-category: "Problem Solutions"
+category: "Tutorial"
 ---
 
-# How to download blob videos?
-<!-- more -->
+# How to download blob videos
 參考資料: https://stackoverflow.com/questions/42901942/how-do-we-download-a-blob-url-video
 參考資料: https://superuser.com/questions/1260846/downloading-m3u8-videos
+<!-- more -->
 
 ## Prerequisite
 有兩種方法，一種是利用ffmpeg，另外一種是[yt-dlp](https://github.com/yt-dlp/yt-dlp/wiki/Installation)，前者下載比較慢，後者快很多，但都可以正確的下載

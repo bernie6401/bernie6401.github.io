@@ -2,8 +2,8 @@
 layout: post
 title: "Add Custom Sidebar to Left Side"
 date: 2025-04-17
-category: "Problem Solutions"
-tags: [Problem Solutions]
+category: "Tutorial"
+tags: [Tutorial]
 draft: false
 toc: true
 comments: true
