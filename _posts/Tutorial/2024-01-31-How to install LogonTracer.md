@@ -1,8 +1,8 @@
 ---
 title: "How to install LogonTracer"
-tags: [tutorial]
+tags: [Tutorial]
 
-category: "tutorial"
+category: "Tutorial"
 ---
 
 # How to install LogonTracer
