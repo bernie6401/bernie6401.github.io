@@ -1,11 +1,11 @@
 ---
-title: "How to Root Android Phone & Install AlwaysTrustUserCert.zip Module"
+title: "How to Root Android Phone and Install AlwaysTrustUserCert.zip Module"
 tags: [Tutorial]
 
 category: "Tutorial"
 ---
 
-# How to Root Android Phone & Install AlwaysTrustUserCert.zip Module
+# How to Root Android Phone and Install AlwaysTrustUserCert.zip Module
 <!-- more -->
 1. Install [adb & fastboot++](https://github.com/K3V1991/ADB-and-FastbootPlusPlus/releases)
 2. 透過USB連接手機和電腦，如果測試`$ fastboot devices`發現沒有抓到連線的裝置可以到[Get the Google USB Driver](https://developer.android.com/studio/run/win-usb)下載最新的驅動，並且在裝置管理員的地方更新
