@@ -7,8 +7,13 @@ sitemap: false
   {% for post in site.posts %}
     <entry>
       <title><![CDATA[{{ post.title | strip_html }}]]></title>
-      <url>{{ post.url | relative_url }}</url>
-      <content type="text"><![CDATA[{{ post.content | strip_html | strip_newlines }}]]></content>
+      <url>{{ post.url | relative_url | xml_escape }}</url>
+
+      {% assign cleaned_content = post.content | strip_html | strip_newlines | replace: '', '' | replace: '', '' | replace: '', '' | replace: '', '' %}
+      {% if cleaned_content contains '' %}
+        <!-- bbbbbbb -->
+      {% endif %}
+      <content type="text"><![CDATA[{{ cleaned_content }}]]></content>
       <categories>
         {% for category in post.categories %}
           <category> {{ category | strip_html | xml_escape }} </category>

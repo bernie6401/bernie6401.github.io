@@ -9,7 +9,7 @@ category: "Security/Course/NTU Crypto"
 <!-- more -->
 ###### tags: `Cryptography` `NTU`
 
-:::spoiler [資訊安全筆記2 The Vigenere Cipher](https://ithelp.ithome.com.tw/articles/10160406)
+:::spoiler [資訊安全筆記2 The Vigenere Cipher](https://ithelp.ithome.com.tw/articles/10160406)
 > The Vigenere Cipher是一種"polyalphabetic cipher"用一串的 Key 不斷地重複！例如 abcabcabcabc
 計算方法：
 例如key = d 代表a會變成d所以 w 會變成 Z
