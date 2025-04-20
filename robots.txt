@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://blog.sbk640.sbs/sitemap.xml
+Sitemap: https://blog.sbk6401.sbs/sitemap.xml
