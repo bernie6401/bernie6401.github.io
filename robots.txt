@@ -1,4 +1,5 @@
-User-agent: *
+User-agent: * 
 Disallow:
 
 Sitemap: https://blog.sbk6401.sbs/sitemap.txt
+Sitemap: https://blog.sbk6401.sbs/sitemap.xml
