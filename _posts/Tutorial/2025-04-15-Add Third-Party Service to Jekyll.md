@@ -26,11 +26,15 @@ comments: true
 詳細的說明可以參考[GA分析是什麼？最主流網站分析工具你學會沒？](https://welly.tw/blog/google-analytics-instruction)
 另外，在`_config.yml`中，我是有把google_analytics給uncomment，不確定是不是一定要做這件事，不過我也沒有給任何value
 
-## Google Adsense
+## Google Adsense (不是Google Ads)
 可以直接看[小咪同學的文章](https://freespiritmi.com/google-adsense-step-by-step-guide/)，不過Google Adsense只能註冊main domain而不是subdomain，所以假設把blog設定在`https://blog.sbk6401.sbs`，系統會無法判斷，必須先deploy在`https://sbk6401.sbs`
 
 ### 驗證方式
-和前面提到的google analytics的方式一樣，建立`_include/third-party/analytics/adsense.html`，再把Google提供的AdSense Code Segment放在這個file中，並且在`_third-party/analytics/index.html`新增{% raw %}`{% include _third-party/analytics/adsense.html %}`{% endraw %}就可以了
+和前面提到的google analytics的方式一樣，建立`_include/third-party/analytics/adsense.html`，再把Google提供的AdSense Code Segment放在這個file中，並且在`_third-party/analytics/index.html`新增
+{% raw %}
+`{% include _third-party/analytics/adsense.html %}`
+{% endraw %}
+就可以了
 
 ## Google Webmaster (Google Search Console)
 在`_config.yml`中也有，但我猜這應該也是早期版本才會需要的parameter，現在其實只需要在GSC的網站中新增資源就可以了
