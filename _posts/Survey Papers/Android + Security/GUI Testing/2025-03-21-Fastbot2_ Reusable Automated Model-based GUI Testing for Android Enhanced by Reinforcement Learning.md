@@ -30,6 +30,7 @@ Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbo
 ![image](https://hackmd.io/_uploads/SJ4a0qa5ke.png)
 因此，作者就給出了下面的機率模型，觸發e2和e4，會100%的跑到activity 3和activity 1
 ![image](https://hackmd.io/_uploads/S1U4ys6ckl.png)
+
 > 具體來說，對於當前一個潛在可以交互的組件 e，Fastbot 會根據之前探索的情況讀取這個組件 e 曾經可以觸發的 Activity，並將目前本輪探索到的 Activity 與歷史數據進行對比。如果目前 Fastbot 並沒有觸發到組件 e 中曾經觸發過的部分 Activity，並且相較於當前頁面的其他組件來說，此組件 e 仍未被觸發的 Activity 數量最多，那麽此組件 e 就會被概率模型選中。如下圖所示，概率模型會計算每一個 e 的概率，E(e) 代表此組件 e 之前所觸發的 Activity 中未在本輪中被觸發的比例。
 >![formula1](https://hackmd.io/_uploads/BJYcZjTqJx.png)
 > 需要說明的是，此概率模型會在 Fastbot 的過程中隨時保存，並且也會在下一次測試的時候被使用。這也是此模型被稱為概率模型的原因，因為它記錄了應用的歷史探索的情況。
@@ -147,6 +148,7 @@ Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbo
                 this->_previousActions.erase(this->_previousActions.begin());
             }
         }
+    ```
     
 ## code和論文中的公式對應
 以下function都在native/agent/ModelReusableAgent.cpp/中
