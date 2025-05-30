@@ -14,7 +14,7 @@ date_format: '%Y-%m-%d'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url: https://blog.sbk6401.sbs
+url: https://bernie6401.github.io
 baseurl:
 permalink: pretty
 
