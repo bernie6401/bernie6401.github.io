@@ -10,8 +10,14 @@ comments: true
 ---
 
 # Billy Lynn's Long Halftime Walk(半場無戰事)
-原書出版於2012年，譯版則是2015出版一刷
-時報出版 | 張茂芸譯版
+作者： Fountain, Ben
+原文出版社: Ecco Press
+原文出版日期: 2016/10/25
+
+譯者: 張茂芸
+譯版出版社: 時報出版
+譯版出版日期: 2015/04/24
+
 <!-- more -->
 
 ## Prerequisite
