@@ -31,10 +31,10 @@ $ git push
 ```
 
 :::info
-基本上不管是哪一種方法都會在git filter-branch...之後看到==Ref 'refs/heads/master' was rewritten==的字樣
+基本上不管是哪一種方法都會在git filter-branch...之後看到`==Ref 'refs/heads/master' was rewritten==`的字樣
 :::
 
 ## Reference
-[解决git不小心提交大文件导致无法提交问题 ](https://blog.51cto.com/frytea/4143701)
-[git filter-branch remove folder failed](https://stackoverflow.com/questions/30316723/git-filter-branch-remove-folder-failed)
-[[Git筆記] exceeds GitHub file size 解決](https://andy6804tw.github.io/2018/12/09/git-exceeds-size/)
+* [解决git不小心提交大文件导致无法提交问题 ](https://blog.51cto.com/frytea/4143701)
+* [git filter-branch remove folder failed](https://stackoverflow.com/questions/30316723/git-filter-branch-remove-folder-failed)
+* [[Git筆記] exceeds GitHub file size 解決](https://andy6804tw.github.io/2018/12/09/git-exceeds-size/)

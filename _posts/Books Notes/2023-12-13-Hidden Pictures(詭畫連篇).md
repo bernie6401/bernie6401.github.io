@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 寂寞
 * 譯版出版日期: 2023/12/01
 
-![](/assets/posts/沒有色彩的多崎作和他的巡禮之年.jpg)
+<img src="/assets/posts/沒有色彩的多崎作和他的巡禮之年.jpg" alt="" width="300"/>
 <!-- more -->
 
 ## 心得

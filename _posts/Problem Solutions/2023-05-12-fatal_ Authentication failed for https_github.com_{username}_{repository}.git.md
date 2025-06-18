@@ -13,9 +13,9 @@ According to [this page](https://www.wongwonggoods.com/all-posts/debug_error/git
 Go to [https://github.com/settings/tokens](https://github.com/settings/tokens) (or setting/Developer setting/Tokens (classic)/) and click `Generate new token` to apply a new token.
 
 * If you want to push repo
-Payload: 
-`git remote set-url origin https://ghp_XXXXXXXXXXXXXXXXXXX@github.com/howarder3/test_repo.git`
+    Payload: 
+    `git remote set-url origin https://ghp_XXXXXXXXXXXXXXXXXXX@github.com/howarder3/test_repo.git`
 
 * If you want to clone your own private repo in new computer
-Payload:
-`git clone https://ghp_XXXXXXXXXXXXXXXXXXX@github.com/howarder3/test_repo.git`
+    Payload:
+    `git clone https://ghp_XXXXXXXXXXXXXXXXXXX@github.com/howarder3/test_repo.git`

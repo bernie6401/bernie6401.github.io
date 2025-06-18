@@ -31,4 +31,4 @@ $ wsl -s Ubuntu-20.04
 ```
 
 ## Reference
-[i am getting error on windows subsystem](https://askubuntu.com/questions/1423048/i-am-getting-error-on-windows-subsystem)
+* [i am getting error on windows subsystem](https://askubuntu.com/questions/1423048/i-am-getting-error-on-windows-subsystem)

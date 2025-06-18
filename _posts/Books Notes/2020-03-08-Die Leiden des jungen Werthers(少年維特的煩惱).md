@@ -16,7 +16,7 @@ comments: true
 * 譯版出版社: 天蠍座文創
 * 譯版出版日期: 2020/02
 
-![](/assets/posts/少年維特的煩惱.jpg)
+<img src="/assets/posts/少年維特的煩惱.jpg" alt="" width="300"/>
 <!-- more -->
 
 ## 心得

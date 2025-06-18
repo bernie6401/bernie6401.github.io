@@ -15,12 +15,12 @@ category: "Side Project"
 ## Project Purpose
 * In order to deal with the inconvenient experiment on lightbulb of bathroom, I decided to write some code and implent the circuit. Specifically speaking about the inconvenient, I wish exhaust fan in bathroom can always work without switch control it. But unfortunately, it has connected with lightbulb circuit at the beginning, and the circuit hided in the wall that I can't change the circuit directly.
 * The original circuit diagram is as the bottom left and the revised circuit diagram v1 is as the bottom right
-<img src="./img/origin_circuit.png" alt="origin_circuit" style="zoom: 50%;" /><img src="./img/rev_v1_circuit.png" alt="rev_v1_circuit" style="zoom: 50%;" />
+<img src="/assets/posts/side_project_lightbulb_control/origin_circuit.png" alt="origin_circuit" style="zoom: 50%;" /><img src="/assets/posts/side_project_lightbulb_control/rev_v1_circuit.png" alt="rev_v1_circuit" style="zoom: 50%;" />
 
 
 ## Arduino Circuit Diagram
 * Version 1
-	![arduino_circuit_diagram](./img/arduino_circuit_diagram.png)
+	![arduino_circuit_diagram](/assets/posts/side_project_lightbulb_control/arduino_circuit_diagram.png)
 	* As the circuit above, when IR remote sensor received *any* infrared, it'll illuminate LED just like a demo that it connects with an actual lightbulb.
 	* Cons:
 		1. It must carry a mobile charger. And like I said, the circuit of the lightbulb hides in the wall, so the volume is too big to hide on the roof.
@@ -28,7 +28,7 @@ category: "Side Project"
 		3. Using IR remote sensor to control is not intuitive. When you'd like to turn on a lightbulb, you must find a remote controller first? That is not good obviously.
 
 * Version 2
-	![rev_v2_circuit](./img/rev_v2_circuit.png)
+	![rev_v2_circuit](/assets/posts/side_project_lightbulb_control/rev_v2_circuit.png)
 	* How does it work?
 		* I used two WIFI models (Node MCU CP2102) to control the lightbulb and switch that we pressed.
 		* If I turn on the switch, the CP2102 WIFI model will send a signal to WIFI AP and WIFI AP will resend it to another CP2102 hidden in the roof to illuminate the lightbulb.

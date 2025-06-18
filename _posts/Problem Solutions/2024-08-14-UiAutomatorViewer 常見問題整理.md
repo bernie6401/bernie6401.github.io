@@ -26,11 +26,12 @@ category: "Problem Solutions"
 
 ## Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn't exist!
 這個的解決方案有很多，我是在使用Spotify的時候出現這個問題，解決的方案是第一個
-參考來源1: [CSDN - adb常用命令](https://blog.csdn.net/YiLiuF/article/details/109601968)
-參考來源2: [cnblogs - 【Android】【問題解決記錄】Error obtaining UI hierarchy :Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn't exist!](https://www.cnblogs.com/lilip/p/11089713.html)
-參考來源3: [StackOverflow - Error obtaining UI hierarchy Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn't exist](https://stackoverflow.com/questions/40214342/error-obtaining-ui-hierarchy-error-while-obtaining-ui-hierarchy-xml-file-com-an)
-參考來源4: [CSDN - Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncExceptio解決方法](https://blog.csdn.net/weixin_39230341/article/details/90598944)
-參考來源5: [uiautomatorviewer報錯：Remote object doesn‘t exist Error while obtaining UI hierarchy XML file](https://blog.csdn.net/suncanshine/article/details/124546419)
+
+* 參考來源1: [CSDN - adb常用命令](https://blog.csdn.net/YiLiuF/article/details/109601968)
+* 參考來源2: [cnblogs - 【Android】【問題解決記錄】Error obtaining UI hierarchy :Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn't exist!](https://www.cnblogs.com/lilip/p/11089713.html)
+* 參考來源3: [StackOverflow - Error obtaining UI hierarchy Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn't exist](https://stackoverflow.com/questions/40214342/error-obtaining-ui-hierarchy-error-while-obtaining-ui-hierarchy-xml-file-com-an)
+* 參考來源4: [CSDN - Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncExceptio解決方法](https://blog.csdn.net/weixin_39230341/article/details/90598944)
+* 參考來源5: [uiautomatorviewer報錯：Remote object doesn‘t exist Error while obtaining UI hierarchy XML file](https://blog.csdn.net/suncanshine/article/details/124546419)
 
 1. 方法一: 直接斷網再重新測試
 2. 方法二: 查看電腦的adb version和手機的sdk version有無符合
