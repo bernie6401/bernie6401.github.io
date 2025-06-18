@@ -103,4 +103,4 @@ end
 ```
 
 ## Reference
-[zsh + zplug快速部屬你的Shell工作環境](https://www.jkg.tw/p2965/)
+* [zsh + zplug快速部屬你的Shell工作環境](https://www.jkg.tw/p2965/)

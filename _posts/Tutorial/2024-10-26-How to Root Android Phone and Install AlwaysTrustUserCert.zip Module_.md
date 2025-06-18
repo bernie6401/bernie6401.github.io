@@ -75,7 +75,7 @@ category: "Tutorial"
         ```
     4. 此時，直接切換到Recovery模式(`音量鍵-` + `電源鍵`)，要按久一點，應該會回到一開始的頁面，也就是10秒內沒有選擇要去哪裡就預設Restart，此時要選擇去到Recovery的地方，那這樣我們就可以進入OrangeFox的系統
     5. 到這邊理論上都沒有什麼問題，但是我按照[這個影片](https://youtu.be/p1MgtWuvqTM?si=gi5vKJSCNeFRJrgh)提到的要把剛剛載的image zip檔案丟進去並且安裝，但是就會跑出如下錯誤:
-        ![125588](https://hackmd.io/_uploads/rymaNviC6.jpg =200x)
+        <img src='https://hackmd.io/_uploads/rymaNviC6.jpg' alt='' width=200>
         看了XDA的留言串，發現也有人有這個問題，雖然時間有點久，但我還是嘗試問看看該名網友有沒有找到解決方法
 
 ## HTC 10
@@ -186,7 +186,7 @@ category: "Tutorial"
 1. 在通話的地方輸入`*#*#7378423#*#*`就會進入工程機畫面
 2. 選擇Service Info -> Configuration中會出現Bootloader unlock allowed: Yes(No)的提示，如果是Yes再往下進行
 3. 接著回到電話播打處打上`*#06#`就會跳出IMEI Code
-    ![Screenshot_20240322-212046](https://hackmd.io/_uploads/ryZRhZjCa.png =200x)
+    <img src='https://hackmd.io/_uploads/ryZRhZjCa.png' alt='' width='200'>
 4. 到[Sony Unlock官網](https://developer.sony.com/open-source/aosp-on-xperia-open-devices/get-started/unlock-bootloader)，選擇手機的型號並且輸入剛剛得到的IMEI Code
     ![圖片](https://hackmd.io/_uploads/r1XUU-jCT.png)
     Submit後會給另外一個Code

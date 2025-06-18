@@ -56,6 +56,7 @@ Docker
 6. 最後安裝都沒問題後pandas的部分因為是安裝最新版，所以語法上會有差，若是在`2.0`以上，就不能用`append`，要改成`_append`，這個就要慢慢看logontrace的log慢慢去改
 
 * 實作
+    如下
     ```bash
     $ conda create --name test python=3.11 -y
     $ conda activate test
@@ -84,9 +85,10 @@ Docker
     [+] Script start. 2023/10/25 23:28:44
     [+] Neo4j Kernel 4.4.14 (Community)
     [+] Can't create database. This feature is in Neo4j Enterprise.
-     * Serving Flask app 'logontracer'
-     * Debug mode: off
+        * Serving Flask app 'logontracer'
+        * Debug mode: off
     ```
+
     我的requirements.txt和原本的有一點不一樣，然後只要按照這個步驟就可以正常啟動logontracer，前提是neo4j也有好好啟動(這部分可以用docker自行安裝)
     
 :::info

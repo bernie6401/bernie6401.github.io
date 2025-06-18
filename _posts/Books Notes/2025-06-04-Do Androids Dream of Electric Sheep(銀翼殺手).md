@@ -16,7 +16,7 @@ comments: true
 * 譯版出版社: 寂寞
 * 譯版出版日期: 2017/09/01
 
-![](/assets/posts/銀翼殺手.jpg)
+<img src="/assets/posts/銀翼殺手.jpg" alt="" width="300"/>
 
 以下文字部分與AI討論
 

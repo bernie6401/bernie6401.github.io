@@ -3,7 +3,7 @@ layout: post
 title: "How to address filtering unicode in search.xml"
 date: 2025-04-19
 category: "Problem Solutions"
-tags: []
+tags: [problem solution]
 draft: false
 toc: true
 comments: true
@@ -16,8 +16,11 @@ comments: true
 
 ## Problem Statement
 ![](/assets/posts/螢幕擷取畫面 2025-04-19 175937.png)
+
 從上圖可以知道有一些東西在search.xml中無法被parse，詳細看了之後發現問題全部出現在那些應該是unicode的字元
+
 ![](/assets/posts/螢幕擷取畫面 2025-04-19 180042.png)
+
 照理說把那些字元刪除就可以了，所以我直接replace有出現的四個字元，`<0x01><0x10><0x14><0x1b>`
 
 ## Solutions

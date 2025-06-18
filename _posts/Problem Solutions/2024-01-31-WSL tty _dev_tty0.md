@@ -16,21 +16,21 @@ category: "Problem Solutions"
     ```bash!
     $ wsl --list --verbose
       NAME                   STATE           VERSION
-    * Ubuntu-18.04           Stopped         1
+    \* Ubuntu-18.04           Stopped         1
       docker-desktop         Stopped         2
       docker-desktop-data    Stopped         2
       Ubuntu-20.04           Running         1
       Ubuntu-22.04           Stopped         1
     ```
-    可以看到目前所有版本都還是1
+  可以看到目前所有版本都還是1
 2. Switch
 用管理員權限打開PowerShell
-    ```shell!
-    $ Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform 
-    $ wsl --set-version Ubuntu-18.04 2
-    $ wsl --set-version Ubuntu-20.04 2
-    $ wsl --set-version Ubuntu-22.04 2
-    ```
+  ```shell!
+  $ Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform 
+  $ wsl --set-version Ubuntu-18.04 2
+  $ wsl --set-version Ubuntu-20.04 2
+  $ wsl --set-version Ubuntu-22.04 2
+  ```
 最後就可以開始設定gef config
 
 ## Reference

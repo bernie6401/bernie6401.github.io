@@ -60,14 +60,14 @@ python test_leave_one_out.py -p --data_type GEMEP --num_classes 12
 ## Result
 
 ### 7 Classes - Face / Body / Whole
-<img src="./Confusion_matrix/GEMEP_Face7_acc0.66.png"/>
-<img src="./Confusion_matrix/GEMEP_Body7_acc0.5833.png"/>
-<img src="./Confusion_matrix/GEMEP_Whole7_acc0.6734.png"/>
+<img src="/assets/posts/NTUST Special Topic/GEMEP_Face7_acc0.66.png"/>
+<img src="/assets/posts/NTUST Special Topic/GEMEP_Body7_acc0.5833.png"/>
+<img src="/assets/posts/NTUST Special Topic/GEMEP_Whole7_acc0.6734.png"/>
 
 ### 12 Classes - Face / Body / Whole
-<img src="./Confusion_matrix/GEMEP_Face12_acc0.5083.png"/>
-<img src="./Confusion_matrix/GEMEP_Body12_acc0.525.png"/>
-<img src="./Confusion_matrix/GEMEP_Whole12_acc0.6083.png"/>
+<img src="/assets/posts/NTUST Special Topic/GEMEP_Face12_acc0.5083.png"/>
+<img src="/assets/posts/NTUST Special Topic/GEMEP_Body12_acc0.525.png"/>
+<img src="/assets/posts/NTUST Special Topic/GEMEP_Whole12_acc0.6083.png"/>
 
 ## More Detail
 You can download [here](./A_Hybrid_Facial_Expression_Recognition_System_Based_on_Facial_Features_and_Pose_Estimation.pdf) for more experience detail such as platform, software version, or hyper parameters, etc.

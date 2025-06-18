@@ -84,11 +84,11 @@ Bluetooth|4..2
 	* BTW, you can not use the x86 version, because it'll crash while the installation
 ***
 
-![img1](./error_img/error_1.png)
+![img1](/assets/posts/TCIVS_Special_Topic/error_1.png)
 
 ***
 
-![img1](./error_img/error_2.png)
+![img1](/assets/posts/TCIVS_Special_Topic/error_2.png)
 
 ***
 

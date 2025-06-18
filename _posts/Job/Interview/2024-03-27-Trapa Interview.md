@@ -44,7 +44,7 @@ categories:
     
     以下附上我的Source Code:
     :::spoiler Source Code
-    ```python!
+    ```python
     try:
         led_light = input("LED Light Or Not Or Flashing (Y/N/F): ").upper()
         assert led_light == "Y" or led_light == "N" or led_light == "F"

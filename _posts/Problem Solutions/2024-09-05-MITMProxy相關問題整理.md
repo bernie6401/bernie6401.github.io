@@ -21,5 +21,7 @@ def request(flow: http.HTTPFlow) -> None:
         flow.request.url = flow.request.url.replace('https://', 'http://')
 ```
 
-## Unable to establish TLS connection with server (The remote server does not speak TLS.). Trying to establish TLS with client anyway. If you plan to redirect requests away from this server, consider setting `connection_strategy` to `lazy` to suppress early connections.
-出現這個warning，
+## 不確定的Error
+Unable to establish TLS connection with server (The remote server does not speak TLS.). Trying to establish TLS with client anyway. If you plan to redirect requests away from this server, consider setting `connection_strategy` to `lazy` to suppress early connections.
+
+待續...

@@ -50,7 +50,7 @@ The page I expected is shown as below.![weibo page I expect](https://imgur.com/G
 But actually, drive got the page as below →
 ![actual page it shown](https://imgur.com/phlJ6Ov.png)
 In order to execute my program with slightly revise, I add these line to login. Refer to [使用Selenium实现微博爬虫：预登录、展开全文、翻页](https://blog.51cto.com/u_9177933/2985943)
-        ```python=59
+        ```python
         wait = WebDriverWait(driver,5)
         time.sleep(60)
         ```

@@ -275,7 +275,7 @@ category: "Tutorial"
     這時我們們就可以直接選取android要得憑證
 3. 把憑證放到手機上並且依照[How to Root Android Phone & Install AlwaysTrustUserCert.zip Module?](https://hackmd.io/@SBK6401/r1pDCcqCT#注意事項)中最後的注意事項進行安裝，也就是先把之前所有安裝的憑證刪除→重新啟動→重新安裝"所有"的憑證→重新安裝Magisk模組→Reboot，就可以了
     此時檢查手機中的的Trusted credentials應該就會發現mitmproxy的憑證已經被信任
-    ![Screenshot_20240704-225258](https://hackmd.io/_uploads/B1v_PE4vC.png =200x)
+    <img src='https://hackmd.io/_uploads/B1v_PE4vC.png' alt='' width=200>
 4. 設定手機的Proxy IP
     我是直接用電腦的hot spot來測試，所以手機就填電腦IP和8080的Port
 5. 攔截流量
