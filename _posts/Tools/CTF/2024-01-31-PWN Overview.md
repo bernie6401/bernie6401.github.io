@@ -92,7 +92,7 @@ category: "Tools/CTF"
 * fin: 直接執行該function到結束
 * got: 直接查看GOT
 * canary: 直接查看canary存放的位置和value
-* heap (chunk|chunks|bins|arenas|set-arena)
+* `heap (chunk|chunks|bins|arenas|set-arena)`
 * j/jump {address}: 直接jmp到指定的位置，但要注意如果該位置之後沒有其他breakpoint就會直接執行下去 # jump `$ (gdb) j 0x4896aa`
 * set {long}{address} = 0x61616161: 對特定的位址寫入值 # set memory / register value `$ (gdb) set $rax=0x5`
 * p &{symbol}: print出特定的symbol
@@ -107,7 +107,7 @@ category: "Tools/CTF"
 * heapb: 就是heap base的command，告訴我們目前的base address
 * .gdbinit
     :::spoiler config
-    ```bash!
+    ```bash
     set disassembly-flavor intel
 
     define gef
@@ -138,7 +138,7 @@ category: "Tools/CTF"
 
 ### pwntools
 * 常用
-    ```python!
+    ```python
     raw_input()
     p64(0x401111)
     p32(0x401111)
@@ -148,27 +148,27 @@ category: "Tools/CTF"
     r.sendline(b'test')
     ```
 * flat
-    ```python!
+    ```python
     payload = flat(
         pop_eax_ret, 0,
         pop_ebx_ret, 0xc
     )
     ```
 * asm:
-    ```python!
+    ```python
     payload = asm("""
         xor eax, eax
         xor ebx, ebx
     """)
     ```
 * context
-    ```python!
+    ```python
     context.arch = 'amd64'
     context.newline = b'\r\n' # for windows pe file
     ```
 * ELF
     方便查看GOT或function的address
-    ```python!
+    ```python
     exe = ELF('./vuln')
     log.info("main address: " + hex(exe.symbols['main']))
     log.info("pow GOT address: " + hex(exe.got['pow']))

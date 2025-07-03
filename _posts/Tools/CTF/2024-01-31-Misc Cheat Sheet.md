@@ -9,6 +9,7 @@ category: "Tools/CTF"
 <!-- more -->
 
 ## Online Tools
+
 | Encode & Decode |
 | -------- |
 |[Free Online Barcode Reader](https://online-barcode-reader.inliteresearch.com/)|
