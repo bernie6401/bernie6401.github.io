@@ -27,7 +27,7 @@ def generate_post(file_path):
     date_str = now.strftime("%Y-%m-%d")
     date_full = now.strftime("%Y-%m-%d")
     new_filename = f"{date_str}-{name}.md"
-    author_info = "* 作者: \n* 出版社: \n* 出版日期: \n* 譯者: \n* 譯版出版社: \n* 譯版出版日期: \n\n"
+    author_info = '* 作者: \n* 出版社: \n* 出版日期: \n* 譯者: \n* 譯版出版社: \n* 譯版出版日期: \n\n<img src="/assets/posts/" alt="" width="300">\n'
 
     # 組成 front matter
     front_matter = f"""---
