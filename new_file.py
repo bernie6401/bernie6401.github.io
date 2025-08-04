@@ -27,6 +27,7 @@ def generate_post(file_path):
     date_str = now.strftime("%Y-%m-%d")
     date_full = now.strftime("%Y-%m-%d")
     new_filename = f"{date_str}-{name}.md"
+    author_info = "* 作者: \n* 出版社: \n* 出版日期: \n* 譯者: \n* 譯版出版社: \n* 譯版出版日期: \n\n"
 
     # 組成 front matter
     front_matter = f"""---
@@ -41,8 +42,6 @@ comments: true
 ---
 
 # {name}
-<!-- more -->
-
 """
 
     # 寫入檔案
@@ -52,6 +51,9 @@ comments: true
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(front_matter)
+        if category_str == "Books Notes":
+            f.write(f"{author_info}")
+        f.write(f"<!-- more -->\n\n")
 
     print(f"✅ 已建立：{output_path}")
 
