@@ -44,6 +44,7 @@ comments: true
 
 ## 心得
 * [Google Map List](https://maps.app.goo.gl/NbnhnemzyEJcAv8r5)
+
 為甚麼會說劇情有一點文學卻又看得動呢，因為儘管劇情在某些橋段描述的很隱諱，不管是心理還是關係，到最後都還是會自己揭曉當初的橋段的意義，也就是會call back，就拿⌈偷⌋這個前期阿米爾爸爸就提到的概念
 
 Ch. 3(P. 18)
