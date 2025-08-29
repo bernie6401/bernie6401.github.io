@@ -37,6 +37,7 @@ comments: true
 
 ## 心得
 * [Google Map List](https://maps.app.goo.gl/ta7DFSkjms1wrB5t8)
+
 這本書表面上在講的是查爾斯·史崔蘭如何放棄麵包(美滿的家庭、不錯的高薪工作)轉而追求自己的月亮(理想)，書名靈感應該是來自一句話
 > 當你仰望月亮時，往往忘了腳下的硬幣
 
