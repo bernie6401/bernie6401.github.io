@@ -48,8 +48,8 @@ for dirpath, _, filenames in os.walk(POSTS_DIR):
                     break
             if not updated:
                 front_matter.append(f'category: "{category}"\n')
-            else:
-                continue
+            # else:
+            #     continue
 
             new_lines = ["---\n"] + front_matter + ["---\n"] + content
 
