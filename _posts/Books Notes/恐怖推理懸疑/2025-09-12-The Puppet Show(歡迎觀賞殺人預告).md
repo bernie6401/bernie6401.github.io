@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 春天出版社
 * 譯版出版日期: 2021/09/17
 
-<img src="/assets/posts/" alt="" width="300">
+<img src="/assets/posts/歡迎觀賞殺人預告.jpg" alt="" width="300">
 這是一本前期有點無聊，但後期各方面的爽度直線上升的一部黑暗推理懸疑小說
 <!-- more -->
 
