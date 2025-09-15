@@ -51,7 +51,7 @@ comments: true
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(front_matter)
-        if category_str == "Books Notes":
+        if "Books Notes" in category_str:
             f.write(f"{author_info}")
         f.write(f"<!-- more -->\n\n")
 
