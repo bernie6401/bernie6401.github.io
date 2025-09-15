@@ -38,5 +38,5 @@ category: "Books Notes/純文學"
 
 
 ## 別人的心得
-[《十日談》：瘟疫漫延時的自由與放縱](https://paratext.hk/?p=2501)
-[《十日談》100則故事中最具意義的一篇，深刻探討宗教的正宗性](https://vocus.cc/article/5c1d4c7ffd8978000136aea1)
+* [《十日談》：瘟疫漫延時的自由與放縱](https://paratext.hk/?p=2501)
+* [《十日談》100則故事中最具意義的一篇，深刻探討宗教的正宗性](https://vocus.cc/article/5c1d4c7ffd8978000136aea1)
