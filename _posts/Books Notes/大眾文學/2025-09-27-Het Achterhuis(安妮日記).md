@@ -22,6 +22,8 @@ comments: true
 > In spite of everything, I still believe that people are really good in heart
 
 理性上我知道沒有什麼是人性本善，只有教育制度的問題；但感性上，連遭受迫害的Anne Frank都願意相信人性本善，我有什麼理由不傳遞這樣的信念呢？
+
+(記得要再看過後面的年代表，包含文學作品、作者生平等介紹)
 <!-- more -->
 
 * [Google Map List](https://maps.app.goo.gl/M4k8K3shNUfYmuyZA)
