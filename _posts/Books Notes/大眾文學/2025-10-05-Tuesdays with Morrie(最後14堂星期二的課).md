@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 大塊文化
 * 譯版出版日期: 1998
 
-<img src="/assets/posts/最後十四堂星期二的課.jpg" alt="" width="300">
+<img src="/assets/posts/最後14堂星期二的課.jpg" alt="" width="300">
 人生一定至少要看一次的書，沒有什麼大道理，就只是面對死亡的態度有一些想法，不適用每個人，只要擷取對自己有用的就好
 <!-- more -->
 
