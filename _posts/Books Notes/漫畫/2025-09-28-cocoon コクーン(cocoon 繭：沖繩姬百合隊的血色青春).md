@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 臉譜
 * 譯版出版日期: 2021/07
 
-<img src="/assets/posts/COCCON繭.jpg" alt="" width="300">
+<img src="/assets/posts/COCOON繭.jpg" alt="" width="300">
 <!-- more -->
 
 ## 心得
