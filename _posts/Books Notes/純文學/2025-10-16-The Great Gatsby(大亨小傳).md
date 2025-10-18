@@ -18,7 +18,7 @@ comments: true
 * 譯版出版社: 遠流
 * 譯版出版日期: 2012/09/01
 
-<img src="/assets/posts/" alt="" width="300">
+<img src="/assets/posts/大亨小傳/大亨小傳.jpg" alt="" width="300">
 講述一個不太會追女生的笨拙富豪最後發生悲劇的故事
 <!-- more -->
 
