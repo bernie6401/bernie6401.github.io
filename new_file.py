@@ -78,6 +78,8 @@ def generate_post(file_path):
     if args.books_id:
         info = crawl_book_info(args.books_id)
         crawl_book_cover(args.books_id)
+    else:
+        info = {}
     
     # 產生時間與檔名
     now = datetime.now()
