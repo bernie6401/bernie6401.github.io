@@ -66,7 +66,7 @@ def generate_post(file_path):
         return
 
     # 取得 category 路徑（去除 _posts 開頭）
-    categories = dir_path.replace("\\", "/")  # Windows fix
+    categories = dir_path.replace("\\", "｜")  # Windows fix
     if categories.startswith("_posts/"):
         categories = categories[len("_posts/"):]
     elif categories.startswith("myblog/_posts/"):
