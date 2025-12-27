@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/new_file.py",
             "console": "integratedTerminal",
-            "args": "--file_path='Books Notes/大眾文學/かがみの孤城(鏡之孤城).md' --books_id 0010794228"
+            "args": "--file_path='Books Notes/純文學/Of Mice and Men(人鼠之間).md' --books_id 0011007257"
         }
     ]
 }
