@@ -383,3 +383,81 @@ g++ main.cpp utils.c -o main
 | **C 和 C++ 混合專案** | `g++`（因為它會自動連結 C++ 標準庫） |
 
 如果你的專案主要是 C++，**優先使用 `g++`**，因為它會處理 C++ 標準函式庫連結。如果是 C，則用 `gcc`。
+
+## .NET平台是什麼
+是 Microsoft 推出的跨平台軟體開發平台，用來開發各種類型的應用程式，例如桌面程式、網站、後端 API、行動 App、雲端服務，甚至是遊戲。可以把 .NET 想成是一整套「開發生態系」，而不只是一個語言。<span style="background-color: yellow">**一個讓你用多種語言，寫一次程式，就能在多種作業系統上跑的開發平台**</span>
+
+### 支援的語言
+* C#（最主流、最推薦）
+* F#
+* Visual Basic (VB.NET)
+
+### 開發框架
+
+| 用途       | 技術               |
+| -------- | ---------------- |
+| 網站 / API | **ASP.NET Core** |
+| 桌面應用     | WPF / WinForms   |
+| 行動 App   | .NET MAUI        |
+| 遊戲       | Unity（使用 C#）     |
+| 雲端       | Azure + .NET     |
+
+### .NET 的運作概念
+和以下的概念幾乎一樣
+* Java（JVM）
+* Android（ART / Dalvik）
+
+```
+C# 原始碼
+   ↓ 編譯
+IL（中介語言）
+   ↓ Runtime
+作業系統執行
+```
+
+### 適合與不適合之處
+* ✔ 想做後端 API
+* ✔ 想寫 Windows 桌面程式
+* ✔ 想快速開發工具
+* ✔ 想進企業或微軟生態
+* ✔ 想要強型別但又不想像 C++ 那麼痛苦
+* ❌ 極度底層（驅動程式、核心）
+* ❌ 極限效能手寫優化（雖然現在已經很強）
+
+## MSVC VS. MinGW
+都是編譯C++的編譯器
+
+### 編譯器來源
+
+| 編譯器                             | 來源 / 背景                    |
+| ------------------------------- | -------------------------- |
+| **MSVC (Microsoft Visual C++)** | 微軟官方，Visual Studio 內建編譯器   |
+| **MinGW / MinGW-w64**           | GCC 在 Windows 的移植版本，開源社群維護 |
+
+### Standard Library & ABI
+
+| 特性      | MSVC                       | MinGW                      |
+| ------- | -------------------------- | -------------------------- |
+| C++ 標準庫 | MSVC STL (`std::vector` 等) | GCC STL (`libstdc++`)      |
+| C++ ABI | Microsoft C++ ABI          | GCC C++ ABI                |
+| 互通性     | **不與 GCC 編譯的二進制互通**        | 與 Linux/Unix 上 GCC 二進制互通性高 |
+
+> ⚠️ 因此，MSVC 編譯的 .lib / .dll 不能直接和 MinGW 的 .a / .dll 混用（除非用 C 介面）
+
+### 編譯器選項與鏈結方式
+
+| 特性      | MSVC                       | MinGW                          |
+| ------- | -------------------------- | ------------------------------ |
+| 命令行     | `cl main.cpp /Fe:main.exe` | `g++ main.cpp -o main.exe`     |
+| 靜態連結標準庫 | `/MT`                      | `-static`                      |
+| 動態連結標準庫 | `/MD`                      | 預設（依賴 DLL，如 `libstdc++-6.dll`） |
+
+### 適合場合
+#### MSVC
+* 開發 Windows 原生程式 / GUI / .NET 互通
+* 發布 DLL 或 exe 給 Windows 使用者
+* 使用 Visual Studio 生態系（Debugger、Profiler、IntelliSense）
+#### MinGW
+* 跨平台開發（程式在 Linux / Windows / macOS 可用 GCC 編譯）
+* 想用 GCC / Makefile / Autotools 工具鏈
+* 開源專案，或不依賴 Visual Studio
