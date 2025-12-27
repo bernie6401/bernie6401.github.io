@@ -2,7 +2,7 @@
 layout: post
 title: "Project Hail Mary(極限返航)"
 date: 2025-11-08
-category: "Books Notes/科幻"
+category: "Books Notes｜科幻"
 tags: []
 draft: false
 toc: true

@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note - Lab(無法Reboot的時盜取Passwd)
 tags: [information security, NTUSTISC, AD]
 
-category: "Security/Course/NTUST ISC/AD/3. 更多密碼"
+category: "Security｜Course｜NTUST ISC｜AD｜3. 更多密碼"
 ---
 
 # NTUSTISC - AD Note - Lab(無法Reboot的時盜取Passwd)

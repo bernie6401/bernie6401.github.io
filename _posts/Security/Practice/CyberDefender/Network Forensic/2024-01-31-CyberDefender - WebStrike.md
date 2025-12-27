@@ -2,7 +2,7 @@
 title: CyberDefender - WebStrike
 tags: [CyberDefender, Network Forensics]
 
-category: "Security/Practice/CyberDefender/Network Forensic"
+category: "Security｜Practice｜CyberDefender｜Network Forensic"
 ---
 
 # CyberDefender - WebStrike

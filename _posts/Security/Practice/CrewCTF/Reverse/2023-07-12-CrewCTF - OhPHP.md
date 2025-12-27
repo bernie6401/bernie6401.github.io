@@ -2,7 +2,7 @@
 title: CrewCTF - OhPHP
 tags: [CTF, CrewCTF, Reverse]
 
-category: "Security/Practice/CrewCTF/Reverse"
+category: "Security｜Practice｜CrewCTF｜Reverse"
 ---
 
 # CrewCTF - OhPHP

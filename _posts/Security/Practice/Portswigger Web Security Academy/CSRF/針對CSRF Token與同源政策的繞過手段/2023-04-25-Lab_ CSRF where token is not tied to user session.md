@@ -2,7 +2,7 @@
 title: 'Lab: CSRF where token is not tied to user session'
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/CSRF/針對CSRF Token與同源政策的繞過手段"
+category: "Security｜Practice｜Portswigger Web Security Academy｜CSRF｜針對CSRF Token與同源政策的繞過手段"
 ---
 
 # Lab: CSRF where token is not tied to user session

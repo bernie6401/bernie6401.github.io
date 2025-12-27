@@ -2,7 +2,7 @@
 title: 'Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:'
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/SQL"
+category: "Security｜Practice｜Portswigger Web Security Academy｜SQL"
 ---
 
 # Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:

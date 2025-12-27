@@ -2,7 +2,7 @@
 title: 利用Metasploit Framework測試一些網站
 tags: [Tools, CTF]
 
-category: "Tools/CTF"
+category: "Tools｜CTF"
 ---
 
 # 利用Metasploit Framework測試一些網站

@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note - Lab(顯示Mimikatz的明文)
 tags: [NTUSTISC, AD, information security]
 
-category: "Security/Course/NTUST ISC/AD/3. 更多密碼"
+category: "Security｜Course｜NTUST ISC｜AD｜3. 更多密碼"
 ---
 
 # NTUSTISC - AD Note - Lab(顯示Mimikatz的明文)

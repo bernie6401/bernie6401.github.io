@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note - Lab(偵測查詢的操作)
 tags: [NTUSTISC, AD, information security]
 
-category: "Security/Course/NTUST ISC/AD/1. 環境調查Normal"
+category: "Security｜Course｜NTUST ISC｜AD｜1. 環境調查Normal"
 ---
 
 # NTUSTISC - AD Note - Lab(偵測查詢的操作)

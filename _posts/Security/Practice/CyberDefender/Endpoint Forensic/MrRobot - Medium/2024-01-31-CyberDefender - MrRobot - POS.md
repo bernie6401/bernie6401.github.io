@@ -2,7 +2,7 @@
 title: CyberDefender - MrRobot - POS
 tags: [NTUSTISC, CyberDefender, Endpoint Forensics]
 
-category: "Security/Practice/CyberDefender/Endpoint Forensic/MrRobot - Medium"
+category: "Security｜Practice｜CyberDefender｜Endpoint Forensic｜MrRobot - Medium"
 ---
 
 # CyberDefender - MrRobot - POS

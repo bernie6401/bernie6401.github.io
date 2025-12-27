@@ -2,7 +2,7 @@
 title: PicoCTF - It's Not My Fault 1
 tags: [PicoCTF, CTF, Crypto]
 
-category: "Security/Practice/PicoCTF/Crypto/RSA"
+category: "Security｜Practice｜PicoCTF｜Crypto｜RSA"
 ---
 
 # PicoCTF - It's Not My Fault 1

@@ -2,7 +2,7 @@
 layout: post
 title: "Conversation With Friends(聊天紀錄)"
 date: 2025-12-17
-category: "Books Notes/大眾文學/歐美"
+category: "Books Notes｜大眾文學｜歐美"
 tags: []
 draft: false
 toc: true

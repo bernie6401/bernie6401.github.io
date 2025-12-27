@@ -2,7 +2,7 @@
 title: Simple Web 0x18(Lab - Magic Cat)
 tags: [NTUSTWS, CTF, Web]
 
-category: "Security/Course/NTUST WS/Deserialization"
+category: "Security｜Course｜NTUST WS｜Deserialization"
 ---
 
 # Simple Web 0x18(Lab - Magic Cat)

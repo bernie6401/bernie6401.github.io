@@ -2,7 +2,7 @@
 title: 'EIFFeL: Ensuring Integrity For Federated Learning - Notes'
 tags: [Meeting Paper, NTU]
 
-category: "Survey Papers/Federated Learning"
+category: "Survey Papers｜Federated Learning"
 ---
 
 # EIFFeL: Ensuring Integrity For Federated Learning - Notes

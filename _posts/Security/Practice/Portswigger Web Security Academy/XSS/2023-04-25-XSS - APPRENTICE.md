@@ -2,7 +2,7 @@
 title: XSS - APPRENTICE
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/XSS"
+category: "Security｜Practice｜Portswigger Web Security Academy｜XSS"
 ---
 
 # XSS - APPRENTICE

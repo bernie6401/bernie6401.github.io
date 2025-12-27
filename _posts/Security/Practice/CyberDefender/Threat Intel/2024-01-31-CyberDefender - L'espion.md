@@ -2,7 +2,7 @@
 title: CyberDefender - L'espion
 tags: [CyberDefender, Threat Intel]
 
-category: "Security/Practice/CyberDefender/Threat Intel"
+category: "Security｜Practice｜CyberDefender｜Threat Intel"
 ---
 
 # CyberDefender - L'espion

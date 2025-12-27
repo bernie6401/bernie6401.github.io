@@ -2,7 +2,7 @@
 title: PicoCTF - WPA-ing Out
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security/Practice/PicoCTF/Misc/Flow"
+category: "Security｜Practice｜PicoCTF｜Misc｜Flow"
 ---
 
 # PicoCTF - WPA-ing Out

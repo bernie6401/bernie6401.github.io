@@ -2,7 +2,7 @@
 title: PicoCTF - not crypto
 tags: [PicoCTF, CTF, Reverse]
 
-category: "Security/Practice/PicoCTF/Reverse"
+category: "Security｜Practice｜PicoCTF｜Reverse"
 ---
 
 # PicoCTF - not crypto

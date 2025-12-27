@@ -2,7 +2,7 @@
 title: PicoCTF - AES-ABC
 tags: [PicoCTF, CTF, Crypto]
 
-category: "Security/Practice/PicoCTF/Crypto/DES-AES"
+category: "Security｜Practice｜PicoCTF｜Crypto｜DES-AES"
 ---
 
 # PicoCTF - AES-ABC

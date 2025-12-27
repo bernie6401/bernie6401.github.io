@@ -2,7 +2,7 @@
 title: PicoCTF - Some Assembly Required 1
 tags: [PicoCTF, CTF, Web]
 
-category: "Security/Practice/PicoCTF/Web"
+category: "Security｜Practice｜PicoCTF｜Web"
 ---
 
 # PicoCTF - Some Assembly Required 1

@@ -2,7 +2,7 @@
 title: SQLi - APPRENTICE
 tags: [Web, Portswigger Web Security Academy]
 
-category: "Security/Practice/Portswigger Web Security Academy/SQL"
+category: "Security｜Practice｜Portswigger Web Security Academy｜SQL"
 ---
 
 # SQLi - APPRENTICE

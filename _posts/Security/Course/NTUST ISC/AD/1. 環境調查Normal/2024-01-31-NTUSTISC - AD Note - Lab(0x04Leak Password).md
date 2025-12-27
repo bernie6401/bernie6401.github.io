@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note - Lab(Leak Password)
 tags: [NTUSTISC, AD, information security]
 
-category: "Security/Course/NTUST ISC/AD/1. 環境調查Normal"
+category: "Security｜Course｜NTUST ISC｜AD｜1. 環境調查Normal"
 ---
 
 # NTUSTISC - AD Note - Lab(Leak Password)

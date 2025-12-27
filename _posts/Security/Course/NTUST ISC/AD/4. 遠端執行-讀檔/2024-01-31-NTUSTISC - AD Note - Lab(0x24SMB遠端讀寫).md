@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note - Lab(SMB遠端讀寫)
 tags: [NTUSTISC, AD, information security]
 
-category: "Security/Course/NTUST ISC/AD/4. 遠端執行-讀檔"
+category: "Security｜Course｜NTUST ISC｜AD｜4. 遠端執行-讀檔"
 ---
 
 # NTUSTISC - AD Note - Lab(SMB遠端讀寫)

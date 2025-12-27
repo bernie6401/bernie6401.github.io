@@ -2,7 +2,7 @@
 title: Simple Web 0x01(Lab - Hello from Windows 98)
 tags: [CTF, Web, eductf]
 
-category: "Security/Course/NTU CS/Web"
+category: "Security｜Course｜NTU CS｜Web"
 ---
 
 # Simple Web 0x01(Lab - Hello from Windows 98)

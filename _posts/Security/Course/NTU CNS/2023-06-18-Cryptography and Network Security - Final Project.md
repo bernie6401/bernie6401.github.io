@@ -2,7 +2,7 @@
 title: Cryptography and Network Security - Final Project
 tags: [Cryptography, NTU]
 
-category: "Security/Course/NTU CNS"
+category: "Security｜Course｜NTU CNS"
 ---
 
 # Cryptography and Network Security - Final Project

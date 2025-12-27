@@ -2,7 +2,7 @@
 title: TaiwanHolyHigh - Windows Forensics - Windows檔案系統與還原
 tags: [TaiwanHolyHigh, Forensics, Windows]
 
-category: "Security/Course/Tai.HolyHigh/Windows OS Forensics"
+category: "Security｜Course｜Tai.HolyHigh｜Windows OS Forensics"
 ---
 
 # TaiwanHolyHigh - Windows Forensics - Windows檔案系統與還原

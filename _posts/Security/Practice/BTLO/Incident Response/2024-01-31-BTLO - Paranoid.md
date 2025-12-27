@@ -2,7 +2,7 @@
 title: BTLO - Paranoid
 tags: [BTLO, Incident Response]
 
-category: "Security/Practice/BTLO/Incident Response"
+category: "Security｜Practice｜BTLO｜Incident Response"
 ---
 
 # BTLO - Paranoid

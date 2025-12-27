@@ -2,7 +2,7 @@
 title: 'Lab: CSRF where token is tied to non-session cookie'
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/CSRF/Not Complete"
+category: "Security｜Practice｜Portswigger Web Security Academy｜CSRF｜Not Complete"
 ---
 
 # Lab: CSRF where token is tied to non-session cookie

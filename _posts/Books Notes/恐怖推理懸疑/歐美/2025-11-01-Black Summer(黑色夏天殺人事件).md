@@ -2,7 +2,7 @@
 layout: post
 title: "Black Summer(黑色夏天殺人事件)"
 date: 2025-11-01
-category: "Books Notes/恐怖推理懸疑/歐美"
+category: "Books Notes｜恐怖推理懸疑｜歐美"
 tags: []
 draft: false
 toc: true

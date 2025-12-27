@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note - 環境建置 & Background
 tags: [AD, information security, NTUSTISC]
 
-category: "Security/Course/NTUST ISC/AD"
+category: "Security｜Course｜NTUST ISC｜AD"
 ---
 
 # NTUSTISC - AD Note - 環境建置 & Background

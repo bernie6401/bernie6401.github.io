@@ -2,7 +2,7 @@
 title: Cross-site Scripting Attacks on Android Hybrid Applications
 tags: [Meeting Paper, NTU]
 
-category: "Survey Papers/Android + Security"
+category: "Survey Papers｜Android + Security"
 ---
 
 # Cross-site Scripting Attacks on Android Hybrid Applications

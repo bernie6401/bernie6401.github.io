@@ -2,7 +2,7 @@
 title: Test DIVA - activity exported
 tags: [Android, Drozer]
 
-category: "Tools/Others/Android Related/Drozer/Test DIVA"
+category: "Tools｜Others｜Android Related｜Drozer｜Test DIVA"
 ---
 
 * DIVA - [Download](https://payatu.com/wp-content/uploads/2016/01/diva-beta.tar.gz)

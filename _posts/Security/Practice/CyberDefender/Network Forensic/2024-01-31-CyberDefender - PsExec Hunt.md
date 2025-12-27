@@ -2,7 +2,7 @@
 title: CyberDefender - PsExec Hunt
 tags: [CyberDefender, Network Forensics]
 
-category: "Security/Practice/CyberDefender/Network Forensic"
+category: "Security｜Practice｜CyberDefender｜Network Forensic"
 ---
 
 # CyberDefender - PsExec Hunt

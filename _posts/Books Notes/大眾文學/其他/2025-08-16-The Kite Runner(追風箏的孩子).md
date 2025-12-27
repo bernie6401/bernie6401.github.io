@@ -2,7 +2,7 @@
 layout: post
 title: "The Kite Runner(追風箏的孩子)"
 date: 2025-08-16
-category: "Books Notes/大眾文學/其他"
+category: "Books Notes｜大眾文學｜其他"
 tags: []
 draft: false
 toc: true

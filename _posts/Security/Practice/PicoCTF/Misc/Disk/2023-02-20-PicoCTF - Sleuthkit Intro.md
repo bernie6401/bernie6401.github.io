@@ -2,7 +2,7 @@
 title: PicoCTF - Sleuthkit Intro
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security/Practice/PicoCTF/Misc/Disk"
+category: "Security｜Practice｜PicoCTF｜Misc｜Disk"
 ---
 
 # PicoCTF - Sleuthkit Intro

@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note - 會後提及有用的工具
 tags: [NTUSTISC, AD, information security]
 
-category: "Security/Course/NTUST ISC/AD"
+category: "Security｜Course｜NTUST ISC｜AD"
 ---
 
 # NTUSTISC - AD Note - 會後提及有用的工具

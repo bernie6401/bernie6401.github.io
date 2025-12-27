@@ -2,7 +2,7 @@
 title: Deserialization - APPRENTICE
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/Deserialization"
+category: "Security｜Practice｜Portswigger Web Security Academy｜Deserialization"
 ---
 
 # Deserialization - APPRENTICE

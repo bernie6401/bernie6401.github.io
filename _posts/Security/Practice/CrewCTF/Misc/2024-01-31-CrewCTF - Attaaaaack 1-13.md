@@ -2,7 +2,7 @@
 title: CrewCTF - Attaaaaack 1-13
 tags: [CTF, CrewCTF, Misc]
 
-category: "Security/Practice/CrewCTF/Misc"
+category: "Security｜Practice｜CrewCTF｜Misc"
 ---
 
 # CrewCTF - Attaaaaack 1-13

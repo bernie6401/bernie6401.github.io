@@ -2,7 +2,7 @@
 title: Simple Crypto - 0x07(2023 HW - Oracle)
 tags: [eductf, CTF, Crypto]
 
-category: "Security/Course/NTU CS/Crypto"
+category: "Security｜Course｜NTU CS｜Crypto"
 ---
 
 # Simple Crypto - 0x07(2023 HW - Oracle)

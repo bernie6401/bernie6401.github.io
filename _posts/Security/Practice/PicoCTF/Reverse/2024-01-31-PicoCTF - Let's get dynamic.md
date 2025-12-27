@@ -2,7 +2,7 @@
 title: PicoCTF - Let's get dynamic
 tags: [PicoCTF, CTF, Reverse]
 
-category: "Security/Practice/PicoCTF/Reverse"
+category: "Security｜Practice｜PicoCTF｜Reverse"
 ---
 
 # PicoCTF - Let's get dynamic

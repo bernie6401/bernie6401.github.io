@@ -2,7 +2,7 @@
 title: PicoCTF - Guessing Game 2
 tags: [PicoCTF, CTF, PWN]
 
-category: "Security/Practice/PicoCTF/PWN"
+category: "Security｜Practice｜PicoCTF｜PWN"
 ---
 
 # PicoCTF - Guessing Game 2

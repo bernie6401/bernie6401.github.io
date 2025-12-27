@@ -2,7 +2,7 @@
 title: PicoCTF - flag leak
 tags: [PicoCTF, CTF, PWN]
 
-category: "Security/Practice/PicoCTF/PWN"
+category: "Security｜Practice｜PicoCTF｜PWN"
 ---
 
 # PicoCTF - flag leak

@@ -2,7 +2,7 @@
 title: PicoCTF - Who are you?
 tags: [PicoCTF, CTF, Web]
 
-category: "Security/Practice/PicoCTF/Web"
+category: "Security｜Practice｜PicoCTF｜Web"
 ---
 
 # PicoCTF - Who are you?

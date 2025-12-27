@@ -2,7 +2,7 @@
 title: BTLO - Log Analysis -Compromised WordPress
 tags: [BTLO, Incident Response]
 
-category: "Security/Practice/BTLO/Incident Response"
+category: "Security｜Practice｜BTLO｜Incident Response"
 ---
 
 # BTLO - Log Analysis -Compromised WordPress

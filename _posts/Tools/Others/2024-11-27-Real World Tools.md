@@ -2,7 +2,7 @@
 title: Real World Tools
 tags: [Tools]
 
-category: "Tools/Others"
+category: "Tools｜Others"
 ---
 
 # Real World Tools

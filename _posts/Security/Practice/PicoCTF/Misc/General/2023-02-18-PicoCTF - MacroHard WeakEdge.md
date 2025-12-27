@@ -2,7 +2,7 @@
 title: PicoCTF - MacroHard WeakEdge
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security/Practice/PicoCTF/Misc/General"
+category: "Security｜Practice｜PicoCTF｜Misc｜General"
 ---
 
 # PicoCTF - MacroHard WeakEdge

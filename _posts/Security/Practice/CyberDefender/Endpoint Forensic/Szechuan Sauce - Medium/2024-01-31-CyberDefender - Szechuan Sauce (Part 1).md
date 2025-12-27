@@ -2,7 +2,7 @@
 title: CyberDefender - Szechuan Sauce (Part 1)
 tags: [CyberDefender, Endpoint Forensics]
 
-category: "Security/Practice/CyberDefender/Endpoint Forensic/Szechuan Sauce - Medium"
+category: "Security｜Practice｜CyberDefender｜Endpoint Forensic｜Szechuan Sauce - Medium"
 ---
 
 # CyberDefender - Szechuan Sauce (Part 1)

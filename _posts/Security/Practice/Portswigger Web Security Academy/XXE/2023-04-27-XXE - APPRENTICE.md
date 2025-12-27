@@ -2,7 +2,7 @@
 title: XXE - APPRENTICE
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/XXE"
+category: "Security｜Practice｜Portswigger Web Security Academy｜XXE"
 ---
 
 # XXE - APPRENTICE

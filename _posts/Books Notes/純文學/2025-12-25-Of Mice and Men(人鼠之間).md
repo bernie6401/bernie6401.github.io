@@ -2,7 +2,7 @@
 layout: post
 title: "人鼠之間"
 date: 2025-12-25
-category: "Books Notes/純文學"
+category: "Books Notes｜純文學"
 tags: []
 draft: false
 toc: true

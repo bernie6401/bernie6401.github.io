@@ -2,7 +2,7 @@
 layout: post
 title: "The Puppet Show(歡迎觀賞殺人預告)"
 date: 2025-09-12
-category: "Books Notes/恐怖推理懸疑/歐美"
+category: "Books Notes｜恐怖推理懸疑｜歐美"
 tags: []
 draft: false
 toc: true

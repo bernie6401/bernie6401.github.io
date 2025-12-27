@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note - Lab(錯誤配置)
 tags: [NTUSTISC, AD, information security]
 
-category: "Security/Course/NTUST ISC/AD/2. 提升權限"
+category: "Security｜Course｜NTUST ISC｜AD｜2. 提升權限"
 ---
 
 # NTUSTISC - AD Note - Lab(錯誤配置)

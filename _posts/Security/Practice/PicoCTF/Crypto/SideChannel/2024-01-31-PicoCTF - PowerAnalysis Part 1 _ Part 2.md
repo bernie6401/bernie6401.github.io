@@ -2,7 +2,7 @@
 title: PicoCTF - PowerAnalysis Part 1 / Part 2
 tags: [PicoCTF, CTF, Crypto]
 
-category: "Security/Practice/PicoCTF/Crypto/SideChannel"
+category: "Security｜Practice｜PicoCTF｜Crypto｜SideChannel"
 ---
 
 # PicoCTF - PowerAnalysis Part 1 / Part 2
