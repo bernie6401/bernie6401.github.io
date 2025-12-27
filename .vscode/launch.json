@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/new_file.py",
             "console": "integratedTerminal",
-            "args": "--file_path='Test/Test.md' --books_id E050080330"
+            "args": "--file_path='Books Notes/大眾文學/かがみの孤城(鏡之孤城).md' --books_id 0010794228"
         }
     ]
 }

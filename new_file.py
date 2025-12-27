@@ -90,6 +90,8 @@ def generate_post(file_path):
         author_info = f'* 作者: {info.get("author", "")}\n* 出版社: {info.get("publisher", "")}\n* 出版日期: {info.get("publish_date", "")}\n'
     elif info.get("original_author", ""):
         author_info = f'* 作者: {info.get("original_author", "")}\n* 出版社: \n* 出版日期: \n* 譯者: {info.get("translator", "")}\n* 譯版出版社: {info.get("publisher", "")}\n* 譯版出版日期: {info.get("publish_date", "")}\n'
+    elif info.get("author", ""):
+        author_info = f'* 作者: {info.get("author", "")}\n* 出版社: \n* 出版日期: \n* 譯者: {info.get("translator", "")}\n* 譯版出版社: {info.get("publisher", "")}\n* 譯版出版日期: {info.get("publish_date", "")}\n'
     else:
         author_info = f'* 作者: \n* 出版社: \n* 出版日期: \n* 譯者: \n* 譯版出版社: \n* 譯版出版日期: \n'
 
