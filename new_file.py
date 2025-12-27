@@ -66,14 +66,14 @@ def generate_post(file_path):
         return
 
     # 取得 category 路徑（去除 _posts 開頭）
-    categories = dir_path.replace("\\", "｜")  # Windows fix
+    categories = dir_path.replace("\\", "/")  # Windows fix
     if categories.startswith("_posts/"):
         categories = categories[len("_posts/"):]
     elif categories.startswith("myblog/_posts/"):
         categories = categories[len("myblog/_posts/"):]
 
     # 把 path 轉成 a/b/c 格式 category
-    category_str = categories.strip("/")
+    category_str = categories.replace("/", "｜")
 
     book_cover_file_name = os.path.splitext(args.file_path.split('/')[-1])[0].replace(" ", "_") + ".jpg"
     book_cover_file_path = os.path.join("/assets/posts/", book_cover_file_name)
@@ -115,13 +115,13 @@ comments: true
 """
 
     # 寫入檔案
-    output_dir = "_posts/" + category_str
+    output_dir = "_posts/" + categories
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, new_filename)
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(front_matter)
-        if any(cat in category_str for cat in ["Books Notes", "Test"]):
+        if any(cat in categories for cat in ["Books Notes", "Test"]):
             f.write(f"{author_info}")
         f.write(f"<!-- more -->\n\n")
 
