@@ -2,7 +2,7 @@
 title: Adworld - miao~
 tags: [Adworld, CTF, Misc]
 
-category: "Security/Practice/Adworld/Misc"
+category: "Security｜Practice｜Adworld｜Misc"
 ---
 
 # Adworld - miao~

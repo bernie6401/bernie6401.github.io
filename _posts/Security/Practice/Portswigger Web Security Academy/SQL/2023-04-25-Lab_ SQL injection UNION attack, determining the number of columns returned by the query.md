@@ -2,7 +2,7 @@
 title: 'Lab: SQL injection UNION attack, determining the number of columns returned by the query'
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/SQL"
+category: "Security｜Practice｜Portswigger Web Security Academy｜SQL"
 ---
 
 # Lab: SQL injection UNION attack, determining the number of columns returned by the query

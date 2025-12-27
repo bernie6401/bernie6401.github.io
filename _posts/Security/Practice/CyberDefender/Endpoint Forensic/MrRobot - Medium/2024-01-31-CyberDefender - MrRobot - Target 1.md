@@ -2,7 +2,7 @@
 title: NTUSTISC - CyberDefender - MrRobot - Target 1
 tags: [NTUSTISC, CyberDefender, Endpoint Forensics]
 
-category: "Security/Practice/CyberDefender/Endpoint Forensic/MrRobot - Medium"
+category: "Security｜Practice｜CyberDefender｜Endpoint Forensic｜MrRobot - Medium"
 ---
 
 # NTUSTISC - CyberDefender - MrRobot - Target 1

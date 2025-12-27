@@ -2,7 +2,7 @@
 title: CyberDefender - CorporateSecrets (Part 2)
 tags: [CyberDefender, Endpoint Forensics]
 
-category: "Security/Practice/CyberDefender/Endpoint Forensic/CorporateSecrets - Medium"
+category: "Security｜Practice｜CyberDefender｜Endpoint Forensic｜CorporateSecrets - Medium"
 ---
 
 # CyberDefender - CorporateSecrets (Part 2)

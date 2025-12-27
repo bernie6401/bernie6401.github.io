@@ -2,7 +2,7 @@
 title: 'Lab: Stored DOM XSS'
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/XSS"
+category: "Security｜Practice｜Portswigger Web Security Academy｜XSS"
 ---
 
 # Lab: Stored DOM XSS

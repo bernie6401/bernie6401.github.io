@@ -2,7 +2,7 @@
 title: CrewCTF - sequence_gallery
 tags: [CTF, CrewCTF, Web]
 
-category: "Security/Practice/CrewCTF/Web"
+category: "Security｜Practice｜CrewCTF｜Web"
 ---
 
 # CrewCTF - sequence_gallery

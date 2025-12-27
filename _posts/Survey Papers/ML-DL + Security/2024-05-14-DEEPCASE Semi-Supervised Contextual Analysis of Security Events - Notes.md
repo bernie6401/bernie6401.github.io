@@ -2,7 +2,7 @@
 title: DEEPCASE Semi-Supervised Contextual Analysis of Security Events - Notes
 tags: [NTU, Meeting Paper]
 
-category: "Survey Papers/ML-DL + Security"
+category: "Survey Papers｜ML-DL + Security"
 ---
 
 # DEEPCASE Semi-Supervised Contextual Analysis of Security Events - Notes

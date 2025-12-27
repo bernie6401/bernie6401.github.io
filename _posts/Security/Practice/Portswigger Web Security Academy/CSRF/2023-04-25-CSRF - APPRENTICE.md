@@ -2,7 +2,7 @@
 title: CSRF - APPRENTICE
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/CSRF"
+category: "Security｜Practice｜Portswigger Web Security Academy｜CSRF"
 ---
 
 # CSRF - APPRENTICE

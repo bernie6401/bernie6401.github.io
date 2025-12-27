@@ -2,7 +2,7 @@
 layout: post
 title: "The Alienist(精神病學家)"
 date: 2025-11-16
-category: "Books Notes/恐怖推理懸疑/歐美"
+category: "Books Notes｜恐怖推理懸疑｜歐美"
 tags: []
 draft: false
 toc: true

@@ -2,7 +2,7 @@
 title: Cryptography Lec 4(Information Theory) - Notes
 tags: [Cryptography, NTU]
 
-category: "Security/Course/NTU Crypto"
+category: "Security｜Course｜NTU Crypto"
 ---
 
 # Cryptography Lec 4(Information Theory) - Notes

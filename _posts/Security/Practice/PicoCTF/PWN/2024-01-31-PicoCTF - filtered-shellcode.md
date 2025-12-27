@@ -2,7 +2,7 @@
 title: PicoCTF - filtered-shellcode
 tags: [PicoCTF, CTF, PWN]
 
-category: "Security/Practice/PicoCTF/PWN"
+category: "Security｜Practice｜PicoCTF｜PWN"
 ---
 
 # PicoCTF - filtered-shellcode

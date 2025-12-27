@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note(Lab - 查詢網域使用者)
 tags: [NTUSTISC, AD, information security]
 
-category: "Security/Course/NTUST ISC/AD/1. 環境調查Normal"
+category: "Security｜Course｜NTUST ISC｜AD｜1. 環境調查Normal"
 ---
 
 # NTUSTISC - AD Note(Lab - 查詢網域使用者)

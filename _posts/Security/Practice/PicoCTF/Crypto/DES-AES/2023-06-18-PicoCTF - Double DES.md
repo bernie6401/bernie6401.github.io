@@ -2,7 +2,7 @@
 title: PicoCTF - Double DES
 tags: [PicoCTF, CTF, Crypto]
 
-category: "Security/Practice/PicoCTF/Crypto/DES-AES"
+category: "Security｜Practice｜PicoCTF｜Crypto｜DES-AES"
 ---
 
 # PicoCTF - Double DES

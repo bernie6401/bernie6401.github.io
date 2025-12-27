@@ -2,7 +2,7 @@
 title: CyberDefender - Tomcat Takeover
 tags: [CyberDefender, Network Forensics]
 
-category: "Security/Practice/CyberDefender/Network Forensic"
+category: "Security｜Practice｜CyberDefender｜Network Forensic"
 ---
 
 # CyberDefender - Tomcat Takeover

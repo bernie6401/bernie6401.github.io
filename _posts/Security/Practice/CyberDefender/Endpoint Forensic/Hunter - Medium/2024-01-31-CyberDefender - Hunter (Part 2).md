@@ -2,7 +2,7 @@
 title: CyberDefender - Hunter (Part 2)
 tags: [CyberDefender, Endpoint Forensics]
 
-category: "Security/Practice/CyberDefender/Endpoint Forensic/Hunter - Medium"
+category: "Security｜Practice｜CyberDefender｜Endpoint Forensic｜Hunter - Medium"
 ---
 
 # CyberDefender - Hunter (Part 2)

@@ -2,7 +2,7 @@
 title: Simple Web 0x14(Lab - Debug)
 tags: [NTUSTWS, CTF, Web]
 
-category: "Security/Course/NTUST WS/SSRF"
+category: "Security｜Course｜NTUST WS｜SSRF"
 ---
 
 # Simple Web 0x14(Lab - Debug)

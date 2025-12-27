@@ -2,7 +2,7 @@
 title: PicoCTF - SRA
 tags: [PicoCTF, CTF, Crypto]
 
-category: "Security/Practice/PicoCTF/Crypto/RSA"
+category: "Security｜Practice｜PicoCTF｜Crypto｜RSA"
 ---
 
 # PicoCTF - SRA

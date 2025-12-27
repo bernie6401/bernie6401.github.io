@@ -2,7 +2,7 @@
 layout: post
 title: "The Heart of The Matter(事物的核心)"
 date: 2025-09-19
-category: "Books Notes/純文學"
+category: "Books Notes｜純文學"
 tags: []
 draft: false
 toc: true

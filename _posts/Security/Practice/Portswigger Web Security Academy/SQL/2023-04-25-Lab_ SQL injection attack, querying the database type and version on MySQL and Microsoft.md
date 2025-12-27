@@ -2,7 +2,7 @@
 title: 'Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft'
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/SQL"
+category: "Security｜Practice｜Portswigger Web Security Academy｜SQL"
 ---
 
 # Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft

@@ -2,7 +2,7 @@
 title: Simple Crypto - 0x05(2023 Lab - LSB)
 tags: [CTF, Crypto, eductf]
 
-category: "Security/Course/NTU CS/Crypto"
+category: "Security｜Course｜NTU CS｜Crypto"
 ---
 
 # Simple Crypto - 0x05(2023 Lab - LSB)

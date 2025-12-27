@@ -2,7 +2,7 @@
 title: PicoCTF - It is my Birthday
 tags: [PicoCTF, CTF, Web]
 
-category: "Security/Practice/PicoCTF/Web"
+category: "Security｜Practice｜PicoCTF｜Web"
 ---
 
 # PicoCTF - It is my Birthday

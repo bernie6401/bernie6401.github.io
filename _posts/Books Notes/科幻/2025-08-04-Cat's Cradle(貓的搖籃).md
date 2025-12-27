@@ -2,7 +2,7 @@
 layout: post
 title: "Cat's Cradle(貓的搖籃)"
 date: 2025-08-04
-category: "Books Notes/科幻"
+category: "Books Notes｜科幻"
 tags: []
 draft: false
 toc: true

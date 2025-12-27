@@ -2,7 +2,7 @@
 title: CyberDefender - Spotlight
 tags: [CyberDefender, Endpoint Forensics]
 
-category: "Security/Practice/CyberDefender/Endpoint Forensic"
+category: "Security｜Practice｜CyberDefender｜Endpoint Forensic"
 ---
 
 # CyberDefender - Spotlight

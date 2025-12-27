@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note - Lab(當前網域控制站(DC))
 tags: [NTUSTISC, AD, information security]
 
-category: "Security/Course/NTUST ISC/AD/1. 環境調查Normal"
+category: "Security｜Course｜NTUST ISC｜AD｜1. 環境調查Normal"
 ---
 
 # NTUSTISC - AD Note - Lab(當前網域控制站(DC))

@@ -2,7 +2,7 @@
 title: PicoCTF - Investigative Reversing 0
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security/Practice/PicoCTF/Misc/General"
+category: "Security｜Practice｜PicoCTF｜Misc｜General"
 ---
 
 # PicoCTF - Investigative Reversing 0

@@ -2,7 +2,7 @@
 title: NTUSTISC - AD Note - Lab(利用弱點)
 tags: [information security, NTUSTISC, AD]
 
-category: "Security/Course/NTUST ISC/AD/2. 提升權限"
+category: "Security｜Course｜NTUST ISC｜AD｜2. 提升權限"
 ---
 
 # NTUSTISC - AD Note - Lab(利用弱點)

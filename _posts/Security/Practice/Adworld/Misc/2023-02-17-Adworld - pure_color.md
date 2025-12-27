@@ -2,7 +2,7 @@
 title: Adworld - pure_color
 tags: [CTF, Misc, Adworld]
 
-category: "Security/Practice/Adworld/Misc"
+category: "Security｜Practice｜Adworld｜Misc"
 ---
 
 # Adworld - pure_color

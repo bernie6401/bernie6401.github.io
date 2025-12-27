@@ -2,7 +2,7 @@
 title: NTU CS HW0 Write Up
 tags: [CTF, Welcome, eductf]
 
-category: "Security/Course/NTU CS/Welcome"
+category: "Security｜Course｜NTU CS｜Welcome"
 ---
 
 # NTU CS HW0 Write Up

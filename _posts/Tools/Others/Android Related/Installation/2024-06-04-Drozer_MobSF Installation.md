@@ -2,7 +2,7 @@
 title: Drozer/MobSF Installation
 tags: [Android, Drozer, MobSF]
 
-category: "Tools/Others/Android Related/Installation"
+category: "Tools｜Others｜Android Related｜Installation"
 ---
 
 # Drozer/MobSF Installation

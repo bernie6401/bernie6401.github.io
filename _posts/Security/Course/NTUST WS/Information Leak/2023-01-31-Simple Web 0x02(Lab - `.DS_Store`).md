@@ -2,7 +2,7 @@
 title: Simple Web 0x02(Lab - `.DS_Store`)
 tags: [NTUSTWS, CTF, Web]
 
-category: "Security/Course/NTUST WS/Information Leak"
+category: "Security｜Course｜NTUST WS｜Information Leak"
 ---
 
 # Simple Web 0x02(Lab - `.DS_Store`)

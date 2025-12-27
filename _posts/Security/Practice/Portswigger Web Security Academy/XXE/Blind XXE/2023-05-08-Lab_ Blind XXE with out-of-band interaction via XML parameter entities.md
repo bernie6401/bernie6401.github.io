@@ -2,7 +2,7 @@
 title: 'Lab: Blind XXE with out-of-band interaction via XML parameter entities'
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/XXE/Blind XXE"
+category: "Security｜Practice｜Portswigger Web Security Academy｜XXE｜Blind XXE"
 ---
 
 # Lab: Blind XXE with out-of-band interaction via XML parameter entities

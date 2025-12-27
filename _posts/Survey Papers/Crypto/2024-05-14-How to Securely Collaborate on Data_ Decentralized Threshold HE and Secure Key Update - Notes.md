@@ -2,7 +2,7 @@
 title: 'How to Securely Collaborate on Data: Decentralized Threshold HE and Secure Key Update - Notes'
 tags: [Meeting Paper, NTU]
 
-category: "Survey Papers/Crypto"
+category: "Survey Papers｜Crypto"
 ---
 
 # How to Securely Collaborate on Data: Decentralized Threshold HE and Secure Key Update - Notes

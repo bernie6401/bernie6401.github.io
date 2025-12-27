@@ -2,7 +2,7 @@
 title: Forensics Cheat Sheet
 tags: [Forensics, Tools, CTF]
 
-category: "Tools/CTF"
+category: "Tools｜CTF"
 ---
 
 # Forensics Cheat Sheet

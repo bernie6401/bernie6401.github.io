@@ -2,7 +2,7 @@
 title: PicoCTF - shark on wire 1
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security/Practice/PicoCTF/Misc/Flow"
+category: "Security｜Practice｜PicoCTF｜Misc｜Flow"
 ---
 
 # PicoCTF - shark on wire 1

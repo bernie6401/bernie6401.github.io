@@ -2,7 +2,7 @@
 layout: post
 title: "Merge Two Sorted Lists"
 date: 2025-05-13
-category: "LeetCode/Easy"
+category: "LeetCode｜Easy"
 tags: []
 draft: false
 toc: true

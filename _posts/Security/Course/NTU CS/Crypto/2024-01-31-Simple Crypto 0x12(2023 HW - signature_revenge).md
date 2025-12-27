@@ -2,7 +2,7 @@
 title: Simple Crypto 0x12(2023 HW - signature_revenge)
 tags: [eductf, CTF, Crypto]
 
-category: "Security/Course/NTU CS/Crypto"
+category: "Security｜Course｜NTU CS｜Crypto"
 ---
 
 # Simple Crypto 0x12(2023 HW - signature_revenge)

@@ -2,7 +2,7 @@
 title: Simple PWN - 0x10(`seccomp`/Lab - `rop2win`)
 tags: [CTF, PWN, eductf]
 
-category: "Security/Course/NTU CS/PWN"
+category: "Security｜Course｜NTU CS｜PWN"
 ---
 
 # Simple PWN - 0x10(`seccomp`/Lab - `rop2win`)

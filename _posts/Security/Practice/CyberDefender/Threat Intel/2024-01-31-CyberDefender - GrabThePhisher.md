@@ -2,7 +2,7 @@
 title: CyberDefender - GrabThePhisher
 tags: [CyberDefender, Threat Intel]
 
-category: "Security/Practice/CyberDefender/Threat Intel"
+category: "Security｜Practice｜CyberDefender｜Threat Intel"
 ---
 
 # CyberDefender - GrabThePhisher

@@ -4,7 +4,7 @@ tags: [Interview]
 
 categories: 
 - "Job/Interview"
-category: "Job/Interview"
+category: "Job｜Interview"
 ---
 
 # Trapa Interview

@@ -2,7 +2,7 @@
 title: CyberDefender - Intel101
 tags: [CyberDefender, Threat Intel]
 
-category: "Security/Practice/CyberDefender/Threat Intel"
+category: "Security｜Practice｜CyberDefender｜Threat Intel"
 ---
 
 # CyberDefender - Intel101

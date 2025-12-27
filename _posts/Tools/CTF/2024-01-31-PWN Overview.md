@@ -2,7 +2,7 @@
 title: PWN Overview
 tags: [PWN, CTF, Tools]
 
-category: "Tools/CTF"
+category: "Tools｜CTF"
 ---
 
 # PWN Overview

@@ -2,7 +2,7 @@
 title: BTLO - Shiba Insider
 tags: [BTLO, Digital Forensics]
 
-category: "Security/Practice/BTLO/Digital Forensic"
+category: "Security｜Practice｜BTLO｜Digital Forensic"
 ---
 
 # BTLO - Shiba Insider

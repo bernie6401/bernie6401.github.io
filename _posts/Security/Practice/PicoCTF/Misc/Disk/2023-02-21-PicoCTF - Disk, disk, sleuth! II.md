@@ -2,7 +2,7 @@
 title: 'PicoCTF - Disk, disk, sleuth! II'
 tags: [PicoCTF, CTF, Misc]
 
-category: "Security/Practice/PicoCTF/Misc/Disk"
+category: "Security｜Practice｜PicoCTF｜Misc｜Disk"
 ---
 
 # PicoCTF - Disk, disk, sleuth! II

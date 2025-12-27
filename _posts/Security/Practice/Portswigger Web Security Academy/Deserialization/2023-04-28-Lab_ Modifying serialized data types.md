@@ -2,7 +2,7 @@
 title: 'Lab: Modifying serialized data types'
 tags: [Portswigger Web Security Academy, Web]
 
-category: "Security/Practice/Portswigger Web Security Academy/Deserialization"
+category: "Security｜Practice｜Portswigger Web Security Academy｜Deserialization"
 ---
 
 # Lab: Modifying serialized data types
