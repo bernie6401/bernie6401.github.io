@@ -18,6 +18,7 @@ comments: true
 * 譯版出版日期: 2024/12/04
 
 <img src="/assets/posts/Of Mice and Men(人鼠之間).jpg" alt=""width="300">
+
 <!-- more -->
 
 ## 心得
