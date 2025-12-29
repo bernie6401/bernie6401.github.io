@@ -97,7 +97,7 @@ def generate_post(file_path):
     else:
         author_info = f'* 作者: \n* 出版社: \n* 出版日期: \n* 譯者: \n* 譯版出版社: \n* 譯版出版日期: \n'
 
-    author_info += f'\n<img src="{book_cover_file_path}" alt=""width="300">\n'
+    author_info += f'\n<img src="{book_cover_file_path}" alt="" width="300">\n'
 
     # 組成 front matter
     front_matter = f"""---
