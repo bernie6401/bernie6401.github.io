@@ -6,20 +6,18 @@ import requests
 
 def crawl_book_cover(bid, book_cover_file_path):
     # Download book cover image
-        book_img_url = (
-            f"https://www.books.com.tw/img/"
-            f"{bid[0:3]}/{bid[3:6]}/{bid[6:8]}/{bid}.jpg"
-        )
-        book_img = requests.get(book_img_url)
-        
-        if book_img.status_code == 200:
-            img_dir = "/assets/posts/"
-            os.makedirs(img_dir, exist_ok=True)
-            with open(book_cover_file_path, "wb") as img_file:
-                img_file.write(book_img.content)
-            print(f"✅ 已下載書籍封面至：{book_cover_file_path}")
-        else:
-            print("❌ 無法下載書籍封面圖片。")
+    book_img_url = (
+        f"https://www.books.com.tw/img/"
+        f"{bid[0:3]}/{bid[3:6]}/{bid[6:8]}/{bid}.jpg"
+    )
+    book_img = requests.get(book_img_url)
+    
+    if book_img.status_code == 200:
+        with open(book_cover_file_path, "wb") as img_file:
+            img_file.write(book_img.content)
+        print(f"✅ 已下載書籍封面至：{book_cover_file_path}")
+    else:
+        print("❌ 無法下載書籍封面圖片。")
 
 def crawl_book_info(books_id):
     # 爬蟲書籍資訊
@@ -76,7 +74,9 @@ def generate_post(file_path):
     category_str = categories.replace("/", "｜")
 
     book_cover_file_name = os.path.splitext(args.file_path.split('/')[-1])[0].replace(" ", "_") + ".jpg"
-    book_cover_file_path = os.path.join("/assets/posts/", book_cover_file_name)
+    img_dir = "./assets/posts/"
+    os.makedirs(img_dir, exist_ok=True)
+    book_cover_file_path = os.path.join(img_dir, book_cover_file_name)
     if args.books_id:
         info = crawl_book_info(args.books_id)
         crawl_book_cover(args.books_id, book_cover_file_path)
