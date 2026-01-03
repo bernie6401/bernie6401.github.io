@@ -74,12 +74,12 @@ def generate_post(file_path):
     category_str = categories.replace("/", "｜")
 
     book_cover_file_name = os.path.splitext(args.file_path.split('/')[-1])[0].replace(" ", "_") + ".jpg"
-    img_dir = "./assets/posts/"
+    img_dir = "/assets/posts/"
     os.makedirs(img_dir, exist_ok=True)
     book_cover_file_path = os.path.join(img_dir, book_cover_file_name)
     if args.books_id:
         info = crawl_book_info(args.books_id)
-        crawl_book_cover(args.books_id, book_cover_file_path)
+        crawl_book_cover(args.books_id, "." + book_cover_file_path)
     else:
         info = {}
     
