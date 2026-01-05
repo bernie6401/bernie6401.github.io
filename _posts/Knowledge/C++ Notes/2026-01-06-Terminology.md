@@ -9,7 +9,7 @@ toc: true
 comments: true
 ---
 
-## Terminology
+# Terminology
 * Class(類別): 類似藍圖的概念
 * Object(物件): Class的，也就是Class的Instance
 * Data Member: Class 中的 Variable
@@ -19,8 +19,8 @@ comments: true
 * Public: 其他Class可以使用
 * Protected
 
-### Keyword
-#### Storage-class Specifiers
+## Keyword
+### Storage-class Specifiers
 C++提供五個不同的keyword決定lifetime、scope、linkage
 * auto: 自動讓編譯器推導data type
     ```c++
@@ -50,7 +50,7 @@ C++提供五個不同的keyword決定lifetime、scope、linkage
 |static|保存狀態/限制可見性|Global|視位置而定|
 |mutable|只用於class成員，允許修改const變數|Object的Lifetime|class|
 
-#### 其他
+### 其他
 * enum: 把一組⌈有限、固定選項⌋，用有意義的名字表示，本質上還是整數，只是比較好讀
     ```c++
     enum Status {CONTINUE, WON, LOST}; // 定義新的data type Status，定義CONTINUE是0，WON是1，LOST是2
@@ -98,7 +98,7 @@ C++提供五個不同的keyword決定lifetime、scope、linkage
 * virtual
 * wchar_t
 
-### 其他
+## 其他
 * EOF(End of File)是`Ctrl+Z`
 * Scope Resolution Operator(::): 代表這個東西在某個namespace/class/global中`ing num = 7; int main(){cout << ::num << endl;}`
 * subscript/index: 在Array中，代表`[]`的數值，`[0]`含數字的叫做subscript notation
@@ -123,7 +123,7 @@ C++提供五個不同的keyword決定lifetime、scope、linkage
 | `double`      | 8 bytes      | 雙精度（最常用） |
 | `long double` | 8 / 16 bytes | 高精度      |
 
-### Standard Library
+## Standard Library
 * `<cstdlib>`: 處理記憶體/系統/轉型的問題(malloc/calloc/realoc/free/atoi/atol/strtol/strtod/rand/srand/exit/abort/getenv/qsort/bsearch)
 * `<cctype>`: 字元分類及轉換(isdigit/isalpha/isalnum/isspace/toupper/tolower)
 * `<cstring>` / `<string>`: 字串處理(strlen/strcpy/strncpy/strcat/strcmp/strncmp/strchr/strstr/memcpy/memmove/memset/memcmp)，後者的差別是實行自動化管理memory且安全性較高(s.size(), s.length()/s+t+u+.../s.substr())
@@ -131,5 +131,5 @@ C++提供五個不同的keyword決定lifetime、scope、linkage
 * `<cassert>`: debug用，用來檢查理論上一定要成立的條件`int x = 10; assert(x>0);`
 * `<climits>` / `<limits>`: 是一種巨集，定義`INT_MAX`, `INT_MIN`, `CHAR_BIT`
 
-### Standard Template Library
+## Standard Template Library
 `<vector>`, `<list>`, `<deque>`, `<queue>`, `<stack>`, `<map>`, `<set>`, `<bitset>`
