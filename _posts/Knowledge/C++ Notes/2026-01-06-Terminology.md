@@ -9,6 +9,8 @@ toc: true
 comments: true
 ---
 
+<!-- more -->
+
 # Terminology
 * Class(類別): 類似藍圖的概念
 * Object(物件): Class的，也就是Class的Instance
