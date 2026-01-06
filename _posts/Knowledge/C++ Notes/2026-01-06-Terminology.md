@@ -2,7 +2,7 @@
 layout: post
 title: "Terminology"
 date: 2026-01-06
-category: "Books Notes｜Knowledge｜C++ Notes"
+category: "Knowledge｜C++ Notes"
 tags: []
 draft: false
 toc: true
