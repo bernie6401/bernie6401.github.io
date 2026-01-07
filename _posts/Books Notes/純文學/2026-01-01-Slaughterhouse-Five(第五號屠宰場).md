@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Slaughterhouse-Five(第五號屠宰場)"
+title: "第五號屠宰場"
 date: 2026-01-01
 category: "Books Notes｜純文學"
 tags: []
