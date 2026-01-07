@@ -44,6 +44,7 @@ comments: true
 * Barbour
 * Burberry
 * Marc by Marc Jacobs
+* Charlotte Olympia
 * Robeez(童鞋)
 * Bompoint(童裝)
 
