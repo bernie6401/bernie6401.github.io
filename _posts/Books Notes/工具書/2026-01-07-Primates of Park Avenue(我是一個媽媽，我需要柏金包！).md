@@ -44,6 +44,7 @@ comments: true
 * Givenchy
 * Alexander McQueen
 * Dior
+* Dolce&Gabbana
 
 #### 鞋子
 * Chloe
