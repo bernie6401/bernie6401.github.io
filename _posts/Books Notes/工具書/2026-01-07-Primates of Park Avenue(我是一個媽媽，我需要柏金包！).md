@@ -36,6 +36,7 @@ comments: true
 * Goyard
 * Gucci
 * Barbour
+* Bompoint(童裝)
 
 #### 家具
 * Frette被單
@@ -56,6 +57,7 @@ comments: true
 * 私立>>>>>>>>>>>>>>>公立
 * 父母要寫一篇作文說明自己為什麼想要讓孩子念該所學校
 * 入學前的音樂班(e.g.Diller-Quaile School of Music>Gymboree)->托兒所->(利用兄弟姐妹條款進入好學校)幼稚園->十二年制學校->好大學
+* 受孕日期和小孩性別都要慎重考慮，絕對會大大影響小孩的升學競爭力
 #### 女子
 * Brearley
 * Spence
