@@ -28,23 +28,40 @@ comments: true
 ## 紐約上東區如何排資論輩
 ### 行頭
 * Loro Piana
-* Brunello Cucinelli
-* Channel
-* Hermes
-    * Birkin Bag
 * Agnes B
 * French Sole
 * Jil Sander
 * Piazza Sempione
 * Prada
 * Jean Schlumberger
-* LV
 * Goyard
-* Gucci
 * Barbour
 * Burberry
 * Marc by Marc Jacobs
 * Charlotte Olympia
+* Moncler
+* The Row
+* Givenchy
+* Alexander McQueen
+
+#### 鞋子
+* Chloe
+* 浪凡
+* Isabel Marant
+* Manolo Blahnik
+* Christian Louboutin
+* Jimmy Choo
+* Brunello Cucinelli
+* Pucci
+
+#### 包包
+* Celine
+* Channel
+* Hermes
+    * Birkin Bag
+* Gucci
+* LV
+* Valentino
 
 #### 運動用品
 * Lululemon
