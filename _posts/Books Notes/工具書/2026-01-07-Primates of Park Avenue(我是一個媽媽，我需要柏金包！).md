@@ -31,6 +31,7 @@ comments: true
 * Brunello Cucinelli
 * Channel
 * Hermes
+    * Birkin Bag
 * Agnes B
 * French Sole
 * Jil Sander
@@ -42,6 +43,7 @@ comments: true
 * Gucci
 * Barbour
 * Burberry
+* Marc by Marc Jacobs
 * Robeez(童鞋)
 * Bompoint(童裝)
 
