@@ -45,6 +45,12 @@ comments: true
 * Burberry
 * Marc by Marc Jacobs
 * Charlotte Olympia
+
+#### 運動用品
+* Lululemon
+* Athleta
+
+#### 童裝
 * Robeez(童鞋)
 * Bompoint(童裝)
 
