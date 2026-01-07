@@ -35,6 +35,11 @@ comments: true
 * LV
 * Goyard
 * Gucci
+* Barbour
+
+#### 家具
+* Frette被單
+* All-Clad鍋盆
 
 ### 住哪裡
 * 上東>上西>下城區
