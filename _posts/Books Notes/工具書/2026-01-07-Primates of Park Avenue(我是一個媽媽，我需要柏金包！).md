@@ -45,6 +45,9 @@ comments: true
 * Alexander McQueen
 * Dior
 * Dolce&Gabbana
+* Tiffany
+* Laduree
+* Diptyque
 
 #### 鞋子
 * Chloe
