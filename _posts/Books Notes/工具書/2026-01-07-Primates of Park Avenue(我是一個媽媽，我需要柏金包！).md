@@ -43,10 +43,11 @@ comments: true
 * The Row
 * Givenchy
 * Alexander McQueen
+* Dior
 
 #### 鞋子
 * Chloe
-* 浪凡
+* Lanvin
 * Isabel Marant
 * Manolo Blahnik
 * Christian Louboutin
