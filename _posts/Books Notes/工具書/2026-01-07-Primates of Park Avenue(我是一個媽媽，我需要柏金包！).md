@@ -52,6 +52,7 @@ comments: true
 * Laduree
 * Diptyque
 * Yves Saint Laurent(YSL)
+* Balenciaga
 
 #### 鞋子
 * Chloe
