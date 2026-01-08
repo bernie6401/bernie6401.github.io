@@ -4,7 +4,7 @@ title: "我是一個媽媽，我需要柏金包！"
 date: 2026-01-07
 category: "Books Notes｜工具書"
 tags: []
-draft: false
+draft: true
 toc: true
 comments: true
 ---
@@ -27,6 +27,12 @@ comments: true
 
 <!-- more -->
 * [Google Map List](https://maps.app.goo.gl/z8CM8phfaE8ds3sZ6?g_st=ac)
+
+## 心得
+
+### 解憂
+* 酒精
+* 抗憂鬱與安眠藥物：Benzodiazepines(苯二氮平類藥物), Ativan(安定文), Xanax(贊安諾), Valium(煩寧), Klonopin(氯硝安定), Ambien(安必恩)
 
 ## 紐約上東區如何排資論輩
 ### 行頭
