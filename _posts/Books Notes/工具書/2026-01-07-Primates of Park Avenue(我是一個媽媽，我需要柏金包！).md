@@ -26,6 +26,7 @@ comments: true
 不想要同流合汙就只能遭受被排擠的命運，不只是自己容不進這個圈子，連帶小孩與老公都有可能在這場大家都參加的遊戲中出局
 
 <!-- more -->
+* [Google Map List](https://maps.app.goo.gl/z8CM8phfaE8ds3sZ6?g_st=ac)
 
 ## 紐約上東區如何排資論輩
 ### 行頭
@@ -50,6 +51,7 @@ comments: true
 * Tiffany
 * Laduree
 * Diptyque
+* Yves Saint Laurent(YSL)
 
 #### 鞋子
 * Chloe
