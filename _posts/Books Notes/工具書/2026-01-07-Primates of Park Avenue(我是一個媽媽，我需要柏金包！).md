@@ -29,7 +29,7 @@ comments: true
 * [Google Map List](https://maps.app.goo.gl/z8CM8phfaE8ds3sZ6?g_st=ac)
 
 ## 心得
-最終，面對外來者或其他人，保持距離與散發敵意，也盡量不讓善意流落在外
+最終，面對外來者或其他人，保持距離與冷漠甚至散發敵意，也盡量不讓善意流落在外
 ### 解憂
 * 酒精
 * 抗憂鬱與安眠藥物：Benzodiazepines(苯二氮平類藥物), Ativan(安定文), Xanax(贊安諾), Valium(煩寧), Klonopin(氯硝安定), Ambien(安必恩)
