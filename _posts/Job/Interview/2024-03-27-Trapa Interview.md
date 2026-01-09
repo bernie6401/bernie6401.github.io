@@ -1,9 +1,6 @@
 ---
 title: Trapa Interview
 tags: [Interview]
-
-categories: 
-- "Job/Interview"
 category: "Job｜Interview"
 ---
 
