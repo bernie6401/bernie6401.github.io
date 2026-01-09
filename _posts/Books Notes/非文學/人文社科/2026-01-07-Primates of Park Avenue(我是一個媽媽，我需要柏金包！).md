@@ -2,7 +2,7 @@
 layout: post
 title: "我是一個媽媽，我需要柏金包！"
 date: 2026-01-07
-category: "Books Notes｜工具書"
+category: "Books Notes｜非文學｜人文社科"
 tags: []
 draft: true
 toc: true
