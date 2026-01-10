@@ -10,7 +10,7 @@ sitemap: false
       <url>{{ post.url | relative_url | xml_escape }}</url>
 
       <!-- {% assign cleaned_content = post.content | strip_html | strip_newlines %} -->
-      {% assign cleaned_content = post.content | strip_html | strip_newlines | replace: '', '' | replace: '', '' | replace: '', '' | replace: '', '' | replace: '', '' | replace: '', '' %}
+      
       <content type="text"><![CDATA[{{ cleaned_content }}]]></content>
       <categories>
         {% for category in post.categories %}
