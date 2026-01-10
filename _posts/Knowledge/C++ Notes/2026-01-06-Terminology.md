@@ -9,17 +9,20 @@ toc: true
 comments: true
 ---
 
+# Terminology
 <!-- more -->
 
-# Terminology
+## 基本定義
 * Class(類別): 類似藍圖的概念
 * Object(物件): Class的，也就是Class的Instance
 * Data Member: Class 中的 Variable
 * Member Function: Class中的Function，和**Method**類似
 * Constructor: 開一個Class的Instance時，預設會執行的初始化Function，就類似Python的`__init__`，只要在Class中創一個名稱為`{Class Name}`的function，就可以當作constructor
-* Private: 只有該Class可以使用
-* Public: 其他Class可以使用
-* Protected: 繼承父類別的子類別可以使用，但類別以外的地方，就無法使用
+* Private: 只有該Class可以使用的成員
+* Public: 其他Class可以使用的成員
+* Protected: 繼承父類別的子類別可以使用，但clss以外的地方，就無法使用的成員
+* Base Class: 被繼承的class
+* Derived Class: 繼承的class
 
 ## Keyword
 ### Storage-class Specifiers
@@ -30,7 +33,7 @@ C++提供五個不同的keyword決定lifetime、scope、linkage
     ```
 * extern
 * register: c時代的遺物，拜託compiler把變數放在CPU暫存器
-* mutable:
+* mutable
 * static: static是最重要的
     1. Local Variable的Static: 只初始化一次，值會保留，常用來<span style="background-color: yellow">記住上次的狀態</span>
     2. Global Variable的Static: 限制只能在此file中使用
@@ -53,11 +56,26 @@ C++提供五個不同的keyword決定lifetime、scope、linkage
 |mutable|只用於class成員，允許修改const變數|Object的Lifetime|class|
 
 ### class相關
-* friend
-* explicit
-* export
-* template
-* this: 類似Python的`self`，都是用來指向物件本身
+* friend: 授權class外部的function存取class中的`private/protected` data member
+    ```c++
+    class Count{
+        friend void setX(Count &, int); // 授權外部的function setX可以存取 x 這個class private data member
+
+        private:
+            int x;
+    };
+
+    void setX(Count &c, int val){c.x = val;} // Count &c 是一種pass by reference
+
+    int main(){
+        Count counter;
+        setX(counter, 8);
+    }
+    ```
+* this: 類似Python的`self`，目的都是用來
+    1. 指向物件本身
+    2. 解決名稱衝突
+    3. 讓class的member function存取class中的data member
 * inline: 通常用於inline function，程式較少的副程式，沒有function call、push/pop stack也沒有call/ret，會直接寫死在main program中，會比較快
     ```c++
     inline double cube(const double side)
@@ -70,6 +88,9 @@ C++提供五個不同的keyword決定lifetime、scope、linkage
         cout << cube(sideValue) << endl;
     }
     ```
+* explicit
+* export
+* template: 在一個function中，如果邏輯不變只有dateType會改變的話，就可以使用Template，讓compiler自動判斷該用什麼dateType進行運算
 
 ### Pure Virtual Function
 * virtual: 會用在class中修飾member function，意思是該member function不給出確切實作，而是交由被繼承的子類別個別定義，重點是**等於0**
@@ -92,7 +113,9 @@ C++提供五個不同的keyword決定lifetime、scope、linkage
         ```
     * type_info: 主要用途是typeid 的回傳型別
         ```c++
-        if (typeid(*b) == typeid(Derived)) {// 真的是 Derived}
+        if (typeid(*b) == typeid(Derived)) {
+            // 真的是 Derived
+        }
         ```
 
 ### 其他
@@ -105,7 +128,7 @@ C++提供五個不同的keyword決定lifetime、scope、linkage
     else if (gameStatus == LOST) {cout << "You lost" << endl;}
     else if (gameStatus == CONTINUE) {cout << "Continue" << endl;}
     ```
-* sizeof
+* sizeof: 是一個Function，用來回傳argument的size有多少`cout << sizeof(char);`
 * struct
 * typedef
 * union
@@ -127,6 +150,18 @@ C++提供五個不同的keyword決定lifetime、scope、linkage
 * EOF(End of File)是`Ctrl+Z`
 * Scope Resolution Operator(::): 代表這個東西在某個namespace/class/global中`ing num = 7; int main(){cout << ::num << endl;}`
 * subscript/index: 在Array中，代表`[]`的數值，`[0]`含數字的叫做subscript notation
+* size_t: 專門用來表示⌈物件大小、容器長度、索引、位元組數⌋的unsigned int type(無號整數型別)，常用來
+    ```c++
+    size_t i;
+    ```
+* ifndef, define, endif: 會寫在Header File中，避免class重複定義且重複compile，假設a.h被b.cpp和c.cpp同時include，則在compile時會被compile兩次，這樣會error，所以要告訴compiler第二次看到時可以略過。後面寫的標示，慣例上會直接使用header file name的全大寫+底線取代空白的形式定義
+    ```c++
+    // Time.h
+    #ifndef TIME_H
+    #define TIME_H
+    ...
+    #endif
+    ```
 
 ### Data Type
 
