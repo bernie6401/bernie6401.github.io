@@ -2,7 +2,7 @@
 layout: post
 title: "The Lost Symbol(失落的符號)"
 date: 2025-12-05
-category: "Books Notes｜大眾文學｜歐美"
+category: "Books Notes｜懸疑推理｜歐美"
 tags: []
 draft: false
 toc: true
