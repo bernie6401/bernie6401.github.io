@@ -15,6 +15,8 @@ comments: true
 * $O$: upper bound function(worse case)
 * $\Omega$: lower bound function(best Case)
 * $\theta$
+* In-place: 演算法實作中會用到的變數數量與記憶體大小都是constant；另一個解釋是如果演算法在運作時，主要直接在原本的資料結構上操作，就稱為 in-place。
+* Stable: 如果排序前後，具有相同 key 的元素，其相對順序不會改變，就稱這個排序是 stable（穩定） 的。
 
 |Complexity|Equation|Name|
 |---|---|---|
@@ -48,3 +50,17 @@ for j = 2 to A.length do
     I =j - 1
 
 ```
+
+### Merge Sort
+* Worst Case: $T(n)=O(nlgn)$
+
+是一種divide-and-conquer的演算法，實作會採用recursive的方式，另外，如果$n$足夠大，就會比Insertion Sort還要好。概念也很簡單，一個unsorted sequence 就切一半，切完的兩半各自再切一半，不斷地切直到各自只有≤2的時候，就開始比較誰大誰小並整合起來
+
+$$
+T(n)=\left\{ 
+  \begin{array}{r}
+    \theta (1), & \text{if $n$ \le c}\ 
+    aT(n\over b)+D(n)+C(n),& \text{otherwise}
+  \end{array}
+\right.
+$$
