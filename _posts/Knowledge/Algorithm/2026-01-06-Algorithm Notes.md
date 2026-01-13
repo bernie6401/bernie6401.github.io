@@ -40,7 +40,7 @@ comments: true
 3. Master Theorem: 背公式的方法，在一些條件下可以直接找出worst case
 
 ## Sorting
-* Comparison-based sorters
+* Comparison-based sorters: 意思是演算法唯一的運算就只有比較兩個數值
 
 |Algorithm|Best Case|Avg. Case|Worst Case|In-place|
 |---|---|---|---|---|
@@ -49,7 +49,7 @@ comments: true
 |Heap|$O(nlgn)$|$O(nlgn)$|$O(nlgn)$|Yes|
 |Quicksort|$O(nlgn)$|$O(nlgn)$|$O(n^2)$|Yes|
 
-* None-Comparison-based sorters
+* None-Comparison-based sorters: 意思是除了比較數值之外，還會做其他的操作
 
 |Algorithm|Best Case|Avg. Case|Worst Case|In-place|
 |---|---|---|---|---|
