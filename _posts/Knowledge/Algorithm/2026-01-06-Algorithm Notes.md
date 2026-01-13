@@ -11,6 +11,25 @@ comments: true
 
 # Algorithm Notes
 <!-- more -->
+## Terminology
+* $$O$$: upper bound function
+* $$\omega$$: lower bound function
+
+|Complexity|Equation|Name|
+|---|---|---|
+|low|1|Constant|
+||$$lg(n)$$|Logarithmic|
+||$$lg^(O(1))(n)=(lg(n))^(O(1))$$|Polylogarithmic|
+||$$\sqr(n)$$|Sublinear|
+||$$n$$|Linear|
+||$$nlg(n)$$|Loglinear|
+||$$n^2$$|Quatratic|
+||$$n^3$$|Cubic|
+||$$n^4$$|Quartic|
+||$$2^n,3^n,...$$|Exponential|
+||$$n!$$|Factorial|
+|high|$$n^n$$|-|
+
 
 ## Sorting
 ### Insertion sort
