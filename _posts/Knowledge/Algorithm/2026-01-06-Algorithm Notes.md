@@ -34,7 +34,29 @@ comments: true
 |high|$n^n$|-|
 
 
+## 如何找Recurrence類型演算法的$T(n)$
+1. Iteration: 就利用展開、整理、展開、整理，找出規律統合起來，就是傳統的方法
+2. Substitution(Guess &Verify): 老師說是個高深的方法
+3. Master Theorem: 背公式的方法，在一些條件下可以直接找出worst case
+
 ## Sorting
+* Comparison-based sorters
+
+|Algorithm|Best Case|Avg. Case|Worst Case|In-place|
+|---|---|---|---|---|
+|Insertion|$O(n)$|$O(n^2)$|$O(n^2)$|Yes|
+|Merge|$O(nlgn)$|$O(nlgn)$|$O(nlgn)$|No|
+|Heap|$O(nlgn)$|$O(nlgn)$|$O(nlgn)$|Yes|
+|Quicksort|$O(nlgn)$|$O(nlgn)$|$O(n^2)$|Yes|
+
+* None-Comparison-based sorters
+
+|Algorithm|Best Case|Avg. Case|Worst Case|In-place|
+|---|---|---|---|---|
+|Counting|$O(n+k)$|$O(n+k)$|$O(n+k)$|No|
+|Radix|$O(d(n+k'))$|$O(d(n+k'))$|$O(d(n+k'))$|No|
+|Bucket|-|$O(n)$|-|No|
+
 ### Insertion sort
 * Input: 亂序的sequence
 * Output: 正序的sequence
