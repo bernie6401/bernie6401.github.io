@@ -14,13 +14,13 @@ comments: true
 ## Terminology
 * $O$: upper bound function(worse case)
 * $\Omega$: lower bound function(best Case)
-* $\theta$: 
+* $\theta$
 
 |Complexity|Equation|Name|
 |---|---|---|
 |low|1|Constant|
 ||$lg(n)$|Logarithmic|
-||$lg^{O(1)}(n)=(lg(n))^{O(1)}$|Polylogarithmic|
+||$\begin{align}lg^{O(1)}(n)=\\ (lg(n))^{O(1)}\end{align}$|Polylogarithmic|
 ||$\sqrt(n)$|Sublinear|
 ||$n$|Linear|
 ||$nlg(n)$|Loglinear|
