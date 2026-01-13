@@ -18,7 +18,7 @@ comments: true
 * In-place: 演算法實作中會用到的變數數量與記憶體大小都是constant；另一個解釋是如果演算法在運作時，主要直接在原本的資料結構上操作，就稱為 in-place。
 * Stable: 如果排序前後，具有相同 key 的元素，其相對順序不會改變，就稱這個排序是 stable（穩定） 的。
 
-|Complexity|Equation|Name|
+|Complexity|Equation|Type|
 |---|---|---|
 |low|1|Constant|
 ||$lg(n)$|Logarithmic|
@@ -55,6 +55,12 @@ for j = 2 to A.length do
 * Worst Case: $T(n)=O(nlgn)$
 
 是一種divide-and-conquer的演算法，實作會採用recursive的方式，另外，如果$n$足夠大，就會比Insertion Sort還要好。概念也很簡單，一個unsorted sequence 就切一半，切完的兩半各自再切一半，不斷地切直到各自只有≤2的時候，就開始比較誰大誰小並整合起來
+
+Divide-and-conquer 類型的問題常常可以分解成下面標準的形式
+* $a$代表subproblem的數量
+* $n\over b$代表subproblem的size
+* $D(n)$代表divide n problem into subproble所花的時間
+* $C(n)$代表combine subproblem solution所花的時間
 
 $$
 T(n)=\left\{ 
