@@ -20,7 +20,7 @@ comments: true
 |---|---|---|
 |low|1|Constant|
 ||$lg(n)$|Logarithmic|
-||$\begin{align}lg^{O(1)}(n)=\\ (lg(n))^{O(1)}\end{align}$|Polylogarithmic|
+||$lg^{O(1)}(n)=\newline (lg(n))^{O(1)}$|Polylogarithmic|
 ||$\sqrt(n)$|Sublinear|
 ||$n$|Linear|
 ||$nlg(n)$|Loglinear|
