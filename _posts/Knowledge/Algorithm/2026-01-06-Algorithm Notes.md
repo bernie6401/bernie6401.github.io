@@ -94,7 +94,7 @@ T(n)=\left\{
 $$
 
 ### Heap Sort
-就是變成Binary tree再進行比較，root一定要比leaf還要大，只要不符合就看兩個leaf中哪一個最大，就和root swap，這個就是Max-Heap的資料結構實現
+利用Max-Heap的資料結構實現sorting
 ```c++
 HEAPSORT(A)
 BUILD-MAX-HEAP(A) // O(n)先建立一個valid max-heap
