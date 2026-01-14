@@ -92,3 +92,14 @@ T(n)=\left\{
   \end{array}
 \right.
 $$
+
+### Heap Sort
+就是變成Binary tree再進行比較，root一定要比leaf還要大，只要不符合就看兩個leaf中哪一個最大，就和root swap
+```c++
+HEAPSORT(A)
+BUILD-MAX-HEAP(A) // O(n)先建立一個valid max-heap
+for i = A.length downto 2
+    exchange A[1] with A[i] // O(1)
+    A.heap-size = A.heap-size - 1 // O(1)
+    MAX-HEAPIFY(A,1) // O(lgn)這個就是實際建置valid max-heap的演算法，也就是符合root比leaf大
+```
