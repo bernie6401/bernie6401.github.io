@@ -103,3 +103,17 @@ for i = A.length downto 2
     A.heap-size = A.heap-size - 1 // O(1)
     MAX-HEAPIFY(A,1) // O(lgn)這個就是實際建置valid max-heap的演算法，也就是符合root比leaf大
 ```
+
+### Quicksort
+* 有很多種版本，比Heapsort再快一點，同時是一種divide-and-conquer和recursive的演算法
+    * $T(q-p)+T(r-q)+\theta(n)$
+* 想法是先把最後一個element當作標準，從頭開始和standard做比較，比standard小的放左邊，大的放右邊，不需要管大/小那一邊各自的順序，比較完之後再分別比大/小的一邊，重複上面的步驟
+* Best Case: 完美平衡，和standard比較之後，直接是兩半: $T(n/2)+T(n/2)+\theta(n)$
+* Worst Case: 當input array是sorted時
+```c++
+QUICKSORT(A,p,r)
+if p<r
+    q = PARTITION(A, p, r)
+    QUICKSORT(A,p,q-1)
+    QUICKSORT(A,q+1,r)
+```
