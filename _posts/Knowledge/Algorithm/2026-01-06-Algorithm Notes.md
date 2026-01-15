@@ -42,12 +42,12 @@ comments: true
 ## Sorting
 * Comparison-based sorters: 意思是演算法唯一的運算就只有比較兩個數值
 
-|Algorithm|Best Case|Avg. Case|Worst Case|In-place|
-|---|---|---|---|---|
-|Insertion|$O(n)$|$O(n^2)$|$O(n^2)$|Yes|
-|Merge|$O(nlgn)$|$O(nlgn)$|$O(nlgn)$|No|
-|Heap|$O(nlgn)$|$O(nlgn)$|$O(nlgn)$|Yes|
-|Quicksort|$O(nlgn)$|$O(nlgn)$|$O(n^2)$|Yes|
+|Algorithm|Best Case|Avg. Case|Worst Case|In-place|Stable|
+|---|---|---|---|---|---|
+|Insertion|$O(n)$|$O(n^2)$|$O(n^2)$|Yes|Yes|
+|Merge|$O(nlgn)$|$O(nlgn)$|$O(nlgn)$|No|Yes|
+|Heap|$O(nlgn)$|$O(nlgn)$|$O(nlgn)$|Yes|No|
+|Quicksort|$O(nlgn)$|$O(nlgn)$|$O(n^2)$|Yes|No|
 
 * None-Comparison-based sorters: 意思是除了比較數值之外，還會做其他的操作
 
