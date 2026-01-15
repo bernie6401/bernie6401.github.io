@@ -120,6 +120,30 @@ if p<r
 ```
 
 ### Counting Sort
+是一種用多一點的空間換取時間的方式，只能用來排序整數，總共需要3個array
+* A: Input unsorted array
+* B: Output sorted array
+* C: Working array
+
+重點在利用C array就可以用$O(n+k)$的複雜度排序，先看A array的數字範圍，假設是[0,5]就開6個element的空間，並計算每一種A array的數字有幾個，例如0有3個、1有0個，接著累加C array，C[1]=C[0]+C[1], ，C[2]=C[0]+C[1]+C[2],...，以此類推，接著實際排序，排序方式非常簡單，從A array最後一個element看回來當作C array的index，直接對照key是多少，就把該數字排在B array對應的地方，接著C array該index的key減一
+
+```c++
+COUNTING-SORT(A,B,k)
+// 初始化working array
+for i=1 to k
+    C[i] = 0
+for j=1 to A.length
+    C[A[j]]=C[A[j]]+1
+
+// 累加working array
+for i=2 to k
+    C[i]=C[i]+C[i-1]
+
+// 實際排序
+for j=A.length downto 1
+    B[C[A[j]]]=A[j]
+    C[A[j]]=C[A[j]]-1
+```
 
 ### Radix Sort
 
