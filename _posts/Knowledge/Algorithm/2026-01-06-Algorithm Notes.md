@@ -41,6 +41,7 @@ comments: true
 
 ## Sorting
 * Comparison-based sorters: 意思是演算法唯一的運算就只有比較兩個數值
+    * Merge/Heap接近最佳解
 
 |Algorithm|Best Case|Avg. Case|Worst Case|In-place|Stable|
 |---|---|---|---|---|---|
