@@ -24,9 +24,9 @@ comments: true
 3. EXTRACT-MAX(S): return & remove集合中最大的key
 4. INCREASE-KEY(S, x, k): 將x的key增加到k
 
-|Operation|Heap Method|Array Method|
+|Operation|Heap Method|Array Method在sorted array下|
 |---|---|---|
-|INSERT|$O(lgn)$|$O(n)$|
-|MAXIMUM|$O(1)$|$O(n)$|
-|EXTRACT-MAX|$O(lgn)$|$O(n)$|
-|INCREASE-KEY|$O(lgn)$|-|
+|INSERT|$O(lgn)$: 直接插在最後並做fix heap的動作|$O(n)$: 每一個要往後|
+|MAXIMUM|$O(1)$: 直接read第一個|$O(1)$: 直接read第一個|
+|EXTRACT-MAX|$O(lgn)$: 直接刪除第一個元素並用最後一個取代再做heapify|$O(n)$: 每一個要往後|
+|INCREASE-KEY|$O(lgn)$: 從target遍歷一個適當的地方插入新的key|$O(n)$: 每一個要往前|
