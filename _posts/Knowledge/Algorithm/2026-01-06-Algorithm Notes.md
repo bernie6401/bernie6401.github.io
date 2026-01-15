@@ -118,3 +118,9 @@ if p<r
     QUICKSORT(A,p,q-1)
     QUICKSORT(A,q+1,r)
 ```
+
+### Counting Sort
+
+### Radix Sort
+
+### Bucket Sort
