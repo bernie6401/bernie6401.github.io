@@ -19,8 +19,14 @@ comments: true
 
 ## Priority Queue
 需要滿足四種不同的operation
+1. INSERT(S,x): 把key x插入到S集合
+2. MAXIMUM(S): return集合中最大的key
+3. EXTRACT-MAX(S): return & remove集合中最大的key
+4. INCREASE-KEY(S, x, k): 將x的key增加到k
 
-|Operation
-
-1. INSERT(S,x)
-2. 
+|Operation|Heap Method|Array Method|
+|---|---|---|
+|INSERT|$O(lgn)$|$O(n)$|
+|MAXIMUM|$O(1)$|$O(n)$|
+|EXTRACT-MAX|$O(lgn)$|$O(n)$|
+|INCREASE-KEY|$O(lgn)$|-|
