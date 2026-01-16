@@ -146,5 +146,12 @@ for j=A.length downto 1
 ```
 
 ### Radix Sort
+專門用來排序**相同位數**的數字，從個位數開始排，很不直觀，原因是人從高位數開始排時，會自動分類以利之後再排，假設目前有5組數字，其中2個的高位數是4，此時人類會下意識把這兩個數字當成一組，再往低一位的數字比較，而不是所有數字一起比較，但這樣其實就是divide-and-conquer的演算法，並沒有比較特別
+
+```c++
+RADIX-SORT(A,d)
+for i=1 to d
+    Use a stable sorter to sort array A on digit i
+```
 
 ### Bucket Sort
