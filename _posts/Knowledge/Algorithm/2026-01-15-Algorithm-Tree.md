@@ -13,8 +13,7 @@ comments: true
 這個章節主要在介紹binary-search-tree和紅黑樹的各種操作和演算法實作
 <!-- more -->
 
-## Tree
-### Binary Search Tree(BST)
+## Binary Search Tree(BST)
 和前面提到的heap結構不一樣
 * BST主要為了「快速搜尋任意值」
 * Heap：為了「快速拿到最大值或最小值」
@@ -24,7 +23,7 @@ comments: true
 * 右子樹所有值 > 根
 * 中序走訪會得到排序結果
 
-#### Operation
+### Operation
 都可以在$O(h)$的複雜度做到，$h$代表tree的高度
 * Search
     ```c++
@@ -93,4 +92,4 @@ else
     y.left.p = y
 ```
 
-### Red-Black Trees
+## Red-Black Trees
