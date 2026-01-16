@@ -173,3 +173,26 @@ for i = 0 to n-1
     Sort list B[i] with InsertionSort
 Concatenate the lists B[0],B[1],...,B[n-1] together in order
 ```
+
+## Tree
+### Binary Search Tree(BST)
+和前面提到的heap結構不一樣
+* BST主要為了「快速搜尋任意值」
+* Heap：為了「快速拿到最大值或最小值」
+
+規則：
+* 左子樹所有值 < 根
+* 右子樹所有值 > 根
+* 中序走訪會得到排序結果
+
+#### Operation
+都可以在$O(h)$的複雜度做到，$h$代表tree的高度
+* Search
+* Minimum
+* Maximum
+* Predecessor(前一個)
+* Successor(後一個)
+* Insert
+* Delete
+
+### Red-Black Trees
