@@ -54,6 +54,24 @@ comments: true
     return y
     ```
 * Insert
+    ```c++
+    Tree-Insert(T,z) // z代表要插入的node。分兩種情況，第一種是  插在某個parent底下當作children；第二種是要插入的z本身就是root
+    y = NIL
+    x = T.root
+    while x ≠ NIL
+        y = x
+        if z.key < x.key
+            x = x.left
+        else x = x.right
+    z.p = y
+    if y == NIL
+        T.root = z // 屬於要插入的z本身就是Tree的第一個node
+
+    // 以下兩個都是第一種情況，z已經是y的children只是要區分比y大還是小
+    else if z.key < y.key
+        y.left = z
+    else y.right = z
+    ```
 * Delete
 
 ### Red-Black Trees
