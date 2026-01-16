@@ -13,6 +13,17 @@ comments: true
 這個章節主要在介紹binary-search-tree和紅黑樹的各種操作和演算法實作
 <!-- more -->
 
+|Operation|BST|RBT|
+|---|---|---|
+|Search|$O(h)$|$O(lgn)$|
+|Insert|$O(h)$|$O(lgn)$|
+|Delete|$O(h)$|$O(lgn)$|
+|Minimum|$O(h)$|$O(lgn)$|
+|Maximin|$O(h)$|$O(lgn)$|
+|Successor|$O(h)$|$O(lgn)$|
+|Predecessor|$O(h)$|$O(lgn)$|
+
+
 ## Binary Search Tree(BST)
 和前面提到的heap結構不一樣
 * BST主要為了「快速搜尋任意值」
@@ -104,9 +115,12 @@ comments: true
     ```
 
 ## Red-Black Trees
-可以保證tree的高度是$O(lgn)$，有五個屬性
-1. 每一個node不是紅就是黑
-2. root一定是黑
-3. NIL一定是黑
-4. 如果一個node是紅色，該node的children一定是黑色
-5. 每一個node往下看leaf任意路徑所碰到的黑色node數量會是一樣的
+* 可以保證tree的高度是$O(lgn)$
+* 有五個屬性
+    1. 每一個node不是紅就是黑
+    2. root一定是黑
+    3. NIL一定是黑
+    4. 如果一個node是紅色，該node的children一定是黑色
+    5. 每一個node往下看leaf任意路徑所碰到的黑色node數量會是一樣的
+* 這些規則確保樹不會嚴重傾斜(balanced)
+* 最多只需要3次rotation就可以保持平衡
