@@ -12,6 +12,23 @@ comments: true
 # Data Structure Notes
 <!-- more -->
 
+## Tree
+分成Full/Complete/Perfect/Skewed四種
+* Full代表每一個node都有0或2個children
+* Complete代表d-1 level都是滿的
+* Perfect代表所有node都有2個children
+* Skewed代表所有node都只有一個children(非常unbalanced)
+
+結構如下，正常的complete binary tree用array不會浪費，但如果是skewed就超浪費，所以可以用pointer
+```c++
+struct_node{
+    int key_value;
+    node *parent;
+    node *left;
+    node *right;
+}
+```
+
 ## Max Heap
 是一種binary tree結構，root一定會比leaf還要大，只要符合這個結構就是max-heap
 
