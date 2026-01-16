@@ -11,7 +11,6 @@ comments: true
 
 # Algorithm-Sorting
 <!-- more -->
-## Sorting
 * Comparison-based sorters: 意思是演算法唯一的運算就只有比較兩個數值
     * Merge/Heap接近最佳解
 
@@ -30,7 +29,7 @@ comments: true
 |Radix|$O(d(n+k'))$|$O(d(n+k'))$|$O(d(n+k'))$|No|Yes|
 |Bucket|-|$O(n)$|-|No|Yes|
 
-### Insertion sort
+## Insertion sort
 * Input: 亂序的sequence
 * Output: 正序的sequence
 * Worst Case: Linear $\to T(n) = n^2 \to$ input原本就是reverse sorted order
@@ -46,7 +45,7 @@ for j = 2 to A.length do
 
 ```
 
-### Merge Sort
+## Merge Sort
 * Worst Case: $T(n)=O(nlgn)$
 
 是一種divide-and-conquer的演算法，實作會採用recursive的方式，另外，如果$n$足夠大，就會比Insertion Sort還要好。概念也很簡單，一個unsorted sequence 就切一半，切完的兩半各自再切一半，不斷地切直到各自只有≤2的時候，就開始比較誰大誰小並整合起來
@@ -66,7 +65,7 @@ T(n)=\left\{
 \right.
 $$
 
-### Heap Sort
+## Heap Sort
 利用Max-Heap的資料結構實現sorting
 ```c++
 HEAPSORT(A)
@@ -77,7 +76,7 @@ for i = A.length downto 2
     MAX-HEAPIFY(A,1) // O(lgn)這個就是實際建置valid max-heap的演算法，也就是符合root比leaf大
 ```
 
-### Quicksort
+## Quicksort
 * 有很多種版本，比Heapsort再快一點，同時是一種divide-and-conquer和recursive的演算法
     * $T(q-p)+T(r-q)+\theta(n)$
 * 想法是先把最後一個element當作標準，從頭開始和standard做比較，比standard小的放左邊，大的放右邊，不需要管大/小那一邊各自的順序，比較完之後再分別比大/小的一邊，重複上面的步驟
@@ -91,7 +90,7 @@ if p<r
     QUICKSORT(A,q+1,r)
 ```
 
-### Counting Sort
+## Counting Sort
 是一種用多一點的空間換取時間的方式，只能用來排序整數，總共需要3個array
 * A: Input unsorted array
 * B: Output sorted array
@@ -117,7 +116,7 @@ for j=A.length downto 1
     C[A[j]]=C[A[j]]-1
 ```
 
-### Radix Sort
+## Radix Sort
 專門用來排序**相同位數**的數字，從個位數開始排，很不直觀，原因是人從高位數開始排時，會自動分類以利之後再排，假設目前有5組數字，其中2個的高位數是4，此時人類會下意識把這兩個數字當成一組，再往低一位的數字比較，而不是所有數字一起比較，但這樣其實就是divide-and-conquer的演算法，並沒有比較特別
 
 ```c++
@@ -126,7 +125,7 @@ for i=1 to d
     Use a stable sorter to sort array A on digit i
 ```
 
-### Bucket Sort
+## Bucket Sort
 想法就是像個籃子一樣，把同類型的丟進去，專門用來分類[0,1)的小數，可以用linked-list的結構實現
 
 ```c++
