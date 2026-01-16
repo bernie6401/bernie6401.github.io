@@ -128,3 +128,19 @@ comments: true
 ### Rotation
 只有分右轉或左轉，都不影響BST的特性，只會改變structure
 <img src="/assets/posts/Algorithm/red_black_tree_rotation1.png" alt="" width=300>
+
+```c++
+Left-Rotate(T,x)
+y = x.right
+x.right = y.left
+if y.left ≠ T.nil
+    y.left.p = x
+y.p = x.p
+if x.p == T.nil
+    T.root = y
+else if x == x.p.left // 代表x是left child
+    x.p.left = y
+else x.p.right = y
+y.left = x
+x.p = y
+```
