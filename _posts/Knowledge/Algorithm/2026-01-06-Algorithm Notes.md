@@ -200,6 +200,16 @@ Concatenate the lists B[0],B[1],...,B[n-1] together in order
 * Maximum
 * Predecessor(前一個)
 * Successor(後一個)
+    ```c++
+    Tree-Successor(x)
+    if x.right ≠ NIL
+        return Tree-Minimum(x.right)
+    y = x.p
+    while y ≠ NIL and x == y.right
+        x = y
+        y = y.p
+    return y
+    ```
 * Insert
 * Delete
 
