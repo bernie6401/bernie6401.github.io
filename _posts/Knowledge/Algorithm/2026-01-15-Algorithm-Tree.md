@@ -10,6 +10,7 @@ comments: true
 ---
 
 # Algorithm-Tree
+這個章節主要在介紹binary-search-tree和紅黑樹的各種操作和演算法實作
 <!-- more -->
 
 ## Tree
