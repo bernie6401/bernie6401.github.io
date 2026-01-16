@@ -77,7 +77,20 @@ comments: true
     * node z有一個children: 把z的parent的children pointer改成z的children
     * node z有兩個children: 把z.right中最小的node取代z
 ```c++
-
+Tree-Delete(T,z)
+if z.left==NIL // Case A
+    Transplant(T,z,z.right)
+else if z.right == NIL // Case B
+    Transplant(T,z,z.left)
+else
+    y = Tree-Minimum(z.right)
+    if y.p ≠ z
+        Transplant(T,y,y.right)
+        y.right = z.right
+        y.right.p = y
+    Transplant(T,z,y)
+    y.left = z.left
+    y.left.p = y
 ```
 
 ### Red-Black Trees
