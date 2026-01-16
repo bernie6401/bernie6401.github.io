@@ -52,11 +52,11 @@ comments: true
 
 * None-Comparison-based sorters: 意思是除了比較數值之外，還會做其他的操作
 
-|Algorithm|Best Case|Avg. Case|Worst Case|In-place|
-|---|---|---|---|---|
-|Counting|$O(n+k)$|$O(n+k)$|$O(n+k)$|No|
-|Radix|$O(d(n+k'))$|$O(d(n+k'))$|$O(d(n+k'))$|No|
-|Bucket|-|$O(n)$|-|No|
+|Algorithm|Best Case|Avg. Case|Worst Case|In-place|Stable|
+|---|---|---|---|---|---|
+|Counting|$O(n+k)$|$O(n+k)$|$O(n+k)$|No|Yes|
+|Radix|$O(d(n+k'))$|$O(d(n+k'))$|$O(d(n+k'))$|No|Yes|
+|Bucket|-|$O(n)$|-|No|Yes|
 
 ### Insertion sort
 * Input: 亂序的sequence
@@ -155,3 +155,20 @@ for i=1 to d
 ```
 
 ### Bucket Sort
+想法就是像個籃子一樣，把同類型的丟進去，專門用來分類[0,1)的小數，可以用linked-list的結構實現
+
+```c++
+BUCKET-SORT(A)
+// 初始化
+n = A.length
+Let B[0...n-1] be a new array // 有多少element就要有多少bucket
+for i = 0 to n-1
+    Make B[i] an empty list
+for i = 1 to n
+    INSERT A[i] into list B[⌊nA[i]⌋]
+
+// 實際排序用看起來最慢的InsertionSort
+for i = 0 to n-1
+    Sort list B[i] with InsertionSort
+Concatenate the lists B[0],B[1],...,B[n-1] together in order
+```
