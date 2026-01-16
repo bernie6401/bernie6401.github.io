@@ -124,3 +124,7 @@ comments: true
     5. 每一個node往下看leaf任意路徑所碰到的黑色node數量會是一樣的
 * 這些規則確保樹不會嚴重傾斜(balanced)
 * 最多只需要3次rotation就可以保持平衡
+
+### Rotation
+只有分右轉或左轉，都不影響BST的特性，只會改變structure
+<img src="/assets/posts/Algorithm/red_black_tree_rotation1.png" alt="" width=300>
