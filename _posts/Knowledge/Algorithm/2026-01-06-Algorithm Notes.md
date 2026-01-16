@@ -201,9 +201,13 @@ Concatenate the lists B[0],B[1],...,B[n-1] together in order
 * Predecessor(前一個)
 * Successor(後一個)
     ```c++
-    Tree-Successor(x)
+    Tree-Successor(x) // 只要考慮兩種情況
+
+    // 第一種是root本身往右邊找最小的就是successor
     if x.right ≠ NIL
         return Tree-Minimum(x.right)
+
+    // 第二種是children要往上找才能找到successor
     y = x.p
     while y ≠ NIL and x == y.right
         x = y
