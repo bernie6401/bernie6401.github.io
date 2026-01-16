@@ -189,6 +189,7 @@ Concatenate the lists B[0],B[1],...,B[n-1] together in order
 都可以在$O(h)$的複雜度做到，$h$代表tree的高度
 * Search
     ```c++
+    Iteratie-Tree-Search(x,k) // x代表目前的點，k代表想找的value
     while x≠NIL and k≠x.key
         if k<x.key
             x = x.left
