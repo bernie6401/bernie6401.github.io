@@ -188,6 +188,13 @@ Concatenate the lists B[0],B[1],...,B[n-1] together in order
 #### Operation
 都可以在$O(h)$的複雜度做到，$h$代表tree的高度
 * Search
+    ```c++
+    while x≠NIL and k≠x.key
+        if k<x.key
+            x = x.left
+        else x = x.right
+    return x
+    ```
 * Minimum
 * Maximum
 * Predecessor(前一個)
