@@ -72,6 +72,12 @@ comments: true
         y.left = z
     else y.right = z
     ```
-* Delete
+* Delete:分三種情況
+    * node z沒有任何children: 直接刪除
+    * node z有一個children: 把z的parent的children pointer改成z的children
+    * node z有兩個children: 把z.right中最小的node取代z
+```c++
+
+```
 
 ### Red-Black Trees
