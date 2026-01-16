@@ -75,21 +75,32 @@ comments: true
     * node z沒有任何children: 直接刪除
     * node z有一個children: 把z的parent的children pointer改成z的children
     * node z有兩個children: 把z.right中最小的node取代z
-```c++
-Tree-Delete(T,z)
-if z.left==NIL // Case A
-    Transplant(T,z,z.right)
-else if z.right == NIL // Case B
-    Transplant(T,z,z.left)
-else
-    y = Tree-Minimum(z.right)
-    if y.p ≠ z
-        Transplant(T,y,y.right)
-        y.right = z.right
-        y.right.p = y
-    Transplant(T,z,y)
-    y.left = z.left
-    y.left.p = y
-```
+
+    ```c++
+    Transplant(T,u,v) // 用v node取代u node
+    if u.p == NIL // 代表u已經是root了
+        T.root = v
+    else if u == u.p.left // u是child且比parent小
+        u.p.left = v
+    else u.p.right = v // u是child且比parent大
+    if v ≠ NIL
+        v.p = u.p
+    ```
+    ```c++
+    Tree-Delete(T,z)
+    if z.left==NIL // Case A: 只有一個右邊的child
+        Transplant(T,z,z.right)
+    else if z.right == NIL // Case B: 只有一個左邊的child
+        Transplant(T,z,z.left)
+    else
+        y = Tree-Minimum(z.right)
+        if y.p ≠ z // Case D: 有兩個children且可以直接用successor取代z
+            Transplant(T,y,y.right)
+            y.right = z.right
+            y.right.p = y
+        Transplant(T,z,y) // Case C,D: 有兩個children且successor就是z.right
+        y.left = z.left
+        y.left.p = y
+    ```
 
 ## Red-Black Trees
