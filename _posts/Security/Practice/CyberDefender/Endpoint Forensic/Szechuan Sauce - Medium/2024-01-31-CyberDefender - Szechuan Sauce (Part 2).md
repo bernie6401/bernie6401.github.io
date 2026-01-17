@@ -3,6 +3,7 @@ title: CyberDefender - Szechuan Sauce (Part 2)
 tags: [CyberDefender, Endpoint Forensics]
 
 category: "Security｜Practice｜CyberDefender｜Endpoint Forensic｜Szechuan Sauce - Medium"
+date: 2024-01-31
 ---
 
 # CyberDefender - Szechuan Sauce (Part 2)

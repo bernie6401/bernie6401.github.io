@@ -3,6 +3,7 @@ title: NTUSTISC - AD Note - Lab(遠端執行(RDP))
 tags: [NTUSTISC, AD, information security]
 
 category: "Security｜Course｜NTUST ISC｜AD｜4. 遠端執行-讀檔"
+date: 2024-01-31
 ---
 
 # NTUSTISC - AD Note - Lab(遠端執行(RDP))

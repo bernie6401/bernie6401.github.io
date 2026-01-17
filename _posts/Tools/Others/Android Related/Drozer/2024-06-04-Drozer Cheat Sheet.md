@@ -3,6 +3,7 @@ title: Drozer Cheat Sheet
 tags: [Android, Drozer]
 
 category: "Tools｜Others｜Android Related｜Drozer"
+date: 2024-06-04
 ---
 
 # Drozer Cheat Sheet

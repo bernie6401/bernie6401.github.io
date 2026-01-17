@@ -3,6 +3,7 @@ title: "MITMProxy相關問題整理"
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2024-09-05
 ---
 
 # MITMProxy相關問題整理

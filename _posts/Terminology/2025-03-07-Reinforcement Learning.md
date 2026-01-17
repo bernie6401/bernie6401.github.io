@@ -3,6 +3,7 @@ title: Reinforcement Learning
 tags: [名詞解釋]
 
 category: "Terminology"
+date: 2025-03-07
 ---
 
 # Reinforcement Learning

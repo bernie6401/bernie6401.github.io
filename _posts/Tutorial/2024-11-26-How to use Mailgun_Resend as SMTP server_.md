@@ -3,6 +3,7 @@ title: "How to use Mailgun/Resend as SMTP server"
 tags: [Tutorial]
 
 category: "Tutorial"
+date: 2024-11-26
 ---
 
 # How to use Mailgun/Resend as SMTP server

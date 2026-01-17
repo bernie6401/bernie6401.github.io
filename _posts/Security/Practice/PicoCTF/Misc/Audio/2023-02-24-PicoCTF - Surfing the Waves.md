@@ -3,6 +3,7 @@ title: PicoCTF - Surfing the Waves
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Audio"
+date: 2023-02-24
 ---
 
 # PicoCTF - Surfing the Waves

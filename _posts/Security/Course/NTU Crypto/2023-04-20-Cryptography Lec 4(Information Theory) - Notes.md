@@ -3,6 +3,7 @@ title: Cryptography Lec 4(Information Theory) - Notes
 tags: [Cryptography, NTU]
 
 category: "Security｜Course｜NTU Crypto"
+date: 2023-04-20
 ---
 
 # Cryptography Lec 4(Information Theory) - Notes

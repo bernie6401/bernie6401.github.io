@@ -3,6 +3,7 @@ title: LeetCode - Two Sum
 tags: [LeetCode, Easy]
 
 category: "LeetCode｜Easy"
+date: 2024-01-31
 ---
 
 # LeetCode - Two Sum

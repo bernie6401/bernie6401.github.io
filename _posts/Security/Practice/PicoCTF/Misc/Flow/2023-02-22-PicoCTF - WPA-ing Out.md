@@ -3,6 +3,7 @@ title: PicoCTF - WPA-ing Out
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Flow"
+date: 2023-02-22
 ---
 
 # PicoCTF - WPA-ing Out

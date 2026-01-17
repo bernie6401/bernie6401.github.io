@@ -3,6 +3,7 @@ title: Test DIVA - content provider exported - DB Based
 tags: [Android, Drozer]
 
 category: "Tools｜Others｜Android Related｜Drozer｜Test DIVA"
+date: 2024-06-04
 ---
 
 # Test DIVA - content provider exported - DB Based

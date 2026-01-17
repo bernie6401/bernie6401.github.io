@@ -3,6 +3,7 @@ title: A&D of Network Security Note
 tags: [NTU, NTU_PADNS]
 
 category: "Security｜Course｜NTU PADNS"
+date: 2023-03-19
 ---
 
 # A&D of Network Security Note

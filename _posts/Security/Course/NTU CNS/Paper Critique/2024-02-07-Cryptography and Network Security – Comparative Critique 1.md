@@ -3,6 +3,7 @@ title: Cryptography and Network Security – Comparative Critique 1
 tags: [NTUCNS, NTU]
 
 category: "Security｜Course｜NTU CNS｜Paper Critique"
+date: 2024-02-07
 ---
 
 # Cryptography and Network Security – Comparative Critique 1

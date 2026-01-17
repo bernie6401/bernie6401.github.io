@@ -3,6 +3,7 @@ title: PicoCTF - information
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc"
+date: 2023-02-17
 ---
 
 # PicoCTF - information

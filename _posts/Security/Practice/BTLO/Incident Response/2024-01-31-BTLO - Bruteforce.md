@@ -3,6 +3,7 @@ title: BTLO - Bruteforce
 tags: [BTLO, Incident Response]
 
 category: "Security｜Practice｜BTLO｜Incident Response"
+date: 2024-01-31
 ---
 
 # BTLO - Bruteforce

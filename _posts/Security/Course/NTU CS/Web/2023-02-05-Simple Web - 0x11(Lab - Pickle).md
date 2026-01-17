@@ -3,6 +3,7 @@ title: Simple Web 0x16(Lab - Pickle)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTU CS｜Web"
+date: 2023-02-05
 ---
 
 # Simple Web 0x16(Lab - Pickle)

@@ -3,6 +3,7 @@ title: PicoCTF - Sleuthkit Intro
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Disk"
+date: 2023-02-20
 ---
 
 # PicoCTF - Sleuthkit Intro

@@ -3,6 +3,7 @@ title: PicoCTF - It's Not My Fault 1
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜RSA"
+date: 2023-06-17
 ---
 
 # PicoCTF - It's Not My Fault 1

@@ -3,6 +3,7 @@ title: side_project_lightbulb_control
 tags: [Side Project]
 
 category: "Side Project"
+date: 2022-11-09
 ---
 
 # side_project_lightbulb_control

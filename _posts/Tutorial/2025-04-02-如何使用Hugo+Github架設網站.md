@@ -3,6 +3,7 @@ title: "如何使用Hugo+Github架設網站"
 tags: [Tutorial]
 
 category: "Tutorial"
+date: 2025-04-02
 ---
 
 # 如何使用Hugo+Github架設網站

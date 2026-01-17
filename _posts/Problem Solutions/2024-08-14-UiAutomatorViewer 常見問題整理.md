@@ -3,6 +3,7 @@ title: "UiAutomatorViewer 常見問題整理"
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2024-08-14
 ---
 
 # UiAutomatorViewer 常見問題整理

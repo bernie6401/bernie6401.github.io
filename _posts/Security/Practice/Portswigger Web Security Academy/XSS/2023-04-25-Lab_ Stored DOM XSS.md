@@ -3,6 +3,7 @@ title: 'Lab: Stored DOM XSS'
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security｜Practice｜Portswigger Web Security Academy｜XSS"
+date: 2023-04-25
 ---
 
 # Lab: Stored DOM XSS

@@ -3,6 +3,7 @@ title: BTLO - Log Analysis -Compromised WordPress
 tags: [BTLO, Incident Response]
 
 category: "Security｜Practice｜BTLO｜Incident Response"
+date: 2024-01-31
 ---
 
 # BTLO - Log Analysis -Compromised WordPress

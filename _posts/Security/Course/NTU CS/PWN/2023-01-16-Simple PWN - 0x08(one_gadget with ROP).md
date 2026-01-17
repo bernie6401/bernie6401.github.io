@@ -3,6 +3,7 @@ title: Simple PWN - 0x08(one_gadget with ROP)
 tags: [CTF, PWN, eductf]
 
 category: "Security｜Course｜NTU CS｜PWN"
+date: 2023-01-16
 ---
 
 # Simple PWN - 0x08(one_gadget with ROP)

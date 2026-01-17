@@ -3,6 +3,7 @@ title: NISRA - different places
 tags: [CTF, Web, NISRA, Book]
 
 category: "Security｜Practice｜NISRA｜Web"
+date: 2023-03-06
 ---
 
 # NISRA - different places

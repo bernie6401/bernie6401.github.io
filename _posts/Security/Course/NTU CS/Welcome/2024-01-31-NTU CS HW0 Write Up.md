@@ -3,6 +3,7 @@ title: NTU CS HW0 Write Up
 tags: [CTF, Welcome, eductf]
 
 category: "Security｜Course｜NTU CS｜Welcome"
+date: 2024-01-31
 ---
 
 # NTU CS HW0 Write Up

@@ -3,6 +3,7 @@ title: 'The State of Ethereum Smart Contracts Security: Vulnerabilities, Counter
 tags: [Meeting Paper, NTU]
 
 category: "Survey Papers｜Digital Currency"
+date: 2024-05-14
 ---
 
 # The State of Ethereum Smart Contracts Security: Vulnerabilities, Countermeasures, and Tool Support - Notes

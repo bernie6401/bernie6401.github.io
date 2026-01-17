@@ -3,6 +3,7 @@ title: Simple Reverse - 0x28(2023 Lab - Super Angry)
 tags: [eductf, CTF, Reverse]
 
 category: "Security｜Course｜NTU CS｜Reverse"
+date: 2024-01-31
 ---
 
 # Simple Reverse - 0x28(2023 Lab - Super Angry)

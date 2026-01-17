@@ -3,6 +3,7 @@ title: /wp-admin VS /wp-content VS /wp-include VS /wp-json
 tags: [problem solution]
 
 category: "Terminology"
+date: 2025-01-19
 ---
 
 # /wp-admin VS /wp-content VS /wp-include VS /wp-json

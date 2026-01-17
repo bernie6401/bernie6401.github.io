@@ -3,6 +3,7 @@ title: NTU Machine Learning Homework 2
 tags: [NTU_ML, Machine Learning, NTU]
 
 category: "Security｜Course｜NTU ML"
+date: 2023-01-16
 ---
 
 # NTU Machine Learning Homework 2

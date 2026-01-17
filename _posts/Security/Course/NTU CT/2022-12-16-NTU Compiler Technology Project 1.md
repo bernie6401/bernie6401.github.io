@@ -3,6 +3,7 @@ title: NTU Compiler Technology Project 1
 tags: [NTU, NTU_CT]
 
 category: "Security｜Course｜NTU CT"
+date: 2022-12-16
 ---
 
 # NTU Compiler Technology Project 1

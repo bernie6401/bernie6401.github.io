@@ -3,6 +3,7 @@ title: PicoCTF - AES-ABC
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜DES-AES"
+date: 2023-06-19
 ---
 
 # PicoCTF - AES-ABC

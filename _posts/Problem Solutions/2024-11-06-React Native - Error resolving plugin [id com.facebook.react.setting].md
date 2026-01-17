@@ -3,6 +3,7 @@ title: 'React Native - Error resolving plugin [id: com.facebook.react.settings]'
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2024-11-06
 ---
 
 # React Native - Error resolving plugin [id: 'com.facebook.react.settings']

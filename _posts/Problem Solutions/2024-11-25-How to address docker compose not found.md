@@ -3,6 +3,7 @@ title: "How to address docker compose not found"
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2024-11-25
 ---
 
 # How to address docker compose not found

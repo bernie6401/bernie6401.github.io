@@ -3,6 +3,7 @@ title: 'What is IDS, IPS, EDR, MDR, NSM, SIEM?'
 tags: [名詞解釋]
 
 category: "Terminology"
+date: 2024-05-14
 ---
 
 1. IDS(Intrusion Detection System, 入侵偵測系統)

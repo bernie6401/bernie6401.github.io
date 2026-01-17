@@ -3,6 +3,7 @@ title: TaiwanHolyHigh - Windows Forensics - $MFT 基本實作
 tags: [TaiwanHolyHigh, Forensics, Windows]
 
 category: "Security｜Course｜Tai.HolyHigh｜Windows OS Forensics"
+date: 2024-01-31
 ---
 
 # TaiwanHolyHigh - Windows Forensics - \$MFT 基本實作

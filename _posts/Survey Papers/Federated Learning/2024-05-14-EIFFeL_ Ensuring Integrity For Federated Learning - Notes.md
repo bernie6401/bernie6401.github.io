@@ -3,6 +3,7 @@ title: 'EIFFeL: Ensuring Integrity For Federated Learning - Notes'
 tags: [Meeting Paper, NTU]
 
 category: "Survey Papers｜Federated Learning"
+date: 2024-05-14
 ---
 
 # EIFFeL: Ensuring Integrity For Federated Learning - Notes

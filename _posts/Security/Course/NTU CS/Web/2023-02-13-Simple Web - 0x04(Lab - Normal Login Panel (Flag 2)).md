@@ -3,6 +3,7 @@ title: Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))
 tags: [CTF, Web, eductf]
 
 category: "Security｜Course｜NTU CS｜Web"
+date: 2023-02-13
 ---
 <!--more-->
 # Simple Web - 0x04(Lab - Normal Login Panel (Flag 2))

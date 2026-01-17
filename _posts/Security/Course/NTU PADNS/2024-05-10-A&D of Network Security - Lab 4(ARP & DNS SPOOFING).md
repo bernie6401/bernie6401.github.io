@@ -3,6 +3,7 @@ title: A&D of Network Security - Lab 4(ARP & DNS SPOOFING)
 tags: [NTU, NTU_PADNS]
 
 category: "Security｜Course｜NTU PADNS"
+date: 2024-05-10
 ---
 
 # A&D of Network Security - Lab 4(ARP & DNS SPOOFING)

@@ -3,6 +3,7 @@ title: PicoCTF - Who are you?
 tags: [PicoCTF, CTF, Web]
 
 category: "Security｜Practice｜PicoCTF｜Web"
+date: 2023-06-19
 ---
 
 # PicoCTF - Who are you?

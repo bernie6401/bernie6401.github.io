@@ -3,6 +3,7 @@ title: PicoCTF - Unsubscriptions Are Free
 tags: [PicoCTF, CTF, PWN]
 
 category: "Security｜Practice｜PicoCTF｜PWN"
+date: 2024-01-31
 ---
 
 # PicoCTF - Unsubscriptions Are Free

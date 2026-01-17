@@ -3,6 +3,7 @@ title: PicoCTF - droids3
 tags: [PicoCTF, CTF, Reverse]
 
 category: "Security｜Practice｜PicoCTF｜Reverse"
+date: 2024-01-31
 ---
 
 # PicoCTF - droids3

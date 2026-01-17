@@ -3,6 +3,7 @@ title: 'PicoCTF - Disk, disk, sleuth! II'
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Disk"
+date: 2023-02-21
 ---
 
 # PicoCTF - Disk, disk, sleuth! II

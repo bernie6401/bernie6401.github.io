@@ -3,6 +3,7 @@ title: Web Cheat Sheet
 tags: [Tools, CTF, Web]
 
 category: "Tools｜CTF"
+date: 2024-02-07
 ---
 
 # Web Cheat Sheet

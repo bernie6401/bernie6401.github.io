@@ -3,6 +3,7 @@ title: CyberDefender - Intel101
 tags: [CyberDefender, Threat Intel]
 
 category: "Security｜Practice｜CyberDefender｜Threat Intel"
+date: 2024-01-31
 ---
 
 # CyberDefender - Intel101

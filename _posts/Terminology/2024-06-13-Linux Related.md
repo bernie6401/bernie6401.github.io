@@ -3,6 +3,7 @@ title: Linux Related
 tags: [名詞解釋]
 
 category: "Terminology"
+date: 2024-06-13
 ---
 
 * What is .so file?

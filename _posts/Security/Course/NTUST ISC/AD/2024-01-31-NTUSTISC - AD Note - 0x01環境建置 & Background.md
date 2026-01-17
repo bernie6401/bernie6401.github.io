@@ -3,6 +3,7 @@ title: NTUSTISC - AD Note - 環境建置 & Background
 tags: [AD, information security, NTUSTISC]
 
 category: "Security｜Course｜NTUST ISC｜AD"
+date: 2024-01-31
 ---
 
 # NTUSTISC - AD Note - 環境建置 & Background

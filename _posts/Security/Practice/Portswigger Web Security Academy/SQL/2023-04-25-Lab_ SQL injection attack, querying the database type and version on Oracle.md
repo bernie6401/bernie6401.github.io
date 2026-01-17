@@ -3,6 +3,7 @@ title: 'Lab: SQL injection attack, querying the database type and version on Ora
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security｜Practice｜Portswigger Web Security Academy｜SQL"
+date: 2023-04-25
 ---
 
 # Lab: SQL injection attack, querying the database type and version on Oracle

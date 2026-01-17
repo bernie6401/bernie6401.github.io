@@ -3,6 +3,7 @@ title: Simple Web - 0x09(Lab - Simple Note)
 tags: [CTF, Web, eductf]
 
 category: "Security｜Course｜NTU CS｜Web"
+date: 2023-05-13
 ---
 
 # Simple Web - 0x09(Lab - Simple Note)

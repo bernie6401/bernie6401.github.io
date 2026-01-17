@@ -3,6 +3,7 @@ title: NTU CNS Final Project Proposal
 tags: [NTUCNS, NTU]
 
 category: "Security｜Course｜NTU CNS"
+date: 2023-04-30
 ---
 
 # NTU CNS Final Project Proposal

@@ -3,6 +3,7 @@ title: PicoCTF - Eavesdrop
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Flow"
+date: 2024-01-31
 ---
 
 # PicoCTF - Eavesdrop

@@ -3,6 +3,7 @@ title: PicoCTF - Easy Peasy
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜Classic"
+date: 2023-03-14
 ---
 
 # PicoCTF - Easy Peasy

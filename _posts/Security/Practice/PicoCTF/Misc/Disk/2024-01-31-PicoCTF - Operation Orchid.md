@@ -3,6 +3,7 @@ title: PicoCTF - Operation Orchid
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Disk"
+date: 2024-01-31
 ---
 
 # PicoCTF - Operation Orchid

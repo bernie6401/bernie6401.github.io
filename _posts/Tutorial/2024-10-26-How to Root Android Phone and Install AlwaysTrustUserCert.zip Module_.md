@@ -3,6 +3,7 @@ title: "How to Root Android Phone and Install AlwaysTrustUserCert.zip Module"
 tags: [Tutorial]
 
 category: "Tutorial"
+date: 2024-10-26
 ---
 
 # How to Root Android Phone and Install AlwaysTrustUserCert.zip Module

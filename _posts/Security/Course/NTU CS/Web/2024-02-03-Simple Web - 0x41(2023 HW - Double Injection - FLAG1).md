@@ -3,6 +3,7 @@ title: Simple Web 0x41(2023 HW - Double Injection - FLAG1)
 tags: [eductf, CTF, Web]
 
 category: "Security｜Course｜NTU CS｜Web"
+date: 2024-02-03
 ---
 
 # Simple Web 0x41(2023 HW - Double Injection - FLAG1)

@@ -3,6 +3,7 @@ title: BTLO - Shiba Insider
 tags: [BTLO, Digital Forensics]
 
 category: "Security｜Practice｜BTLO｜Digital Forensic"
+date: 2024-01-31
 ---
 
 # BTLO - Shiba Insider

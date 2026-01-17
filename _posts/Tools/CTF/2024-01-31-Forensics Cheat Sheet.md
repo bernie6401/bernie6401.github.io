@@ -3,6 +3,7 @@ title: Forensics Cheat Sheet
 tags: [Forensics, Tools, CTF]
 
 category: "Tools｜CTF"
+date: 2024-01-31
 ---
 
 # Forensics Cheat Sheet

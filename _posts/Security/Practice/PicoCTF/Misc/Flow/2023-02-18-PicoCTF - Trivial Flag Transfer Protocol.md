@@ -3,6 +3,7 @@ title: PicoCTF - Trivial Flag Transfer Protocol
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Flow"
+date: 2023-02-18
 ---
 
 # PicoCTF - Trivial Flag Transfer Protocol

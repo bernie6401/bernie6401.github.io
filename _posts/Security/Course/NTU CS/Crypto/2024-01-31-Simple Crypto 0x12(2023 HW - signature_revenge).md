@@ -3,6 +3,7 @@ title: Simple Crypto 0x12(2023 HW - signature_revenge)
 tags: [eductf, CTF, Crypto]
 
 category: "Security｜Course｜NTU CS｜Crypto"
+date: 2024-01-31
 ---
 
 # Simple Crypto 0x12(2023 HW - signature_revenge)

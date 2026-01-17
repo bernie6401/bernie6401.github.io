@@ -3,6 +3,7 @@ title: 'CrewCTF - :-1: Questions'
 tags: [CrewCTF, CTF]
 
 category: "Security｜Practice｜CrewCTF｜Bad"
+date: 2023-07-11
 ---
 
 # Challenge: findme

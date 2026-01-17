@@ -3,6 +3,7 @@ title: Directory Fuzzing/Traversal Tools
 tags: [Tools]
 
 category: "Tools｜Others｜Directory Fuzzing - Traversal Tools"
+date: 2024-08-10
 ---
 
 # Directory Fuzzing/Traversal Tools

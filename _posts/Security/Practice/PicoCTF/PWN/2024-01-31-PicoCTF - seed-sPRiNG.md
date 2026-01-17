@@ -3,6 +3,7 @@ title: PicoCTF - seed-sPRiNG
 tags: [PicoCTF, CTF, PWN]
 
 category: "Security｜Practice｜PicoCTF｜PWN"
+date: 2024-01-31
 ---
 
 # PicoCTF - seed-sPRiNG

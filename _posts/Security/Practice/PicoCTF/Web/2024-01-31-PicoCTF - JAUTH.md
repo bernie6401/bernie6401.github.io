@@ -3,6 +3,7 @@ title: PicoCTF - JAUTH
 tags: [Web, PicoCTF, CTF]
 
 category: "Security｜Practice｜PicoCTF｜Web"
+date: 2024-01-31
 ---
 
 # PicoCTF - JAUTH

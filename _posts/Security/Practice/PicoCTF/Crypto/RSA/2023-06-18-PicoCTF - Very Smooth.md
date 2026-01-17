@@ -3,6 +3,7 @@ title: PicoCTF - Very Smooth
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜RSA"
+date: 2023-06-18
 ---
 
 # PicoCTF - Very Smooth

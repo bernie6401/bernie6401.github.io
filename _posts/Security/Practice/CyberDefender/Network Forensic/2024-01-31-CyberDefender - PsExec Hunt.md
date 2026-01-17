@@ -3,6 +3,7 @@ title: CyberDefender - PsExec Hunt
 tags: [CyberDefender, Network Forensics]
 
 category: "Security｜Practice｜CyberDefender｜Network Forensic"
+date: 2024-01-31
 ---
 
 # CyberDefender - PsExec Hunt

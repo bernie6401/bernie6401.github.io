@@ -3,6 +3,7 @@ title: PicoCTF - Easy Peasy Or Bad Questions
 tags: [PicoCTF, CTF]
 
 category: "Security｜Practice｜PicoCTF｜Bad Questions"
+date: 2024-01-31
 ---
 
 # PicoCTF - Easy Peasy Or Bad Questions

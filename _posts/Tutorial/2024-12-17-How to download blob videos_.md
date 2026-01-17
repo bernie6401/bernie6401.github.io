@@ -3,6 +3,7 @@ title: "How to download blob videos"
 tags: [Tutorial]
 
 category: "Tutorial"
+date: 2024-12-17
 ---
 
 # How to download blob videos

@@ -3,6 +3,7 @@ title: 'Fastbot: A Multi-Agent Model-Based Test Generation System'
 tags: [Meeting Paper]
 
 category: "Survey Papers｜Android + Security｜GUI Testing"
+date: 2025-03-04
 ---
 
 # Fastbot: A Multi-Agent Model-Based Test Generation System

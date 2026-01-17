@@ -3,6 +3,7 @@ title: Simple Crypto 0x13(2023 HW - Power Analysis)
 tags: [eductf, CTF, Crypto]
 
 category: "Security｜Course｜NTU CS｜Crypto"
+date: 2024-01-31
 ---
 
 # Simple Crypto 0x13(2023 HW - Power Analysis)

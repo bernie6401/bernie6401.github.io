@@ -3,6 +3,7 @@ title: Programming Related
 tags: [名詞解釋]
 
 category: "Terminology"
+date: 2025-03-21
 ---
 
 # Programming Related

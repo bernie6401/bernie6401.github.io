@@ -3,6 +3,7 @@ title: PicoCTF - john_pollard
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜RSA"
+date: 2023-06-19
 ---
 
 # PicoCTF - john_pollard

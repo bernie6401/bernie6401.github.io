@@ -3,6 +3,7 @@ title: "How to check if the paper is Top Conference or Q1 Journal"
 tags: [Tutorial]
 
 category: "Tutorial"
+date: 2024-10-08
 ---
 
 # How to check if the paper is Top Conference or Q1 Journal

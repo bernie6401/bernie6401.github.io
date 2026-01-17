@@ -3,6 +3,7 @@ title: Drozer/MobSF Installation
 tags: [Android, Drozer, MobSF]
 
 category: "Tools｜Others｜Android Related｜Installation"
+date: 2024-06-04
 ---
 
 # Drozer/MobSF Installation

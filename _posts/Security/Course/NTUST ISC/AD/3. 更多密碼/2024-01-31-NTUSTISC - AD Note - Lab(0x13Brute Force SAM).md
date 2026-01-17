@@ -3,6 +3,7 @@ title: NTUSTISC - AD Note - Lab(Brute Force SAM)
 tags: [NTUSTISC, AD, information security]
 
 category: "Security｜Course｜NTUST ISC｜AD｜3. 更多密碼"
+date: 2024-01-31
 ---
 
 # NTUSTISC - AD Note - Lab(Brute Force SAM)

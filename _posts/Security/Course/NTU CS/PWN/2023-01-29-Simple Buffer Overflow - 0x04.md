@@ -3,6 +3,7 @@ title: Simple Buffer Overflow - 0x04
 tags: [CTF, PWN, NTUSTISC]
 
 category: "Security｜Course｜NTU CS｜PWN"
+date: 2023-01-29
 ---
 
 # Simple Buffer Overflow - 0x04

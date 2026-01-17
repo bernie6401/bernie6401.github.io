@@ -3,6 +3,7 @@ title: "WSL tty /dev/tty0"
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2024-01-31
 ---
 
 # WSL tty /dev/tty0

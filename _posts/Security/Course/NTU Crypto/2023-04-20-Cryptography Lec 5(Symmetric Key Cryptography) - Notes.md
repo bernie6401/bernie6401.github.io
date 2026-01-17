@@ -3,6 +3,7 @@ title: Cryptography Lec 5(Symmetric Key Cryptography) - Notes
 tags: [Cryptography, NTU]
 
 category: "Security｜Course｜NTU Crypto"
+date: 2023-04-20
 ---
 
 # Cryptography Lec 5(Symmetric Key Cryptography) - Notes

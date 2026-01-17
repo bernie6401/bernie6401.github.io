@@ -3,6 +3,7 @@ title: CSRF - APPRENTICE
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security｜Practice｜Portswigger Web Security Academy｜CSRF"
+date: 2023-04-25
 ---
 
 # CSRF - APPRENTICE

@@ -3,6 +3,7 @@ title: Crypto Cheat Sheet
 tags: [Tools, CTF, Crypto]
 
 category: "Tools｜CTF"
+date: 2024-03-19
 ---
 
 # Crypto Cheat Sheet

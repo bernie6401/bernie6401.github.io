@@ -2,6 +2,7 @@
 title: Trapa Interview
 tags: [Interview]
 category: "Job｜Interview"
+date: 2024-03-27
 ---
 
 # Trapa Interview

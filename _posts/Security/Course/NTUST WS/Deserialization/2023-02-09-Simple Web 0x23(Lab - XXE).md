@@ -3,6 +3,7 @@ title: Simple Web 0x23(Lab - XXE)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜Deserialization"
+date: 2023-02-09
 ---
 
 # Simple Web 0x23(Lab - XXE)

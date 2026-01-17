@@ -3,6 +3,7 @@ title: CrewCTF - Attaaaaack 1-13
 tags: [CTF, CrewCTF, Misc]
 
 category: "Security｜Practice｜CrewCTF｜Misc"
+date: 2024-01-31
 ---
 
 # CrewCTF - Attaaaaack 1-13

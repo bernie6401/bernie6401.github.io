@@ -3,6 +3,7 @@ title: NTUSTISC - AD Note - 會後提及有用的工具
 tags: [NTUSTISC, AD, information security]
 
 category: "Security｜Course｜NTUST ISC｜AD"
+date: 2024-01-31
 ---
 
 # NTUSTISC - AD Note - 會後提及有用的工具

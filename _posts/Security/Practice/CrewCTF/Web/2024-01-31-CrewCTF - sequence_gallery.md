@@ -3,6 +3,7 @@ title: CrewCTF - sequence_gallery
 tags: [CTF, CrewCTF, Web]
 
 category: "Security｜Practice｜CrewCTF｜Web"
+date: 2024-01-31
 ---
 
 # CrewCTF - sequence_gallery

@@ -3,6 +3,7 @@ title: 'sudo chmod 777 -R /usr Problem'
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2023-02-22
 ---
 
 # `sudo chmod 777 -R /usr` Problem

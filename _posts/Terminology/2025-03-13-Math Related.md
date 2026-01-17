@@ -3,6 +3,7 @@ title: Math Related
 tags: [名詞解釋]
 
 category: "Terminology"
+date: 2025-03-13
 ---
 
 # Math Related

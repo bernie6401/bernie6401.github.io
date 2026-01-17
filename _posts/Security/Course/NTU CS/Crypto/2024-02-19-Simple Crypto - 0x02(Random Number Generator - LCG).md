@@ -3,6 +3,7 @@ title: Simple Crypto - 0x02(Random Number Generator - LCG)
 tags: [CTF, Crypto, eductf]
 
 category: "Security｜Course｜NTU CS｜Crypto"
+date: 2024-02-19
 ---
 
 # Simple Crypto - 0x02(Random Number Generator - LCG)

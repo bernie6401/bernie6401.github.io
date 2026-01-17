@@ -3,6 +3,7 @@ title: CyberDefender - KrakenKeylogger
 tags: [CyberDefender, Endpoint Forensics]
 
 category: "Security｜Practice｜CyberDefender"
+date: 2024-01-31
 ---
 
 # CyberDefender - KrakenKeylogger

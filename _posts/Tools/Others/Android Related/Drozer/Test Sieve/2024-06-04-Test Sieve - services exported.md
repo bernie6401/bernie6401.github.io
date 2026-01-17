@@ -3,6 +3,7 @@ title: Test Sieve - services exported
 tags: [Android, Drozer]
 
 category: "Tools｜Others｜Android Related｜Drozer｜Test Sieve"
+date: 2024-06-04
 ---
 
 # Test Sieve - services exported
