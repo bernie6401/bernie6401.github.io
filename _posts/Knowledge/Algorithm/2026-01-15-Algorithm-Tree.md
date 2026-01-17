@@ -15,7 +15,7 @@ comments: true
 
 |Operation|BST|RBT|
 |---|---|---|
-|Search|$O(h)$|$O(lgn)$|
+|Search<br>Insert<br>Delete<br>Minimum<br>Maximum<br>Successor<br>Predecessor|$O(h)$|$O(lgn)$|
 |Insert|$O(h)$|$O(lgn)$|
 |Delete|$O(h)$|$O(lgn)$|
 |Minimum|$O(h)$|$O(lgn)$|
