@@ -3,6 +3,7 @@ title: "WSL2 Cannot List Android Devices"
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2024-08-14
 ---
 
 # WSL2 Cannot List Android Devices

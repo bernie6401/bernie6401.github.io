@@ -3,6 +3,7 @@ title: Simple Web 0x09(Lab - DNS Lookup Tool)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜Command Injection"
+date: 2023-01-31
 ---
 
 # Simple Web 0x09(Lab - DNS Lookup Tool)

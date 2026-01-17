@@ -3,6 +3,7 @@ title: PicoCTF - Mind your Ps and Qs
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜RSA"
+date: 2023-03-06
 ---
 
 # PicoCTF - Mind your Ps and Qs

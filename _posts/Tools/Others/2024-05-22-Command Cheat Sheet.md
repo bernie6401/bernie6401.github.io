@@ -3,6 +3,7 @@ title: Command Cheat Sheet
 tags: [Tools]
 
 category: "Tools｜Others"
+date: 2024-05-22
 ---
 
 # Command Cheat Sheet

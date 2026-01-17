@@ -3,6 +3,7 @@ title: PicoCTF - SideChannel
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜General"
+date: 2024-01-31
 ---
 
 # PicoCTF - SideChannel

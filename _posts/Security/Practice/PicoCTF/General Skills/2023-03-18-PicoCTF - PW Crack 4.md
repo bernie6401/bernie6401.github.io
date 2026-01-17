@@ -3,6 +3,7 @@ title: PicoCTF - PW Crack 4
 tags: [PicoCTF, CTF, General Skill]
 
 category: "Security｜Practice｜PicoCTF｜General Skills"
+date: 2023-03-18
 ---
 
 # PicoCTF - PW Crack 4

@@ -3,6 +3,7 @@ title: Local Model Poisoning Attacks to Byzantine-Robust Federated Learning - No
 tags: [Meeting Paper, NTU]
 
 category: "Survey Papers｜Federated Learning"
+date: 2024-05-14
 ---
 
 # Local Model Poisoning Attacks to Byzantine-Robust Federated Learning - Notes

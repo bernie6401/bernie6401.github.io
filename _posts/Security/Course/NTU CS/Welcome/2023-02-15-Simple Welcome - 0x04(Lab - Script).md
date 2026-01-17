@@ -3,6 +3,7 @@ title: Simple Welcome - 0x04(Lab - Script)
 tags: [CTF, Web, eductf]
 
 category: "Security｜Course｜NTU CS｜Welcome"
+date: 2023-02-15
 ---
 
 # Simple Welcome - 0x04(Lab - Script)

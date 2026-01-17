@@ -3,6 +3,7 @@ title: Deserialization - APPRENTICE
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security｜Practice｜Portswigger Web Security Academy｜Deserialization"
+date: 2023-04-28
 ---
 
 # Deserialization - APPRENTICE

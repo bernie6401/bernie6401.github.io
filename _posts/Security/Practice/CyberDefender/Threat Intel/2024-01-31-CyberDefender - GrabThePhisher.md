@@ -3,6 +3,7 @@ title: CyberDefender - GrabThePhisher
 tags: [CyberDefender, Threat Intel]
 
 category: "Security｜Practice｜CyberDefender｜Threat Intel"
+date: 2024-01-31
 ---
 
 # CyberDefender - GrabThePhisher

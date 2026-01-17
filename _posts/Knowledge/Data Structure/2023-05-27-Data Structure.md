@@ -2,7 +2,8 @@
 title: Data Structure
 tags: [Data Structure, NYCU, Book]
 
-category: "Data Structure"
+category: "Knowledge｜Data Structure"
+date: 2023-05-27
 ---
 
 # Data Structure

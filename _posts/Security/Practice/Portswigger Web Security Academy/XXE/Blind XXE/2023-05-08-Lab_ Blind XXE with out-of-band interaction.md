@@ -3,6 +3,7 @@ title: 'Lab: Blind XXE with out-of-band interaction'
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security｜Practice｜Portswigger Web Security Academy｜XXE｜Blind XXE"
+date: 2023-05-08
 ---
 
 # Lab: Blind XXE with out-of-band interaction

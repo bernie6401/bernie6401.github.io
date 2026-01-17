@@ -3,6 +3,7 @@ title: "Unexpected fatal error while initializing python runtime"
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2024-01-31
 ---
 
 # Unexpected fatal error while initializing python runtime

@@ -3,6 +3,7 @@ title: Simple Web 0x22(Lab - Pug)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜SSTI"
+date: 2023-02-18
 ---
 
 # Simple Web 0x22(Lab - Pug)

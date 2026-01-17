@@ -3,6 +3,7 @@ title: Test Sieve - activities exported
 tags: [Android, Drozer]
 
 category: "Tools｜Others｜Android Related｜Drozer｜Test Sieve"
+date: 2024-06-04
 ---
 
 * Drozer Seive - [官網](https://labs.withsecure.com/tools/drozer#3.1), [Download](https://github.com/WithSecureLabs/drozer/releases/download/2.3.4/sieve.apk)

@@ -3,6 +3,7 @@ title: Simple Buffer Overflow - 0x05(Leak Canary)
 tags: [CTF, PWN, eductf]
 
 category: "Security｜Course｜NTU CS｜PWN"
+date: 2023-01-16
 ---
 
 # Simple Buffer Overflow - 0x05(Leak Canary)

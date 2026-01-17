@@ -3,6 +3,7 @@ title: PicoCTF - Some Assembly Required 1
 tags: [PicoCTF, CTF, Web]
 
 category: "Security｜Practice｜PicoCTF｜Web"
+date: 2023-06-18
 ---
 
 # PicoCTF - Some Assembly Required 1

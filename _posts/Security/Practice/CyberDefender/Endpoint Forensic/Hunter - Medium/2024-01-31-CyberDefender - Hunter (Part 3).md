@@ -3,6 +3,7 @@ title: CyberDefender - Hunter (Part 3)
 tags: [CyberDefender, Endpoint Forensics]
 
 category: "Security｜Practice｜CyberDefender｜Endpoint Forensic｜Hunter - Medium"
+date: 2024-01-31
 ---
 
 # CyberDefender - Hunter (Part 3)

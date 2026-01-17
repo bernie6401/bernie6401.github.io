@@ -3,6 +3,7 @@ title: Simple PWN - 0x14(Simple HEAP)
 tags: [CTF, PWN, eductf]
 
 category: "Security｜Course｜NTU CS｜PWN"
+date: 2023-01-19
 ---
 
 # Simple PWN - 0x14(Simple HEAP)

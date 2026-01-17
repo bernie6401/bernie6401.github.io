@@ -3,6 +3,7 @@ title: PicoCTF - PowerAnalysis Part 1 / Part 2
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜SideChannel"
+date: 2024-01-31
 ---
 
 # PicoCTF - PowerAnalysis Part 1 / Part 2

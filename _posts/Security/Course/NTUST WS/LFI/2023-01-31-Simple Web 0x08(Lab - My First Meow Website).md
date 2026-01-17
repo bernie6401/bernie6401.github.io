@@ -3,6 +3,7 @@ title: Simple Web 0x08(Lab - My First Meow Website)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜LFI"
+date: 2023-01-31
 ---
 
 # Simple Web 0x08(Lab - My First Meow Website)

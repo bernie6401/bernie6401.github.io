@@ -3,6 +3,7 @@ title: PicoCTF - Java Code Analysis!?!
 tags: [PicoCTF, CTF, Web]
 
 category: "Security｜Practice｜PicoCTF｜Web"
+date: 2024-01-31
 ---
 
 # PicoCTF - Java Code Analysis!?!

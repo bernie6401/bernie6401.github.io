@@ -3,6 +3,7 @@ title: CyberDefender - CorporateSecrets (Part 1)
 tags: [CyberDefender, Endpoint Forensics]
 
 category: "Security｜Practice｜CyberDefender｜Endpoint Forensic｜CorporateSecrets - Medium"
+date: 2024-01-31
 ---
 
 # CyberDefender - CorporateSecrets (Part 1)

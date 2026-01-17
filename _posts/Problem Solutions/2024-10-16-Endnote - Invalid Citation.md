@@ -3,6 +3,7 @@ title: "Endnote - Invalid Citation"
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2024-10-16
 ---
 
 # Endnote - Invalid Citation

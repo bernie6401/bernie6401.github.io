@@ -3,6 +3,7 @@ title: PicoCTF - Insp3ct0r
 tags: [PicoCTF, CTF, Web]
 
 category: "Security｜Practice｜PicoCTF｜Web"
+date: 2023-02-18
 ---
 
 # PicoCTF - Insp3ct0r

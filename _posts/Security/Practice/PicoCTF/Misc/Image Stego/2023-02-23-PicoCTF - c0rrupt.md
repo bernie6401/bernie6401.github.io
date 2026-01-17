@@ -3,6 +3,7 @@ title: PicoCTF - c0rrupt
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Image Stego"
+date: 2023-02-23
 ---
 
 # PicoCTF - c0rrupt

@@ -3,6 +3,7 @@ title: Simple Web 0x18(Lab - Magic Cat)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTU CS｜Web"
+date: 2024-01-01
 ---
 
 # Simple Web 0x18(Lab - Magic Cat)

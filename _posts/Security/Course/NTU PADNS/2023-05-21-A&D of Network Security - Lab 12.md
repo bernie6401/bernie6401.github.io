@@ -3,6 +3,7 @@ title: A&D of Network Security - Lab 12
 tags: [NTU, NTU_PADNS]
 
 category: "Security｜Course｜NTU PADNS"
+date: 2023-05-21
 ---
 
 # A&D of Network Security - Lab 12

@@ -3,6 +3,7 @@ title: PicoCTF - Matryoshka doll
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜General"
+date: 2023-02-17
 ---
 
 # PicoCTF - Matryoshka doll

@@ -3,6 +3,7 @@ title: PicoCTF - New Caesar
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜Classic"
+date: 2023-03-18
 ---
 
 # PicoCTF - New Caesar

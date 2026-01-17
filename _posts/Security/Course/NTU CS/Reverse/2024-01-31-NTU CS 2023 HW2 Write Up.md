@@ -3,6 +3,7 @@ title: NTU CS 2023 HW2 Write Up
 tags: [CTF, Reverse, eductf]
 
 category: "Security｜Course｜NTU CS｜Reverse"
+date: 2024-01-31
 ---
 
 # NTU CS 2023 HW2 Write Up

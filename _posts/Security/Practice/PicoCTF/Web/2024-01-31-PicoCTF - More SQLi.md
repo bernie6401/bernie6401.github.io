@@ -3,6 +3,7 @@ title: PicoCTF - More SQLi
 tags: [PicoCTF, CTF, Web]
 
 category: "Security｜Practice｜PicoCTF｜Web"
+date: 2024-01-31
 ---
 
 # PicoCTF - More SQLi

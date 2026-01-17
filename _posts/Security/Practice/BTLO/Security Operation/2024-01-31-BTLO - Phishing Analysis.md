@@ -3,6 +3,7 @@ title: BTLO - Phishing Analysis
 tags: [BTLO, Security Operation]
 
 category: "Security｜Practice｜BTLO｜Security Operation"
+date: 2024-01-31
 ---
 
 # BTLO - Phishing Analysis

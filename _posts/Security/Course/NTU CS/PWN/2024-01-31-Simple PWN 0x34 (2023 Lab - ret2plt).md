@@ -3,6 +3,7 @@ title: Simple PWN 0x34 (2023 Lab - ret2plt)
 tags: [eductf, CTF, PWN]
 
 category: "Security｜Course｜NTU CS｜PWN"
+date: 2024-01-31
 ---
 
 # Simple PWN 0x34 (2023 Lab - ret2plt)

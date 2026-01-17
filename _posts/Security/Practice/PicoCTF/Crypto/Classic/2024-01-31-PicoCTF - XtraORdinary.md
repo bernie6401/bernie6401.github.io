@@ -3,6 +3,7 @@ title: PicoCTF - XtraORdinary
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜Classic"
+date: 2024-01-31
 ---
 
 # PicoCTF - XtraORdinary

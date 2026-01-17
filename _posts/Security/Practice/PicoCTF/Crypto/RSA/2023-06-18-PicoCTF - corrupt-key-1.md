@@ -3,6 +3,7 @@ title: PicoCTF - corrupt-key-1
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜RSA"
+date: 2023-06-18
 ---
 
 # PicoCTF - corrupt-key-1

@@ -3,6 +3,7 @@ title: PicoCTF - Investigative Reversing 0
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜General"
+date: 2023-02-25
 ---
 
 # PicoCTF - Investigative Reversing 0

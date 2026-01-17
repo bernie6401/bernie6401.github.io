@@ -3,6 +3,7 @@ title: Simple Web 0x01(Lab - Hello from Windows 98)
 tags: [CTF, Web, eductf]
 
 category: "Security｜Course｜NTU CS｜Web"
+date: 2023-01-31
 ---
 
 # Simple Web 0x01(Lab - Hello from Windows 98)

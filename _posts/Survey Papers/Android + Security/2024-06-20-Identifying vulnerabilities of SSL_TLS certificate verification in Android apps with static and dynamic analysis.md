@@ -3,6 +3,7 @@ title: Identifying vulnerabilities of SSL/TLS certificate verification in Androi
 tags: [Meeting Paper, NTU]
 
 category: "Survey Papers｜Android + Security"
+date: 2024-06-20
 ---
 
 # Identifying vulnerabilities of SSL_TLS certificate verification in Android apps with static and dynamic analysis

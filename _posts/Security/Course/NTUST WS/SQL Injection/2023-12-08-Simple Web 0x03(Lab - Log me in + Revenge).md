@@ -3,6 +3,7 @@ title: Simple Web 0x03(Lab - Log me in + Revenge)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜SQL Injection"
+date: 2023-12-08
 ---
 
 # Simple Web 0x03(Lab - Log me in + Revenge)

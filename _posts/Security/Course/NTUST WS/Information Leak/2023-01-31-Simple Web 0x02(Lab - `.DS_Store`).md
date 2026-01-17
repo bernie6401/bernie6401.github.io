@@ -3,6 +3,7 @@ title: Simple Web 0x02(Lab - `.DS_Store`)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜Information Leak"
+date: 2023-01-31
 ---
 
 # Simple Web 0x02(Lab - `.DS_Store`)

@@ -3,6 +3,7 @@ title: Simple PWN - 0x15(Lab - `heapmath`)
 tags: [CTF, PWN, eductf]
 
 category: "Security｜Course｜NTU CS｜PWN"
+date: 2023-01-29
 ---
 
 # Simple PWN - 0x15(Lab - `heapmath`)

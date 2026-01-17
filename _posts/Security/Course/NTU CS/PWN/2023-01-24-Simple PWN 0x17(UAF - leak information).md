@@ -3,6 +3,7 @@ title: Simple PWN 0x17(UAF - leak information)
 tags: [CTF, PWN, eductf]
 
 category: "Security｜Course｜NTU CS｜PWN"
+date: 2023-01-24
 ---
 
 # Simple PWN 0x17(UAF - leak information)

@@ -3,6 +3,7 @@ title: Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)
 tags: [eductf, CTF, Reverse]
 
 category: "Security｜Course｜NTU CS｜Reverse"
+date: 2024-01-31
 ---
 
 # Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)

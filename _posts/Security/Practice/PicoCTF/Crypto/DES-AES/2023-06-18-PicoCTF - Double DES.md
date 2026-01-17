@@ -3,6 +3,7 @@ title: PicoCTF - Double DES
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto｜DES-AES"
+date: 2023-06-18
 ---
 
 # PicoCTF - Double DES

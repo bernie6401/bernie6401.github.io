@@ -3,6 +3,7 @@ title: Cryptography and Network Security - Final Project
 tags: [Cryptography, NTU]
 
 category: "Security｜Course｜NTU CNS"
+date: 2023-06-18
 ---
 
 # Cryptography and Network Security - Final Project

@@ -3,6 +3,7 @@ title: EOF AIS3 Final
 tags: [CTF, AIS3]
 
 category: "Security｜Competition"
+date: 2023-02-14
 ---
 
 # EOF AIS3 Final

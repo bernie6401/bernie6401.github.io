@@ -3,6 +3,7 @@ title: CrewCTF - Encrypt10n(Part 2)
 tags: [CTF, CrewCTF, Misc]
 
 category: "Security｜Practice｜CrewCTF｜Misc"
+date: 2024-01-31
 ---
 
 # CrewCTF - Encrypt10n(Part 2)

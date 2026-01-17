@@ -3,6 +3,7 @@ title: PicoCTF - notepad
 tags: [PicoCTF, CTF, Web]
 
 category: "Security｜Practice｜PicoCTF｜Web"
+date: 2024-01-31
 ---
 
 # PicoCTF - notepad

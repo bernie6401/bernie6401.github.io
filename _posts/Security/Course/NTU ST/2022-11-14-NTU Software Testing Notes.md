@@ -3,6 +3,7 @@ title: NTU Software Testing Notes
 tags: [NTU_ST, Software Testing, NTU]
 
 category: "Security｜Course｜NTU ST"
+date: 2022-11-14
 ---
 
 # NTU Software Testing Notes

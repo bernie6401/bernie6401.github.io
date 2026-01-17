@@ -3,6 +3,7 @@ title: Adworld - Misc文件類型
 tags: [Adworld, CTF, Misc]
 
 category: "Security｜Practice｜Adworld｜Misc"
+date: 2024-01-31
 ---
 
 # Adworld - Misc文件類型

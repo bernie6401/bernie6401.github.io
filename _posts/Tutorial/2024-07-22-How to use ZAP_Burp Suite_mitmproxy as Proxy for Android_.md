@@ -3,6 +3,7 @@ title: "How to use ZAP/Burp Suite/mitmproxy as Proxy for Android"
 tags: [Tutorial]
 
 category: "Tutorial"
+date: 2024-07-22
 ---
 
 # How to use ZAP/Burp Suite/mitmproxy as Proxy for Android

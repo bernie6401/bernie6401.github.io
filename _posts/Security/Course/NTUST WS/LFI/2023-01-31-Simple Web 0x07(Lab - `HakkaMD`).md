@@ -3,6 +3,7 @@ title: Simple Web 0x07(Lab - `HakkaMD`)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜LFI"
+date: 2023-01-31
 ---
 
 # Simple Web 0x07(Lab - `HakkaMD`)

@@ -3,6 +3,7 @@ title: Simple Buffer Overflow - 0x02
 tags: [CTF, PWN, NTUSTISC]
 
 category: "Security｜Course｜NTU CS｜PWN"
+date: 2023-01-09
 ---
 
 # Simple Buffer Overflow - 0x02

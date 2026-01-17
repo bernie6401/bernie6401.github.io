@@ -3,6 +3,7 @@ title: PicoCTF - Compress and Attack
 tags: [PicoCTF, CTF, Crypto]
 
 category: "Security｜Practice｜PicoCTF｜Crypto"
+date: 2023-06-18
 ---
 
 # PicoCTF - Compress and Attack

@@ -3,6 +3,7 @@ title: PicoCTF - caas
 tags: [PicoCTF, CTF, Web]
 
 category: "Security｜Practice｜PicoCTF｜Web"
+date: 2023-06-20
 ---
 
 # PicoCTF - caas

@@ -3,6 +3,7 @@ title: NTU Machine Learning Final Project Proposal Notes
 tags: [NTU_ML, Machine Learning, NTU]
 
 category: "Security｜Course｜NTU ML"
+date: 2022-12-28
 ---
 
 # NTU Machine Learning Final Project Proposal Notes

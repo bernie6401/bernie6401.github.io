@@ -3,6 +3,7 @@ title: 'Lab: SQL injection UNION attack, finding a column containing text'
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security｜Practice｜Portswigger Web Security Academy｜SQL"
+date: 2023-04-25
 ---
 
 # Lab: SQL injection UNION attack, finding a column containing text

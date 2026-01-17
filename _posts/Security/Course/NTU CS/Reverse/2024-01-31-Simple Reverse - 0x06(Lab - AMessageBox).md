@@ -3,6 +3,7 @@ title: Simple Reverse 0x06(Lab - AMessageBox)
 tags: [CTF, Reverse, eductf]
 
 category: "Security｜Course｜NTU CS｜Reverse"
+date: 2024-01-31
 ---
 
 # Simple Reverse 0x06(Lab - AMessageBox)

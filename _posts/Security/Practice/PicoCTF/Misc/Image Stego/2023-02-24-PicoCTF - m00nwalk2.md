@@ -3,6 +3,7 @@ title: PicoCTF - m00nwalk2
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Image Stego"
+date: 2023-02-24
 ---
 
 # PicoCTF - m00nwalk2

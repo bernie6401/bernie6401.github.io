@@ -3,6 +3,7 @@ title: Simple Web 0x24(Lab - how2http)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜Beginner"
+date: 2024-01-31
 ---
 
 # Simple Web 0x24(Lab - how2http)

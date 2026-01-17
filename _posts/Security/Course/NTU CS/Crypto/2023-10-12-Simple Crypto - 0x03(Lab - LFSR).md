@@ -3,6 +3,7 @@ title: Simple Crypto - 0x03(Lab - LFSR)
 tags: [CTF, Crypto, eductf]
 
 category: "Security｜Course｜NTU CS｜Crypto"
+date: 2023-10-12
 ---
 
 # Simple Crypto - 0x03(Lab - LFSR)

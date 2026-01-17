@@ -3,6 +3,7 @@ title: Network Related
 tags: [名詞解釋]
 
 category: "Terminology"
+date: 2024-06-14
 ---
 
 # What is HTTP/SSH Tunnel, TLS/SSL, WebSocket?

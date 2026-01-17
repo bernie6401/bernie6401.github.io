@@ -3,6 +3,7 @@ title: PicoCTF - `Wireshark doo dooo do doo...`
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Flow"
+date: 2023-02-17
 ---
 
 # PicoCTF - `Wireshark doo dooo do doo...`

@@ -3,6 +3,7 @@ title: Simple Web 0x06(Lab - Image Space 0x03)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜Upload"
+date: 2023-01-31
 ---
 
 # Simple Web 0x06(Lab - Image Space 0x03)

@@ -3,6 +3,7 @@ title: Simple Web 0x12(Lab - Web Preview Card)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜SSRF"
+date: 2024-01-01
 ---
 
 # Simple Web 0x12(Lab - Web Preview Card)

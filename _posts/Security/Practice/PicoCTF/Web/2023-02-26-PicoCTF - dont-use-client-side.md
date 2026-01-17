@@ -3,6 +3,7 @@ title: PicoCTF - dont-use-client-side
 tags: [PicoCTF, CTF, Web]
 
 category: "Security｜Practice｜PicoCTF｜Web"
+date: 2023-02-26
 ---
 
 # PicoCTF - dont-use-client-side

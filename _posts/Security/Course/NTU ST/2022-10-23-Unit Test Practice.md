@@ -3,6 +3,7 @@ title: Unit Test Practice
 tags: [NTU_ST, Software Testing, NTU]
 
 category: "Security｜Course｜NTU ST"
+date: 2022-10-23
 ---
 
 # Unit Test Practice

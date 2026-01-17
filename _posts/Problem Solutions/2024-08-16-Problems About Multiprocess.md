@@ -3,6 +3,7 @@ title: "Problems About Multiprocess"
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2024-08-16
 ---
 
 # Problems About Multiprocess

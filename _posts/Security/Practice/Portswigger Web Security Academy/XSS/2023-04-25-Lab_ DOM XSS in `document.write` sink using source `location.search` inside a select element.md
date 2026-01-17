@@ -3,6 +3,7 @@ title: 'Lab: DOM XSS in `document.write` sink using source `location.search` ins
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security｜Practice｜Portswigger Web Security Academy｜XSS"
+date: 2023-04-25
 ---
 
 # Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element

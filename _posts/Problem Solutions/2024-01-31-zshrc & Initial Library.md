@@ -3,6 +3,7 @@ title: "zshrc & Initial Library"
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2024-01-31
 ---
 
 # zshrc & Initial Library

@@ -3,6 +3,7 @@ title: 'fatal: Authentication failed for https://github.com/{username}/{reposito
 tags: [problem solution]
 
 category: "Problem Solutions"
+date: 2023-05-12
 ---
 
 # fatal: Authentication failed for `https://github.com/{username}/{repository}.git/`

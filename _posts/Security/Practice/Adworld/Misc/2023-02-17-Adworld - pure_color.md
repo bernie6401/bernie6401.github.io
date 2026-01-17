@@ -3,6 +3,7 @@ title: Adworld - pure_color
 tags: [CTF, Misc, Adworld]
 
 category: "Security｜Practice｜Adworld｜Misc"
+date: 2023-02-17
 ---
 
 # Adworld - pure_color

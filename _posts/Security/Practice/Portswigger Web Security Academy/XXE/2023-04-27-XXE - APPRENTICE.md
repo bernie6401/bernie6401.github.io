@@ -3,6 +3,7 @@ title: XXE - APPRENTICE
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security｜Practice｜Portswigger Web Security Academy｜XXE"
+date: 2023-04-27
 ---
 
 # XXE - APPRENTICE

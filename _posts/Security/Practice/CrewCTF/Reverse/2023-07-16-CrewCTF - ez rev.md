@@ -3,6 +3,7 @@ title: CrewCTF - ez rev
 tags: [CTF, CrewCTF, Reverse]
 
 category: "Security｜Practice｜CrewCTF｜Reverse"
+date: 2023-07-16
 ---
 
 # CrewCTF - ez rev

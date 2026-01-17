@@ -3,6 +3,7 @@ title: BTLO - Follina
 tags: [Incident Response, BTLO]
 
 category: "Security｜Practice｜BTLO｜Incident Response"
+date: 2024-01-31
 ---
 
 # BTLO - Follina

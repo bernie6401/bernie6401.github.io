@@ -3,6 +3,7 @@ title: Simple Web 0x17(Lab - Baby Cat)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTU CS｜Web"
+date: 2023-02-06
 ---
 
 # Simple Web 0x17(Lab - Baby Cat)

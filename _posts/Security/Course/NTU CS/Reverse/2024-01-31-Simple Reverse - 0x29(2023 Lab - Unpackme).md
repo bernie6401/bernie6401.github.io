@@ -3,6 +3,7 @@ title: Simple Reverse - 0x29(2023 Lab - Unpackme)
 tags: [eductf, CTF, Reverse]
 
 category: "Security｜Course｜NTU CS｜Reverse"
+date: 2024-01-31
 ---
 
 # Simple Reverse - 0x29(2023 Lab - Unpackme)

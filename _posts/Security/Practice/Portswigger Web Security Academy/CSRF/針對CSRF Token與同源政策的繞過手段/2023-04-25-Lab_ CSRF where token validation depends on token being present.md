@@ -3,6 +3,7 @@ title: 'Lab: CSRF where token validation depends on token being present'
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security｜Practice｜Portswigger Web Security Academy｜CSRF｜針對CSRF Token與同源政策的繞過手段"
+date: 2023-04-25
 ---
 
 # Lab: CSRF where token validation depends on token being present

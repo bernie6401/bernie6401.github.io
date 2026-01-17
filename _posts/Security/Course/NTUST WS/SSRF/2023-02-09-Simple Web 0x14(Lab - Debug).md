@@ -3,6 +3,7 @@ title: Simple Web 0x14(Lab - Debug)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜SSRF"
+date: 2023-02-09
 ---
 
 # Simple Web 0x14(Lab - Debug)

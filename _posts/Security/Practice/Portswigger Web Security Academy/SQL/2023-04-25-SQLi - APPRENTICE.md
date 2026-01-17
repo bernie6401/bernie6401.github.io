@@ -3,6 +3,7 @@ title: SQLi - APPRENTICE
 tags: [Web, Portswigger Web Security Academy]
 
 category: "Security｜Practice｜Portswigger Web Security Academy｜SQL"
+date: 2023-04-25
 ---
 
 # SQLi - APPRENTICE

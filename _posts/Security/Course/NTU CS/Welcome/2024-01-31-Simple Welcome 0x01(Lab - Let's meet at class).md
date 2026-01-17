@@ -3,6 +3,7 @@ title: Simple Welcome 0x01(Lab - Let's meet at class)
 tags: [CTF, Crypto, eductf]
 
 category: "Security｜Course｜NTU CS｜Welcome"
+date: 2024-01-31
 ---
 
 # Simple Welcome 0x01(Lab - Let's meet at class)

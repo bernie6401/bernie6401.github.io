@@ -3,6 +3,7 @@ title: NTU Operating System Project 1
 tags: [NTU_OS, NTU]
 
 category: "Security｜Course｜NTU OS"
+date: 2022-11-14
 ---
 
 # NTU Operating System Project 1

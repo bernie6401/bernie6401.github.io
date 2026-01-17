@@ -3,6 +3,7 @@ title: "pwndbg installation problems"
 tags: [Tutorial]
 
 category: "Tutorial"
+date: 2024-01-31
 ---
 
 # pwndbg installation problems

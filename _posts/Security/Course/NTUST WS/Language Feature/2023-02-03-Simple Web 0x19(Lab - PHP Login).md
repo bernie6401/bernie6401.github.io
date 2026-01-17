@@ -3,6 +3,7 @@ title: Simple Web 0x19(Lab - PHP Login)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜Language Feature"
+date: 2023-02-03
 ---
 
 # Simple Web 0x19(Lab - PHP Login)

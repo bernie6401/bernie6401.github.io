@@ -3,6 +3,7 @@ title: HackTheBox
 tags: [CTF, hackthebox]
 
 category: "Security｜Practice｜HackTheBox"
+date: 2024-01-31
 ---
 
 # HackTheBox

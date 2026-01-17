@@ -3,6 +3,7 @@ title: PicoCTF - Most Cookies
 tags: [PicoCTF, CTF, Web]
 
 category: "Security｜Practice｜PicoCTF｜Web"
+date: 2024-02-07
 ---
 
 # PicoCTF - Most Cookies

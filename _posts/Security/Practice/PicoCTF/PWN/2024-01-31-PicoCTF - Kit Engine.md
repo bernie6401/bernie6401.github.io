@@ -3,6 +3,7 @@ title: PicoCTF - Kit Engine
 tags: [PicoCTF, CTF, PWN]
 
 category: "Security｜Practice｜PicoCTF｜PWN"
+date: 2024-01-31
 ---
 
 # PicoCTF - Kit Engine

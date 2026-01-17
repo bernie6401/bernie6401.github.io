@@ -3,6 +3,7 @@ title: Adworld - miao~
 tags: [Adworld, CTF, Misc]
 
 category: "Security｜Practice｜Adworld｜Misc"
+date: 2024-01-31
 ---
 
 # Adworld - miao~

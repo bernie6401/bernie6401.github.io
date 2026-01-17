@@ -3,6 +3,7 @@ title: Simple Crypto - 0x09(2023 Lab - signature)
 tags: [CTF, Crypto, eductf]
 
 category: "Security｜Course｜NTU CS｜Crypto"
+date: 2024-01-31
 ---
 
 # Simple Crypto - 0x09(2023 Lab - signature)

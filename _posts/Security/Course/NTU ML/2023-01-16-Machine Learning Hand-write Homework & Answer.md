@@ -3,6 +3,7 @@ title: Machine Learning Hand-write Homework & Answer
 tags: [NTU_ML, Machine Learning, NTU, Book]
 
 category: "Security｜Course｜NTU ML"
+date: 2023-01-16
 ---
 
 Machine Learning Hand-write Homework & Answer

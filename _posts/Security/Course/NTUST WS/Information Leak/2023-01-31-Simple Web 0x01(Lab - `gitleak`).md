@@ -3,6 +3,7 @@ title: Simple Web 0x01(Lab - `gitleak`)
 tags: [CTF, Web, NTUSTWS]
 
 category: "Security｜Course｜NTUST WS｜Information Leak"
+date: 2023-01-31
 ---
 
 # Simple Web 0x01(Lab - `gitleak`)

@@ -3,6 +3,7 @@ title: Simple Web 0x15(Lab - `Jinja`)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security｜Course｜NTUST WS｜SSTI"
+date: 2023-12-08
 ---
 
 # Simple Web 0x15(Lab - `Jinja`)

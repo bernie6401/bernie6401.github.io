@@ -3,6 +3,7 @@ title: Cryptography Lec 1(Overview) - Notes
 tags: [Cryptography, NTU]
 
 category: "Security｜Course｜NTU Crypto"
+date: 2023-03-20
 ---
 
 # Cryptography Lec 1(Overview) - Notes

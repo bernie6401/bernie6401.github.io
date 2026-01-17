@@ -3,6 +3,7 @@ title: PicoCTF - mus1c
 tags: [PicoCTF, CTF, General Skill]
 
 category: "Security｜Practice｜PicoCTF｜General Skills"
+date: 2023-06-19
 ---
 
 # PicoCTF - mus1c

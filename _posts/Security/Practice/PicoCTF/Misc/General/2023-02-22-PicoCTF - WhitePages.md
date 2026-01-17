@@ -3,6 +3,7 @@ title: PicoCTF - WhitePages
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜General"
+date: 2023-02-22
 ---
 
 # PicoCTF - WhitePages

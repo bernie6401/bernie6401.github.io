@@ -3,6 +3,7 @@ title: NISRA - Hidden?
 tags: [NISRA, CTF, Misc]
 
 category: "Security｜Practice｜NISRA｜Misc"
+date: 2024-01-31
 ---
 
 # NISRA - Hidden?

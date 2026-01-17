@@ -3,6 +3,7 @@ title: Misc Cheat Sheet
 tags: [Tools, CTF, Misc]
 
 category: "Tools｜CTF"
+date: 2024-01-31
 ---
 
 # Misc Cheat Sheet

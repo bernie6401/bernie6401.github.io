@@ -3,6 +3,7 @@ title: PicoCTF - shark on wire 1
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security｜Practice｜PicoCTF｜Misc｜Flow"
+date: 2023-02-21
 ---
 
 # PicoCTF - shark on wire 1
