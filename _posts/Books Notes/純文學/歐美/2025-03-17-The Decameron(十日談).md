@@ -1,12 +1,12 @@
 ---
-title: The Decameron (十日談)
+title: The Decameron(十日談)
 tags: [讀書心得]
 
 category: "Books Notes｜純文學｜歐美"
 date: 2025-03-17
 ---
 
-# The Decameron (十日談)
+# The Decameron(十日談)
 * 作者: Giovanni Boccaccio(喬凡尼·薄伽丘)
 * 原文出版日期: 1353
 * 譯者: 成維安

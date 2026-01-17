@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Absolutely True Diary of a Part-Time Indian(一個印第安少年的超真實日記)"
+title: "一個印第安少年的超真實日記"
 date: 2026-01-12
 category: "Books Notes｜青少年文學"
 tags: []
