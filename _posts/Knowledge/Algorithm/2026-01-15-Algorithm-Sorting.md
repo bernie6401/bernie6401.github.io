@@ -64,7 +64,7 @@ $$
 T(n)=\left\{
   \begin{array}{r}
     \theta (1),  \text{if} n \le c\\
-    aT(n\over{b})+D(n)+C(n), \text{otherwise}
+    aT({n\over b})+D(n)+C(n), \text{otherwise}
   \end{array}
 \right.
 $$
