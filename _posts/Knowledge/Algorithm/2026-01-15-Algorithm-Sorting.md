@@ -61,12 +61,12 @@ Divide-and-conquer 類型的問題常常可以分解成下面標準的形式
 * $C(n)$代表combine subproblem solution所花的時間
 
 $$
-T(n)=\left\{ 
+T(n)=\left\{
   \begin{array}{r}
-    \theta (1),  \text{if $n$ \le c}\ 
+    \theta (1),  \text{if $n$ \le c}\\
     aT(n\over b)+D(n)+C(n), \text{otherwise}
   \end{array}
-}\right.
+\right.
 $$
 
 ## Heap Sort
