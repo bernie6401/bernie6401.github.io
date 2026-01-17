@@ -61,29 +61,25 @@ if __name__ == "__main__":
                 content = lines[end_index+1:]
 
                 # 檢查是否已有 [category, date]，有的話就取代，否則加入
-                updated = False
+                category_updated = False
+                date_updated = False
                 for i, line in enumerate(front_matter):
                     if line.startswith("category:"):
                         origin_category = front_matter[i].split("category:")[1].strip().strip('"')
                         if origin_category != category:
                             front_matter[i] = f'category: "{category}"\n'
-                            updated = True
                             print(f"更新{filename}的分類: {origin_category} -> {category}")
-                            count += 1
-                            break
-                if not updated:
-                    front_matter.append(f'category: "{category}"\n')
-
-                updated = False
-                for i, line in enumerate(front_matter):
-                    if line.startswith("date:") and date:
+                        category_updated = True
+                    elif line.startswith("date:") and date:
                         origin_date = front_matter[i].split("date:")[1].strip()
                         if origin_date != date:
                             front_matter[i] = f'date: {date}\n'
-                            updated = True
                             print(f"更新{filename}的日期: {origin_date} -> {date}")
-                            break
-                if not updated:
+                        date_updated = True
+                
+                if not category_updated:
+                    front_matter.append(f'category: "{category}"\n')
+                if not date_updated:
                     front_matter.append(f'date: {date}\n')
 
                 new_lines = ["---\n"] + front_matter + ["---\n"] + content
