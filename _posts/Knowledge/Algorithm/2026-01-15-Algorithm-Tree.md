@@ -16,12 +16,6 @@ comments: true
 |Operation|BST|RBT|
 |---|---|---|
 |Search<br>Insert<br>Delete<br>Minimum<br>Maximum<br>Successor<br>Predecessor|$O(h)$|$O(lgn)$|
-|Insert|$O(h)$|$O(lgn)$|
-|Delete|$O(h)$|$O(lgn)$|
-|Minimum|$O(h)$|$O(lgn)$|
-|Maximin|$O(h)$|$O(lgn)$|
-|Successor|$O(h)$|$O(lgn)$|
-|Predecessor|$O(h)$|$O(lgn)$|
 
 
 ## Binary Search Tree(BST)
