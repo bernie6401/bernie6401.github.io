@@ -32,7 +32,6 @@ if __name__ == "__main__":
     POSTS_DIR = "_posts/"
     # POSTS_DIR = "_posts/Test"
     date_prefix_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}-")
-    count = 0
 
     # 確保資料夾存在
     if not os.path.isdir(POSTS_DIR):
@@ -85,4 +84,3 @@ if __name__ == "__main__":
                 new_lines = ["---\n"] + front_matter + ["---\n"] + content
 
                 file_io(io="w", new_lines=new_lines)
-    print(f"✅ 已更新：{count}")
