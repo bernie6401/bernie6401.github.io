@@ -93,6 +93,36 @@ else let C be a new A.rows * B.columns matrix
         \right.
         $$
     * 因為matrix chain是linearly ordered並且不能rearranged(每一種矩陣都要存在並且順序不能被改變)，所以可以使用DP
+### 利用DP解決
+
+$$
+m[i,j] = \left\{
+\begin{array}{l}
+0, \text{if}\ i = j \\
+min\limits_{i\le k\ln j}\{m[i,k] + m[k+1, j] + p_{i-1}p_kP_j\}, \text{if}\ i \ln j
+\end{array}
+\right.
+$$
+
+<img src="/assets/posts/Algorithm/DP-Matrix-Chain-Example.png" width=300>
+
+```c++
+Matrix-Chain Order(p) // p p 0 , p 1 , .., p n
+n = p.length - 1
+Let m[1..n, 1..n] and s[1..n-1, 2..n] be new tables
+for i = 1 to n
+    m[i,i] = 0
+for l = 2 to n // l is the chain length
+    for i = 1 to n - l + 1
+        j = i + l - 1
+        m[i,j] = ∞
+        for k = i to j - 1
+            q = m[i,k] + m[k+1, j] + p_[i-1] * p_[k] * p_[j]
+            if q < m[i,j]
+                m[i,j] = q
+                s[i,j] = k
+return m and s
+```
 
 ## Longest Common Subsequence
 可以拿來做DNA比對
