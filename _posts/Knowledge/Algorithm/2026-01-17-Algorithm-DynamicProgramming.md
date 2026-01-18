@@ -82,7 +82,7 @@ else let C be a new A.rows * B.columns matrix
     * $(A_1A_2)A_3$: $4*2*5+4*5*1=60$
     * $A_1(A_2A_3)$: $2*5*1+4*2*1=18$
 * 問題: 要怎麼知道一個Matrix-Chain怎麼乘會讓乘法的operations數量最少?
-    * BruteForce: $P(n)$代表$n$個矩陣相乘的方法有多少種，$\Omega({{4^n}\over {n^3/2}})$
+    * BruteForce: $P(n)$代表$n$個矩陣相乘的方法有多少種，$\Omega({4^n\over {n^3/2}})$
         $$
         P(n) = \left\{
         \begin{array}{l}
