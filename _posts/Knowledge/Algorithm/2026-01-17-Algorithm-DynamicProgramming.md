@@ -49,8 +49,8 @@ comments: true
 $$
 f_i[j] = \left\{
 \begin{array}{l}
-   e_1 + a_{1,1}, \text{if} j = 1 \\
-   min(f_1[j-1] + a_1,j,f_2[j-1] + t_{2,j-1} + a_{1,j}), \text{if} j \ge 2
+   e_1 + a_{1,1}, \text{if}\ j = 1 \\
+   min(f_1[j-1] + a_1,j,f_2[j-1] + t_{2,j-1} + a_{1,j}), \text{if}\ j \ge 2
 \end{array}
 \right.
 $$
