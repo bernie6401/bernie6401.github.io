@@ -60,7 +60,7 @@ $$
 * 前面的$f$已經紀錄到$S_{i,j}$的最短路徑是多少，可是到底是從哪一條生產線來的不知道，所以需要另外一個table來紀錄，這就是$I$這個table存在的目的，大小是x*(n-1)
 
 ## Matrix-chain subsequence (矩陣相乘以及相乘的順序)
-* $A$是$pxq$ matrix；$B$是$qxr$ matrix；$C=AB$是$pxr$: $C[i,j]=\sum\limits_{k = 1}^q{A[i,k]B[k,j]}$
+* $A$是pxq matrix；$B$是qxr matrix；$C=AB$是pxr: $C[i,j]=\sum\limits_{k = 1}^q{A[i,k]B[k,j]}$
 * Time Complexity: $O(pqr)$
 
 ```c++
@@ -72,22 +72,23 @@ else let C be a new A.rows * B.columns matrix
         for j = 1 to B.columns
             c_ij = 0
             for k = 1 to A.columns
-                c_ij = c_ij + a_ikb_kj
+                c_ij = c_ij + a_ik * b_kj
     return C
 ```
 
 ### 3個矩陣以上就會有順序的問題
 * Objective: 使乘法數量越少越好
 * 例子: $A_1$: 4x2;$A_1$: 2x6;$A_3$: 5x1
-    * $(A_1A_2)A_3$: $4*2*5+4*5*1=60$
-    * $A_1(A_2A_3)$: $2*5*1+4*2*1=18$
+    * $(A_1A_2)A_3$: 4\*2\*5+4\*5\*1=60
+    * $A_1(A_2A_3)$: 2\*5\*1+4\*2\*1=18
 * 問題: 要怎麼知道一個Matrix-Chain怎麼乘會讓乘法的operations數量最少?
-    * BruteForce: $P(n)$代表$n$個矩陣相乘的方法有多少種，$\Omega({4^n\over {n^3/2}})$
+    * BruteForce: $P(n)$代表$n$個矩陣相乘的方法有多少種，$\Omega({4^n\over {n^{3/2}}})$
+
         $$
         P(n) = \left\{
         \begin{array}{l}
-        1, \text{if} n = 1 \\
-        \sum\limits_{k=1}^{n-1}{P(k)P(n-k)}, \text{if} n \ge 2
+        1, \text{if}\ n = 1 \\
+        \sum\limits_{k=1}^{n-1}{P(k)P(n-k)}, \text{if}\ n \ge 2
         \end{array}
         \right.
         $$
