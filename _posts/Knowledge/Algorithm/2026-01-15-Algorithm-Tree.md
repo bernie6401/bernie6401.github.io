@@ -125,16 +125,103 @@ comments: true
 
 ```c++
 Left-Rotate(T,x)
-y = x.right
-x.right = y.left
+y = x.right // Set y
+x.right = y.left // Turn y's left subtree into x 's right subtree
 if y.left ≠ T.nil
     y.left.p = x
-y.p = x.p
+y.p = x.p // Link x 's parent to y
 if x.p == T.nil
     T.root = y
 else if x == x.p.left // 代表x是left child
     x.p.left = y
 else x.p.right = y
-y.left = x
+y.left = x // Put x on y 's left
 x.p = y
 ```
+<img src="/assets/posts/Algorithm/RBT-Rotation.png" width=300>
+
+### Insertion
+* RB-Insert
+    <img src="/assets/posts/Algorithm/RB-Insert.png" width=300>
+    ```c++
+    RB-Insert(T,z)
+    y = T.nil
+    x = T.root
+    while x ≠ T.nil
+        y = x
+        if z.key < x.key
+            x = x.left
+        else x = x.right
+    z.p = y
+    if y == T.nil
+        T.root = z
+    elseif z.key < y.key
+        y.left = z
+    else y.right = z
+    z.left = T.nil
+    z.right = T.nil
+    z.color = RED
+    RB-Insert-Fixup(T.z)
+    ```
+
+* RB-Insert-Fixup
+    <img src="/assets/posts/Algorithm/RB-Tree Insertion Fixup.png" width=300>
+    ```c++
+    RB-Insert-Fixup(T, z)
+    while z.p.color == RED
+        if z.p == z.p.p.left
+            y = z.p.p.right
+            if y.color == RED
+                z.p.color = BLACK   // case 1
+                y.color = BLACK     // case 1
+                z.p.p.color = RED   // case 1
+                z = z.p.p           // case 1
+            else
+                if z == z.p.right
+                    z = z.p             // case 2
+                    Left-Rotate(T, z)   // case 2
+                z.p.color = BLACK           // case 3
+                z.p.p.color = RED           // case 3
+                Right-Rotate(T, z.p.p)      // case 3
+        else (same as then clause with "right" and "left" exchanged)
+    T.root.color = BLACK
+    ```
+
+### Delete
+* z有一個chile
+    ```c++
+    RB-Transplant(T , u, v)
+    if u.p == T.nil
+        T.root = v
+    elseif u == u.p.left
+        u.p.left = v
+    else u.p.right = v
+        v.p = u.p
+    ```
+
+* z有兩個children
+    ```c++
+    RB-Delete(T ,z)
+    y = z
+    y-original-color = y.color
+    if z.left == T.nil // case A
+        x = z.right
+        RB-Transplant(T, z, z.right)
+    elseif z.right == T.nil // case B
+        x = z.left
+        RB-Transplant(T, z, z.left)
+    else y = Tree-Minimum(z.right)
+        y-original-color = y.color
+        x = y.right
+        if y.p == z // case C
+            x.p = y
+        else RB-Transplant(T, y, y.right)
+            y.right = z.right // case D
+            y.right.p = y
+        Transplant(T, z, y) // cases C, D
+        y.left = z.left
+        y.left.p = y
+        y.color = z.color
+    if y original color == BLACK
+        RB-Delete-Fixup(T, x)
+    ```
