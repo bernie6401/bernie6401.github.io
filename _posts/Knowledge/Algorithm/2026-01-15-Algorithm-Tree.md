@@ -158,6 +158,9 @@ x.p = y
     elseif z.key < y.key
         y.left = z
     else y.right = z
+
+    /*---以上部分都和Tree-Insert一樣---*/
+
     z.left = T.nil
     z.right = T.nil
     z.color = RED
@@ -165,6 +168,7 @@ x.p = y
     ```
 
 * RB-Insert-Fixup
+    基本上就是一邊看課本範例一邊對照pseudo code的case，就大概知道邏輯怎麼跑，但要說他的case是基於什麼pattern，我沒有寫筆記，代表上課時也沒有特別講
     <img src="/assets/posts/Algorithm/RB-Tree Insertion Fixup.png" width=300>
     ```c++
     RB-Insert-Fixup(T, z)
