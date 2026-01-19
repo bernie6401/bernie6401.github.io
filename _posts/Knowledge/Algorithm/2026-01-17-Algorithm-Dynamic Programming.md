@@ -94,13 +94,14 @@ else let C be a new A.rows * B.columns matrix
         \right.
         $$
     * 因為matrix chain是linearly ordered並且不能rearranged(每一種矩陣都要存在並且順序不能被改變)，所以可以使用DP
+
 ### 利用DP解決
 
 $$
 m[i,j] = \left\{
 \begin{array}{l}
 0, \text{if}\ i = j \\
-min\limits_{i\le k\ln j}\{m[i,k] + m[k+1, j] + p_{i-1}p_kP_j\}, \text{if}\ i \ln j
+min\{m[i,k] + m[k+1, j] + p_{i-1}p_kp_j\}, \text{if}\ i \ln j
 \end{array}
 \right.
 $$
