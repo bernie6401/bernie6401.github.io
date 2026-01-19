@@ -105,7 +105,7 @@ $$
 m[i,j] = \left\{
 \begin{array}{l}
 0, \text{if}\ i = j \\
-min\limits_{i\le k\lt j}\{m[i,k] + m[k+1, j] + p_{i-1}p_kp_j\}, \text{if}\ i \lt j
+min\limits_{i}\{m[i,k] + m[k+1, j] + p_{i-1}p_kp_j\}, \text{if}\ i \lt j
 \end{array}
 \right.
 $$
