@@ -233,10 +233,14 @@ x.p = y
 
 ### Deleteion-Color-Fixup
 以下的case前提是x是x.p的left child
-1. 
-2. 
-3. 
-4. 
+1. Case 1: The doubly black node x has a red sibling w.
+2.Case 2: x has a black sibling and two black nephews.
+3. Case 3: x has a black sibling, and its left nephew is red and its right
+nephew is black.
+4. Case 4: x has a black sibling, and its right nephew is red (left nephew
+can be any color).
+
+<img src="/assets/posts/Algorithm/RB-Tree-Color-Fixup-Case.jpg" alt="" width=300>
 
 ```c++
 RB-Delete-Fixup(T,x)
