@@ -96,6 +96,10 @@ else let C be a new A.rows * B.columns matrix
     * 因為matrix chain是linearly ordered並且不能rearranged(每一種矩陣都要存在並且順序不能被改變)，所以可以使用DP
 
 ### 利用DP解決
+這也很簡單，只要自己推過一層就會了，也是有兩個table一個記錄矩陣相乘的operations數量，另外一層則紀錄從哪裡切會是最小值。屬於bottom-up的想法
+* 一開始先計算$A_1A_2$,$A_2A_3$,...,$A_{n-1}A_n$共$n-1$各是多少
+* 然後計算$A_1A_2A_3$,$A_2A_3A-4$,...,$A_{n-2}A_{n-1}A_n$共$n-2$各是多少
+* 以此類推就可以建立上述的兩個table，個人認為是**比較聰明的brute force**
 
 $$
 m[i,j] = \left\{
