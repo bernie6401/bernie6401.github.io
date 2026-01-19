@@ -95,7 +95,7 @@ else let C be a new A.rows * B.columns matrix
         $$
     * 因為matrix chain是linearly ordered並且不能rearranged(每一種矩陣都要存在並且順序不能被改變)，所以可以使用DP
 
-### 利用DP解決
+### 利用DP解決-Bottom-up
 這也很簡單，只要自己推過一層就會了，也是有兩個table一個記錄矩陣相乘的operations數量，另外一層則紀錄從哪裡切會是最小值。屬於bottom-up的想法
 * 一開始先計算$A_1A_2$,$A_2A_3$,...,$A_{n-1}A_n$共$n-1$各是多少
 * 然後計算$A_1A_2A_3$,$A_2A_3A-4$,...,$A_{n-2}A_{n-1}A_n$共$n-2$各是多少
@@ -105,7 +105,7 @@ $$
 m[i,j] = \left\{
 \begin{array}{l}
 0, \text{if}\ i = j \\
-\min\limits_{i\le k\ln j}\{m[i,k] + m[k+1, j] + p_{i-1}p_kp_j\}, \text{if}\ i \lt j
+\min\limits_{i\le k\lt j}\{m[i,k] + m[k+1, j] + p_{i-1}p_kp_j\}, \text{if}\ i \lt j
 \end{array}
 \right.
 $$
@@ -128,6 +128,61 @@ for l = 2 to n // l is the chain length
                 m[i,j] = q
                 s[i,j] = k
 return m and s
+```
+
+```c++
+Print-Optimal-Parens(s, i, j)
+if i == j
+    print “A-i”
+else print “(“
+    Print-Optimal-Parens(s, i, s[i, j])
+    Print-Optimal-Parens(s, s[i, j] + 1, j)
+    Print “)“
+```
+
+### 利用DP解決-Top-Down Recursive Matrix-Chain Order(不推薦)
+* 使用這個邏輯解題會有很多問題被重複解，很浪費時間，DP還是建議用bottom-up
+* Time: $\Omega (2^n)$: $\sum\limits_{k=1}^{n-1}(T(k)+T(n-k)+1)
+
+```c++
+Recursive-Matrix-Chain(p, i, j)
+if i == j
+    return 0
+m[i, j] = ∞
+for k = i to j -1
+    q = Recursive-Matrix-Chain(p, i, k) + Recursive-Matrix-Chain(p, k+1, j) + p[i-1]p[k]p[j]
+    if q < m[i,j]
+        m[i,j] = q
+return m[i,j]
+```
+
+
+### 利用DP解決-Top-Down Memorization Matrix-Chain Order
+* 把subproblem的解記憶起來就不會發生重複解的問題
+* Space: $O(n^2)$
+* Time: $O(n^3)$
+
+```c++
+Memoized-Matrix-Chain(p) // p = <p0, p1, .., pn>
+n = p.length - 1
+let m[1..n, 1..n] be a new table
+for i = 1 to n
+    for j = i to n
+        m[i, j] = ∞
+return Lookup-Chain(m, p,
+```
+
+```c++
+Lookup-Chain(m, p, i, j)
+if m[i, j] < ∞
+    return m[i, j]
+if i == j
+    m[ i, j] = 0
+else for k = i to j -1
+    q = Lookup-Chain(m, p, i, k) + Lookup-Chain(m, p, k+1, j) + pi-1pkpj
+    if q < m[i, j]
+        m[i, j] = q
+return m[i, j]
 ```
 
 ## Longest Common Subsequence
