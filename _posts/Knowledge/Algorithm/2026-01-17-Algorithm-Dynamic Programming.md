@@ -186,7 +186,8 @@ return m[i, j]
 ```
 
 ## Longest Common Subsequence
-可以拿來做DNA比對
+### DNA比對例子
+* 
 
 ## Optimal binary search trees
 
