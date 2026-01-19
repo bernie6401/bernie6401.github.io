@@ -56,6 +56,7 @@ f_i[j] = \left\{
 $$
 
 <img src="/assets/posts/Algorithm/DP-Assembly-line-Scheduling-Fastest-Way-Psuedo Code.png" width=300>
+* 仔細看pseudo code還蠻簡單的，就只是實作出前面寫的formula而已
 * asterisk symbol代表optimal solution
 * 前面的$f$已經紀錄到$S_{i,j}$的最短路徑是多少，可是到底是從哪一條生產線來的不知道，所以需要另外一個table來紀錄，這就是$I$這個table存在的目的，大小是x*(n-1)
 
