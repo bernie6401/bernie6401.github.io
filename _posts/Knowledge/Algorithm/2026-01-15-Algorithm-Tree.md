@@ -194,6 +194,7 @@ x.p = y
 ### Delete
 * z有一個chile
     ```c++
+    /*---和Tree-Transplant幾乎一樣---*/
     RB-Transplant(T , u, v)
     if u.p == T.nil
         T.root = v
@@ -229,3 +230,37 @@ x.p = y
     if y original color == BLACK
         RB-Delete-Fixup(T, x)
     ```
+
+### Deleteion-Color-Fixup
+以下的case前提是x是x.p的left child
+1. 
+2. 
+3. 
+4. 
+
+```c++
+RB-Delete-Fixup(T,x)
+while x ≠ T.root and x.color == BLACK
+    if x == x.p.left
+        w = x.p.right
+        if w.color == RED
+            w.color = BLACK     // Case 1
+            x.p.color = RED       // Case 1
+            Left-Rotate(T, x.p)  // Case 1
+            w = x.p.right            // Case 1
+        If w.left.color == BLACK and w.right.color == BLACK
+            w.color = RED // Case 2
+            x = x.p             // Case 2
+        else if w.right.color == BLACK
+            w.left.color = BLACK // Case 3
+            w.color = RED             // Case 3
+            Right-Rotate(T, w)      // Case 3
+            w = x.p.right                // Case 3
+            w.color = x.p.color        // Case 4
+            x.p.color = BLACK        // Case 4
+            w.right.color = BLACK // Case 4
+            Left-Rotate(T, x.p)        // Case 4
+            x = T.root
+    else (same as then clause with "right" and "left" exchanged)
+x.color = BLACK
+```
