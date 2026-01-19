@@ -105,7 +105,7 @@ $$
 m[i,j] = \left\{
 \begin{array}{l}
 0, \text{if}\ i = j \\
-min\limits_{i}\{m[i,k] + m[k+1, j] + p_{i-1}p_kp_j\}, \text{if}\ i \lt j
+\min\limits_{i\le k\ln j}\{m[i,k] + m[k+1, j] + p_{i-1}p_kp_j\}, \text{if}\ i \lt j
 \end{array}
 \right.
 $$
@@ -113,7 +113,7 @@ $$
 <img src="/assets/posts/Algorithm/DP-Matrix-Chain-Example.png" width=300>
 
 ```c++
-Matrix-Chain Order(p) // p p 0 , p 1 , .., p n
+Matrix-Chain Order(p)
 n = p.length - 1
 Let m[1..n, 1..n] and s[1..n-1, 2..n] be new tables
 for i = 1 to n
