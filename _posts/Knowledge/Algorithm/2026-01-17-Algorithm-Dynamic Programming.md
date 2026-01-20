@@ -233,8 +233,22 @@ return c and b
 
 <img src="/assets/posts/Algorithm/DP-LCS-Example.jpg" alt="" width=300>
 
+* Input: $X=<A,B,C,B,D,A,B>, Y=<B,D,C,A,B,A>$
+* Output: $LCS=<B,C,B,A>$
 * 從上到下或從左到右填入
 * 當$A\ne B$，去看$j-1$和$i-1$誰大，兩者都是零就直接填上方的零，箭頭是為了方便trace，只要看到左斜的arrow，就把對應的字母圈起來
+
+```c++
+Print-LCS(b, X, i, j) // 只是把答案print出來
+if i == 0 or j == 0
+    return
+if b[i, j] == "↖"
+    Print-LCS(b, X, i-1, j-1)
+    print x[i]
+elseif b[i, j] == "↑"
+    Print-LCS(b, X, i-1, j)
+else Print-LCS(b, X, i, j-1)
+```
 
 
 ## Optimal binary search trees
