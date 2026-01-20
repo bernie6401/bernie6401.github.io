@@ -187,7 +187,21 @@ return m[i, j]
 
 ## Longest Common Subsequence
 ### DNA比對例子
-* 
+* Input: $X_m=<x_1,x_2,...,x_m>$, $Y_n=<y_1,y_2,...,y_n>$
+* Output: $$Z_k=<z_1,z_2,...,z_k>$: LCS of $X_m$ and $Y_n$
+#### 利用DP解決
+* Case 1: $x_m=y_n$代表兩個sequence的最後一個element是一樣就可以直接放到$z$中，並且繼續往前比對$X_{m-1},Y_{n-1}$
+* Case 2: $x_m\ne y_n$代表兩個sequence的最後一個element不一樣，那就看要減少哪一個sequence，$X_{m-1}$或$Y_{n-1}$
+
+$$
+c[i,j] = \left\{
+\begin{array}{l}
+0, \text{if}\ i = 0\text{or}\ j=0 \\
+c[i-1,j-1], \text{if}\ x_i \eq y_i, j\lt 0 \\
+\max(c[i,j-1],c[i-1,j], \text{if}\ x_i \ne y_i, j\lt 0
+\end{array}
+\right.
+$$
 
 ## Optimal binary search trees
 
