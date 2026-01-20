@@ -189,7 +189,8 @@ return m[i, j]
 ### DNA比對例子
 * Input: $X_m=<x_1,x_2,...,x_m>$, $Y_n=<y_1,y_2,...,y_n>$
 * Output: $$Z_k=<z_1,z_2,...,z_k>$: LCS of $X_m$ and $Y_n$
-#### 利用DP解決
+#### 利用DP解決-Bottom-Up
+* Time: $O(mn)$就是二維table的大小
 * Case 1: $x_m=y_n$代表兩個sequence的最後一個element是一樣就可以直接放到$Z$中，並且繼續往前比對$X_{m-1},Y_{n-1}$
 * Case 2: $x_m\ne y_n$代表兩個sequence的最後一個element不一樣
     * Case 2-1: 則$z_k\ne x_m$代表$Z$是$X_{m-1}$和$Y$的LCS
