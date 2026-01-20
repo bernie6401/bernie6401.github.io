@@ -49,21 +49,24 @@ comments: true
 * Worst Case: $\Omega (2^n)$: 暴力法
 
 ### 解法
-要找到$S_{1,n}$之前的最佳解，需要從入口到$S_{1,n-1}$之前的最佳解，把之前的路徑用divide and conquer解就可以了。
-* $f_i[j]$代表從起點到$S_{i,j}$最短的時間，目前先考慮第一條生產線，如果$j$只有一個那就只有一種走法；大於兩條之後，可以考慮換生產線，當然要加上轉換的時間，這個是用table的方式呈現，分別紀錄$f_{1,1},f_{1,2},f_{1,3},...,f_{1,n}$和$f_{2,1},f_{2,2},f_{2,3},...,f_{2,n}$分別是多少，以本例子來說是一個2*n的table size
-$$
-f_i[j] = \left\{
-\begin{array}{l}
-   e_1 + a_{1,1}, \text{if}\ j = 1 \\
-   min(f_1[j-1] + a_1,j,f_2[j-1] + t_{2,j-1} + a_{1,j}), \text{if}\ j \ge 2
-\end{array}
-\right.
-$$
+* 先找到Optimal Sustructure
+    要找到$S_{1,n}$之前的最佳解，需要從入口到$S_{1,n-1}$之前的最佳解，把之前的路徑用divide and conquer解就可以了。
+* 先找到Overlapping Subproblem
+    * $f_i[j]$代表從起點到$S_{i,j}$最短的時間，目前先考慮第一條生產線，如果$j$只有一個那就只有一種走法；大於兩條之後，可以考慮換生產線，當然要加上轉換的時間，這個是用table的方式呈現，分別紀錄$f_{1,1},f_{1,2},f_{1,3},...,f_{1,n}$和$f_{2,1},f_{2,2},f_{2,3},...,f_{2,n}$分別是多少，以本例子來說是一個2*n的table size
 
-<img src="/assets/posts/Algorithm/DP-Assembly-line-Scheduling-Fastest-Way-Psuedo Code.png" width=300>
-* 仔細看pseudo code還蠻簡單的，就只是實作出前面寫的formula而已
-* asterisk symbol代表optimal solution
-* 前面的$f$已經紀錄到$S_{i,j}$的最短路徑是多少，可是到底是從哪一條生產線來的不知道，所以需要另外一個table來紀錄，這就是$I$這個table存在的目的，大小是x*(n-1)
+    $$
+    f_i[j] = \left\{
+    \begin{array}{l}
+       e_1 + a_{1,1}, \text{if}\ j = 1 \\
+       min(f_1[j-1] + a_1,j,f_2[j-1] + t_{2,j-1} +  a_{1,j}), \text{if}\ j \ge 2
+    \end{array}
+    \right.
+    $$
+* 實際的Pseudo Code
+    <img src="/assets/posts/Algorithm/DP-Assembly-line-Scheduling-Fastest-Way-Psuedo Code.png" width=300>
+    * 仔細看pseudo code還蠻簡單的，就只是實作出前面寫的formula而已
+    * asterisk symbol代表optimal solution
+    * 前面的$f$已經紀錄到$S_{i,j}$的最短路徑是多少，可是到底是從哪一條生產線來的不知道，所以需要另外一個table來紀錄，這就是$I$這個table存在的目的，大小是x*(n-1)
 
 ## Matrix-chain subsequence (矩陣相乘以及相乘的順序)
 * $A$是pxq matrix；$B$是qxr matrix；$C=AB$是pxr: $C[i,j]=\sum\limits_{k = 1}^q{A[i,k]B[k,j]}$
