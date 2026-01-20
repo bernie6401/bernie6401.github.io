@@ -267,6 +267,15 @@ else Print-LCS(b, X, i, j-1)
 
 ### 利用DP解決
 
+$$
+w[i,j] = \left\{
+\begin{array}{l}
+q_{i-1}, \text{if}\ j = i-1 \\
+w[i,j-1]+p_j+q_j, \text{if}\ i\lt j
+\end{array}
+\right.
+$$
+
 ```c++
 Optimal-BST(p, q, n)
 let e[1..n+1, 0..n], w[1..n+1, 0..n], and root[1..n, 1..n] be new tables
