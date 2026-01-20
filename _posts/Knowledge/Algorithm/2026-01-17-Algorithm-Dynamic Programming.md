@@ -207,6 +207,30 @@ $$
 * $c[i,j]$代表$X_i$和$Y_j$的LCS長度
 * 當某一個sequence為零，則LCS一定為零
 
+```c++
+LCS-Length(X,Y)
+m = X.length
+n = Y.length
+let b[1..m, 1..n] and c[0..m, 0..n] be new tables
+for i = 1 to m
+    c[i, 0] = 0
+for j = 0 to n
+    c[0, j] = 0
+for i = 1 to m
+    for j = 1 to n
+        if x[i] == y[j]
+            c[i, j] = c[i-1, j-1]+1
+            b[i, j] = "↖"
+        elseif c[i-1,j] >= c[i, j-1]
+            c[i,j] = c[i-1, j]
+            b[i, j] = "↑" 
+        else
+            c[i, j] = c[i, j-1]
+            b[i, j] = "←"
+return c and b
+```
+
+
 ## Optimal binary search trees
 
 ## Maximum planar subset of chords
