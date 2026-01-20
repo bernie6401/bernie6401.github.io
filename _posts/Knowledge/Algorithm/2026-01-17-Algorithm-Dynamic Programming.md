@@ -231,6 +231,11 @@ for i = 1 to m
 return c and b
 ```
 
+<img src="/assets/posts/Algorithm/DP-LCS-Example.jpg" alt="" width=300>
+
+* 從上到下或從左到右填入
+* 當$A\ne B$，去看$j-1$和$i-1$誰大，兩者都是零就直接填上方的零，箭頭是為了方便trace，只要看到左斜的arrow，就把對應的字母圈起來
+
 
 ## Optimal binary search trees
 
