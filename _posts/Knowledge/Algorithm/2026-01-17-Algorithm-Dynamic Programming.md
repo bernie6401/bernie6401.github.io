@@ -268,25 +268,30 @@ else Print-LCS(b, X, i, j-1)
 ### 利用DP解決-Recurrence
 核心邏輯是如果BST $T$有一個subtree $T'=<k_i,...,k_j>$，則這個$T'$對於$k_i,...,k_j,d_{i-1},...,d_j$也一定要是optimal，所以其實和之前的DP問題一樣，例如Matrix-chain subsequence，都是用金字塔表格
 
-* $e[i,j]$代表$k_i$到$k_j$的optimal binary search tree的期望值(預期搜尋成本)
-* Objective: 要慢慢推導到$e[1,n]$
+#### 總共需要4個table
+* 原本儲存找的到和找不到key的機率$P,Q$
+* $w[i,j]$: 表示「子問題區間 i 到 j 的所有搜尋機率總和」，用來快速計算期望成本
 
-$$
-e[i,j] = \left\{
-\begin{array}{l}
-q_{i-1}, \text{if}\ j = i-1 \\
-\min\limits_{i\le r\le j}\{e[i,j-1]+e[r+1,j]+w(i,j)\}, \text{if}\ i\lt j
-\end{array}
-\right.
-$$
-$$
-w[i,j] = \left\{
-\begin{array}{l}
-q_{i-1}, \text{if}\ j = i-1 \\
-w[i,j-1]+p_j+q_j, \text{if}\ i\lt j
-\end{array}
-\right.
-$$
+    $$
+    w[i,j] = \left\{
+    \begin{array}{l}
+    q_{i-1}, \text{if}\ j = i-1 \\
+    w[i,j-1]+p_j+q_j, \text{if}\ i\lt j
+    \end{array}
+    \right.
+    $$
+* $e[i,j]: $代表$k_i$到$k_j$的optimal binary search tree的期望值(預期搜尋成本)
+
+    $$
+    e[i,j] = \left\{
+    \begin{array}{l}
+    q_{i-1}, \text{if}\ j = i-1 \\
+    \min\limits_{i\le r\le j}\{e[i,j-1]+e[r+1,j]+w(i,j)\}, \text{if}\ i\lt j
+    \end{array}
+    \right.
+    $$
+* $root[i,j]$: 代表在$k_i,...,k_j$中有一個$k_r$最適合當作root達到optimal
+* Objective: 要慢慢推導到$e[1,n]$
 
 ```c++
 Optimal-BST(p, q, n)
