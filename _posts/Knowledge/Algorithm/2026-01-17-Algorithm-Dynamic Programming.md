@@ -265,13 +265,17 @@ else Print-LCS(b, X, i, j-1)
 
 <img src="/assets/posts/Algorithm/DP-OBST-Example.jpg" alt="" width=300>
 
-### 利用DP解決
+### 利用DP解決-Recurrence
+核心邏輯是如果BST $T$有一個subtree $T'=<k_i,...,k_j>$，則這個$T'$對於$k_i,...,k_j,d_{i-1},...,d_j$也一定要是optimal，所以其實和之前的DP問題一樣，例如Matrix-chain subsequence，都是用金字塔表格
+
+* $e[i,j]$代表$k_i$到$k_j$的optimal binary search tree的期望值(預期搜尋成本)
+* Objective: 要慢慢推導到$e[1,n]$
 
 $$
 e[i,j] = \left\{
 \begin{array}{l}
 q_{i-1}, \text{if}\ j = i-1 \\
-\min\limits_{i\le r\lej}\{e[i,j-1]+e[r+1,j]+w(i,j)\}, \text{if}\ i\lt j
+\min\limits_{i\le r\le j}\{e[i,j-1]+e[r+1,j]+w(i,j)\}, \text{if}\ i\lt j
 \end{array}
 \right.
 $$
