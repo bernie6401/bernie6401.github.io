@@ -199,7 +199,7 @@ return m[i, j]
 $$
 c[i,j] = \left\{
 \begin{array}{l}
-0, \text{if}\ i = 0\text{or}\ j=0 \\
+0, \text{if}\ i = 0\ \text{or}\ j=0 \\
 c[i-1,j-1], \text{if}\ x_i = y_i, j\lt 0 \\
 \max(c[i,j-1],c[i-1,j], \text{if}\ x_i \ne y_i, j\lt 0
 \end{array}
