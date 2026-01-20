@@ -250,7 +250,23 @@ elseif b[i, j] == "↑"
 else Print-LCS(b, X, i, j-1)
 ```
 
-
 ## Optimal binary search trees
+* Input:
+    * $K=<k_1,k_2,...,k_n>$: 給定一個已經sorted的不同的key，可以想像成英文字典的概念
+    * 每個key都會有找的到的機率$P=<p_1,p_2,...,p_n>$
+    * 而$D=<d_1,d_2,...,d_n>$代表沒有出現在字典的那些key
+    * 對於那些沒有在字典的key也會有找不到的機率$Q=<q_1,q_2,...,q_n>$
+* Objected: 找搜尋成本最低的binary search tree
+    * 成本計算方式: 算找的到的key的期望值 + 找不到的key的期望值，用深度+1的方式當作成本
+
+    $$
+    E[\text{search cost in }T]=\sum\limits_{i=1}^n (\text{depth}_T(k_i)+1*p_i+\sum\limits_{i=0}^n (\text{depth}_T(d_i)+1*q_i
+    $$
+
+|i|1|2|3|4|5|
+|---|---|---|---|---|---|
+|$p_i$||0.15|0.10|0.05|0.10|0.20|
+|$q_i$|0.05|0.10|0.05|0.05|0.05|0.10|
+
 
 ## Maximum planar subset of chords
