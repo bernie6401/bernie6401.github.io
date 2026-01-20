@@ -14,7 +14,7 @@ comments: true
 * Divide-and-Conquer： 子問題彼此獨立、不重複
 * Dynamic Programming： 子問題會重複出現，要記下來避免重算
 * 使用DP的時機: 線性的排序法 + 無法重新排列
-<span background-color="yellow">
+<span style="background-color: yellow">
     * Optimal Substructure: 整體最佳解可以由子問題的最佳解組合而成
     * Overlapping Subproblem: 同一個子問題會被反覆計算很多次
 </span>
