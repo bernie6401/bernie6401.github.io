@@ -263,10 +263,7 @@ else Print-LCS(b, X, i, j-1)
     E[\text{search cost in }T]=\sum\limits_{i=1}^n (\text{depth}_T(k_i)+1*p_i+\sum\limits_{i=0}^n (\text{depth}_T(d_i)+1*q_i
     $$
 
-|i|1|2|3|4|5|
-|---|---|---|---|---|---|
-|$p_i$||0.15|0.10|0.05|0.10|0.20|
-|$q_i$|0.05|0.10|0.05|0.05|0.05|0.10|
+<img src="/assets/posts/Algorithm/DP-OBST-Example.jpg" alt="" width=300>
 
 
 ## Maximum planar subset of chords
