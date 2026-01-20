@@ -204,6 +204,8 @@ c[i-1,j-1], \text{if}\ x_i \eq y_i, j\lt 0 \\
 \end{array}
 \right.
 $$
+* $c[i,j]$代表$X_i$和$Y_j$的LCS長度
+* 當某一個sequence為零，則LCS一定為零
 
 ## Optimal binary search trees
 
