@@ -142,7 +142,7 @@ else print “(“
 
 ### 利用DP解決-Top-Down Recursive Matrix-Chain Order(不推薦)
 * 使用這個邏輯解題會有很多問題被重複解，很浪費時間，DP還是建議用bottom-up
-* Time: $\Omega (2^n)$: $\sum\limits_{k=1}^{n-1}(T(k)+T(n-k)+1)
+* Time: $\Omega (2^n)$: $\sum\limits_{k=1}^{n-1}(T(k)+T(n-k)+1)$
 
 ```c++
 Recursive-Matrix-Chain(p, i, j)
@@ -188,7 +188,7 @@ return m[i, j]
 ## Longest Common Subsequence
 ### DNA比對例子
 * Input: $X_m=<x_1,x_2,...,x_m>$, $Y_n=<y_1,y_2,...,y_n>$
-* Output: $$Z_k=<z_1,z_2,...,z_k>$: LCS of $X_m$ and $Y_n$
+* Output: $Z_k=<z_1,z_2,...,z_k>$: LCS of $X_m$ and $Y_n$
 #### 利用DP解決-Bottom-Up
 * Time: $O(mn)$就是二維table的大小
 * Case 1: $x_m=y_n$代表兩個sequence的最後一個element是一樣就可以直接放到$Z$中，並且繼續往前比對$X_{m-1},Y_{n-1}$
@@ -200,7 +200,7 @@ $$
 c[i,j] = \left\{
 \begin{array}{l}
 0, \text{if}\ i = 0\text{or}\ j=0 \\
-c[i-1,j-1], \text{if}\ x_i \eq y_i, j\lt 0 \\
+c[i-1,j-1], \text{if}\ x_i = y_i, j\lt 0 \\
 \max(c[i,j-1],c[i-1,j], \text{if}\ x_i \ne y_i, j\lt 0
 \end{array}
 \right.
