@@ -268,6 +268,14 @@ else Print-LCS(b, X, i, j-1)
 ### 利用DP解決
 
 $$
+e[i,j] = \left\{
+\begin{array}{l}
+q_{i-1}, \text{if}\ j = i-1 \\
+\min\limits_{i\le r\lej}\{e[i,j-1]+e[r+1,j]+w(i,j)\}, \text{if}\ i\lt j
+\end{array}
+\right.
+$$
+$$
 w[i,j] = \left\{
 \begin{array}{l}
 q_{i-1}, \text{if}\ j = i-1 \\
