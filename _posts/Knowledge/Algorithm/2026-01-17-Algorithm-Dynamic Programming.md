@@ -106,12 +106,6 @@ else let C be a new A.rows * B.columns matrix
     * Optimal Substructure:如果最優解在第 $k$ 個位置切開，那麼左半部$A_i,...A_k$，右半部$A_{k+1},...,A_j$都一定各自是最優的，否則：如果左邊不是最優，換成更好的左邊，整體一定更好（矛盾）
     * Overlapping Subproblem: 子問題是什麼？$m[i][j]$計算$A_i,...,A_j$代表最小成本，當計算$m[1][4]$和$m[2][5]$，都會用到$m[2][4]$
 
-### 利用DP解決-Iterative Bottom-Up
-這也很簡單，只要自己推過一層就會了，也是有兩個table一個記錄矩陣相乘的operations數量，另外一層則紀錄從哪裡切會是最小值。屬於bottom-up的想法
-* 一開始先計算$A_1A_2$,$A_2A_3$,...,$A_{n-1}A_n$共$n-1$各是多少
-* 然後計算$A_1A_2A_3$,$A_2A_3A-4$,...,$A_{n-2}A_{n-1}A_n$共$n-2$各是多少
-* 以此類推就可以建立上述的兩個table，個人認為是**比較聰明的brute force**
-
 $$
 m[i,j] = \left\{
 \begin{array}{l}
@@ -120,6 +114,12 @@ m[i,j] = \left\{
 \end{array}
 \right.
 $$
+
+### 利用DP解決-Iterative Bottom-Up
+這也很簡單，只要自己推過一層就會了，也是有兩個table一個記錄矩陣相乘的operations數量，另外一層則紀錄從哪裡切會是最小值。屬於bottom-up的想法
+* 一開始先計算$A_1A_2$,$A_2A_3$,...,$A_{n-1}A_n$共$n-1$各是多少
+* 然後計算$A_1A_2A_3$,$A_2A_3A-4$,...,$A_{n-2}A_{n-1}A_n$共$n-2$各是多少
+* 以此類推就可以建立上述的兩個table，個人認為是**比較聰明的brute force**
 
 <img src="/assets/posts/Algorithm/DP-Matrix-Chain-Example.png" width=300>
 
@@ -200,24 +200,29 @@ return m[i, j]
 ### DNA比對例子
 * Input: $X_m=<x_1,x_2,...,x_m>$, $Y_n=<y_1,y_2,...,y_n>$
 * Output: $Z_k=<z_1,z_2,...,z_k>$: LCS of $X_m$ and $Y_n$
-#### 利用DP解決-Bottom-Up
-* Time: $O(mn)$就是二維table的大小
-* Case 1: $x_m=y_n$代表兩個sequence的最後一個element是一樣就可以直接放到$Z$中，並且繼續往前比對$X_{m-1},Y_{n-1}$
-* Case 2: $x_m\ne y_n$代表兩個sequence的最後一個element不一樣
-    * Case 2-1: 則$z_k\ne x_m$代表$Z$是$X_{m-1}$和$Y$的LCS
-    * Case 2-2: 則$z_k\ne y_n$代表$Z$是$X$和$Y_{n-1}$的LCS
 
-$$
-c[i,j] = \left\{
-\begin{array}{l}
-0, \text{if}\ i = 0\ \text{or}\ j=0 \\
-c[i-1,j-1], \text{if}\ x_i = y_i, j\lt 0 \\
-\max(c[i,j-1],c[i-1,j], \text{if}\ x_i \ne y_i, j\lt 0
-\end{array}
-\right.
-$$
-* $c[i,j]$代表$X_i$和$Y_j$的LCS長度
-* 當某一個sequence為零，則LCS一定為零
+### 先判斷能不能用DP
+* Optimal Substructure:
+    * Case 1: $x_m=y_n$代表兩個sequence的最後一個element是一樣就可以直接放到$Z$中，並且繼續往前比對$X_{m-1},Y_{n-1}$
+    * Case 2: $x_m\ne y_n$代表兩個sequence的最後一個element不一樣
+        * Case 2-1: 則$z_k\ne x_m$代表$Z$是$X_{m-1}$和$Y$的LCS
+        * Case 2-2: 則$z_k\ne y_n$代表$Z$是$X$和$Y_{n-1}$的LCS
+
+    $$
+    c[i,j] = \left\{
+    \begin{array}{l}
+    0, \text{if}\ i = 0\ \text{or}\ j=0 \\
+    c[i-1,j-1], \text{if}\ x_i = y_i, j\lt 0 \\
+    \max(c[i,j-1],c[i-1,j], \text{if}\ x_i \ne y_i, j\lt 0
+    \end{array}
+    \right.
+    $$
+    * $c[i,j]$代表$X_i$和$Y_j$的LCS長度
+    * 當某一個sequence為零，則LCS一定為零
+* Overlapping Subproblem: LCS(5, 5) 和 LCS(6, 5)都會算 LCS(5, 4) ➡️ 同一個 (i, j) 被重算很多次
+
+### 利用DP解決-Bottom-Up
+* Time: $O(mn)$就是二維table的大小
 
 ```c++
 LCS-Length(X,Y)
@@ -277,7 +282,8 @@ else Print-LCS(b, X, i, j-1)
 <img src="/assets/posts/Algorithm/DP-OBST-Example.jpg" alt="" width=300>
 
 ### 利用DP解決-Recurrence
-核心邏輯是如果BST $T$有一個subtree $T'=<k_i,...,k_j>$，則這個$T'$對於$k_i,...,k_j,d_{i-1},...,d_j$也一定要是optimal，所以其實和之前的DP問題一樣，例如Matrix-chain subsequence，都是用金字塔表格
+* Optimal Substructure: 核心邏輯是如果BST $T$有一個subtree $T'=<k_i,...,k_j>$，則這個$T'$對於$k_i,...,k_j,d_{i-1},...,d_j$也一定要是optimal，所以其實和之前的DP問題一樣，例如Matrix-chain subsequence，都是用金字塔表格，假設在最優解中，區間 $[i,j]$中 的 root 是 $k_r$，那麼一定滿足：左子樹 $[i,r-1]$ 是 最佳的；右子樹 $[r+1,j]$ 是 最佳的，如果左子樹不是最佳，換成更好的左子樹，整體期望成本一定更小（矛盾）
+* Overlapping Subproblem: 在計算不同區間時，會反覆用到同一個子區間，例如 E[2][4] 會出現在 E[1][4]（root = 1）、E[2][5]（root = 5）
 
 #### 總共需要4個table
 * 原本儲存找的到和找不到key的機率$P,Q$
@@ -304,9 +310,10 @@ else Print-LCS(b, X, i, j-1)
     \end{array}
     \right.
     $$
-* $root[i,j]$: 代表在$k_i,...,k_j$中有一個$k_r$最適合當作root達到optimal
+* $root[i,j]$: 代表在$k_i,...,k_j$中有一個$k_r$最適合當作root達到optimal，也就是紀錄optimal solution怎麼來的
 * Objective: 要慢慢推導到$e[1,n]$
 
+#### Pseudo Code
 ```c++
 Optimal-BST(p, q, n)
 let e[1..n+1, 0..n], w[1..n+1, 0..n], and root[1..n, 1..n] be new tables
@@ -325,3 +332,7 @@ for l = 1 to n
                 root[i, j] = r
 return e and root
 ```
+
+反正就是按照table分別填入$w,e,root$，最後只要看root table就可以知道OBST的結構長怎樣
+
+<img src="/assets/posts/Algorithm/DP-OBST-Example.jpg" alt="" width=300>
