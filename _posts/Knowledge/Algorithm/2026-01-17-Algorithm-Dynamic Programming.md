@@ -101,7 +101,10 @@ else let C be a new A.rows * B.columns matrix
         \end{array}
         \right.
         $$
-    * 因為matrix chain是linearly ordered並且不能rearranged(每一種矩陣都要存在並且順序不能被改變)，所以可以使用DP
+* 先判斷能不能用DP
+    * 因為matrix chain是linearly ordered並且不能rearranged(每一種矩陣都要存在並且順序不能被改變)
+    * Optimal Substructure:如果最優解在第 $k$ 個位置切開，那麼左半部$A_i,...A_k$，右半部$A_{k+1},...,A_j$都一定各自是最優的，否則：如果左邊不是最優，換成更好的左邊，整體一定更好（矛盾）
+    * Overlapping Subproblem: 子問題是什麼？$m[i][j]$計算$A_i,...,A_j$代表最小成本，當計算$m[1][4]$和$m[2][5]$，都會用到$m[2][4]$
 
 ### 利用DP解決-Iterative Bottom-Up
 這也很簡單，只要自己推過一層就會了，也是有兩個table一個記錄矩陣相乘的operations數量，另外一層則紀錄從哪裡切會是最小值。屬於bottom-up的想法
