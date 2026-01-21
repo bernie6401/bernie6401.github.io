@@ -335,4 +335,4 @@ return e and root
 
 反正就是按照table分別填入$w,e,root$，最後只要看root table就可以知道OBST的結構長怎樣
 
-<img src="/assets/posts/Algorithm/DP-OBST-Example.jpg" alt="" width=300>
+<img src="/assets/posts/Algorithm/DP-OBST-Example-2.jpg" alt="" width=300>
