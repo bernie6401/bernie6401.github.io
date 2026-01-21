@@ -337,4 +337,4 @@ return e and root
 
 <img src="/assets/posts/Algorithm/DP-OBST-Example-2.jpg" alt="" width=300>
 
-從root[1,5]開始看，是2代表$k_2$當作$[1,5]$的root，左半邊是$k_1$
+從root[1,5]開始看，是2代表$k_2$當作$[1,5]$的root，左半邊是$k_1$，右邊是$[3,5]$，那就繼續看，發現是5，代表$k_5$當root，依此類推，就可以得出所有root
