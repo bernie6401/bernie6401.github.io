@@ -336,3 +336,5 @@ return e and root
 反正就是按照table分別填入$w,e,root$，最後只要看root table就可以知道OBST的結構長怎樣
 
 <img src="/assets/posts/Algorithm/DP-OBST-Example-2.jpg" alt="" width=300>
+
+從root[1,5]開始看，是2代表$k_2$當作$[1,5]$的root，左半邊是$k_1$
