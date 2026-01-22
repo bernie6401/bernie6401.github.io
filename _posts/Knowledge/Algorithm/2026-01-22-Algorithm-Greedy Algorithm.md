@@ -39,3 +39,7 @@ for i = 2 to n
         j = i
 return A
 ```
+
+* Time Complexity: $O(n)$(不包含sorting)，有包含的話是$O(nlgn)$
+* Optimality Proofs的部分可以直接參考講義，有點複雜，總而言之
+    > 如果不選最早結束的活動，而選一個結束較晚的，那只會減少後面可選活動的空間，因此不可能更好
