@@ -68,3 +68,22 @@ return A
 <img src="/assets/posts/Algorithm/Geedy-Fractional-Knapsack-Problem-Ex.jpg" alt="" width=300>
 
 ## Huffman Codes
+* Coding(編碼)用途：data compression, instruction-set encoding, etc.
+* Objective: 讓編碼後的cost最小化
+    * 如何定義cost: frequency * depth
+
+    $$
+    B(T)=\sum\limits_{c\in C}c.freq\dots d_T(c)
+    $$
+* Binary character code: 用0,1組成獨一無二的code表示字母
+    * Fixed-length code: 每一個字母的編碼長度都相同
+    * Variable-lengh code: 編碼的長度根據字母出現的頻率而定
+    * 每100個character的cost，Variable-length code的cost比較小
+
+### 如何用Greedy解
+是否符合兩個條件
+* Greedy Choice Property
+* Optimal Substructure
+
+## Task Scheduling
+每一個task需要的時間都相同，但是會有自己的dwadline，沒有在deadline之前做完，會有penalty
