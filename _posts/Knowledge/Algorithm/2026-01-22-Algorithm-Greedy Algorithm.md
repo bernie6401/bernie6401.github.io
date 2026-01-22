@@ -75,7 +75,7 @@ return A
     $$
     B(T)=\sum\limits_{c\in C}c.freq\cdots d_T(c)
     $$
-* Binary character code: 用0,1組成獨一無二的code表示字母
+* Binary character code: 用{0,1}組成獨一無二的code表示字母
     * Fixed-length code: 每一個字母的編碼長度都相同
     * Variable-lengh code: 編碼的長度根據字母出現的頻率而定
     * 每100個character的cost，Variable-length code的cost比較小
