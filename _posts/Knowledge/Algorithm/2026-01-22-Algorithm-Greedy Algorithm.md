@@ -73,7 +73,7 @@ return A
     * 如何定義cost: frequency * depth
 
     $$
-    B(T)=\sum\limits_{c\in C}c.freq\dots d_T(c)
+    B(T)=\sum\limits_{c\in C}c.freq\cdots d_T(c)
     $$
 * Binary character code: 用0,1組成獨一無二的code表示字母
     * Fixed-length code: 每一個字母的編碼長度都相同
