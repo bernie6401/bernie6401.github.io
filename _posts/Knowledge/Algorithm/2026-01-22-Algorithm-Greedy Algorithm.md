@@ -63,6 +63,7 @@ return A
 ### Fractional Knapsack Problem
 * 代表可以拿一部分
 * 用Greedy的方式就是先拿走單位價值高的
+* 先算出每個item的單位價值，並盡可能的全部拿，剩下的就拿一部分就好
 
 <img src="/assets/posts/Algorithm/Geedy-Fractional-Knapsack-Problem-Ex.jpg" alt="" width=300>
 
