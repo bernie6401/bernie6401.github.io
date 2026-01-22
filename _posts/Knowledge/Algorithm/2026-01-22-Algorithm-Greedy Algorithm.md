@@ -50,3 +50,20 @@ return A
 * Time Complexity: $O(n)$(不包含sorting)，有包含的話是$O(nlgn)$
 * Optimality Proofs的部分可以直接參考講義，有點複雜，總而言之
     > 如果不選最早結束的活動，而選一個結束較晚的，那只會減少後面可選活動的空間，因此不可能更好
+
+## Knapsack Problem
+* Input: $n$個item；$\vec{v}$代表各個item的價值；$\vec{w}$代表各個item的重量；$W$代表背包容量
+* Objective: 裝越有價值的東西越好
+
+### 0-1 Knapsack Problem
+* 只有拿或不拿兩個選項
+* 網路上有code
+* Time: 如果用DP的方式解，會是$O(nW)$, $n$代表有幾個物件, $W$是指背包載重。不是polynomial time，因為$W$不是input size(就是可以用**個**數的東西，例如珠寶)，會被歸類在NP-Complete
+
+### Fractional Knapsack Problem
+* 代表可以拿一部分
+* 用Greedy的方式就是先拿走單位價值高的
+
+<img src="/assets/posts/Algorithm/Geedy-Fractional-Knapsack-Problem-Ex.jpg" alt="" width=300>
+
+## Huffman Codes
