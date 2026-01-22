@@ -15,6 +15,13 @@ comments: true
 * 和Heuristic(經驗法則)的差別是Greedy Algorithm可以找到最佳解
 * Vortex Cover的例子可以直接看講義
 
+## 什麼時候適合用Greedy Algorithm
+* 問題有 Greedy-choice property 也就是當「每一步做當下最好的選擇」不會影響未來最優解時，就可以用 Greedy，DP需要檢查subproblem的solution
+* 且通常有 optimal substructure
+
+### 和DP的差異
+其實就是greedy-choice property，如果greedy solution不是optimal就可以考慮用DP
+
 ## Activity-Selection Problem(排程問題)
 想像成CPU的工作
 * Input: 
