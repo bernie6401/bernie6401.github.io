@@ -106,4 +106,10 @@ return A
 * Optimal Substructure: 複雜，看課本
 
 ## Task Scheduling
-每一個task需要的時間都相同，但是會有自己的dwadline，沒有在deadline之前做完，會有penalty
+* Objective: 每一個task需要的時間都相同，但是會有自己的dwadline，沒有在deadline之前做完，會有penalty
+* Input: 
+    * $n$個task$S=\{1,2,...,n\}$
+    * **Deadline**: $d_1,d_2,...,d_n$
+    * **Penalties**: $w_1,w_2,...,w_n$
+* $A$代表任務的集合
+* $N_t(A)$代表在$A$集合中的task，小於等於$t$這個時間點的task有幾個
