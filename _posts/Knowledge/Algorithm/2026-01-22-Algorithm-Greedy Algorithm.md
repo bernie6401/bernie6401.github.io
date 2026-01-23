@@ -85,5 +85,27 @@ return A
 * Greedy Choice Property
 * Optimal Substructure
 
+#### 解法-Huffman's Algorithm
+要給每個字母的出現頻率
+1. 先把每個字母的頻率排序由小到大
+2. 把最小的兩個合起來當作一個node再排序一次
+3. 重複步驟1,2直到建完一顆binary heap
+
+<img src="/assets/posts/Algorithm/Greedy-Huffman-Example.jpg" alt="" width=300>
+
+* Time: $O(nlgn)$
+    ```c++
+    Huffman(C)
+    n = |C|
+    Q = C // Q: a min-priority queue (a min heap) O(nlgn)建binary heap
+    for i = 1 to n -1
+        Allocate a new node z
+        z.left = x = Extract-Min(Q) // O(lgn)
+        z.right = y = Extract-Min(Q) // O(lgn)
+        z.freq = x.freq + y.freq
+        Insert(Q, z) // O(lgn)
+    return Extract-Min(Q) //return the root of the tree
+    ```
+
 ## Task Scheduling
 每一個task需要的時間都相同，但是會有自己的dwadline，沒有在deadline之前做完，會有penalty
