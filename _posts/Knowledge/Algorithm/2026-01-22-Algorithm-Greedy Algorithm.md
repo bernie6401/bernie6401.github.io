@@ -80,13 +80,8 @@ return A
     * Variable-lengh code: 編碼的長度根據字母出現的頻率而定
     * 每100個character的cost，Variable-length code的cost比較小
 
-### 如何用Greedy解
-是否符合兩個條件
-* Greedy Choice Property
-* Optimal Substructure
-
-#### 解法-Huffman's Algorithm
-要給每個字母的出現頻率
+### 如何用Greedy解-Huffman's Algorithm
+，核心概念是越常出現的字母，深度要越淺，所以要給每個字母的出現頻率
 1. 先把每個字母的頻率排序由小到大
 2. 把最小的兩個合起來當作一個node再排序一次
 3. 重複步驟1,2直到建完一顆binary heap
@@ -106,6 +101,9 @@ return A
         Insert(Q, z) // O(lgn)
     return Extract-Min(Q) //return the root of the tree
     ```
+### 確認是否符合兩個條件
+* Greedy Choice Property: 如果以上方法不是最佳解，那麼就把tree上任意node互換，cost有無比較低，如果沒有就代表目前的版本已經是optimal
+* Optimal Substructure: 複雜，看課本
 
 ## Task Scheduling
 每一個task需要的時間都相同，但是會有自己的dwadline，沒有在deadline之前做完，會有penalty
