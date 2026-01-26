@@ -17,8 +17,10 @@ comments: true
 
 ## Elementary Graph Algorithms
 ### Breadth-First Search(BFS)
+下面pseudo code的目的是給一個graph和起始的點s，計算出圖上各個點與s之間的距離
 
-### Depth-First Search(DFS)
+<img src="/assets/posts/Algorithm/BFS-Ex.jpg" alt="" width=300>
+
 ```c++
 BFS(G,s)
 for each vertex u inG.V - {s}
@@ -40,6 +42,8 @@ while Q ≠ Ø
             Enqueue(Q,v)
     u.color = BLACK
 ```
+
+### Depth-First Search(DFS)
 
 ### Topological Sort
 
