@@ -126,6 +126,23 @@ return the linked list of vertices
 其實就是一路往右排序，每一個task的兩個數字分別代表start time/finish time，結束時間比較早的往右排
 
 ### Strongly Connected Component(SCC)
+是有向圖中的一個重要概念，在有向圖中，一個頂點集合 $C$，任兩個點 $u,v\in C$ 都滿足$u\to v$ 且 $v\to u$ 都走得到，則 $C$ 是一個 Strongly Connected Component。👉 彼此「來得去、去得回」
+
+* 比較
+    |類型|適用圖|條件|
+    |---|---|---|
+    |Connected Component|無向圖|走得到就算|
+    |Strongly Connected Component|有向圖|來回都走得到|
+
+```c++
+Strongly-Connected-Components(G)
+call DFS(G) to compute finishing times u.f for each vertex u
+compute G_Transpose
+call DFS(G_Transpose), but in the main loop of DFS, consider the vertices in order of decreasing u.f (as computed in line 1)
+output the vertices of each tree in the depth-first forest of step 3 as a separate strongly connected component
+```
+* $G^T=(V,E^T)$: G的Transpose，$E^T=\{(u,v):(v,u)\in E\}
+* Time: $O(V+E)$
 
 ## Minimum Spanning Trees(MST)
 
