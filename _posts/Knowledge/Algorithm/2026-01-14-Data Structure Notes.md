@@ -47,3 +47,18 @@ struct_node{
 |MAXIMUM|$O(1)$: 直接read第一個|$O(1)$: 直接read第一個|
 |EXTRACT-MAX|$O(lgn)$: 直接刪除第一個元素並用最後一個取代再做heapify|$O(n)$: 每一個要往後|
 |INCREASE-KEY|$O(lgn)$: 從target遍歷一個適當的地方插入新的key|$O(n)$: 每一個要往前|
+
+## Disjoint Set
+用來快速判斷 兩個元素是不是在同一個集合，以及把 兩個集合合併。
+### Terminology
+* Set:集合，$S_1,S_2,...,S_k$
+* Collection: a family of sets，$S=\{S_1,...,S_k\}$
+* Representative: 一個set中類似班長的角色，也判斷兩個集合是不是有關聯就要看他們的representative是不是一樣的
+
+### 支援的操作
+* Make-Set(x): S_x=\{x\}$，把某一個元素自成一個集合
+* Union(x,y): $S_x\cup S_y$
+* Find-Set(x): 找有含x的集合的班長是誰
+
+### Example
+<img src=/assets/posts/Algorithm/DISJOINT-SET-EXAMPLE.jpg" alt="" width=300>
