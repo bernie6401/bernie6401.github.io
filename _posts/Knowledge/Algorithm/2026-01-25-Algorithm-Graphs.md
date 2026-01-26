@@ -97,8 +97,11 @@ u.f = time
 * 優點: 只要路徑存在就一定找的到最快的path
 * 缺點: 要是unweighted，且時間和空間複雜度為$O(MN)$太大(在$M\times N$的grid上)
 
+<img src="/assets/posts/Algorithm/Lee's Maze Router.jpg" alt="" width=300>
+
 #### BFS+DFS應用-Soukup's Maze Router
 
+<img src="/assets/posts/Algorithm/Soukup's Maze Router.jpg" alt="" width=300>
 
 ### Topological Sort
 
