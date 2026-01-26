@@ -67,6 +67,7 @@ struct_node{
 <img src=/assets/posts/Algorithm/DISJOINT-SET-Implement.jpg" alt="" width=300>
 
 從例子的說明可以知道Make-Set和Find-Set的time都是constant，但要union的話，串起來本身沒問題，要改後面的element的representative會很麻煩，有幾個要改幾次
+
 #### Time $O(m+n^2)$
 * $n$: 代表Make-Set操作的數量
 * $m$: 代表Make-Set, Find-Set, Union操作的總數量
@@ -86,5 +87,11 @@ struct_node{
 |.<br>.<br>.|.<br>.<br>.|
 |UNION(x_n,x_{n-1})|n-1|
 
-### Weighted-union Heuristic(改善上面的問題)
+#### Weighted-union Heuristic(改善上面的問題)
 短的掛到長的，要改representative的數量就會比較少
+* Time: $O(m+nlgn)$
+
+### 用Forest的方式實作
+也就是用root tree的方式表示
+* Make-Set: 創一個只有一個node的tree
+* Find-Set: 就是之前提過的找path
