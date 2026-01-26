@@ -59,7 +59,10 @@ while Q ≠ Ø
 * Time: $O(V+E)$(adjacency list)
 
 <img src="/assets/posts/Algorithm/DFS-Ex-1.jpg" alt="" width=300>
+範例中vertex的兩個數字分別代表u.d/u.f，另外，由於分析到x的地方會跳出recursive loop，則time要再加一
+
 <img src="/assets/posts/Algorithm/DFS-Ex-2.jpg" alt="" width=300>
+等到左半邊都分析完了，就會直接跳到w
 
 ```c++
 DFS(G)
@@ -88,6 +91,14 @@ u.color = BLACK // Blacken u; it is finished
 time = time +1
 u.f = time
 ```
+
+#### BFS應用-Lee's Maze Router
+* 可以用在IC佈線上: 利用wave propagation的方式，找一個從點S到點T的路徑(在單層single-layer的情況下)
+* 優點: 只要路徑存在就一定找的到最快的path
+* 缺點: 要是unweighted，且時間和空間複雜度為$O(MN)$太大(在$M\times N$的grid上)
+
+#### BFS+DFS應用-Soukup's Maze Router
+
 
 ### Topological Sort
 
