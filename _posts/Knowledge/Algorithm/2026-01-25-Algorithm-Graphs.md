@@ -53,6 +53,17 @@ while Q ≠ Ø
 
 ### Depth-First Search(DFS)
 
+```c++
+DFS(G)
+for each vertex u  G.V
+    u.color = WHITE
+    u.pi = NIL
+time = 0
+for each vertex u  G.V
+    if u.color == WHITE
+        DFS-Visit(G, u)
+```
+
 ### Topological Sort
 
 ### Strongly Connected Component
