@@ -94,4 +94,5 @@ struct_node{
 ### 用Forest的方式實作
 也就是用root tree的方式表示
 * Make-Set: 創一個只有一個node的tree
-* Find-Set: 就是之前提過的找path
+* Find-Set: 就是之前提過的找path，找班長就是找root
+* Union: 把其中一個root指向另一個root
