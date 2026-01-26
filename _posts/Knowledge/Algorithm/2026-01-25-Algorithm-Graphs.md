@@ -16,9 +16,40 @@ comments: true
 * Adjacency List: 是一種紀錄graph上點之間的關係的一種資料結構，詳細可以看[資料結構筆記](https://bernie6401.github.io/Data-Structure-Notes/)
 
 ## Elementary Graph Algorithms
+### Breadth-First Search(BFS)
+
+### Depth-First Search(DFS)
+```c++
+BFS(G,s)
+for each vertex u inG.V - {s}
+    u.color = WHITE
+    u.d = ∞
+    u.pi = NIL
+s.color = GRAY
+s.d = 0
+s.pi = NIL
+Q = Ø
+Enqueue(Q, s)
+while Q ≠ Ø
+    u = Dequeue[Q]
+    for each vertex v in G.Adj[u]
+        if v.color == WHITE
+            v.color = GRAY
+            v.d = u.d + 1
+            v.pi = u
+            Enqueue(Q,v)
+    u.color = BLACK
+```
+
+### Topological Sort
+
+### Strongly Connected Component
 
 ## Minimum Spanning Trees
 
 ## Shortest Paths
+### Single Source Shortest Path(SSSP)
+
+### All Pairs Shortest Paths(APSP)
 
 ## Maximum Flow
