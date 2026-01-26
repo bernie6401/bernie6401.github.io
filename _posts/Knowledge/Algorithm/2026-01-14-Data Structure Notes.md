@@ -127,3 +127,15 @@ else
     if x.rank == y.rank
         y.rank = y.rank+1 // 把x串到y上後，y的深度會大於x一個rank所以要加一
 ```
+
+## Graph
+### Terminology
+* Sparse: $\mid E\mid=O(\mid V\mid)$
+* Dense: $\mid E\mid=O({\mid V\mid}^2)$
+
+### Adjacency List
+專門用來記錄Graph中，點之間的關係，用類似linked-list的方式
+* 優點: 利用$O(V+E)$的空間，適合儲存sparse graph(密度較低)
+* 缺點: 找edge必須要traverse list
+
+<img src="/assets/posts/Algorithm/Adjacency-List-Ex.jpg" alt="" width=300>
