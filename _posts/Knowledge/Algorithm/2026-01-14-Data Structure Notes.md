@@ -59,3 +59,6 @@ struct_node{
 * Make-Set(x): S_x=\{x\}$，把某一個元素自成一個集合
 * Union(x,y): $S_x\cup S_y$
 * Find-Set(x): 找有含x的集合的班長是誰
+
+### Example
+<img src=/assets/posts/Algorithm/DISJOINT-SET-EXAMPLE.jpg" alt="" width=300>
