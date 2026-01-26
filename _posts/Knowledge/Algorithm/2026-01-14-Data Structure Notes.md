@@ -65,3 +65,40 @@ struct_node{
 
 ### 用Linked-List實作
 <img src=/assets/posts/Algorithm/DISJOINT-SET-Implement.jpg" alt="" width=300>
+
+從例子的說明可以知道Make-Set和Find-Set的time都是constant，但要union的話，串起來本身沒問題，要改後面的element的representative會很麻煩，有幾個要改幾次
+
+#### Time $O(m+n^2)$
+* $n$: 代表Make-Set操作的數量
+* $m$: 代表Make-Set, Find-Set, Union操作的總數量
+* Make-Set: $O(n)$
+* Find-Set: $O(1)$
+* Union: $\sum\limits_{i=1}^{n-1}i=O(n^2)$
+
+|Operation|# of objecs updatd|
+|---|---|
+|MAKE-SET(x_1)|1|
+|MAKE-SET(x_2)|1|
+|.<br>.<br>.|.<br>.<br>.|
+|MAKE-SET(x_n)|1|
+|UNION(x_2,x_1)|1|
+|UNION(x_3,x_2)|2|
+|UNION(x_4,x_3)|3|
+|.<br>.<br>.|.<br>.<br>.|
+|UNION(x_n,x_{n-1})|n-1|
+
+#### Weighted-union Heuristic(改善上面的問題)
+短的掛到長的，要改representative的數量就會比較少
+* Time: $O(m+nlgn)$
+
+### 用Forest的方式實作
+也就是用root tree的方式表示
+* Make-Set: 創一個只有一個node的tree
+* Find-Set: 就是之前提過的找path，找班長就是找root
+* Union: 把其中一個root指向另一個root
+
+#### Speed Up技巧
+* Union by rank:就是前面提到的短的掛到長的概念，在forest的結構，是把高度(depth)比較少的串到比較大的，複雜度才不會變高
+* Path Compression: 在find path 的過程中，直接更改途中經過的那些node的representative
+
+<img src="/assets/posts/Algorithm/Disjoint-Set-Speed-Up-Heuristic.jpg" alt="" width=300>
