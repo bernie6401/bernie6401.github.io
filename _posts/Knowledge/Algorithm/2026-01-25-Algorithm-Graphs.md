@@ -111,10 +111,21 @@ u.f = time
 3. 以黑點為原點重新計算距離，直到有一點比黑點更接近T再繼續衝
 
 ### Topological Sort
+是一種對有向無環圖(directed acyclic graph, DAG)的排序方式，把所有頂點排成一個線性順序，使得每一條邊$u\to v$，u 都排在 v 前面。👉 有「先後關係」的排序。
+* Time: $O(V+E)$(adjacency list)
 
-### Strongly Connected Component
+```c++
+Topological-Sort(G)
+call DFS(G) to compute finishing times v.f for each vertex v
+as each vertex is finished, insert it onto the front of a linked list
+return the linked list of vertices
+```
 
-## Minimum Spanning Trees
+<img src="/assets/posts/Algorithm/Topological -Sort-Ex.jpg" alt="" width=300>
+
+### Strongly Connected Component(SCC)
+
+## Minimum Spanning Trees(MST)
 
 ## Shortest Paths
 ### Single Source Shortest Path(SSSP)
