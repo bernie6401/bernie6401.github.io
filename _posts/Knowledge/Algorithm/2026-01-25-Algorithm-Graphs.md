@@ -28,6 +28,7 @@ comments: true
 
 ```c++
 BFS(G,s)
+// 初始化，全部都是白色且無限大的距離，s本身是灰色且距離是零
 for each vertex u inG.V - {s}
     u.color = WHITE // 代表undiscovered
     u.d = ∞
@@ -37,6 +38,8 @@ s.d = 0
 s.pi = NIL
 Q = Ø
 Enqueue(Q, s)
+
+// 正是計算各點與s的距離
 while Q ≠ Ø
     u = Dequeue[Q]
     for each vertex v in G.Adj[u]
