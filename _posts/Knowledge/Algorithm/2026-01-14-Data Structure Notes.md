@@ -102,3 +102,28 @@ struct_node{
 * Path Compression: 在find path 的過程中，直接更改途中經過的那些node的representative
 
 <img src="/assets/posts/Algorithm/Disjoint-Set-Speed-Up-Heuristic.jpg" alt="" width=300>
+
+```c++
+// Make-Set(x)
+x.p = x
+x.rank = 0
+
+// Union(x,y)
+Link(Find-Set(x), Find-Set(y))
+
+// Find-Set(x)
+if x  x.p
+    x.p = Find-Set(x.p)
+    // find the root and perform path compression
+return x.p
+```
+
+```c++
+Link(x,y) // 兩個root
+if x.rank > y.rank
+    y.p = x // 把y串到x上
+else
+    x.p = y // 把x串到y上
+    if x.rank == y.rank
+        y.rank = y.rank+1 // 把x串到y上後，y的深度會大於x一個rank所以要加一
+```
