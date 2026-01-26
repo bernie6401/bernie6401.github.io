@@ -62,3 +62,6 @@ struct_node{
 
 ### Example
 <img src=/assets/posts/Algorithm/DISJOINT-SET-EXAMPLE.jpg" alt="" width=300>
+
+### 用Linked-List實作
+<img src=/assets/posts/Algorithm/DISJOINT-SET-Implement.jpg" alt="" width=300>
