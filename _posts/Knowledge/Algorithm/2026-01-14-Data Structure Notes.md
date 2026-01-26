@@ -139,3 +139,17 @@ else
 * 缺點: 找edge必須要traverse list
 
 <img src="/assets/posts/Algorithm/Adjacency-List-Ex.jpg" alt="" width=300>
+
+### Adjacency Matrix
+大小$\mid V\mid\times \mid V\mid$的矩陣，有edge就儲存1
+* 優點: 找edge的複雜度$O(1)$
+* 缺點: $O(V^2)$的儲存空間
+
+$$
+\left\{ 
+  \begin{array}{c}
+    1, \text{if}(i,j)\in E \\
+    0, \text{otherwise}
+  \end{array}
+\right.
+$$
