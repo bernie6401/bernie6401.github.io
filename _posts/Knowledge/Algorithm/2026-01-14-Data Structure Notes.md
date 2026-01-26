@@ -85,3 +85,6 @@ struct_node{
 |UNION(x_4,x_3)|3|
 |.<br>.<br>.|.<br>.<br>.|
 |UNION(x_n,x_{n-1})|n-1|
+
+### Weighted-union Heuristic(改善上面的問題)
+短的掛到長的，要改representative的數量就會比較少
