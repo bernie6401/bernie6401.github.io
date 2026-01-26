@@ -16,9 +16,44 @@ comments: true
 * Adjacency List: 是一種紀錄graph上點之間的關係的一種資料結構，詳細可以看[資料結構筆記](https://bernie6401.github.io/Data-Structure-Notes/)
 
 ## Elementary Graph Algorithms
+### Breadth-First Search(BFS)
+下面pseudo code的目的是給一個graph和起始的點s，計算出圖上各個點與s之間的距離
+
+<img src="/assets/posts/Algorithm/BFS-Ex.jpg" alt="" width=300>
+
+```c++
+BFS(G,s)
+for each vertex u inG.V - {s}
+    u.color = WHITE
+    u.d = ∞
+    u.pi = NIL
+s.color = GRAY
+s.d = 0
+s.pi = NIL
+Q = Ø
+Enqueue(Q, s)
+while Q ≠ Ø
+    u = Dequeue[Q]
+    for each vertex v in G.Adj[u]
+        if v.color == WHITE
+            v.color = GRAY
+            v.d = u.d + 1
+            v.pi = u
+            Enqueue(Q,v)
+    u.color = BLACK
+```
+
+### Depth-First Search(DFS)
+
+### Topological Sort
+
+### Strongly Connected Component
 
 ## Minimum Spanning Trees
 
 ## Shortest Paths
+### Single Source Shortest Path(SSSP)
+
+### All Pairs Shortest Paths(APSP)
 
 ## Maximum Flow
