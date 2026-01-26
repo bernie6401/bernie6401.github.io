@@ -21,13 +21,18 @@ comments: true
 
 <img src="/assets/posts/Algorithm/BFS-Ex.jpg" alt="" width=300>
 
+* u.d: 代表和起始點s之間的距離
+* u.pi: 代表u的上一個
+* 利用Queue處理才會有BFS的效果
+* Time: $O(V+E)$(Adjacency List)
+
 ```c++
 BFS(G,s)
 for each vertex u inG.V - {s}
-    u.color = WHITE
+    u.color = WHITE // 代表undiscovered
     u.d = ∞
     u.pi = NIL
-s.color = GRAY
+s.color = GRAY // 代表discovered
 s.d = 0
 s.pi = NIL
 Q = Ø
@@ -40,7 +45,7 @@ while Q ≠ Ø
             v.d = u.d + 1
             v.pi = u
             Enqueue(Q,v)
-    u.color = BLACK
+    u.color = BLACK // 代表edge的鄰居也被discovered
 ```
 
 ### Depth-First Search(DFS)
