@@ -63,10 +63,13 @@ while Q ≠ Ø
 
 ```c++
 DFS(G)
+// 初始化graph
 for each vertex u  G.V
     u.color = WHITE
     u.pi = NIL
 time = 0
+
+// 實際判斷距離
 for each vertex u  G.V
     if u.color == WHITE
         DFS-Visit(G, u)
@@ -80,7 +83,7 @@ u.color = GRAY
 for each vertex v  G.Adj[u] // Explore edge (u,v)
     if v.color == WHITE
         v.pi = u
-        DFS-Visit(G, v)
+        DFS-Visit(G, v) // 要用recursive的方法才會有DFS的效果
 u.color = BLACK // Blacken u; it is finished
 time = time +1
 u.f = time
