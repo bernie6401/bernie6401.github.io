@@ -142,7 +142,7 @@ call DFS(G_Transpose), but in the main loop of DFS, consider the vertices in ord
 output the vertices of each tree in the depth-first forest of step 3 as a separate strongly connected component
 ```
 * $G^T=(V,E^T)$: G的Transpose，$E^T=\{(u,v):(v,u)\in E\}
-* Time: $O(V+E)$
+* Time: $O(V+E)$(adjacency list)
 
 ## Minimum Spanning Trees(MST)
 
