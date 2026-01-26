@@ -135,10 +135,11 @@ return the linked list of vertices
     |Strongly Connected Component|有向圖|來回都走得到|
 
 ```c++
+// 先找誰最後離開圖，再反過來走一次
 Strongly-Connected-Components(G)
-call DFS(G) to compute finishing times u.f for each vertex u
-compute G_Transpose
-call DFS(G_Transpose), but in the main loop of DFS, consider the vertices in order of decreasing u.f (as computed in line 1)
+call DFS(G) to compute finishing times u.f for each vertex u // 利用DFS找出圖上的vertices 的finish time(u.f)
+compute G_Transpose // 把圖反向
+call DFS(G_Transpose), but in the main loop of DFS, consider the vertices in order of decreasing u.f (as computed in line 1) // 從最後一個推回來
 output the vertices of each tree in the depth-first forest of step 3 as a separate strongly connected component
 ```
 * $G^T=(V,E^T)$: G的Transpose，$E^T=\{(u,v):(v,u)\in E\}
