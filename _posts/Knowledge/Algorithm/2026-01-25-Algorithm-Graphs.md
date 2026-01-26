@@ -52,6 +52,14 @@ while Q ≠ Ø
 ```
 
 ### Depth-First Search(DFS)
+* u.color: 和BFS定義的一樣，分為WHITE, GRAY, BLACK
+* u.d: discovery time
+* u.f: finishing time
+* u.pi: u的predecessor
+* Time: $O(V+E)$(adjacency list)
+
+<img src="/assets/posts/Algorithm/DFS-Ex-1.jpg" alt="" width=300>
+<img src="/assets/posts/Algorithm/DFS-Ex-2.jpg" alt="" width=300>
 
 ```c++
 DFS(G)
@@ -62,6 +70,20 @@ time = 0
 for each vertex u  G.V
     if u.color == WHITE
         DFS-Visit(G, u)
+```
+
+```c++
+DFS-Visit(G, u)
+time = time + 1 // white vertex u has just been discovered
+u.d = time
+u.color = GRAY
+for each vertex v  G.Adj[u] // Explore edge (u,v)
+    if v.color == WHITE
+        v.pi = u
+        DFS-Visit(G, v)
+u.color = BLACK // Blacken u; it is finished
+time = time +1
+u.f = time
 ```
 
 ### Topological Sort
