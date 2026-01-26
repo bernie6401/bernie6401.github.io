@@ -96,3 +96,9 @@ struct_node{
 * Make-Set: 創一個只有一個node的tree
 * Find-Set: 就是之前提過的找path，找班長就是找root
 * Union: 把其中一個root指向另一個root
+
+#### Speed Up技巧
+* Union by rank:就是前面提到的短的掛到長的概念，在forest的結構，是把高度(depth)比較少的串到比較大的，複雜度才不會變高
+* Path Compression: 在find path 的過程中，直接更改途中經過的那些node的representative
+
+<img src="/assets/posts/Algorithm/Disjoint-Set-Speed-Up-Heuristic.jpg" alt="" width=300>
