@@ -153,3 +153,13 @@ $$
   \end{array}
 \right.
 $$
+
+||List|Matrix|
+|---|---|---|
+|快速找到edge||✅|
+|快速找到Vertex Degree|✅||
+|Traverse Graph速度|$O(V+E)$|$O(V^2)$|
+|Sparse Graph Storage|$O(V+E)$|$O(V^2)$|
+|Dense Graph Storage||✅|
+|插入/刪除Edge||✅|
+|適合大多數應用|✅||
