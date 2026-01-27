@@ -187,8 +187,8 @@ MST-Kruskal(G,w)
 A = Ø
 for each vertex v in G.V
     Make-Set(v)
-sort the edges of G.E by nondecreasing weight w
-for each edge (u,v)  G.E, in order by nondecreasing weight
+sort the edges of G.E by nondecreasing weight w // 由小到大排序
+for each edge (u,v) in G.E, in order by nondecreasing weight // 從weight最低的開始
     if Find-Set(u)  Find-Set(v)
         A = A  {(u, v)}
         Union(u,v)
