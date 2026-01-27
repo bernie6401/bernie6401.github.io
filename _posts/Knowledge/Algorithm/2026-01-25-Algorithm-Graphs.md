@@ -179,15 +179,16 @@ return A
 |是否需要連通|否（變森林）|是|
 
 #### Kruskal's
-用Disjoint set forest處理，也是一種Greedy演算法
+* 用Disjoint set forest處理，也是一種Greedy演算法
+* Time: $O(ElgE+V)$
 
 1. 由小到大排序，所有「邊(Edge)」的權重(Weigh)。
 2. 從小到大開始取那些「邊(Edge)」，前提是取到的Edge不能形成一個迴圈(loop, cycle)。要檢查
 3. 重複步驟 2的動作，直到最後已經不能再取。
 
-* Time: $O(ElgE+V)$
-
 <img src="/assets/posts/Algorithm/MST-Kruskal-Ex.jpg" alt="" width=300>
+
+$(i,g)$之間的6沒有被算入是因為產生了cycle，另一個說法是這個edge本身不是一個合法的cut edge，也就是切到$(i,g)$但又不切到其他已經選到的edge
 
 ```c++
 MST-Kruskal(G,w)
@@ -203,6 +204,9 @@ return A
 ```
 
 #### Prim-Dijkstra's
+1. 初始化：首先，選擇一個起始節點，將其視為MST的一部分，同時初始化一個空的MST。
+2. 找到最小邊：在已經選中的節點和未選中的節點之間，選擇一條權重最小的邊，並將其添加到最小生成樹中。這個邊的一個端點必須是已選中的節點，另一個端點必須是未選中的節點。
+3. 重複步驟2：持續執行步驟2，直到最小生成樹包含了所有節點。
 
 <img src="/assets/posts/Algorithm/MST-Prim-Dijkstra-Ex.jpg" alt="" width=300>
 
@@ -210,11 +214,15 @@ return A
 MST-Prim(G,w,r)
 // Q: priority queue for vertices not in the tree, based on key.
 // key: min weight of any edge connecting to a vertex in the tree.
+
+// 初始化
 for each vertex u in G.V
     u.key = ∞
     u.pi = NIL
 r.key = 0
 Q = G.V
+
+// 真正開始處理MST
 while Q  
     u = Extract-Min(Q)
     for each vertex v in G.Adj[u]
