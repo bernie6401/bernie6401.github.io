@@ -146,6 +146,14 @@ output the vertices of each tree in the depth-first forest of step 3 as a separa
 * Time: $O(V+E)$(adjacency list)
 
 ## Minimum Spanning Trees(MST)
+* Spanning Tree(生成樹): 用 $V-1$ 條邊連通所有 $V$ 個頂點且無 cycle
+* Edge Count: $\mid E_{MST}\mid = V-1$
+* Cut Property(切割性質): 對任意切割$(S,V-S)$(其實就是分成兩個群)，跨越該 cut 的最小權重邊，一定存在於某棵 MST 中
+    * Crossing edge：跨越 cut 的邊
+    * Light edge：跨越該 cut 的最小權重邊
+
+    <img src="/assets/posts/Algorithm/MST-Cut-Edge.jpg" alt="" width=300>
+    * 有被虛線切到的就是cut edge
 * Input: 無向的graph $G=(V,E)$，有權重的edge
 * Objective: 目的是找到能夠連結所有vertices但又最短的path
 * 應用
@@ -161,14 +169,22 @@ while A does not form a spanning tree
 return A
 ```
 
-### 實作-Kruskal's
+### 實作
+||Kruskal|Prim|
+|---|---|---|
+|觀點|邊|點|
+|資料結構|Union-Find|Priority Queue|
+|適合|稀疏圖|稠密圖|
+|是否需要連通|否（變森林）|是|
+
+#### Kruskal's
 * Time: $O(ElgE+V)$
 
 ```c++
 
 ```
 
-### 實作-Prim-Dijkstra's
+#### Prim-Dijkstra's
 
 ## Shortest Paths
 ### Single Source Shortest Path(SSSP)
