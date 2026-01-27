@@ -215,7 +215,7 @@ MST-Prim(G,w,r)
 // Q: priority queue for vertices not in the tree, based on key.
 // key: min weight of any edge connecting to a vertex in the tree.
 
-// 初始化
+// 初始化 > O(V)
 for each vertex u in G.V
     u.key = ∞
     u.pi = NIL
@@ -223,10 +223,10 @@ r.key = 0
 Q = G.V
 
 // 真正開始處理MST
-while Q  
-    u = Extract-Min(Q)
-    for each vertex v in G.Adj[u]
-        if v in Q and w(u,v) < v.key
+while Q ≠ ∅ // O(VlgV)
+    u = Extract-Min(Q) // 用Binary Heap > O(lgV)
+    for each vertex v in G.Adj[u] // O(E)
+        if v in Q and w(u,v) < v.key // 找weight最小的鄰邊
             v.pi = u
             v.key = w(u,v)
 ```
