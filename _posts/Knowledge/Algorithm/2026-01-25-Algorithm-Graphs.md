@@ -103,6 +103,7 @@ u.f = time
 同樣是找點S到點T的path，好處是雖然時間和空間的複雜度和Lee's一樣但卻比前者快10-15倍，不過路徑不一定是最短的
 
 <img src="/assets/posts/Algorithm/Soukup's Maze Router.jpg" alt="" width=300>
+
 * 黑色圓是DFS
 * 白色圓是BFS
 
