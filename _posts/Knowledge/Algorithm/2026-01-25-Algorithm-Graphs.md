@@ -111,7 +111,7 @@ u.f = time
 3. 以黑點為原點重新計算距離，直到有一點比黑點更接近T再繼續衝
 
 ### Topological Sort
-是一種對有向無環圖(directed acyclic graph, DAG)的排序方式，把所有頂點排成一個線性順序，使得每一條邊$u\to v$，u 都排在 v 前面。👉 有「先後關係」的排序。
+很簡單，是一種對有向無環圖(directed acyclic graph, DAG)的排序方式，把所有頂點排成一個線性順序，使得每一條邊$u\to v$，u 都排在 v 前面。👉 有「先後關係」的排序。
 * Time: $O(V+E)$(adjacency list)
 
 ```c++
@@ -123,9 +123,68 @@ return the linked list of vertices
 
 <img src="/assets/posts/Algorithm/Topological -Sort-Ex.jpg" alt="" width=300>
 
+其實就是一路往右排序，每一個task的兩個數字分別代表start time/finish time，結束時間比較早的往右排
+
 ### Strongly Connected Component(SCC)
+是有向圖中的一個重要概念，在有向圖中，一個頂點集合 $C$，任兩個點 $u,v\in C$ 都滿足$u\to v$ 且 $v\to u$ 都走得到，則 $C$ 是一個 Strongly Connected Component。👉 彼此「來得去、去得回」
+
+* 比較
+    |類型|適用圖|條件|
+    |---|---|---|
+    |Connected Component|無向圖|走得到就算|
+    |Strongly Connected Component|有向圖|來回都走得到|
+
+```c++
+// 先找誰最後離開圖，再反過來走一次
+Strongly-Connected-Components(G)
+call DFS(G) to compute finishing times u.f for each vertex u // 利用DFS找出圖上的vertices 的finish time(u.f)
+compute G_Transpose // 把圖反向
+call DFS(G_Transpose), but in the main loop of DFS, consider the vertices in order of decreasing u.f (as computed in line 1) // 從最後一個推回來
+output the vertices of each tree in the depth-first forest of step 3 as a separate strongly connected component
+```
+* $G^T=(V,E^T)$: G的Transpose，$E^T=\{(u,v):(v,u)\in E\}
+* Time: $O(V+E)$(adjacency list)
 
 ## Minimum Spanning Trees(MST)
+* Spanning Tree(生成樹): 用 $V-1$ 條邊連通所有 $V$ 個頂點且無 cycle
+* Edge Count: $\mid E_{MST}\mid = V-1$
+* Cut Property(切割性質): 對任意切割$(S,V-S)$(其實就是分成兩個群)，跨越該 cut 的最小權重邊，一定存在於某棵 MST 中
+    * Crossing edge：跨越 cut 的邊
+    * Light edge：跨越該 cut 的最小權重邊
+
+    <img src="/assets/posts/Algorithm/MST-Cut-Edge.jpg" alt="" width=300>
+    * 有被虛線切到的就是cut edge
+* Input: 無向的graph $G=(V,E)$，有權重的edge
+* Objective: 目的是找到能夠連結所有vertices但又最短的path
+* 應用
+    * circuit interconnection(minimizing tree radius): 連接所有 pin，線長 ≈ 成本 👉 先用 MST 降低總線長，再做優化
+    * communication network(minimize tree diameter): 城市要鋪光纖、公司內部拉網路、水管、電線、油管，節點是地點，邊等於鋪設成本 👉 MST = 最便宜的整體鋪設方案
+
+```c++
+Generic-MST(G,w)
+A = ∅
+while A does not form a spanning tree
+    find an edge (u,v) that is safe for A
+    A = A ∪ {(u,v)}
+return A
+```
+
+### 實作
+||Kruskal|Prim|
+|---|---|---|
+|觀點|邊|點|
+|資料結構|Union-Find|Priority Queue|
+|適合|稀疏圖|稠密圖|
+|是否需要連通|否（變森林）|是|
+
+#### Kruskal's
+* Time: $O(ElgE+V)$
+
+```c++
+
+```
+
+#### Prim-Dijkstra's
 
 ## Shortest Paths
 ### Single Source Shortest Path(SSSP)
