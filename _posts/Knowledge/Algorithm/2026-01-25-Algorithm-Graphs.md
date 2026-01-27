@@ -181,10 +181,36 @@ return A
 * Time: $O(ElgE+V)$
 
 ```c++
-
+MST-Kruskal(G,w)
+A = Ø
+for each vertex v in G.V
+    Make-Set(v)
+sort the edges of G.E by nondecreasing weight w
+for each edge (u,v)  G.E, in order by nondecreasing weight
+    if Find-Set(u)  Find-Set(v)
+        A = A  {(u, v)}
+        Union(u,v)
+return A
 ```
 
 #### Prim-Dijkstra's
+
+```c++
+MST-Prim(G,w,r)
+// Q: priority queue for vertices not in the tree, based on key.
+// key: min weight of any edge connecting to a vertex in the tree.
+for each vertex u in G.V
+    u.key = ∞
+    u.pi = NIL
+r.key = 0
+Q = G.V
+while Q  
+    u = Extract-Min(Q)
+    for each vertex v in G.Adj[u]
+        if v in Q and w(u,v) < v.key
+            v.pi = u
+            v.key = w(u,v)
+```
 
 ## Shortest Paths
 ### Single Source Shortest Path(SSSP)
