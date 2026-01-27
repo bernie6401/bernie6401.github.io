@@ -242,9 +242,9 @@ while Q ≠ ∅ // O(VlgV)
 * Objective: 找到一條從$s$出發連到其他所有點的最小weight的路徑
 $$
 \delta(u,v)=\left\{ 
-  \begin{array}{c}
+  \begin{array}{l}
     \min\{w(p):u\xrightarrow{p}v\}\ \text{if there is a path from}\ u\text{to}\ v \\
-    \infty\text{otherwise}
+    \infty\ \text{otherwise}
   \end{array}
 \right.
 $$
