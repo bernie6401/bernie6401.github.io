@@ -186,10 +186,10 @@ return A
 ```c++
 MST-Kruskal(G,w)
 A = Ø
-for each vertex v in G.V
+for each vertex v in G.V // O(V)
     Make-Set(v)
-sort the edges of G.E by nondecreasing weight w // 由小到大排序
-for each edge (u,v) in G.E, in order by nondecreasing weight // 從weight最低的開始
+sort the edges of G.E by nondecreasing weight w // 由小到大排序 > O(ElgE)
+for each edge (u,v) in G.E, in order by nondecreasing weight // 從weight最低的開始 > O(E) > 最worst的狀況是所有edge都要檢查一次
     if Find-Set(u)  Find-Set(v)
         A = A  {(u, v)}
         Union(u,v)
