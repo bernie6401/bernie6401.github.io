@@ -239,7 +239,7 @@ while Q ≠ ∅ // O(VlgV)
 ### Single Source Shortest Path(SSSP)
 * Input: 有向圖$G(V,E)$且含weighted edge以及一個指定的出發點$s$
     * Weight of Path: $p=<v_0,v_1,...,v_k>$: $w(p)=\sum_{i=1}^kw(v_{i-1},v_i)$
-    * Weight Function: $w:E\to \mathbb(R)$
+    * Weight Function: $w:E\to \mathbb{R}$
 * Objective: 找到一條從$s$出發連到其他所有點的最小weight的路徑
 $$
 \delta(u,v)=\left\{ 
