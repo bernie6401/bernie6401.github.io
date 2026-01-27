@@ -237,6 +237,9 @@ while Q ≠ ∅ // O(VlgV)
 
 ## Shortest Paths
 ### Single Source Shortest Path(SSSP)
+* Input: 有向圖$G(V,E)$且含weighted edge以及一個指定的出發點$s$
+* Objective: 找到一條從$s$出發連到其他所有點的最小weight的路徑
+* 應用: weight可以是任何東西，例如距離、時間、電線成本、delay等等
 
 ### All Pairs Shortest Paths(APSP)
 
