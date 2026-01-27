@@ -244,7 +244,7 @@ while Q ≠ ∅ // O(VlgV)
 $$
 \delta(u,v)=\left\{ 
   \begin{array}{l}
-    \min\{w(p):u\xrightarrow{p}v\}\ \text{if there is a path from}\ u\text{to}\ v \\
+    \min\{w(p):u\xrightarrow{p}v\}\ \text{if there is a path from}\ u\ \text{to}\ v \\
     \infty\ \text{otherwise}
   \end{array}
 \right.
