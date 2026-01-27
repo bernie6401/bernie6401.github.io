@@ -180,6 +180,8 @@ return A
 #### Kruskal's
 * Time: $O(ElgE+V)$
 
+<img src="/assets/posts/Algorithm/MST-Kruskal-Ex.jpg" alt="" width=300>
+
 ```c++
 MST-Kruskal(G,w)
 A = Ø
@@ -194,6 +196,8 @@ return A
 ```
 
 #### Prim-Dijkstra's
+
+<img src="/assets/posts/Algorithm/MST-Prim-Dijkstra-Ex.jpg" alt="" width=300>
 
 ```c++
 MST-Prim(G,w,r)
