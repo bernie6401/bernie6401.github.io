@@ -103,6 +103,7 @@ u.f = time
 同樣是找點S到點T的path，好處是雖然時間和空間的複雜度和Lee's一樣但卻比前者快10-15倍，不過路徑不一定是最短的
 
 <img src="/assets/posts/Algorithm/Soukup's Maze Router.jpg" alt="" width=300>
+
 * 黑色圓是DFS
 * 白色圓是BFS
 
@@ -178,24 +179,34 @@ return A
 |是否需要連通|否（變森林）|是|
 
 #### Kruskal's
+* 用Disjoint set forest處理，也是一種Greedy演算法
 * Time: $O(ElgE+V)$
 
+1. 由小到大排序，所有「邊(Edge)」的權重(Weigh)。
+2. 從小到大開始取那些「邊(Edge)」，前提是取到的Edge不能形成一個迴圈(loop, cycle)。要檢查
+3. 重複步驟 2的動作，直到最後已經不能再取。
+
 <img src="/assets/posts/Algorithm/MST-Kruskal-Ex.jpg" alt="" width=300>
+
+$(i,g)$之間的6沒有被算入是因為產生了cycle，另一個說法是這個edge本身不是一個合法的cut edge，也就是切到$(i,g)$但又不切到其他已經選到的edge
 
 ```c++
 MST-Kruskal(G,w)
 A = Ø
-for each vertex v in G.V
+for each vertex v in G.V // O(V)
     Make-Set(v)
-sort the edges of G.E by nondecreasing weight w
-for each edge (u,v)  G.E, in order by nondecreasing weight
-    if Find-Set(u)  Find-Set(v)
+sort the edges of G.E by nondecreasing weight w // 由小到大排序 > O(ElgE)
+for each edge (u,v) in G.E, in order by nondecreasing weight // 從weight最低的開始 > O(E) > 最worst的狀況是所有edge都要檢查一次
+    if Find-Set(u) ≠ Find-Set(v) // 其實就是檢查有沒有cycle，因為如果有cycle那就一定找的到同一個representative
         A = A  {(u, v)}
         Union(u,v)
 return A
 ```
 
 #### Prim-Dijkstra's
+1. 初始化：首先，選擇一個起始節點，將其視為MST的一部分，同時初始化一個空的MST。
+2. 找到最小邊：在已經選中的節點和未選中的節點之間，選擇一條權重最小的邊，並將其添加到最小生成樹中。這個邊的一個端點必須是已選中的節點，另一個端點必須是未選中的節點。
+3. 重複步驟2：持續執行步驟2，直到最小生成樹包含了所有節點。
 
 <img src="/assets/posts/Algorithm/MST-Prim-Dijkstra-Ex.jpg" alt="" width=300>
 
@@ -203,11 +214,15 @@ return A
 MST-Prim(G,w,r)
 // Q: priority queue for vertices not in the tree, based on key.
 // key: min weight of any edge connecting to a vertex in the tree.
+
+// 初始化
 for each vertex u in G.V
     u.key = ∞
     u.pi = NIL
 r.key = 0
 Q = G.V
+
+// 真正開始處理MST
 while Q  
     u = Extract-Min(Q)
     for each vertex v in G.Adj[u]
