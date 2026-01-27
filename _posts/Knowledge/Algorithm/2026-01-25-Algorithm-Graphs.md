@@ -203,7 +203,11 @@ for each edge (u,v) in G.E, in order by nondecreasing weight // 從weight最低�
 return A
 ```
 
-#### Prim-Dijkstra's
+#### Prim's
+* Time
+    * 用Binary Heap: $O(ElV)$
+    * 用Fibonacci Heap: $O(E+VlgV)$
+
 1. 初始化：首先，選擇一個起始節點，將其視為MST的一部分，同時初始化一個空的MST。
 2. 找到最小邊：在已經選中的節點和未選中的節點之間，選擇一條權重最小的邊，並將其添加到最小生成樹中。這個邊的一個端點必須是已選中的節點，另一個端點必須是未選中的節點。
 3. 重複步驟2：持續執行步驟2，直到最小生成樹包含了所有節點。
