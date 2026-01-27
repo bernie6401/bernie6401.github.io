@@ -146,6 +146,29 @@ output the vertices of each tree in the depth-first forest of step 3 as a separa
 * Time: $O(V+E)$(adjacency list)
 
 ## Minimum Spanning Trees(MST)
+* Input: 無向的graph $G=(V,E)$，有權重的edge
+* Objective: 目的是找到能夠連結所有vertices但又最短的path
+* 應用
+    * circuit interconnection(minimizing tree radius): 連接所有 pin，線長 ≈ 成本 👉 先用 MST 降低總線長，再做優化
+    * communication network(minimize tree diameter): 城市要鋪光纖、公司內部拉網路、水管、電線、油管，節點是地點，邊等於鋪設成本 👉 MST = 最便宜的整體鋪設方案
+
+```c++
+Generic-MST(G,w)
+A = ∅
+while A does not form a spanning tree
+    find an edge (u,v) that is safe for A
+    A = A ∪ {(u,v)}
+return A
+```
+
+### 實作-Kruskal's
+* Time: $O(ElgE+V)$
+
+```c++
+
+```
+
+### 實作-Prim-Dijkstra's
 
 ## Shortest Paths
 ### Single Source Shortest Path(SSSP)
