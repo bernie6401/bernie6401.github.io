@@ -179,6 +179,12 @@ return A
 |是否需要連通|否（變森林）|是|
 
 #### Kruskal's
+用Disjoint set forest處理，也是一種Greedy演算法
+
+1. 由小到大排序，所有「邊(Edge)」的權重(Weigh)。
+2. 從小到大開始取那些「邊(Edge)」，前提是取到的Edge不能形成一個迴圈(loop, cycle)。要檢查
+3. 重複步驟 2的動作，直到最後已經不能再取。
+
 * Time: $O(ElgE+V)$
 
 <img src="/assets/posts/Algorithm/MST-Kruskal-Ex.jpg" alt="" width=300>
@@ -190,7 +196,7 @@ for each vertex v in G.V // O(V)
     Make-Set(v)
 sort the edges of G.E by nondecreasing weight w // 由小到大排序 > O(ElgE)
 for each edge (u,v) in G.E, in order by nondecreasing weight // 從weight最低的開始 > O(E) > 最worst的狀況是所有edge都要檢查一次
-    if Find-Set(u)  Find-Set(v)
+    if Find-Set(u) ≠ Find-Set(v) // 其實就是檢查有沒有cycle，因為如果有cycle那就一定找的到同一個representative
         A = A  {(u, v)}
         Union(u,v)
 return A
