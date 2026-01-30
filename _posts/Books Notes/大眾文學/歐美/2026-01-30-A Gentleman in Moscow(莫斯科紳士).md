@@ -11,8 +11,8 @@ comments: true
 
 # A Gentleman in Moscow(莫斯科紳士)
 * 作者: Amor Towles
-* 出版社: 
-* 出版日期: 
+* 出版社: Viking
+* 出版日期: 2016/09/06
 * 譯者: 李靜宜
 * 譯版出版社: 漫遊者文化
 * 譯版出版日期: 2025/07/02
@@ -20,3 +20,5 @@ comments: true
 <img src="/assets/posts/A_Gentleman_in_Moscow(莫斯科紳士).jpg" alt="" width="300">
 <!-- more -->
 
+## 大事紀
+* 
