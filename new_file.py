@@ -74,7 +74,7 @@ def get_author_info(info, book_cover_file_path):
     if not info.get("translator", ""):
         author_info = f'* 作者: {info.get("author", "")}\n* 出版社: {info.get("publisher", "")}\n* 出版日期: {info.get("publish_date", "")}\n'
     elif info.get("original_author", ""):
-        author_info = f'* 作者: {info.get("original_author", "")}\n* 出版社: \n* 出版日期: \n* 譯者: {info.get("translator", "")}\n* 譯版出版社: {info.get("publisher", "")}\n* 譯版出版日期: {info.get("publish_date", "")}\n'
+        author_info = f'* 作者: {info.get("original_author", "")}({info.get("author", "")})\n* 出版社: \n* 出版日期: \n* 譯者: {info.get("translator", "")}\n* 譯版出版社: {info.get("publisher", "")}\n* 譯版出版日期: {info.get("publish_date", "")}\n'
     elif info.get("author", ""):
         author_info = f'* 作者: {info.get("author", "")}\n* 出版社: \n* 出版日期: \n* 譯者: {info.get("translator", "")}\n* 譯版出版社: {info.get("publisher", "")}\n* 譯版出版日期: {info.get("publish_date", "")}\n'
     else:
