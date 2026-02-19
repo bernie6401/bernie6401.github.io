@@ -1,8 +1,8 @@
 import os
 import argparse
+import requests
 from datetime import datetime
 
-import requests
 
 def crawl_book_cover(bid, book_cover_file_path):
     # Download book cover image
@@ -53,13 +53,50 @@ def crawl_book_info(books_id):
     
     return info
 
+def get_front_matter(name, date_full, category_str):
+    # 組成 front matter
+    front_matter = f"""---
+layout: post
+title: "{name}"
+date: {date_full}
+category: "{category_str}"
+tags: []
+draft: false
+toc: true
+comments: true
+---
+
+# {name}
+"""
+    return front_matter
+
+def get_author_info(info, book_cover_file_path):
+    if not info.get("translator", ""):
+        author_info = f'* 作者: {info.get("author", "")}\n* 出版社: {info.get("publisher", "")}\n* 出版日期: {info.get("publish_date", "")}\n'
+    elif info.get("original_author", ""):
+        author_info = f'* 作者: {info.get("original_author", "")}\n* 出版社: \n* 出版日期: \n* 譯者: {info.get("translator", "")}\n* 譯版出版社: {info.get("publisher", "")}\n* 譯版出版日期: {info.get("publish_date", "")}\n'
+    elif info.get("author", ""):
+        author_info = f'* 作者: {info.get("author", "")}\n* 出版社: \n* 出版日期: \n* 譯者: {info.get("translator", "")}\n* 譯版出版社: {info.get("publisher", "")}\n* 譯版出版日期: {info.get("publish_date", "")}\n'
+    else:
+        author_info = f'* 作者: \n* 出版社: \n* 出版日期: \n* 譯者: \n* 譯版出版社: \n* 譯版出版日期: \n'
+
+    author_info += f'\n<img src="{book_cover_file_path}" alt="" width="300">\n'
+
+    return author_info
+
+def get_date_str():
+    now = datetime.now()
+    date_str = now.strftime("%Y-%m-%d")
+    date_full = now.strftime("%Y-%m-%d")
+    return date_str, date_full
+
 def generate_post(file_path):
     # 解析絕對路徑與元件
     file_path = os.path.normpath(file_path)
     dir_path, filename = os.path.split(file_path)
     name, ext = os.path.splitext(filename)
 
-    if ext != ".md":
+    if ext != ".md" and ("Books Notes" not in dir_path and "Test" not in dir_path and args.books_id is None):
         print("❌ 請提供 .md 檔案")
         return
 
@@ -83,46 +120,18 @@ def generate_post(file_path):
     else:
         info = {}
     
-    # 產生時間與檔名
-    now = datetime.now()
-    date_str = now.strftime("%Y-%m-%d")
-    date_full = now.strftime("%Y-%m-%d")
+    date_str, date_full = get_date_str()
     new_filename = f"{date_str}-{name}.md"
-    if not info.get("translator", ""):
-        author_info = f'* 作者: {info.get("author", "")}\n* 出版社: {info.get("publisher", "")}\n* 出版日期: {info.get("publish_date", "")}\n'
-    elif info.get("original_author", ""):
-        author_info = f'* 作者: {info.get("original_author", "")}\n* 出版社: \n* 出版日期: \n* 譯者: {info.get("translator", "")}\n* 譯版出版社: {info.get("publisher", "")}\n* 譯版出版日期: {info.get("publish_date", "")}\n'
-    elif info.get("author", ""):
-        author_info = f'* 作者: {info.get("author", "")}\n* 出版社: \n* 出版日期: \n* 譯者: {info.get("translator", "")}\n* 譯版出版社: {info.get("publisher", "")}\n* 譯版出版日期: {info.get("publish_date", "")}\n'
-    else:
-        author_info = f'* 作者: \n* 出版社: \n* 出版日期: \n* 譯者: \n* 譯版出版社: \n* 譯版出版日期: \n'
-
-    author_info += f'\n<img src="{book_cover_file_path}" alt="" width="300">\n'
-
-    # 組成 front matter
-    front_matter = f"""---
-layout: post
-title: "{name}"
-date: {date_full}
-category: "{category_str}"
-tags: []
-draft: false
-toc: true
-comments: true
----
-
-# {name}
-"""
-
+    
     # 寫入檔案
     output_dir = "_posts/" + categories
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, new_filename)
 
     with open(output_path, "w", encoding="utf-8") as f:
-        f.write(front_matter)
+        f.write(get_front_matter(name=name, date_full=date_full, category_str=category_str))
         if any(cat in categories for cat in ["Books Notes", "Test"]):
-            f.write(f"{author_info}")
+            f.write(f"{get_author_info(info, book_cover_file_path)}\n\n")
         f.write(f"<!-- more -->\n\n")
 
     print(f"✅ 已建立：{output_path}")
