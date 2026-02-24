@@ -34,7 +34,7 @@ else echo "NOPE!";
 ```
 
 ## Recon
-主要是參考之前寫過的[PicoCTF - Who are you?]({{ site.baseurl }}/PicoCTF-Who-are-you_/)和[PicoCTF - Who are you?]({{ site.baseurl }}//PicoCTF-Easy-Peasy-Or-Bad-Questions/#Challenge-picobrowser%F0%9F%8D%B0)，按照source code我們需要更改一些header讓他可以被forge然後bypass這些條件，首先是IP，他其實給的很寬鬆，還有X-Forwarded-For的header可以用，就直接<span style="background-color: yellow">X-Forwarded-For: 127.0.0.1</span>；另外，cookie的user要等於admin→<span style="background-color: yellow">Cookie: user=admin</span>；再來，request method要等於FLAG→<span style="background-color: yellow">FLAG / HTTP/1.1</span>
+主要是參考之前寫過的[PicoCTF - Who are you?]({{ site.baseurl }}/PicoCTF-Who-are-you_/)和[PicoCTF - Who are you?]({{ site.baseurl }}/PicoCTF-Easy-Peasy-Or-Bad-Questions/#Challenge-picobrowser%F0%9F%8D%B0)，按照source code我們需要更改一些header讓他可以被forge然後bypass這些條件，首先是IP，他其實給的很寬鬆，還有X-Forwarded-For的header可以用，就直接<span style="background-color: yellow">X-Forwarded-For: 127.0.0.1</span>；另外，cookie的user要等於admin→<span style="background-color: yellow">Cookie: user=admin</span>；再來，request method要等於FLAG→<span style="background-color: yellow">FLAG / HTTP/1.1</span>
 
 ## Exploit
 ![圖片](https://hackmd.io/_uploads/H14qGKvrp.png)
