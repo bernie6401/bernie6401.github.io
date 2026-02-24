@@ -11,6 +11,9 @@ date: 2024-02-07
 * `robots.txt`
 * 封包headers和contents: Wireshark、Browser、BurpSuite
 * cookies
+* Information Leak
+    * `.DS_Store`: lijiejie/ds_store_exp
+    * `gitleak`: denny0223/scrabble
 
 ### Injection
 * SQLi
@@ -21,10 +24,14 @@ date: 2024-02-07
         <data><ID>&xxe;</ID></data>
     ```
 * XSS
+* [Command Injection - feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
 
 ### 其他
 * LFI: `../../../flag.txt`
-* 
+* Deserialization
+* 前端
+* SSRF
+* 上傳
 <!-- more -->
 
 ## Online Tools

