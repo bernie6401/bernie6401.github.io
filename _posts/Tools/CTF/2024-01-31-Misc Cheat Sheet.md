@@ -19,7 +19,7 @@ date: 2024-01-31
 | [獸語](https://roar.iiilab.com/)|
 
 ## Check file info
-```bash!
+```bash
 $ binwalk [-e] [filename] # or binwalk --dd=".*" [filename]
 $ exiftool [filename]
 $ pngcheck [filename]
@@ -31,7 +31,7 @@ $ file [filename]
 ## Steganography
 * text: [zsteg](https://github.com/zed-0xff/zsteg)(just for `bmp` and `png` files), [Quick Crypto](http://quickcrypto.com/download.html)
 * file: steghide(`sudo apt-get install steghide`)(`$ steghide extract -sf atbash.jpg`)
-* 進階的steghide$\to$[stegseek](https://github.com/RickdeJager/stegseek)
+* 進階的steghide → [stegseek](https://github.com/RickdeJager/stegseek)
     ```bash
     $ wget https://github.com/RickdeJager/stegseek/releases/download/v0.6/stegseek_0.6-1.deb
     $ sudo apt install ./stegseek_0.6-1.deb -y
@@ -53,7 +53,7 @@ $ file [filename]
     :::spoiler Set up & How2Use
     [Windows Volatility 3 Problems & Solutions](https://blog.csdn.net/u011250160/article/details/120461405)
     [Windows Set up Tutorials](https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html)
-    ```bash!
+    ```bash
     $ git clone https://github.com/volatilityfoundation/volatility3
     $ cd volatility3
     $ pip install -r requirement.txt
@@ -64,7 +64,7 @@ $ file [filename]
 * [Volatility 2](https://github.com/volatilityfoundation/volatility)
     :::spoiler Set up & How2Use
     [Windows Set up Tutorials](https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html)
-    ```bash!
+    ```bash
     $ conda create --name py27 python=2.7
     $ conda activate py27
     $ git clone https://github.com/volatilityfoundation/volatility

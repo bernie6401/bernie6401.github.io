@@ -8,13 +8,10 @@ date: 2024-01-31
 
 # PWN Overview
 <!-- more -->
-:::spoiler TOC
-[TOC]
-:::
 
 ## Tools Cheat
 * Commonly Used Commands
-    ```bash!
+    ```bash
     $ file {file path}
     $ checksec {file path} # sudo apt-get install checksec
     $ objdump -M intel -d {file path} | less
@@ -25,12 +22,12 @@ date: 2024-01-31
     ```
 * Command Used Tools / Plugin
     * [gdb-peda](https://github.com/longld/peda)
-        ```bash!
+        ```bash
         $ git clone https://github.com/longld/peda.git ~/peda
         $ echo "source ~/peda/peda.py" >> ~/.gdbinit
         ```
     * [radare2](https://github.com/radareorg/radare2)
-        ```bash!
+        ```bash
         $ git clone https://github.com/radare/radare2.git
         $ sudo apt install build-essential # just for wsl
         $ sudo ./radare2/sys/install.sh
@@ -68,7 +65,7 @@ date: 2024-01-31
         [libc database search](https://libc.blukat.me/?q=__libc_start_main_ret)
 
 ### gdb
-:::spoiler 常用語法([cheat](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf))
+常用語法([cheat](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf))
 * b: 設定中斷點
     ```bash
     # break point
@@ -107,7 +104,7 @@ date: 2024-01-31
 * heapinfo: 查看heap的狀態
 * heapb: 就是heap base的command，告訴我們目前的base address
 * .gdbinit
-    :::spoiler config
+    * config
     ```bash
     set disassembly-flavor intel
 
@@ -135,7 +132,6 @@ date: 2024-01-31
             end
     end
     ```
-    :::
 
 ### pwntools
 * 常用
@@ -180,7 +176,7 @@ date: 2024-01-31
 
 ### Other
 * objdump
-    ```bash!
+    ```bash
     $ objdump -M intel -d $binary | less
     ```
 * 如果要寫shell code的話可以直接看exploit db上別人寫好的gadget，複製起來就可以用了，不過有時候也有可能會失敗，在確認其他東西都是正確的情況下，可以試看看別的，記得平台要選對
@@ -190,103 +186,97 @@ date: 2024-01-31
 
 ### 寫/bin/sh\x00的方法
 * [Shellcode Cheat Sheet](http://shell-storm.org/shellcode/index.html)
-1. 如果是x86版本
-建議直接寫在stack上，因為比較少int 0x80 ; ret的gadget可以用，那倒不如直接寫在script上然後計算esp或ebp的位置，一樣可以拿到儲存的位置
-2. 如果是x64版本
-建議可以用system read的方式搭配syscall ret的ROP
-3. 如果是直接執行shell code
-且shell code是可以直接讓我們輸入的話就直接參考exploit db的就好了
-:::spoiler eg 1
-```
-push 0x0b
-pop eax
-push 0x0068732f
-push 0x6e69622f
-mov ebx, esp
-int 0x80
-```
-:::
-:::spoiler eg 2
-```
-mov eax, 0x6e69622f
-push eax
-mov eax, 0x0068732f
-push eax
-xor eax, eax
-xor ebx, ebx
-xor ecx, ecx
-xor edx, edx
-mov eax, 0xb
-lea ebx, DWORD PTR [esp]
-int 0x80
-```
-:::
-:::spoiler eg 3
-```
-/*Put the syscall number of execve in eax*/
+1. 如果是x86版本: 建議直接寫在stack上，因為比較少int 0x80 ; ret的gadget可以用，那倒不如直接寫在script上然後計算esp或ebp的位置，一樣可以拿到儲存的位置
+2. 如果是x64版本: 建議可以用system read的方式搭配syscall ret的ROP
+3. 如果是直接執行shell code且shell code是可以直接讓我們輸入的話就直接參考exploit db的就好了
+* eg 1
+    ```
+    push 0x0b
+    pop eax
+    push 0x0068732f
+    push 0x6e69622f
+    mov ebx, esp
+    int 0x80
+    ```
+* eg 2
+    ```
+    mov eax, 0x6e69622f
+    push eax
+    mov eax, 0x0068732f
+    push eax
     xor eax, eax
-    mov al, 0xb
-    
-    /*Put zero in ecx and edx*/
+    xor ebx, ebx
     xor ecx, ecx
     xor edx, edx
-    
-    /*Push "/sh\x00" on the stack*/
-    xor ebx, ebx
-    mov bl, 0x68
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    mov bh, 0x73
-    mov bl, 0x2f
-    push ebx
-    nop
-    
-    /*Push "/bin" on the stack*/
-    mov bh, 0x6e
-    mov bl, 0x69
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    shl ebx
-    mov bh, 0x62
-    mov bl, 0x2f
-    push ebx
-    nop
-              
-    /*Move the esp (that points to "/bin/sh\x00") in ebx*/
-    mov ebx, esp/*Syscall*/
+    mov eax, 0xb
+    lea ebx, DWORD PTR [esp]
     int 0x80
-```
-:::
+    ```
+* eg 3
+    ```
+    /*Put the syscall number of execve in eax*/
+        xor eax, eax
+        mov al, 0xb
+        
+        /*Put zero in ecx and edx*/
+        xor ecx, ecx
+        xor edx, edx
+        
+        /*Push "/sh\x00" on the stack*/
+        xor ebx, ebx
+        mov bl, 0x68
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        mov bh, 0x73
+        mov bl, 0x2f
+        push ebx
+        nop
+        
+        /*Push "/bin" on the stack*/
+        mov bh, 0x6e
+        mov bl, 0x69
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        shl ebx
+        mov bh, 0x62
+        mov bl, 0x2f
+        push ebx
+        nop
+                
+        /*Move the esp (that points to "/bin/sh\x00") in ebx*/
+        mov ebx, esp/*Syscall*/
+        int 0x80
+    ```
 
 ### 如何讓環境執行在指定的libc和loader中
-如果不想要費事裝VM或wsl就可以直接用@ccccc提供的腳本，讓這支程式跑在和server一樣的環境，==所以要把對應環境的loader和libc載下來==，用法如下:
+如果不想要費事裝VM或wsl就可以直接用@ccccc提供的腳本，讓這支程式跑在和server一樣的環境，<span style="background-color: yellow">所以要把對應環境的loader和libc載下來</span>，用法如下:
 ```bash
 $ python {script path} {new env loader path} {original elf file}
 # e.g. python ./LD_PRELOAD.py ./ld-2.27.so ./vuln
@@ -296,7 +286,7 @@ $ python {script path} {new env loader path} {original elf file}
 r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 ```
 
-:::spoiler Script
+* Script
 ```python
 '''
 Copied and modified from https://www.cnblogs.com/0x636a/p/9157993.html
@@ -346,41 +336,31 @@ BIN = sys.argv[2]
 change_ld(BIN, LD_PATH)
 ###Execute file by 'LD_PRELOAD={target_libc} ./executable'
 ```
-:::
 * How to download libc file & loader
     [Ubuntu Packages Search](https://packages.ubuntu.com/)
     [libc6_2.31-0ubuntu9_amd64.deb](https://ubuntu.pkgs.org/20.04/ubuntu-main-amd64/libc6_2.31-0ubuntu9_amd64.deb.html)
 
 ## Stack Vulnerabilities
-
 ### `checksec`
-* No RELRO or Partial RELRO $\to$ ==GOT Hijacking(改寫GOT)==
-    :::spoiler
-    ❖ No RELRO - link map和GOT都可寫(有lazy binding)
-    ❖ Partial RELRO - link map不可寫，GOT可寫(有lazy binding)
-    ❖ Full RELRO - link map和GOT都不可寫(事先把library的位置都先resolve完並寫在GOT上，再把GOT權限關掉，比較花時間但安全)
-    關閉指令：`-z norelro`
-    :::
-* Position Independent Executable(PIE) $\to$ ==BOF(ret2 series)==
-    :::spoiler
-    ❖ 開啟時，data 段以及 code 段位址隨機化
-    ❖ 關閉時，data 段以及 code 段位址固定
-    關閉指令：`-no-pie`
-    :::
-* NX (No eXecute, Data Execution Prevention, DEP) off $\to$ 基本上不能直接執行shellcode，但可以用==ROP==繞過
-    :::spoiler 
-    ❖ 可寫得不可執⾏，可執⾏的不可寫
-    關閉指令：`-zexecstack`
-    :::
+* No RELRO or Partial RELRO → <span style="background-color: yellow">GOT Hijacking(改寫GOT)</span>
+    * No RELRO - link map和GOT都可寫(有lazy binding)
+    * Partial RELRO - link map不可寫，GOT可寫(有lazy binding)
+    * Full RELRO - link map和GOT都不可寫(事先把library的位置都先resolve完並寫在GOT上，再把GOT權限關掉，比較花時間但安全)
+    * 關閉指令：`-z norelro`
+* Position Independent Executable(PIE) → <span style="background-color: yellow">BOF(ret2 series)</span>
+    * 開啟時，data 段以及 code 段位址隨機化
+    * 關閉時，data 段以及 code 段位址固定
+    * 關閉指令：`-no-pie`
+* NX (No eXecute, Data Execution Prevention, DEP) off → 基本上不能直接執行shellcode，但可以用<span style="background-color: yellow">ROP</span>繞過
+    * 可寫得不可執⾏，可執⾏的不可寫
+    * 關閉指令：`-zexecstack`
 * ASLR (Address Space Layout Randomization)
-    :::spoiler
-    ❖ 記憶體位址隨機變化
-    ❖ 每次執⾏時，stack、heap、library 位置都不⼀樣
-    關閉指令: `sudo sh -c "echo 0 > /proc/sys/kernel/randomize_va_space"`
-    打開指令: `sudo sh -c "echo 2 > /proc/sys/kernel/randomize_va_space"`
-    :::
+    * 記憶體位址隨機變化
+    * 每次執⾏時，stack、heap、library 位置都不⼀樣
+    * 關閉指令: `sudo sh -c "echo 0 > /proc/sys/kernel/randomize_va_space"`
+    * 打開指令: `sudo sh -c "echo 2 > /proc/sys/kernel/randomize_va_space"`
 * Stack Canary
-    關閉指令：`-fno-stack-protector`
+    * 關閉指令：`-fno-stack-protector`
 
 ### Bof Series
 * Overwrite sensitive data
@@ -392,7 +372,7 @@ change_ld(BIN, LD_PATH)
 * 如果BoF的長度不夠的話，可以考慮用stack pivot的方式再搭配ROP chain: 範例可以參考[Lab - Stack Pivot](https://hackmd.io/@SBK6401/SkpDfz4BT)
 
 ### Format String Bug
-* 之前的Demo是利用format string達到==GOT hijack==
+* 之前的Demo是利用format string達到<span style="background-color: yellow">GOT hijack</span>
 * 用法:
     * %**p** - leak code / libc / stack address
     * %{**任意值**}c%**k**$(hhn|hn|n) - 寫**任意值**到第 **k** 個參數指向的位址
@@ -413,33 +393,21 @@ change_ld(BIN, LD_PATH)
     * function 在 library 中的位址 (以 functionB 代稱)藉由控制程式流程，讓程式跳到 functionB 上，意即執⾏此 functionB
 
 ### Return 2 Series
-1. Return 2 Code
-這是代表原本的source code就已經有寫好一個shell，只要改變RIP就可以跳過去
-**必要條件：PIE Off**
-2. Return 2 Shell Code
-代表我們要自己寫一個shell code在記憶體中，然後用RIP跳過去
-**必要條件：NX Off(要完全可讀可寫可執行)**
-作法就是先找到一塊rwx全開的地方，然後想辦法把shell code寫上去，接著控制RIP跳到該段拿到shell
-    * 變形：就像[^pico_pwn_guessing_game_1]和[^ntucs_pwn_rop++]一樣
-    可以先找到.bss section，然後開__libc_read function寫入`/bin/sh\x00`，之後再return到shell code的地方
+1. Return 2 Code(**必要條件：PIE Off**): 這是代表原本的source code就已經有寫好一個shell，只要改變RIP就可以跳過去
+2. Return 2 Shell Code(**必要條件：NX Off(要完全可讀可寫可執行)**): 代表我們要自己寫一個shell code在記憶體中，然後用RIP跳過去
+    * 作法就是先找到一塊rwx全開的地方，然後想辦法把shell code寫上去，接著控制RIP跳到該段拿到shell
+    * 變形：就像[^pico_pwn_guessing_game_1]和[^ntucs_pwn_rop++]一樣，可以先找到.bss section，然後開__libc_read function寫入`/bin/sh\x00`，之後再return到shell code的地方
 3. Return 2 libc
 
-
 ## Heap Vulnerabilities
-
 ### Background
-:::spoiler 解題關鍵
-![圖片](https://hackmd.io/_uploads/ByQ16zsrT.png)
-
-![圖片](https://hackmd.io/_uploads/ByCZaGiHa.png)
-
-![圖片](https://hackmd.io/_uploads/HkFM6MjHp.png)
-
-![圖片](https://hackmd.io/_uploads/rkUXpMoB6.png)
-:::
+* 解題關鍵
+* ![圖片](https://hackmd.io/_uploads/ByQ16zsrT.png)
+* ![圖片](https://hackmd.io/_uploads/ByCZaGiHa.png)
+* ![圖片](https://hackmd.io/_uploads/HkFM6MjHp.png)
+* ![圖片](https://hackmd.io/_uploads/rkUXpMoB6.png)
 
 ### Double Free
-
 ### Used After Free
 * [UAF leak Libc address](https://hackmd.io/@SBK6401/SJWc9v4Bp#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-libc-address)
 * [UAF leak heap address](https://hackmd.io/@SBK6401/SJWc9v4Bp#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-heap-address)
@@ -456,7 +424,7 @@ change_ld(BIN, LD_PATH)
     * 多次 free 相同的 chunk
 
 ### Overlapping chunks
-簡單來說就是==修改chunk size==，讓 chunk 在被釋放時 trigger consolidation(當釋放記憶體時，若檢查到相鄰的 chunk 沒有被使⽤，會將其合併成⼀塊更⼤的 freed chunk)，使得正在使⽤的 chunk 與已經釋放的 chunk 有部分重疊，也就代表
+簡單來說就是<span style="background-color: yellow">修改chunk size</span>，讓 chunk 在被釋放時 trigger consolidation(當釋放記憶體時，若檢查到相鄰的 chunk 沒有被使⽤，會將其合併成⼀塊更⼤的 freed chunk)，使得正在使⽤的 chunk 與已經釋放的 chunk 有部分重疊，也就代表
 * 使⽤中的 chunk 可以更改 freed chunk 中的 fd、bk
 * freed chunk 在被分配時，會分配到與使⽤中的 chunk 相同的區塊，可以修改敏感資料
 

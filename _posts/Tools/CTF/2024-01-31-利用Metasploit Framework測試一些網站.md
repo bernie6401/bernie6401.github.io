@@ -25,7 +25,7 @@ IP: `34.81.5.101`
 [Security Header Result](https://securityheaders.com/?q=https%3A%2F%2Fwww.smartdaily.com.tw%2F&followRedirects=on)
 
 ### nmap
-:::spoiler nmap Result
+* nmap Result
 ```bash
 nmap -vv 34.81.5.101
 [*] exec: nmap -vv 34.81.5.101
@@ -56,17 +56,17 @@ PORT    STATE SERVICE REASON
 Read data files from: /usr/bin/../share/nmap
 Nmap done: 1 IP address (1 host up) scanned in 75.09 seconds
 ```
-:::
+
 開的Port: 80/443
 
 ---
 
 ## [NatureTEL](http://www.naturaltel.com/)
-IP: `219.84.199.120`
-[Security Header Result](https://securityheaders.com/?q=https%3A%2F%2Fwww.naturaltel.com%2F&followRedirects=on)
+* IP: `219.84.199.120`
+* [Security Header Result](https://securityheaders.com/?q=https%3A%2F%2Fwww.naturaltel.com%2F&followRedirects=on)
 
 ### nmap
-:::spoiler nmap Result
+* nmap Result
 ```bash
 $ nmap -vv 219.84.199.120
 [*] exec: nmap -vv 219.84.199.120
@@ -101,17 +101,17 @@ PORT    STATE SERVICE REASON
 Read data files from: /usr/bin/../share/nmap
 Nmap done: 1 IP address (1 host up) scanned in 4.67 seconds
 ```
-:::
+
 開的Port: 21/25/80/110/143/443
 
 ---
 
 ## [飛像資訊](https://www.flyelephant.com.tw/)
-IP: `199.15.163.148`
-[Security Header Result](https://securityheaders.com/?q=https%3A%2F%2Fwww.flyelephant.com.tw%2F&followRedirects=on)
+* IP: `199.15.163.148`
+* [Security Header Result](https://securityheaders.com/?q=https%3A%2F%2Fwww.flyelephant.com.tw%2F&followRedirects=on)
 
 ### nmap
-:::spoiler nmap Result
+* nmap Result
 ```bash
 $ nmap -vv 199.15.163.148
 [*] exec: nmap -vv  199.15.163.148 
@@ -142,5 +142,5 @@ PORT    STATE SERVICE REASON
 Read data files from: /usr/bin/../share/nmap
 Nmap done: 1 IP address (1 host up) scanned in 99.90 seconds
 ```
-:::
+
 開的Port: 80/443

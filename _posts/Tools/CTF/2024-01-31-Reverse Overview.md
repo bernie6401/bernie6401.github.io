@@ -10,6 +10,7 @@ date: 2024-01-31
 <!-- more -->
 
 ## Tools
+
 | Type| App| .NET| x86/x64| Packer| Python| C|General|
 | - | - | - | - | - | - | - | - |
 | Description | <li> MobSF: Must run in python `3.8`</li><li>ApkTool: Just follow the step in [install guide](https://apktool.org/docs/install/)</li>|To decompile C#(.NET)|| 指令：`$ upx -d {filename}`|| 一個可以把組語轉換成c pseudo code的線上工具 |一個線上的decompiler，結合多種工具，只要上傳檔案(小於2MB)就可以呈現多種decompiler tools的結果|
@@ -36,39 +37,31 @@ date: 2024-01-31
 * p: 當成function
 * t: set sizeof(XXX)；如果已經確定目前的constant就是某個變數的length，那可以直接按t讓他變成sizeof(那個變數)
     舉例：如果已經確定目前的`0x238`就是`PROCESSENTRY32W`的size，就可以直接這樣用，會變得比較清楚
-    :::spoiler 結果
-    ![](https://hackmd.io/_uploads/S1nruHTza.png)
-    ![](https://hackmd.io/_uploads/rkjwuBTza.png)
-    :::
+    * 結果
+        ![](https://hackmd.io/_uploads/S1nruHTza.png)
+        ![](https://hackmd.io/_uploads/rkjwuBTza.png)
 * Shift+F1: show出Local Type視窗
-    :::spoiler Local Types Screenshot
-    ![](https://hackmd.io/_uploads/S1ikDa5_n.png)
-    :::
+    * Local Types Screenshot
+        ![](https://hackmd.io/_uploads/S1ikDa5_n.png)*
 * Shift+F12: 開啟Strings視窗
-    :::spoiler Strings Screenshot
-    ![](https://hackmd.io/_uploads/HybvLzo_2.png)
-    :::
+    * Strings Screenshot
+        ![](https://hackmd.io/_uploads/HybvLzo_2.png)*
 * 對某一個數值按m: ENUM這個功能就是在替換一些常見的windows API參數，讓原本的純數字可以用文字表示，這樣比較好懂API的操作，逆向會更順暢(補充說明：IDA有收錄很多MSDN上的一些API，他每一個參數表示的文字，例如[這一篇](https://learn.microsoft.com/en-us/windows/win32/Memory/memory-protection-constants)底下有顯示很多Constant/value的對應，而正常情況下IDA會顯示的是value，如果要把它換成Constant文字的表達式就可以用到ENUM這個功能)，又例如:
     目前已經知道`CreateToolhelp32Snapshot(2, 0);`中的2的意義是`TH32CS_SNAPPROCESS`(可以參考[MSDN](https://learn.microsoft.com/zh-tw/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot#parameters))，此時就可以直接按m之後再選擇`TH32CS_SNAPPROCESS`
-    :::spoiler
-    ![](https://hackmd.io/_uploads/B1Rn5Q6G6.png)
-    :::
+    *
+    ![](https://hackmd.io/_uploads/B1Rn5Q6G6.png)*
 * \\: 不顯示/顯示資料型別
 * Alt+M/Ctrl+M: 前者是註冊書籤，後者是察看並選擇標籤，可以快速跑到標示的地址
 * Ctrl+E: 如果是分析DLL file，可能會有很多不同的entry point，利用這個shortcut可以顯示目前有幾個entry point，很方便
-    :::spoiler
-    ![](https://hackmd.io/_uploads/ryJw-C6Ga.png)
-    :::
+    ![](https://hackmd.io/_uploads/ryJw-C6Ga.png)*
 * 如何把bytes變成字串: 
     * 可以直接Alt+A
-    :::spoiler
-    1. 可以先把bytes的型別定義好(單獨的bytes變成array)，變成array有兩種方法，第一種是直接用`Y`定義他的型別成`int dword_2008[32]`，前面的int就看每一個字元是來決定，後面`[32]`就代表有多少字元變成array；第二種方法就是直接按`d`改變一個字元的型態變成int，然後在`edit/Array`的地方可以叫出`Convert to array`的視窗(如果前面沒有先用`d`改變型態的話，他會以為所有字元都是一個byte，然後總共有128個字元這樣換算，但其實我們是總共32個字元，每一個字元是4個bytes，也就是int，這一點要特別注意)
-    ![](https://hackmd.io/_uploads/HJ3yvI-Ga.png)
-    ![](https://hackmd.io/_uploads/r1A_8LWMa.png)
-    2. 接著就是在`Option/String literals`視窗中設定用哪一個型態表示字串，這邊因為每一個字元都是4 bytes，也就是32 bits，所以選擇C-style
-    ![](https://hackmd.io/_uploads/SyQBP8Zfp.png)
-    :::
-    :::spoiler 完整流程
+        1. 可以先把bytes的型別定義好(單獨的bytes變成array)，變成array有兩種方法，第一種是直接用`Y`定義他的型別成`int dword_2008[32]`，前面的int就看每一個字元是來決定，後面`[32]`就代表有多少字元變成array；第二種方法就是直接按`d`改變一個字元的型態變成int，然後在`edit/Array`的地方可以叫出`Convert to array`的視窗(如果前面沒有先用`d`改變型態的話，他會以為所有字元都是一個byte，然後總共有128個字元這樣換算，但其實我們是總共32個字元，每一個字元是4個bytes，也就是int，這一點要特別注意)
+            ![](https://hackmd.io/_uploads/HJ3yvI-Ga.png)
+            ![](https://hackmd.io/_uploads/r1A_8LWMa.png)
+        2. 接著就是在`Option/String literals`視窗中設定用哪一個型態表示字串，這邊因為每一個字元都是4 bytes，也就是32 bits，所以選擇C-style
+            ![](https://hackmd.io/_uploads/SyQBP8Zfp.png)*
+    * 完整流程
     ```
     .rodata:0000000000002008 unk_2008 db  46h ; F                    ; DATA XREF: main+8↑o
     .rodata:0000000000002009 db    0
@@ -209,22 +202,15 @@ date: 2024-01-31
     ```
     .rodata:0000000000002008 text "UTF-32LE", 'FLAG{h311O_revers1ng_3ngineer5}',0
     ```
-    :::
 * 如何快速把bytes dump出來
-    :::spoiler
     1. 選擇要輸出的bytes
         ![](https://hackmd.io/_uploads/Syc9UkTM6.png)
     2. 按Shift+E，跳出的視窗選擇想要的格式，再直接複製即可
         ![](https://hackmd.io/_uploads/SJ7a8ypfT.png)
-    :::
 * 如果函式沒有return東西的話，可以右鍵該函示，選擇`Remove return value`或是Shift+Del
-    :::spoiler
     ![](https://hackmd.io/_uploads/HkRk3JpG6.png)
-    :::
 * 如果function中的宣告很多，可以右鍵選擇`Collapse declarations`
-    :::spoiler
     ![](https://hackmd.io/_uploads/SkOXU4AMa.png)
-    :::
 
 ## x64dbg 常用快捷鍵
 * F2: 設定中斷點

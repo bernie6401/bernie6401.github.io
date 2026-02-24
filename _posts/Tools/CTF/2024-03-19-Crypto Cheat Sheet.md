@@ -10,6 +10,7 @@ date: 2024-03-19
 <!-- more -->
 
 ## Online Tools - Classic Crypto
+
 | Complex| Substitution Cipher| Vigenère Cipher|
 | - | - | - |
 | [CyberChef](https://gchq.github.io/CyberChef/) | [Substitution Cipher Solver Tool](https://www.boxentriq.com/code-breaking/cryptogram) | Known Key </br>Python - `pycipher` library</br>[online - Vigenère cipher](https://planetcalc.com/2468/)</br>CAP4|
@@ -23,7 +24,7 @@ date: 2024-03-19
 
 ## Coding Tools
 * 大數運算: [gmpy2](https://blog.csdn.net/m0_52842062/article/details/117852175)/[sage math online - cocalc](https://cocalc.com/features/sage)/[sage math online - sagecell](https://sagecell.sagemath.org/)/[WolframAlpha](https://www.wolframalpha.com/):這是一個線上的搜索引擎，但凡和數學相關的都能進行運算，使用解說可以看[這裡](https://youtu.be/9JD3EzbAjH4?si=fmL7rOXK0u__Mf3u)
-    ```bash!
+    ```bash
     $ sudo apt install sagemath
     # or
     $ conda create --name sageenv sage=10.0 -c conda-forge -y # just only for wsl
@@ -31,7 +32,8 @@ date: 2024-03-19
     # 想要在sage中安裝python library
     $ sage -pip install {library name}
     ```
-    :::spoiler To address Discrete Log Problem
+
+    * To address Discrete Log Problem
     ```python
     p = 117635180960139721127318189832610714114593440637486157582828661167364276581210599344857316369131977790468647533227778603367761815400416396281259234299247850289710613080530669849409358755399675041263469367135430665518150110493389671646158566214130516002949975036799297119111385228596853422400303735447298026283
     q = 163800729847029979711295941089800020300275211671661376396219775666688832353701752860857691086339595920419175562271802936423756228938551439950541873798393442729921516031775531740506399414675546114663346731428381174638773512946351966471041847661507898143967764453261943807056370639171597924004988320983393199599
@@ -44,10 +46,10 @@ date: 2024-03-19
     print(m2)
     print(hex(m2)[2:])
     ```
-    :::
+    
 * Crypto常用library: pycryptodom
     `$ pip install pycryptodome`
-    :::spoiler pycryptodome generate PEM file
+    * *pycryptodome generate PEM file
     ```bash
     >>> from Crypto.PublicKey import RSA
     >>> n = 0xb4f98200f1309e8a486824051051ac80790f8e66dac4744e2ce5134fb432121f41c5471e3459d01e56e64befd2034c65eb300ebf0045342221bff206b6cdda7f3349c17b08563a576731f95a64e2f00af70b5cbb2f4f388d49ce82da76ca609a6ec1529f29b0fa0bedc5764b86472e2c5ac5198cedb6f5e1e8e0ca950ea11bc4cf5e5a0497db3ad96f5a745cf902d56be394a259068fe198bc9de8fe8d034a71013f46c2ac72451211eb1127286c19467eaf3a10049942d46b0f49f3c51c01c06a2f8c94416cc1aadaeb191de959f0241ce8f32575c848bd2f4f8f84dab46e2aa7ad45de1c6060fbbee9668f8e9cb6d366b8cd6ce99f78bbef145f2b7b7e5222f762ccb95f17b1538260c2ea45571061b0d873fbe60d61dd87aa4833ac71b802f2b91d30f38e30ae9da39fbd1c53e80496f511521285b3bb1da3dc79931463d278d1fe28a77880a9f2368029c4cefffebbbd6904f85291b3606d0b5ed3efd8c1ee14538dc051274665f4b0f55d6c6e12d2cb728ac15f7a6572b71a5bd6fa01bddb0af211091bff4c8ec7e93efae4654b2abae09e35be29afbfc3f4df8e4348c525b9d8662a1ac344dadb15b953905f639b48fec7cfcfdf27cc0ad82b936d5efe7c0d891bf9752d3fb0857d38337df033e4b681d19ec8603535504d05a421036c077694482eee919a44b3296e2a4c272cbf7bbf14b6d62eb194e4ee83ba227fed
@@ -61,10 +63,10 @@ date: 2024-03-19
     >>> f.write(key.exportKey().decode())
     >>> f.close()
     ```
-    :::
+    
 * [openssl - RSA(很清楚)](https://www.mkssoftware.com/docs/man1/openssl_rsa.1.asp)
-    :::spoiler Cheat Sheet
-    ```bash!
+    * *Cheat Sheet
+    ```bash
     '''AES / DES'''
     $ openssl des-ecb –e –in xxx.txt –out yyy.out –k password (DES encrypt)
     $ openssl des-ecb –d –in yyy.out –out xxx.txt –k password (DES decrypt)
@@ -114,7 +116,6 @@ date: 2024-03-19
     openssl x509 -inform pem -in cert2.pem
     openssl x509 -inform pem -in cert1.pem
     ```
-    :::
 
 ## Factoring Tools
 * [Factor DB](http://factordb.com/index.php)

@@ -9,6 +9,8 @@ date: 2024-02-07
 # Web Cheat Sheet
 ## 解題重點
 * `robots.txt`
+* 掃port: nmap: `$ sudo apt install net-tools`[NMAP教學](https://blog.gtwang.org/linux/nmap-command-examples-tutorials/)
+    * nmap: `$ nmap <url>`
 * 封包headers和contents: Wireshark、Browser、BurpSuite
 * cookies
 * Information Leak
@@ -32,6 +34,7 @@ date: 2024-02-07
 * 前端
 * SSRF
 * 上傳
+* 如果是WordPress網頁: [WpScan](https://wpscan.com/)專門檢測WordPress類型的網頁，有哪些漏洞，前期可以掃描出WP版本、安裝的theme或是插件有哪些、安全漏洞等等
 <!-- more -->
 
 ## Online Tools
