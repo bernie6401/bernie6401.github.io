@@ -10,13 +10,13 @@ date: 2024-08-14
 <!-- more -->
 
 ## Java版本不相容
-參考來源1: [Setting up Appium configuration on windows / Mac](https://khemlall-mangal.medium.com/setting-up-appium-configuration-on-windows-mac-efbc4d4a7bc3)
-參考來源2: [uiautomatorviewer閃退、提示Could not create the Java Virtual Machine等問題的處理](https://blog.csdn.net/zyself/article/details/124084171)
+* 參考來源1: [Setting up Appium configuration on windows / Mac](https://khemlall-mangal.medium.com/setting-up-appium-configuration-on-windows-mac-efbc4d4a7bc3)
+* 參考來源2: [uiautomatorviewer閃退、提示Could not create the Java Virtual Machine等問題的處理](https://blog.csdn.net/zyself/article/details/124084171)
 
 如果電腦安裝的JAVA version不是JAVA 8的話，有極高的機率會出錯，但又不想要覆蓋掉自己原本安裝的latest version，那參考來源1這個forum可以滿足這樣的事情
 
 1. 下載JAVA 8並安裝 - 參考[(超詳細）2022年最新版java 8（jdk1.8u321）安裝教程](https://blog.csdn.net/JunLeon/article/details/122623465)
-    Official Link: https://www.oracle.com/java/technologies/downloads/#java8-windows
+    * Official Link: https://www.oracle.com/java/technologies/downloads/#java8-windows
 2. 下載完UiAutomatorViewer之後直接改內部的bat file
     1. Open `uiautomatorviewer.bat` with editor by the path - `%USERPROFILE%\AppData\Local\Android\Sdk\tools\bin\uiautomatorviewer.bat`
     2. 搜尋`set java_exe=`並且設定成comment，再更新如下

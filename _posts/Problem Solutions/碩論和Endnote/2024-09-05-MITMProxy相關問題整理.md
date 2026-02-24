@@ -12,7 +12,7 @@ date: 2024-09-05
 
 ## Server TLS handshake failed. The remote server does not speak TLS.
 代表連線的標的無法處理https的scheme，如果確定連線的目標是開在localhost或是一定是http scheme的話，可以利用script去hook流量把https改掉
-```python!
+```python
 from mitmproxy import http
 
 def request(flow: http.HTTPFlow) -> None:

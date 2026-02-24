@@ -16,7 +16,7 @@ date: 2024-01-31
 
 ![](https://hackmd.io/_uploads/rJc9d3Sp3.png)
 
-之後在VM的主視窗中選擇==插入Guest Additions CD映像檔==，就可以在系統中看到CD被掛載上去了，只要按照一般的安裝流程在reboot就可以解決滑鼠自由移動的目的了
+之後在VM的主視窗中選擇<span style="background-color: yellow">>插入Guest Additions CD映像檔</span>，就可以在系統中看到CD被掛載上去了，只要按照一般的安裝流程在reboot就可以解決滑鼠自由移動的目的了
 
 ![](https://hackmd.io/_uploads/SJjrYhrT2.png)
 

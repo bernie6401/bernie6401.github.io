@@ -14,7 +14,7 @@ Challenge: http://h4ck3r.quest:8081
 ## Background
 
 ## Source code
-```php=
+```php
 <?php
 // BSides Ahmedabad CTF 2021: entrance
 
@@ -43,13 +43,12 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
 echo "<br>\n";
 highlight_file(__file__);
 ?>
-
 ```
 
 ## Exploit
 Must change `GET` method to `POST` method and add `Content-Type: application/x-www-form-urlencoded` in header
 
-<font color="FF0000">**通靈**</font>
+**通靈**
 Payload: `username=123&password[]=123`
 ![](https://i.imgur.com/QGvpQnr.png)
 
