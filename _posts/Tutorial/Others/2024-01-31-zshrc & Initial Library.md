@@ -17,45 +17,46 @@ $ chsh -s /bin/zsh
 $ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 $ vim ~/.zshrc
 ```
+
 * Add these lines in .zshrc
-```bash
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-# bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename "/home/sbk6401/.zshrc"
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+        ```bash
+        # Lines configured by zsh-newuser-install
+        HISTFILE=~/.histfile
+        HISTSIZE=1000
+        SAVEHIST=1000
+        # bindkey -e
+        # End of lines configured by zsh-newuser-install
+        # The following lines were added by compinstall
+        zstyle :compinstall filename "/home/sbk6401/.zshrc"
+        autoload -Uz compinit
+        compinit
+        # End of lines added by compinstall
 
 
-source ~/.zplug/init.zsh
+        source ~/.zplug/init.zsh
 
-# zplug plugins
-zplug "romkatv/powerlevel10k", as:theme, depth:1
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-completions", defer:2
+        # zplug plugins
+        zplug "romkatv/powerlevel10k", as:theme, depth:1
+        zplug "zplug/zplug", hook-build:"zplug --self-manage"
+        zplug "zsh-users/zsh-autosuggestions"
+        zplug "zsh-users/zsh-syntax-highlighting", defer:2
+        zplug "zsh-users/zsh-completions", defer:2
 
-if ! zplug check --verbose; then
-	printf "Install? [y/N]: "
-	if read -q; then
-	
-		echo; zplug install
-	else
-		echo
-	fi
-fi
+        if ! zplug check --verbose; then
+                printf "Install? [y/N]: "
+                if read -q; then
+                
+                        echo; zplug install
+                else
+                        echo
+                fi
+        fi
 
-zplug load
+        zplug load
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-```
+        # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+        ```
 * 客製化 zshrc
         ```bash
         # conda initialize
