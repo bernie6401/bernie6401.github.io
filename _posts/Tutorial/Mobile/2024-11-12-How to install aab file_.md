@@ -2,7 +2,7 @@
 title: "How to install aab file"
 tags: [Tutorial]
 
-category: "Tutorial"
+category: "Tutorial｜Mobile"
 date: 2024-11-12
 ---
 

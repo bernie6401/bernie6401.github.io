@@ -2,7 +2,7 @@
 title: "Git Large File Error - Solution"
 tags: [problem solution]
 
-category: "Problem Solutions"
+category: "Problem Solutions｜Git"
 date: 2024-11-01
 ---
 

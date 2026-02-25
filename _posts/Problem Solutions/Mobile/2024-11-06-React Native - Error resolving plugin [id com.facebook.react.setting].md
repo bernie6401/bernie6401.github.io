@@ -2,7 +2,7 @@
 title: 'React Native - Error resolving plugin [id: com.facebook.react.settings]'
 tags: [problem solution]
 
-category: "Problem Solutions"
+category: "Problem Solutions｜Mobile"
 date: 2024-11-06
 ---
 

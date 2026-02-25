@@ -2,7 +2,7 @@
 title: "How to build apk file on React-Native Project"
 tags: [Tutorial]
 
-category: "Tutorial"
+category: "Tutorial｜Mobile"
 date: 2024-11-27
 ---
 

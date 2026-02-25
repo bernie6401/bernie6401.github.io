@@ -5,7 +5,7 @@ tags: [Tutorial]
 draft: false
 toc: true
 comments: true
-category: "Tutorial"
+category: "Tutorial｜Blog"
 ---
 
 # 如何使用Jekyll架設Blog

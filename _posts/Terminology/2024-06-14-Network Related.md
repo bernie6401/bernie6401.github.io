@@ -45,7 +45,6 @@ date: 2024-06-14
 > [telnet.exe:任意端口]→[tunnel client.exe:1234]→[Firewall]→[tunnel server.exe:80]→[telnet Server.exe:23]
 
 ## TLS/SSL
-
 ### 簡答
 > 參考資料：https://www.digicert.com/tw/what-is-ssl-tls-and-https
 
@@ -103,3 +102,13 @@ date: 2024-06-14
 [^link1]:[SSH Tunneling (Port Forwarding) 詳解 ](https://johnliu55.tw/ssh-tunnel.html)
 [^socket1]:[ TCP Socket Programming 學習筆記 ](http://zake7749.github.io/2015/03/17/SocketProgramming/)
 [^socket2]:[【筆記】Socket，Websocket，Socket.io的差異 ](https://leesonhsu.blogspot.com/2018/07/socketwebsocketsocketio.html)
+
+# 其他名詞解釋
+* [Day16-分散式系統溝通的方法-RPC](https://ithelp.ithome.com.tw/articles/10223580)
+* [FTP](https://experience.dropbox.com/zh-tw/resources/what-is-ftp)
+* [WebDAV](https://experience.dropbox.com/zh-tw/resources/what-is-ftp)
+* [BitTorrent](https://johnpam11.pixnet.net/blog/post/120987008-%E4%BB%80%E9%BA%BC%E6%98%AFbt%E7%A8%AE%E5%AD%90%EF%BC%9F)
+* [TrueNAS Setup](https://moptt.tw/p/Storage_Zone.M.1618079877.A.829)
+* [API VS Method VS Library](http://thecodingtime.blogspot.com/2014/02/apimethodlibrary.html)
+* [RAID 0, 1, 0+1, 1+0, 5, 6](https://raidnas.tw/hsinchu-nas-raid-explain-rescue/)
+* [HttpOnly](https://devco.re/blog/2014/06/11/setcookie-httponly-security-issues-of-http-headers-3/)

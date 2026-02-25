@@ -2,7 +2,7 @@
 title: "Problems About Multiprocess"
 tags: [problem solution]
 
-category: "Problem Solutions"
+category: "Problem Solutions｜Others"
 date: 2024-08-16
 ---
 

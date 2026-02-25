@@ -2,7 +2,7 @@
 title: "VirtualBox滑鼠無法跳出"
 tags: [problem solution]
 
-category: "Problem Solutions"
+category: "Problem Solutions｜Others"
 date: 2024-01-31
 ---
 

@@ -11,9 +11,9 @@ date: 2024-11-27
 
 ## Kali-Linux
 有關Kali的所有工具可以直接參考[Operating Systems for Ethical Hackers - A Platform Comparison of Kali Linux and Parrot OS](https://www.researchgate.net/profile/Syed-Zain-Ul-Hassan-2/publication/369305777_Operating_Systems_for_Ethical_Hackers_-_A_Platform_Comparison_of_Kali_Linux_and_Parrot_OS/links/6414544c315dfb4cce89b6a3/Operating-Systems-for-Ethical-Hackers-A-Platform-Comparison-of-Kali-Linux-and-Parrot-OS.pdf)
-:::info
-ul Hassan, S. Z., Muzaffar, Z., & Ahmad, S. Z. (2021). Operating Systems for Ethical Hackers-A Platform Comparison of Kali Linux and Parrot OS. International Journal, 10(3).
-:::
+
+* ul Hassan, S. Z., Muzaffar, Z., & Ahmad, S. Z. (2021). Operating Systems for Ethical Hackers-A Platform Comparison of Kali Linux and Parrot OS. International Journal, 10(3).
+
 裡面有詳細分類
 * Information Gathering Tools(67)
 * Vulnerability Analysis Tools(27)
@@ -32,7 +32,7 @@ ul Hassan, S. Z., Muzaffar, Z., & Ahmad, S. Z. (2021). Operating Systems for Eth
 
 ## Recon
 * [Google Hacking](https://www.exploit-db.com/google-hacking-database)
-    :::spoiler Description
+
     | Syntax | Description | Example |
     | ------ | ----------- | ------- |
     |+|連接多個關鍵字|--|
@@ -48,13 +48,10 @@ ul Hassan, S. Z., Muzaffar, Z., & Ahmad, S. Z. (2021). Operating Systems for Eth
     |related|搜尋類似於指定網站的其他網站|related:www.fcu.edu.tw|
     |inurl|尋找指定的字串是否在網址列當中|inurl:www.fcu.edu.tw|
     | site   | 搜尋指定網址的內容|site:www.fcu.edu.tw|
-    :::
 
 
 * [Shodan](https://www.shodan.io/dashboard) / [Censys](https://search.censys.io/)
-    :::spoiler Description
     ![](https://hackmd.io/_uploads/Hym-h3oH2.png)
-    :::
 
 ## Dictionary Brute Force
 * [John The Ripper](https://www.openwall.com/john/)

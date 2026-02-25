@@ -10,14 +10,14 @@ date: 2024-05-22
 <!-- more -->
 
 ## Python 基本用語
-* Bytes $\to$ Hex
+* Bytes → Hex
     ```python
     >>> example_str = b'\x17\x10\x06Ar\xe4G\xc9\xb5\xd7y\xbc'
     >>> example_str.hex()
     '1710064172e447c9b5d779bc'
     ```
 
-* Hex $\to$ String
+* Hex → String
     ```python
     >>> bytes.fromhex('68656c6c6f').decode('utf-8')
     'hello'
@@ -33,37 +33,35 @@ date: 2024-05-22
     b'hello'
     ```
     
-* String $\to$ Hex
+* String → Hex
     ```python
     >>> str= 'linuxhint'.encode('utf-8')
     >>> str.hex()
     '6c696e757868696e74'
     ```
 
-* Hex(String Type) $\to$ Decimal
+* Hex(String Type) → Decimal
     ```python
     >>> a = '123456'
     >>> int(a, 16)
     1193046
     ```
 
-* Decimal $\to$ Hex
+* Decimal → Hex
     ```python
     >>> a = 1234
     >>> hex(a)
     '0x4d2'
     ```
     
-* Hex $\to$ Binary
+* Hex → Binary
     ```python
     >>> bin(int('abc', 16))[2:].zfill(8)
     '101010111100'
     ```
 
-* String $\to$ Binary
-    :::info
-    if you'd like to do this transformation, 1st conversion is better
-    :::
+* String → Binary
+    * if you'd like to do this transformation, 1st conversion is better
     ```python
     # string to hex to binary
     >>> bin(int('I love CNS'.encode('utf-8').hex(), 16))[2:].zfill(8)
@@ -72,13 +70,13 @@ date: 2024-05-22
     '10010011000001101100110111111101101100101100000100001110011101010011'
     ```
 
-* Byte $\to$ String
+* Byte → String
     ```python
     >>> b'abc\n'.decode('utf-8')
     'abc\n'
     ```
 
-* Binary $\to$ Hex
+* Binary → Hex
     ```python
     >>> hex(int('010110', 2))
     '0x16'
@@ -86,7 +84,7 @@ date: 2024-05-22
     '0x48d'
     ```
 
-* Binary $\to$ Hex $\to$ String
+* Binary → Hex → String
     ```python
     def binToHexa(n):
         bnum = int(n)
@@ -127,7 +125,7 @@ date: 2024-05-22
     print(bytes.fromhex(plaintext_hex).decode())
     ```
 
-* Decimal(int type) $\to$ Hex(String type)
+* Decimal(int type) → Hex(String type)
     ```python
     >>> '{0:0>2x}'.format(0)
     '00'
@@ -138,18 +136,18 @@ date: 2024-05-22
     ```
 
 * String(`str` type) $\iff$ Decimal
-    ```python!
+    ```python
     >>> chr(97)
     'a'
     >>> ord('a')
     97
     ```
-* Decimal $\to$ Binary
-    ```python!
+* Decimal → Binary
+    ```python
     >>> bin(10)
     '0b1010'
     ```
-* Decimal $\to$ Bytes Type
+* Decimal → Bytes Type
     ```python
     >>> bytes([10])
     b'\n'
@@ -157,8 +155,8 @@ date: 2024-05-22
     b'F'
     ```
     
-* Array $\to$ List
-    ```python!
+* Array → List
+    ```python
     >>> import numpy as np
     >>> a = np.array([1,2,3])
     >>> a.tolist()
@@ -180,7 +178,7 @@ date: 2024-05-22
     >>> hex_xor(s1, s2)
     '6617'
     ```
-* Decimal $\to$ Ascii String
+* Decimal → Ascii String
     ```python
     >>> tmp = 4028375274964940959047587304025089628177332141172593013450629550958369516176531641246900741346661851279741
     >>> bytes.fromhex('{:x}'.format(tmp)).decode('utf-8')

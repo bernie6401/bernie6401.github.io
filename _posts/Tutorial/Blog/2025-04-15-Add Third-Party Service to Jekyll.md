@@ -2,7 +2,7 @@
 layout: post
 title: "Add Third-Party Service to Jekyll"
 date: 2025-04-15
-category: "Tutorial"
+category: "Tutorial｜Blog"
 tags: [Tutorial]
 draft: false
 toc: true

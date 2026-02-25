@@ -2,7 +2,7 @@
 title: "Endnote - Invalid Citation"
 tags: [problem solution]
 
-category: "Problem Solutions"
+category: "Problem Solutions｜碩論和Endnote"
 date: 2024-10-16
 ---
 

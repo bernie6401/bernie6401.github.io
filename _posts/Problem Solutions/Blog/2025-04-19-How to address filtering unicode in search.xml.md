@@ -2,7 +2,7 @@
 layout: post
 title: "How to address filtering unicode in search.xml"
 date: 2025-04-19
-category: "Problem Solutions"
+category: "Problem Solutions｜Blog"
 tags: [problem solution]
 draft: false
 toc: true

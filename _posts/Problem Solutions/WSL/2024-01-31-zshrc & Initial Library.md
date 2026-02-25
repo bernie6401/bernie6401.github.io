@@ -2,7 +2,7 @@
 title: "zshrc & Initial Library"
 tags: [problem solution]
 
-category: "Problem Solutions"
+category: "Problem Solutions｜WSL"
 date: 2024-01-31
 ---
 

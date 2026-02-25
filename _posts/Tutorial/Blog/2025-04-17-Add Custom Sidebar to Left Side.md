@@ -2,7 +2,7 @@
 layout: post
 title: "Add Custom Sidebar to Left Side"
 date: 2025-04-17
-category: "Tutorial"
+category: "Tutorial｜Blog"
 tags: [Tutorial]
 draft: false
 toc: true

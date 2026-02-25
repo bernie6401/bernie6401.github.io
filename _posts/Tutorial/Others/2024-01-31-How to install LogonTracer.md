@@ -2,7 +2,7 @@
 title: "How to install LogonTracer"
 tags: [Tutorial]
 
-category: "Tutorial"
+category: "Tutorial｜Others"
 date: 2024-01-31
 ---
 

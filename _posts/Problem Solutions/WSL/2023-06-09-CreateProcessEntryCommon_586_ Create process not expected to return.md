@@ -2,7 +2,7 @@
 title: 'CreateProcessEntryCommon:586: Create process not expected to return'
 tags: [problem solution]
 
-category: "Problem Solutions"
+category: "Problem Solutions｜WSL"
 date: 2023-06-09
 ---
 

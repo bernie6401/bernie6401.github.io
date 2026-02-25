@@ -2,7 +2,7 @@
 title: 'fatal: Authentication failed for https://github.com/{username}/{repository}.git/'
 tags: [problem solution]
 
-category: "Problem Solutions"
+category: "Problem Solutions｜Git"
 date: 2023-05-12
 ---
 

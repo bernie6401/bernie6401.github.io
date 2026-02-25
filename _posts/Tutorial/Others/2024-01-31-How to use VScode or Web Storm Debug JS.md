@@ -2,7 +2,7 @@
 title: "How to use VScode / Web Storm Debug JS"
 tags: [Tutorial]
 
-category: "Tutorial"
+category: "Tutorial｜Others"
 date: 2024-01-31
 ---
 

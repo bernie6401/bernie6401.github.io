@@ -2,7 +2,7 @@
 title: 'sudo chmod 777 -R /usr Problem'
 tags: [problem solution]
 
-category: "Problem Solutions"
+category: "Problem Solutions｜Git"
 date: 2023-02-22
 ---
 

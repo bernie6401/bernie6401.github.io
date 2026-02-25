@@ -17,15 +17,17 @@ date: 2024-02-07
     * `.DS_Store`: lijiejie/ds_store_exp
     * `gitleak`: denny0223/scrabble
 
-### Injection
+### [All-Injection:](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%19Injection/README.md)
 * SQLi
+    * [SQLMAP1](https://ithelp.ithome.com.tw/articles/10249487)
+    * [SQLMAP2](https://ithelp.ithome.com.tw/articles/10202811)
 * XXE
     ```html
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd">]>
         <data><ID>&xxe;</ID></data>
     ```
-* XSS
+* [XSS-CheatSheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
     ```javascript
     </script><script>
     fetch(`/getflag\)
@@ -49,7 +51,7 @@ date: 2024-02-07
 
 | Fuck                             | Beautifier                       |
 | -------------------------------- | -------------------------------- |
-| [jsfuck](http://www.jsfuck.com/) | [JSNice](http://www.jsnice.org/) |
+| [jsfuck](http://www.jsfuck.com/)<br>[JS 混淆器](https://obfuscator.io/)| 把JS的程式變成可讀性很差的東西 | [JSNice](http://www.jsnice.org/) |
 |[jjencode](https://utf-8.jp/public/jjencode.html)|[JS 反混淆器](https://beautifier.io/): 可以反混淆或解密JS的檔案|
 |[aaencode](https://utf-8.jp/public/aaencode.html)|[JS 壓縮+加密+混淆+美化](https://js.wfuapp.com/)|
 |[Esolang List](https://esolangs.org/wiki/Language_list)|[JS Fuck Decode](https://www.53lu.com/tool/jsfuckdecode/)|

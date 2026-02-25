@@ -2,7 +2,7 @@
 title: "UiAutomatorViewer 常見問題整理"
 tags: [problem solution]
 
-category: "Problem Solutions"
+category: "Problem Solutions｜Mobile"
 date: 2024-08-14
 ---
 

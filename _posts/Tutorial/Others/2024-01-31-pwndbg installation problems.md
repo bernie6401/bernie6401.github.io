@@ -2,7 +2,7 @@
 title: "pwndbg installation problems"
 tags: [Tutorial]
 
-category: "Tutorial"
+category: "Tutorial｜Others"
 date: 2024-01-31
 ---
 
