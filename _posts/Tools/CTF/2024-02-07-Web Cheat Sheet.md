@@ -41,7 +41,10 @@ date: 2024-02-07
     * 用[tplmap](https://github.com/epinna/tplmap)直接打
 
 ### 其他
-* LFI: `../../../flag.txt`
+* LFI: 只是能讀取到victim server上的file content，不見得會有價值，需要搭配其他手法，例如
+    1. 寫入webshell之類的達到RCE
+    2. 利用PHP的偽協議達到讀特殊檔案的需求
+        `http://victim.io/?page=php://filter/convert.base64-encode/resource=<file path>`
 * Deserialization
     * 
 * 前端: 攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客，可能是利用[beeceptor](https://beeceptor.com/)這樣的外部server(這是其中一種受害方式，也可能很直接的被盜取`COOKIE`之類的)

