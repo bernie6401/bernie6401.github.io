@@ -11,11 +11,8 @@ date: 2023-02-09
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:9020/
 
-## Background
-
 ## Source code
-:::spoiler source code
-```python=
+```python
 from flask import Flask, request, Response
 import urllib.request
 import json
@@ -61,7 +58,6 @@ def source():
     source_code = re.sub(r'FLAG{.*}', r'FL4G{fake_flag}', source_code, count=1)
     return Response(source_code, mimetype='text/plain')
 ```
-:::
 
 ### Analyze
 * `/index` page
@@ -74,4 +70,5 @@ hint: it has loaded the flag in app configuration already, so we just tried to u
 
 ## Exploit - SSRF
 We need to bypass `https://` constraint and add in our URL like below.
+
 Payload: `http://127.0.0.1/debug?https://`
