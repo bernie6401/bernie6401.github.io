@@ -57,6 +57,8 @@ def source():
     source_code = open(__file__).read()
     source_code = re.sub(r'FLAG{.*}', r'FL4G{fake_flag}', source_code, count=1)
     return Response(source_code, mimetype='text/plain')
+
+app.run(host="127.0.0.1", port=5000, debug=True)
 ```
 
 ### Analyze
@@ -72,4 +74,4 @@ hint: it has loaded the flag in app configuration already, so we just tried to u
 ## Exploit - SSRF
 We need to bypass `https://` constraint and add in our URL like below.
 
-Payload: `http://127.0.0.1/debug?https://`
+Payload: `http://127.0.0.1:5000/debug?https://`

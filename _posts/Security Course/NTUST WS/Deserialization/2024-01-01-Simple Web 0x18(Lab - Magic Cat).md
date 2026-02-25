@@ -12,7 +12,6 @@ date: 2024-01-01
 Challenge: http://h4ck3r.quest:8602/
 
 ## Source code
-:::spoiler code
 ```php
 <?php
 isset($_GET['source']) && die(!show_source(__FILE__));
@@ -68,7 +67,6 @@ This is your 🐱:
 <p>Usage:</p>
 <p>/?source</p>
 <p>/?spell=the-spell-of-your-cat</p>
-
 ```
 
 ### Description & Analyze
