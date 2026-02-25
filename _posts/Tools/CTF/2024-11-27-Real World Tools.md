@@ -2,7 +2,7 @@
 title: Real World Tools
 tags: [Tools]
 
-category: "Tools｜Others"
+category: "Tools｜CTF"
 date: 2024-11-27
 ---
 
