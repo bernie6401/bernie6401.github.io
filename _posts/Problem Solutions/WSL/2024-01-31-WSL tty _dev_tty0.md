@@ -14,7 +14,7 @@ date: 2024-01-31
 ## Solution
 先回答原因，這是因為目前的wsl version是1而不是2，所以只要把wsl version轉到2就可以了，具體做法可以參考這篇文章[^switch-wsl1-2-wsl2]
 1. 確定wsl版本
-    ```bash!
+    ```bash
     $ wsl --list --verbose
       NAME                   STATE           VERSION
     \* Ubuntu-18.04           Stopped         1
@@ -26,7 +26,7 @@ date: 2024-01-31
   可以看到目前所有版本都還是1
 2. Switch
 用管理員權限打開PowerShell
-  ```shell!
+  ```shell
   $ Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform 
   $ wsl --set-version Ubuntu-18.04 2
   $ wsl --set-version Ubuntu-20.04 2

@@ -2,7 +2,7 @@
 title: "zshrc & Initial Library"
 tags: [problem solution]
 
-category: "Problem Solutions｜WSL"
+category: "Tutorial｜Others"
 date: 2024-01-31
 ---
 
@@ -10,39 +10,36 @@ date: 2024-01-31
 <!-- more -->
 
 ## Zsh
-```bash!
+```bash
 $ sudo apt install zsh gawk git -y
 $ sudo apt update; sudo apt upgrade -y; sudo apt install curl binutils  vim npm -y
 $ chsh -s /bin/zsh
 $ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 $ vim ~/.zshrc
-# Add these lines in .zshrc
+```
+* Add these lines in .zshrc
+```bash
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -e
+# bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/sbk6401/.zshrc'
-
+zstyle :compinstall filename "/home/sbk6401/.zshrc"
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Delete all temp download files
-alias ll="ls -al"
-find . -name "*:Zone.Identifier" -type f -delete
-export ZSH="$HOME/.zplug/repos/robbyrussell/oh-my-zsh"
-ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+
 source ~/.zplug/init.zsh
-npm install -g tldr
 
 # zplug plugins
 zplug "romkatv/powerlevel10k", as:theme, depth:1
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
 zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-completions", defer:2
 
 if ! zplug check --verbose; then
 	printf "Install? [y/N]: "
@@ -60,12 +57,46 @@ zplug load
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 ```
 * 客製化 zshrc
-    ```bash!
-    source ~/anaconda3/bin/activate CTF
-    cd /mnt/d/NTU/CTF/PicoCTF/
-    alias ll='ls -al'
-    alias gccc='gcc -Wl,--dynamic-linker=/usr/src/glibc/glibc_dbg/elf/ld.so -g'
-    ```
+        ```bash
+        # conda initialize
+        # !! Contents within this block are managed by "conda init" !!
+        __conda_setup="$("/home/sbk6401/anaconda3/bin/conda" "shell.zsh" "hook" 2> /dev/null)"
+        if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+        else
+        if [ -f "/home/sbk6401/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sbk6401/anaconda3/etc/profile.d/conda.sh"
+        else
+        export PATH="/home/sbk6401/anaconda3/bin:$PATH"
+        fi
+        fi
+        unset __conda_setup
+        # end of conda initialize
+
+        # Customize your own settings below
+        conda config --set auto_activate_base false
+        source ~/anaconda3/bin/activate CTF
+        cd /mnt/d/CTF-Tools/
+        alias ll="ls -al"
+        alias cdctf="cd /mnt/d/CTF/"
+        alias cdtrash="cd /mnt/d/Downloads/Trash"
+        alias gccc="gcc -Wl,--dynamic-linker=/usr/src/glibc/glibc_dbg/elf/ld.so -g"
+        alias cdtool="cd /mnt/d/CTF-Tools/"
+        alias cleantmp="find . -name '*:Zone.Identifier' -type f -delete" # Delete all temp download files
+
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+        export ANDROID_HOME=/mnt/c/Users/berni/AppData/Local/Android/Sdk
+        export PATH=$PATH:$ANDROID_HOME/tools
+        export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools
+        export PATH=$PATH:/usr/local/go/bin
+        export PATH=$PATH:~/.local/bin
+
+        sudo apt-get update -y
+        sudo apt-get upgrade -y
+        ```
 
 ## gdb-gef
 Touch 2 files
