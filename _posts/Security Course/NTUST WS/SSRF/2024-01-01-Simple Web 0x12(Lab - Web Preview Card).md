@@ -12,7 +12,7 @@ date: 2024-01-01
 Challenge: http://h4ck3r.quest:8500/
 
 ## Background
-* [Web Hacking | 續章【EDU-CTF 2021】](https://youtu.be/hWC-Evt-sBc?t=6136)
+* [Web Hacking \| 續章【EDU-CTF 2021】](https://youtu.be/hWC-Evt-sBc?t=6136)
 * [網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」](https://medium.com/程式猿吃香蕉/網站安全-伺服器請求偽造-ssrf-攻擊-項莊舞劍-意在沛公-7a5524926362)
 
 ## Exploit - SSRF

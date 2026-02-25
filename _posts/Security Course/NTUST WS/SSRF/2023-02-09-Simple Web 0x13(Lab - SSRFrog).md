@@ -13,7 +13,7 @@ Challenge: http://h4ck3r.quest:8501/
 
 ## Background
 * [javascript Set()](https://pjchender.dev/javascript/js-set/)
-* [Web Hacking | 續章【EDU-CTF 2021】](https://youtu.be/hWC-Evt-sBc?t=9867)
+* [Web Hacking \| 續章【EDU-CTF 2021】](https://youtu.be/hWC-Evt-sBc?t=9867)
 * [網站安全🔒 伺服器端請求偽造 SSRF 攻擊 — 「項莊舞劍，意在沛公」](https://medium.com/程式猿吃香蕉/網站安全-伺服器請求偽造-ssrf-攻擊-項莊舞劍-意在沛公-7a5524926362)
 
 ## Source code

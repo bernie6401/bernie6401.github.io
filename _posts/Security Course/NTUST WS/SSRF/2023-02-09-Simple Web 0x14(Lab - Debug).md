@@ -64,8 +64,9 @@ def source():
 It has a blank that can type arbitrary URL and it'll send to `/proxy` route page to verify.
 * `/proxy` page
 It'll add `https://` if the URL has no the string
-* <font color="FF0000">`/debug` page</font>
+* `/debug` page
 If the request URL is not `127.0.0.1` then it'll forbidden the request, otherwise, it'll print the configuration with json type
+
 hint: it has loaded the flag in app configuration already, so we just tried to use `SSRF` to access to `/debug`.
 
 ## Exploit - SSRF
