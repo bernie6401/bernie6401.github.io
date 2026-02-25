@@ -1,12 +1,12 @@
 ---
-title: Simple PWN - 0x13(Lab - `how2know`)
+title: Simple PWN - 0x13(Lab - how2know)
 tags: [CTF, PWN, eductf]
 
 category: "Security Course｜NTU CS｜PWN"
 date: 2023-01-29
 ---
 
-# Simple PWN - 0x13(Lab - `how2know`)
+# Simple PWN - 0x13(Lab - how2know)
 <!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 

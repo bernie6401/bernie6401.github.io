@@ -1,12 +1,12 @@
 ---
-title: 'Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element'
+title: 'Lab: DOM XSS in document.write sink using source location.search inside a select element'
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security Practice｜Portswigger Web Security Academy｜XSS"
 date: 2023-04-25
 ---
 
-# Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element
+# Lab: DOM XSS in document.write sink using source location.search inside a select element
 <!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 * Description: This lab contains a DOM-based cross-site scripting vulnerability in the stock checker functionality. It uses the JavaScript `document.write` function, which writes data out to the page. The `document.write` function is called with data from `location.search` which you can control using the website URL. The data is enclosed within a select element. 

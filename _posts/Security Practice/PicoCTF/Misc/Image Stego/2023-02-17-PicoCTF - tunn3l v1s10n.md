@@ -1,12 +1,12 @@
 ---
-title: PicoCTF - `tunn3l v1s10n`
+title: PicoCTF - tunn3l v1s10n
 tags: [PicoCTF, CTF, Misc]
 
 category: "Security Practice｜PicoCTF｜Misc｜Image Stego"
 date: 2023-02-17
 ---
 
-# PicoCTF - `tunn3l v1s10n`
+# PicoCTF - tunn3l v1s10n
 <!-- more -->
 ###### tags: `PicoCTF` `CTF` `Misc`
 Challenge: [tunn3l v1s10n](https://play.picoctf.org/practice/challenge/112?category=4&page=1)

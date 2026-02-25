@@ -1,25 +1,24 @@
 ---
-title: Simple PWN 0x20(Lab - `babyums` - flag 2)
+title: Simple PWN 0x20(Lab - babyums - flag 2)
 tags: [CTF, PWN, eductf]
 
 category: "Security Course｜NTU CS｜PWN"
 date: 2023-01-29
 ---
 
-# Simple PWN 0x20(Lab - `babyums` - flag 2)
+# Simple PWN 0x20(Lab - babyums - flag 2)
 <!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
 Version: Ubuntu 20.04
 
 ## Original Code
-[Simple PWN 0x19(Lab - `babyums` - flag 1)](/2bR8lalySvKfA7Zr8DOhuA)
+[Simple PWN 0x19(Lab - babyums - flag 1)](/2bR8lalySvKfA7Zr8DOhuA)
 
 
 ## Exploit
-Very similar in this article: [0x18(Lab - `babynote`)](/zj3FTgxZQ22EgRPn1KHUSg)
-:::spoiler code
-```python=
+Very similar in this article: [0x18(Lab - babynote)](/zj3FTgxZQ22EgRPn1KHUSg)
+```python
 from pwn import *
 
 # r = process('./chal')
@@ -88,4 +87,3 @@ del_user(1)
 
 r.interactive()
 ```
-:::

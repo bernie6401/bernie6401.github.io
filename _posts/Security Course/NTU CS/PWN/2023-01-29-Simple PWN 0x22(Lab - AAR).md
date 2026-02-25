@@ -1,12 +1,12 @@
 ---
-title: Simple PWN 0x22(Lab - `AAR`)
+title: Simple PWN 0x22(Lab - AAR)
 tags: [CTF, PWN, eductf]
 
 category: "Security Course｜NTU CS｜PWN"
 date: 2023-01-29
 ---
 
-# Simple PWN 0x22(Lab - `AAR`)
+# Simple PWN 0x22(Lab - AAR)
 <!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 

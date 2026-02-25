@@ -1,22 +1,18 @@
 ---
-title: Simple Web - 0x08(Lab - `Particles.js`)
+title: Simple Web - 0x08(Lab - Particles.js)
 tags: [CTF, Web, eductf]
 
 category: "Security Course｜NTU CS｜Web"
 date: 2023-02-13
 ---
 
-# Simple Web - 0x08(Lab - `Particles.js`)
+# Simple Web - 0x08(Lab - Particles.js)
 <!-- more -->
 ###### tags: `CTF` `Web` `eductf`
 Challenge: https://particles.ctf.zoolab.org
 
 ## Description
 The website can change the theme of layout. The main goal is to leak admin's cookie.
-
-## Source Code
-
-### Analysis
 
 ## Exploit - XSS
 1. Use burp suit to check if the website has XSS vulnerability.
