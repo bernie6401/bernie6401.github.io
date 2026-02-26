@@ -86,9 +86,7 @@ ftp://
     ```php
     file_get_contents("php://input");
     ```
-
     常見用途：
-
     * API 接 JSON
     * CTF 裡配合 `include()` 造成 RCE
 3. `php://stdout` / `php://stderr`: CLI 環境用。
@@ -97,13 +95,16 @@ ftp://
     ```html
     file:///etc/passwd
     ```
-6. `phar://`: 這是高階利用技巧。可以透過反序列化觸發 object injection。
-
-    常見在：
-
-    ```
-    file_exists("phar://evil.phar/test.txt");
-    ```
+6. `phar://`: `phar`本身是一個php特殊的**壓縮文件**，打包多個php資源到一個 `*.phar`，而`phar://`就是用來讀取phar內容的wrapper，所以利用`phar://`讀取phar file時，會直接對其metadata反序列化
+    * **PHP8.0以前**，這是高階但現在堪用的技巧，因為PHH8.0之後這個features就被改掉了。可以透過反序列化觸發 object injection。凡是只要能夠1)檔案可控 2)用讀檔的任意function讀取，就有機會觸發
+    * 常見的讀檔function
+        ```
+        unlink
+        include
+        file_get_contents
+        getimagesize
+        file_exists("phar://evil.phar/test.txt");
+        ```
 
 ### 其他
 * [LFI VS RFI](https://ithelp.ithome.com.tw/articles/10240486): LFI(Local File Inclusion)<br>產生的原因是程式設計師未檢查用戶輸入的參數，導致駭客可以讀取server上的敏感文件。開發人員可能貪圖方便，將GET或POST參數直接設定為檔案名稱，直接include該檔案進網頁裡，結果就造成了引入其他檔案，造成資訊洩漏<br><br>RFI(Remote File Include)<br>基本上與LFI概念一樣，只是include的file來源變成從外部引入，觸發條件必須要把php設定參數 `allow_url_include` 設定為 `ON`
