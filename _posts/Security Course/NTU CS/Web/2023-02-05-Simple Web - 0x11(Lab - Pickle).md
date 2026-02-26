@@ -16,8 +16,7 @@ Note: open a brand new window that haven't login `http://h4ck3r.quest`
 [0x15.5(Pickle)](/IcoQql7UQiegLv8KtK2wOw)
 
 ## Source code
-:::spoiler code
-```pyton=
+```python
 from flask import Flask, request, make_response, redirect, send_file
 import base64
 import pickle

