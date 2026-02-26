@@ -1,12 +1,12 @@
 ---
-title: PWN Overview
+title: PWN Cheat Sheet
 tags: [PWN, CTF, Tools]
 
 category: "Tools｜CTF"
 date: 2024-01-31
 ---
 
-# PWN Overview
+# PWN Cheat Sheet
 <!-- more -->
 
 ## Tools Cheat
