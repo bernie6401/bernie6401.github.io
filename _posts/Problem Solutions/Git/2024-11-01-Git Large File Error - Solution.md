@@ -35,7 +35,7 @@ $ git push origin master
     ```bash
     $ pip install git-filter-repo # 第一次使用要先安裝
     $ git filter-repo --path "./path/to/large_file" --invert-paths --force
-    $ git push
+    $ git push --force
     ```
 
 2. (obsolete)以下部分是舊版的filter-branch，缺點是慢也容易出錯

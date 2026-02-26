@@ -87,6 +87,7 @@ alias cdtrash="cd /mnt/d/Downloads/Trash"
 alias gccc="gcc -Wl,--dynamic-linker=/usr/src/glibc/glibc_dbg/elf/ld.so -g"
 alias cdtool="cd /mnt/d/CTF-Tools/"
 alias cleantmp="find . -name '*:Zone.Identifier' -type f -delete" # Delete all temp download files
+alias psysh="/mnt/d/CTF-Tools/Web/Language/PHP/psysh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
