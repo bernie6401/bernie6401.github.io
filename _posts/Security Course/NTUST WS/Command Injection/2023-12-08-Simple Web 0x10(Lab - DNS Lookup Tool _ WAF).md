@@ -15,9 +15,8 @@ date: 2023-12-08
 * [Command injection - feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
 
 ## Source code
-:::spoiler code
 ```php
- <?php
+<?php
 isset($_GET['source']) and die(show_source(__FILE__, true));
 ?>
 
@@ -77,7 +76,6 @@ isset($_GET['source']) and die(show_source(__FILE__, true));
 
 </html> 
 ```
-:::
 It set some protection such as blacklist.
 
 ## Exploit
@@ -89,5 +87,3 @@ Use **`$`** or **\`** string to bypass blacklist
     ```
 
 Flag: FLAG{Y0U_$(Byp4ssed)\_th3\_\`waf\`}
-
-## Reference
