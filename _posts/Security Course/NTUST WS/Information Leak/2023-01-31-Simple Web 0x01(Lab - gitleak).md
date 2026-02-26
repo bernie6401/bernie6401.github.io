@@ -23,8 +23,9 @@ To use scrabble tool to leak information
     $ sudo ./scrabble http://h4ck3r.quest:9000/
     ```
 3. Still no flag
-There's `flag.php` but still no flag in there. `HEAD` said `HEAD is now at a0228bd Remove flag.`
-Thus, we can look up the history by the command below.
+
+    There's `flag.php` but still no flag in there. `HEAD` said `HEAD is now at a0228bd Remove flag.` Thus, we can look up the history by the command below.
+
     ```bash
     $ git log --stat a0228bd
     commit a0228bd6ff968f3eca017125a5434b517ad2a83a (HEAD -> master)
@@ -47,6 +48,7 @@ Thus, we can look up the history by the command below.
      2 files changed, 6 insertions(+)
     ```
 4. Check the difference of commit version
+
     ```bash
     $ git diff HEAD <commit-id>
     diff --git a/flag.php b/flag.php

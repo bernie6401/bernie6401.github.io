@@ -15,7 +15,12 @@ date: 2024-02-07
 * cookies
 * Information Leak
     * `.DS_Store`: lijiejie/ds_store_exp
-    * `gitleak`: denny0223/scrabble
+    * `gitleak`: denny0223/scrabble，確認有無`https://<victim url>/.git/config`
+        ```bash
+        $ chmod +x scrabble
+        $ ./scrabble <url> [directory]
+        $ ./scrabble http://example.com/my-project.git/
+        ```
 
 ### Injection
 * SQLi
@@ -45,8 +50,14 @@ date: 2024-02-07
     1. 寫入webshell之類的達到RCE
     2. 利用PHP的偽協議達到讀特殊檔案的需求
         `http://victim.io/?page=php://filter/convert.base64-encode/resource=<file path>`
-* Deserialization
-    * 
+* Deserialization: 要能夠達成insecure的反序列化，最重要的兩個前提是1) 反序列化的資料可控 2) 針對各個語言反序列化時或之後會觸發哪些magic method
+
+    |語言|序列化|反序列化|Magic Method|
+    |---|---|---|---|
+    |Python|pickle.dumps()|pickle.loads()|`__reduce`|
+    |PHP|serialize||unserialize|`__destruct()`<br>`__wakeup()`<br>`__call()`<br>`__toString()`<br>
+
+
 * 前端: 攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客，可能是利用[beeceptor](https://beeceptor.com/)這樣的外部server(這是其中一種受害方式，也可能很直接的被盜取`COOKIE`之類的)
 * SSRF: create一個偽造的payload和一個對外的中間server溝通，並讓這個中間server因為我的偽造payload而同意讓我和更裡面的內網server溝通，這樣我就打到inner server，如果有preview card這樣的網站要特別注意有沒有SSRF的問題
     * 利用gopher協議建一個偽造payload
@@ -57,7 +68,7 @@ date: 2024-02-07
 * 如果是WordPress網頁: [WpScan](https://wpscan.com/)專門檢測WordPress類型的網頁，有哪些漏洞，前期可以掃描出WP版本、安裝的theme或是插件有哪些、安全漏洞等等
 <!-- more -->
 
-## Online Tools
+## Tools
 
 | Fuck                             | Beautifier                       |
 | -------------------------------- | -------------------------------- |
@@ -66,6 +77,8 @@ date: 2024-02-07
 |[aaencode](https://utf-8.jp/public/aaencode.html)|[JS 壓縮+加密+混淆+美化](https://js.wfuapp.com/)|
 |[Esolang List](https://esolangs.org/wiki/Language_list)|[JS Fuck Decode](https://www.53lu.com/tool/jsfuckdecode/)|
 ||[aadecode](https://cat-in-136.github.io/2010/12/aadecode-decode-encoded-as-aaencode.html)|
+
+* psysh: PHP的互動式shell
 
 ## Cheat-Sheet
 {% raw %}
