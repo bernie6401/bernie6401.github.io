@@ -49,12 +49,15 @@ comments: true
 ### SQL
 * [Day 4 很像走迷宮的sqlmap](https://ithelp.ithome.com.tw/articles/10202811)
 * [[Day20]-新手的Web系列SQLmap](https://ithelp.ithome.com.tw/articles/10249489)
+
 ### SSTI
 * [[Day11]SSTI(Server Side Template Injection)](https://ithelp.ithome.com.tw/articles/10272749)
 * [[Day13]-SSTI(Server-side template injection)](https://ithelp.ithome.com.tw/articles/10244403)
+
 ### PHP
 * [Day 12 - PHP 偽協議 (一) ](https://ithelp.ithome.com.tw/articles/10245020)
 * [[Day7]-PHP(LFI/RFI)](https://ithelp.ithome.com.tw/articles/10240486)
+
 #### 偽協議
 PHP 偽協議（PHP wrappers / stream wrappers）是指 PHP 內建的一種特殊 URI 協議機制，讓你可以用類似 URL 的方式去讀寫「不同來源」的資料，而不只是單純的檔案。為什麼叫「偽協議」？因為它看起來像：
 ```
@@ -105,6 +108,72 @@ ftp://
         getimagesize
         file_exists("phar://evil.phar/test.txt");
         ```
+
+### XXE
+#### 名詞解釋
+* Document Type Definition(DTD):　用來定義 XML 文件的結構規則
+    * 沒有DTD的xml
+        ```xml
+        <creds>
+        <user>admin</user>
+        </creds>
+        ```
+    * 有DTD的xml
+        ```xml
+        <!DOCTYPE creds [
+        <!ELEMENT creds (user)>
+        <!ELEMENT user (#PCDATA)>
+        ]>
+        <creds>
+        <user>admin</user>
+        </creds>
+        ```
+        這段 DTD 在說：creds 裡面必須有 user，並且user 只能是文字
+* DOCTYPE: 用來「宣告」這份 XML 使用哪個 DTD
+    * Inline: DTD 直接寫在 XML 裡。
+        ```xml
+        <!DOCTYPE creds [
+        <!ENTITY xxe SYSTEM "file:///etc/passwd">
+        ]>
+        ```
+    * External: 從外部引入DTD
+        ```xml
+        <!DOCTYPE creds SYSTEM "http://example.com/test.dtd">
+        ```
+        代表去下載 test.dtd ，再用裡面的規則
+* ENTITY: XML 裡面可以被「替換成其他內容」的變數，就像 XML 的「巨集（macro）」或「替換符號」。
+    * 內建的 ENTITY
+
+        | Entity  | 代表  |
+        | ------- | --- |
+        | `&lt;`  | `<` |
+        | `&gt;`  | `>` |
+        | `&amp;` | `&` |
+    * 自定義 ENTITY
+        ```xml
+        <!DOCTYPE creds [
+        <!ENTITY name "test">
+        ]>
+        <creds>
+        <user>&name;</user>
+        </creds>
+        ```
+        解析後
+        ```xml
+        <user>test</user>
+        ```
+    * 外部 ENTITY (External Entity): 會讀檔案或 URL。
+        ```xml
+        <!DOCTYPE creds [
+        <!ENTITY xxe SYSTEM "file:///etc/passwd">
+        ]>
+        <creds>
+        <user>&xxe;</user>
+        </creds>
+        ```
+        當看到 `&xxe;` 就去讀 `/etc/passwd `再把內容塞進來
+#### 實際攻擊
+XXE 不是 XML 漏洞。而是 XML parser 被允許解析 external entity，如果讀的檔案是個機敏資料，並且有機會顯示出來，那就會是漏洞
 
 ### 其他
 * [LFI VS RFI](https://ithelp.ithome.com.tw/articles/10240486): LFI(Local File Inclusion)<br>產生的原因是程式設計師未檢查用戶輸入的參數，導致駭客可以讀取server上的敏感文件。開發人員可能貪圖方便，將GET或POST參數直接設定為檔案名稱，直接include該檔案進網頁裡，結果就造成了引入其他檔案，造成資訊洩漏<br><br>RFI(Remote File Include)<br>基本上與LFI概念一樣，只是include的file來源變成從外部引入，觸發條件必須要把php設定參數 `allow_url_include` 設定為 `ON`
