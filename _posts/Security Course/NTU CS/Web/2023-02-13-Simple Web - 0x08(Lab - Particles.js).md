@@ -21,18 +21,7 @@ The website can change the theme of layout. The main goal is to leak admin's coo
 2. Try to modify `config` parameter
     * Payload 1: `1;alert(123);console.log({x://\`
     * Response 1
-
-        ```javascript
-        ...
-        <script>
-            url.value = location; config.value = '1;
-            alert(123);
-            console.log({x://\'; fetch('/1;alert(123);console.log({x://\.json').then(r => r.json()).then(json => {
-                particlesJS("particles-js", json)
-            })
-        </script>
-        ...
-        ```
+        <img src="/assets/posts/Security Course/Simple Web - 0x08(Lab - Particles.js).png" width=300>
 
     or
     * Payload 2: `</script><script>alert(123);</script>`
