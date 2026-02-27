@@ -55,7 +55,7 @@ According to [javascript documentation](https://developer.mozilla.org/en-US/docs
 
     > However, there are ways to execute JavaScript without using \<script\> elements, so there is still a security risk whenever you use innerHTML to set strings over which you have no control. For example: 
     
-    ```javascript!
+    ```javascript
     const name = "<img src='x' onerror='fetch()'>";
     el.innerHTML = name; // shows the alert
     ```
