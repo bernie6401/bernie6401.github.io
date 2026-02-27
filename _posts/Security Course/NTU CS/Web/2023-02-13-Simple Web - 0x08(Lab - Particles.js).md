@@ -12,7 +12,7 @@ date: 2023-02-13
 Challenge: https://particles.ctf.zoolab.org
 
 ## Description
-The website can change the theme of layout. The main goal is to leak admin's cookie. 
+The website can change the theme of layout. The main goal is to leak admin's cookie. Flag就是admin cookie
 
 ## Exploit - XSS
 1. Use burp suit to check if the website has XSS vulnerability.
