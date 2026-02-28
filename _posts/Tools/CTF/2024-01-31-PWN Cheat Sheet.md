@@ -105,33 +105,33 @@ date: 2024-01-31
 * heapb: 就是heap base的command，告訴我們目前的base address
 * .gdbinit
     * config
-    ```bash
-    set disassembly-flavor intel
+        ```bash
+        set disassembly-flavor intel
 
-    define gef
-            source ~/.gdbinit-gef.py
+        define gef
+                source ~/.gdbinit-gef.py
 
-            #### gef
-            # gef setting
-            gef config dereference.max_recursion 2
-            gef config context.layout "regs code args source memory stack trace"
-            gef config context.nb_lines_backtrace 3
-            gef config context.redirect /dev/pts/2
-    end
+                #### gef
+                # gef setting
+                gef config dereference.max_recursion 2
+                gef config context.layout "regs code args source memory stack trace"
+                gef config context.nb_lines_backtrace 3
+                gef config context.redirect /dev/pts/2
+        end
 
-    define peda
-            #source ~/peda/peda.py
-            source ~/Pwngdb/pwngdb.py
-            source ~/Pwngdb/angelheap/gdbinit.py
+        define peda
+                #source ~/peda/peda.py
+                source ~/Pwngdb/pwngdb.py
+                source ~/Pwngdb/angelheap/gdbinit.py
 
-            define hook-run
-            python
-    import angelheap
-    angelheap.init_angelheap()
-    end
-            end
-    end
-    ```
+                define hook-run
+                python
+        import angelheap
+        angelheap.init_angelheap()
+        end
+                end
+        end
+        ```
 
 ### pwntools
 * 常用
