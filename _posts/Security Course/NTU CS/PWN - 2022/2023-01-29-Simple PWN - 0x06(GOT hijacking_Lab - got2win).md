@@ -13,8 +13,8 @@ date: 2023-01-29
 challenge: `nc edu-ctf.zoolab.org 10004`
 
 ## GOT Background
-[Lecture Vid. - Pwn week1](https://youtu.be/ktoVQB99Gj4?t=4423)
-[NTUSTISC - Pwn Basic 2 [2019.03.19]](https://youtu.be/PBgHHWtjtFA?t=6017)
+* [Lecture Vid. - Pwn week1](https://youtu.be/ktoVQB99Gj4?t=4423)
+* [NTUSTISC - Pwn Basic 2 [2019.03.19]](https://youtu.be/PBgHHWtjtFA?t=6017)
 
 ## Original Code
 ```cpp

@@ -19,9 +19,7 @@ date: 2024-01-31
 呈上題
 
 ## Recon
-:::success
 Special Thanks @cs-otaku For the most of the Inspiration of the WP
-:::
 * Recap
     在上一題，我們已經知道了他的前端漏洞為path traversal，換言之是不是可以做到任意讀取的功能，如下:
     ```python
@@ -40,8 +38,8 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
                 break
         return res
     ```
-1. ==漏洞發想==
-    透過@cs-otaku的WP，了解到如果可以做到任意讀取有甚麼厲害的地方呢?那我們就可以想辦法用該題提供的write_note的功能以及lseek的功能，寫入==/proc/self/mem==這個檔案，這是甚麼東西呢?可以看一下[虛擬內存探究 -- 第一篇:C strings & /proc](http://blog.coderhuo.tech/2017/10/12/Virtual_Memory_C_strings_proc/)，要做的事情和我們的幾乎一樣，簡單說就是
+1. 漏洞發想
+    透過@cs-otaku的WP，了解到如果可以做到任意讀取有甚麼厲害的地方呢?那我們就可以想辦法用該題提供的write_note的功能以及lseek的功能，寫入`/proc/self/mem`這個檔案，這是甚麼東西呢?可以看一下[虛擬內存探究 -- 第一篇:C strings & /proc](http://blog.coderhuo.tech/2017/10/12/Virtual_Memory_C_strings_proc/)，要做的事情和我們的幾乎一樣，簡單說就是
     > /proc/[pid]/mem
     >        This file can be used to access the pages of a process's memory through open(2), read(2), and lseek(2).
     >        Permission to access this file is governed by a ptrace access mode PTRACE_MODE_ATTACH_FSCREDS check; see ptrace(2).
@@ -114,9 +112,9 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
     簡單來說，前面需要我們設定socket的config，然後用這個config連線到後端，並且把command置換成0x8787，傳送到後端給的fd，這樣後段就會直接噴flag給我們(準確來說是那個fd)，所以我們要承接fd接到的flag並且送到stdout，大概是這樣，但這一連串的操作其實是助教一開始在課堂中有提示，並且看了@cs-otaku的WP也有提到該步驟才知道，所以如果都不知道以上操作的話要怎麼辦呢?我們可以想辦法把backend的binary讀出來，這樣的話就只能自行把backend的binary讀出來再去分析裡面的奧義
     
     我是直接用[godbolt](https://godbolt.org/)搭配[x86-64 disassembly](https://defuse.ca/online-x86-assembler.htm#disassembly)
-    :::spoiler godbolt Result
+
     ![image](https://hackmd.io/_uploads/B1hxShgL6.png)
-    :::
+
     不過正如@cs-otaku說的
     > 寫入content是用write去寫的。所以shellcode裡面不可以出現\x00這種東西
 
@@ -155,7 +153,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
                 char    sin_zero[8];        //not use, for align
         };
         ```
-        就會對應到底下註解的地方，包含IP / Post / Internet Family之類的，所以我們就可以按照這個structure建構出來，short是2 bytes，而根據前面的byte code會發現`AF_INET`是\x0002，也就是兩個bytes，第二個是port也是兩個bytes，8765轉成hex就是0x223d；最後一個是IP address，總共是4 bytes的in_addr structure，如果想詳細了解in_addr的結構可以看[MSDN](https://learn.microsoft.com/zh-tw/windows/win32/api/winsock2/ns-winsock2-in_addr?source=docs)，但具體來說就是把`127.0.0.1`→`7f000001`，所以全部貼在一起並且轉成little endian的話就會變成==0x100007f3d220002==，但有一個非常大的問題，如果直接把該值push進到stack並取\$rsp放到\$rsi的話，整個流程會有太多的\x00，因此@cs-otaku提供了一個非常有創意的想法，就直接用扣的，反正只要最後放到stack的值是對的就好了
+        就會對應到底下註解的地方，包含IP / Post / Internet Family之類的，所以我們就可以按照這個structure建構出來，short是2 bytes，而根據前面的byte code會發現`AF_INET`是\x0002，也就是兩個bytes，第二個是port也是兩個bytes，8765轉成hex就是0x223d；最後一個是IP address，總共是4 bytes的in_addr structure，如果想詳細了解in_addr的結構可以看[MSDN](https://learn.microsoft.com/zh-tw/windows/win32/api/winsock2/ns-winsock2-in_addr?source=docs)，但具體來說就是把`127.0.0.1`→`7f000001`，所以全部貼在一起並且轉成little endian的話就會變成`0x100007f3d220002`，但有一個非常大的問題，如果直接把該值push進到stack並取\$rsp放到\$rsi的話，整個流程會有太多的\x00，因此@cs-otaku提供了一個非常有創意的想法，就直接用扣的，反正只要最後放到stack的值是對的就好了
         ```python
         # struct sockaddr_in info;
         # info.sin_family = AF_INET;
@@ -243,7 +241,6 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
 4. 接著我們就只要透過command 4的write note功能把構建好的shellcode，寫到/proc/self/mem對應的位置就好，也就是置換掉puts原本的操作，讓他再次call到puts的時候就會執行我們的shellcode
 
 ## Exploit - Arbitrary Read → Arbitrary Write → Shellcode
-:::spoiler
 ```python
 from pwn import *
 from tqdm import *
@@ -421,7 +418,6 @@ dealing_cmd(r, 4, note_name=path, content=shellcode, offset=puts_addr)
 
 r.interactive()
 ```
-:::
 
 ```bash
 $ python exp-2.py 28961

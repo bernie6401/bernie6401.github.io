@@ -13,7 +13,6 @@ date: 2024-02-07
 
 ## Reading Topic: DNSSEC VS DoH(DNS-over-HTTPS)
 ###### tags: `NTUCNS`
-Name: 何秉學	Student ID: R11921A16
 
 ## Background
 [什麼是 DNSSEC？](https://tw.godaddy.com/help/what-is-dnssec-6135)

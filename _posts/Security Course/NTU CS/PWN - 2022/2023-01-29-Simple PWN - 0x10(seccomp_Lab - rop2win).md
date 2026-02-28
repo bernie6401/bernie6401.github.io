@@ -84,9 +84,9 @@ int main()
     
     > The return value of open() is a file descriptor, a small, `nonnegative` integer that is an index to an entry in the process's table of open file descriptors.  The file descriptor is used in subsequent system calls (`read(2)`, `write(2)`, `lseek(2)`, `fcntl(2)`, etc.) to refer to the open file.  The file descriptor returned by a successful call will be the lowest-numbered file descriptor not currently open for the process.
     * Note that, more info. about `fd` can refer to 
-    [Linux 核心設計: 檔案系統概念及實作手法 (上) - 34:53](https://youtu.be/d8ZN5-XTIJM?t=2093), 
-    [Linux 核心設計: 檔案系統概念及實作手法 (上) - 58:29](https://youtu.be/d8ZN5-XTIJM?t=3509), 
-    [理解linux中的file descriptor(文件描述符)](https://wiyi.org/linux-file-descriptor.html)
+        * [Linux 核心設計: 檔案系統概念及實作手法 (上) - 34:53](https://youtu.be/d8ZN5-XTIJM?t=2093), 
+        * [Linux 核心設計: 檔案系統概念及實作手法 (上) - 58:29](https://youtu.be/d8ZN5-XTIJM?t=3509), 
+        * [理解linux中的file descriptor(文件描述符)](https://wiyi.org/linux-file-descriptor.html)
 * According to [read(2) — Linux manual page](https://man7.org/linux/man-pages/man2/read.2.html)
     > read() attempts to read up to count bytes from file descriptor `fd` into the buffer starting at `buf`.
 * According to [write(2) — Linux manual page](https://man7.org/linux/man-pages/man2/write.2.html)

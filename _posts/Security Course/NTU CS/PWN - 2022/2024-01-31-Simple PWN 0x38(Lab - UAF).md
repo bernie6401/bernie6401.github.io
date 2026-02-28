@@ -13,7 +13,6 @@ date: 2024-01-31
 ![圖片](https://hackmd.io/_uploads/ByxvsvNr6.png)
 
 ## Source code
-:::spoiler
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
@@ -146,17 +145,18 @@ int main(void)
 }
 
 ```
-:::
 
 ## Recon
 這是個經典的表單題，總共有四種command(註冊entity / 刪除entity / 設定entity name / 觸發entitiy function pointer)，這種題目因為格局比較大，所以我都會先看哪裡有malloc或是free，首先
 
-* ==註冊entity==→malloc
-* ==設定entity name==→malloc
-* ==刪除entity==→free
+* `註冊entity`→malloc
+* `設定entity name`→malloc
+* `刪除entity`→free
 
 然後觀察一下題目一開始會給我們system的address，和一開始的heap address，並且最後可以觸發entity的function pointer，所以目標很清楚
-==設法把function pointer的地址改成system，並且event的部分改成儲存`/sh\x00`的地址==
+
+**設法把function pointer的地址改成system，並且event的部分改成儲存`/sh\x00`的地址**
+
 最後只要trigger就會自動開一個shell給我們
 
 ---
@@ -247,7 +247,6 @@ flag{https://www.youtube.com/watch?v=CUSUhXqThjY}
 ```
 
 ## 同場加映
-
 ### 如何用UAF leak heap address?
 主要的大方向是設法讓free的chunk進入tcache，這樣的話他就會儲存chunk address的info，我們再利用他沒有設為null的UAF漏洞，把他讀出來
 ```python
@@ -288,7 +287,7 @@ choice: $
     ![圖片](https://hackmd.io/_uploads/S1kJGysSa.png)
 * Delete 前兩個entiti的時候，第一個8 bytes是next free chunk address，第二個8 bytes是key，此時我們就可以想辦法把這個heap address leak出來，從這邊可以看得出來
     ![圖片](https://hackmd.io/_uploads/Hky5fJira.png)
-* 設定entity 2的name，要加這一段的原因是它會malloc一個0x20的chunk，此時他會從tcache中找，也就是直接找到==0x55e5a806b2e0==，而他在free的時候並沒有把chunk的內容洗掉，所以裡面還是會有chunk address，所以從下面的結果來看，entity 2的name已經指向==0x000055e5a806b2e0==，而這個地址的東西沒有洗掉，所以我們可以用trigger event的printf，leak出其中的內容
+* 設定entity 2的name，要加這一段的原因是它會malloc一個0x20的chunk，此時他會從tcache中找，也就是直接找到`0x55e5a806b2e0`，而他在free的時候並沒有把chunk的內容洗掉，所以裡面還是會有chunk address，所以從下面的結果來看，entity 2的name已經指向`0x000055e5a806b2e0`，而這個地址的東西沒有洗掉，所以我們可以用trigger event的printf，leak出其中的內容
     ![圖片](https://hackmd.io/_uploads/HkYmVkjBT.png)
 * 此時我們就可以把接收到的address，和vmmap中得到的heap base address扣掉拿到offset之後做後續的利用
     ![圖片](https://hackmd.io/_uploads/BkcoVksST.png)

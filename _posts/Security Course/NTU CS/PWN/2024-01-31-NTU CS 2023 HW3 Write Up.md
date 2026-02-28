@@ -19,7 +19,7 @@ Flag: `flag{Y0u_know_hoW2L3@k_canAry}`
 3. 傳送payload過去，分別是`p64(rsp_val) + p64(stack_canary) + p64(rbp_val) + p64(win_addr)`
 4. 這樣就可以蓋到RIP後又不會被偵測到canary被改變，return之後拿到shell
 
-:::info
+
 比較值得注意的是，因為我是在公布解答前先自己寫，遇到了return之後拿不到shell的問題，後來經過助教的解釋才知道原來是，開shell的過程中`<do_system+115>  movaps XMMWORD PTR [rsp], xmm1`，RSP必須要是對齊的狀態，也就是最後應該要是0，但可以看下圖，如果直接跳到win function的開頭，rsp就不是0，會偏移8 bytes，所以會出現SIGSEGV
 ![圖片](https://hackmd.io/_uploads/rJK-2d0ma.png)
 
@@ -27,10 +27,10 @@ Flag: `flag{Y0u_know_hoW2L3@k_canAry}`
 ![圖片](https://hackmd.io/_uploads/ByhF2OCQa.png)
 
 ![圖片](https://hackmd.io/_uploads/SyxvoO0Xa.png)
-:::
+
 
 ### Exploit - Leak Canary + Control RIP
-```python=
+```python
 from pwn import *
 
 # r = process('./lab')
@@ -85,7 +85,7 @@ Flag: `flag{How_you_do0o0o0o_sysca1111111}`
 可以看到0f 05就是syscall的op code，也就是說，如果按照最簡單的shellcode送過去到最後會沒有syscall去呼叫execve，所以我們要用一些方式去bypass這個filter，例如可以先像TA上課說的，把0x0e04放到register後透過加減自行還原出0x0f05這東西，再把他放到對應的address就可以了
 
 ### Exploit
-```python=
+```python
 from pwn import *
 
 # r = process('./lab')
@@ -207,9 +207,7 @@ Flag: `flag{Sh3l1cod3_but_y0u_c@nnot_get_she!!}`
 Flag: `flag{why_d0_y0u_KnoM_tH1s_c0WW@nd!?}`
 
 ### 解題流程與思路
-:::success
 Special Thanks @cs-otaku For the most of the Inspiration of the WP
-:::
 * Recap
     在上一題，我們已經知道了他的前端漏洞為path traversal，換言之是不是可以做到任意讀取的功能，如下:
     ```python
@@ -302,9 +300,9 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
     簡單來說，前面需要我們設定socket的config，然後用這個config連線到後端，並且把command置換成0x8787，傳送到後端給的fd，這樣後段就會直接噴flag給我們(準確來說是那個fd)，所以我們要承接fd接到的flag並且送到stdout，大概是這樣，但這一連串的操作其實是助教一開始在課堂中有提示，並且看了@cs-otaku的WP也有提到該步驟才知道，所以如果都不知道以上操作的話要怎麼辦呢?我們可以想辦法把backend的binary讀出來，這樣的話就只能自行把backend的binary讀出來再去分析裡面的奧義
     
     我是直接用[godbolt](https://godbolt.org/)搭配[x86-64 disassembly](https://defuse.ca/online-x86-assembler.htm#disassembly)
-    :::spoiler godbolt Result
-    ![image](https://hackmd.io/_uploads/B1hxShgL6.png)
-    :::
+    * godbolt Result
+        ![image](https://hackmd.io/_uploads/B1hxShgL6.png)
+
     不過正如@cs-otaku說的
     > 寫入content是用write去寫的。所以shellcode裡面不可以出現\x00這種東西
 
@@ -442,9 +440,9 @@ Flag: `flag{ShUsHuSHU}`
 
 ### 解題流程與思路
 先看這個程式的行為，在main當中，他會打開flag.txt和urandom這兩個file，然後做兩者的XOR，並且回傳urandom的內容給我們，並且有BOF的漏洞存在
-:::info
+
 flag和secret這兩個變數都是global variable
-:::
+
 而check這個function的功能是我們可以輸入一個input，他會和secret做XOR，若結果等於==kyoumokawaii==就把前面加密過的flag再跟`kyoumokawaii`做XOR並回傳給我們
 
 思路很簡單:
@@ -638,7 +636,7 @@ Flag: `flag{Y0u_know_hoW2L3@k_canAry}`
     會這樣的原因是我們在ROPgadget中找不到`syscall ; ret`的gadget，所以助教提示可以直接從read / write這種function找，這樣syscall完了之後會很快的接到ret，這樣中間的操作才不會太影響我們蓋的rop
 3. Construct ROP
     首先，我們的流程是
-    ==main_fn → bss_open → main_fn → bss_open → main_fn → bss_write==
+    `main_fn → bss_open → main_fn → bss_open → main_fn → bss_write`
     會這樣的原因是我們只能寫入0x60的空間而已，所以把open / read / write分開寫，而寫完且執行完後會再跳原main_fn，這樣才能讓我們再讀取下一段的ROP payload
     0. 寫入的bss_addr和main_fn address
         ```python
@@ -729,7 +727,6 @@ Flag: `flag{Y0u_know_hoW2L3@k_canAry}`
         r.sendline(file_addr + ROP_write)
         ```
 
-:::danger
 執行的時候如果遇到local端可以run但server爛掉的情況，有可能是raw_input()造成的，可以先註解掉這些東西，如果還是遇到一樣的問題，可以開docker在裡面執行
 ```bash
 $ docker-compose up -d
@@ -739,7 +736,6 @@ $ docker exec -it {container name} /bin/bash
 > pip install pwntools -y
 > python3 exp.py
 ```
-:::
 
 ## Lab-FMT
 Flag: `flag{www.youtube.com/watch?v=Ci_zad39Uhw}`
@@ -847,24 +843,22 @@ Flag: `flag{www.youtube.com/watch?v=Ci_zad39Uhw}`
     0x00007fff99758890│+0x0060: 0x000055e273743040  →  <flag+0> add BYTE PTR [rax], al
     ```
     可以稍微手動算一下，`0x00007fff99758890│+0x0060`以fmt的角度來說就是5+13=18，代表他是第18個，此時我們就拿到flag了
-    :::spoiler TA的payload version
-    ```python
-    payload = b'%p' * 0x17 + b'.' + b'%s'
-    payload = payload.ljust(0x80, b'\x00')
-    payload += p64(flag_addr)
-    ```
-    :::
+    * TA的payload version
+        ```python
+        payload = b'%p' * 0x17 + b'.' + b'%s'
+        payload = payload.ljust(0x80, b'\x00')
+        payload += p64(flag_addr)
+        ```
 
 ## HW-HACHAMA
 Flag: `flag{https://www.youtube.com/watch?v=qbEdlmzQftE&list=PLQoA24ikdy_lqxvb6f70g1xTmj2u-G3NT&index=1}`
 
 ### 解題流程與思路
-:::warning
 切記題目用read接，所以不需要null byte做結尾，另外題目使用的libc是ubuntu 22.04.2的版本，所以可以用docker把libc資料撈出來，再針對這個做應用
-:::
+
 這一題我覺得出的很好，有很特別的exploit，也需要用到很多前兩周學會的幾乎所有技能，包含BOF / return 2 libc / stack pivot / ROP等等
 
-1. ==**漏洞在哪裡???**==
+1. **漏洞在哪裡???**
     首先，乍看之下會不知道這個洞在哪裡，不過多try幾次或是跟一下動態會發現，他做的事情會蓋到原本==n2==的數值，導致我們之後可以輸入更多的東西
     詳細來說就是:
     因為在#61的地方輸入的東西被存到local variable name，而在#63會被copy到global variable ==msg==，並且和` hachamachama`合併在一起，如果一開始我們輸入的東西是20個字元，而concatenate的` hachamachama`總共13個字元，加起來就已經是==33==個字元，但如下圖所示，msg一開始的大小就被限制在32 bytes，也就是說他會蓋到後面n2的值
@@ -939,16 +933,15 @@ Flag: `flag{https://www.youtube.com/watch?v=qbEdlmzQftE&list=PLQoA24ikdy_lqxvb6f
 
 4. 剩下的open / read / write就和lab差不多
 
-:::success
+
 截至目前為止，我們的流程是
 1. 設法利用overflow改變n2的數值，使我們能夠輸入更多shell code
 2. 先利用第一次的write輸入stack上的重要資訊
 3. 因為n2空間還是太小，所以我們需要先擴大能夠寫入的空間，也就是先利用第一次的stack pivot把shellcode寫上去→main+291
 4. 執行shellcode後，使rax變大再跳回去main+298
 5. 寫入真正的open / read / write讀出flag
-:::
 
-:::warning
+
 注意事項:
 1. canary
     因為他有開stack protection，所以一定要對好canary在stack上的位置，可以用動態去看，依照這一題的狀況，他是會在rbp+0x40的地方
@@ -960,7 +953,6 @@ Flag: `flag{https://www.youtube.com/watch?v=qbEdlmzQftE&list=PLQoA24ikdy_lqxvb6f
     ```
 3. IO problem
     這個問題也是很弔詭，會發現我在最後一個send之前還有一個raw_input()，如果拿掉的話在remote一樣會爛掉，這有可能是IO之類的問題，但總之一定要加
-:::
 
 ## Lab-UAF
 Flag: `flag{https://www.youtube.com/watch?v=CUSUhXqThjY}`
@@ -999,9 +991,8 @@ Flag: `flag{https://www.youtube.com/watch?v=CUSUhXqThjY}`
 Flag: `flag{a_iU8YeH944}`
 
 ### 解題流程與思路
-:::warning
 Run On Ubuntu 20.04
-:::
+
 這一題有很多種方式可以拿到shell，不過原理都是一樣的，前置作業都是一樣的，也就是要利用UAF去leak出libc address，接著算出`__free_hook`以及`system`的位址，接著想辦法把`system`寫到`__free_hook`的位址，此時就有兩種方式可以寫，一種是利用此次學到的double free，把值寫到最後一個在tcache的free chunk，蓋掉他的fd，接著就可以用add_note把tcache的值要回來，並寫system的address進到__free_hook；另一種方式就比較簡單，也就是把free chunk的fd利用UAF的特性改掉，並且直接add_note把東西從tcache要回來，之後就一樣寫system_addr，後free掉一個帶有/bin/sh的chunk，此時就會開一個shell給我們了
 
 #### 前置作業: Leak Libc Address
@@ -1095,10 +1086,8 @@ write_note(1, p64(free_hook) + p64(0) * 2)
 Flag: `flag{Y0u_Kn0w_H0w_T0_0veR1aP_N4me_aNd_EnT1Ty!!!}`
 
 ### 解題流程與思路
-:::info
 * 這一題是run在==20.04==的環境，在做題目之前要先看一下docker file
 * 另外一個很重要的一點是題目是用==read==讀取輸入，所以我們不需要輸入null byte結尾
-:::
 
 這一題和lab有幾個關鍵的地方不太一樣，首先他把set_name的操作併到register的地方，另外他限制註冊的entity只能有==2個==，最重要的一點是他沒有給我們heap address或system address的天大好禮，所以我們還要想一下其他的方法
 

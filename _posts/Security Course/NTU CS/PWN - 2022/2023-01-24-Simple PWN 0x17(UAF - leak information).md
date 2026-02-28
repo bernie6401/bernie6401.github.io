@@ -13,13 +13,13 @@ date: 2023-01-24
 Version: Ubuntu 20.04
 
 ## UAF backgroud
-[SS111-Pwn2](https://youtu.be/MwjSNFQIx0c)
-[Advanced Binary Exploitation (Pwn) - Heap Exploitation](https://youtu.be/rMqvL9j0QaM?t=3009)
-![](https://imgur.com/nFDhGiC.png)
+* [SS111-Pwn2](https://youtu.be/MwjSNFQIx0c)
+* [Advanced Binary Exploitation (Pwn) - Heap Exploitation](https://youtu.be/rMqvL9j0QaM?t=3009)
+* ![arithmatic.py](https://imgur.com/nFDhGiC.png)
 
 
 ## Original Code
-```cpp!=
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -39,11 +39,11 @@ If we set the pointer to `NULL` after it was freed, then we can get some vital i
 
 ## Analyze
 * After malloc all pointer
-![](https://imgur.com/HkEOJF0.png)
+    ![](https://imgur.com/HkEOJF0.png)
 * After free `p1`
-![](https://imgur.com/YqiGVeJ.png)
+    ![](https://imgur.com/YqiGVeJ.png)
 * After free `p2`, the data section will transfer to store metadata, and `fd` store the address of `p1` header
-![](https://imgur.com/7XHGDdj.png)
-![](https://imgur.com/lPuRywc.png)
+    ![](https://imgur.com/7XHGDdj.png)
+    ![](https://imgur.com/lPuRywc.png)
 * Thus, we print out the value of `p2`, we will leak something if it wasn't set `NULL` after it was freed
-![](https://imgur.com/Sbw4brI.png)
+    ![](https://imgur.com/Sbw4brI.png)

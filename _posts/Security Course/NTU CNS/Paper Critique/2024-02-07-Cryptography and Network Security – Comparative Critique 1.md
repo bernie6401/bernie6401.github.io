@@ -15,9 +15,8 @@ date: 2024-02-07
 
 ## Reading Topic: Reflections on Trusting Trust
 ###### tags: `NTUCNS`
-Name: 何秉學	Student ID: R11921A16
 
-:::spoiler Background
+### Background
 [什麼是 Intel® SGX？](https://www.intel.com.tw/content/www/tw/zh/architecture-and-technology/software-guard-extensions.html)
 > 提供以硬體為基礎的記憶體加密功能，可在記憶體內隔離特定的應用程式碼與資料。Intel® SGX 允許將使用者層級的程式碼配置於記憶體中的隱私區域，這稱為「指定位址空間」(enclave)，其設計是為了在較高權限層級的執行程序中受到保護
 ---
@@ -32,9 +31,6 @@ Name: 何秉學	Student ID: R11921A16
 ---
 [What is HSM(Hardware Security Module)](https://www.ibm.com/docs/zh-tw/blockchain-platform/2.5.1?topic=reference-glossary#glossary-hsm)
 > 硬體安全模組 (Hardware Security Module)。 提供隨需應變加密、金鑰管理及金鑰儲存空間作為受管理服務。 HSM 是實體應用裝置，可處理加密法處理的資源密集型作業，並減少應用程式的延遲時間。
----
-
-:::
 
 ## Summary of Reflections on Trusting Trust
 It attempts to convey the concept that there are vulnerabilities in the compiler that are not easy to find. The main concept is if the compiler itself is tampered with maliciously, then the whole system will become vulnerable.

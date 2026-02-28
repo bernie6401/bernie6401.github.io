@@ -15,10 +15,10 @@ In pwn problem, most of the program don't have the secret function that we can t
 
 ## How to create a shellcode in BOF?
 In lecture [0x01](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/HJm5x_Ocs), we can see sub-function that create a shell using command:
-```bash!
+```bash
 execve("/bin/sh", (char *[]){0}, (char *[]){0});
 ```
-According to [Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/), we can see that <font color='FF0000'>`execve`</font> is a system call and the parameter sequence is as the same as [normal calling convention](https://en.wikipedia.org/wiki/X86_calling_conventions).
+According to [Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/), we can see that `execve` is a system call and the parameter sequence is as the same as [normal calling convention](https://en.wikipedia.org/wiki/X86_calling_conventions).
 * Note that in `x86-64` →
     > The kernel interface uses `RDI`, `RSI`, `RDX`, `R10`, `R8` and `R9`. In C++, this is the first parameter. 
 
@@ -30,7 +30,7 @@ According to [Linux System Call Table for x86 64](https://blog.rchapman.org/post
 Therefore, `%rdi` store address of `/bin/sh` and `%rsi`, `%rdx` can temporarily set `0`
 
 ### Implement
-```assembly!
+```asm
 mov    rbx, 0x68732f6e69622f
 push   rbx
 mov    rdi, rsp

@@ -13,7 +13,6 @@ date: 2024-02-07
 
 ## Reading Topic: A key-management scheme for distributed sensor networks
 ###### tags: `NTUCNS`
-Name: 何秉學	Student ID: R11921A16
 
 ## Summary
 Distributed Sensor Networks (DSNs) are quite different from traditional embedded system networks, such as the number of nodes. Therefore, the security of the communication between each node is crucial. However, the storage capacity and computation capability of each node is the shallow level which is not enough to handle. So, we can’t use high computing power techniques such as asymmetric cipher (RSA) to deal with it. In contrast, they decided to use a symmetric cipher system to implement it and focus the point on how to manage and keep the key safe. This paper aimed to address the number of keys that each node in DSNs has too much. For example, if the number of nodes in DSN is n, then each node has to keep n-1 shared keys for connecting. This is not a good plan to implement. Overall, they proposed a brand-new key management scheme for large-scale DSNs and attempt to find the balance between safety and efficiency. In addition, according to the simulation result, they found out the comparison is highly better than the traditional key pre-distribution scheme.

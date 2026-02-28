@@ -156,13 +156,12 @@ int main()
 * Used after free(UAF)
 * Note that, flag 1 is admin password, flag 2 is at `/home/chal/`
 
-
 ## Exploit
-
 ### Hard solution - leak heap base address + heap overflow
 If we can use heap overflow to overlap the `user k`'s `*data`, then we can let it point to admin's password and use `show_users()` to print it out
 1. leak admin password address
-It's very straight forward, if we delete two user, user 2 first and then user 1, at the same time, the `fd` of user 1 will point to the data of user 2. Then we can use `show_user()` to leak the address and try to find `admin_pass_addr` by minus offset
+    
+    It's very straight forward, if we delete two user, user 2 first and then user 1, at the same time, the `fd` of user 1 will point to the data of user 2. Then we can use `show_user()` to leak the address and try to find `admin_pass_addr` by minus offset
     ```python
     edit_data(0, 0x8, b'a')    # Must add this line to use heap overflow
     add_user(1, b'a'*8, b'aaaa')

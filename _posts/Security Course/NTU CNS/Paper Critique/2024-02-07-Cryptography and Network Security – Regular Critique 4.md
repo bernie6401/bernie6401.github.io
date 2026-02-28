@@ -13,7 +13,6 @@ date: 2024-02-07
 
 ## Reading Topic: Dos and Don'ts of Machine Learning in Computer Security
 ###### tags: `NTUCNS`
-Name: 何秉學	Student ID: R11921A16
 
 ## Summary
 In this paper, they tried to point out some pitfalls of computer security paper that are associated with machine learning. Especially the paper in the last 10 years published at top-tier conferences. In addition, they identify 10 common pitfalls such as sampling bias problems, label inaccuracy, data snooping problems, spurious correlations, etc that are associated with the whole machine learning workflow, i.e. data collection and labeling, system design and learning, performance evaluation and deployment, and operation. They also provide some recommendations and some remedies and try to mitigate the threat. The top 3 pitfalls in their research are sampling bias, data snooping, and lab-only evaluation.

@@ -13,7 +13,6 @@ date: 2024-02-07
 
 ## Reading Topic: The Tangled Web of Password Reuse
 ###### tags: `NTUCNS`
-Name: 何秉學	Student ID: R11921A16
 
 ## Summary
 Password security is a critical issue that we may pay attention. However, most people choose easy-remembered strings as their online-service password, which may cause the users to re-used the password as a different online service. Unfortunately, the number of network attacks is increasing, and attackers contain tons of users' information including re-used passwords. They tried to propose a guessing password algorithm including character sequence, deletions, insertion, capitalization, reversal, leet-speak, and substring movement to guess a series of candidate passwords that users may use at different websites according to a set of leaked passwords. Their prototype guessing algorithm is able to crack approximately 10% of the nonidentical password pairs in less than 10 attempts and approximately 30% such pairs in less than 100 attempts.

@@ -13,8 +13,7 @@ date: 2023-01-29
 Version: Ubuntu 20.04
 
 ## Original Code
-:::spoiler Original Code
-```cpp=
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -40,10 +39,9 @@ int main()
     return 0;
 }
 ```
-:::
 
 ## Exploit
-```python=
+```python
 from pwn import *
 
 # r = process('./chal')

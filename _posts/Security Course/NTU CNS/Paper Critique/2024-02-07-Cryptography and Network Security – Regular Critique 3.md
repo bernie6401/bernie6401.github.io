@@ -13,7 +13,6 @@ date: 2024-02-07
 
 ## Reading Topic: Automated Detection of IPv6 Privacy Leakage in Home Networks
 ###### tags: `NTUCNS`
-Name: 何秉學	Student ID: R11921A16
 
 ## Background
 [What is Customer Premise Equipment? - 用戶終端設備(CPE)](https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=047cf9b1-e1ba-4578-8fcc-160bd2d3fc8d)

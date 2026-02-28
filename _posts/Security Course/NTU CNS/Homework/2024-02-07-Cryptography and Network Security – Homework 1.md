@@ -12,17 +12,9 @@ date: 2024-02-07
 [![hackmd-github-sync-badge](https://hackmd.io/Tq2dPdTKQv6p3AvNbmyNig/badge)](https://hackmd.io/Tq2dPdTKQv6p3AvNbmyNig)
 
 ###### tags: `NTUCNS`
-:::spoiler TOC
-[TOC]
-:::
-:::info
 [Official Solution](https://hackmd.io/@uqzWTXyyTk6IYTBwcPwnoA/BJZNQfcTo)
-:::
-Student ID: `R11921A16`
-Name: 何秉學
 
 ## Handwriting
-
 ### 1. CIA
 **Ans:** 
 **Confidentiality** means all of the sensitive messages or information that can be protected so that just the people who have the authentication can edit or browse the information.

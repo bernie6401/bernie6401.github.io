@@ -10,12 +10,11 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-stack pivot
-rop
-bof
+* stack pivot
+* rop
+* bof
 
 ## Source code
-:::spoiler Source Code
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
@@ -95,15 +94,13 @@ int main(void)
 }
 
 ```
-:::
 
 ## Recon
-:::warning
 切記題目用read接，所以不需要null byte做結尾，另外題目使用的libc是ubuntu 22.04.2的版本，所以可以用docker把libc資料撈出來，再針對這個做應用
-:::
+
 這一題我覺得出的很好，有很特別的exploit，也需要用到很多前兩周學會的幾乎所有技能，包含BOF / return 2 libc / stack pivot / ROP等等
 
-1. ==**漏洞在哪裡???**==
+1. **漏洞在哪裡???**
     首先，乍看之下會不知道這個洞在哪裡，不過多try幾次或是跟一下動態會發現，他做的事情會蓋到原本==n2==的數值，導致我們之後可以輸入更多的東西
     詳細來說就是:
     因為在#61的地方輸入的東西被存到local variable name，而在#63會被copy到global variable ==msg==，並且和` hachamachama`合併在一起，如果一開始我們輸入的東西是20個字元，而concatenate的` hachamachama`總共13個字元，加起來就已經是==33==個字元，但如下圖所示，msg一開始的大小就被限制在32 bytes，也就是說他會蓋到後面n2的值
@@ -178,16 +175,14 @@ int main(void)
 
 4. 剩下的open / read / write就和lab差不多
 
-:::success
 截至目前為止，我們的流程是
 1. 設法利用overflow改變n2的數值，使我們能夠輸入更多shell code
 2. 先利用第一次的write輸入stack上的重要資訊
 3. 因為n2空間還是太小，所以我們需要先擴大能夠寫入的空間，也就是先利用第一次的stack pivot把shellcode寫上去→main+291
 4. 執行shellcode後，使rax變大再跳回去main+298
 5. 寫入真正的open / read / write讀出flag
-:::
 
-:::warning
+
 注意事項:
 1. canary
     因為他有開stack protection，所以一定要對好canary在stack上的位置，可以用動態去看，依照這一題的狀況，他是會在rbp+0x40的地方
@@ -199,10 +194,8 @@ int main(void)
     ```
 3. IO problem
     這個問題也是很弔詭，會發現我在最後一個send之前還有一個raw_input()，如果拿掉的話在remote一樣會爛掉，這有可能是IO之類的問題，但總之一定要加
-:::
 
 ## Exploit - BOF + Stack Pivot + ROP
-
 ```python
 from pwn import *
 

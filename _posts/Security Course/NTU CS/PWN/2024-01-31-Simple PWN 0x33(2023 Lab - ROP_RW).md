@@ -13,7 +13,6 @@ date: 2024-01-31
 ROP chain
 
 ## Source code
-:::spoiler Source Code
 ```cpp
 #include <stdio.h>
 #include <string.h>
@@ -64,13 +63,12 @@ int main(void)
 }
 
 ```
-:::
 
 ## Recon
 先看這個程式的行為，在main當中，他會打開flag.txt和urandom這兩個file，然後做兩者的XOR，並且回傳urandom的內容給我們，並且有BOF的漏洞存在
-:::info
+
 flag和secret這兩個變數都是global variable
-:::
+
 而check這個function的功能是我們可以輸入一個input，他會和secret做XOR，若結果等於==kyoumokawaii==就把前面加密過的flag再跟`kyoumokawaii`做XOR並回傳給我們
 
 思路很簡單:

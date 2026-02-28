@@ -13,8 +13,7 @@ date: 2023-01-29
 Version: Ubuntu 20.04
 
 ## Original Code
-:::spoiler code
-```cpp!
+```cpp
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -206,13 +205,11 @@ int main()
 }
 
 ```
-:::
 * It's a test of `tcache and fastbin` background, therefore, just execute it directly!!!
-
 
 ## Questions
 1. 
-    ```bash!
+    ```bash
     ----------- ** tcache chall ** -----------
     char *A = (char *) malloc(0x12);
     char *B = (char *) malloc(0x30);
@@ -233,6 +230,7 @@ int main()
     [chunk size] 0x30: ?
     [chunk size] 0x40: ?
     ```
+    ```
     Sol. 
     First, try to compute every char malloc size
     A → $align(0x12 - 0x8 + 0x10) = 0x20$
@@ -242,20 +240,21 @@ int main()
     E → $align(0x20 - 0x8 + 0x10) = 0x30$
     F → $align(0x28 - 0x8 + 0x10) = 0x30$
     G → $align(0x13 - 0x8 + 0x10) = 0x20$
-
+    ```
     Then, the sequence of the free char is B→A→F→C→D→G→E, according to FILO ruls(stack)
     ![](https://imgur.com/TZhy6b9.png)
-    <font color="FF0000">
+    ```
     The sequence of 0x30: E --> D --> F --> NULL
     The sequence of 0x30: B --> NULL
-    </font>
+    ```
 2. 
-    ```bash!
+    ```bash
     ----------- ** address chall ** -----------
     assert( A == 0x563d3e2b72a0 );
     F == ?  (send as hex format, e.g. "0x563d3e2b72a0")
     ```
     Sol. Just accumulate the size
+    ```
     A == 0x563d3e2b72a0
     B == A + 0x20 == 0x563d3e2b72c0
     C == B + 0x40 == 0x563d3e2b7300
@@ -263,13 +262,15 @@ int main()
     E == D + 0x30 == 0x563d3e2b7350
     <font color="FF0000">F == E + 0x30 == 0x563d3e2b7380</font>
     G == F + 0x30 == 0x563d3e2b73b0
+    ```
 3. 
-    ```bash!
+    ```bash
     ----------- ** index chall ** -----------
     unsigned long *X = (unsigned long *) malloc(0x60);
     unsigned long *Y = (unsigned long *) malloc(0x60);
     Y[8] = 0xdeadbeef;
     X[?] == 0xdeadbeef      (just send an integer, e.g. "8")
+    ```
     ```
     Sol. 
     `X` has $align(0x60 - 0x8 + 0x10) = 0x70$ size of malloc address
@@ -277,9 +278,10 @@ int main()
     In addition these two memory are connected together
     Thus, `X` has `7*2=14` 8 bytes and `0xdeadbeef` is at the 4th position of Y
     Therefore, the answer is <font color="FF0000">$14+8=22$</font>
+    ```
     ![](https://imgur.com/H2gp0r4.png)
 4. 
-    ```bash!
+    ```bash
     ----------- ** tcache fd chall ** -----------
     free(X);
     free(Y);
@@ -291,7 +293,7 @@ int main()
     ![](https://imgur.com/AGYaISV.png)
     Thus, the answer is <font color="FF0000">$0x563d3e2b7440 - 0x10 - 0x60 = 0x563d3e2b73d0$</font>
 5. 
-    ```bash!
+    ```bash
     ----------- ** fastbin fd chall (final) ** -----------
     [*] Restore the chunk to X and Y
     Y = (unsigned long *) malloc(0x60);

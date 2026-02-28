@@ -68,8 +68,8 @@ The final deliverable of this project will be a comprehensive analysis of the se
 
 ## Reference
 * Privacy Preserving using Homomorphic Encryption
-[Privacy-Preserving Deep Learning via Additively Homomorphic Encryption](https://eprint.iacr.org/2017/715.pdf)
-[FedML-HE: An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System](https://paperswithcode.com/paper/fedml-he-an-efficient-homomorphic-encryption)
-[How to Securely Collaborate on Data: Decentralized Threshold HE and Secure Key Update](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9223642&tag=1)
-[ID-Based Multireceiver Homomorphic Proxy Re-Encryption in Federated Learning](https://dl.acm.org/doi/pdf/10.1145/3540199)
-[Poisoning Attacks and Defenses in Federated Learning: A Survey](https://arxiv.org/pdf/2301.05795.pdf)
+* [Privacy-Preserving Deep Learning via Additively Homomorphic Encryption](https://eprint.iacr.org/2017/715.pdf)
+* [FedML-HE: An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System](https://paperswithcode.com/paper/fedml-he-an-efficient-homomorphic-encryption)
+* [How to Securely Collaborate on Data: Decentralized Threshold HE and Secure Key Update](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9223642&tag=1)
+* [ID-Based Multireceiver Homomorphic Proxy Re-Encryption in Federated Learning](https://dl.acm.org/doi/pdf/10.1145/3540199)
+* [Poisoning Attacks and Defenses in Federated Learning: A Survey](https://arxiv.org/pdf/2301.05795.pdf)

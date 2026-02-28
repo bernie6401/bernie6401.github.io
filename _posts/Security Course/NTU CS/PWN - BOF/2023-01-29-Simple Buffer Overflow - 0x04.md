@@ -11,7 +11,7 @@ date: 2023-01-29
 ###### tags: `CTF` `PWN`
 
 ## Original Code
-```clike!
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -53,7 +53,7 @@ must use `mprotect` to change permission access just like [lecture 0x04](https:/
 * First, observe the address of global variable - `message` → `4033c0`
 ![](https://imgur.com/dTVBnkK.png)
 * So, we have to construct our shellcode in [lecture 0x02](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/BJRfEWFcs)
-    ```python!
+    ```python
     from pwn import *
 
     r = process('./bof3')
@@ -83,7 +83,7 @@ must use `mprotect` to change permission access just like [lecture 0x04](https:/
 
     * Note that, the 3 methods below are equal
         
-        ```python!
+        ```python
         shellcode = asm('''
         mov    rbx, 0x68732f6e69622f
         push   rbx

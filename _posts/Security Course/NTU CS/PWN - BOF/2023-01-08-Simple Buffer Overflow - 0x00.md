@@ -11,7 +11,7 @@ date: 2023-01-08
 ###### tags: `CTF` `PWN`
 
 ## Original Code
-```cpp!
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

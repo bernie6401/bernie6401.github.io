@@ -12,12 +12,8 @@ date: 2024-02-07
 [![hackmd-github-sync-badge](https://hackmd.io/JO7xByQgQWK67eU0goHMeA/badge)](https://hackmd.io/JO7xByQgQWK67eU0goHMeA)
 
 ###### tags: `NTUCNS`
-:::spoiler TOC
-[TOC]
-:::
 
 ## 1. DDoS
-
 ### 1)
 * Hint: You can use I/O Graphs to find the time that the flow starts to burst. Then you can find the first packet near there.
 

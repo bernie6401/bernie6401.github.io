@@ -26,7 +26,6 @@ date: 2024-01-31
 >Hint: Path Traversal
 
 ## Source code
-:::spoiler Source Code
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
@@ -395,12 +394,11 @@ int main()
     return 0;
 }
 ```
-:::
 
 ## Recon
 這一題是等到助教給出hint才之到大概的方向，我一開始也是有一些初步的方向，不過不知道怎麼把卡住的地方解決，最後也是求助@davidchen學長才知道確切的方法。
 
-1. 首先，感謝@csotaku 的提示與切入方向，既然知道是path traversal的洞，那就代表某個地方我們可以輸入一些簡單的payload，例如`./`，而這個地方還必須和讀檔有關係，想到這邊我們的選擇也呼之欲出，洞就在==openfile==的地方，我們輸入的notename會和`res.res`以及`.txt` concatenate在一起，，不過這邊有個問題是既然我們要順利讀檔，在說明中就有提到檔案名稱是==flag_user==，而不是flag_user.txt，這樣的話我們就應該要想辦法把`.txt` bypass掉
+1. 首先，感謝@csotaku 的提示與切入方向，既然知道是path traversal的洞，那就代表某個地方我們可以輸入一些簡單的payload，例如`./`，而這個地方還必須和讀檔有關係，想到這邊我們的選擇也呼之欲出，洞就在`openfile`的地方，我們輸入的notename會和`res.res`以及`.txt` concatenate在一起，，不過這邊有個問題是既然我們要順利讀檔，在說明中就有提到檔案名稱是`flag_user`，而不是flag_user.txt，這樣的話我們就應該要想辦法把`.txt` bypass掉
 
     想到這邊我先說我的看法，如果要把`.txt` bypass掉，一開始是參考[飛飛的網站範例](https://feifei.tw/file-path-traversal/)中有針對URL based的path traversal類似的情況在payload的最後面加上null byte，所以我想可以用同樣的方式bypass(`\x00`)，但是怎樣的沒有成功，另外我還有一個疑問，res.res的部分到底是不是一個path，如果不是，就代表我們也需要把它蓋掉或是用其他方法leak出來之類的；當然如果是path的話就沒差了，但我很常陷入這種沒有必要的迴圈轉不出來，其實現在仔細想想，他一定是一個path，因為他最後也是要和`{notename}.txt`接在一起，如果他不是path就一定讀不到
     
@@ -409,7 +407,7 @@ int main()
 ## Exploit - Path Traversal
 因為這一題需要進行pow，才能順利開一個vm給我們，並且把port number讓我們連過去
 
-### ==PoW.py==
+### `PoW.py`
 這是助教寫的script
 ```python
 #!/usr/bin/env python3
@@ -436,7 +434,7 @@ while True:
         exit(0)
 ```
 
-### ==pow.py==
+### `pow.py`
 這是我寫的pow，就是簡單的subprocess的執行助教給的script，然後傳送和接收一些IO
 ```python
 from pwn import *
@@ -463,7 +461,7 @@ log.success(f'Receive Port = {init_port}')
 r.close()
 ```
 
-### ==exp.py==
+### `exp.py`
 ```python
 from pwn import *
 from tqdm import *
