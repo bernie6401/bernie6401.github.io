@@ -15,10 +15,10 @@ date: 2024-01-31
 | ----------- | --- | --- |
 | **App**     | MobSF: Must run in python `3.8`<br>ApkTool: Just follow the step in install guide | [MobSF](https://ithelp.ithome.com.tw/articles/10215522)<br>[ApkTools](https://apktool.org/)|
 | **.NET**    | To decompile C#(.NET)| [dnSpy](https://github.com/dnSpy/dnSpy/releases)|
-| **x86/x64** || [x86模擬器](https://carlosrafaelgn.com.br/Asm86/)<br>[x86/x64 assembler/disassembler](https://defuse.ca/online-x86-assembler.htm#disassembly) |
+| **x86/x64 Simulator** || [x86模擬器](https://carlosrafaelgn.com.br/Asm86/)<br>[x86/x64 assembler/disassembler](https://defuse.ca/online-x86-assembler.htm#disassembly) |
 | **Packer**  | 指令：`$ upx -d {filename}`| [UPX Packer](https://github.com/upx/upx/releases/tag/v4.0.2)|
 | **Python**  || [Pyc disassemble](https://tool.lu/pyc/)|
-| **C**       | 一個可以把組語轉換成 c pseudo code 的線上工具| [Compiler Explorer](https://godbolt.org/)|
+| **asm→C**       | 一個可以把組語轉換成 c pseudo code 的線上工具| [Compiler Explorer](https://godbolt.org/)|
 | **General** | 一個線上的 decompiler，結合多種工具，只要上傳檔案 (小於2MB) 就可以呈現多種 decompiler tools 的結果| [Decompiler Explorer](https://dogbolt.org/)|
 
 ## IDA 常用快捷鍵
