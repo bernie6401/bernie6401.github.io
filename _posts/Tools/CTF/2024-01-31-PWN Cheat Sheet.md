@@ -61,8 +61,8 @@ date: 2024-01-31
         $ seccomp-tools dump ./test
         ```
     * 找glibc版本的online tool
-        [libc-database search API Search](https://libc.rip/)
-        [libc database search](https://libc.blukat.me/?q=__libc_start_main_ret)
+        * [libc-database search API Search](https://libc.rip/)
+        * [libc database search](https://libc.blukat.me/?q=__libc_start_main_ret)
 
 ### gdb
 常用語法([cheat](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf))
@@ -118,7 +118,8 @@ date: 2024-01-31
                 gef config context.nb_lines_backtrace 3
                 gef config context.redirect /dev/pts/2
         end
-
+        
+        # 以下部分deprecated
         define peda
                 #source ~/peda/peda.py
                 source ~/Pwngdb/pwngdb.py
@@ -131,6 +132,11 @@ date: 2024-01-31
         end
                 end
         end
+        ```
+    * [pwndbg/pwndbg](https://github.com/pwndbg/pwndbg)
+        ```bash
+        $ curl --proto '=https' --tlsv1.2 -LsSf 'https://install.pwndbg.re' | sh -s -- -t pwndbg-gdb
+        $ pwndbg
         ```
 
 ### pwntools
@@ -287,6 +293,7 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 ```
 
 * Script
+
     ```python
     '''
     Copied and modified from https://www.cnblogs.com/0x636a/p/9157993.html
@@ -336,6 +343,7 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     change_ld(BIN, LD_PATH)
     ###Execute file by 'LD_PRELOAD={target_libc} ./executable'
     ```
+
 * How to download libc file & loader
     * [Ubuntu Packages Search](https://packages.ubuntu.com/)
     * [libc6_2.31-0ubuntu9_amd64.deb](https://ubuntu.pkgs.org/20.04/ubuntu-main-amd64/libc6_2.31-0ubuntu9_amd64.deb.html)

