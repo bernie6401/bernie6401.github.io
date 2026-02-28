@@ -9,6 +9,12 @@ date: 2024-01-31
 # Reverse Cheat Sheet
 <!-- more -->
 
+## 解題思路
+1. 先觀察
+    ```bash
+    $ file <file>
+    ```
+
 ## Tools
 
 |**Type**| Description| Link|

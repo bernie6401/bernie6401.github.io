@@ -127,6 +127,40 @@ User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
     
 3. 如果按照上面得到的code寫script會出事，具體來說會出啥事不好說，但總之IDA時不時會翻不出來也見怪不怪，反正有問題一率動態跟，至於要跟到哪裡(因為沒有main symbol，所以也不好定位)，我是直接用pwntools的raw_input()強制斷在input的地方，接著就跳到比對的部分，然後flag就出現在stack上了
 
+* 2026/02/28 更新
+    現在回頭複習，發現其實按照IDA的邏輯回去寫script，應該沒啥問題才對
+    ```python
+    enc_flag = [
+        0x4A, 0x3C, 0x66, 0xD0, 0xC7, 0x4B, 0xC6, 0xB7, 0x1B, 
+        0x0D, 0xC0, 0x56, 0xB8, 0xD7, 0xD3, 0x47, 0xB4, 0xE6, 
+        0x67, 0x0E, 0xB6, 0x50, 0x92, 0x8C, 0x22, 0x5C, 0x63, 
+        0x8B, 7, 9, 0xF6, 0xF1, 0x64, 0x8A, 0x8B, 0xF2
+    ]
+
+    def ror32(val, r):
+        return ((val >> r) | (val << (32 - r))) & 0xFFFFFFFF
+
+    def decrypt():
+        key = 0xBACEB00C
+        length = len(enc_flag)
+        result = []
+
+        for i in range(length):
+            v5 = enc_flag[i]
+
+            # 解密
+            ch = v5 ^ (key & 0xFF)
+            result.append(ch)
+
+            # 更新 key
+            key = (36 - i + (v5 ^ ror32(key, 1))) & 0xFFFFFFFF
+
+        return bytes(result)
+
+    flag = decrypt()
+    print(flag)
+    ```
+
 ### Exploit
 ```bash
 $ gdb

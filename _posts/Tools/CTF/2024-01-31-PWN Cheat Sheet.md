@@ -287,58 +287,58 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 ```
 
 * Script
-```python
-'''
-Copied and modified from https://www.cnblogs.com/0x636a/p/9157993.html
-All credits ro original author
-'''
-from pwn import *
-import sys, os
+    ```python
+    '''
+    Copied and modified from https://www.cnblogs.com/0x636a/p/9157993.html
+    All credits ro original author
+    '''
+    from pwn import *
+    import sys, os
 
-def change_ld(binary, ld):
-    """
-    Force to use assigned new ld.so by changing the binary
-    """
-    if not os.access(ld, os.R_OK): 
-        log.failure("Invalid path {} to ld".format(ld))
-        return None
-
-
-    if not isinstance(binary, ELF):
-        if not os.access(binary, os.R_OK): 
-            log.failure("Invalid path {} to binary".format(binary))
+    def change_ld(binary, ld):
+        """
+        Force to use assigned new ld.so by changing the binary
+        """
+        if not os.access(ld, os.R_OK): 
+            log.failure("Invalid path {} to ld".format(ld))
             return None
-        binary = ELF(binary)
 
 
-    for segment in binary.segments:
-        if segment.header['p_type'] == 'PT_INTERP':
-            size = segment.header['p_memsz']
-            addr = segment.header['p_paddr']
-            data = segment.data()
-            if size <= len(ld):
-                log.failure("Failed to change PT_INTERP from {} to {}".format(data, ld))
+        if not isinstance(binary, ELF):
+            if not os.access(binary, os.R_OK): 
+                log.failure("Invalid path {} to binary".format(binary))
                 return None
-            binary.write(addr, ld.encode().ljust(size, b'\0'))
-            path = binary.path.split('/')[-1][0].upper()
-            if os.access(path, os.F_OK): 
-                os.remove(path)
-                print("Removing exist file {}".format(path))
-            binary.save(path)    
-            os.chmod(path, 0b111000000) #rwx------
-    print("PT_INTERP has changed from {} to {}. Using temp file {}".format(data, ld, path)) 
-    return
+            binary = ELF(binary)
 
-if len(sys.argv)!=3:
-    print('Usage : python3 LD_PRELOAD.py [ld] [bin]')
-LD_PATH = sys.argv[1]
-BIN = sys.argv[2]
-change_ld(BIN, LD_PATH)
-###Execute file by 'LD_PRELOAD={target_libc} ./executable'
-```
+
+        for segment in binary.segments:
+            if segment.header['p_type'] == 'PT_INTERP':
+                size = segment.header['p_memsz']
+                addr = segment.header['p_paddr']
+                data = segment.data()
+                if size <= len(ld):
+                    log.failure("Failed to change PT_INTERP from {} to {}".format(data, ld))
+                    return None
+                binary.write(addr, ld.encode().ljust(size, b'\0'))
+                path = binary.path.split('/')[-1][0].upper()
+                if os.access(path, os.F_OK): 
+                    os.remove(path)
+                    print("Removing exist file {}".format(path))
+                binary.save(path)    
+                os.chmod(path, 0b111000000) #rwx------
+        print("PT_INTERP has changed from {} to {}. Using temp file {}".format(data, ld, path)) 
+        return
+
+    if len(sys.argv)!=3:
+        print('Usage : python3 LD_PRELOAD.py [ld] [bin]')
+    LD_PATH = sys.argv[1]
+    BIN = sys.argv[2]
+    change_ld(BIN, LD_PATH)
+    ###Execute file by 'LD_PRELOAD={target_libc} ./executable'
+    ```
 * How to download libc file & loader
-    [Ubuntu Packages Search](https://packages.ubuntu.com/)
-    [libc6_2.31-0ubuntu9_amd64.deb](https://ubuntu.pkgs.org/20.04/ubuntu-main-amd64/libc6_2.31-0ubuntu9_amd64.deb.html)
+    * [Ubuntu Packages Search](https://packages.ubuntu.com/)
+    * [libc6_2.31-0ubuntu9_amd64.deb](https://ubuntu.pkgs.org/20.04/ubuntu-main-amd64/libc6_2.31-0ubuntu9_amd64.deb.html)
 
 ## Stack Vulnerabilities
 ### `checksec`
@@ -375,10 +375,10 @@ change_ld(BIN, LD_PATH)
 * 之前的Demo是利用format string達到<span style="background-color: yellow">GOT hijack</span>
 * 用法:
     * %**p** - leak code / libc / stack address
-    * %{**任意值**}c%**k**$(hhn|hn|n) - 寫**任意值**到第 **k** 個參數指向的位址
+    * %{**任意值**}c%**k**$(hhn\|hn\|n) - 寫**任意值**到第 **k** 個參數指向的位址
     * %**X**c - 印出 **X** 個字元
     * **k**$ - 指定第 **k** 個參數
-    * %(hhn|hn|n) - 將**輸出的字元數**以 1 / 2 / 4 bytes 寫到參數**指向的位址**
+    * %(hhn\|hn\|n) - 將**輸出的字元數**以 1 / 2 / 4 bytes 寫到參數**指向的位址**
     * 若該值為 addr 可透過 %s 輸出該地址的 value
 * Note:
     * 因為能控制寫入的⼤⼩與位址，因此也可以配合 partial overwrite 做 exploit
