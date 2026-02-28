@@ -10,91 +10,89 @@ date: 2024-01-31
 <!-- more -->
 
 ## Source code
-:::spoiler main function
-```cpp
-__int64 __fastcall main(int argc, char **argv, char **a3)
-{
-  __int64 *user_input; // rcx
-  __int64 v5; // rdx
-  __int64 v6; // rdx
-  char output[128]; // [rsp+10h] [rbp-B0h] BYREF
-  __int64 user_input_cp[6]; // [rsp+90h] [rbp-30h] BYREF
-
-  user_input_cp[5] = __readfsqword(0x28u);
-  if ( argc == 2 )
+* main function
+  ```cpp
+  __int64 __fastcall main(int argc, char **argv, char **a3)
   {
-    user_input = (__int64 *)argv[1];
-    v5 = user_input[1];
-    user_input_cp[0] = *user_input;
-    user_input_cp[1] = v5;
-    v6 = user_input[3];
-    user_input_cp[2] = user_input[2];
-    user_input_cp[3] = v6;
-    scramble_fn((__int64)user_input_cp, output, 0x20uLL);
-    if ( !memcmp(output, verify_key, 0x80uLL) )
-      puts("Correct!");
-    else
-      puts("Incorrect!");
-    return 0LL;
-  }
-  else
-  {
-    printf("Usage: %s <input>\n", *argv);
-    return 1LL;
-  }
-}
-```
-:::
+    __int64 *user_input; // rcx
+    __int64 v5; // rdx
+    __int64 v6; // rdx
+    char output[128]; // [rsp+10h] [rbp-B0h] BYREF
+    __int64 user_input_cp[6]; // [rsp+90h] [rbp-30h] BYREF
 
-:::spoiler scramble function
-```cpp
-unsigned __int64 __fastcall scramble_fn(char *user_input, uint32_t *output, unsigned __int64 const_0x20)
-{
-  unsigned __int64 result; // rax
-  int cmd; // [rsp+24h] [rbp-Ch]
-  unsigned __int64 i; // [rsp+28h] [rbp-8h]
-
-  cmd = 1;
-  memset(output, 0, 4 * const_0x20);            // 從這邊可以看得出來output的大小應該是int或是uint，因為有4 bytes
-  for ( i = 0LL; ; ++i )
-  {
-    result = i;
-    if ( i >= const_0x20 )
-      break;
-    switch ( cmd )
+    user_input_cp[5] = __readfsqword(0x28u);
+    if ( argc == 2 )
     {
-      case 1:
-        output[i] = (user_input[i] << 12) + 5308892;
-        cmd = 3;
-        break;
-      case 2:
-        output[i] = 4 * (user_input[i] + 1958409);
-        cmd = 4;
-        break;
-      case 3:
-        output[i] = user_input[i] + 192731;
-        cmd = 5;
-        break;
-      case 4:
-        output[i] = 4 * user_input[i] + 14474785;
-        cmd = 1;
-        break;
-      case 5:
-        output[i] = (user_input[i] << 17) + 176044;
-        cmd = 6;
-        break;
-      case 6:
-        output[i] = user_input[i] - 3874948;
-        cmd = 2;
-        break;
-      default:
-        continue;
+      user_input = (__int64 *)argv[1];
+      v5 = user_input[1];
+      user_input_cp[0] = *user_input;
+      user_input_cp[1] = v5;
+      v6 = user_input[3];
+      user_input_cp[2] = user_input[2];
+      user_input_cp[3] = v6;
+      scramble_fn((__int64)user_input_cp, output, 0x20uLL);
+      if ( !memcmp(output, verify_key, 0x80uLL) )
+        puts("Correct!");
+      else
+        puts("Incorrect!");
+      return 0LL;
+    }
+    else
+    {
+      printf("Usage: %s <input>\n", *argv);
+      return 1LL;
     }
   }
-  return result;
-}
-```
-:::
+  ```
+
+* scramble function
+  ```cpp
+  unsigned __int64 __fastcall scramble_fn(char *user_input, uint32_t *output, unsigned __int64 const_0x20)
+  {
+    unsigned __int64 result; // rax
+    int cmd; // [rsp+24h] [rbp-Ch]
+    unsigned __int64 i; // [rsp+28h] [rbp-8h]
+
+    cmd = 1;
+    memset(output, 0, 4 * const_0x20);            // 從這邊可以看得出來output的大小應該是int或是uint，因為有4 bytes
+    for ( i = 0LL; ; ++i )
+    {
+      result = i;
+      if ( i >= const_0x20 )
+        break;
+      switch ( cmd )
+      {
+        case 1:
+          output[i] = (user_input[i] << 12) + 5308892;
+          cmd = 3;
+          break;
+        case 2:
+          output[i] = 4 * (user_input[i] + 1958409);
+          cmd = 4;
+          break;
+        case 3:
+          output[i] = user_input[i] + 192731;
+          cmd = 5;
+          break;
+        case 4:
+          output[i] = 4 * user_input[i] + 14474785;
+          cmd = 1;
+          break;
+        case 5:
+          output[i] = (user_input[i] << 17) + 176044;
+          cmd = 6;
+          break;
+        case 6:
+          output[i] = user_input[i] - 3874948;
+          cmd = 2;
+          break;
+        default:
+          continue;
+      }
+    }
+    return result;
+  }
+  ```
 
 ## Recon
 可以從IDA解析出來的結果得知，這支程式的主要流程是我們執行的時候command多帶一個參數，而這個參數會直接進到scramble_fn做一些操作，最後會再跟verify_key進行memcmp，大略分析一下scramble_fn後發先他是一個偏簡單但我們懶得看得操作，所以可以試看看用angr解看看

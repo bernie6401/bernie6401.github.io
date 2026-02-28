@@ -38,37 +38,37 @@ LOAD:0000000000005B10 dq 8948505741564158h, 0DBFFEDFEEC8148E6h, 590A6A5F54591000
 LOAD:0000000000005B10 dq 4DF5FF6EDFFE02FFh, 5E57370FFFBAFC29h, 50F58596AED7B8Ch, 0DFFF6FDB0579C085h, 8D49FD91580F6A0Eh, 0E741AAA00B0FF7Dh
 ...
 ```
-:::spoiler Real File main Function
-```cpp
-int __cdecl main(int argc, const char **argv, const char **envp)
-{
-  int result; // eax
-  unsigned __int64 i; // [rsp+8h] [rbp-58h]
-  char user_input[32]; // [rsp+10h] [rbp-50h] BYREF
-  char v6[40]; // [rsp+30h] [rbp-30h]
-  unsigned __int64 v7; // [rsp+58h] [rbp-8h]
 
-  v7 = __readfsqword(0x28u);
-  printf("Enter input: ");
-  scanf("%s", user_input);
-  if ( sub_10C0(user_input, qword_4018, 10LL) )
+* Real File main Function
+  ```cpp
+  int __cdecl main(int argc, const char **argv, const char **envp)
   {
-    printf_0("Incorrect!");
-    result = 1;
+    int result; // eax
+    unsigned __int64 i; // [rsp+8h] [rbp-58h]
+    char user_input[32]; // [rsp+10h] [rbp-50h] BYREF
+    char v6[40]; // [rsp+30h] [rbp-30h]
+    unsigned __int64 v7; // [rsp+58h] [rbp-8h]
+
+    v7 = __readfsqword(0x28u);
+    printf("Enter input: ");
+    scanf("%s", user_input);
+    if ( sub_10C0(user_input, qword_4018, 10LL) )
+    {
+      printf_0("Incorrect!");
+      result = 1;
+    }
+    else
+    {
+      for ( i = 0LL; i <= 0x26; ++i )
+        v6[i] = user_input[i % 0xA] ^ *(qword_4010 + i);
+      printf("%s");
+      result = 0;
+    }
+    if ( v7 != __readfsqword(0x28u) )
+      return sub_10A0();
+    return result;
   }
-  else
-  {
-    for ( i = 0LL; i <= 0x26; ++i )
-      v6[i] = user_input[i % 0xA] ^ *(qword_4010 + i);
-    printf("%s");
-    result = 0;
-  }
-  if ( v7 != __readfsqword(0x28u) )
-    return sub_10A0();
-  return result;
-}
-```
-:::
+  ```
 
 ## Recon
 這一題一開始就知道是UPX加殼，但是直接試了upx幫忙decompress，卻遇到error，代表可能有一些問題(在Unix環境底下?)，所以我嘗試使用手動脫殼，去分析其中的內容
@@ -77,7 +77,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
     ```cpp
     LOAD:0000000000005AF5 jmp     r13
     ```
-    :::info
+    
     如何在動態取得這一行的位置呢?手動算出rebase address
     1. 首先先用靜態分析看starti的時候的offset
     2. 開始動態執行程式
@@ -113,38 +113,39 @@ int __cdecl main(int argc, const char **argv, const char **envp)
        0x7ffff7ffdb06:      ins    BYTE PTR es:[rdi],dx
        0x7ffff7ffdb07:      data16 (bad)
     ```
-    :::
+    
 2. 利用動態看r13的address會跳去哪邊$\to$0x00007ffff7ff1000
 3. 接下來我找不太到分析的地方，所以就直接c(continue)到user input的地方停下來，再看vmmap
-    :::spoiler vmmap
-    ```bash
-    [ Legend:  Code | Heap | Stack ]
-    Start              End                Offset             Perm Path
-    0x00007ffff7d84000 0x00007ffff7d87000 0x0000000000000000 rw-
-    0x00007ffff7d87000 0x00007ffff7daf000 0x0000000000000000 r-- /usr/lib/x86_64-linux-gnu/libc.so.6
-    0x00007ffff7daf000 0x00007ffff7f44000 0x0000000000028000 r-x /usr/lib/x86_64-linux-gnu/libc.so.6
-    0x00007ffff7f44000 0x00007ffff7f9c000 0x00000000001bd000 r-- /usr/lib/x86_64-linux-gnu/libc.so.6
-    0x00007ffff7f9c000 0x00007ffff7fa0000 0x0000000000214000 r-- /usr/lib/x86_64-linux-gnu/libc.so.6
-    0x00007ffff7fa0000 0x00007ffff7fa2000 0x0000000000218000 rw- /usr/lib/x86_64-linux-gnu/libc.so.6
-    0x00007ffff7fa2000 0x00007ffff7faf000 0x0000000000000000 rw-
-    0x00007ffff7fb3000 0x00007ffff7fb5000 0x0000000000000000 rw-
-    0x00007ffff7fb5000 0x00007ffff7fb7000 0x0000000000000000 r-- /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-    0x00007ffff7fb7000 0x00007ffff7fe1000 0x0000000000002000 r-x /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-    0x00007ffff7fe1000 0x00007ffff7fec000 0x000000000002c000 r-- /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-    0x00007ffff7fec000 0x00007ffff7fed000 0x0000000000000000 ---
-    0x00007ffff7fed000 0x00007ffff7fef000 0x0000000000037000 r-- /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-    0x00007ffff7fef000 0x00007ffff7ff1000 0x0000000000039000 rw- /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-    0x00007ffff7ff2000 0x00007ffff7ff6000 0x0000000000000000 r-- [vvar]
-    0x00007ffff7ff6000 0x00007ffff7ff8000 0x0000000000000000 r-x [vdso]
-    0x00007ffff7ff8000 0x00007ffff7ff9000 0x0000000000000000 r--
-    0x00007ffff7ff9000 0x00007ffff7ffa000 0x0000000000000000 r-x
-    0x00007ffff7ffa000 0x00007ffff7ffc000 0x0000000000000000 r--
-    0x00007ffff7ffc000 0x00007ffff7ffd000 0x0000000000000000 rw-
-    0x00007ffff7ffe000 0x00007ffff7fff000 0x0000000000000000 r-- /mnt/d/NTU/Second Year/Computer Security/Reverse/Lab3/Unpackme/unpackme
-    0x00007ffff7fff000 0x00007ffff8020000 0x0000000000000000 rw- [heap]
-    0x00007ffffffdd000 0x00007ffffffff000 0x0000000000000000 rw- [stack]
-    ```
-    :::
+    
+    * vmmap
+      ```bash
+      [ Legend:  Code | Heap | Stack ]
+      Start              End                Offset             Perm Path
+      0x00007ffff7d84000 0x00007ffff7d87000 0x0000000000000000 rw-
+      0x00007ffff7d87000 0x00007ffff7daf000 0x0000000000000000 r-- /usr/lib/x86_64-linux-gnu/libc.so.6
+      0x00007ffff7daf000 0x00007ffff7f44000 0x0000000000028000 r-x /usr/lib/x86_64-linux-gnu/libc.so.6
+      0x00007ffff7f44000 0x00007ffff7f9c000 0x00000000001bd000 r-- /usr/lib/x86_64-linux-gnu/libc.so.6
+      0x00007ffff7f9c000 0x00007ffff7fa0000 0x0000000000214000 r-- /usr/lib/x86_64-linux-gnu/libc.so.6
+      0x00007ffff7fa0000 0x00007ffff7fa2000 0x0000000000218000 rw- /usr/lib/x86_64-linux-gnu/libc.so.6
+      0x00007ffff7fa2000 0x00007ffff7faf000 0x0000000000000000 rw-
+      0x00007ffff7fb3000 0x00007ffff7fb5000 0x0000000000000000 rw-
+      0x00007ffff7fb5000 0x00007ffff7fb7000 0x0000000000000000 r-- /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+      0x00007ffff7fb7000 0x00007ffff7fe1000 0x0000000000002000 r-x /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+      0x00007ffff7fe1000 0x00007ffff7fec000 0x000000000002c000 r-- /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+      0x00007ffff7fec000 0x00007ffff7fed000 0x0000000000000000 ---
+      0x00007ffff7fed000 0x00007ffff7fef000 0x0000000000037000 r-- /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+      0x00007ffff7fef000 0x00007ffff7ff1000 0x0000000000039000 rw- /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+      0x00007ffff7ff2000 0x00007ffff7ff6000 0x0000000000000000 r-- [vvar]
+      0x00007ffff7ff6000 0x00007ffff7ff8000 0x0000000000000000 r-x [vdso]
+      0x00007ffff7ff8000 0x00007ffff7ff9000 0x0000000000000000 r--
+      0x00007ffff7ff9000 0x00007ffff7ffa000 0x0000000000000000 r-x
+      0x00007ffff7ffa000 0x00007ffff7ffc000 0x0000000000000000 r--
+      0x00007ffff7ffc000 0x00007ffff7ffd000 0x0000000000000000 rw-
+      0x00007ffff7ffe000 0x00007ffff7fff000 0x0000000000000000 r-- /mnt/d/NTU/Second Year/Computer Security/Reverse/Lab3/Unpackme/unpackme
+      0x00007ffff7fff000 0x00007ffff8020000 0x0000000000000000 rw- [heap]
+      0x00007ffffffdd000 0x00007ffffffff000 0x0000000000000000 rw- [stack]
+      ```
+
     可以看到`0x00007ffff7ff8000`開始會有ELF的字樣，代表應該是他脫殼完的結果，我的作法是直接把`0x00007ffff7ff8000`~`0x00007ffff7ffd000`全部dump下來進行分析
     ```bash
     gef➤  x/s 0x00007ffff7ff8000

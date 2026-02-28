@@ -10,7 +10,6 @@ date: 2024-01-31
 <!-- more -->
 
 ## Source Code
-:::spoiler Source Code
 ```python
 __int64 __fastcall main(int a1, char **a2, char **a3)
 {
@@ -153,7 +152,6 @@ __int64 __fastcall main(int a1, char **a2, char **a3)
   return 0LL;
 }
 ```
-:::
 
 ## Recon
 初步的基礎操作逆完之後，主要流程是這樣:

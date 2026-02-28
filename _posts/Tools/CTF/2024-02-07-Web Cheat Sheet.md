@@ -60,6 +60,8 @@ fetch(`/getflag\)
 #### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
 * 先確認是不是真的有這個問題: {% raw %}`{{7*7}}`{% endraw %} → 49
 * 用[tplmap](https://github.com/epinna/tplmap)直接打
+* Python(Flask): Jinja
+* Node.js(Express): PUG / EJS
 * SSTI Payload: 記得找<span style="background-color: yellow">os.\_wrap_close</span>
     {% raw %}
     ```

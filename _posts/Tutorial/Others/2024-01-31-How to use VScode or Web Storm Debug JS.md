@@ -144,7 +144,7 @@ date: 2024-01-31
 
 ## Debug By VScode
 詳細可以看[MSDN的教學](https://learn.microsoft.com/zh-tw/training/modules/debug-nodejs/5-analyze-your-program-state)
-:::info
+
 在debug的過程中，有可能會因為是linux based的路徑，所以造成錯誤，所以最好還是在wsl中用`code .`的方式進入VScode，再進行debug，另外提醒，在linux or windows下npm install所載的package會根據OS不一樣而有差異，所以要搞清楚目前的平台是哪一個再進行debug；再另外，因為大部分的題目都是具備docker，所以在build之前要先確定有沒有都完成原本docker幫忙的事情，例如以下script:
 ```dockerfile
 FROM node:alpine
@@ -168,8 +168,6 @@ USER ctf
 CMD [ "node", "app.js" ]
 ```
 這是NTU CS 2023 HW - Double Injection的題目，首先他有準備/flag1.txt以及/flag2-{random strings}.txt這兩個檔案，以及/etc/db.sqlite3這個file，並且run了init-db.js，這些都是要自己處理的部分，不然單單debug app.js會出一大堆問題
-:::
-
 
 ## Download Web Storm
 到[官網](https://www.jetbrains.com/webstorm/download/#section=windows)下載對應OS的Installer，不過這東西是要收費的，如果要白嫖的話可以參考[Jetbrain 軟體教育許可授權申請流程](https://hackmd.io/@nfu-johnny/B1yOz8KQs)，不過台大的帳號不知道為啥會過不了，所以要用提供**官方文件**的方式申請

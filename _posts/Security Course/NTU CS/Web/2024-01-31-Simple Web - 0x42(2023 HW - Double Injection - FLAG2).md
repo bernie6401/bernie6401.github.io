@@ -22,7 +22,7 @@ Node JS ejs SSTI
 ```
 admin.password") as password, json_extract(users, '$.admin.password') as password from db; -- #
 ```
-後面搭配簡單的XSS也是可以通的，原本想說可以利用XSS達到RCE，但就我之前和Kaibro的詢問，XSS應該沒有這麼powerful，所以我就往SSTI或command injection下手，後來經過@cs-otaku的提點才知道ejs有一個洞，也是上課有提到的SSTI控到RCE，當時看的文章是Huli大寫的，內容詳細說明了為甚麼會有這個洞以及該如何構造攻擊的payload，不過整體更複雜也算是需要客製化的題目才需要了解這麼多，這一題算是只要取得經典的payload就可以攻克，如果想要用動態看他跑得怎麼樣，可以用web storm跟，想知道整體的動態流程可以看[之前寫的文章](https://hackmd.io/@SBK6401/HkgkDNsPp)
+後面搭配簡單的XSS也是可以通的，原本想說可以利用XSS達到RCE，但就我之前和Kaibro的詢問，XSS應該沒有這麼powerful，所以我就往SSTI或command injection下手，後來經過@cs-otaku的提點才知道ejs有一個洞，也是上課有提到的SSTI控到RCE，當時看的文章是Huli大寫的，內容詳細說明了為甚麼會有這個洞以及該如何構造攻擊的payload，不過整體更複雜也算是需要客製化的題目才需要了解這麼多，這一題算是只要取得經典的payload就可以攻克，如果想要用動態看他跑得怎麼樣，可以用web storm跟，想知道整體的動態流程可以看[之前寫的文章]({{base.url}}/How-to-use-VScode-or-Web-Storm-Debug-JS/)
 
 ## Exploit - Ejs SSTI RCE
 * Payload 1:
@@ -69,7 +69,7 @@ Flag: `FLAG{ezzzzz_sqli2ssti}`
 
 ## 補充: How to debug it?
 這邊示範如何用vscode debug這個project
-1. 可以先看[這個文章](https://hackmd.io/@SBK6401/HkgkDNsPp)準備一些前置作業
+1. 可以先看[這個文章]({{base.url}}/How-to-use-VScode-or-Web-Storm-Debug-JS/)準備一些前置作業
 2. 在文章中有提到，docker幫忙做的事情，現在要自己完成
     ```bash
     $ sudo touch /flag1.txt ; sudo chmod 777 /flag1.txt ; sudo echo "test" > /flag1.txt

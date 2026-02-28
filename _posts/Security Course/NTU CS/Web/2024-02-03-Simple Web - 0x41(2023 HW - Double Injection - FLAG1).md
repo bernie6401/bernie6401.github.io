@@ -15,110 +15,110 @@ date: 2024-02-03
 
 ## Source code
 * init-db.js
-```javascript
-const fs = require('fs');
-const sqlite3 = require('sqlite3').verbose();
+    ```javascript
+    const fs = require('fs');
+    const sqlite3 = require('sqlite3').verbose();
 
-const FLAG1 = fs.readFileSync('/flag1.txt', 'utf8').trim();
-const db = new sqlite3.Database('/etc/db.sqlite3');
-db.exec(`
-DROP TABLE IF EXISTS users;
-CREATE TABLE db (
-    users JSON NOT NULL
-);
-INSERT INTO db(users) VALUES ('{
-    "admin": {
-        "username": "admin",
-        "password": "${FLAG1}"
-    },
-    "guest": {
-        "username": "guest",
-        "password": "guest"
-    }
-}');
-`);
-```
+    const FLAG1 = fs.readFileSync('/flag1.txt', 'utf8').trim();
+    const db = new sqlite3.Database('/etc/db.sqlite3');
+    db.exec(`
+    DROP TABLE IF EXISTS users;
+    CREATE TABLE db (
+        users JSON NOT NULL
+    );
+    INSERT INTO db(users) VALUES ('{
+        "admin": {
+            "username": "admin",
+            "password": "${FLAG1}"
+        },
+        "guest": {
+            "username": "guest",
+            "password": "guest"
+        }
+    }');
+    `);
+    ```
 
 * Dockerfile
-```dockerfile
-FROM node:alpine
+    ```dockerfile
+    FROM node:alpine
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY ./app .
+    RUN mkdir -p /usr/src/app
+    WORKDIR /usr/src/app
+    COPY ./app .
 
-RUN yarn install
+    RUN yarn install
 
-RUN echo 'FLAG{flag-1}' > /flag1.txt
-RUN echo 'FLAG{flag-2}' > "/flag2-$(tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 16).txt"
+    RUN echo 'FLAG{flag-1}' > /flag1.txt
+    RUN echo 'FLAG{flag-2}' > "/flag2-$(tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 16).txt"
 
-RUN node ./init-db.js && chmod 444 /etc/db.sqlite3
+    RUN node ./init-db.js && chmod 444 /etc/db.sqlite3
 
-RUN adduser -D -h /home/ctf ctf
-RUN chown -R ctf:ctf /usr/src/app
+    RUN adduser -D -h /home/ctf ctf
+    RUN chown -R ctf:ctf /usr/src/app
 
-USER ctf
+    USER ctf
 
-CMD [ "node", "app.js" ]
-```
+    CMD [ "node", "app.js" ]
+    ```
 
 * app.js
-```javascript
-const express = require('express');
-const ejs = require('ejs');
-const sqlite3 = require('sqlite3').verbose();
-const fs = require('fs');
-const FLAG1 = fs.readFileSync('/flag1.txt', 'utf8').trim();
+    ```javascript
+    const express = require('express');
+    const ejs = require('ejs');
+    const sqlite3 = require('sqlite3').verbose();
+    const fs = require('fs');
+    const FLAG1 = fs.readFileSync('/flag1.txt', 'utf8').trim();
 
-const db = new sqlite3.Database('/etc/db.sqlite3');
+    const db = new sqlite3.Database('/etc/db.sqlite3');
 
-const app = express();
-app.use(express.urlencoded({ extended: false }));
+    const app = express();
+    app.use(express.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
-    res.send(`
-    <form action="/login" method="POST">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit" value="Login">
-    </form>`
-    );
-});
-
-app.post('/login', (req, res) => {
-    const { username, password } = req.body;
-    const jsonPath = JSON.stringify(`$.${username}.password`);
-    const query = `SELECT json_extract(users, ${jsonPath}) AS password FROM db`;
-    // console.log(query);
-    const template = `
-    <html><head><title>Success</title></head><body>
-    <h1>Success!</h1>
-    <p>Logged in as ${username}</p>
-    </body></html>
-    `
-    db.get(query, (err, row) => {
-        if (res.headersSent) return;
-        if (err) return res.status(500).send('Internal Server Error' + err);
-        // console.log(row);
-        if (row.password === password) {
-            if (password !== FLAG1) {
-                const html = ejs.render(`<h1>Success!</h1>`, { username });
-                return res.send(html);
-            } else {
-                const html = ejs.render(template, { username });
-                return res.send(html);
-            } 
-        } else {
-            return res.status(401).send('Unauthorized');
-        }
+    app.get('/', (req, res) => {
+        res.send(`
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit" value="Login">
+        </form>`
+        );
     });
 
-    res.setTimeout(Math.random() * 50 + 10, () => res.status(401).send('Unauthorized'));
-});
+    app.post('/login', (req, res) => {
+        const { username, password } = req.body;
+        const jsonPath = JSON.stringify(`$.${username}.password`);
+        const query = `SELECT json_extract(users, ${jsonPath}) AS password FROM db`;
+        // console.log(query);
+        const template = `
+        <html><head><title>Success</title></head><body>
+        <h1>Success!</h1>
+        <p>Logged in as ${username}</p>
+        </body></html>
+        `
+        db.get(query, (err, row) => {
+            if (res.headersSent) return;
+            if (err) return res.status(500).send('Internal Server Error' + err);
+            // console.log(row);
+            if (row.password === password) {
+                if (password !== FLAG1) {
+                    const html = ejs.render(`<h1>Success!</h1>`, { username });
+                    return res.send(html);
+                } else {
+                    const html = ejs.render(template, { username });
+                    return res.send(html);
+                } 
+            } else {
+                return res.status(401).send('Unauthorized');
+            }
+        });
+
+        res.setTimeout(Math.random() * 50 + 10, () => res.status(401).send('Unauthorized'));
+    });
 
 
-app.listen(3000, () => console.log('Listening on port 3000'));
-```
+    app.listen(3000, () => console.log('Listening on port 3000'));
+    ```
 
 ## Recon
 這一題超爆難，應該可以預見被splitline凌虐，先看Dockerfile寫了甚麼，安裝的前置作業結束以後，分別把FLAG1和FLAG2的內容丟到`/flag1.txt`,`/flag2-{random string}.txt`中，並且執行db的初始化，也就是把FLAG1當成admin的密碼，接著比較重要的一步是把存取db內容的file(`/etc/db.sqlite3`)的權限設定read-only，這個操作後續會說明重要的地方，最後就是執行app.js
