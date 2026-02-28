@@ -2,7 +2,7 @@
 title: Simple Reverse - 0x03(Lab - Why)
 tags: [CTF, eductf, Reverse]
 
-category: "Security Course｜NTU CS｜Reverse"
+category: "Security Course｜NTU CS｜Reverse - 2022"
 date: 2024-01-31
 ---
 

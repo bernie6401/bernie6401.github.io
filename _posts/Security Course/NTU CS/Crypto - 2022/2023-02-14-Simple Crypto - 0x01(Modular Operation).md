@@ -2,7 +2,7 @@
 title: Simple Crypto - 0x01(Modular Operation)
 tags: [CTF, Crypto, eductf]
 
-category: "Security Course｜NTU CS｜Crypto"
+category: "Security Course｜NTU CS｜Crypto - 2022"
 date: 2023-02-14
 ---
 

@@ -2,7 +2,7 @@
 title: Simple Reverse - 0x01(Lab - Sacred Arts)
 tags: [Reverse, CTF, eductf]
 
-category: "Security Course｜NTU CS｜Reverse"
+category: "Security Course｜NTU CS｜Reverse - 2022"
 date: 2024-02-07
 ---
 

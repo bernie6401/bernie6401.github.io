@@ -2,7 +2,7 @@
 title: Simple PWN 0x20(Lab - babyums - flag 2)
 tags: [CTF, PWN, eductf]
 
-category: "Security Course｜NTU CS｜PWN"
+category: "Security Course｜NTU CS｜PWN - 2022"
 date: 2023-01-29
 ---
 
