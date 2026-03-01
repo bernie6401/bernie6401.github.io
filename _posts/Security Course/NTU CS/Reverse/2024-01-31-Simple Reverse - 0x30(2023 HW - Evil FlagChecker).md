@@ -168,7 +168,7 @@ Anti Debugging - 首推scylla hide
   .text:00401294 sub_401220 endp
   ```
 
-* IDA sub_401170
+* IDA sub_401170 → 在做的事情就是利用SEH(Structured Exception Handling)判斷有沒有人使用debugger
   ```
   .text:00401170 sub_401170 proc near                    ; CODE XREF: sub_401220+3A↓p
   .text:00401170
