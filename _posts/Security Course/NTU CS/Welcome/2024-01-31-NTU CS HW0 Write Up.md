@@ -300,7 +300,7 @@ print(f"mods = {xorrrrr(mods)}")
     secret\equiv\ hint[2]*{muls[2]}^{-1}\ (mod\ mods[2])\\
     ...
     $$
-    
+
     再利用CRT的解法，secret就出來了
 
 ### Exploit
@@ -368,11 +368,11 @@ while(True):
         break
     count += 1
 ```
-經過實測，最少的CRT組合需要八組以上才能正確還原flag，其中CRT的部分是參考[^crt-python-code]，另外理論的部分是參考[^crt-online-video-張旭]，最後inverse的靈感是來自[^chatgpt-inverse-concept]
+經過實測，最少的CRT組合需要八組以上才能正確還原flag，其中CRT的部分是參考[^crt-python-code]，另外理論的部分是參考[^crt-online-video]，最後inverse的靈感是來自[^chatgpt-inverse-concept]
 
 ## Reference
 [^crt-python-code]:[Chinese Remainder Theorem Using Python](https://medium.com/analytics-vidhya/chinese-remainder-theorem-using-python-25f051e391fc)
-[^crt-online-video-張旭]:[從高中數學不再教的韓信點兵問題，講到大學數論的中國餘數定理，在講中國餘數定理在 RSA 密碼系統上的應用](https://youtu.be/NkvCZ8qJ34w?si=HNryFu3AmhVWkNbP)
+[^crt-online-video]:[從高中數學不再教的韓信點兵問題，講到大學數論的中國餘數定理，在講中國餘數定理在 RSA 密碼系統上的應用](https://youtu.be/NkvCZ8qJ34w?si=HNryFu3AmhVWkNbP)
 [^chatgpt-inverse-concept]:[求且a的方法](https://chat.openai.com/c/cef2e550-d5fe-4ceb-96c4-0da3fc34de58)
 [^libc-hook-zhihu]:[linux hook機制研究](https://zhuanlan.zhihu.com/p/44132805)
 [^another-libc-hook-essay]:[用 LD_PRELOAD 替換動態連結的函式庫](https://jasonblog.github.io/note/fcamel/04.html)

@@ -66,6 +66,11 @@ date: 2024-01-31
 
 ### gdb
 常用語法([cheat](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf))
+* start: 開始run attached的program
+    ```bash
+    $ gdb ./a
+    gef➤  s
+    ```
 * b: 設定中斷點
     ```bash
     # break point

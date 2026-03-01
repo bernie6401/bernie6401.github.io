@@ -11,8 +11,8 @@ date: 2024-01-31
 
 ## Background
 Tools
-[Assembly x86 Emulator](https://carlosrafaelgn.com.br/Asm86/)
-[Compiler Explorer](https://godbolt.org/)
+* [Assembly x86 Emulator](https://carlosrafaelgn.com.br/Asm86/)
+* [Compiler Explorer](https://godbolt.org/)
 
 ## Source code
 * arithmatic.py
@@ -188,7 +188,7 @@ Tools
     ```
 
 ## Recon
-這一題有三小題，包含`arithmatic.py`, `data_movement.py`, 以及`condition.py`，過關的條件是要自己寫assembly然後達帶這三個關卡的register或stack條件，我是直接用compiler explorer幫我把c code直接轉assembly然後再利用assembly x86 emulator做double check，速度應該會快很多
+這一題有三小題，包含`arithmatic.py`, `data_movement.py`, 以及`condition.py`，過關的條件是要自己寫assembly然後達帶這三個關卡的register或stack條件，我是直接用[compiler explorer](https://godbolt.org/)幫我把c code直接轉assembly然後再利用[assembly x86 emulator](https://carlosrafaelgn.com.br/Asm86/)做double check，速度應該會快很多
 
 ## Exploit
 * 題目一: 就是一般的運算(\+\-*/)

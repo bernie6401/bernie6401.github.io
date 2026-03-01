@@ -35,6 +35,8 @@ date: 2024-01-31
     * DWORD(4 bytes)
     * PDWORD(pointer of DWORD = DWORD \*)
     * 若是DWORD \*name，代表name這個變數是一個pointer而且指向的地方是一個DWORD
+* 關閉Opcode: 有時候會不想要看哪麼多Opcoder就可以使用，`Options/General → Number of opcode bytes (non-graph)`設定成 0
+* Decompile: `F5`
 * Space: 在 Text View / Graph View 切換
 * Tab: 在視窗之間切換
 * ;/Insert: 註解
