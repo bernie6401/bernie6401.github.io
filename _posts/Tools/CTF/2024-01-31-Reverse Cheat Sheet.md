@@ -22,7 +22,6 @@ date: 2024-01-31
 | **App**     | MobSF: Must run in python `3.8`<br>ApkTool: Just follow the step in install guide | [MobSF](https://ithelp.ithome.com.tw/articles/10215522)<br>[ApkTools](https://apktool.org/)|
 | **.NET**    | To decompile C#(.NET)| [dnSpy](https://github.com/dnSpy/dnSpy/releases)|
 | **x86/x64 Simulator** || [x86模擬器](https://carlosrafaelgn.com.br/Asm86/)<br>[x86/x64 assembler/disassembler](https://defuse.ca/online-x86-assembler.htm#disassembly) |
-| **Packer**  | 指令：`$ upx -d {filename}`| [UPX Packer](https://github.com/upx/upx/releases/tag/v4.0.2)|
 | **Python**  || [Pyc disassemble](https://tool.lu/pyc/)|
 | **asm→C**       | 一個可以把組語轉換成 c pseudo code 的線上工具| [Compiler Explorer](https://godbolt.org/)|
 | **General** | 一個線上的 decompiler，結合多種工具，只要上傳檔案 (小於2MB) 就可以呈現多種 decompiler tools 的結果| [Decompiler Explorer](https://dogbolt.org/)|
@@ -44,24 +43,20 @@ date: 2024-01-31
 * n: 改名 
 * y: 改型別
 * h: 改表示方式 (dec / hex)
-* u: 取消定義
-* a: 當成字串
-* c: 當成code
-* p: 當成function
+* u: 取消定義，可以框選起來做操作
+* a: 當成字串，可以框選起來做操作
+* c: 當成code，可以框選起來做操作，將 IDA 認不出來的部分當成 Code
+* p: 當成function，可以框選起來做操作，通常是將紅色區域標成 Function
 * t: set sizeof(XXX)；如果已經確定目前的constant就是某個變數的length，那可以直接按t讓他變成sizeof(那個變數)
     舉例：如果已經確定目前的`0x238`就是`PROCESSENTRY32W`的size，就可以直接這樣用，會變得比較清楚
-    * 結果
-        ![](https://hackmd.io/_uploads/S1nruHTza.png)
-        ![](https://hackmd.io/_uploads/rkjwuBTza.png)
+    ![](https://hackmd.io/_uploads/S1nruHTza.png)
+    ![](https://hackmd.io/_uploads/rkjwuBTza.png)
 * Shift+F1: show出Local Type視窗
-    * Local Types Screenshot
-        ![](https://hackmd.io/_uploads/S1ikDa5_n.png)*
+    ![](https://hackmd.io/_uploads/S1ikDa5_n.png)
 * Shift+F12: 開啟Strings視窗
-    * Strings Screenshot
-        ![](https://hackmd.io/_uploads/HybvLzo_2.png)*
+    ![](https://hackmd.io/_uploads/HybvLzo_2.png)
 * 對某一個數值按m: ENUM這個功能就是在替換一些常見的windows API參數，讓原本的純數字可以用文字表示，這樣比較好懂API的操作，逆向會更順暢(補充說明：IDA有收錄很多MSDN上的一些API，他每一個參數表示的文字，例如[這一篇](https://learn.microsoft.com/en-us/windows/win32/Memory/memory-protection-constants)底下有顯示很多Constant/value的對應，而正常情況下IDA會顯示的是value，如果要把它換成Constant文字的表達式就可以用到ENUM這個功能)，又例如:
     目前已經知道`CreateToolhelp32Snapshot(2, 0);`中的2的意義是`TH32CS_SNAPPROCESS`(可以參考[MSDN](https://learn.microsoft.com/zh-tw/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot#parameters))，此時就可以直接按m之後再選擇`TH32CS_SNAPPROCESS`
-    *
     ![](https://hackmd.io/_uploads/B1Rn5Q6G6.png)*
 * \\: 不顯示/顯示資料型別
 * Alt+M/Ctrl+M: 前者是註冊書籤，後者是察看並選擇標籤，可以快速跑到標示的地址
@@ -327,3 +322,54 @@ date: 2024-01-31
 
             print(flag)
         ```
+    
+## Anti-Revese
+* Scylla Hide
+### Anti-Debug
+* 比較時間差，在程式的各種地方插入檢查時間與製造 Delay
+* Win32 API
+    * IsDebuggerPresent()
+    * CheckRemoteDebuggerPresent()
+    * RtlQueryProcessHeapInformation()
+    * RtlQueryProcessDebugInformation()
+    * NtQuerySystemInformation()
+    * NtQueryInformationProcess(): 這個 API 可以 Query 很多種類的 Process Information，更詳細的就看講義
+#### 比較時間差解法
+* 做 Patch 直接把 Timer, Sleep 相關的東西全都 NOP 掉
+* Hook 時間函數做 Speed Hack 讓時間變快
+    * 可以用 CheatEngine 做 SpeedHack
+    * 但要注意 Debugger 不能共存這件事情
+#### Win32 API解法
+Hook 掉這些 Function 就好，讓回傳值跟沒被 Debug 的數值一樣，但隨便 Hook 也會有機會被發現
+
+### Anti-Disassembler: 讓 Disassembler 壞掉的小技巧
+* 針對線性掃描: 因為指令集密度很高，如果在程式中製造 Offset…，可能會解出看起來對的程式碼，但行為可能根本不一樣
+* 針對 Control-flow Based Disassembler: 因為這種 Disassembler 會根據 Control-Flow 做追蹤，如果利用假的 jmp 指令來跳躍，可以使分析頭跳到奇怪的地方，然後就解壞了
+#### 解法
+* 把解析壞掉的部分 Undefine 掉，找到對的 Code 開始點再標記回去，就是 IDA 的`u`,`c`的功能應用
+
+### Anti-Attach: 在 Windows 下，ntdll 有一個函數可以用來做到 Anti-Attach → **DbgUiRemoteBreakin**
+### Packing
+* 加密殼: Themida, VMProtect, ASProtect
+* 壓縮殼: UPX, ASPack
+    * [UPX Packer](https://github.com/upx/upx/releases/tag/v4.0.2)
+        ```bash
+        $ upx -d {filename}`
+        ```
+* VM殼: 將程式變成另外一種客製化的 Bytecode 並跑在 VM 裡面，e.g. VMProtect, Themida
+
+#### 脫殼方式
+1. 找工具
+2. 如果看懂殼的邏輯就手動脫殼
+3. 動態脫殼：等動態跑起來後，程式邏輯被解密就直接dump memory
+
+### Obfuscation
+* 通過 Obfuscator 將程式碼扭成麻花，e.g. 編譯器優化
+* 參雜垃圾 Code
+* 在 Control-Flow Graph 上面畫畫的 REPsych, Artfuscator
+* 把 Control-Flow 變成一直線的 Movfuscator
+* 將 if 這種 branch 攤平 → 用一個 loop 加 switch 來做分支攤平
+* 將程式碼小片段變成某種 State Machine
+* 一些將程式碼片段搞消失的方法
+* 通過各種加載手段來映射片段的程式碼 → VirtualAlloc, VirtualProtect, mmap, mprotect
+* 把程式切成小份到處亂丟，要用的時候再解包出來 map 到記憶體上
