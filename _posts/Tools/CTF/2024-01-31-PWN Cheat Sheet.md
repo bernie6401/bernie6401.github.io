@@ -66,7 +66,7 @@ date: 2024-01-31
 
 ### gdb
 常用語法([cheat](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf))
-* start: 開始run attached的program
+* start: 開始run attached的start function
     ```bash
     $ gdb ./a
     gef➤  s
@@ -89,9 +89,11 @@ date: 2024-01-31
     (gdb) x/2gs 0x400686 # print 2 strings from 0x400686
     ```
 * vmmap 查看address space # check memory permission and distribution `$ (gdb) vmmap`
+* dump memory: dump [memory/binary/ihex] 檔名 起始位址 結束位址 `gef➤  dump memory ./test.mem 0x7fffffffcf80 0x7fffffffcf80+0x400`
 * bt {number}: 查看call stack
-* b info: 查看目前設的break point
+* info b: 查看目前設的break point
 * delete breakpoints 1: 刪除一號斷點
+* context: 顯示目前的所有狀態
 * fin: 直接執行該function到結束
 * got: 直接查看GOT
 * canary: 直接查看canary存放的位置和value

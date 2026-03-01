@@ -259,4 +259,71 @@ date: 2024-01-31
 
 ## 好用的解題工具
 * [angr - cheatsheet](https://docs.angr.io/en/latest/appendix/cheatsheet.html): `$ pip install angr claripy`
+    
+    直接對 binary 做 symbolic execution 幫你「走所有路徑」找出能到 win() 的 input
+
+    適合在：
+    * 很多巢狀 if statement
+    * 很多跳轉或是複雜的Control Flow Graph或是switch
+    * 很多驗證流程
+
+    angr基本流程 - 範例來自 [Simple-Reverse-0x28(2023-Lab-Super-Angry)/]({{base.url}}/Simple-Reverse-0x28(2023-Lab-Super-Angry)/)
+    * 建立一個project: `import angr; import claripy; proj = angr.Project('./super_angry')`
+    * 建立claripy symbol - 以這個lab的例子來說就是建立我們輸入進去的程式的input string
+        ```python
+        sym_arg = claripy.BVS('sym_arg', 8 * 32) # 就像z3一樣要建立symbol
+        ```
+    * 建立初始的state - 以這個lab來說就是我們一開始輸入的input string
+        ```python
+        state = proj.factory.entry_state(args=[proj.filename, sym_arg])
+        simgr = proj.factory.simulation_manager(state)
+        ```
+    * 有了proj / symbol / initial state之後就要開始讓他跑起來
+        ```python
+        simgr.explore(find = lambda s: b'Correct!' in  s.posix.dumps(1))
+        ```
+
 * z3: `$ pip install z3-solver`
+
+    適合解：
+    * 複雜條件判斷
+    * bitwise 運算
+    * 多個 if 組合
+    * 需要算出滿足條件的輸入
+
+    z3的大致步驟 - 範例來自 [Simple-Reverse-0x27(2023-Lab-Scramble)/]({{base.url}}/Simple-Reverse-0x27(2023-Lab-Scramble)/)
+    * 建立一個solver: `from z3 import *; s = Solver()`
+    * 建立符號 - 以此lab來說就是建立43個符號對應每一個flag字元: `bvs = [BitVec(f'bt_{i}', 32) for i in range(flag_len)]`
+    * 加上constraint - 以此lab來說每一個flag字元都應該限制在空白到0x7f之間，另外還要加上每一個符號(就是flag字元)，經過我們已知的scramble pattern之後應該要是最後的target: 
+        ```python
+        for bv in bvs:
+            s.add(And(bv >= 0x20, bv <= 0x7f))
+        for i, patter in enumerate(patters):
+            formula = f'bvs[{i}]'
+
+            for step in patter:
+                op = step[0]
+                value = step[1]
+
+                if op == 'add':
+                    formula = f'({formula} + {value})'
+                elif op == 'sub':
+                    formula = f'({formula} - {value})'
+                elif op == 'lsh':
+                    formula = f'({formula} << {value})'
+
+            print(f'{formula} == {targets[i]}')
+            s.add(eval(formula) == targets[i])    
+        ```
+    * 判斷有無解，如果有的話就把每一個符號的值取出來
+        ```python
+        if s.check() == sat:
+            print('Find ~~~')
+            print(s.model())
+
+            flag = ""
+            for bv in bvs:
+                flag += chr(s.model()[bv].as_long())
+
+            print(flag)
+        ```

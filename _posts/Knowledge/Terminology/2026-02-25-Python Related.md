@@ -19,7 +19,23 @@ comments: true
 * [How to use multiprocess in python & map VS pool VS apply_async](https://www.wongwonggoods.com/all-posts/python/python_parellel/python-multiprocessing-pool)
 * [Python asyncio 從不會到上路](https://myapollo.com.tw/blog/begin-to-asyncio/)
 
-
+## What is lambda in Python?
+是匿名函式（anonymous function），意思是：不用寫 def，直接快速定義一個小函式。lambda 只能寫**一行運算式**
+* 基本語法
+    ```python
+    lambda 參數: 回傳值
+    f = lambda x: x + 1
+    ```
+    等於
+    ```python
+    def f(x):
+        return x + 1
+    ```
+* 範例
+    ```python
+    add = lambda a, b: a + b
+    print(add(3, 5))
+    ```
 ## What is decorator in Python?
 參考資料: https://myapollo.com.tw/blog/python-decorator-tutorial/
 以下為Chat-GPT提供
