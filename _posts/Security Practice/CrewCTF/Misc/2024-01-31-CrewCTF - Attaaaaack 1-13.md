@@ -8,9 +8,6 @@ date: 2024-01-31
 
 # CrewCTF - Attaaaaack 1-13
 <!-- more -->
-:::spoiler TOC
-[TOC]
-:::
 
 One of our employees at the company complained about suspicious behavior on the machine, our IR team took a memory dump from the machine and we need to investigate it.
 
