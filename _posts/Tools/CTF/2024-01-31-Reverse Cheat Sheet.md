@@ -56,12 +56,16 @@ date: 2024-01-31
 * Shift+F12: 開啟Strings視窗
     ![](https://hackmd.io/_uploads/HybvLzo_2.png)
 * 對某一個數值按m: ENUM這個功能就是在替換一些常見的windows API參數，讓原本的純數字可以用文字表示，這樣比較好懂API的操作，逆向會更順暢(補充說明：IDA有收錄很多MSDN上的一些API，他每一個參數表示的文字，例如[這一篇](https://learn.microsoft.com/en-us/windows/win32/Memory/memory-protection-constants)底下有顯示很多Constant/value的對應，而正常情況下IDA會顯示的是value，如果要把它換成Constant文字的表達式就可以用到ENUM這個功能)，又例如:
+
     目前已經知道`CreateToolhelp32Snapshot(2, 0);`中的2的意義是`TH32CS_SNAPPROCESS`(可以參考[MSDN](https://learn.microsoft.com/zh-tw/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot#parameters))，此時就可以直接按m之後再選擇`TH32CS_SNAPPROCESS`
     ![](https://hackmd.io/_uploads/B1Rn5Q6G6.png)*
 * \\: 不顯示/顯示資料型別
 * Alt+M/Ctrl+M: 前者是註冊書籤，後者是察看並選擇標籤，可以快速跑到標示的地址
 * Ctrl+E: 如果是分析DLL file，可能會有很多不同的entry point，利用這個shortcut可以顯示目前有幾個entry point，很方便
     ![](https://hackmd.io/_uploads/ryJw-C6Ga.png)
+* Ctrl+N: 直接patch該instructions為NOP
+* Ctrl+Alt+P: 查看目前為止Patch的地方
+* `Edit → Patch program → Apply patches to input file`: 把patch好的program另存新檔，在此之前需要先處理好IDA的python環境問題，可以參考[Unexpected fatal error while initializing python runtime]({{base.url}}/Unexpected-fatal-error-while-initializing-python-runtime/)
 * 如何把bytes變成字串: 
     * 可以直接Alt+A
         1. 可以先把bytes的型別定義好(單獨的bytes變成array)，變成array有兩種方法，第一種是直接用`Y`定義他的型別成`int dword_2008[32]`，前面的int就看每一個字元是來決定，後面`[32]`就代表有多少字元變成array；第二種方法就是直接按`d`改變一個字元的型態變成int，然後在`edit/Array`的地方可以叫出`Convert to array`的視窗(如果前面沒有先用`d`改變型態的話，他會以為所有字元都是一個byte，然後總共有128個字元這樣換算，但其實我們是總共32個字元，每一個字元是4個bytes，也就是int，這一點要特別注意)
