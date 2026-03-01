@@ -23,7 +23,12 @@ date: 2024-03-19
 * [CTF RSA](https://zhuanlan.zhihu.com/p/76228394)
 
 ## Coding Tools
-* 大數運算: [gmpy2](https://blog.csdn.net/m0_52842062/article/details/117852175)/[sage math online - cocalc](https://cocalc.com/features/sage)/[sage math online - sagecell](https://sagecell.sagemath.org/)/[WolframAlpha](https://www.wolframalpha.com/):這是一個線上的搜索引擎，但凡和數學相關的都能進行運算，使用解說可以看[這裡](https://youtu.be/9JD3EzbAjH4?si=fmL7rOXK0u__Mf3u)
+* 大數運算
+    * [gmpy2](https://blog.csdn.net/m0_52842062/article/details/117852175)
+    * [sage math online - cocalc](https://cocalc.com/features/sage)
+    * [sage math online - sagecell](https://sagecell.sagemath.org/)
+    * [WolframAlpha](https://www.wolframalpha.com/): 這是一個線上的搜索引擎，但凡和數學相關的都能進行運算，使用解說可以看[這裡](https://youtu.be/9JD3EzbAjH4?si=fmL7rOXK0u__Mf3u)
+    
     ```bash
     $ sudo apt install sagemath
     # or
