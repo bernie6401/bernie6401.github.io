@@ -13,8 +13,8 @@ date: 2024-03-19
 
 | Complex| Substitution Cipher| Vigenère Cipher|
 | - | - | - |
-| [CyberChef](https://gchq.github.io/CyberChef/) | [Substitution Cipher Solver Tool](https://www.boxentriq.com/code-breaking/cryptogram) | Known Key </br>Python - `pycipher` library</br>[online - Vigenère cipher](https://planetcalc.com/2468/)</br>CAP4|
-| [quipqiup](https://quipqiup.com/)|| Unknown Key</br>[Vigenère Cipher Codebreaker](https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx)</br>[Vigenere Solver](https://www.guballa.de/vigenere-solver) |
+| [CyberChef](https://gchq.github.io/CyberChef/) | [Substitution Cipher Solver Tool](https://www.boxentriq.com/code-breaking/cryptogram) | Known Key <br>Python - `pycipher` library<br>[online - Vigenère cipher](https://planetcalc.com/2468/)<br>CAP4|
+| [quipqiup](https://quipqiup.com/)|| Unknown Key<br>[Vigenère Cipher Codebreaker](https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx)<br>[Vigenere Solver](https://www.guballa.de/vigenere-solver) |
 
 ## RSA相關攻擊
 其實整裡的文章內容都差不多
@@ -28,7 +28,7 @@ date: 2024-03-19
     * [sage math online - cocalc](https://cocalc.com/features/sage)
     * [sage math online - sagecell](https://sagecell.sagemath.org/)
     * [WolframAlpha](https://www.wolframalpha.com/): 這是一個線上的搜索引擎，但凡和數學相關的都能進行運算，使用解說可以看[這裡](https://youtu.be/9JD3EzbAjH4?si=fmL7rOXK0u__Mf3u)
-    
+
     ```bash
     $ sudo apt install sagemath
     # or
