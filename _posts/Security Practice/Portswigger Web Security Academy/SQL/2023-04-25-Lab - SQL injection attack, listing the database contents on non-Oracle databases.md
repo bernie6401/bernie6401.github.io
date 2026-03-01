@@ -1,12 +1,12 @@
 ---
-title: 'Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:'
+title: 'Lab: SQL injection attack, listing the database contents on non-Oracle databases'
 tags: [Portswigger Web Security Academy, Web]
 
 category: "Security Practice｜Portswigger Web Security Academy｜SQL"
 date: 2023-04-25
 ---
 
-# Lab: SQL injection attack, listing the database contents on non-Oracle databases :four:
+# Lab: SQL injection attack, listing the database contents on non-Oracle databases
 <!-- more -->
 ###### tags: `Portswigger Web Security Academy` `Web`
 * Description:  This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application's response so you can use a UNION attack to retrieve data from other tables.
