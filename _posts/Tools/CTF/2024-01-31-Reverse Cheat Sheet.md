@@ -325,6 +325,7 @@ date: 2024-01-31
     
 ## Anti-Revese
 * Scylla Hide
+
 ### Anti-Debug
 * 比較時間差，在程式的各種地方插入檢查時間與製造 Delay
 * Win32 API
@@ -334,17 +335,20 @@ date: 2024-01-31
     * RtlQueryProcessDebugInformation()
     * NtQuerySystemInformation()
     * NtQueryInformationProcess(): 這個 API 可以 Query 很多種類的 Process Information，更詳細的就看講義
+
 #### 比較時間差解法
 * 做 Patch 直接把 Timer, Sleep 相關的東西全都 NOP 掉
 * Hook 時間函數做 Speed Hack 讓時間變快
     * 可以用 CheatEngine 做 SpeedHack
     * 但要注意 Debugger 不能共存這件事情
+
 #### Win32 API解法
 Hook 掉這些 Function 就好，讓回傳值跟沒被 Debug 的數值一樣，但隨便 Hook 也會有機會被發現
 
 ### Anti-Disassembler: 讓 Disassembler 壞掉的小技巧
 * 針對線性掃描: 因為指令集密度很高，如果在程式中製造 Offset…，可能會解出看起來對的程式碼，但行為可能根本不一樣
 * 針對 Control-flow Based Disassembler: 因為這種 Disassembler 會根據 Control-Flow 做追蹤，如果利用假的 jmp 指令來跳躍，可以使分析頭跳到奇怪的地方，然後就解壞了
+
 #### 解法
 * 把解析壞掉的部分 Undefine 掉，找到對的 Code 開始點再標記回去，就是 IDA 的`u`,`c`的功能應用
 

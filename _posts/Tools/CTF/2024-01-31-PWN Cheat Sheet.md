@@ -66,18 +66,19 @@ date: 2024-01-31
 
 ### gdb
 常用語法([cheat](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf))
-* start: 開始run attached的start function
+* starti: 跑到entry point的第一條指令
+* start: 開始run attached的start function，並且停在main
     ```bash
     $ gdb ./a
     gef➤  s
     ```
+* r: 執行程式 # run `$ (gdb) r`
 * b: 設定中斷點
     ```bash
     # break point
     (gdb) b main
     (gdb) b *0x4896aa
     ```
-* r: 執行程式 # run `$ (gdb) r`
 * c: 繼續執行 # continue `$ (gdb) c`
 * si: 步入指令 # step instruction `$(gdb) si`
 * ni: 步過指令 # next instruction `$ (gdb) ni`
