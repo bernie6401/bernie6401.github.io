@@ -26,237 +26,37 @@ date: 2024-01-31
 | **asm→C**       | 一個可以把組語轉換成 c pseudo code 的線上工具| [Compiler Explorer](https://godbolt.org/)|
 | **General** | 一個線上的 decompiler，結合多種工具，只要上傳檔案 (小於2MB) 就可以呈現多種 decompiler tools 的結果| [Decompiler Explorer](https://dogbolt.org/)|
 
-## IDA 常用快捷鍵
-* [IDA Interface](https://blog.30cm.tw/2018/01/ida.html)
-* 型別
-    * char(1 byte)
-    * WORD(2 bytes)
-    * DWORD(4 bytes)
-    * PDWORD(pointer of DWORD = DWORD \*)
-    * 若是DWORD \*name，代表name這個變數是一個pointer而且指向的地方是一個DWORD
-* 關閉Opcode: 有時候會不想要看哪麼多Opcoder就可以使用，`Options/General → Number of opcode bytes (non-graph)`設定成 0
-* Decompile: `F5`
-* Space: 在 Text View / Graph View 切換
-* Tab: 在視窗之間切換
-* ;/Insert: 註解
-* x: 秀出 Xrefs
-* n: 改名 
-* y: 改型別
-* h: 改表示方式 (dec / hex)
-* u: 取消定義，可以框選起來做操作
-* a: 當成字串，可以框選起來做操作
-* c: 當成code，可以框選起來做操作，將 IDA 認不出來的部分當成 Code
-* p: 當成function，可以框選起來做操作，通常是將紅色區域標成 Function
-* t: set sizeof(XXX)；如果已經確定目前的constant就是某個變數的length，那可以直接按t讓他變成sizeof(那個變數)
-    舉例：如果已經確定目前的`0x238`就是`PROCESSENTRY32W`的size，就可以直接這樣用，會變得比較清楚
-    ![](https://hackmd.io/_uploads/S1nruHTza.png)
-    ![](https://hackmd.io/_uploads/rkjwuBTza.png)
-* Shift+F1: show出Local Type視窗
-    ![](https://hackmd.io/_uploads/S1ikDa5_n.png)
-* Shift+F12: 開啟Strings視窗
-    ![](https://hackmd.io/_uploads/HybvLzo_2.png)
-* 對某一個數值按m: ENUM這個功能就是在替換一些常見的windows API參數，讓原本的純數字可以用文字表示，這樣比較好懂API的操作，逆向會更順暢(補充說明：IDA有收錄很多MSDN上的一些API，他每一個參數表示的文字，例如[這一篇](https://learn.microsoft.com/en-us/windows/win32/Memory/memory-protection-constants)底下有顯示很多Constant/value的對應，而正常情況下IDA會顯示的是value，如果要把它換成Constant文字的表達式就可以用到ENUM這個功能)，又例如:
 
-    目前已經知道`CreateToolhelp32Snapshot(2, 0);`中的2的意義是`TH32CS_SNAPPROCESS`(可以參考[MSDN](https://learn.microsoft.com/zh-tw/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot#parameters))，此時就可以直接按m之後再選擇`TH32CS_SNAPPROCESS`
-    ![](https://hackmd.io/_uploads/B1Rn5Q6G6.png)*
-* \\: 不顯示/顯示資料型別
-* Alt+M/Ctrl+M: 前者是註冊書籤，後者是察看並選擇標籤，可以快速跑到標示的地址
-* Ctrl+E: 如果是分析DLL file，可能會有很多不同的entry point，利用這個shortcut可以顯示目前有幾個entry point，很方便
-    ![](https://hackmd.io/_uploads/ryJw-C6Ga.png)
-* Ctrl+N: 直接patch該instructions為NOP
-* Ctrl+Alt+P: 查看目前為止Patch的地方
-* `Edit → Patch program → Apply patches to input file`: 把patch好的program另存新檔，在此之前需要先處理好IDA的python環境問題，可以參考[Unexpected fatal error while initializing python runtime]({{base.url}}/Unexpected-fatal-error-while-initializing-python-runtime/)
-* 如何把bytes變成字串: 
-    * 可以直接Alt+A
-        1. 可以先把bytes的型別定義好(單獨的bytes變成array)，變成array有兩種方法，第一種是直接用`Y`定義他的型別成`int dword_2008[32]`，前面的int就看每一個字元是來決定，後面`[32]`就代表有多少字元變成array；第二種方法就是直接按`d`改變一個字元的型態變成int，然後在`edit/Array`的地方可以叫出`Convert to array`的視窗(如果前面沒有先用`d`改變型態的話，他會以為所有字元都是一個byte，然後總共有128個字元這樣換算，但其實我們是總共32個字元，每一個字元是4個bytes，也就是int，這一點要特別注意)
-            ![](https://hackmd.io/_uploads/HJ3yvI-Ga.png)
-            ![](https://hackmd.io/_uploads/r1A_8LWMa.png)
-        2. 接著就是在`Option/String literals`視窗中設定用哪一個型態表示字串，這邊因為每一個字元都是4 bytes，也就是32 bits，所以選擇C-style
-            ![](https://hackmd.io/_uploads/SyQBP8Zfp.png)*
-    * 完整流程
-        ```
-        .rodata:0000000000002008 unk_2008 db  46h ; F                    ; DATA XREF: main+8↑o
-        .rodata:0000000000002009 db    0
-        .rodata:000000000000200A db    0
-        .rodata:000000000000200B db    0
-        .rodata:000000000000200C db  4Ch ; L
-        .rodata:000000000000200D db    0
-        .rodata:000000000000200E db    0
-        .rodata:000000000000200F db    0
-        .rodata:0000000000002010 db  41h ; A
-        .rodata:0000000000002011 db    0
-        .rodata:0000000000002012 db    0
-        .rodata:0000000000002013 db    0
-        .rodata:0000000000002014 db  47h ; G
-        .rodata:0000000000002015 db    0
-        .rodata:0000000000002016 db    0
-        .rodata:0000000000002017 db    0
-        .rodata:0000000000002018 db  7Bh ; {
-        .rodata:0000000000002019 db    0
-        .rodata:000000000000201A db    0
-        .rodata:000000000000201B db    0
-        .rodata:000000000000201C db  68h ; h
-        .rodata:000000000000201D db    0
-        .rodata:000000000000201E db    0
-        .rodata:000000000000201F db    0
-        .rodata:0000000000002020 db  33h ; 3
-        .rodata:0000000000002021 db    0
-        .rodata:0000000000002022 db    0
-        .rodata:0000000000002023 db    0
-        .rodata:0000000000002024 db  31h ; 1
-        .rodata:0000000000002025 db    0
-        .rodata:0000000000002026 db    0
-        .rodata:0000000000002027 db    0
-        .rodata:0000000000002028 db  31h ; 1
-        .rodata:0000000000002029 db    0
-        .rodata:000000000000202A db    0
-        .rodata:000000000000202B db    0
-        .rodata:000000000000202C db  4Fh ; O
-        .rodata:000000000000202D db    0
-        .rodata:000000000000202E db    0
-        .rodata:000000000000202F db    0
-        .rodata:0000000000002030 db  5Fh ; _
-        .rodata:0000000000002031 db    0
-        .rodata:0000000000002032 db    0
-        .rodata:0000000000002033 db    0
-        .rodata:0000000000002034 db  72h ; r
-        .rodata:0000000000002035 db    0
-        .rodata:0000000000002036 db    0
-        .rodata:0000000000002037 db    0
-        .rodata:0000000000002038 db  65h ; e
-        .rodata:0000000000002039 db    0
-        .rodata:000000000000203A db    0
-        .rodata:000000000000203B db    0
-        .rodata:000000000000203C db  76h ; v
-        .rodata:000000000000203D db    0
-        .rodata:000000000000203E db    0
-        .rodata:000000000000203F db    0
-        .rodata:0000000000002040 db  65h ; e
-        .rodata:0000000000002041 db    0
-        .rodata:0000000000002042 db    0
-        .rodata:0000000000002043 db    0
-        .rodata:0000000000002044 db  72h ; r
-        .rodata:0000000000002045 db    0
-        .rodata:0000000000002046 db    0
-        .rodata:0000000000002047 db    0
-        .rodata:0000000000002048 db  73h ; s
-        .rodata:0000000000002049 db    0
-        .rodata:000000000000204A db    0
-        .rodata:000000000000204B db    0
-        .rodata:000000000000204C db  31h ; 1
-        .rodata:000000000000204D db    0
-        .rodata:000000000000204E db    0
-        .rodata:000000000000204F db    0
-        .rodata:0000000000002050 db  6Eh ; n
-        .rodata:0000000000002051 db    0
-        .rodata:0000000000002052 db    0
-        .rodata:0000000000002053 db    0
-        .rodata:0000000000002054 db  67h ; g
-        .rodata:0000000000002055 db    0
-        .rodata:0000000000002056 db    0
-        .rodata:0000000000002057 db    0
-        .rodata:0000000000002058 db  5Fh ; _
-        .rodata:0000000000002059 db    0
-        .rodata:000000000000205A db    0
-        .rodata:000000000000205B db    0
-        .rodata:000000000000205C db  33h ; 3
-        .rodata:000000000000205D db    0
-        .rodata:000000000000205E db    0
-        .rodata:000000000000205F db    0
-        .rodata:0000000000002060 db  6Eh ; n
-        .rodata:0000000000002061 db    0
-        .rodata:0000000000002062 db    0
-        .rodata:0000000000002063 db    0
-        .rodata:0000000000002064 db  67h ; g
-        .rodata:0000000000002065 db    0
-        .rodata:0000000000002066 db    0
-        .rodata:0000000000002067 db    0
-        .rodata:0000000000002068 db  69h ; i
-        .rodata:0000000000002069 db    0
-        .rodata:000000000000206A db    0
-        .rodata:000000000000206B db    0
-        .rodata:000000000000206C db  6Eh ; n
-        .rodata:000000000000206D db    0
-        .rodata:000000000000206E db    0
-        .rodata:000000000000206F db    0
-        .rodata:0000000000002070 db  65h ; e
-        .rodata:0000000000002071 db    0
-        .rodata:0000000000002072 db    0
-        .rodata:0000000000002073 db    0
-        .rodata:0000000000002074 db  65h ; e
-        .rodata:0000000000002075 db    0
-        .rodata:0000000000002076 db    0
-        .rodata:0000000000002077 db    0
-        .rodata:0000000000002078 db  72h ; r
-        .rodata:0000000000002079 db    0
-        .rodata:000000000000207A db    0
-        .rodata:000000000000207B db    0
-        .rodata:000000000000207C db  35h ; 5
-        .rodata:000000000000207D db    0
-        .rodata:000000000000207E db    0
-        .rodata:000000000000207F db    0
-        .rodata:0000000000002080 db  7Dh ; }
-        .rodata:0000000000002081 db    0
-        .rodata:0000000000002082 db    0
-        .rodata:0000000000002083 db    0
-        .rodata:0000000000002084 db    0
-        .rodata:0000000000002085 db    0
-        .rodata:0000000000002086 db    0
-        .rodata:0000000000002087 db    0
-        ```
-    ↓
-    ```
-    .rodata:0000000000002008 dword_2008 dd 46h, 4Ch, 41h, 47h, 7Bh, 68h, 33h, 2 dup(31h), 4Fh, 5Fh, 72h, 65h, 76h, 65h, 72h, 73h, 31h, 6Eh, 67h
-    .rodata:0000000000002008                                         ; DATA XREF: main+8↑o
-    .rodata:0000000000002008 dd 5Fh, 33h, 6Eh, 67h, 69h, 6Eh, 2 dup(65h), 72h, 35h, 7Dh, 0
-    ```
-    ↓
-    ```
-    .rodata:0000000000002008 text "UTF-32LE", 'FLAG{h311O_revers1ng_3ngineer5}',0
-    ```
-* 如何快速把bytes dump出來
-    1. 選擇要輸出的bytes
-        ![](https://hackmd.io/_uploads/Syc9UkTM6.png)
-    2. 按Shift+E，跳出的視窗選擇想要的格式，再直接複製即可
-        ![](https://hackmd.io/_uploads/SJ7a8ypfT.png)
-* 如果函式沒有return東西的話，可以右鍵該函示，選擇`Remove return value`或是Shift+Del
-    ![](https://hackmd.io/_uploads/HkRk3JpG6.png)
-* 如果function中的宣告很多，可以右鍵選擇`Collapse declarations`
-    ![](https://hackmd.io/_uploads/SkOXU4AMa.png)
+### 靜態分析
+根據執⾏檔內容直接進⾏分析
 
-## x64dbg 常用快捷鍵
-* F2: 設定中斷點
-* F9: 繼續執行
-* F8: 步過
-* F7: 步入
-* Ctrl+F9: 執行到 ret
-* Ctrl+G: goto
-* Space: 修改組譯
+| 工具          | 類型              | 特色                   | 典型用途           |
+| ----------- | --------------- | -------------------- | -------------- |
+| **IDA**     | 靜態 + 動態         | 商業級、Hex-Rays 反編譯強    | APT、漏洞研究、大型專案  |
+| **Ghidra**  | 靜態              | NSA 開源、內建 decompiler | ARM 韌體、CTF     |
+| **Radare2** | 靜態 + 動態         | CLI 為主、可腳本化          | 自動化分析、進階研究     |
+| **Cutter**  | 靜態 (GUI for r2) | Radare2 圖形化介面        | 喜歡 r2 但不想用 CLI |
 
-## 靜態分析
-* PEview
-* PEViewer
-* PE-bear
+#### PE結構分析
 
-## 動態分析
-* OllyDbg
-* x64dbg
-* IDA
-* Ghidra
-* Windbg
-* PEtool
+| 工具           | 類型      | 特色                      | 典型用途             |
+| ------------ | ------- | ----------------------- | ---------------- |
+| **PE Tools** | PE 結構檢視 | 修改 Import / Entry Point | 修補 PE、檢查 packer  |
+| **PEview**   | PE 檢視   | 查看 PE header / section  | 分析檔案結構           |
+| **PEViewer** | PE 檢視   | 視覺化顯示 PE 結構             | 初學者友好            |
+| **PE-bear**  | PE 分析   | 現代化 GUI、顯示資源/section    | CTF、malware 初步檢查 |
 
-## Process相關的操作與資訊
-* Procexp & Process Hacker
-    好看版的工作管理員
-* Procmon
-    * 監控程序行為
-    * Registry
-    * File system
-    * Network
-    * Process/Thread
+### 動態分析
+通過觀察執⾏流程與結果加以猜測程式本⾝的⾏為: <span style="background-color: yellow">網路流量、記憶體的變化、某些 API Call</span>
 
-## 好用的解題工具
+| 工具          | 平台            | 類型          | 特色                      | 典型用途                        |
+| ----------- | ------------- | ----------- | ----------------------- | --------------------------- |
+| **OllyDbg** | Windows       | User-mode   | 老牌 32-bit x86 除錯器，插件多   | 舊 crackme、32-bit malware    |
+| **x64dbg**  | Windows       | User-mode   | 支援 x86/x64、開源、介面友好      | CTF、patch、反驗證               |
+| **WinDbg**  | Windows       | User+Kernel | 微軟官方除錯器、支援 kernel debug | Driver 分析、藍屏、Kernel exploit |
+| **GDB**     | Linux / macOS | User-mode   | CLI 為主、支援多架構、可遠端除錯      | Linux 逆向、CTF、pwn、程式除錯       |
+
+### 好用的解題工具
 * [angr - cheatsheet](https://docs.angr.io/en/latest/appendix/cheatsheet.html): `$ pip install angr claripy`
     
     直接對 binary 做 symbolic execution 幫你「走所有路徑」找出能到 win() 的 input
@@ -326,11 +126,130 @@ date: 2024-01-31
 
             print(flag)
         ```
+
+## IDA 常用快捷鍵
+* [IDA Interface](https://blog.30cm.tw/2018/01/ida.html)
+
+### 基本使用
+* [Space]: 在 Text View / Graph View 切換
+* 關閉Opcode: 有時候會不想要看哪麼多Opcoder就可以使用，`Options/General → Number of opcode bytes (non-graph)`設定成 0
+* [F5/Tab]: Decompile
+* [n]: 改名
+* [;/Insert]: 註解
+* [x]: 秀出 Xrefs
+* [\]: 不顯示/顯示資料型別
+* [Ctrl+e]：顯示 entry points
+* [Numpad-]: 如果function中的宣告很多，可以右鍵選擇`Collapse declarations`
+    ![](https://hackmd.io/_uploads/SkOXU4AMa.png)
+
+### 改型別
+* 型別
+    * char(1 byte)
+    * WORD(2 bytes)
+    * DWORD(4 bytes)
+    * PDWORD(pointer of DWORD = DWORD \*)
+    * 若是DWORD \*name，代表name這個變數是一個pointer而且指向的地方是一個DWORD
+* [y]: 改型別
+* [h]: 改表示方式 (dec / hex)
+* [u]: 取消定義，可以框選起來做操作
+* [a]: 當成字串，可以框選起來做操作
+* [c]: 當成code，可以框選起來做操作，將 IDA 認不出來的部分當成 Code
+* [p]: 當成function，可以框選起來做操作，通常是將紅色區域標成 Function
+* [*]: 將data轉成array
+* [r]: 將常數顯示為char
+* [Alt+A]: 將data轉成字串 
+    1. 可以先把bytes的型別定義好(單獨的bytes變成array)，變成array有兩種方法，第一種是直接用`Y`定義他的型別成`int dword_2008[32]`，前面的int就看每一個字元是來決定，後面`[32]`就代表有多少字元變成array；第二種方法就是直接按`d`改變一個字元的型態變成int，然後在`edit/Array`的地方可以叫出`Convert to array`的視窗(如果前面沒有先用`d`改變型態的話，他會以為所有字元都是一個byte，然後總共有128個字元這樣換算，但其實我們是總共32個字元，每一個字元是4個bytes，也就是int，這一點要特別注意)
+        ![](https://hackmd.io/_uploads/HJ3yvI-Ga.png)
+        ![](https://hackmd.io/_uploads/r1A_8LWMa.png)
+    2. 接著就是在`Option/String literals`視窗中設定用哪一個型態表示字串，這邊因為每一個字元都是4 bytes，也就是32 bits，所以選擇C-style
+        ![](https://hackmd.io/_uploads/SyQBP8Zfp.png)*
+    * 完整流程
+        ```
+        .rodata:0000000000002008 unk_2008 db  46h ; F                    ; DATA XREF: main+8↑o
+        .rodata:0000000000002009 db    0
+        .rodata:000000000000200A db    0
+        .rodata:000000000000200B db    0
+        .rodata:000000000000200C db  4Ch ; L
+        .rodata:000000000000200D db    0
+        .rodata:000000000000200E db    0
+        .rodata:000000000000200F db    0
+        .rodata:0000000000002010 db  41h ; A
+        .rodata:0000000000002011 db    0
+        .rodata:0000000000002012 db    0
+        .rodata:0000000000002013 db    0
+        .rodata:0000000000002014 db  47h ; G
+        .rodata:0000000000002015 db    0
+        .rodata:0000000000002016 db    0
+        .rodata:0000000000002017 db    0
+        ...
+        ```
+    ↓
+    ```
+    .rodata:0000000000002008 dword_2008 dd 46h, 4Ch, 41h, 47h, 7Bh, 68h, 33h, 2 dup(31h), 4Fh, 5Fh, 72h, 65h, 76h, 65h, 72h, 73h, 31h, 6Eh, 67h
+    .rodata:0000000000002008                                         ; DATA XREF: main+8↑o
+    .rodata:0000000000002008 dd 5Fh, 33h, 6Eh, 67h, 69h, 6Eh, 2 dup(65h), 72h, 35h, 7Dh, 0
+    ```
+    ↓
+    ```
+    .rodata:0000000000002008 text "UTF-32LE", 'FLAG{h311O_revers1ng_3ngineer5}',0
+    ```
+
+### Anti-Deassembler會用到
+* Ctrl+N: 直接patch該instructions為NOP
+* Ctrl+Alt+P: 查看目前為止Patch的地方
+* `Edit → Patch program → Apply patches to input file`: 把patch好的program另存新檔，在此之前需要先處理好IDA的python環境問題，可以參考[Unexpected fatal error while initializing python runtime]({{base.url}}/Unexpected-fatal-error-while-initializing-python-runtime/)
+
+### 比較不常用
+* t: set sizeof(XXX)；如果已經確定目前的constant就是某個變數的length，那可以直接按t讓他變成sizeof(那個變數)
+    舉例：如果已經確定目前的`0x238`就是`PROCESSENTRY32W`的size，就可以直接這樣用，會變得比較清楚
+    ![](https://hackmd.io/_uploads/S1nruHTza.png)
+    ![](https://hackmd.io/_uploads/rkjwuBTza.png)
+* Shift+F1: show出Local Type視窗
+    ![](https://hackmd.io/_uploads/S1ikDa5_n.png)
+* Shift+F12: 開啟Strings視窗
+    ![](https://hackmd.io/_uploads/HybvLzo_2.png)
+* 對某一個數值按m: ENUM這個功能就是在替換一些常見的windows API參數，讓原本的純數字可以用文字表示，這樣比較好懂API的操作，逆向會更順暢(補充說明：IDA有收錄很多MSDN上的一些API，他每一個參數表示的文字，例如[這一篇](https://learn.microsoft.com/en-us/windows/win32/Memory/memory-protection-constants)底下有顯示很多Constant/value的對應，而正常情況下IDA會顯示的是value，如果要把它換成Constant文字的表達式就可以用到ENUM這個功能)，又例如:
+
+    目前已經知道`CreateToolhelp32Snapshot(2, 0);`中的2的意義是`TH32CS_SNAPPROCESS`(可以參考[MSDN](https://learn.microsoft.com/zh-tw/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot#parameters))，此時就可以直接按m之後再選擇`TH32CS_SNAPPROCESS`
+    ![](https://hackmd.io/_uploads/B1Rn5Q6G6.png)*
+* Alt+M/Ctrl+M: 前者是註冊書籤，後者是察看並選擇標籤，可以快速跑到標示的地址
+* Ctrl+E: 如果是分析DLL file，可能會有很多不同的entry point，利用這個shortcut可以顯示目前有幾個entry point，很方便
+    ![](https://hackmd.io/_uploads/ryJw-C6Ga.png)
+
+* 如何快速把bytes dump出來
+    1. 選擇要輸出的bytes
+        ![](https://hackmd.io/_uploads/Syc9UkTM6.png)
+    2. 按Shift+E，跳出的視窗選擇想要的格式，再直接複製即可
+        ![](https://hackmd.io/_uploads/SJ7a8ypfT.png)
+* 如果函式沒有return東西的話，可以右鍵該函示，選擇`Remove return value`或是Shift+Del
+    ![](https://hackmd.io/_uploads/HkRk3JpG6.png)
+
+## x64dbg 常用快捷鍵
+* [F2]: 設定中斷點
+* [F4]：Run / Continue 到當前選取的 assembly
+* [F7]: 步入
+* [F8]: 步過
+* [F9]: 繼續執行
+* [Ctrl+F9]: 執行到 ret
+* [Ctrl+G]: goto
+* [Space]: 修改組譯
+* [Alt+a]：Attach process
+
+## Process相關的操作與資訊
+* Procexp & Process Hacker
+    好看版的工作管理員
+* Procmon
+    * 監控程序行為
+    * Registry
+    * File system
+    * Network
+    * Process/Thread
+
     
 ## Anti-Revese
 * Scylla Hide
 
-## Exception Handler
+### Exception Handler
 也是一種Anti-Debug的技巧，因為debugger通常都會catch來自main program的Exception，所以programmer可以寫一個條件，註冊exception handler，如果這個exception被catch，那就代表有人嘗試使用debugger，參考[CSDN-反調試- SetUnhandledExceptionFilter ](https://blog.csdn.net/Simon798/article/details/107298726?fromshare=blogdetail&sharetype=blogdetail&sharerId=107298726&sharerefer=PC&sharesource=bernie6401&sharefrom=from_link)
 ```c++
 // Test_Console_1.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
@@ -378,7 +297,7 @@ main_end:
 ### Anti-Debug
 * 比較時間差，在程式的各種地方插入檢查時間與製造 Delay
 * Win32 API
-    * IsDebuggerPresent()
+    * IsDebuggerPresent(): <span style="background-color: yellow">x96dbg的Attach([Alt+A])功能可以bypass IsDebuggerPresent</span>
     * CheckRemoteDebuggerPresent()
     * RtlQueryProcessHeapInformation()
     * RtlQueryProcessDebugInformation()
