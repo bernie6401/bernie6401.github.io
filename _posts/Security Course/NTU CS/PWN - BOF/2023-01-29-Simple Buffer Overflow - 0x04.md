@@ -29,14 +29,14 @@ int main()
     return 0;
 }
 ```
-* Actually, this is a variant of the [lecture 0x01](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/HJm5x_Ocs)
+* Actually, this is a variant of the [lecture 0x01]({{base.url}}/Simple-Buffer-Overflow-0x01/)
 * <span style="background-color: yellow">>Note that</span>, the global variable has its own address, instead of local variable that push to stack that we don't know at first.
 * The 1st `read` function has no overflow, but 2nd `read` function has.
 * Note that, if you establish the code yourself, you must turn off the protection by the command below and use `checksec` to observe the protection
     ```bash
     $ gcc -o bof3 bof3.c -zexecstack -no-pie -fno-stack-protector -z norelro
     ```
-* <span style="background-color: yellow">Note that</span>: must use `mprotect` to change permission access just like [lecture 0x04](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/HJhgXGKci), add these line in original code
+* <span style="background-color: yellow">Note that</span>: must use `mprotect` to change permission access just like [lecture 0x04]({{base.url}}/Simple-Buffer-Overflow-0x04/), add these line in original code
     ```c
     #include <sys/mman.h>
     mprotect(0x403000, 0x1000, PROT_READ|PROT_WRITE|PROT_EXEC);
@@ -50,7 +50,7 @@ int main()
 * The main idea of this problem is write down your shellcode in `message` global variable and use `BOF` of 2nd `read` function to overlap `%rip`
 * First, observe the address of global variable - `message` → `4033c0`
 ![](https://imgur.com/dTVBnkK.png)
-* So, we have to construct our shellcode in [lecture 0x02](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/BJRfEWFcs)
+* So, we have to construct our shellcode in [lecture 0x02]({{base.url}}/Simple-Buffer-Overflow-0x02/)
     ```python
     from pwn import *
 
