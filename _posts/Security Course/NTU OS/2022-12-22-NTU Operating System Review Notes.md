@@ -9,7 +9,6 @@ date: 2022-12-22
 # NTU Operating System Review Notes
 <!-- more -->
 ###### tags: `NTU_OS` `Operating System`
-[TOC]
 
 ## Ch 6 Synchronization
 
@@ -122,7 +121,9 @@ process不能任意剝奪其他process正在持有的資源，給自己用，要
 * <font color="FF0000">利用register或memory或TLB來存取page table</font>
 ![](https://imgur.com/EsOE41W.png)
 * Effective memory access time公式(P is TLB hit ratio)
-$P*(TLB time+memory access time) + (1-P)*(TLBtime+2*memory access time)$
+    $$
+    P*(TLB time+memory access time) + (1-P)*(TLBtime+2*memory access time)
+    $$
 * Page Table Too large solution
     * Hierarchical paging
     ![](https://imgur.com/IUk4mig.png)

@@ -149,7 +149,7 @@ date: 2024-01-31
     * DWORD(4 bytes)
     * PDWORD(pointer of DWORD = DWORD \*)
     * 若是DWORD \*name，代表name這個變數是一個pointer而且指向的地方是一個DWORD
-* \[y\]: 改型別
+* \[y\]: 改型別，可以參考[ Simple Reverse - 0x19(2023 Lab - WinMalware - Extract Next Stage Payload) ]({{base.url}}/Simple-Reverse-0x19(2023-Lab-WinMalware-Extract-Next-Stage-Payload)/)
 * \[h\]: 改表示方式 (dec / hex)
 * \[u\]: 取消定義，可以框選起來做操作
 * \[a\]: 當成字串，可以框選起來做操作
@@ -162,7 +162,7 @@ date: 2024-01-31
         ![](https://hackmd.io/_uploads/HJ3yvI-Ga.png)
         ![](https://hackmd.io/_uploads/r1A_8LWMa.png)
     2. 接著就是在`Option/String literals`視窗中設定用哪一個型態表示字串，這邊因為每一個字元都是4 bytes，也就是32 bits，所以選擇C-style
-        ![](https://hackmd.io/_uploads/SyQBP8Zfp.png)*
+        ![](https://hackmd.io/_uploads/SyQBP8Zfp.png)
     * 完整流程
         ```
         .rodata:0000000000002008 unk_2008 db  46h ; F                    ; DATA XREF: main+8↑o
@@ -183,16 +183,16 @@ date: 2024-01-31
         .rodata:0000000000002017 db    0
         ...
         ```
-    ↓
-    ```
-    .rodata:0000000000002008 dword_2008 dd 46h, 4Ch, 41h, 47h, 7Bh, 68h, 33h, 2 dup(31h), 4Fh, 5Fh, 72h, 65h, 76h, 65h, 72h, 73h, 31h, 6Eh, 67h
-    .rodata:0000000000002008                                         ; DATA XREF: main+8↑o
-    .rodata:0000000000002008 dd 5Fh, 33h, 6Eh, 67h, 69h, 6Eh, 2 dup(65h), 72h, 35h, 7Dh, 0
-    ```
-    ↓
-    ```
-    .rodata:0000000000002008 text "UTF-32LE", 'FLAG{h311O_revers1ng_3ngineer5}',0
-    ```
+        ↓
+        ```
+        .rodata:0000000000002008 dword_2008 dd 46h, 4Ch, 41h, 47h, 7Bh, 68h, 33h, 2 dup(31h), 4Fh, 5Fh, 72h, 65h, 76h, 65h, 72h, 73h, 31h, 6Eh, 67h
+        .rodata:0000000000002008                                         ; DATA XREF: main+8↑o
+        .rodata:0000000000002008 dd 5Fh, 33h, 6Eh, 67h, 69h, 6Eh, 2 dup(65h), 72h, 35h, 7Dh, 0
+        ```
+        ↓
+        ```
+        .rodata:0000000000002008 text "UTF-32LE", 'FLAG{h311O_revers1ng_3ngineer5}',0
+        ```
 
 ### Anti-Deassembler會用到
 * \[Ctrl+N\]: 直接patch該instructions為NOP
@@ -211,15 +211,15 @@ date: 2024-01-31
 * 對某一個數值按m: ENUM這個功能就是在替換一些常見的windows API參數，讓原本的純數字可以用文字表示，這樣比較好懂API的操作，逆向會更順暢(補充說明：IDA有收錄很多MSDN上的一些API，他每一個參數表示的文字，例如[這一篇](https://learn.microsoft.com/en-us/windows/win32/Memory/memory-protection-constants)底下有顯示很多Constant/value的對應，而正常情況下IDA會顯示的是value，如果要把它換成Constant文字的表達式就可以用到ENUM這個功能)，又例如:
 
     目前已經知道`CreateToolhelp32Snapshot(2, 0);`中的2的意義是`TH32CS_SNAPPROCESS`(可以參考[MSDN](https://learn.microsoft.com/zh-tw/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot#parameters))，此時就可以直接按m之後再選擇`TH32CS_SNAPPROCESS`
-    ![](https://hackmd.io/_uploads/B1Rn5Q6G6.png)*
+    ![](https://hackmd.io/_uploads/B1Rn5Q6G6.png)
 * \[Alt+M/Ctrl+M\]: 前者是註冊書籤，後者是察看並選擇標籤，可以快速跑到標示的地址
 * \[Ctrl+E\]: 如果是分析DLL file，可能會有很多不同的entry point，利用這個shortcut可以顯示目前有幾個entry point，很方便
     ![](https://hackmd.io/_uploads/ryJw-C6Ga.png)
 
-* 如何快速把bytes dump出來
+* \[Shift+E\]: 如何快速把bytes dump出來
     1. 選擇要輸出的bytes
         ![](https://hackmd.io/_uploads/Syc9UkTM6.png)
-    2. 按Shift+E，跳出的視窗選擇想要的格式，再直接複製即可
+    2. 按\[Shift+E\]，跳出的視窗選擇想要的格式，再直接複製即可
         ![](https://hackmd.io/_uploads/SJ7a8ypfT.png)
 * 如果函式沒有return東西的話，可以右鍵該函示，選擇`Remove return value`或是Shift+Del
     ![](https://hackmd.io/_uploads/HkRk3JpG6.png)
@@ -232,7 +232,7 @@ date: 2024-01-31
 * \[F9\]: 繼續執行
 * \[Ctrl+F9\]: 執行到 ret
 * \[Ctrl+G\]: goto
-* \[Space\]: 修改組譯
+* \[Space\]: **修改組譯**
 * \[Alt+a\]: Attach process
 
 ## Process相關的操作與資訊

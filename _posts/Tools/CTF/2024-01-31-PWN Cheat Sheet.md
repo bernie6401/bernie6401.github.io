@@ -197,10 +197,22 @@ date: 2024-01-31
     ```bash
     $ objdump -M intel -d $binary | less
     ```
+### 如何寫shellcode
 * 如果要寫shell code的話可以直接看exploit db上別人寫好的gadget，複製起來就可以用了，不過有時候也有可能會失敗，在確認其他東西都是正確的情況下，可以試看看別的，記得平台要選對
     [Exploit DB - Shell Code](https://www.exploit-db.com/shellcodes)
 * [Linux System Call Table](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit)
 * [Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
+
+如果是x86-64的Linux系統的話，參數依序填在 rdi 、 rsi 、 rdx 、 r10 、 r8 、 r9，rax 填入要 call 的 function number
+```asm
+mov rax 0x68732f6e69622f bin sh 0
+push rax
+mov rdi rsp
+xor rsi rsi
+xor rdx rdx
+mov rax 0x3b
+syscall
+```
 
 ### 寫/bin/sh\x00的方法
 * [Shellcode Cheat Sheet](http://shell-storm.org/shellcode/index.html)
@@ -365,7 +377,10 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 ## `checksec`保護
 * No RELRO or Partial RELRO → <span style="background-color: yellow">GOT Hijacking(改寫GOT)</span> → `-z norelro`
 * PIE(Position Independent Executable) → <span style="background-color: yellow">BOF(ret2 series)</span> → `-no-pie`
-* NX (No eXecute, Data Execution Prevention, DEP) off → `-zexecstack`
+* NX (No eXecute, Data Execution Prevention, DEP) off → `-zexecstack`，如果有NX就不能執行shellcode
+    * 可以用 ROP 繞 過
+        * 使用 ROP 來做事情
+        * 用 ROP call mmap 拿到一 塊 rwx 的 memory
 * ASLR (Address Space Layout Randomization)
     * 關閉指令: `sudo sh -c "echo 0 > /proc/sys/kernel/randomize_va_space"`
     * 打開指令: `sudo sh -c "echo 2 > /proc/sys/kernel/randomize_va_space"`
@@ -394,7 +409,7 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     * 基本上不太會⽤ %k$n 此 format，因為⼀次寫入 4 bytes 會太多
 
 ### GOT Series
-* GOT hijacking
+* GOT hijacking: 必須要是No RELRO or Partial RELRO才能使用這個技巧
 * Ret2plt - 控制執⾏流程到 function@plt，也代表執⾏該 function (以 functionA 代稱)，詳細可以看[0x32 Ret2Plt](https://hackmd.io/@SBK6401/SyAHQfQH6)
 * Leak libc - functionA 在被解析後，GOT 會存放 functionA 的絕對位址，因此如果可以讀取 GOT，就能得到位於 library 當中的 address
     * FunctionA 的絕對位址減去他在 library 當中的 offset，能得到 library base address，繞過 ASLR

@@ -314,14 +314,36 @@ retn // = pop $rip
 
 ## Malware Reverse
 1. 初始存取 & 執行: 利用釣魚郵件
-2. Defense Evasion
-    1. 將惡意程式設為隱藏檔案
+2. Defense Evasion: 惡意程式用來「躲避偵測、分析、或防毒軟體」的技術
+    1. [將惡意程式設為隱藏檔案](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-setfileattributesa)
     2. 執行後刪除惡意程式
     3. 關閉、打下防毒軟體
     4. 清除 Windows Event Log
+    
+    * [Att&CK - T1480 (Execution Guardrails)](https://attack.mitre.org/techniques/T1480/): 只在環境符合特定條件時執行，針對特定對象進行攻擊，常見條件：漏洞、系統語言、時間、Hostname...
+        ```
+        SystemTimeToFileTime
+        CreateWaitableTimerW
+        SetWaitableTimer
+        WaitForSingleObject
+        ```
+    * [Att&CK - T1497 (Virtualization/Sandbox Evasion)](https://attack.mitre.org/techniques/T1497/): 偵測若處於 VM 或是自動化分析環境之中，則改變 / 隱藏惡意行為，常見偵測項目：網卡、memory 大小、分析工具、延遲執行
+    * [Att&CK - T1027.009 (Obfuscated Files or Information: Embedded Payload)](https://attack.mitre.org/techniques/T1027/009/): 真正的malware file會embedded在啟動的檔案中，避免一落地被偵測到，所以落地後需要經過一系列的extract或解密
 3. 持續潛伏 Persistence
     5. 註冊 scheduled task，定期執行惡意程式
     6. 建立後門帳號
+
+    * [Att&CK - T1547 (Boot or Logon Autostart Execution)](https://attack.mitre.org/techniques/T1547/): 當malware落地後並且被執行，就要把自己複製到startup folder，並且設定自己的權限
+        ```
+        GetModuleFileNameA
+        GetUserNameA
+        CopyFileA
+        SetFileAttributesA
+        ```
+    * [Att&CK - T1547.001 (Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder)](https://attack.mitre.org/techniques/T1547/001/)
+    * [Att&CK - T1543.003 (Create or Modify System Process: Windows Service)](https://attack.mitre.org/techniques/T1543/003/)
+    * [Att&CK - T1053.005 (Scheduled Task/Job: Scheduled Task)](https://attack.mitre.org/techniques/T1053/005/)
+    
 4. 權限提升 Privilege Escalation
     7. 利用漏洞將使用者提權至 Administrator
 5. 憑證存取 Credential Access
@@ -336,6 +358,25 @@ retn // = pop $rip
     12. 與攻擊者的 C2 server 連線，取得後續指令
 10. 滲出 Exfiltration
     13. 將資料透過連線傳回攻擊者的 C2 server
+
+### PE File Format
+* VA(Virtual Address) = ImageBase(映射到process memory的起始位址) + RVA(Relative Virtual Address，位移): ImageBase：PE 映射至 process memory 中的位址
+    <img src="/assets/posts/Terminology/Security Related - RVA VA.png" width=300>
+* Windows 版本的ELF
+    <img src="/assets/posts/Terminology/Security Related - PE Format.png" width=300>
+    * DOS Header, Stub：向下相容 DOS，大多數欄位無用
+        * 0x00: "MZ" (0x5A4D) 字串，Magic number，用於標示 PE 的起始點
+        * 0x3C: e_lfanew，NT Headers 的 file offset
+    * NT Headers = File Header + Optional Header：紀錄檔案及 loader 載入時所需的 metadata
+        * 執行所需的系統架構
+        * 編譯時間
+        * ImageBase
+        * 程式進入點 (Address of Entrypoint)
+        * enable / disable ASLR
+        * Import, Export, Relocation Table
+    * Section Headers：紀錄各 section 的 metadata
+    * Section Data：各 section 資料
+    * .text, .data, .idata, …
 
 ## PWN
 * [『 Day 26』拜託別 Pwn 我啦！ - 常見的工具 （上） ](https://ithelp.ithome.com.tw/articles/10227326)
