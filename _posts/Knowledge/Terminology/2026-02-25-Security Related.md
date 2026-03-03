@@ -341,3 +341,45 @@ retn // = pop $rip
 * [『 Day 26』拜託別 Pwn 我啦！ - 常見的工具 （上） ](https://ithelp.ithome.com.tw/articles/10227326)
 * [『Day 27』拜託別Pwn我啦！-常見的工具（下）](https://ithelp.ithome.com.tw/articles/10227380)
 * [Day25: [Misc] 我從來沒想過我會害怕寫 code](https://ithelp.ithome.com.tw/articles/10226977)
+
+### ELF Section
+* Plt
+* Text
+* Rodata
+* Data
+* Bss
+* Got
+* Init fini
+
+### Stack Frame
+<img src="/assets/posts/Terminology/Security Related - PWN Stack Frame.png" width=300>
+
+### `checksec`保護
+* No RELRO or Partial RELRO → <span style="background-color: yellow">GOT Hijacking(改寫GOT)</span>
+    * No RELRO - link map和GOT都可寫(有lazy binding)
+    * Partial RELRO - link map不可寫，GOT可寫(有lazy binding)
+    * Full RELRO - link map和GOT都不可寫(事先把library的位置都先resolve完並寫在GOT上，再把GOT權限關掉，比較花時間但安全)
+    * 關閉指令：`-z norelro`
+* Position Independent Executable(PIE) → <span style="background-color: yellow">BOF(ret2 series)</span>，開啟時，data 段以及 code 段位址隨機化
+    * 關閉指令：`-no-pie`
+* NX (No eXecute, Data Execution Prevention, DEP) off → 基本上不能直接執行shellcode，但可以用<span style="background-color: yellow">ROP</span>繞過 → 可寫得不可執⾏，可執⾏的不可寫
+    * 關閉指令：`-zexecstack`
+* ASLR (Address Space Layout Randomization): 記憶體位址隨機變化，每次執⾏時，<span style="background-color: yellow">stack、heap、library</span> 位置都不⼀樣
+    * 關閉指令: `sudo sh -c "echo 0 > /proc/sys/kernel/randomize_va_space"`
+    * 打開指令: `sudo sh -c "echo 2 > /proc/sys/kernel/randomize_va_space"`
+* Stack Canary
+    * 關閉指令：`-fno-stack-protector`
+
+### Stack Vulnerability
+#### BOF
+沒有檢查輸入長度，當輸入的惡意payload蓋到stack上的return address，就有可能RCE
+```c
+#include <stdio.h>
+    void hacked() {
+    system("/bin/sh");
+}
+int main() {
+    char str[8];
+    gets(str);
+}
+```

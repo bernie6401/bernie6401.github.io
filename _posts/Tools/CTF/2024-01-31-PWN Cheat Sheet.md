@@ -13,7 +13,7 @@ date: 2024-01-31
 * Commonly Used Commands
     ```bash
     $ file {file path}
-    $ checksec {file path} # sudo apt-get install checksec
+    $ checksec {file path} # sudo apt-get install checksec 用來檢查ELF的保護機制
     $ objdump -M intel -d {file path} | less
     $ gdb {file path} # sudo apt-get install gdb
     $ readelf -a {file path} | less # 查看所有資訊，包含section/file-header/program headers/symbol tables/等等
@@ -150,13 +150,17 @@ date: 2024-01-31
 ### pwntools
 * 常用
     ```python
+    r = remote("127.0.0.1", 1338)
+    r = process("./test")
     raw_input()
     p64(0x401111)
     p32(0x401111)
     r.recvline()
     r.recvuntil(b'test')
     r.recv(6)
+    r.send("aaaa\xde\xad\xbe\xef")
     r.sendline(b'test')
+    r.interactive()
     ```
 * flat
     ```python
@@ -356,31 +360,19 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     * [Ubuntu Packages Search](https://packages.ubuntu.com/)
     * [libc6_2.31-0ubuntu9_amd64.deb](https://ubuntu.pkgs.org/20.04/ubuntu-main-amd64/libc6_2.31-0ubuntu9_amd64.deb.html)
 
-## Stack Vulnerabilities
-### `checksec`
-* No RELRO or Partial RELRO → <span style="background-color: yellow">GOT Hijacking(改寫GOT)</span>
-    * No RELRO - link map和GOT都可寫(有lazy binding)
-    * Partial RELRO - link map不可寫，GOT可寫(有lazy binding)
-    * Full RELRO - link map和GOT都不可寫(事先把library的位置都先resolve完並寫在GOT上，再把GOT權限關掉，比較花時間但安全)
-    * 關閉指令：`-z norelro`
-* Position Independent Executable(PIE) → <span style="background-color: yellow">BOF(ret2 series)</span>
-    * 開啟時，data 段以及 code 段位址隨機化
-    * 關閉時，data 段以及 code 段位址固定
-    * 關閉指令：`-no-pie`
-* NX (No eXecute, Data Execution Prevention, DEP) off → 基本上不能直接執行shellcode，但可以用<span style="background-color: yellow">ROP</span>繞過
-    * 可寫得不可執⾏，可執⾏的不可寫
-    * 關閉指令：`-zexecstack`
+## `checksec`保護
+* No RELRO or Partial RELRO → <span style="background-color: yellow">GOT Hijacking(改寫GOT)</span> → `-z norelro`
+* PIE(Position Independent Executable) → <span style="background-color: yellow">BOF(ret2 series)</span> → `-no-pie`
+* NX (No eXecute, Data Execution Prevention, DEP) off → `-zexecstack`
 * ASLR (Address Space Layout Randomization)
-    * 記憶體位址隨機變化
-    * 每次執⾏時，stack、heap、library 位置都不⼀樣
     * 關閉指令: `sudo sh -c "echo 0 > /proc/sys/kernel/randomize_va_space"`
     * 打開指令: `sudo sh -c "echo 2 > /proc/sys/kernel/randomize_va_space"`
-* Stack Canary
-    * 關閉指令：`-fno-stack-protector`
+* Stack Canary → `-fno-stack-protector`
 
+## Stack Vulnerabilities
 ### Bof Series
 * Overwrite sensitive data
-* Overwrite return address →
+* Overwrite return address
     * Statically Link Binary: 可以直接試看看ROP chain(從binary本身找gadget)
     * Dynamically Link Binary: 看有沒有辦法leak出libc base address，再用ROP chain(從libc中找gadget)
 * Canary → Leak canary
