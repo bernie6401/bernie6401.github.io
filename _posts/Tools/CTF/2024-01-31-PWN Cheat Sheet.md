@@ -340,7 +340,7 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
                 if size <= len(ld):
                     log.failure("Failed to change PT_INTERP from {} to {}".format(data, ld))
                     return None
-                binary.write(addr, ld.encode().ljust(size, b'\0'))
+                binary.write(addr, ld.encode().ljust(size, b'\\0'))
                 path = binary.path.split('/')[-1][0].upper()
                 if os.access(path, os.F_OK): 
                     os.remove(path)

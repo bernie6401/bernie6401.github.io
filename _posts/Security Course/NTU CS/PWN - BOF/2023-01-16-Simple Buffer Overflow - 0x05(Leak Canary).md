@@ -45,14 +45,14 @@ int main()
 
 * Note that, if you establish the code yourself, you must turn off the protection by the command below and use `checksec` to observe the protection
     ```bash
-    gcc -o bof2_leak_canary bof2_leak_canary.c -zexecstack -no-pie -z norelro
+    $ gcc -o bof2_leak_canary bof2_leak_canary.c -zexecstack -no-pie -z norelro
     ```
     ![](https://imgur.com/u5iueTC.png)
     
 ## Exploit
 * First, we can use `objdump -d -M Intel {filename}` to check the address of backdoor → `0x4011b6`
     ![](https://imgur.com/d30qIvL.png)
-* However, we observe the backdoor function, it just call `system` instead of `execsv`. So, that you may encounter some error because of non-alignment. The solution is skip the `push %rbp` instruction and just jump to <font color="FF0000">`0x4011bb`</font>
+* However, we observe the backdoor function, it just call `system` instead of `execsv`. So, that you may encounter some error because of non-alignment. The solution is skip the `push %rbp` instruction and just jump to `0x4011bb`
     * The detailed description can refer to [lecture video](https://youtu.be/ktoVQB99Gj4?t=3058)
 * Then we can construct a part of the payload below:
     ```python
@@ -99,7 +99,7 @@ int main()
 * About how to print canary: Use `gdb` and execute to the first `print`, you can see that the stack structure.
     ![](https://imgur.com/usVpBMk.png)
     ![](https://imgur.com/6UDd5Po.png)
-    And we can print canary value from payload program → <font color="FF0000">`0xdf38469d4e106500`</font>
+    And we can print canary value from payload program → `0xdf38469d4e106500`
     ![](https://imgur.com/4tpr5M7.png)
     * Note that we can get `tls` address and `+0x28` to compare with canary value
         ![](https://imgur.com/gOMyuAq.png)
