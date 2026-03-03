@@ -380,11 +380,10 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 
 ### Bof Series
 * Overwrite sensitive data
-* Overwrite return address -> 
+* Overwrite return address →
     * Statically Link Binary: 可以直接試看看ROP chain(從binary本身找gadget)
     * Dynamically Link Binary: 看有沒有辦法leak出libc base address，再用ROP chain(從libc中找gadget)
-* Canary
-    * Leak canary
+* Canary → Leak canary
 * 如果BoF的長度不夠的話，可以考慮用stack pivot的方式再搭配ROP chain: 範例可以參考[Lab - Stack Pivot](https://hackmd.io/@SBK6401/SkpDfz4BT)
 
 ### Format String Bug
@@ -412,7 +411,7 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 1. Return 2 Code(**必要條件：PIE Off**): 這是代表原本的source code就已經有寫好一個shell，只要改變RIP就可以跳過去
 2. Return 2 Shell Code(**必要條件：NX Off(要完全可讀可寫可執行)**): 代表我們要自己寫一個shell code在記憶體中，然後用RIP跳過去
     * 作法就是先找到一塊rwx全開的地方，然後想辦法把shell code寫上去，接著控制RIP跳到該段拿到shell
-    * 變形：就像[^pico_pwn_guessing_game_1]和[^ntucs_pwn_rop++]一樣，可以先找到.bss section，然後開__libc_read function寫入`/bin/sh\x00`，之後再return到shell code的地方
+    * 變形：就像[^pico_pwn_guessing_game_1]和[^ntucs_pwn_rop]一樣，可以先找到.bss section，然後開__libc_read function寫入`/bin/sh\x00`，之後再return到shell code的地方
 3. Return 2 libc
 
 ## Heap Vulnerabilities
@@ -446,4 +445,4 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 
 ## Reference
 [^pico_pwn_guessing_game_1]:[Guessing Game 1](https://hackmd.io/@SBK6401/SkxoLuwoh)
-[^ntucs_pwn_rop++]:[Simple PWN - 0x12(Lab - rop++)](https://hackmd.io/@SBK6401/rysBjQfjs)
+[^ntucs_pwn_rop]:[Simple PWN - 0x12(Lab - rop++)](https://hackmd.io/@SBK6401/rysBjQfjs)

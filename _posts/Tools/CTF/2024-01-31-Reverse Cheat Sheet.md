@@ -195,25 +195,25 @@ date: 2024-01-31
     ```
 
 ### Anti-Deassembler會用到
-* Ctrl+N: 直接patch該instructions為NOP
-* Ctrl+Alt+P: 查看目前為止Patch的地方
+* \[Ctrl+N\]: 直接patch該instructions為NOP
+* \[Ctrl+Alt+P\]: 查看目前為止Patch的地方
 * `Edit → Patch program → Apply patches to input file`: 把patch好的program另存新檔，在此之前需要先處理好IDA的python環境問題，可以參考[Unexpected fatal error while initializing python runtime]({{base.url}}/Unexpected-fatal-error-while-initializing-python-runtime/)
 
 ### 比較不常用
-* t: set sizeof(XXX)；如果已經確定目前的constant就是某個變數的length，那可以直接按t讓他變成sizeof(那個變數)
+* \[t\]: set sizeof(XXX)；如果已經確定目前的constant就是某個變數的length，那可以直接按t讓他變成sizeof(那個變數)
     舉例：如果已經確定目前的`0x238`就是`PROCESSENTRY32W`的size，就可以直接這樣用，會變得比較清楚
     ![](https://hackmd.io/_uploads/S1nruHTza.png)
     ![](https://hackmd.io/_uploads/rkjwuBTza.png)
-* Shift+F1: show出Local Type視窗
+* \[Shift+F1\]: show出Local Type視窗
     ![](https://hackmd.io/_uploads/S1ikDa5_n.png)
-* Shift+F12: 開啟Strings視窗
+* \[Shift+F12\]: 開啟Strings視窗
     ![](https://hackmd.io/_uploads/HybvLzo_2.png)
 * 對某一個數值按m: ENUM這個功能就是在替換一些常見的windows API參數，讓原本的純數字可以用文字表示，這樣比較好懂API的操作，逆向會更順暢(補充說明：IDA有收錄很多MSDN上的一些API，他每一個參數表示的文字，例如[這一篇](https://learn.microsoft.com/en-us/windows/win32/Memory/memory-protection-constants)底下有顯示很多Constant/value的對應，而正常情況下IDA會顯示的是value，如果要把它換成Constant文字的表達式就可以用到ENUM這個功能)，又例如:
 
     目前已經知道`CreateToolhelp32Snapshot(2, 0);`中的2的意義是`TH32CS_SNAPPROCESS`(可以參考[MSDN](https://learn.microsoft.com/zh-tw/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot#parameters))，此時就可以直接按m之後再選擇`TH32CS_SNAPPROCESS`
     ![](https://hackmd.io/_uploads/B1Rn5Q6G6.png)*
-* Alt+M/Ctrl+M: 前者是註冊書籤，後者是察看並選擇標籤，可以快速跑到標示的地址
-* Ctrl+E: 如果是分析DLL file，可能會有很多不同的entry point，利用這個shortcut可以顯示目前有幾個entry point，很方便
+* \[Alt+M/Ctrl+M\]: 前者是註冊書籤，後者是察看並選擇標籤，可以快速跑到標示的地址
+* \[Ctrl+E\]: 如果是分析DLL file，可能會有很多不同的entry point，利用這個shortcut可以顯示目前有幾個entry point，很方便
     ![](https://hackmd.io/_uploads/ryJw-C6Ga.png)
 
 * 如何快速把bytes dump出來
