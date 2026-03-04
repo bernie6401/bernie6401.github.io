@@ -10,14 +10,14 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-[GetModuleFileNameA 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulefilenamea?ns-enrollment-type=Collection&ns-enrollment-id=rdg3b1j45ye486)
-[createFileA 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/fileapi/nf-fileapi-createfilea)
-[setFilePointer 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/fileapi/nf-fileapi-setfilepointer?ns-enrollment-type=Collection&ns-enrollment-id=rdg3b1j45ye486)
-[ReadFile 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/fileapi/nf-fileapi-readfile)
+* [GetModuleFileNameA 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulefilenamea?ns-enrollment-type=Collection&ns-enrollment-id=rdg3b1j45ye486)
+* [createFileA 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/fileapi/nf-fileapi-createfilea)
+* [setFilePointer 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/fileapi/nf-fileapi-setfilepointer?ns-enrollment-type=Collection&ns-enrollment-id=rdg3b1j45ye486)
+* [ReadFile 函式](https://learn.microsoft.com/zh-tw/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 ## Source Code
-:::spoiler IDA main function
-```cpp!
+IDA main function
+```cpp
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
   char *v3; // rdi
@@ -69,7 +69,6 @@ LABEL_11:
   return 0;
 }
 ```
-:::
 
 ## Recon
 這一題一樣，如果是以解題為目的話，其實很簡單，但還是想要提到重要的主題也就是PEB，但我覺得與其用IDA一個一個分析，不如直接用x64dbg幫你跑好就可以直接知道哪個API在哪個address，會比較方便，雖然不排除會有一些方式可以繞過或是混淆，但...有遇到在說吧，反正之後在還債吧!
@@ -81,7 +80,7 @@ LABEL_11:
 5. 開寫script
 
 ## Exploit
-```python=
+```python
 str1 = [0x12, 0x24, 0x28, 0x34, 0x5B, 0x3A, 0x07, 0x1C, 0x13, 0x2D, 0x00, 0x32, 0x43, 0x16, 0x12, 0x1A, 0x01, 0x02, 0x1D, 0x5A, 0x07, 0x01, 0x7F, 0x35, 0x10, 0x1A, 0x70, 0x1B, 0x01, 0x43, 0x05, 0x2B, 0x37, 0x52, 0x08, 0x1C, 0x17, 0x44, 0x53]
 str2 = [0x54, 0x68, 0x69, 0x73, 0x20, 0x70, 0x72, 0x6F, 0x67, 0x72, 0x61, 0x6D, 0x20, 0x63, 0x61, 0x6E, 0x6E, 0x6F, 0x74, 0x20, 0x62, 0x65, 0x20, 0x72, 0x75, 0x6E, 0x20, 0x69, 0x6E, 0x20, 0x44, 0x4F, 0x53, 0x20, 0x6D, 0x6F, 0x64, 0x65, 0x2E]
 

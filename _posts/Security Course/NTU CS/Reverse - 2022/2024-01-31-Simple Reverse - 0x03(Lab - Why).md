@@ -15,7 +15,7 @@ date: 2024-01-31
 ![](https://hackmd.io/_uploads/BJlVKMiO2.png)
 
 ## Source Code
-:::spoiler IDA main function
+IDA main function
 ```
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
@@ -32,9 +32,8 @@ int __cdecl main(int argc, const char **argv, const char **envp)
   return 0;
 }
 ```
-:::
 
-:::spoiler `.init_array` & `.fini_array` Byte Code
+`.init_array` & `.fini_array` Byte Code
 ```
 .init_array:0000000000003DB0   __frame_dummy_init_array_entry dq offset frame_dummy
 .init_array:0000000000003DB0                                           ; DATA XREF: LOAD:0000000000000168↑o
@@ -61,9 +60,8 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 .fini_array:0000000000003DD8   dq offset _sub_11f8
 .fini_array:0000000000003DD8   _fini_array ends
 ```
-:::
 
-:::spoiler IDA Disassembly `sub_11f8`
+IDA Disassembly `sub_11f8`
 ```
 int sub_11f8()
 {
@@ -73,7 +71,6 @@ int sub_11f8()
     return puts("Wrong :(");
 }
 ```
-:::
 
 ## Recon
 這一題如果以解題的觀點來說的話，其實很簡單，但他想要傳達的概念很重要，也就是.init和.fini的事情
@@ -85,10 +82,12 @@ int sub_11f8()
     ```
 
 2. 再用IDA看一下整體的架構(如上)
-可以發現整體的流程很簡單，他就是叫user輸入25個char，然後每次取一個位元減10再和env_flag的相對字元比較，如果都是對的，`pass = 1;`，但看起來這一段程式並沒有剛剛提到的`Wrong :(`，所以我們用Strings Windows和Xrefs跟一下誰用了這個data，並擷取出code如上(第二和第三的source code)
+
+    可以發現整體的流程很簡單，他就是叫user輸入25個char，然後每次取一個位元減10再和env_flag的相對字元比較，如果都是對的，`pass = 1;`，但看起來這一段程式並沒有剛剛提到的`Wrong :(`，所以我們用Strings Windows和Xrefs跟一下誰用了這個data，並擷取出code如上(第二和第三的source code)
 
 3. 繼續往上追一下
-會發現sub_11f8這個function是定義在.fini_array的區段，代表是在main function結束的時候才會執行的
+
+    會發現sub_11f8這個function是定義在.fini_array的區段，代表是在main function結束的時候才會執行的
 
 ## Exploit
 ```python
