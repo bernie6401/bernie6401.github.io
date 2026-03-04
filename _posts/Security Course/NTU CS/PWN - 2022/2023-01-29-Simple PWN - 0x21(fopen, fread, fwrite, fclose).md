@@ -1,12 +1,12 @@
 ---
-title: 'Simple PWN 0x21(fopen, fread, fwrite, fclose)'
+title: 'Simple PWN - 0x21(fopen, fread, fwrite, fclose)'
 tags: [CTF, PWN, eductf]
 
 category: "Security Course｜NTU CS｜PWN - 2022"
 date: 2023-01-29
 ---
 
-# Simple PWN 0x21(fopen, fread, fwrite, fclose)
+# Simple PWN - 0x21(fopen, fread, fwrite, fclose)
 <!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 

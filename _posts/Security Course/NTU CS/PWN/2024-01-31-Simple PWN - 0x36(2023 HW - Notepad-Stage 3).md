@@ -1,12 +1,12 @@
 ---
-title: Simple PWN 0x36(2023 HW - Notepad-Stage 3)
+title: Simple PWN - 0x36(2023 HW - Notepad-Stage 3)
 tags: [eductf, CTF, PWN]
 
 category: "Security Course｜NTU CS｜PWN"
 date: 2024-01-31
 ---
 
-# Simple PWN 0x36(2023 HW - Notepad-Stage 3)
+# Simple PWN - 0x36(2023 HW - Notepad-Stage 3)
 <!-- more -->
 
 ## Source code

@@ -1,12 +1,12 @@
 ---
-title: Simple PWN 0x17(UAF - leak information)
+title: Simple PWN - 0x17(UAF - leak information)
 tags: [CTF, PWN, eductf]
 
 category: "Security Course｜NTU CS｜PWN - 2022"
 date: 2023-01-24
 ---
 
-# Simple PWN 0x17(UAF - leak information)
+# Simple PWN - 0x17(UAF - leak information)
 <!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 

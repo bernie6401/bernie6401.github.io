@@ -1,12 +1,12 @@
 ---
-title: Simple PWN 0x38(Lab - UAF)
+title: Simple PWN - 0x38(Lab - UAF)
 tags: [eductf, CTF, PWN]
 
 category: "Security Course｜NTU CS｜PWN - 2022"
 date: 2024-01-31
 ---
 
-# Simple PWN 0x38(Lab - UAF)
+# Simple PWN - 0x38(Lab - UAF)
 <!-- more -->
 
 ## Background

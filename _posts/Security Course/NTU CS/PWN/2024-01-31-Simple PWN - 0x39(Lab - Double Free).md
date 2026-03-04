@@ -1,12 +1,12 @@
 ---
-title: Simple PWN 0x39(Lab - Double Free)
+title: Simple PWN - 0x39(Lab - Double Free)
 tags: [eductf, CTF, PWN]
 
 category: "Security Course｜NTU CS｜PWN - 2022"
 date: 2024-01-31
 ---
 
-# Simple PWN 0x39(Lab - Double Free)
+# Simple PWN - 0x39(Lab - Double Free)
 <!-- more -->
 
 Run On Ubuntu 20.04

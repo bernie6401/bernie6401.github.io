@@ -1,12 +1,12 @@
 ---
-title: Simple PWN 0x18(Lab - babynote)
+title: Simple PWN - 0x18(Lab - babynote)
 tags: [CTF, PWN, eductf]
 
 category: "Security Course｜NTU CS｜PWN - 2022"
 date: 2023-01-29
 ---
 
-# Simple PWN 0x18(Lab - babynote)
+# Simple PWN - 0x18(Lab - babynote)
 <!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 

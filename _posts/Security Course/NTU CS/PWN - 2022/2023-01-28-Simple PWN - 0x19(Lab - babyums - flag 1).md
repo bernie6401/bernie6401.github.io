@@ -1,12 +1,12 @@
 ---
-title: Simple PWN 0x19(Lab - babyums - flag 1)
+title: Simple PWN - 0x19(Lab - babyums - flag 1)
 tags: [CTF, PWN, eductf]
 
 category: "Security Course｜NTU CS｜PWN - 2022"
 date: 2023-01-28
 ---
 
-# Simple PWN 0x19(Lab - babyums - flag 1)
+# Simple PWN - 0x19(Lab - babyums - flag 1)
 <!-- more -->
 ###### tags: `CTF` `PWN` `eductf`
 
