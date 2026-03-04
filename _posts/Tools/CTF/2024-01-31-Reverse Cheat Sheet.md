@@ -11,9 +11,13 @@ date: 2024-01-31
 
 ## 解題思路
 1. 先觀察
-    ```bash
-    $ file <file>
-    ```
+    * File Cmd
+    * Detect It Easy
+2. 靜態
+    * IDA
+3. 動態
+    * x96dbg
+    * gdb
 
 ## Tools
 
@@ -138,7 +142,8 @@ date: 2024-01-31
 * \[;/Insert\]: 註解
 * \[x\]: 秀出 Xrefs
 * \[\ \]: 不顯示/顯示資料型別
-* \[Ctrl+e\]: 顯示 entry points
+* \[Ctrl+e\]: 顯示 entry points，如果要reverse dll會方便很多，`_DLLMainCRTStartup→DllMain / DllEntryPoint / CRT_INIT`
+    <img src="/assets/posts/Tools/Reverse - IDA Short cut - Ctrl E.png" width=300>
 * \[Numpad-\]: 如果function中的宣告很多，可以右鍵選擇`Collapse declarations`
     ![](https://hackmd.io/_uploads/SkOXU4AMa.png)
 
