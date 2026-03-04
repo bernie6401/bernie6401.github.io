@@ -238,7 +238,8 @@ date: 2024-01-31
     ![](https://hackmd.io/_uploads/HkRk3JpG6.png)
 
 ### Plugin
-* \[\]ret-sync: x64dbg和
+* \[Alt+Shift+S\](ret-sync): 可以sync各種dubbuger和IDA
+* \[Ctrl+Alt+F\](findcrypt): 可以顯示潛在的加密演算法
 
 ## x64dbg 常用快捷鍵
 * \[F2\]: 設定中斷點
@@ -251,6 +252,10 @@ date: 2024-01-31
 * \[Space\]: **修改組譯**
 * \[Alt+a\]: Attach process
 * 符號視窗: 看到這支程式有用到那些API Module(.dll)
+* 如果遇到TLS Callback類型的program，可以在`選項/偏好設定/事件`中勾選要在`User TLS Callbacks`中斷
+
+### 如何dump memory
+可以參考[Simple-Reverse-0x13(Lab-Meow)]({{base.url}}/Simple-Reverse-0x13(Lab-Meow)/)，就是直接用Scylla中`File/Dump Memory`處理
 
 ## Process相關的操作與資訊
 * Procexp & Process Hacker

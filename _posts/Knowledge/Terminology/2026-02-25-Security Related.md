@@ -340,7 +340,116 @@ retn // = pop $rip
     * Prefix
         * Nt：Native APIs
 
-### UnwindInfo
+### Callback Function
+什麼是 Callback Function？Callback function（回呼函式） 是：把「一個函式」當作參數傳給別人，等到某個事件發生時，由對方再「呼叫回來」。
+```c
+#include <stdio.h>
+
+void myCallback() {
+    printf("被呼叫了！\n");
+}
+
+void doSomething(void (*callback)()) {
+    printf("先做事情...\n");
+    callback();  // 呼叫回呼函式
+}
+
+int main() {
+    doSomething(myCallback);
+}
+```
+
+#### 為什麼需要 Callback？
+因為有些事情：
+* 什麼時候發生不知道
+* 不是你主動控制
+* 是「事件驅動」
+ 
+如果是 GUI 程式（例如在 Microsoft Windows），假設不用 callback，你會被迫寫：
+```c
+while (1) {
+    if (按鈕被點) {
+        doSomething();
+    }
+}
+```
+
+問題是
+* ❌ CPU 會一直跑
+* ❌ 效率差
+* ❌ 程式很醜
+* ❌ 很難擴充
+
+#### APC (Asynchronous Procedure Call)
+在thread中非同步執行的callback function，用 QueueUserAPC 註冊，**一種讓「某個 thread 在稍後安全時機執行指定函式」的機制。**
+* 👉 不是立刻打斷執行
+* 👉 而是在「thread 進入可被插入的狀態」時執行
+* 觸發 callback 時機
+    * 當 thread 處於 alertable state 時，也就是安全的時機點，例如：
+        ```
+        SleepEx
+        WaitForSingleObjectEx
+        SignalObjectAndWait
+        MsgWaitForMultipleObjectsEx
+        WaitForMultipleObjectsEx
+        ```
+        此時Windows 會檢查 APC queue，有的話就執行
+    * thread 初始化時
+
+```
+Thread 正常跑
+        ↓
+呼叫 SleepEx(..., TRUE)
+        ↓
+Kernel 檢查 APC queue
+        ↓
+有 APC → 執行 APC 函式
+        ↓
+執行完回到原本程式
+```
+
+* 為什麼需要 APC？
+    
+    想像這種情況：Kernel 想通知某個 user thread 做事，但不能直接中斷它（避免破壞執行狀態），需要等「安全點」再執行，這時就用 APC。
+
+* Malware會用的技巧
+    * Process Injection 技術: <span style="background-color: yellow">APC Injection</span>
+
+        攻擊流程：
+        ```
+        OpenProcess
+        VirtualAllocEx
+        WriteProcessMemory
+        QueueUserAPC
+        ResumeThread
+        ```
+        把 shellcode 排入 target thread 的 APC queue。當 thread 進入 alertable state：👉 shellcode 執行
+    * DLL Injection
+    * Early Bird APC Injection
+    * Process Hollowing
+    * Reflective DLL Injection
+
+#### TLS Callback - [MSDN](https://learn.microsoft.com/zh-tw/windows/win32/debug/pe-format#tls-callback-functions)
+先講TLS(Thread Local Storage，不是指網路介面的Transport Layer Security)是什麼?<span style="background-color: yellow">**也就是每個執行緒都有自己「獨立的一份變數」**</span>
+
+假設如果是多執行緒：
+```c
+int counter = 0;
+```
+Thread A 改 counter，Thread B 也改 counter，就會互相干擾。所以TLS可以讓thread A/B各自擁有獨立的`counter`，範例如下
+```c
+__declspec(thread) int counter = 0;
+```
+
+* 在 Microsoft Windows：TLS 是存在TEB (Thread Environment Block)，在PE檔案中，會有TLS Directory，利用PE-bear/IDA/x64dbg等工具看出來
+* TLS Callback: thread會在**entry point之前**執行的callback function，這在 malware 裡超常見。
+    ```
+    Program start
+        ↓
+    TLS callback 先執行
+        ↓
+    然後才到 EntryPoint
+    ```
 
 ## Malware Reverse
 1. 初始存取 & 執行: 利用釣魚郵件
