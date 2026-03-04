@@ -12,9 +12,12 @@ date: 2024-01-31
 ## 解題思路
 1. 先觀察
     * File Cmd
-    * Detect It Easy
+    * Detect It Easy(有無加殼)
 2. 靜態
     * IDA
+    * 有可能要追一下`.init/.fini`也就是主程式啟動前/結束後的process
+    * DLL reverse
+    * Unpack
 3. 動態
     * x96dbg
     * gdb
@@ -41,6 +44,8 @@ date: 2024-01-31
 | **Radare2** | 靜態 + 動態         | CLI 為主、可腳本化          | 自動化分析、進階研究     |
 | **Cutter**  | 靜態 (GUI for r2) | Radare2 圖形化介面        | 喜歡 r2 但不想用 CLI |
 
+* IDA不一定每一個assembly都有辦法被反編譯，所以要特別注意tlscallback/exception handler之類的問題
+
 #### PE結構分析
 
 | 工具           | 類型      | 特色                      | 典型用途             |
@@ -49,6 +54,8 @@ date: 2024-01-31
 | **PEview**   | PE 檢視   | 查看 PE header / section  | 分析檔案結構           |
 | **PEViewer** | PE 檢視   | 視覺化顯示 PE 結構             | 初學者友好            |
 | **PE-bear**  | PE 分析   | 現代化 GUI、顯示資源/section    | CTF、malware 初步檢查 |
+
+* PE-Bear: 用來快速檢查 PE 結構是否正常、是否被加殼、Import 是否正確的工具。另外，如果有要修[exception handler RVA]({{base.url}}/Simple-Reverse-0x11(Lab-Exception)/)，或是[查看TLSCallback]({{base.url}}/Simple-Reverse-0x12(Lab-TLSCallback)/)的需求，也可以用到
 
 ### 動態分析
 通過觀察執⾏流程與結果加以猜測程式本⾝的⾏為: <span style="background-color: yellow">網路流量、記憶體的變化、某些 API Call</span>
@@ -201,6 +208,7 @@ date: 2024-01-31
 
 ### Anti-Deassembler會用到
 * \[Ctrl+N\]: 直接patch該instructions為NOP
+* \[Ctrl+Alt+K\]: 直接patch為任意instructions
 * \[Ctrl+Alt+P\]: 查看目前為止Patch的地方
 * `Edit → Patch program → Apply patches to input file`: 把patch好的program另存新檔，在此之前需要先處理好IDA的python環境問題，可以參考[Unexpected fatal error while initializing python runtime]({{base.url}}/Unexpected-fatal-error-while-initializing-python-runtime/)
 
@@ -229,6 +237,9 @@ date: 2024-01-31
 * 如果函式沒有return東西的話，可以右鍵該函示，選擇`Remove return value`或是Shift+Del
     ![](https://hackmd.io/_uploads/HkRk3JpG6.png)
 
+### Plugin
+* \[\]ret-sync: x64dbg和
+
 ## x64dbg 常用快捷鍵
 * \[F2\]: 設定中斷點
 * \[F4\]: Run / Continue 到當前選取的 assembly
@@ -239,6 +250,7 @@ date: 2024-01-31
 * \[Ctrl+G\]: goto
 * \[Space\]: **修改組譯**
 * \[Alt+a\]: Attach process
+* 符號視窗: 看到這支程式有用到那些API Module(.dll)
 
 ## Process相關的操作與資訊
 * Procexp & Process Hacker

@@ -16,7 +16,7 @@ date: 2024-01-31
 
 ## Source Code
 IDA main function
-```
+```c
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
   int i; // [rsp+Ch] [rbp-4h]
@@ -34,7 +34,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 ```
 
 `.init_array` & `.fini_array` Byte Code
-```
+```asm
 .init_array:0000000000003DB0   __frame_dummy_init_array_entry dq offset frame_dummy
 .init_array:0000000000003DB0                                           ; DATA XREF: LOAD:0000000000000168↑o
 .init_array:0000000000003DB0                                           ; LOAD:00000000000002F0↑o
@@ -62,7 +62,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 ```
 
 IDA Disassembly `sub_11f8`
-```
+```c
 int sub_11f8()
 {
   if ( pass )
