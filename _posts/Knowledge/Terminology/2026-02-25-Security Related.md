@@ -378,7 +378,6 @@ retn // = pop $rip
     * [Att&CK - T1547.001 (Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder)](https://attack.mitre.org/techniques/T1547/001/)
     * [Att&CK - T1543.003 (Create or Modify System Process: Windows Service)](https://attack.mitre.org/techniques/T1543/003/)
     * [Att&CK - T1053.005 (Scheduled Task/Job: Scheduled Task)](https://attack.mitre.org/techniques/T1053/005/)
-    
 4. 權限提升 Privilege Escalation
     7. 利用漏洞將使用者提權至 Administrator
 5. 憑證存取 Credential Access
@@ -414,6 +413,9 @@ retn // = pop $rip
     * Section Headers：紀錄各 section 的 metadata
     * Section Data：各 section 資料
     * .text, .data, .idata, …
+
+### Dynamic API Resolution
+實務上非常重要，詳細說明看[Simple Reverse - 0x24(2023 Lab - WinMalware - Dynamic API Resolution Background) ]({{base.url}}/Simple-Reverse-0x24(2023-Lab-WinMalware-Dynamic-API-Resolution-Background)/)
 
 ## PWN
 * [『 Day 26』拜託別 Pwn 我啦！ - 常見的工具 （上） ](https://ithelp.ithome.com.tw/articles/10227326)
