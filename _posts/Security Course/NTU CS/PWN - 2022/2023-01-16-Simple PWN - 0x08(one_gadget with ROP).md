@@ -96,7 +96,7 @@ int main()
     ```
     * `b'a'*0x10` is for `$rsi`
     * `p64(0x404000)` is an arbitrary writable and readable address for `$rbp-0x78` one of the constraint of one_gadget
-    * `p64(pop_rdx_rbx_ret) + p64(0)*2 + p64(pop_rsi_ret) + p64(0)` is what we did in [last lecture](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/rki3GF0cs) of `ROP`
+    * `p64(pop_rdx_rbx_ret) + p64(0)*2 + p64(pop_rsi_ret) + p64(0)` is what we did in [last lecture]({{base.url}}/Simple-PWN-0x07(ROP)/) of `ROP`
     * `p64(libc+0xebcf8)` is the one_gadget that we choose at the beginning.
 * Finally, we got shell!!!
     ![](https://imgur.com/iIETaBy.png)

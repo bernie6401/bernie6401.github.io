@@ -43,7 +43,7 @@ int main()
 $ gcc -o fmt fmt.c -no-pie -fno-stack-protector -z norelro -zexecstack
 ```
 * In this problem, we can consider to use `format string bug` to achieve `GOT hijacking` without buffer overflow.
-* **The main idea is totally the same as [GOT hijacking lecture](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/S1BBpSR5s)**
+* **The main idea is totally the same as [GOT hijacking lecture]({{base.url}}/Simple-PWN-0x06(GOT-hijacking-&-Lab-got2win)/)**
 * Thus, we can observe which function can be overlapped by `system plt` → <font color="FF0000">**`puts function`**</font>
     * Because...
     `puts` just needs one argument like `system` function, but how about `printf`?

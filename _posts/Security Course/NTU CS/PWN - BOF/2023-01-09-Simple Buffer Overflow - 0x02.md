@@ -14,7 +14,7 @@ date: 2023-01-09
 In pwn problem, most of the program don't have the secret function that we can take the shell. Thus, we can create a shellcode by ourselves and use `bof` to overlap the original address by shellcode address. Then we can take the shell.
 
 ## How to create a shellcode in BOF?
-In lecture [0x01](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/HJm5x_Ocs), we can see sub-function that create a shell using command:
+In lecture [0x01]({{base.url}}/Simple-Buffer-Overflow-0x01/), we can see sub-function that create a shell using command:
 ```bash
 execve("/bin/sh", (char *[]){0}, (char *[]){0});
 ```

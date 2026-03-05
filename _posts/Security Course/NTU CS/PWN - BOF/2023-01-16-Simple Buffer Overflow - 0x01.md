@@ -10,7 +10,7 @@ date: 2023-01-16
 <!-- more -->
 ###### tags: `CTF` `PWN`
 
-Follow the concept of lecture [0x00](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/SJAt7Pd5s)
+Follow the concept of lecture [0x00]({{base.url}}/Simple-Buffer-Overflow-0x00/)
 
 ## Original Code
 ```cpp

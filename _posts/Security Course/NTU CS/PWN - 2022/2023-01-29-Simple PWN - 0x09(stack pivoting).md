@@ -45,7 +45,7 @@ int main()
     $ gcc -o stack_pivoting stack_pivoting.c -no-pie -fno-stack-protector -z norelro -zexecstack -static
     ```
 * <font color="FF0000">Note that</font>:
-must use `mprotect` to change permission of global variable `name` just like [lecture 0x04](https://hackmd.io/@UHzVfhAITliOM3mFSo6mfA/HJhgXGKci), add these line in original code
+must use `mprotect` to change permission of global variable `name` just like [lecture 0x04]({{base.url}}/Simple-Buffer-Overflow-0x04/), add these line in original code
     ```c
     #include <sys/mman.h>
     mprotect(0x403000, 0x1000, PROT_READ|PROT_WRITE|PROT_EXEC);
