@@ -8,13 +8,9 @@ date: 2024-01-31
 
 # CyberDefender - Hunter (Part 3)
 <!-- more -->
-Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/32
-Part 1: https://hackmd.io/@SBK6401/By1BpZIf6
-Part 2: https://hackmd.io/@SBK6401/HJlmeuwfT
-
-:::spoiler TOC
-[TOC]
-:::
+* Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/32
+* Part 1: {{base.url}}/CyberDefender-Hunter-(Part-1)/
+* Part 2: {{base.url}}/CyberDefender-Hunter-(Part-2)/
 
 ## Tools
 * [JLECmd](https://ericzimmerman.github.io/#!index.md)
@@ -44,7 +40,7 @@ Flag: `174`
 > How many times was the file shredder application executed? 
 
 ### Recon
-我們已經知道file shredder就是BCWipe這個軟體，那我們如果要知道這個軟體的相關資訊可以直接看prefetch file(就像[Part 1 - Q9](https://hackmd.io/@SBK6401/By1BpZIf6#Q9)一樣)
+我們已經知道file shredder就是BCWipe這個軟體，那我們如果要知道這個軟體的相關資訊可以直接看prefetch file(就像[Part 1 - Q9]({{base.url}}/CyberDefender-Hunter-(Part-1)#Q9)一樣)
 
 ### Exploit
 從結果可以得知共執行五次
@@ -226,7 +222,7 @@ Flag: `5`
 > Using prefetch, determine when was the last time ZENMAP.EXE-56B17C4C.pf was executed? 
 
 ### Recon
-直接看[Part 1 - Q9](https://hackmd.io/@SBK6401/By1BpZIf6#Q9)的輸出結果就好了
+直接看[Part 1 - Q9]({{base.url}}/CyberDefender-Hunter-(Part-1)#Q9)的輸出結果就好了
 
 :::spoiler Flag
 Flag: `06/21/2016 12:08:13 PM`

@@ -131,7 +131,7 @@ date: 2023-06-19
     :::
 
 ## Recon
-這一題有點難，應該說觀念很簡單，我也有想到但不知道怎麼實作，簡單來說就是解discrete log的問題，總而言之，這一題和[Very Smooth](https://hackmd.io/@SBK6401/HyTTXZnPh)幾乎一樣，差別在於他把flag當成exponent，i.e. $c=3^{flag}\ mod\ n$，並且提供$n, c$，所以我們要解出flag為多少
+這一題有點難，應該說觀念很簡單，我也有想到但不知道怎麼實作，簡單來說就是解discrete log的問題，總而言之，這一題和[Very Smooth]({{base.url}}/PicoCTF-Very-Smooth/)幾乎一樣，差別在於他把flag當成exponent，i.e. $c=3^{flag}\ mod\ n$，並且提供$n, c$，所以我們要解出flag為多少
 
 ## Exploit - Pohlig-Hellman(SageMath)
 1. Factor $p$ and $q$

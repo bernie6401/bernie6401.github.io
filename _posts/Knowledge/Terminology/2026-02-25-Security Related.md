@@ -534,12 +534,46 @@ __declspec(thread) int counter = 0;
 * [Day25: [Misc] 我從來沒想過我會害怕寫 code](https://ithelp.ithome.com.tw/articles/10226977)
 
 ### ELF Section
-* Plt
-* Text
-* Rodata
-* Data
-* Bss
-* Got
+* Plt(Procedure Linkage Table): 支援 dynamic linking ，當程式呼叫 external function 時使用。
+    * PLT 的作用
+        
+        假設程式：
+        ```c
+        main → printf
+        ```
+        實際流程：
+        ```
+        main
+        ↓
+        printf@plt
+        ↓
+        dynamic linker
+        ↓
+        real printf (libc)
+        ```
+    * Lazy Binding: 在 Dynamic Link 的 Binary 中，有些 library function 可能因為程式流程，到執行結束都不會被 call 到
+
+        Lazy Binding 會在 第一次 call 到 library function 的時候才會去找出那個 function 真正的 Address ，找到之後存在 **GOT (Global Offset Table)**，後續如果再 call 到那個 function ，就可以直接從 GOT 得到 Address 。
+
+        plt上的code實際上是直接查詢該function的GOT，然後跳過去GOT上存的Address，GOT一初始存的Address則是會指向一段尋找function Address 的code
+* Text: 存放 CPU 會實際執行的程式碼。
+* Rodata: Read-Only Data（唯讀資料）
+* Data: 已初始化的全域 / 靜態變數
+* Bss: 未初始化的全域 / 靜態變數
+* Got(Global Offset Table): 紀錄 Library 裡面 function 的實際 Address
+    * PLT 會透過 GOT 找到真正函式。
+        ```
+        printf → libc address
+        malloc → libc address
+        ```
+        結構
+        ```
+        PLT
+        ↓
+        GOT entry
+        ↓
+        actual function
+        ```
 * Init fini
 
 ### Stack Frame

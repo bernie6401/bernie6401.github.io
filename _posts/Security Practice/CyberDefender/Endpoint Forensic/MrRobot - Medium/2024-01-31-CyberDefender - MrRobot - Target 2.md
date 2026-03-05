@@ -8,15 +8,11 @@ date: 2024-01-31
 
 # CyberDefender - MrRobot - Target 2
 <!-- more -->
-Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/88
-Target 1: https://hackmd.io/@SBK6401/SkJAThwla
-POS: https://hackmd.io/@SBK6401/BJpJqDhlp
-
-:::spoiler TOC
-[TOC]
-:::
-Lecture Video: [ 2022/06/29 藍隊安全系列課程 04 ](https://youtu.be/4u5ckjfFRuM?si=MKeBkxyz5vcnsJfh)
-[Volatility - Cheat Sheet](https://hackmd.io/@TuX-/BymMpKd0s)
+* Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/88
+* Target 1: {{base.url}}/CyberDefender-MrRobot-Target-1/
+* POS: {{base.url}}/CyberDefender-MrRobot-POS/
+* Lecture Video: [ 2022/06/29 藍隊安全系列課程 04 ](https://youtu.be/4u5ckjfFRuM?si=MKeBkxyz5vcnsJfh)
+* [Volatility - Cheat Sheet](https://hackmd.io/@TuX-/BymMpKd0s)
 
 ## Background
 
@@ -73,7 +69,7 @@ Flag: `t76fRJhS`
 > -HP ：帶文件頭加密，更安全，沒有密碼無法查看里面的文件列表
 
 #### Recon
-題目敘述提到的狀況可以從console中看出來，可以看到他先把c槽掛在自己的z槽上面(這可能需要一點AD的概念才會比較清楚，可以看之前寫的[NTUSTISC - AD Note - Lab(SMB遠端讀寫)](https://hackmd.io/@SBK6401/B1LqaNGCh/https%3A%2F%2Fhackmd.io%2F%40SBK6401%2FSyn5Q8rga))，然後把一個rar.exe丟到對方的c槽底下(`z:\crownjewels`)，接著把所有東西(.txt)都壓縮，而如果知道rar.exe中-hp的意思就知道他後面帶的東西是壓縮的密碼也就是本題的答案
+題目敘述提到的狀況可以從console中看出來，可以看到他先把c槽掛在自己的z槽上面(這可能需要一點AD的概念才會比較清楚，可以看之前寫的[NTUSTISC - AD Note - Lab(SMB遠端讀寫)]({{base.url}}/NTUSTISC-AD-Note-Lab(0x24SMB%E9%81%A0%E7%AB%AF%E8%AE%80%E5%AF%AB)))，然後把一個rar.exe丟到對方的c槽底下(`z:\crownjewels`)，接著把所有東西(.txt)都壓縮，而如果知道rar.exe中-hp的意思就知道他後面帶的東西是壓縮的密碼也就是本題的答案
 
 #### Exploit
 :::spoiler Flag

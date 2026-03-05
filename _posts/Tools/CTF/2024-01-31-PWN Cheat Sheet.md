@@ -43,12 +43,14 @@ date: 2024-01-31
         $ ROPgadget --binary {executed file} | grep 'pop rax.*ret'
         # Or
         $ ROPgadget --binary {executed file} --only "pop|ret|syscall" > rop_gadget.txt
-        $ ROPgadget --binary {executed file} --only "pop|ret|syscall" --multibr > rop_gadget.txt # multibr是multi bransh允許多分支的gadget
+        $ ROPgadget --binary {executed file} --only "pop|ret|syscall" --multibr > rop_gadget.txt # multibr是multi branch允許多分支的gadget
         
         # 取得特定string的gadget
         $ ROPgadget --binary {executed file} --string "/bin/sh"
         ```
     * [one_gadget](https://github.com/david942j/one_gadget)
+        
+        幫你找出一個 Libc 裡面的某些 Address ，只要符合一些條件，跳過去就能開 shell
         ```bash
         $ sudo apt install rubygems
         $ sudo gem install one_gadget
@@ -218,7 +220,7 @@ syscall
 * [Shellcode Cheat Sheet](http://shell-storm.org/shellcode/index.html)
 
 1. 如果是x86版本: 建議直接寫在stack上，因為比較少`int 0x80 ; ret;`的gadget可以用，那倒不如直接寫在script上然後計算esp或ebp的位置，一樣可以拿到儲存的位置
-2. 如果是x64版本: 建議可以用system read的方式搭配syscall ret的ROP
+2. 如果是x64版本: 建議可以用system read的方式搭配`syscall ret`的ROP
 3. 如果是直接執行shell code且shell code是可以直接讓我們輸入的話就直接參考exploit db的就好了
 
 * eg 1
@@ -378,9 +380,9 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 * No RELRO or Partial RELRO → <span style="background-color: yellow">GOT Hijacking(改寫GOT)</span> → `-z norelro`
 * PIE(Position Independent Executable) → <span style="background-color: yellow">BOF(ret2 series)</span> → `-no-pie`
 * NX (No eXecute, Data Execution Prevention, DEP) off → `-zexecstack`，如果有NX就不能執行shellcode
-    * 可以用 ROP 繞 過
+    * 可以用 ROP 繞過
         * 使用 ROP 來做事情
-        * 用 ROP call mmap 拿到一 塊 rwx 的 memory
+        * 用 ROP call mmap 拿到一塊 rwx 的 memory
 * ASLR (Address Space Layout Randomization)
     * 關閉指令: `sudo sh -c "echo 0 > /proc/sys/kernel/randomize_va_space"`
     * 打開指令: `sudo sh -c "echo 2 > /proc/sys/kernel/randomize_va_space"`
@@ -393,24 +395,25 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     * Statically Link Binary: 可以直接試看看ROP chain(從binary本身找gadget)
     * Dynamically Link Binary: 看有沒有辦法leak出libc base address，再用ROP chain(從libc中找gadget)
 * Canary → Leak canary
-* 如果BoF的長度不夠的話，可以考慮用stack pivot的方式再搭配ROP chain: 範例可以參考[Lab - Stack Pivot](https://hackmd.io/@SBK6401/SkpDfz4BT)
+* 如果BoF的長度不夠的話，可以考慮用stack pivot的方式再搭配ROP chain: 範例可以參考[Simple PWN 0x35(2023 Lab - Stack Pivot)]({{base.url}}/Simple-PWN-0x35(2023-Lab-Stack-Pivot)/)
 
 ### Format String Bug
 * 之前的Demo是利用format string達到<span style="background-color: yellow">GOT hijack</span>
 * 用法:
-    * %**p** - leak code / libc / stack address
-    * %{**任意值**}c%**k**$(hhn\|hn\|n) - 寫**任意值**到第 **k** 個參數指向的位址
-    * %**X**c - 印出 **X** 個字元
-    * **k**$ - 指定第 **k** 個參數
-    * %(hhn\|hn\|n) - 將**輸出的字元數**以 1 / 2 / 4 bytes 寫到參數**指向的位址**
-    * 若該值為 addr 可透過 %s 輸出該地址的 value
+    * `%p` - leak code / libc / stack address
+    * `%{任意值}c%k$(hhn\|hn\|n)` - 寫**任意值**到第 **k** 個參數指向的位址
+    * `%Xc` - 印出 **X** 個字元
+    * `k$` - 指定第 **k** 個參數
+    * `%(hhn\|hn\|n)` - 將**輸出的字元數**以 1 / 2 / 4 bytes 寫到參數**指向的位址**
+    * 若該值為 addr 可透過 `%s` 輸出該地址的 value
 * Note:
     * 因為能控制寫入的⼤⼩與位址，因此也可以配合 partial overwrite 做 exploit
-    * 基本上不太會⽤ %k$n 此 format，因為⼀次寫入 4 bytes 會太多
+    * 基本上不太會⽤ `%k$n` 此 format，因為⼀次寫入 4 bytes 會太多
 
 ### GOT Series
+紀錄 Library 裡面 function 的實際 Address ，在該 function 都沒被 call 過時，會是 存一個位於 plt 段的 Address 可以利用 GOT 來 leak libc 的 base
 * GOT hijacking: 必須要是No RELRO or Partial RELRO才能使用這個技巧
-* Ret2plt - 控制執⾏流程到 function@plt，也代表執⾏該 function (以 functionA 代稱)，詳細可以看[0x32 Ret2Plt](https://hackmd.io/@SBK6401/SyAHQfQH6)
+* Ret2plt - 控制執⾏流程到 function@plt，也代表執⾏該 function (以 functionA 代稱)，詳細可以看[Simple-PWN-0x34-(2023-Lab-ret2plt)]({{base.url}}/Simple-PWN-0x34-(2023-Lab-ret2plt)/)
 * Leak libc - functionA 在被解析後，GOT 會存放 functionA 的絕對位址，因此如果可以讀取 GOT，就能得到位於 library 當中的 address
     * FunctionA 的絕對位址減去他在 library 當中的 offset，能得到 library base address，繞過 ASLR
 * Ret2libc - 有了 library base address，也能加上其他 function 的 offset 來取得該
@@ -433,9 +436,9 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 
 ### Double Free
 ### Used After Free
-* [UAF leak Libc address](https://hackmd.io/@SBK6401/SJWc9v4Bp#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-libc-address)
-* [UAF leak heap address](https://hackmd.io/@SBK6401/SJWc9v4Bp#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-heap-address)
-* 基本的練習可以看[UAF++](https://hackmd.io/@SBK6401/SyXdjA5r6)
+* [UAF leak Libc address]({{base.url}}/Simple-PWN-0x38(Lab-UAF)#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-libc-address)
+* [UAF leak heap address]({{base.url}}/Simple-PWN-0x38(Lab-UAF)/SJWc9v4Bp#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-heap-address)
+* 基本的練習可以看[Simple PWN 0x40(2023 HW - UAF++)]({{base.url}}/Simple-PWN-0x40(2023-HW-UAF++)/)
 
 ### Tcache poisoning
 使⽤ double free 讓 tcache 當中存在兩個相同的 chunk，並利⽤修改 fd的⽅式，將對應位址視為 chunk 分配給 user
@@ -453,5 +456,5 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 * freed chunk 在被分配時，會分配到與使⽤中的 chunk 相同的區塊，可以修改敏感資料
 
 ## Reference
-[^pico_pwn_guessing_game_1]:[Guessing Game 1](https://hackmd.io/@SBK6401/SkxoLuwoh)
-[^ntucs_pwn_rop]:[Simple PWN - 0x12(Lab - rop++)](https://hackmd.io/@SBK6401/rysBjQfjs)
+[^pico_pwn_guessing_game_1]:[Guessing Game 1]({{base.url}}/PicoCTF-Guessing-Game-1/)
+[^ntucs_pwn_rop]:[Simple PWN - 0x12(Lab - rop++)]({{base.url}}/Simple-PWN-0x12(Lab-rop++)/)

@@ -26,7 +26,7 @@ $ pngcheck [filename]
 $ stat [filename]
 $ file [filename]
 ```
-* `$ binwalk -e` 的範例可以參考[Deadface - Electric Steel ](https://hackmd.io/@SBK6401/BJgwrxWM6#Electric-Steel)
+* `$ binwalk -e` 的範例可以參考[Deadface - Electric Steel ]({{base.url}}/DEADFACE-CTF-2023#Electric-Steel)
 
 ## Steganography
 * text: [zsteg](https://github.com/zed-0xff/zsteg)(just for `bmp` and `png` files), [Quick Crypto](http://quickcrypto.com/download.html)
@@ -43,7 +43,7 @@ $ file [filename]
     `$ foremost -v {filename}`
 * [Sleuth kit/Autopsy](https://blog.csdn.net/wxh0000mm/article/details/99447206)
 * [FTK Imager](https://www.exterro.com/ftk-imager)
-* [Logontracer](https://hackmd.io/@SBK6401/SJOwGrUfa): Just use GUI to present event log traced on windows
+* [Logontracer]({{base.url}}/How-to-install-LogonTracer/): Just use GUI to present event log traced on windows
     `$ python logontracer.py -r -o 8000 -u neo4j -p neo4j -s localhost`
 
 ## Memory Forensics

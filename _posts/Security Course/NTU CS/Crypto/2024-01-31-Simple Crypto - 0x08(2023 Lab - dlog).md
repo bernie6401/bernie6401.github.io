@@ -10,11 +10,10 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-[ [edu-ctf 2023] week03 - crypto2 ](https://www.youtube.com/live/u4ZVc8PuJC0?si=2wbiGreg_BZQ-dff)
-[Cryptography and Network Security – Homework 2 - Little Knowledge Proof](https://hackmd.io/@SBK6401/SJobiaxQ3#5-Little-Knowledge-Proof)
+* [ [edu-ctf 2023] week03 - crypto2 ](https://www.youtube.com/live/u4ZVc8PuJC0?si=2wbiGreg_BZQ-dff)
+* [Cryptography and Network Security – Homework 2 - Little Knowledge Proof]({{base.url}}/Cryptography-and-Network-Security-Homework-2#5-Little-Knowledge-Proof)
 
 ## Source code
-:::spoiler Source Code
 ```python
 from Crypto.Util.number import isPrime, bytes_to_long
 import os
@@ -36,10 +35,9 @@ flag = bytes_to_long(FLAG)
 print('The hint about my secret:', pow(g, flag, p))
 
 ```
-:::
 
 ## Recon
-基本上這一題和上一個學期上的CNS中，作業二的[Little Knowledge Proof](https://hackmd.io/@SBK6401/SJobiaxQ3#5-Little-Knowledge-Proof)概念一模一樣，當時還不知道這是啥騷操作，現在覺得非常簡單，就是套用了Pohlig-Hellman的原理進行破解
+基本上這一題和上一個學期上的CNS中，作業二的[Little Knowledge Proof]({{base.url}}/Cryptography-and-Network-Security-Homework-2#5-Little-Knowledge-Proof)概念一模一樣，當時還不知道這是啥騷操作，現在覺得非常簡單，就是套用了Pohlig-Hellman的原理進行破解
 
 1. 首先看source code需要我們提供一個prime($N$)，然後跟一個不重要的底數$g$，接著題目return一個hint就是$hint=g^{flag}\ mod(N)$，因此按照discrete log的難度，我們很難針對hint進行brute force，縱使我們知道N,g,hint也一樣，但因為N是我們提供的，所以我可以故意給他一個smooth prime，也就是$N-1$是由多個prime相乘而得
 2. 我們可以用上課教過的Pohlig-Hellman原理去思考，也就是先把群的範圍縮小，再利用BSGS的方法找到$x_i$，這時雖然得到$x_i$但由於是mod $p_i$的結果，就不是真正的$x$，要利用CRT把多個$x_i$還原成原本的$x$，幸虧以上操作sage都做好了

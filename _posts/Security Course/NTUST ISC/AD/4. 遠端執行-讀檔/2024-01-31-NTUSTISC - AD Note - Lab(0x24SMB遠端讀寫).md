@@ -8,8 +8,6 @@ date: 2024-01-31
 
 # NTUSTISC - AD Note - Lab(SMB遠端讀寫)
 <!-- more -->
-[TOC]
-
 Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz2CB-O-7S5d)
 
 ## Lab
@@ -57,7 +55,7 @@ Event ID: 5145
 預設不開，因為會有大量的event湧入，除非設定有存取c$的filter，就會少非常多，因為遠端存取c槽本身就蠻可疑的，所以偵測到非法存取的機率就蠻高的
 
 ## ==組合技==
-1. 利用SMB開進去遠端檔案總管，然後把procdump.exe送過去(忘記procdump.exe可以複習一下[NTUSTISC - AD Note - Lab(其他方法得到lsass.dmp)](https://hackmd.io/@SBK6401/S16T17NCn))
+1. 利用SMB開進去遠端檔案總管，然後把procdump.exe送過去(忘記procdump.exe可以複習一下[NTUSTISC - AD Note - Lab(其他方法得到lsass.dmp)]({{base.url}}/NTUSTISC-AD-Note-Lab(0x18%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95%E5%BE%97%E5%88%B0lsass.dmp)/))
 2. 使用psexec.exe遠端執行procdump.exe就可以取得lsass的memory dump
 3. 再利用SMB把dump result取回本機
 4. 在本地端使用mimikatz以便取得更多密碼

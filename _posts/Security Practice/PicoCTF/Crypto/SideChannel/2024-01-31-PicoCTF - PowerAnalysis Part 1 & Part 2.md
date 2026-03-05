@@ -10,7 +10,7 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-[Simple Welcome 0x13(2023 HW - Power Analysis):two:](https://hackmd.io/@SBK6401/HJNScTc-T)
+[Simple Welcome 0x13(2023 HW - Power Analysis):two:]({{base.url}}/Simple-Crypto-0x13(2023-HW-Power-Analysis)/)
 
 ## Recon
 這一題幾乎就和上課教的差不多，只是因為有雜訊，所以要慎選trace point，我是直接看第一個trace的分布，決定採用300~400的point，而不管是利用自己刻的correlation coefficient還是用scipy的pearsonr都一樣可以順利解出key但是如果像homework一樣用numpy的corrcoef會有兩個bytes和正解不一樣，超哭，找超久(10/18更新，如果用自己刻的也是要碰用氣，所以如果可以的話，多送幾個trace，或者多用幾個算correlation coefficient的library)

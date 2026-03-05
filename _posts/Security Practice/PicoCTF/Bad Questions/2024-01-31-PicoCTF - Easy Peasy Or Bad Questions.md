@@ -79,7 +79,7 @@ Flag: `PICOCTF{THENUMBERSMASNO}`
 ---
 
 ## Challenge: b00tl3gRSA2🍰
-Very similar to [Dachshund Attacks](https://hackmd.io/@SBK6401/Bk7LEmGwn)
+Very similar to [Dachshund Attacks]({{base.url}}/PicoCTF-Dachshund-Attacks/)
 
 [(5)低解密指數攻擊](https://zhuanlan.zhihu.com/p/76228394)
 
@@ -191,7 +191,7 @@ print(long_to_bytes(pow(c, d, n)))
 * Description: Why use p and q when I can use more?
 * Hint: There's more prime factors than p and q, finding d is going to be different.
 
-和[這題](https://hackmd.io/@SBK6401/HyTTXZnPh)幾乎一樣
+和[這題]({{base.url}}/PicoCTF-Very-Smooth/)幾乎一樣
 
 ### Exploit - Smooth Value
 1. 先用[online tool](https://www.alpertron.com/ECM.HTM)
@@ -232,7 +232,7 @@ Payload:
 ## Challenge: picobrowser🍰
 
 ### Exploit
-才剛寫完[Who are you?](https://hackmd.io/@SBK6401/B135SD0w2)就覺得案情不單純，只要把header User-Agent變成picobrowser就可以了
+才剛寫完[Who are you?]({{base.url}}/PicoCTF-Who-are-you/)就覺得案情不單純，只要把header User-Agent變成picobrowser就可以了
 
 Flag: `picoCTF{p1c0_s3cr3t_ag3nt_84f9c865}`
 

@@ -110,7 +110,7 @@ date: 2023-07-12
     :::
 
 ## Source Code
-詳細的source code請參考[HackMD筆記](https://hackmd.io/@SBK6401/SJJk_NnKh)
+詳細的source code請參考[HackMD筆記]({{base.url}}/CrewCTF-OhPHP/)
 
 ## Recon
 這一題很複雜也需要很多的步驟

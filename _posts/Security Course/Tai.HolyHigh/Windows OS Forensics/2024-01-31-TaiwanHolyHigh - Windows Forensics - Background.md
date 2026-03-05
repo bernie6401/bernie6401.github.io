@@ -8,7 +8,6 @@ date: 2024-01-31
 
 # TaiwanHolyHigh - Windows Forensics - Background
 <!-- more -->
-[TOC]
 
 ## Background
 
@@ -23,7 +22,7 @@ date: 2024-01-31
     * Recon(情蒐)
     * Monitor(監控)
     * 搜尋Pattern
-* Identify(識別): 有興趣可以看這一篇論文筆記[DeepCase](https://hackmd.io/@SBK6401/BJuCGSnAo)
+* Identify(識別): 有興趣可以看這一篇論文筆記[DeepCase]({{base.url}}/DEEPCASE-Semi-Supervised-Contextual-Analysis-of-Security-Events-Notes/)
     * [SOC(資安監控中心)](https://www.freedom.net.tw/ict-insight/security/siem-vs-soc.html)
         > ![](https://www.freedom.net.tw/images/article/caption/siem%20vs%20soc.jpg)
     * IDS: 入侵偵測系統（Intrusion Detection System，IDS）是用來偵測資訊系統或網路上潛在的惡意破壞活動

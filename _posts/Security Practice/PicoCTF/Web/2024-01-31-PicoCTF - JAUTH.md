@@ -10,7 +10,7 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-[NTUCNS - HW3 - JWT Authentication](https://hackmd.io/JO7xByQgQWK67eU0goHMeA?view#c)
+[NTUCNS - HW3 - JWT Authentication]({{base.url}}/Cryptography-and-Network-Security-Homework-3#c)
 
 ## Exploit - JWR + None
 其實這一題有一點奇怪，應該說之前在解CNS作業的驗證時，TA說目前應該是不行以Alg=None的形式進行驗證的設計，我以為是後端的框架都不支援了，但應該說是不建議這樣的做法，所以這一題比想像中簡單，我還以為要把公鑰找出來，再進行sign

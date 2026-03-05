@@ -1,12 +1,12 @@
 ---
-title: Simple Welcome 0x01(Lab - Let's meet at class)
+title: Simple Welcome - 0x01(Lab - Let's meet at class)
 tags: [CTF, Crypto, eductf]
 
 category: "Security Course｜NTU CS｜Welcome - 2022"
 date: 2024-01-31
 ---
 
-# Simple Welcome 0x01(Lab - Let's meet at class)
+# Simple Welcome - 0x01(Lab - Let's meet at class)
 <!-- more -->
 
 ## Description

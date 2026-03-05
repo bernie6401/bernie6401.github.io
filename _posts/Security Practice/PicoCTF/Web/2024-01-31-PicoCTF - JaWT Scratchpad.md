@@ -10,7 +10,7 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-[NTUCNS - HW3 - JWT Authentication](https://hackmd.io/JO7xByQgQWK67eU0goHMeA?view#c)
+[NTUCNS - HW3 - JWT Authentication]({{base.url}}/Cryptography-and-Network-Security-Homework-3#c)
 
 ## Recon
 這一題蠻有趣的，有結合其他東西當作解題的基礎，先看JWT的token，decode過後的結果表示：

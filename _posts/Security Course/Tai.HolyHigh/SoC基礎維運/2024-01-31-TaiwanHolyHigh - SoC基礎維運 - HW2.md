@@ -108,7 +108,7 @@ date: 2024-01-31
     User W10C\Admin 
     ```
 9. Real Attack Payload
-    原本的payload很明顯就是base64的encode，不過實際解過發現參雜很多trash byte，如果把這些東西都拿掉就會很明朗，這也是一個常見的技巧，就是為了不要讓defender或是其他防毒知道payload pattern被已知database match出來，所以做了一些scramble，視情況有時候這種scramble的題目真的很討厭，不管是[BalsnCTF 2023 - Kill-4](https://hackmd.io/@SBK6401/BJphpuJM6#Kill-4)或[PicoCTF - Some Assembly Required 3](https://hackmd.io/@SBK6401/SyYU8hx62)都沒有解出來
+    原本的payload很明顯就是base64的encode，不過實際解過發現參雜很多trash byte，如果把這些東西都拿掉就會很明朗，這也是一個常見的技巧，就是為了不要讓defender或是其他防毒知道payload pattern被已知database match出來，所以做了一些scramble，視情況有時候這種scramble的題目真的很討厭，不管是[BalsnCTF 2023 - Kill-4]({{base.url}}/BalsnCTF-2023#Kill-4)或[PicoCTF - Some Assembly Required 3]({{base.url}}/PicoCTF-Some-Assembly-Required-3/)都沒有解出來
     ```python
     >>> from base64 import *
     >>> payload = "JgAgACgAZwBjAG0AIAAoACcAaQBlAHsAMAB9ACcAIAAtAGYAIAAnAHgAJwApACkAIAAoACIAVwByACIAKwAiAGkAdAAiACsAIgBlAC0ASAAiACsAIgBvAHMAdAAgACcASAAiACsAIgBlAGwAIgArACIAbABvACwAIABmAHIAIgArACIAbwBtACAAUAAiACsAIgBvAHcAIgArACIAZQByAFMAIgArACIAaAAiACsAIgBlAGwAbAAhACcAIgApAA=="

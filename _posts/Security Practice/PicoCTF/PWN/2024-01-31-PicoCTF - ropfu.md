@@ -10,13 +10,12 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-ROP Chain
-x86 Calling Convention:
-[Linux System Call Table](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit)
+* ROP Chain
+* x86 Calling Convention:
+* [Linux System Call Table](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit)
 
 ## Source code
-:::spoiler Source Code
-```cpp=
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -45,10 +44,9 @@ int main(int argc, char **argv){
   
 }
 ```
-:::
 
 ## Recon
-```bash!
+```bash
 $ file vuln
 vuln: ELF 32-bit LSB executable, Intel 80386, version 1 (GNU/Linux), statically linked, BuildID[sha1]=232215a502491a549a155b1a790de97f0c433482, for GNU/Linux 3.2.0, not stripped
 $ checksec vuln
@@ -72,7 +70,7 @@ mov DWORD PTR [edx] eax
 寫完`/bin/sh\x00`就直接call execve的syscall開shell
 
 ## Exploit - ROP Chain
-```python!
+```python
 from pwn import *
 
 # r = process('./vuln')
@@ -113,6 +111,6 @@ Flag: `picoCTF{5n47ch_7h3_5h311_1b5a4b40}`
 
 ## Reference
 [^ropfu_wp]:[ PicoCTF 2022: Beginner's Compilation ](https://enscribe.dev/ctfs/pico22/beginners-compilation/#ropfu)
-[^pico_pwn_guessing_game]:[PicoCTF - Guessing Game 1](https://hackmd.io/@SBK6401/SkxoLuwoh)
-[^0x12_rop++]:[Simple PWN - 0x12(Lab - rop++)](https://hackmd.io/@SBK6401/rysBjQfjs)
+[^pico_pwn_guessing_game]:[PicoCTF - Guessing Game 1]({{base.url}}/PicoCTF-Guessing-Game-1/)
+[^0x12_rop++]:[Simple PWN - 0x12(Lab - rop++)]({{base.url}}/Simple-PWN-0x12(Lab-rop++)/)
 [^syscall_in_x86]:[ 在 Linux 下寫組語, 透過 int 0x80 使用 system call ](http://guguclock.blogspot.com/2009/01/linux-int-0x80-system-call.html)

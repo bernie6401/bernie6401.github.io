@@ -1,12 +1,12 @@
 ---
-title: Simple Welcome 0x02 & 0x05(Lab - Nine & Nine-Revenge)
+title: Simple Welcome - 0x02 & 0x05(Lab - Nine & Nine-Revenge)
 tags: [CTF, Reverse, eductf]
 
 category: "Security Course｜NTU CS｜Welcome - 2022"
 date: 2024-03-04
 ---
 
-# Simple Welcome 0x02 & 0x05(Lab - Nine & Nine-Revenge)
+# Simple Welcome - 0x02 & 0x05(Lab - Nine & Nine-Revenge)
 <!-- more -->
 
 ## Background

@@ -8,7 +8,6 @@ date: 2024-01-31
 
 # NTUSTISC - AD Note - 會後提及有用的工具
 <!-- more -->
-[TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=JAnGtFoJlij-03nk&t=6024)
 
@@ -109,8 +108,8 @@ What is IR(incident response)?
 詳細的提權教學可以看這邊[^psexec-teach-hackercat]
 
 ### SIEM廠商
-[splunk](https://www.splunk.com/)
-[ArcSight](https://www.microfocus.com/en-us/cyberres/secops/arcsight-esm) - 詳細可以看[TaiwanHolyHigh - SoC基礎維運](https://hackmd.io/@SBK6401/HJurzt98p)
+* [splunk](https://www.splunk.com/)
+* [ArcSight](https://www.microfocus.com/en-us/cyberres/secops/arcsight-esm) - 詳細可以看[TaiwanHolyHigh - SoC基礎維運]({{base.url}}/TaiwanHolyHigh-SoC%E5%9F%BA%E7%A4%8E%E7%B6%AD%E9%81%8B-ArcSight%E6%95%99%E5%AD%B8/)
 
 ## Reference
 [^activate-vnc-teach]:[ VNC教學 ](https://www.youtube.com/watch?v=4Fc2hInOw3o&ab_channel=DSP202NCYU)

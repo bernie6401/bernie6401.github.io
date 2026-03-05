@@ -8,14 +8,10 @@ date: 2024-01-31
 
 # CyberDefender - CorporateSecrets (Part 4)
 <!-- more -->
-Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/33
-Part 1: https://hackmd.io/@SBK6401/r18z7VIm6
-Part 2: https://hackmd.io/@SBK6401/ByFhEE8X6
-Part 3: https://hackmd.io/@SBK6401/HyHp4NLQT
-
-:::spoiler TOC
-[TOC]
-:::
+* Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/33
+* Part 1: {{base.url}}/CyberDefender-CorporateSecrets-(Part-1)/
+* Part 2: {{base.url}}/CyberDefender-CorporateSecrets-(Part-2)/
+* Part 3: {{base.url}}/CyberDefender-CorporateSecrets-(Part-3)/
 
 ## Tools: 
 * FTK Imager
@@ -147,7 +143,7 @@ Flag: `1276820064`
 ### Exploit
 1. Search .docx Files
     從recycle bin中可以看到Jim的SID(1003)有丟棄一些docx file的痕跡，直接把這些file export出來
-2. 一番操作之後都沒有甚麼結果，所以就參考[^wp]的作法，和[之前的經驗](https://hackmd.io/@SBK6401/H1w0vImC2)，先把extension改成zip，然後解壓縮他
+2. 一番操作之後都沒有甚麼結果，所以就參考[^wp]的作法，和[之前的經驗]({{base.url}}/NISRA-2023-Enlightened-Jack%E7%9A%84flag/)，先把extension改成zip，然後解壓縮他
 3. 再把`./Document1/Content.xml`用Microsoft Word開啟，就可以看到主要的內容了，這神奇的操作也是第一次看到
     ![圖片.png](https://hackmd.io/_uploads/SytYatPmT.png)
 

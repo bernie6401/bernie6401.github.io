@@ -8,11 +8,8 @@ date: 2024-01-31
 
 # CyberDefender - Szechuan Sauce (Part 1)
 <!-- more -->
-Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/31
-Part 2: https://hackmd.io/@SBK6401/HkAbt-NXT
-:::spoiler TOC
-[TOC]
-:::
+* Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/31
+* Part 2: {{base.url}}/CyberDefender-Szechuan-Sauce-(Part-2)/
 
 ## Scenario
 > An employee at a large company was assigned a task with a two-day deadline. Realizing that he could not complete the task in that timeframe, he sought help from someone else. After one day, he received a notification from that person who informed him that he had managed to finish the assignment and sent it to the employee as a test. However, the person also sent a message to the employee stating that if he wanted the completed assignment, he would have to pay $160.
@@ -62,7 +59,7 @@ Flag: `2012 R2`
 > What’s the Operating System of the Desktop? (four words separated by spaces) 
 
 ### Recon
-這一題可以參考[Hunter - Part 1 - Q5](https://hackmd.io/@SBK6401/By1BpZIf6#Q5)，我可以直接把Software的registry export出來，然後用registry explorer查看`/root/Microsoft/Windows NT/CurrentVersion`就會知道==Desktop==的OS
+這一題可以參考[Hunter - Part 1 - Q5]({{base.url}}/CyberDefender-Hunter-(Part-1)#Q5)，我可以直接把Software的registry export出來，然後用registry explorer查看`/root/Microsoft/Windows NT/CurrentVersion`就會知道==Desktop==的OS
 
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/SJlmnxMmT.png)
@@ -75,7 +72,7 @@ Flag: `Windows 10 Enterprise Evaluation`
 > What was the IP address assigned to the domain controller? 
 
 ### Recon
-可以參考[Hunter - Part 1 - Q2](https://hackmd.io/@SBK6401/By1BpZIf6#Q2)
+可以參考[Hunter - Part 1 - Q2]({{base.url}}/CyberDefender-Hunter-(Part-1)#Q2)
 
 ### Exploit
 就是察看Server的SYSTEM中，`ControlSet001/Services/Tcpip/Parameters/Interfaces/`
@@ -89,7 +86,7 @@ Flag: `10.42.85.10`
 > What was the timezone of the Server? 
 
 ### Recon
-可以先參考[Hunter Part 1 - Q6](https://hackmd.io/@SBK6401/By1BpZIf6#Q6)
+可以先參考[Hunter Part 1 - Q6]({{base.url}}/CyberDefender-Hunter-(Part-1)#Q6)
 
 ### Exploit
 這一題很迷，先查看Server的SYSTEM的`ControlSet001/Control/TimeZoneInformation/`的TimeZoneKeyName是Pacific Standard Time，代表不是UTC-8就是UTC-7，但這兩個都不是答案，隨便try了以後再看hint發現，原來是Admin設定錯時區，要發現這一件事情真的很難，看了[^szechuan-sauce-wp]還是一知半解，不過我試著自己操作和解釋

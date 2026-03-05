@@ -189,4 +189,4 @@ r.interactive()
 
 ## Reference
 [PicoCTF - Guessing Game 1 [Pwn]](https://cyb3rwhitesnake.medium.com/picoctf-guessing-game-1-pwn-bdc1c87016f9)
-[^0x12_rop++]:[Simple PWN - 0x12(Lab - rop++)](https://hackmd.io/@SBK6401/rysBjQfjs)
+[^0x12_rop++]:[Simple PWN - 0x12(Lab - rop++)]({{base.url}}/Simple-PWN-0x12(Lab-rop++)/)

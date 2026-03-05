@@ -8,13 +8,10 @@ date: 2024-01-31
 
 # CyberDefender - Hunter (Part 2)
 <!-- more -->
-Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/32
-Part 1: https://hackmd.io/@SBK6401/By1BpZIf6
-Part 3: https://hackmd.io/@SBK6401/HylP8ixQp
+* Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/32
+* Part 1: {{base.url}}/CyberDefender-Hunter-(Part-1)/
+* Part 3: {{base.url}}/CyberDefender-Hunter-(Part-3)/
 
-:::spoiler TOC
-[TOC]
-:::
 
 ## Tools
 * [PST Viewer](https://goldfynch.com/pst-viewer/index.html#0/33474/2098436)

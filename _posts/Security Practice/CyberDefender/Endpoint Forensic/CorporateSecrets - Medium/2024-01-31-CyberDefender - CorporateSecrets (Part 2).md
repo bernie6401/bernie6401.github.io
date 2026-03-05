@@ -8,14 +8,10 @@ date: 2024-01-31
 
 # CyberDefender - CorporateSecrets (Part 2)
 <!-- more -->
-Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/33
-Part 1: https://hackmd.io/@SBK6401/r18z7VIm6
-Part 3: https://hackmd.io/@SBK6401/HyHp4NLQT
-Part 4: https://hackmd.io/@SBK6401/H1rAEV87p
-
-:::spoiler TOC
-[TOC]
-:::
+* Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/33
+* Part 1: {{base.url}}/CyberDefender-CorporateSecrets-(Part-1)/
+* Part 3: {{base.url}}/CyberDefender-CorporateSecrets-(Part-3)/
+* Part 4: {{base.url}}/CyberDefender-CorporateSecrets-(Part-4)/
 
 ## Tools: 
 * FTK Imager
@@ -55,7 +51,7 @@ Flag: `5`
 (Dr. Doofenshmirtz Type Beat) 
 
 ### Recon
-這一題有一點像[Enlightened 2023 - Jack的flag](https://hackmd.io/@SBK6401/H1w0vImC2)
+這一題有一點像[Enlightened 2023 - Jack的flag]({{base.url}}/NISRA-2023-Enlightened-Jack%E7%9A%84flag/)
 
 ### Exploit
 1. 先從tim的document中看有沒有甚麼特別的file

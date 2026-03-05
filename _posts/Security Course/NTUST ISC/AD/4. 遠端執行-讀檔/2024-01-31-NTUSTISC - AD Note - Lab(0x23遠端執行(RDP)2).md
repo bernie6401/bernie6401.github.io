@@ -8,14 +8,13 @@ date: 2024-01-31
 
 # NTUSTISC - AD Note - Lab(遠端執行(RDP)2)
 <!-- more -->
-[TOC]
 
 Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz2CB-O-7S5d)
 
 ## Background
-[NTUSTISC - AD Note - Lab(Password Spraying)](https://hackmd.io/@SBK6401/Byk16MV0n)
-[滲透測試的利器 - Impacket](https://sectools.tw/impacket/): 
-> python撰寫的內網滲透工具
+* [NTUSTISC - AD Note - Lab(Password Spraying)]({{base.url}}/NTUSTISC-AD-Note-Lab(0x14Password-Spraying)/)
+* [滲透測試的利器 - Impacket](https://sectools.tw/impacket/): 
+    > python撰寫的內網滲透工具
 
 ## Lab
 
@@ -59,7 +58,7 @@ Impacket v0.12.0.dev1+20230928.173259.06217f05 - Copyright 2023 Fortra
 ```
 
 #### ==How to use CrackMapExec==
-還記的之前的Lab([NTUSTISC - AD Note - Lab(Password Spraying)](https://hackmd.io/@SBK6401/Byk16MV0n))，有使用過這套工具，當時是為了做密碼揮灑的目的，不過考慮到psexec這個工具本質上就是爬到遠端的主機，然後開execve的process，並且跟他溝通，所以在這樣的前提下，就可以直接用CrackMapExec達到和psexec一樣的效果，畢竟兩者本質是做的事情差不多
+還記的之前的Lab([NTUSTISC - AD Note - Lab(Password Spraying)]({{base.url}}/NTUSTISC-AD-Note-Lab(0x14Password-Spraying)/))，有使用過這套工具，當時是為了做密碼揮灑的目的，不過考慮到psexec這個工具本質上就是爬到遠端的主機，然後開execve的process，並且跟他溝通，所以在這樣的前提下，就可以直接用CrackMapExec達到和psexec一樣的效果，畢竟兩者本質是做的事情差不多
 :::spoiler Execution Result
 ```bash
 $  crackmapexec smb 192.168.222.129 -u administrator -p 1qaz@WSX3edc --exec-method smbexec -x 'dir C:\tools'

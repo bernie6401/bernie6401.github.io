@@ -8,14 +8,10 @@ date: 2024-01-31
 
 # CyberDefender - CorporateSecrets (Part 3)
 <!-- more -->
-Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/33
-Part 1: https://hackmd.io/@SBK6401/r18z7VIm6
-Part 2: https://hackmd.io/@SBK6401/ByFhEE8X6
-Part 4: https://hackmd.io/@SBK6401/H1rAEV87p
-
-:::spoiler TOC
-[TOC]
-:::
+* Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/33
+* Part 1: {{base.url}}/CyberDefender-CorporateSecrets-(Part-1)/
+* Part 2: {{base.url}}/CyberDefender-CorporateSecrets-(Part-2)/
+* Part 4: {{base.url}}/CyberDefender-CorporateSecrets-(Part-4)/
 
 ## Tools: 
 * FTK Imager
@@ -273,7 +269,7 @@ Flag: `2020-04-11 23:23:36`
 > How many entries does the MFT of the filesystem have?
 
 ### Exploit
-我是直接在`/root`的地方export出\$MFT file，然後去看magic header(`FILE0`)的數量有多少(`219811`)，但這樣不準確(不清楚為甚麼)，我記得之前[@Jimmy說過](https://hackmd.io/@SBK6401/HJ-hG7Kzp#Lab---Offset-43110400d)
+我是直接在`/root`的地方export出\$MFT file，然後去看magic header(`FILE0`)的數量有多少(`219811`)，但這樣不準確(不清楚為甚麼)，我記得之前[@Jimmy說過]({{base.url}}/TaiwanHolyHigh-Windows-Forensics-$MFT-%E5%9F%BA%E6%9C%AC%E5%AF%A6%E4%BD%9C#Lab---Offset-43110400d)
 > $MFT長度一段就是1024 Bytes(0x400)
 
 所以我想說可以把最後出現的位置除已0x400可能就是答案$\to 0xd6aac00/0x400=219819.0$

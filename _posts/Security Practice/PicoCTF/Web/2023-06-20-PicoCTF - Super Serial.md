@@ -11,7 +11,7 @@ date: 2023-06-20
 ###### tags: `PicoCTF` `CTF` `Web`
 
 ## Background
-[php unserialization](https://hackmd.io/@SBK6401/B1I5n1pns)
+[php unserialization]({{base.url}}/Simple-Web-0x16.5(php-unserialize)/)
 
 ## Hint
 * The flag is at ../flag

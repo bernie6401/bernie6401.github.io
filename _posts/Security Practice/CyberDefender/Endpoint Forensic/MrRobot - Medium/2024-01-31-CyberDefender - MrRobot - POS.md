@@ -8,13 +8,9 @@ date: 2024-01-31
 
 # CyberDefender - MrRobot - POS
 <!-- more -->
-Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/88
-Target 1: https://hackmd.io/@SBK6401/SkJAThwla
-Target 2: https://hackmd.io/@SBK6401/HJz2FPne6
-
-:::spoiler TOC
-[TOC]
-:::
+* Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/88
+* Target 1: {{base.url}}/CyberDefender-MrRobot-Target-1/
+* Target 2: {{base.url}}/CyberDefender-MrRobot-Target-2/
 
 ## Lab - POS
 

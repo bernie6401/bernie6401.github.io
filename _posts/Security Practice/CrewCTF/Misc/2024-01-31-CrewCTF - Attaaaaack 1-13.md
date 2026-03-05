@@ -248,7 +248,7 @@ Flag: `crew{GetKeyState}`
 example : crew{abcd.com:8080}
 
 ### Background
-[CyberDefender - MrRobot - POS - Q21](https://hackmd.io/@SBK6401/B1LqaNGCh/https%3A%2F%2Fhackmd.io%2F%40SBK6401%2FBJpJqDhlp#Q21)
+[CyberDefender - MrRobot - POS - Q21]({{base.url}}/CyberDefender-MrRobot-POS#Q21)
 
 ### Recon
 這一題直覺會想用netscan，畢竟從前面的題目以及找到的資訊，還有virustotal上的資訊，幾乎確定他就是一個keylogger，然後會把得到的資訊傳回去C&C server中，但奇怪的是察看netscan沒有相關的connection，不確定到底是怎麼樣，找了很久，最後是參考[siunam321](https://siunam321.github.io/ctf/CrewCTF-2023/Forensics/Attaaaaack1-13/#attaaaaack8)的writeup，他也是找了很久，結果其實virustotal都已經寫好了，
@@ -287,7 +287,7 @@ Flag: `crew{C:\Users\\0xSh3rl0ck\AppData\Roaming\dclogs\2023-02-20-2.dc}`
 example : crew{Scheduled_tasks} (first letter of the first word is uppercase and the first letter of other is lowercase)
 
 ### Background
-[NTUSTISC - CyberDefender - MrRobot - Target 1 - Q5](https://hackmd.io/@SBK6401/B1LqaNGCh/https%3A%2F%2Fhackmd.io%2F%40SBK6401%2FSkJAThwla#Q5)
+[NTUSTISC - CyberDefender - MrRobot - Target 1 - Q5]({{base.url}}/CyberDefender-MrRobot-Target-1#Q5)
 
 ### Recon
 這題background可以看前面寫的文章，然後基本上都差不多，只是要特別注意-K後面帶的參數，一定要是從Software開始，他和原本cyberdefender的版本有點不太一樣，下-k參數之前先看printkey印出甚麼東西，然後再從他的subkey往後推看是要接Software還是Mircosoft，基本上都會寫在**`\REGISTRY\USER\`**的部分
@@ -342,7 +342,7 @@ Flag: `crew{Run_MicroUpdate}`
 example : crew{the name of the handle}
 
 ### Background
-[NTUSTISC - CyberDefender - MrRobot - Target 1 - Q6](https://hackmd.io/@SBK6401/B1LqaNGCh/https%3A%2F%2Fhackmd.io%2F%40SBK6401%2FSkJAThwla#Q6)
+[NTUSTISC - CyberDefender - MrRobot - Target 1 - Q6]({{base.url}}/CyberDefender-MrRobot-Target-1#Q6)
 
 ### Recon
 基本上就和之前寫的文章一樣，

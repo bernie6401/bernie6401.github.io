@@ -8,15 +8,11 @@ date: 2024-01-31
 
 # NTUSTISC - CyberDefender - MrRobot - Target 1
 <!-- more -->
-Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/88
-Target 2: https://hackmd.io/@SBK6401/HJz2FPne6
-POS: https://hackmd.io/@SBK6401/BJpJqDhlp
-
-:::spoiler TOC
-[TOC]
-:::
-Lecture Video: [ 2022/06/29 藍隊安全系列課程 04 ](https://youtu.be/4u5ckjfFRuM?si=MKeBkxyz5vcnsJfh)
-[Volatility - Cheat Sheet](https://hackmd.io/@TuX-/BymMpKd0s)
+* Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/88
+* Target 2: {{base.url}}/CyberDefender-MrRobot-Target-2/
+* POS: {{base.url}}/CyberDefender-MrRobot-POS/
+* Lecture Video: [ 2022/06/29 藍隊安全系列課程 04 ](https://youtu.be/4u5ckjfFRuM?si=MKeBkxyz5vcnsJfh)
+* [Volatility - Cheat Sheet](https://hackmd.io/@TuX-/BymMpKd0s)
 
 ## Background
 * vmss2core
@@ -312,7 +308,7 @@ Flag: `Hackers`
 > What is the NTLM password hash for the administrator account?
 
 #### Background
-[NTUSTISC - AD Note - Lab(透過Mimikatz取得Local Admin的NTLM)](https://hackmd.io/@SBK6401/H15R2zNAh)
+[NTUSTISC - AD Note - Lab(透過Mimikatz取得Local Admin的NTLM)]({{base.url}}/NTUSTISC-AD-Note-Lab(0x16%E9%80%8F%E9%81%8EMimikatz%E5%8F%96%E5%BE%97Local-Admin%E7%9A%84NTLM)/)
 
 #### Recon
 既然是要找NTLM hash，可以使用hashdump這個Plugin
@@ -390,7 +386,7 @@ Flag: `3`
 runas就是windows的command用來"以系統管理員權限"執行一些指令或是開啟process
 
 #### Recon
-同樣要取得admin的password，可以直接看上一題的console輸出，或是直接hashcat NTLM的hash，詳細的操作可以看[NTUSTISC - AD Note - Lab(Brute Force SAM)](https://hackmd.io/@SBK6401/B1LqaNGCh/https%3A%2F%2Fhackmd.io%2F%40SBK6401%2FS1KgaEz0h)
+同樣要取得admin的password，可以直接看上一題的console輸出，或是直接hashcat NTLM的hash，詳細的操作可以看[NTUSTISC - AD Note - Lab(Brute Force SAM)]({{base.url}}/NTUSTISC-AD-Note-Lab(0x13Brute-Force-SAM)/)
 ```bash
 $ $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 hashdump > ntlm.hash
 $ hashcat.exe -a 0 -m 1000 ntlm.hash rockyou.txt --force

@@ -46,7 +46,7 @@ date: 2024-07-22
     $ openssl x509 -inform der -in cert.der -out cert.pem
     ```
 * 丟到手機端後直接在手機安裝憑證
-* 接著就要參考[How to Root Android Phone & Install AlwaysTrustUserCert.zip Module?](https://hackmd.io/nAJIgt13TjSZ5nqLR4-BiQ#Install-AlwaysTrustUserCertzip-Module)這篇文章下面註解的地方重新安裝AlwaysTrustUserCert.zip這個plugin，最保險的做法是
+* 接著就要參考[How to Root Android Phone & Install AlwaysTrustUserCert.zip Module?]({{base.url}}/How-to-Root-Android-Phone-and-Install-AlwaysTrustUserCert.zip-Module#Install-AlwaysTrustUserCertzip-Module)這篇文章下面註解的地方重新安裝AlwaysTrustUserCert.zip這個plugin，最保險的做法是
     先把之前所有安裝的憑證刪除→
     重新啟動→
     重新安裝"所有"的憑證→
@@ -131,7 +131,7 @@ date: 2024-07-22
 3. 接下來就可以實際攔截了
 
 ## Bypass SSL Pinning by Frida
-還記得之前做的實驗[論文筆記](https://hackmd.io/@SBK6401/r155hduCT#無法使用)中有提到，有一部分的app就算安裝了SSL Unpinning的Plugin還是無法攔截到流量，根據[Defeating Android Certificate Pinning with Frida](https://httptoolkit.com/blog/frida-certificate-pinning/)文章的說明，Facebook各式各樣的App所使用的憑證標準和實作方式都是自定義的，而不是用標準API，這樣的話用一般的SSL Unpinning就還是不會成功
+還記得之前做的實驗[論文筆記]({{base.url}}/%E5%AF%AB%E8%AB%96%E6%96%87%E5%8F%83%E8%80%83%E7%9A%84%E5%B7%A5%E5%85%B7%E6%88%96%E5%BD%B1%E7%89%87/#無法使用)中有提到，有一部分的app就算安裝了SSL Unpinning的Plugin還是無法攔截到流量，根據[Defeating Android Certificate Pinning with Frida](https://httptoolkit.com/blog/frida-certificate-pinning/)文章的說明，Facebook各式各樣的App所使用的憑證標準和實作方式都是自定義的，而不是用標準API，這樣的話用一般的SSL Unpinning就還是不會成功
 > Notably some apps which will go above and beyond, by implementing their own custom certificate pinning techniques from scratch, to make disabling it as difficult as possible. The prime example of this is the various Facebook apps, which all use their own custom reimplementation of TLS rather than the standard platform APIs.
 >
 > It's definitely possible to automatically remove certificate pinning features from that too within the same Frida script in theory (contributions very welcome!), but it's significantly more difficult than mocking out a well-known common library, so I haven't done that yet, and so this script won't work for Facebook, Facebook Messenger, Instagram, or similar.
@@ -274,7 +274,7 @@ date: 2024-07-22
     如果沒有先設定電腦上的proxy，他預設並不會走mitmproxy，這時候再瀏覽同一個網站就會出現以下畫面
     ![圖片](https://hackmd.io/_uploads/H1dmI4NPC.png)
     這時我們們就可以直接選取android要得憑證
-3. 把憑證放到手機上並且依照[How to Root Android Phone & Install AlwaysTrustUserCert.zip Module?](https://hackmd.io/@SBK6401/r1pDCcqCT#注意事項)中最後的注意事項進行安裝，也就是先把之前所有安裝的憑證刪除→重新啟動→重新安裝"所有"的憑證→重新安裝Magisk模組→Reboot，就可以了
+3. 把憑證放到手機上並且依照[How to Root Android Phone & Install AlwaysTrustUserCert.zip Module?]({{base.url}}/How-to-Root-Android-Phone-and-Install-AlwaysTrustUserCert.zip-Module#注意事項)中最後的注意事項進行安裝，也就是先把之前所有安裝的憑證刪除→重新啟動→重新安裝"所有"的憑證→重新安裝Magisk模組→Reboot，就可以了
     此時檢查手機中的的Trusted credentials應該就會發現mitmproxy的憑證已經被信任
     <img src='https://hackmd.io/_uploads/B1v_PE4vC.png' alt='' width=200>
 4. 設定手機的Proxy IP

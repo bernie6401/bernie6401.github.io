@@ -8,12 +8,8 @@ date: 2024-01-31
 
 # CyberDefender - Szechuan Sauce (Part 2)
 <!-- more -->
-Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/31
-Part 1: https://hackmd.io/@SBK6401/rkp952e76
-
-:::spoiler TOC
-[TOC]
-:::
+* Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/31
+* Part 1: {{base.url}}/CyberDefender-Szechuan-Sauce-(Part-1)/
 
 ## Scenario
 > An employee at a large company was assigned a task with a two-day deadline. Realizing that he could not complete the task in that timeframe, he sought help from someone else. After one day, he received a notification from that person who informed him that he had managed to finish the assignment and sent it to the employee as a test. However, the person also sent a message to the employee stating that if he wanted the completed assignment, he would have to pay $160.
@@ -112,7 +108,7 @@ Flag: `rick sanchez`
 > What was the password for "jerrysmith" account? 
 
 ### Recon
-原本的直覺是follow之前寫的[0x13 - Brute Force SAM](https://hackmd.io/@SBK6401/S1KgaEz0h)可以爆破密碼，但我似乎搞錯題目的意思，應該說要找`jerrysmith`的密碼，直覺要對domain controller下手，不過應該不是找SAM hive，因為這個只有存取單一主機的認證authentication，所以如果要找儲存其他AD的密碼資訊，算是一個新的觀念:
+原本的直覺是follow之前寫的[0x13 - Brute Force SAM]({{base.url}}/NTUSTISC-AD-Note-Lab(0x13Brute-Force-SAM)/)可以爆破密碼，但我似乎搞錯題目的意思，應該說要找`jerrysmith`的密碼，直覺要對domain controller下手，不過應該不是找SAM hive，因為這個只有存取單一主機的認證authentication，所以如果要找儲存其他AD的密碼資訊，算是一個新的觀念:
 
 [What is NTDS.DIT?](https://medium.com/@harikrishnanp006/understanding-ntds-dit-the-core-of-active-directory-faac54cc628a)
 > NTDS.DIT stands for New Technology Directory Services Directory Information Tree. It serves as the primary database file within Microsoft’s Active Directory Domain Services (AD DS). Essentially, NTDS.DIT stores and organizes all the information related to objects in the domain, including users, groups, computers, and more. It acts as the backbone of Active Directory, housing critical data such as user account details, passwords, group memberships, and other object attributes.

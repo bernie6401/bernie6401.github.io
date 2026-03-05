@@ -13,7 +13,7 @@ date: 2024-01-31
 Flag: `flag{Y0u_know_hoW2L3@k_canAry}`
 
 ### 解題流程與思路
-這一題就是前一年的[Leak Canary](https://hackmd.io/@SBK6401/BJijt4A9s)的應用版，當時是用pwndbg，還不知道gef的偉大，總之這一題的思路就是:
+這一題就是前一年的[Leak Canary]({{base.url}}/Simple-Buffer-Overflow-0x05(Leak-Canary)/)的應用版，當時是用pwndbg，還不知道gef的偉大，總之這一題的思路就是:
 1. 接收開shell的function的address(win function)
 2. 接收0x20個bytes，分別代表RSP value/Stack Canary/RBP value/RIP
 3. 傳送payload過去，分別是`p64(rsp_val) + p64(stack_canary) + p64(rbp_val) + p64(win_addr)`
@@ -62,7 +62,7 @@ r.interactive()
 Flag: `flag{How_you_do0o0o0o_sysca1111111}`
 
 ### 解題流程與思路
-這一題其實和[pico-filtered shellcode](https://hackmd.io/@SBK6401/HJ0Yn79ih)有點像，主要就是開個RWX權限的空間，最後跳過去執行寫的shellcode，並且在跳過去之前會檢查一些東西，像這一題就是檢查有沒有0x0f或0x05的byte，如果有就填成0，可以觀察一下寫成shellcode過後的hex到底長怎麼樣
+這一題其實和[pico-filtered shellcode]({{base.url}}/PicoCTF-filtered-shellcode/)有點像，主要就是開個RWX權限的空間，最後跳過去執行寫的shellcode，並且在跳過去之前會檢查一些東西，像這一題就是檢查有沒有0x0f或0x05的byte，如果有就填成0，可以觀察一下寫成shellcode過後的hex到底長怎麼樣
 ```python
 >>> disasm(asm('''
     mov rax, 0x68732f6e69622f
@@ -115,7 +115,7 @@ r.interactive()
 Flag: `flag{Libccccccccccccccccccccccccccc}`
 
 ### 解題流程與思路
-這一題就和[0x06(GOT hijacking)](https://hackmd.io/@SBK6401/S1BBpSR5s)差不多，首先有幾個條件才能達到這個攻擊
+這一題就和[0x06(GOT hijacking)]({{base.url}}/Simple-PWN-0x06(GOT-hijacking-&-Lab-got2win)/)差不多，首先有幾個條件才能達到這個攻擊
 1. 要hijack的function在完成hijack之後當然還要再呼叫一次，這樣才會真的執行攻擊
 2. 保護不能是Full RELRO，這樣才會執行lazy binding的機制
 
@@ -488,7 +488,7 @@ $$
 Flag: `flag{www.youtube.com/watch?v=apN1VxXKio4}`
 
 ### 解題流程與思路
-這一題就和之前寫的[Simple PWN - 0x12(Lab - rop++)](https://hackmd.io/@SBK6401/rysBjQfjs)差不多，一樣是利用蓋ROP chain拿到shell，先看一下checksec
+這一題就和之前寫的[Simple PWN - 0x12(Lab - rop++)]({{base.url}}/Simple-PWN-0x12(Lab-rop++)/)差不多，一樣是利用蓋ROP chain拿到shell，先看一下checksec
 ```bash
 $ checksec chal
 [*] '/mnt/d/NTU/Second Year/Computer Security/PWN/Lab2/lab_rop_syscall/share/chal'
@@ -741,7 +741,7 @@ $ docker exec -it {container name} /bin/bash
 Flag: `flag{www.youtube.com/watch?v=Ci_zad39Uhw}`
 
 ### 解題流程與思路
-這一題和之前寫過的FMT題目大同小異，不過有加入%s的觀念在裡面，可以先參考[PicoCTF - flag leak](https://hackmd.io/@SBK6401/ByE7M6djn)
+這一題和之前寫過的FMT題目大同小異，不過有加入%s的觀念在裡面，可以先參考[PicoCTF - flag leak]({{base.url}}/PicoCTF-flag-leak/)
 1. 首先題目會讀取`/home/chal/flag.txt`並寫入到global variable - flag中，所以目標很明確，就是要利用兩次的printf的format string bug讀取到flag，而為甚麼要兩次呢?第一次就是要leak出bss section的base address，或是可以說text section的base address，第二次就是利用該結果實際leak出flag的內容
 2. Leak Global Variable的base address
     首先直接用gdb跟一下跑到輸入的時候stack上的殘留值
@@ -996,7 +996,7 @@ Run On Ubuntu 20.04
 這一題有很多種方式可以拿到shell，不過原理都是一樣的，前置作業都是一樣的，也就是要利用UAF去leak出libc address，接著算出`__free_hook`以及`system`的位址，接著想辦法把`system`寫到`__free_hook`的位址，此時就有兩種方式可以寫，一種是利用此次學到的double free，把值寫到最後一個在tcache的free chunk，蓋掉他的fd，接著就可以用add_note把tcache的值要回來，並寫system的address進到__free_hook；另一種方式就比較簡單，也就是把free chunk的fd利用UAF的特性改掉，並且直接add_note把東西從tcache要回來，之後就一樣寫system_addr，後free掉一個帶有/bin/sh的chunk，此時就會開一個shell給我們了
 
 #### 前置作業: Leak Libc Address
-關於這一點可以參考[如何用UAF leak libc address?](https://hackmd.io/@SBK6401/SJWc9v4Bp#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-libc-address)，方法都一樣，首先要想辦法讓free chunk進到unsorted bin中(最簡單的方法就是設定超過0x410的空間)，接著因為malloc的時候沒有實作清空原本的資料，導致我們可以leak其中有關libc section的資訊。底下的設定意思是我們先設定三個notes，#14的意思是不要讓#13被free掉的時候被consolidate用的，接著我們把前兩個free掉，結果如下
+關於這一點可以參考[如何用UAF leak libc address?]({{base.url}}/Simple-PWN-0x38(Lab-UAF)#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-libc-address)，方法都一樣，首先要想辦法讓free chunk進到unsorted bin中(最簡單的方法就是設定超過0x410的空間)，接著因為malloc的時候沒有實作清空原本的資料，導致我們可以leak其中有關libc section的資訊。底下的設定意思是我們先設定三個notes，#14的意思是不要讓#13被free掉的時候被consolidate用的，接著我們把前兩個free掉，結果如下
 ![image](https://hackmd.io/_uploads/r14opZfL6.png)
 會發現#12和#13被consolidate在一起了，接著我們看其中的一些資訊
 ![image](https://hackmd.io/_uploads/SJwX0-GIT.png)

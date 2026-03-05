@@ -13,8 +13,7 @@ date: 2024-01-31
 seccomp-tool
 
 ## Source code
-:::spoiler Source Code
-```cpp=
+```cpp
 #include <errno.h>
 #include <error.h>
 #include <fcntl.h>
@@ -79,7 +78,6 @@ int main()
 }
 
 ```
-:::
 
 ## Recon
 這題算簡單，很適合新手打shell code，但不知道為啥很少人解，和之前計安的某一題很像但忘記在哪邊了，也有可能是在EOF的時候打的，關於seccomp可以看這篇[^seccomp-tools-note]
@@ -193,5 +191,5 @@ picoCTF{f0ll0w_th3_m4p_t0_g3t_th3_fl4g}
 Flag: `picoCTF{f0ll0w_th3_m4p_t0_g3t_th3_fl4g}`
 
 ## Reference
-[^seccomp-tools-note]:[Simple PWN - 0x010(seccomp/Lab - rop2win)](https://hackmd.io/@SBK6401/H1NX6Bloj)
+[^seccomp-tools-note]:[Simple PWN - 0x010(seccomp/Lab - rop2win)]({{base.url}}/Simple-PWN-0x10(seccomp-&-Lab-rop2win)/)
 [^online-tool-assemble]:[Online x86 / x64 Assembler and Disassembler](https://defuse.ca/online-x86-assembler.htm)

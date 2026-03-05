@@ -10,8 +10,8 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-* [Simple PWN - 0x09(stack pivoting)](https://hackmd.io/@SBK6401/rylybxgji)
-* [Simple PWN - 0x10(seccomp/Lab - rop2win)](https://hackmd.io/@SBK6401/H1NX6Bloj)
+* [Simple PWN - 0x09(stack pivoting)]({{base.url}}/Simple-PWN-0x09(stack-pivoting)/)
+* [Simple PWN - 0x10(seccomp/Lab - rop2win)]({{base.url}}/Simple-PWN-0x10(seccomp-&-Lab-rop2win)/)
 
 ## Source code
 ```cpp
