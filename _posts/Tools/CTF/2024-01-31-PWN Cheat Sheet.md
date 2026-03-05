@@ -34,6 +34,8 @@ date: 2024-01-31
         ```
     * [Exploit DB - Shell Code](https://www.exploit-db.com/shellcodes)：如果要寫shell code的話可以直接看exploit db上別人寫好的gadget，複製起來就可以用了，不過有時候也有可能會失敗，在確認其他東西都是正確的情況下，可以試看看別的，記得平台要選對
     * [ROPgadget](https://github.com/JonathanSalwan/ROPgadget)
+
+        就是
         ```bash
         $ sudo apt install python3-pip
         $ sudo -H python3 -m pip install ROPgadget
@@ -47,6 +49,16 @@ date: 2024-01-31
         
         # 取得特定string的gadget
         $ ROPgadget --binary {executed file} --string "/bin/sh"
+        ```
+
+        最基本: BOF + ROP gadget開shell → `sys_execve("/bin/sh", NULL, NULL)`
+        ```asm
+        BOF
+        rdi = &"/bin/sh"
+        rsi = 0
+        rdx = 0
+        rax = 0x3b
+        syscall
         ```
     * [one_gadget](https://github.com/david942j/one_gadget)
         
@@ -64,7 +76,11 @@ date: 2024-01-31
         ```
     * 找glibc版本的online tool
         * [libc-database search API Search](https://libc.rip/)
-        * [libc database search](https://libc.blukat.me/?q=__libc_start_main_ret)
+            * [libc database search](https://libc.blukat.me/?q=__libc_start_main_ret)
+    * objdump
+        ```bash
+        $ objdump -M intel -d $binary | less
+        ```
 
 ### gdb
 常用語法([cheat](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf))
@@ -194,14 +210,9 @@ date: 2024-01-31
 * shellcraft
     pwntools中內建的一些assembly shell code
 
-### Other
-* objdump
-    ```bash
-    $ objdump -M intel -d $binary | less
-    ```
 ### 如何寫shellcode
 * 如果要寫shell code的話可以直接看exploit db上別人寫好的gadget，複製起來就可以用了，不過有時候也有可能會失敗，在確認其他東西都是正確的情況下，可以試看看別的，記得平台要選對
-    [Exploit DB - Shell Code](https://www.exploit-db.com/shellcodes)
+    * [Exploit DB - Shell Code](https://www.exploit-db.com/shellcodes)
 * [Linux System Call Table](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit)
 * [Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
 
@@ -413,7 +424,7 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 ### GOT Series
 紀錄 Library 裡面 function 的實際 Address ，在該 function 都沒被 call 過時，會是 存一個位於 plt 段的 Address 可以利用 GOT 來 leak libc 的 base
 * GOT hijacking: 必須要是No RELRO or Partial RELRO才能使用這個技巧
-* Ret2plt - 控制執⾏流程到 function@plt，也代表執⾏該 function (以 functionA 代稱)，詳細可以看[Simple-PWN-0x34-(2023-Lab-ret2plt)]({{base.url}}/Simple-PWN-0x34-(2023-Lab-ret2plt)/)
+* Ret2plt - 控制執⾏流程到 `function@plt`，也代表執⾏該 function (以 functionA 代稱)，詳細可以看[Simple-PWN-0x34-(2023-Lab-ret2plt)]({{base.url}}/Simple-PWN-0x34-(2023-Lab-ret2plt)/)
 * Leak libc - functionA 在被解析後，GOT 會存放 functionA 的絕對位址，因此如果可以讀取 GOT，就能得到位於 library 當中的 address
     * FunctionA 的絕對位址減去他在 library 當中的 offset，能得到 library base address，繞過 ASLR
 * Ret2libc - 有了 library base address，也能加上其他 function 的 offset 來取得該

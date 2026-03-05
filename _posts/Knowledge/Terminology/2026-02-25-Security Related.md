@@ -608,3 +608,7 @@ int main() {
     gets(str);
 }
 ```
+
+#### ROP(Return Oriented Programming)
+就是一大堆在 text segment 的 code 片段，結尾都是`ret` instruction，前面可能會有一些`pop rsp`, `pop rbp`, `jmp`之類的指令，這個好處是可以透過這個feature，達到好幾個不同的攻擊手法
+* 用 ROP call mmap 拿到一塊 rwx 的 memory 繞過 NX 保護
