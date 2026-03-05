@@ -14,14 +14,15 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
 
 ## Lab Time - 環境調查
 
-### ==查詢本地使用者==
+### 查詢本地使用者
 常用的cheat sheet
-```bash!
+```bash
 $ net user
 $ net user <username>
 ```
-:::spoiler Implementation
-```bash!
+
+Implementation
+```bash
 $ net user
 
 \\DESKTOP-G95U93T 的使用者帳戶
@@ -57,7 +58,6 @@ $ net user administrator
 全域群組會員           *None
 命令已經成功完成。
 ```
-:::
 
 要注意的地方是：
 1. 帳戶是否使用中 - 

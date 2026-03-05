@@ -55,13 +55,18 @@ date: 2022-12-28
 
 ### Background
 * What is methylation?
-DNA methylation alters activities of DNA segments without changing the sequence, which thus yields a wide variety of roles in the cellular processes across organisms or tissues. In addition, the DNA methylation appears essential for normal development.
+
+    DNA methylation alters activities of DNA segments without changing the sequence, which thus yields a wide variety of roles in the cellular processes across organisms or tissues. In addition, the DNA methylation appears essential for normal development.
 * What is 6mA?
-The 6mA refers to a biological process where the methyl group is attached to the 6-th nitrogen atom of adenine by the enzyme of DNA methyltransferase. The 6mA is a type of non-canonical DNA modification because it might occur in other nucleotide molecules including mRNA, tRNA, rRNA, small nuclear RNA (snRNA) as well as long non coding RNA
+    
+    The 6mA refers to a biological process where the methyl group is attached to the 6-th nitrogen atom of adenine by the enzyme of DNA methyltransferase. The 6mA is a type of non-canonical DNA modification because it might occur in other nucleotide molecules including mRNA, tRNA, rRNA, small nuclear RNA (snRNA) as well as long non coding RNA
 * Why is it important?
-A large volume of evidence suggested that the DNA 6mA would play vital roles in many key biological processes.
-The DNA 6mA participated in regulation of gene expression both in prokaryotes and in some eukaryotes, and was responsible for DNA repair as well as DNA replication.
-The 6mA distinguished invading foreign DNAs from host DNA in prokaryotes, was closely associated with many disease including tumor in human genome, and was involved in regulation of drug resistance in triple negative breast cancer
+    
+    A large volume of evidence suggested that the DNA 6mA would play vital roles in many key biological processes.
+    
+    The DNA 6mA participated in regulation of gene expression both in prokaryotes and in some eukaryotes, and was responsible for DNA repair as well as DNA replication.
+    
+    The 6mA distinguished invading foreign DNAs from host DNA in prokaryotes, was closely associated with many disease including tumor in human genome, and was involved in regulation of drug resistance in triple negative breast cancer
 
 ### My Opinions
 For this paper, my perspective is this is a little bit trivial to solve the problem. For simplicity speaking, they just change the stacking model structure to a sequence structure. In addition, the result of this paper is exaggerating.
@@ -74,19 +79,21 @@ For this paper, my perspective is this is a little bit trivial to solve the prob
 
     ![](https://imgur.com/vccb3m0.png)
 * The result below is for `6mA-rice-chen` dataset. Compared with `Deep6mA`, `Deep6mAPred` increased $Sn$ by 0.1572, ACC by 0.0750, MCC by 0.1436, and AUC of ROC curve by 0.0237, completely superior to the other two methods. The $Sp$ of `Deep6mAPred` is slightly lower than that of `Deep6mA`, but much higher than that of the other two methods.
-![](https://imgur.com/ixsSXSK.png)
-This result is quite distinguished that can show how special their model is under this another rice data.
+    ![](https://imgur.com/ixsSXSK.png)
+    This result is quite distinguished that can show how special their model is under this another rice data.
 * This is ROC curves and PR curves result on `6mA-Fuse-R`(Rosa chinensis) and `6mA-Fuse-F`(Fragaria vesca, a kind of wild strawberry) respectively. In order to show how robust on their model, they try to test different species such as rose and wild strawberry without training, and the result is quite significant that almost similar to rice data.
-![](https://imgur.com/eODMhQm.png)
+    ![](https://imgur.com/eODMhQm.png)
 * This is a self-created table that I wanna show the AUC of two curves with different species. 
-The original context said:
+    
+    The original context said:
     > As for the 6mA-Fuse-R, the `Deep6mAPred` outperformed three baseline methods in terms of the AUCs of ROC curves, while in terms of the AUCs of the PR curves it was equivalent to the `Deep6mA` but superior to the `SNNRice6mA-large` and `MM-6mAPred` a bit
     
     Follow the description above, we can know that the result of `6mA-Fuse-R` is better than three baseline methods but without any table or figure to prove that and this is not rigourous enough for this information.
     ![](https://imgur.com/UVaJ7sL.png)
 * They also do some ablation experiment to prove that the attention mechanism they choose is quite valid and useful in this project.
-We can see that in each experiment of different species, with attention mechanism is generally better than the experiment that without attention.
-![](https://imgur.com/3Sj3Tfz.png)
+    
+    We can see that in each experiment of different species, with attention mechanism is generally better than the experiment that without attention.
+    ![](https://imgur.com/3Sj3Tfz.png)
 
 ### Other Issue
 * Why can wild rose and rice use the same architecture or we can ask how to process input data so that they can be applicable at the same model structure.
@@ -100,11 +107,7 @@ We can see that in each experiment of different species, with attention mechanis
 * In addition, they developed a user-friendly webserver to automatically detect 6mA sites
 * Deep6mAPred can also detect other plants
 
-### References
-
-
 ## Ensemble Learning of Convolutional Neural Network, Support Vector Machine, and Best Linear Unbiased Predictor for Brain Age Prediction: ARAMIS Contribution to the Predictive Analytics Competition 2019 Challenge
-
 ### Introduction & Motivation
 * Chronological age is an important risk factor for many conditions such as neurological disorders (e.g., Alzheimer’s and Parkinson’s), chronic (including cardiovascular) disorders, cancer, or stroke, to name a few.
 * However, it is an imperfect predictor of disease risk or of healthy individuals’ functional capability
@@ -112,18 +115,18 @@ We can see that in each experiment of different species, with attention mechanis
 * However, chronological age cannot explain everything, brain age correlates with disease, mortality, and function beyond what chronological age can explain
 
 ### Related works
-[2]Cole J, Marioni RE, Harris SE, Deary IJ. Brain age and other bodily “ages”: implications for neuropsychiatry. Mol Psychiatr. (2019) 24:266–81. doi: 10.1038/s41380-018-0098-1 
-[3]Horvath S, Raj K. DNA methylation-based biomarkers and the epigenetic clock theory of ageing. Nat Rev Genet. (2018) 19:371–84. doi: 10.1038/s41576-018-0004-3 
-[4]Sajedi H, Pardakhti N. Age prediction based on brain MRI image: a survey. J Med Syst. (2019) 43:279. doi: 10.1007/s10916-019-1401-7 
-[5]Baker GT, Sprott RL. Biomarkers of aging. Exp Gerontol. (1988) 23:223–39. doi: 10.1016/0531-5565(88)90025-3 
-[6]Cole J, Ritchie SJ, Bastin ME, Valdés Hernández MC, Muñoz Maniega S, Royle N, et al. Brain age predicts mortality. Mol Psychiatr. (2018) 23:1385–92. doi: 10.1038/mp.2017.62
-[8]Franke K, Gaser C. Longitudinal changes in individual brainAGE in healthy aging, mild cognitive impairment, alzheimer’s disease. GeroPsych. (2012) 25:235–45. doi: 10.1024/1662-9647/a000074
-[9]Gaser C, Franke K, Klöppel S, Koutsouleris N, Sauer H. BrainAGE in mild cognitive impaired patients: predicting the conversion to alzheimer’s disease. PLoS ONE. (2013) 8:67346. doi: 10.1371/journal.pone.0067346 
-[10]Wang J, Knol MJ, Tiulpin A, Dubost F, Bruijne M, de, et al. Gray matter age prediction as a biomarker for risk of dementia. Proc Natl Acad Sci USA. (2019) 116:21213–8. doi: 10.1073/pnas.1902376116 
-[11]Koutsouleris N, Davatzikos C, Borgwardt S, Gaser C, Bottlender R, Frodl T, et al. Accelerated brain aging in schizophrenia and beyond: a neuroanatomical marker of psychiatric disorders. Schizophrenia Bull. (2014) 40:1140–53. doi: 10.1093/schbul/sbt142
-[12]Guggenmos M, Schmack K, Sekutowicz M, Garbusow M, Sebold M, Sommer C, et al. Quantitative neurobiological evidence for accelerated brain aging in alcohol dependence. Transl Psychiatr. (2017) 7:1279. doi: 10.1038/s41398-017-0037-y
-[13]Liem F, Varoquaux G, Kynast J, Beyer F, Kharabian Masouleh S, Huntenburg JM, et al. Predicting brain-age from multimodal imaging data captures cognitive impairment. NeuroImage. (2017) 148:179–88. doi: 10.1016/j.neuroimage.2016.11.005
-[14]Beheshti I, Maikusa N, Matsuda H. The association between “Brain- Age Score” (BAS) and traditional neuropsychological screening tools in Alzheimer’s disease. Brain Behav. (2018) 8:e01020. doi: 10.1002/brb3.1020
+* [2]Cole J, Marioni RE, Harris SE, Deary IJ. Brain age and other bodily “ages”: implications for neuropsychiatry. Mol Psychiatr. (2019) 24:266–81. doi: 10.1038/s41380-018-0098-1 
+* [3]Horvath S, Raj K. DNA methylation-based biomarkers and the epigenetic clock theory of ageing. Nat Rev Genet. (2018) 19:371–84. doi: 10.1038/s41576-018-0004-3 
+* [4]Sajedi H, Pardakhti N. Age prediction based on brain MRI image: a survey. J Med Syst. (2019) 43:279. doi: 10.1007/s10916-019-1401-7 
+* [5]Baker GT, Sprott RL. Biomarkers of aging. Exp Gerontol. (1988) 23:223–39. doi: 10.1016/0531-5565(88)90025-3 
+* [6]Cole J, Ritchie SJ, Bastin ME, Valdés Hernández MC, Muñoz Maniega S, Royle N, et al. Brain age predicts mortality. Mol Psychiatr. (2018) 23:1385–92. doi: 10.1038/mp.2017.62
+* [8]Franke K, Gaser C. Longitudinal changes in individual brainAGE in healthy aging, mild cognitive impairment, alzheimer’s disease. GeroPsych. (2012) 25:235–45. doi: 10.1024/1662-9647/a000074
+* [9]Gaser C, Franke K, Klöppel S, Koutsouleris N, Sauer H. BrainAGE in mild cognitive impaired patients: predicting the conversion to alzheimer’s disease. PLoS ONE. (2013) 8:67346. doi: 10.1371/journal.pone.0067346 
+* [10]Wang J, Knol MJ, Tiulpin A, Dubost F, Bruijne M, de, et al. Gray matter age prediction as a biomarker for risk of dementia. Proc Natl Acad Sci USA. (2019) 116:21213–8. doi: 10.1073/pnas.1902376116 
+* [11]Koutsouleris N, Davatzikos C, Borgwardt S, Gaser C, Bottlender R, Frodl T, et al. Accelerated brain aging in schizophrenia and beyond: a neuroanatomical marker of psychiatric disorders. Schizophrenia Bull. (2014) 40:1140–53. doi: 10.1093/schbul/sbt142
+* [12]Guggenmos M, Schmack K, Sekutowicz M, Garbusow M, Sebold M, Sommer C, et al. Quantitative neurobiological evidence for accelerated brain aging in alcohol dependence. Transl Psychiatr. (2017) 7:1279. doi: 10.1038/s41398-017-0037-y
+* [13]Liem F, Varoquaux G, Kynast J, Beyer F, Kharabian Masouleh S, Huntenburg JM, et al. Predicting brain-age from multimodal imaging data captures cognitive impairment. NeuroImage. (2017) 148:179–88. doi: 10.1016/j.neuroimage.2016.11.005
+* [14]Beheshti I, Maikusa N, Matsuda H. The association between “Brain- Age Score” (BAS) and traditional neuropsychological screening tools in Alzheimer’s disease. Brain Behav. (2018) 8:e01020. doi: 10.1002/brb3.1020
 
 ### Background
 * Latest research focus on telomere length, methylation site, brain structure, and function[2-6]
@@ -158,18 +161,13 @@ We did not observe significant associations of prediction errors with gender or 
 * They didn't explain why they used two `6-Layers CNN` to combine and the effect in detailed.
 * They also didn't explain the gray/white matter map difference and the properties of these maps in detailed.
 
-
 ### Conclusion
 * Proposed an ensemble learning algorithm of 7 different age predictions from T1w MRI images 
 * Ranked third in PAC2019
 * Ranking of prediction accuracy may be highly dependent on the metric chosen as well as on the test data
 * Evaluated the effect on performance of algorithm choice, ensemble learning methods, feature input/data processing, number and type of scores in ensemble learning, and covariates such as age, sex, and site
 
-### References
-
-
 ## Machine learning workflows to estimate class probabilities for precision cancer diagnostics on DNA methylation microarray data
-
 ### Introduction & Motivation
 * DNA methylation data-based precision cancer diagnostics
 * Application for class probability (CP): Stratified Medicine
@@ -187,19 +185,19 @@ We did not observe significant associations of prediction errors with gender or 
 
 ### Related works
 * High multiclass & unbalanced classification problem
-    [7]Baek, S., Tsai, C.-A. & Chen, J. J. Development of biomarker classifiers from high-dimensional data. Brief.Bioinform. 10, 537–546 (2009).
-    [8]Dupuy, A. & Simon, R. M. Critical review of published microarray studies for cancer outcome andguidelines on statistical analysis and reporting. J. Natl Cancer Inst. 99,147–157 (2007).
-    [9]. Hastie, T., Tibshirani, R. & Friedman, J. The Elements of Statistical Learning: Data Mining, Inference andPrediction 2nd edn (Springer, New York, NY, 2009).
-    [10]. Lee, J. W., Lee, J. B., Park, M. & Song, S. H. An extensive comparison of recent classification tools applied tomicroarray data. Comput. Stat. Data Anal. 48, 869–885 (2005).
-    [11]. Simon, R. Roadmap for developing and validating therapeutically relevant genomic classifiers. J. Clin. Oncol.23, 7332–7341 (2005).
+    * [7]Baek, S., Tsai, C.-A. & Chen, J. J. Development of biomarker classifiers from high-dimensional data. Brief.Bioinform. 10, 537–546 (2009).
+    * [8]Dupuy, A. & Simon, R. M. Critical review of published microarray studies for cancer outcome andguidelines on statistical analysis and reporting. J. Natl Cancer Inst. 99,147–157 (2007).
+    * [9]. Hastie, T., Tibshirani, R. & Friedman, J. The Elements of Statistical Learning: Data Mining, Inference andPrediction 2nd edn (Springer, New York, NY, 2009).
+    * [10]. Lee, J. W., Lee, J. B., Park, M. & Song, S. H. An extensive comparison of recent classification tools applied tomicroarray data. Comput. Stat. Data Anal. 48, 869–885 (2005).
+    * [11]. Simon, R. Roadmap for developing and validating therapeutically relevant genomic classifiers. J. Clin. Oncol.23, 7332–7341 (2005).
 * DNA methylation application
-    [1]. Capper, D. et al. DNA methylation-based classification of central nervous system tumours. Nature 555,469–474 (2018).
-    [4]. Rodríguez-Paredes, M. & Esteller, M. Cancer epigenetics reaches mainstream oncology. Nat. Med. 17,330–339 (2011).
-    [13]. Fernandez, A. F. et al. A DNA methylation fingerprint of 1628 human samples. Genome Res. 22, 407–419 (2012).
-    [14]. Wiestler, B. et al. Assessing CpG island methylator phenotype, 1p/19q codeletion, and MGMT promotermethylation from epigenome-wide data in the biomarker cohort of the NOA-04 trial. Neuro Oncol. 16,1630–1638 (2014).
+    * [1]. Capper, D. et al. DNA methylation-based classification of central nervous system tumours. Nature 555,469–474 (2018).
+    * [4]. Rodríguez-Paredes, M. & Esteller, M. Cancer epigenetics reaches mainstream oncology. Nat. Med. 17,330–339 (2011).
+    * [13]. Fernandez, A. F. et al. A DNA methylation fingerprint of 1628 human samples. Genome Res. 22, 407–419 (2012).
+    * [14]. Wiestler, B. et al. Assessing CpG island methylator phenotype, 1p/19q codeletion, and MGMT promotermethylation from epigenome-wide data in the biomarker cohort of the NOA-04 trial. Neuro Oncol. 16,1630–1638 (2014).
 * The number of features (p) vastly outnumbers the sample size (n)
-    [9]. Hastie, T., Tibshirani, R. & Friedman, J. The Elements of Statistical Learning: Data Mining, Inference and Prediction 2nd edn (Springer, New York, NY, 2009).
-    [20]. Simon, R. Class probability estimation for medical studies. Biom. J. 56, 597–600 (2014).
+    * [9]. Hastie, T., Tibshirani, R. & Friedman, J. The Elements of Statistical Learning: Data Mining, Inference and Prediction 2nd edn (Springer, New York, NY, 2009).
+    * [20]. Simon, R. Class probability estimation for medical studies. Biom. J. 56, 597–600 (2014).
 
 ### Background
 * The problem of stratified medicine
@@ -239,11 +237,7 @@ This paper is just like a `Readme` file that wanna teach someone how to use thei
 
     ![](https://imgur.com/XXdGN2p.png)
 
-### Other Issue
-
 ### Conclusion
 * We performed extensive comparative analyses of four well-established classifier algorithms including RF, `ELNET`, `SVM` and boosted ensemble trees in combination with `Platt scaling` and `multinomial ridge regression`
 * The best overall two-stage workflow was MR-calibrated `SVM-LK`, and it generated the best overall BS, LL and AUC metrics.
 * For calibration, `multinomial ridge-penalized regression` was the most effective regardless of the primary classifier
-
-### References

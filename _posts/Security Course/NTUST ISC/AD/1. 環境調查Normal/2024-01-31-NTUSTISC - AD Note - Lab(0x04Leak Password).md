@@ -14,11 +14,12 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
 
 ## Lab Time - 環境調查
 
-### ==Lab - Leak Password from Description==
-在Win2016的server manager當中，可以從`Dashboard/Tools/Active Directory Users and Computers`中看到整個網域使用者的部分資料，例如Name, Type和Description，而這個東西其實是所有整個網域使用者都看地到，所以==不可以把機敏資料寫在這裡例如帳密之類的==，就像下面截圖一樣，`Fara Iseabal`和`Lina Allene`的密碼都被leak出去了
+### Lab - Leak Password from Description
+在Win2016的server manager當中，可以從`Dashboard/Tools/Active Directory Users and Computers`中看到整個網域使用者的部分資料，例如Name, Type和Description，而這個東西其實是所有整個網域使用者都看地到，所以**不可以把機敏資料寫在這裡例如帳密之類的**，就像下面截圖一樣，`Fara Iseabal`和`Lina Allene`的密碼都被leak出去了
 ![](https://hackmd.io/_uploads/HktYdvUTh.png)
 當然，有加入網域的帳號也看的到，從Win10的網域帳號bear中，打開PowerShell
-:::spoiler Result
+
+
 ```bash
 $ Get-ADUser -Filter * -Proper Description | Select-object Name,Description
 
@@ -130,8 +131,6 @@ Babb Joanne
 Andree Suki
 Bear Brown
 ```
-:::
-帳密一、Lina Allene$\to$`r2NE4/9:F;[k`
-帳密二、Fara Iseabal$\to$`8F%kJ2q_cVFg`
 
----
+* 帳密一、Lina Allene$\to$`r2NE4/9:F;[k`
+* 帳密二、Fara Iseabal$\to$`8F%kJ2q_cVFg`

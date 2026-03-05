@@ -37,6 +37,7 @@ We know that legacy deployment of IPv6 has leaked device identities problem. Thu
 
 ## Strength(s) of the paper
 They provide a tool that can view the prefixes assigned to them by their ISP and whether they are rotated on the IPv6-enabled devices that use legacy configurations of the standard. Also, they provided their tool's user-friendly user interface that allows users to easily scan and see devices.
+
 Moreover, this paper is aimed to encourage more users to understand the issue of IPv6 privacy so they can drive the efforts to develop a more privacy-preserving IPv6 ecosystem, therefore, promotion is more important than the substance itself. I think this is a good chance for a normal user to be aware of this issue.
 
 ## Weakness(es) of the paper
@@ -44,4 +45,5 @@ My perspective is the novelty of this paper's contribution is not very state-of-
 
 ## Your own reflection
 Their starting point is they want more people to know what some issues or threats about IPv6 that more people used in recent years. Therefore, they provided a tool with a user-friendly UI that can let the user easily detect everything that they should pay attention to. However, if I were the author, I'll use a more approachable perspective or friendly terminology to tell my user what's going on with this issue and what the challenges we face are so that they can attempt to understand this important issue.
+
 In addition, as the author said in the future work section, they tried to let these tools not just work locally and they'll try to use network traffic analysis to analyze more impact, however, some important info they store has some privacy problems. This is another issue they have to consider.

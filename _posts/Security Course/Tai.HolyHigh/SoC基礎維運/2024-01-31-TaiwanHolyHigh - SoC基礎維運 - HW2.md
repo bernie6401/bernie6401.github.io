@@ -28,17 +28,20 @@ date: 2024-01-31
 
 ## Recon - Event Log呈現的攻擊順序
 1. Event ID: 8 → CreateRemoteThread
+    
     首先看到23/12/17 15:1024的時候，由==NT AUTHORITY\SYSTEM==發起的新的thread，從原本的Process(ID: 820)幫另外一個Process(ID: 7464)建立，誠如MSDN上的說明這應該是惡意程式為了不要被砍掉
     ![圖片](https://hackmd.io/_uploads/rJjOTA-wa.png)
     比較經典的案例是類似NTU CS助教 - @Ice1187 在Window Malware講到的[reflective dll injection](https://attack.mitre.org/techniques/T1055/001/)，也就是Mitre紀載的==T1055.001==，其本質上就是利用CreateRemoteThread在一個正常的process開一個thread，然後做一些惡意的事情，這樣的話defender也不會把它砍掉，因為從外部看，就只是一個正常的process
     ![圖片](https://hackmd.io/_uploads/Hy9wgyfPp.png)
 2. Kernel開Thread
+    
     接著為了成功開一個thread，就需要kernel base的dll做一些事情，包含:
     ```
     C:\Windows\SysWOW64\DllHost.exe" /Processid:{776DBC8D-7347-478C-8D71-791E12EF49D8}
     consent.exe 6504 376 000001EC1C876D30
     ```
 3. 啟動惡意script
+    
     從以下資訊可以知道該惡意script(auto-attack.bat)是由cmd執行起來的，另外執行這一串command的是explorer.exe代表他可能是執行在檔案總管執行或是在桌面執行
     ```
     ParentProcessId 3176 
@@ -49,6 +52,7 @@ date: 2024-01-31
     ProcessId 7544 
     ```
 4. 選擇YN
+    
     從以下資訊可以知道choice.exe是由auto-attack.bat執行起來的，看了[MSDN](https://learn.microsoft.com/zh-tw/windows-server/administration/windows-commands/choice)的說明，知道其會有一個時間限制以及要選擇的提示
     ```
     ParentProcessId 7544 
@@ -59,6 +63,7 @@ date: 2024-01-31
     CommandLine choice /c YN
     ```
 5. PowerShell - Get lsass.dmp
+    
     這條command就好玩了，接著auto-attack.bat又接續執行powershell，並且執行command如下，這一條command一開始看不太懂，隨便搜尋發現是一個經典的payload，主要是參考@3gstudent的文章[《MiniDumpWriteDump via COM+ Services DLL》的利用測試](https://3gstudent.github.io/MiniDumpWriteDump-via-COM+-Services-DLL-%E7%9A%84%E5%88%A9%E7%94%A8%E6%B5%8B%E8%AF%95)，一般來說我們都會想辦法用procdump之類的工具把lsass或是SYSTEM dump出來，但其實也可以用其他internal dll呼叫MiniDump的方式，把東西拿到手，範例的話可以參考[comsvcs MiniDump examples](https://gist.github.com/JohnLaTwC/3e7dd4cd8520467df179e93fb44a434e)
     > "C:\Windows\System32\rundll32.exe"  C:\Windows\System32\comsvcs.dll MiniDump \<PID> \Windows\Temp\<filename>.dmp full
     
@@ -89,6 +94,7 @@ date: 2024-01-31
     User W10C\Admin 
     ```
 7. Timeout
+    
     從以下紀錄得知auto-attack.bat又繼續搞事，看了[MSDN](https://learn.microsoft.com/zh-tw/windows-server/administration/windows-commands/timeout)的說明，有點類似sleep的功能，雖然不知道加這行要幹嘛?
     ```
     ParentProcessId 7544 
@@ -100,6 +106,7 @@ date: 2024-01-31
     CommandLine TIMEOUT /T 3 
     ```
 8. FileCreate - notepad.exe
+    
     這個我猜是直接embedded在auto-attack.bat裡面的一段notepad的bytecode，以防受害電腦沒有notepad.exe就可以直接創一個(?)不是很確定
     ```
     Image C:\Windows\System32\cmd.exe 
@@ -108,6 +115,7 @@ date: 2024-01-31
     User W10C\Admin 
     ```
 9. Real Attack Payload
+    
     原本的payload很明顯就是base64的encode，不過實際解過發現參雜很多trash byte，如果把這些東西都拿掉就會很明朗，這也是一個常見的技巧，就是為了不要讓defender或是其他防毒知道payload pattern被已知database match出來，所以做了一些scramble，視情況有時候這種scramble的題目真的很討厭，不管是[BalsnCTF 2023 - Kill-4]({{base.url}}/BalsnCTF-2023#Kill-4)或[PicoCTF - Some Assembly Required 3]({{base.url}}/PicoCTF-Some-Assembly-Required-3/)都沒有解出來
     ```python
     >>> from base64 import *
@@ -121,6 +129,7 @@ date: 2024-01-31
     其實後來仔細找找就會發現[redcanary的文章](https://redcanary.com/threat-detection-report/techniques/powershell/)中就有提到這一個obfuscated，就如同上面寫的，他就是`Invoke-Expression "Write-Host 'Hello, from PowerShell!'"`，如果實際丟到powershell的話就會在console印出`Hello, from PowerShell!`的字樣
 
 10. Schtasks.exe
+    
     這個也是惡意軟體常見的操作，為了要避免重開機或是斷網等駭客不想看到的風險，會利用registry或是排程工具做到定期實質的操作，由下面的紀錄可以知道有是auto-attack.bat發起的process
     ```
     ParentProcessId 7544 
@@ -140,6 +149,7 @@ date: 2024-01-31
     User NT AUTHORITY\SYSTEM 
     ```
 11. Timeout → Query Task → Delete Task
+    
     從以下操作可以知道攻擊者應該只是想要知道這個功能有沒有辦法操作在victim中
     ```
     ParentProcessId 7544 
@@ -157,6 +167,7 @@ date: 2024-01-31
     CommandLine schtasks /Delete /TN CMDTestTask /F 
     ```
 12. Mavinject
+    
     這個攻擊手法也是很有趣，詳細可以看[Mitre的記錄-T1218-013](https://attack.mitre.org/techniques/T1218/013/)
     > 攻擊者可能會濫用mavinject.exe 來代理惡意程式碼的執行。Mavinject.exe 是Microsoft 應用程式虛擬化注入器，它是一種Windows 實用程序，可以作為Microsoft 應用程式虛擬化(App-V) 的一部分將程式碼注入到外部進程中。
     > 攻擊者可能會濫用 mavinject.exe 將惡意 DLL 注入正在運行的進程（即動態連結程式庫注入），從而允許執行任意程式碼（例如 `C:\Windows\system32\mavinject.exe PID /INJECTRUNNING PATH_DLL`）。 由於 mavinject.exe 可能經過 Microsoft 數位簽名，因此透過此方法代理執行可能會逃避安全性產品的偵測，因為執行被隱藏在合法進程下。
@@ -182,6 +193,7 @@ date: 2024-01-31
     ```
     所以下一個log就實際執行上一個command
 13. Timeout → Powershell Hello Payload → Timeout → CMD Hello Payload → Timeout
+    
     接著auto-attack.bat又執行powershell的下列command:
     ```
     ParentProcessId 7544 
@@ -211,6 +223,7 @@ date: 2024-01-31
     CommandLine: cmd  /c echo Hello, from CMD!  
     ```
 14. Open Notepad.exe → Timeout 
+    
     這一段payload就只是在啟動Notepad.exe這個application而已
     ```
     ParentProcessId: 7544
@@ -221,6 +234,7 @@ date: 2024-01-31
     CommandLine: rundll32.exe  pcwutl.dll,LaunchApplication C:\Windows\System32\notepad.exe
     ```
 15. Open Service Control Manager → Timeout → Query Registry → Delete Registry
+    
     根據[MSDN](https://learn.microsoft.com/zh-tw/windows-server/administration/windows-commands/sc-create)的說明，==sc.exe==是一個在資料庫中建立服務的子機碼和專案的工具，而記錄如下:
     ```
     ParentProcessId: 7544

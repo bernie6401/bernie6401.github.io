@@ -9,16 +9,13 @@ date: 2022-11-20
 # NTU Operating System Project 2
 <!-- more -->
 ###### tags: `NTU_OS` `Operating System` `NachOS` `CPU Scheduling` `System Call`
-[TOC]
 
 ## Motivation
 * For the first task, We'd like to add sleep() function in system call that can help us call sleep in our program.
 * For the second task, we'd like to implement CPU scheduling by FIFO(First-In-First-Out), SJF(Shortest-Job-First), Priority, RR(Round-Robin), and multi-level queue.
 
 ## Implementation
-
 ### Task1 - System Call
-
 1. First of all, we need to define a new token, SC_Sleep,  that compiler(scanner) can recognize in `code/userprog/syscall.h`.
 2. So, we have to assign a number to SC_Sleep that it can return the value.
 
@@ -170,7 +167,6 @@ date: 2022-11-20
 
    
 ### Task2 - CPU Scheduling
-
 #### Testing
 1. **_threads/thread.cc_** - create a test case
 
@@ -555,19 +551,18 @@ I create another test case named Sleep3.c and aim to test the sleep time **10 ti
 
 * Task 2 Result
     * Result of real multi thread testing
-    ![result of real multi thread testing](https://imgur.com/tqovjLx.png)
+        ![result of real multi thread testing](https://imgur.com/tqovjLx.png)
     * Result of FCFS
-    ![result of FCFS](https://imgur.com/gncST5x.png)
+        ![result of FCFS](https://imgur.com/gncST5x.png)
     * Result of RR
-    ![result of RR](https://imgur.com/yIi317H.png)
+        ![result of RR](https://imgur.com/yIi317H.png)
     * Result of SJF
-    ![result of SJF](https://imgur.com/BMgDkp2.png)
+        ![result of SJF](https://imgur.com/BMgDkp2.png)
     * Result of priority
-    ![result of priority](https://imgur.com/KfFpOP3.png)
+        ![result of priority](https://imgur.com/KfFpOP3.png)
 
 
 ## Reference
-
 * [OS-NachOS-HW1](http://blog.terrynini.tw/tw/OS-NachOS-HW1/)
 * [向 NachOS 4.0 作業進發 (2)](https://morris821028.github.io/2014/05/30/lesson/hw-nachos4-2/)
 * [OS 2020 HW2 Nachos Report](https://hackmd.io/@Z_yUjsyqRzaD5rSUQ6JOVw/S1hiIHr5D)

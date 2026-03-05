@@ -9,10 +9,6 @@ date: 2023-01-16
 # NTU Machine Learning Homework 2
 <!-- more -->
 ###### tags: `NTU_ML` `Machine Learning`
-:::spoiler Click to open TOC
-[TOC]
-:::
-
 ## Objective
 We'd like to classify human-being emotion by using CNN model that self-construct or others ready-made such as ResNet or VGG model.
 
@@ -80,7 +76,7 @@ We used emotional dataset from [FER2013](https://www.kaggle.com/datasets/msambar
     ```
 
 * 4-Level New is similar to previous version but double the channel size and always increasing. Then the result is not bad.
-    ```python=
+    ```python
     self.conv_4layer = nn.Sequential(
         nn.Conv2d(1, n_chansl, kernel_size=3, padding=1),
         nn.BatchNorm2d(n_chansl, eps=1e-05, affine=True),

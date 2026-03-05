@@ -10,8 +10,7 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-
-### ==資安事件的流程==
+### 資安事件的流程
 ![](https://hackmd.io/_uploads/BkbVWYmz6.png)
 * Prepare
     * 建立Infra
@@ -72,7 +71,7 @@ date: 2024-01-31
             * Log
             * Recycle Bin
 
-### ==網路攻擊鍊(Cyber Kill Chain)==
+### 網路攻擊鍊(Cyber Kill Chain)
 詳細資料: [TeamT5 - Cyber Kill Chain](https://teamt5.org/tw/posts/what-is-cyber-kill-chain/)
 1. 偵查 Reconnaissance
 2. 武裝 Weaponization

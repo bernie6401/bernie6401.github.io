@@ -11,7 +11,6 @@ date: 2022-12-22
 ###### tags: `NTU_OS` `Operating System`
 
 ## Ch 6 Synchronization
-
 ### Process communication
 ![](https://imgur.com/zQM1oNq.png)
 
@@ -59,7 +58,6 @@ date: 2022-12-22
 Sender和receiver是透過shared mailbox建立溝通管道
 
 ## Ch 7 Deadlock
-
 ### 形成deadlock的必要條件
 * Mutual exclusion
     在任何時間點，此類型的資源最多只允許一個process使用，不可多個processes同時持有使用
@@ -88,7 +86,6 @@ process不能任意剝奪其他process正在持有的資源，給自己用，要
 * ignore deadlock
 
 ## Ch 8 Memory Management Strategies
-
 ### Contiguous Memory Management
 連續性配置: process必須占用一個連續的記憶體空間，OS用link-list的方式管理free memory block
 
@@ -102,7 +99,6 @@ process不能任意剝奪其他process正在持有的資源，給自己用，要
 找最大的那個hole
 
 ### External & Internal Fragmentation
-
 #### External Fragmentation
 * 在連續性的配置策略下，全部的hole size加總**大於**要放入的process，但是卻沒有一個hole能夠容納此process就是外部碎裂
 ![](https://imgur.com/yAzl5ty.png)

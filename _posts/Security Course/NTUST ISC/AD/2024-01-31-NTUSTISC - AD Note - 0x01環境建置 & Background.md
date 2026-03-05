@@ -18,14 +18,11 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
     > Windows Server 系統使用的目錄服務 就是 Active Directory
 * What is Active Directory(AD)?[^wiki-Active-Directory]
     > Windows的Windows Server中，負責架構中大型網路環境的集中式目錄管理服務(Directory Services)，他處理在組織中的網路物件，物件可以是<font color="FF0000">使用者、群組、電腦、網域控制站、郵件、設定檔、組織單元、樹系</font>等等，只要是在AD結構定義檔(Schema)中定義的物件，就可以儲存在AD資料檔中，並利用AD Service Interface來存取
-
 * What is Domain Service?[^fei-directory-service]
     > ![](https://i.imgur.com/k2ma2Nf.jpg)
     > 執行 AD DS 的伺服器稱為 domain controllers (DCs)
 * What is LDAP?[^aws-what-is-ldaps]
-    :::info
     > 輕量型目錄存取協定 (LDAP) 是用來從 Active Directory 讀取資料，及將資料寫入 Active Directory 的標準協定。某些應用程式使用 LDAP 新增、移除或搜尋 Active Directory 中的使用者和群組，或是傳輸登入資料來驗證 Active Directory 中的使用者。每個 LDAP 通訊都包括用戶端 (如應用程式) 和伺服器 (例如 Active Directory)。
-    :::
 * What is Organization Units(OU)?[^fei-organization-units]
     > 容區(Container)：屬性集合，跟物件不同是容器可以包含多個「物件」
     > 組織單位(Organization Units)：特殊容區，可包含其他物件、組織單位、群組原則
@@ -39,17 +36,17 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
 
 
 ## 環境建置
-:::info
 這一整個lab雖然是從講師的drive下載下來的(連結爛掉了，有需要可以跟我拿)，但還是可以從網路中自己創一個有這麼多漏洞的lab環境。可以先安裝win2016的虛擬機，然後到[WazeHell/vulnerable-AD](https://github.com/WazeHell/vulnerable-AD)下載script，在該環境中跑起來，就可以了，不果因為跑完之後的所有帳號或密碼都是隨機的，所以如果要看別人或是後續我寫的WP會有點困難
-:::
 
 ### 實驗環境拓樸
 ![](https://hackmd.io/_uploads/B14swTr62.png)
 
 ### 帳號密碼
 * Win10(Client)
-帳號：administrator
-密碼：1qaz@WSX3edc
+
+    帳號：administrator
+
+    密碼：1qaz@WSX3edc
     * 一般的網域帳號
     帳號：bear
     密碼：1qaz@WSX3edc
@@ -57,12 +54,12 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
     帳號：low
     密碼：<無>
 * Win2016(DC)
-帳號：administrator
-密碼：1qaz@WSX3edc
-* ==Note==
-    :::info
-    如果要指定本機端的帳戶進行登入，可以在帳號前面加入`.\`的符號或是直接寫主機名稱，強制用本地端的帳號登入，這個帳戶就是沒有加入AD domain底下
-    :::
+
+    帳號：administrator
+
+    密碼：1qaz@WSX3edc
+* Note: 如果要指定本機端的帳戶進行登入，可以在帳號前面加入`.\`的符號或是直接寫主機名稱，強制用本地端的帳號登入，這個帳戶就是沒有加入AD domain底下
+
 
 ### 詳細步驟
 1. 把講師提供的兩支VM(win10/win2016)灌起來並自行下載[kali2022](https://old.kali.org/kali-images/kali-2022.4/)，==建議用VMware==
@@ -83,7 +80,8 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
         ![](https://hackmd.io/_uploads/Syb-0BOa2.png)
     4. Activate Neo4j
         在neo4j的目錄中進到bin，然後打開cmd，輸入`$ neo4j.bat console`，理論上前面有做對，應該就會開啟Neo4j的服務
-        :::spoiler Activate Neo4j Log
+        
+        Activate Neo4j Log
         ```bash
         C:\tools\neo4j-community-4.3.4\bin>neo4j.bat console
         Directories in use:
@@ -110,7 +108,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
         2023-08-27 03:48:14.472+0000 INFO  Started.
         2023-08-27 03:51:44.289+0000 WARN  The client is unauthorized due to authentication failure.
         ```
-        :::
+        
         接著進到`http://localhost:7474/`，輸入預設帳密`neo4j/neo4j`，最後改密碼就好了
         ![](https://hackmd.io/_uploads/Syof1Uupn.png)
     5. Activate BloodHound
@@ -121,18 +119,19 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
     1. Check Win2016 IP - `192.168.183.129`
         ![](https://hackmd.io/_uploads/SJds2L8p3.png)
     2. 將Win10的DNS指向AD
-    主要目的就是把Win10網卡的DNS指向前面找到的Domain，在`設定/網路和網際網路/狀態/變更介面卡選項/乙太網路/內容/網際網路通訊協定第4版(TCP/IPV4)/內容`就可以找到更改的地方，然後把Win2016的IP填入
-    ![](https://hackmd.io/_uploads/SkcaAU8T2.png)
+        
+        主要目的就是把Win10網卡的DNS指向前面找到的Domain，在`設定/網路和網際網路/狀態/變更介面卡選項/乙太網路/內容/網際網路通訊協定第4版(TCP/IPV4)/內容`就可以找到更改的地方，然後把Win2016的IP填入
+        ![](https://hackmd.io/_uploads/SkcaAU8T2.png)
     3. 更改Win10網域
-    從`控制台/系統及安全性/系統/變更設定/變更`中更改網域成<font color="ff0000">`kuma.org`</font>，填入帳密按確定就可以了
-    ![](https://hackmd.io/_uploads/rkJPJD86n.png)
+
+        從`控制台/系統及安全性/系統/變更設定/變更`中更改網域成<font color="ff0000">`kuma.org`</font>，填入帳密按確定就可以了
+        ![](https://hackmd.io/_uploads/rkJPJD86n.png)
     4. Restart Win10
     5. 使用網域帳號登入
-    用bear這個帳號登入Win10
-        :::spoiler Result
+    
+        用bear這個帳號登入Win10
         ![](https://hackmd.io/_uploads/rktozsvph.png)
         可以看到系統資訊中，網域的部分已經變成kuma.org
-        :::
 
 ## Reference
 [^fei-directory-service]:[AD Security - [Day2] 一起來學 AD 安全吧！：什麼是 AD(1) ](https://ithelp.ithome.com.tw/articles/10292831)
@@ -140,7 +139,5 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
 [^aws-what-is-ldaps]:[啟用安全 LDAP (LDAPS)](https://docs.aws.amazon.com/zh_tw/directoryservice/latest/admin-guide/ms_ad_ldap.html)
 [^fei-organization-units][AD Security - [Day5] 一起來學 AD 安全吧！：什麼是 AD(3) Container & OU & Security Group ](https://ithelp.ithome.com.tw/articles/10295116)
 [^upas1030-gpo]:[GPO概念](https://upas1030.pixnet.net/blog/post/116192137)
-[^neo4j-java]:[
-System requirements
-](https://neo4j.com/docs/operations-manual/4.0/installation/requirements/)
+[^neo4j-java]:[System requirements](https://neo4j.com/docs/operations-manual/4.0/installation/requirements/)
 [^neo4j-java-error]:[當安裝Neo4j後，在cmd中輸入neo4j遇到(ERROR!Neo4j cannot be started using java version 1.8.0_211](https://blog.csdn.net/Linsice/article/details/129748823)

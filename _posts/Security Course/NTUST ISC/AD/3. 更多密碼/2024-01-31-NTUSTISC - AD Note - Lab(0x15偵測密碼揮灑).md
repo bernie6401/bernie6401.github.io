@@ -23,8 +23,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
     * 記憶體(lsass)
 
 ## Lab
-
-### ==Lab: How to detect Password Spraying==
+### Lab: How to detect Password Spraying
 利用Event ID: 4625, 4648, 4771的認證失敗紀錄
 ![](https://hackmd.io/_uploads/ryxGszmR2.png)
 可以看到我是大約在4:52:08左右執行的，有一大堆的4625紀錄，如果抓最後一筆的紀錄，會顯示Account Name就是我們在Kali看到的最後一個帳戶，而且Keyword顯示Audit Failure

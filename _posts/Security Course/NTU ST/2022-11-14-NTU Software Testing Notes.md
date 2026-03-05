@@ -11,12 +11,7 @@ date: 2022-11-14
 ###### tags: `NTU_ST` `Software Testing`
 **All content in this presentation is refer to [Pro. Farn Wang Website](http://cc.ee.ntu.edu.tw/~farn/courses/ST/2021.Spring/)**
 
-:::spoiler Click to open TOC
-[TOC]
-:::
-
 # 2.5 Graph Coverage for Specifications
-
 ## Design Spec.
 * What is design specification?
     * 描述軟體應該有的行為(可見或不可見都有可能)
@@ -31,7 +26,7 @@ date: 2022-11-14
 ## Sequencing constraints
 * Constraint有可能是document的一些潛規則或是method上順序的限制，e.g. stack data structure在沒有push前不能pop
 * Queue Example: precondiction就是這個例子的sequence constraint
-![Queue Example](https://i.imgur.com/3RaZRfK.png)
+    ![Queue Example](https://i.imgur.com/3RaZRfK.png)
 * File ADT Example
     * ADT: Abstract Data Type其實就是早期的class
     * sequence constraint about example
@@ -39,7 +34,7 @@ date: 2022-11-14
     2. 關閉之前要先打開file
     3. 在close file之後除非再open file，不然不可以write file
     4. close file前一定要write file，不然就浪費這個procedure
-    ![File ADT Example](https://imgur.com/1NYVCj1.png)
+        ![File ADT Example](https://imgur.com/1NYVCj1.png)
     * Static Checking: 先不跑test input，先針對畫出來的graph做checking
     * [1, 3, 4, 6]就是這個instance的open到close之間沒有任何的write procedure
     * Edge[1, 3]和Edge[3, 4]可能有共同變數在控制file的read、write，讓file不會經過Edge-Pair[1, 3, 4]->實際上會不會發生還是要看中間的邏輯
@@ -56,7 +51,7 @@ date: 2022-11-14
 * FSM: finite state machine(有限狀態機)是個用來描述軟體狀態在執行時變換的圖
 * FSM不太適合用在狀態很多的program
     * **Nodes**: States / **Edges**: Transitions
-    ![FSM](https://imgur.com/lrhkWRO.png)
+        ![FSM](https://imgur.com/lrhkWRO.png)
     * FSM Example
         ![FSM Example](https://imgur.com/APKr4h7.png)
         * 上圖是指海上熱帶氣旋和颱風之間的關係

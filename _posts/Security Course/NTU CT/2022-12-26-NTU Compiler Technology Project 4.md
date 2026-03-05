@@ -10,8 +10,6 @@ date: 2022-12-26
 <!-- more -->
 ###### tags: `NTU_CT` `NTU` `Compiler Techonology of Programming Language` `Code Generation`
 
-[TOC]
-
 ## How to run?
 First, put your testing file and `main.S` to the folder same as `parser` file
 ```bash
@@ -31,7 +29,7 @@ Note that you must change your test file's `main()` to <font color="FF0000">`MAI
 Just show the mainly implementation concept
 
 ### Assignment statements
-```clike
+```c
 void genAssignStmt(AST_NODE *assignNode)
 {
     AST_NODE *it = assignNode;
@@ -76,7 +74,7 @@ void genVariableAssign(AST_NODE *idNode, REG val)
 ```
 
 ### Arithmetic expressions
-```clike
+```c
 REG genRelopExpr(AST_NODE *exprNode)
 {
     AST_NODE* it = exprNode->child;
@@ -245,7 +243,7 @@ REG genRelopExpr(AST_NODE *exprNode)
 ```
 
 ### Control statements: while, if-then-else
-```clike
+```c
 void genWhile(AST_NODE *whileNode)
 {
     AST_NODE *it = whileNode;
@@ -299,7 +297,7 @@ void genIf(AST_NODE *ifNode)
 ```
 
 ### Parameterless procedure calls
-```clike
+```c
 void genFunctionCall(AST_NODE *functionCallNode)
 {
     AST_NODE *it = functionCallNode;
@@ -319,7 +317,7 @@ void genFunctionCall(AST_NODE *functionCallNode)
 ```
 
 ### Read and Write I/O calls
-```clike
+```c
 void genWrite(AST_NODE *functionCallNode){
     AST_NODE *it = functionCallNode;
     unpack(it, id, paramList);
@@ -346,14 +344,14 @@ void genWrite(AST_NODE *functionCallNode){
 
 ## Experience result
 * **assign.c**
-![](https://imgur.com/T28oUhu.png)
+    ![](https://imgur.com/T28oUhu.png)
 * **control.c**
-![](https://imgur.com/TlyDZzD.png)
+    ![](https://imgur.com/TlyDZzD.png)
 * **expr.c**
-![](https://imgur.com/9z27ifv.png)
+    ![](https://imgur.com/9z27ifv.png)
 * **func.c**
-![](https://imgur.com/1AWaiGC.png)
+    ![](https://imgur.com/1AWaiGC.png)
 * **hello.c**
-![](https://imgur.com/g9NQuMR.png)
+    ![](https://imgur.com/g9NQuMR.png)
 * **io.c**
-![](https://imgur.com/Y3XxVPa.png)
+    ![](https://imgur.com/Y3XxVPa.png)

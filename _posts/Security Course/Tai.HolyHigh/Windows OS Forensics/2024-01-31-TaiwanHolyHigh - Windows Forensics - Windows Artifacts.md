@@ -8,11 +8,7 @@ date: 2024-01-31
 
 # TaiwanHolyHigh - Windows Forensics - Windows Artifacts
 <!-- more -->
-[TOC]
-
-:::info
 以下引用若無特別說明皆來自於講師的上課簡報
-:::
 
 ## Artifacts Background
 > 使用者操作 Windows 作業系統時會在系統中留下或產生許多行為紀錄，稱之為 Artifacts

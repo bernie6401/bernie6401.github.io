@@ -11,7 +11,6 @@ date: 2023-04-21
 ###### tags: `Cryptography` `NTU`
 
 ## Background
-
 [About HSM(Hardware Security Module) - 什麼是硬體安全模組？](https://youtu.be/2LOnp3Tw-Uo)
 
 ---

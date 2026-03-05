@@ -15,7 +15,7 @@ date: 2023-05-21
 
 ## Background
 [What is _mbscmp?](https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strcmp-wcscmp-mbscmp?view=msvc-170)
-```clike!
+```clike
 int _mbscmp(
    const unsigned char *string1,
    const unsigned char *string2
@@ -28,10 +28,8 @@ Return Value
 
 
 ## Recon
-
 ### Static - IDA Pro
-:::spoiler Main Source Code
-```clike=
+```c
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
   char v4; // [esp+10h] [ebp-181Ch]
@@ -102,45 +100,58 @@ int __cdecl main(int argc, const char **argv, const char **envp)
   return 0;
 }
 ```
-:::
 
 * If we execute it directly, nothing happened.
 
 ## Lab 9-1 Questions
 1. How can you get this malware to install itself?
-Ans: You can get the program to install itself by providing it with the `-in` option, along with the password. Alternatively, you can patch the binary to skip the password verification check.
+
+    Ans: You can get the program to install itself by providing it with the `-in` option, along with the password. Alternatively, you can patch the binary to skip the password verification check.
     ![](https://hackmd.io/_uploads/HJvh2Xdr2.png)
 
 2. What are the command-line options for this program? What is the password requirement?
-Ans: The command-line options for the program are one of four values and the password. The password is the string `abcd` and is required for all actions except the default behavior. The -in option instructs the malware to install itself. The `-re` option instructs the malware to remove itself. The `-c` option instructs the malware to update its configuration, including its beacon IP address. The `-cc` option instructs the malware to print its current configuration to the console. By default, this malware functions as a backdoor if installed.
+
+    Ans: The command-line options for the program are one of four values and the password. The password is the string `abcd` and is required for all actions except the default behavior. The -in option instructs the malware to install itself. The `-re` option instructs the malware to remove itself. The `-c` option instructs the malware to update its configuration, including its beacon IP address. The `-cc` option instructs the malware to print its current configuration to the console. By default, this malware functions as a backdoor if installed.
 3. How can you use `OllyDbg` to permanently patch this malware, so that it doesn’t require the special command-line password?
-Ans: You can patch the binary by changing the first bytes of the function at address 0x402510 to always return true. The assembly instruction for this behavior is `MOV EAX, 0x1; RETN;`, which corresponds to the byte sequence `B8 01 00 00 00 C3`.
+    
+    Ans: You can patch the binary by changing the first bytes of the function at address 0x402510 to always return true. The assembly instruction for this behavior is `MOV EAX, 0x1; RETN;`, which corresponds to the byte sequence `B8 01 00 00 00 C3`.
 4. What are the host-based indicators of this malware?
-Ans: The malware creates the registry key HKLM\Software\Microsoft \XPS\ Configuration (note the trailing space after Microsoft). The malware also creates the service XYZ Manager Service, where XYZ can be a parameter provided at install time or the name of the malware executable. Finally, when the malware copies itself into the Windows System directory, it may change the filename to match the service name.
+    
+    Ans: The malware creates the registry key HKLM\Software\Microsoft \XPS\ Configuration (note the trailing space after Microsoft). The malware also creates the service XYZ Manager Service, where XYZ can be a parameter provided at install time or the name of the malware executable. Finally, when the malware copies itself into the Windows System directory, it may change the filename to match the service name.
 5. What are the different actions this malware can be instructed to take via the network?
-Ans: The malware can be instructed to execute one of five commands via the network: SLEEP, UPLOAD, DOWNLOAD, CMD, or NOTHING. The SLEEP command instructs the malware to perform no action for a given period of time. The UPLOAD command reads a file from the network and writes it to the local system at a specified path. The DOWNLOAD command instructs the malware to send the contents of a local file over the network to the remote host. The CMD command causes the malware to execute a shell command on the local system. The NOTHING command is a no-op command that causes the malware to do nothing.
+    
+    Ans: The malware can be instructed to execute one of five commands via the network: SLEEP, UPLOAD, DOWNLOAD, CMD, or NOTHING. The SLEEP command instructs the malware to perform no action for a given period of time. The UPLOAD command reads a file from the network and writes it to the local system at a specified path. The DOWNLOAD command instructs the malware to send the contents of a local file over the network to the remote host. The CMD command causes the malware to execute a shell command on the local system. The NOTHING command is a no-op command that causes the malware to do nothing.
 6. Are there any useful network-based signatures for this malware?
-Ans: By default, the malware beacons http://www.practicalmalwareanalysis.com/ ; however, this is configurable. The beacons are HTTP/1.0 GET requests for resources in the form xxxx/xxxx.xxx, where x is a random alphanumeric ASCII character. The malware does not provide any HTTP headers with its requests
+    
+    Ans: By default, the malware beacons http://www.practicalmalwareanalysis.com/ ; however, this is configurable. The beacons are HTTP/1.0 GET requests for resources in the form xxxx/xxxx.xxx, where x is a random alphanumeric ASCII character. The malware does not provide any HTTP headers with its requests
 
 ## Lab 9-2 Questions
 1. What strings do you see statically in the binary?
-Ans: The imports and the string cmd are the only interesting strings that appear statically in the binary.
+    
+    Ans: The imports and the string cmd are the only interesting strings that appear statically in the binary.
 2. What happens when you run this binary? 
-Ans: It terminates without doing much.
+    
+    Ans: It terminates without doing much.
 3. How can you get this sample to run its malicious payload? 
-Ans: Rename the file *ocl.exe* before you run it.
+    
+    Ans: Rename the file *ocl.exe* before you run it.
 4. What is happening at 0x00401133?
-Ans: A string is being built on the stack, which is used by attackers to obfuscate strings from simple strings utilities and basic static analysis techniques.
+    
+    Ans: A string is being built on the stack, which is used by attackers to obfuscate strings from simple strings utilities and basic static analysis techniques.
 5. What arguments are being passed to subroutine 0x00401089? 
-Ans: The string 1qaz2wsx3edc and a pointer to a buffer of data are passed to subroutine 0x401089.
+    
+    Ans: The string 1qaz2wsx3edc and a pointer to a buffer of data are passed to subroutine 0x401089.
 6. What domain name does this malware use?
-Ans: The malware uses the domain `practicalmalwareanalysis.com`.
+    
+    Ans: The malware uses the domain `practicalmalwareanalysis.com`.
 7. What encoding routine is being used to obfuscate the domain name?
-Ans: The malware will XOR the encoded DNS name with the string 1qaz2wsx3edc to decode the domain name.
+    
+    Ans: The malware will XOR the encoded DNS name with the string 1qaz2wsx3edc to decode the domain name.
 8. What is the significance of the `CreateProcessA` call at 0x0040106E?
-Ans: The malware is setting the `stdout`, `stderr`, and `stdin` handles (used in the `STARTUPINFO` structure of `CreateProcessA`) to the socket. Since `CreateProcessA` is called with cmd as an argument, this will create a reverse shell by tying the command shell to the socket.
+    
+    Ans: The malware is setting the `stdout`, `stderr`, and `stdin` handles (used in the `STARTUPINFO` structure of `CreateProcessA`) to the socket. Since `CreateProcessA` is called with cmd as an argument, this will create a reverse shell by tying the command shell to the socket.
 
 ## Reference
-[Lab 9-1](https://www.cnblogs.com/houhaibushihai/p/10310324.html)
-[恶意代码分析实战 Lab 9-1 习题笔记](https://blog.csdn.net/isinstance/article/details/78520494)
-[恶意代码分析实战 Lab 9-2 习题笔记](https://blog.csdn.net/isinstance/article/details/78841910)
+* [Lab 9-1](https://www.cnblogs.com/houhaibushihai/p/10310324.html)
+* [恶意代码分析实战 Lab 9-1 习题笔记](https://blog.csdn.net/isinstance/article/details/78520494)
+* [恶意代码分析实战 Lab 9-2 习题笔记](https://blog.csdn.net/isinstance/article/details/78841910)

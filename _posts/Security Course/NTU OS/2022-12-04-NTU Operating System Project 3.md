@@ -9,7 +9,6 @@ date: 2022-12-04
 # NTU Operating System Project 3
 <!-- more -->
 ###### tags: `NTU_OS` `Operating System` `NachOS` `Memory Management`
-[TOC]
 
 ## Description First
 I used the code from `Project2` directly and obtained the correct value, 1 and 7220, by the command `./nachos -e ../test/sort -e ../test/matmult` respectively. After debugging a while, I knew what's the matter. In `project2`, I set `const unsigned int NumPhysPages = 256;` so that it can handle huge computing resource. In order to address this project, we must change it back to 32.

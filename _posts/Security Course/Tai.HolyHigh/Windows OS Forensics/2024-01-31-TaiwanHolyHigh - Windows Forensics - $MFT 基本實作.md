@@ -8,32 +8,24 @@ date: 2024-01-31
 
 # TaiwanHolyHigh - Windows Forensics - \$MFT 基本實作
 <!-- more -->
-:::spoiler TOC
-[TOC]
-:::
-:::info
 以下引用若無特別說明皆來自於講師的上課簡報
-:::
 
 ## Background
 * \$MFT儲存的內容
-    1. ==Status==: SO=22, LE=2，也就是目前此檔案的狀態，分為以下四種
+    1. **Status**: SO=22, LE=2，也就是目前此檔案的狀態，分為以下四種
         * `0000`: Delete File
         * `0100`: File
         * `0200`: Delete Folder
         * `0300`: Folder
-    2. ==\$MFT Record==(File Identify/Location): SO=44, LE=4，也就是此檔案在record在\$MFT的位置在哪邊
-    3. ==Timestamp==
+    2. **\$MFT Record**(File Identify/Location): SO=44, LE=4，也就是此檔案在record在\$MFT的位置在哪邊
+    3. **Timestamp**
         * Standard Info: SO=80, LE=32(Creat+Modified+\$MFT Modified+Access)，很容易就可以更改，如果要更改，可以參考[New Filetime](https://newfiletime.en.softonic.com/?ex=RAMP-1462.1)這個工具
         * Filename: SO=184, LE=32(Creat+Modified+\$MFT Modified+Access)
             很難被更改(但還是可以更改)
-    4. ==Resident / non-Resident File==
+    4. **Resident / non-Resident File**
         下一篇詳細說明
         
-:::info
 以下三個練習都是Resident File
-:::
-
 ## Lab - Offset 43110400(d)
 * \$MFT長度一段就是1024 Bytes，我把結束的位址減掉開頭的位置就知道了，或是可以直接用HxD底下看長度(0x400)
     ![](https://hackmd.io/_uploads/rk0s7QKza.png)
@@ -58,8 +50,8 @@ date: 2024-01-31
     ```
 * `48 00 00 00 18 00 00 00`是固定的
 * Standard Info Timestamp
+    
     此部分可以用之前的script換算
-    :::spoiler Script 過程
     ```python
     >>> import datetime
     >>> def ad_timestamp(timestamp):
@@ -84,11 +76,11 @@ date: 2024-01-31
     >>> ad_timestamp(access_time)
     datetime.datetime(2009, 2, 18, 20, 44, 28)
     ```
-    :::
-    Create: `2011, 1, 27, 0, 5, 23, 349211`
-    Modify: `2009, 2, 18, 20, 44, 28`
-    \$MFT: `2011, 1, 27, 0, 5, 23, 364836`
-    Access: `2009, 2, 18, 20, 44, 28`
+    
+    * Create: `2011, 1, 27, 0, 5, 23, 349211`
+    * Modify: `2009, 2, 18, 20, 44, 28`
+    * \$MFT: `2011, 1, 27, 0, 5, 23, 364836`
+    * Access: `2009, 2, 18, 20, 44, 28`
 * Filename Timestamp
     ```python
     >>> filename = '8D 6C AD E4 B5 BD CB 01'
@@ -119,6 +111,7 @@ date: 2024-01-31
     Create Time = \$MFT Modify Time = `2011, 1, 27, 0, 5, 24, 208586`
     Modify Time = Access Time = `2009, 1, 19, 17, 2, 50`
 * Filename Timestamp
+    
     Filename Time = Create Time = `2011, 1, 27, 0, 5, 24, 208586`
     
 ## Lab - Offset 53550080(d)
@@ -129,7 +122,7 @@ date: 2024-01-31
     '0x3311c00'
     ```
 * Standard Info Timestamp
-    :::spoiler 運算過程
+
     ```python
     >>> create_time = '1D 3F 6E F8 B3 C0 CB 01'
     >>> create_time = int("".join(create_time.split(' ')[::-1]), 16)
@@ -148,11 +141,11 @@ date: 2024-01-31
     >>> ad_timestamp(access_time)
     datetime.datetime(2011, 1, 30, 19, 29, 10, 984476)
     ```
-    :::
-    Create Time = Access Time = `2011, 1, 30, 19, 29, 10, 984476`
-    Modify Time = `2010, 4, 20, 21, 46, 52`
-    \$MFT Modify Time = `2011, 1, 30, 19, 29, 11, 101`
+    
+    * Create Time = Access Time = `2011, 1, 30, 19, 29, 10, 984476`
+    * Modify Time = `2010, 4, 20, 21, 46, 52`
+    * \$MFT Modify Time = `2011, 1, 30, 19, 29, 11, 101`
     
 * Filename Timestamp
-    Create Time = \$MFT Modify Time = Access Time = `2011, 1, 30, 19, 29, 10, 984476`
-    Modify Time = `2010, 4, 20, 21, 46, 52`
+    * Create Time = \$MFT Modify Time = Access Time = `2011, 1, 30, 19, 29, 10, 984476`
+    * Modify Time = `2010, 4, 20, 21, 46, 52`

@@ -18,13 +18,13 @@ date: 2023-05-30
 * snort Rule
     * Rule Screenshot
     * Format
-    ![](https://hackmd.io/_uploads/S1pKEV7Ln.png)
+        ![](https://hackmd.io/_uploads/S1pKEV7Ln.png)
     * Action
-    ![](https://hackmd.io/_uploads/HygsNEXI2.png)
+        ![](https://hackmd.io/_uploads/HygsNEXI2.png)
     * Option
-    ![](https://hackmd.io/_uploads/By83VNQUh.png)
+        ![](https://hackmd.io/_uploads/By83VNQUh.png)
     * Option - Payload
-    ![](https://hackmd.io/_uploads/rJ6p44QI2.png)
+        ![](https://hackmd.io/_uploads/rJ6p44QI2.png)
 
 ## Lab
 ### Lab 1: Packet sniffer Mode show出 sniff ICMP封包的結果

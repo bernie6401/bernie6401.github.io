@@ -10,16 +10,15 @@ date: 2023-03-18
 <!-- more -->
 ###### tags: `Cryptography` `NTU`
 
-:::spoiler [資訊安全筆記2 The Vigenere Cipher](https://ithelp.ithome.com.tw/articles/10160406)
+[資訊安全筆記2 The Vigenere Cipher](https://ithelp.ithome.com.tw/articles/10160406)
 > The Vigenere Cipher是一種"polyalphabetic cipher"用一串的 Key 不斷地重複！例如 abcabcabcabc
 計算方法：
 例如key = d 代表a會變成d所以 w 會變成 Z
 >
 >課本上的例子：
 >![](http://ithelp.ithome.com.tw/upload/images/20141017/201410172334255441370129a1a_resize_600.png)
-:::
 
-:::spoiler [Playfair Cipher](https://www.geeksforgeeks.org/playfair-cipher-with-examples/)
+[Playfair Cipher](https://www.geeksforgeeks.org/playfair-cipher-with-examples/)
 > The Playfair Cipher Encryption Algorithm: 
 The Algorithm consists of 2 steps:
 > 1. Generate the key Square(5×5): 
@@ -30,14 +29,13 @@ The Algorithm consists of 2 steps:
     After Split: 'in' 'st' 'ru' 'me' 'nt' 'sz'
     ```
 >
-> :::info
 > Note that: Pair cannot be made with same letter. Break the letter in single and add a bogus letter to the previous letter.
-> :::
 > 1. Plain Text: “hello”
->After Split: ‘he’ ‘lx’ ‘lo’
->Here ‘x’ is the bogus letter.
+> After Split: ‘he’ ‘lx’ ‘lo’
+> Here ‘x’ is the bogus letter.
 >
 > 2. If the letter is standing alone in the process of pairing, then add an extra bogus letter with the alone letter
+
 Plain Text: “helloe”
 After Split: ‘he’ ‘lx’ ‘lo’ ‘ez’
 Here ‘z’  is the bogus letter.
@@ -53,7 +51,6 @@ Here ‘z’  is the bogus letter.
 ---
 ![](https://i.imgur.com/i7qd7iw.png)
 ![](https://media.geeksforgeeks.org/wp-content/uploads/20190818175433/encryption-of-nt.png)
-:::
 
 ---
 Introduce the encryption flow of Enigma

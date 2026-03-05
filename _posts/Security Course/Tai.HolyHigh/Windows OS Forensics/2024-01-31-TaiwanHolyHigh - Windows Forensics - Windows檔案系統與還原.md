@@ -24,15 +24,17 @@ date: 2024-01-31
 
     會有一點小複雜，反正file slack就是一個完整cluster(如果按照中FAT16來格式化128MB來說就是4個sectors)沒有被填滿的部分就對了，而ran slack或是disk(residual) slack只是在區分這些沒有被填滿的區塊而已
 
-* ==比較表格==
+* **比較表格**
     > ![](https://hackmd.io/_uploads/S1XGzEcfp.png)
     
     稍微解釋一下為甚麼FAT16是單一cluster的sector數量比較多，因為按照他自己的定義，最大的cluster數量不能超過65526，也就是說如果硬碟的容量變大，單一cluster所除下來的sector數量就越多，舉例:
-    若一張記憶卡的大小是128MB$\to$134217728 bytes，單一cluster最少需要4個sectors
+    若一張記憶卡的大小是128MB → 134217728 bytes，單一cluster最少需要4個sectors
+
     $$
     134217728/512/65526\approx 4
     $$
-    所以如果記憶卡大小是512MB$\to$，536870912 bytes，單一cluster最少需要16個sectors
+    所以如果記憶卡大小是512MB → ，536870912 bytes，單一cluster最少需要16個sectors
+
     $$
     536870912/512/65526\approx 16
     $$

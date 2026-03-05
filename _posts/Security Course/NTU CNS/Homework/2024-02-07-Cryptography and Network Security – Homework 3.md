@@ -59,6 +59,7 @@ date: 2024-02-07
 * Hint: You can use `nmap` or `ntpdc` to send a monlist query.
 * Ans:
     1. Determine if the remote server is running NTP service
+        
         I tried 9 IP(3 IP from previous question + 6 IPs provided from TAs)
         Note: `-sU` option can be used to specify <span style="background-color: yellow">UDP</span>, then the `-p` option can be used to specify the port
         
@@ -218,8 +219,8 @@ date: 2024-02-07
 ## 3. Web Authentication
 
 ### a)
-Username: `CNS-user`
-Password: `CNS-password`
+* Username: `CNS-user`
+* Password: `CNS-password`
 1. Basic Authentication
 
     How to deploy your service? You can refer to [this video](https://www.youtube.com/watch?v=G1EVWLjwvrE&ab_channel=TechieBlogging) and remember to set the extra command `pip install flask-httpauth` to install other library.
@@ -330,7 +331,6 @@ Password: `CNS-password`
     * JWT-based Authentication is a stateless and scalable method, making it suitable for distributed systems. It allows for fine-grained control and doesn't require server-side storage. However, the server needs to securely manage the secret key. If a JWT is compromised, it remains valid until expiration.
 
 ### c)
-
 #### Recon
 Alice implemented a great web service that uses the `JWT` stored in the cookie to authenticate users. So, we can access the token as below:
 * Header: `{"alg":"RS256","typ":"JWT"}`
@@ -460,7 +460,8 @@ How to implement `JWT` signature to sign the payload?
     print(jwt)
     ```
 4. Then replace the web page original token and you'll get the flag
-Note that the expire time in payload should be careful.
+
+    Note that the expire time in payload should be careful.
 
 * Flag 2: `CNS{4L9_15_un7Ru573d_u53r_1nPU7}`
 
@@ -930,7 +931,6 @@ Flag: `cns{N0N_n0n_m3M83RSh1p!}`
 (Skip)
 
 ## Reference
-
 ### 1. DDoS
 * [使用Wireshark分析並發現DDoS攻擊](https://security.tencent.com/index.php/blog/msg/3)
 * [Kali Linux網絡掃描秘籍第六章拒絕服務(二)](https://cloud.tencent.com/developer/article/2182801)
@@ -938,7 +938,6 @@ Flag: `cns{N0N_n0n_m3M83RSh1p!}`
 * [分散式阻斷服務攻擊(DDoS)趨勢與防護](https://www.twcert.org.tw/tw/cp-157-6408-e0c62-1.html)
 
 ### 3. Web Authentication
-
 #### Basic Authentication
 * [How To Create Flask Web App In Digital Ocean Using App Deployment](https://www.youtube.com/watch?v=G1EVWLjwvrE&ab_channel=TechieBlogging)
 * [Python Flask – Read Form Data from Request](https://pythonexamples.org/python-flask-read-form-data-from-request/)

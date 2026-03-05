@@ -10,16 +10,14 @@ date: 2022-11-20
 <!-- more -->
 ###### tags: `NTU_CT` `NTU` `Compiler Techonology of Programming Language` `YACC` `Lex`
 
-[TOC]
 
 ## Objective
 * The main task for this project is to revise `src/parser.y` and generate `parser` file properly to compile test code in `test` folder.
 * And then use `Graphviz` command to visualize the structure of these test code
 
-
 ## How to run?
 * Just use `make` to compile all files in `/src`. Though you'll get a lots of warning shown as below, you can ignore them and obtain the target file `parser`.
-    ```bash=
+    ```bash
     bison -v -d parser.y
     parser.y: warning: 1 shift/reduce conflict [-Wconflicts-sr]
     flex lexer.l
@@ -48,7 +46,7 @@ date: 2022-11-20
     ```
 * Use parser to compile all files in `/test` folder and you will get `AST_Graph.gv` in **`/test`** folder.
     **`/src`**
-    ```bash=
+    ```bash
     ./parser ../test/control.c
     dot -Tpng -o ../test/control.png ../test/AST_Graph.gv
     ./parser ../test/decl.c
@@ -59,7 +57,7 @@ date: 2022-11-20
     dot -Tpng -o ../test/func.png ../test/AST_Graph.gv
     ```
 * Note that in `parser.y`, I set `yydebug = 1` so that we can see the debug message from parser
-    ```cpp=821
+    ```cpp
     #ifdef YYDEBUG
         yydebug = 1;
     #endif
@@ -67,20 +65,20 @@ date: 2022-11-20
 
 ## For TA
 * I changed a little bit `functions.c` that will generate `AST_Graph.gv` at `test/` folder.
-```cpp=150
-void printGV(AST_NODE *root, char* fileName)
-{
-    if (fileName == NULL) {
-        fileName = "../test/AST_Graph.gv";
+    ```cpp
+    void printGV(AST_NODE *root, char* fileName)
+    {
+        if (fileName == NULL) {
+            fileName = "../test/AST_Graph.gv";
+        }
+        ...
     }
-    ...
-}
-```
+    ```
 
 ## Analysis
 * You can see the relationship between structure map and test code by yourself.
 * **control.c**
-    ```cpp=
+    ```cpp
     int main()
     {
         int i;
@@ -115,7 +113,7 @@ void printGV(AST_NODE *root, char* fileName)
     ```
     ![graphviz of control.c](https://imgur.com/4zTAsML.png)
 * **decl.c**
-    ```cpp=
+    ```cpp
     typedef float GFLOAT;
     int main() {
         typedef int INT, INT2, INT3;
@@ -128,7 +126,7 @@ void printGV(AST_NODE *root, char* fileName)
     ```
     ![graphviz of decl.c](https://imgur.com/6KWV4IT.png)
 * **expr.c**
-    ```cpp=
+    ```cpp
     int fn1() {
         return 1;
     }
@@ -161,7 +159,7 @@ void printGV(AST_NODE *root, char* fileName)
     ```
     ![graphviz of expr.c](https://imgur.com/7a6OyJA.png)
 * **func.c**
-    ```cpp=
+    ```cpp
     int fn1() {
         int ABC = 5;
         return ABC+5;
@@ -180,8 +178,8 @@ void printGV(AST_NODE *root, char* fileName)
     ![graphviz of func.c](https://imgur.com/BvW5b2U.png)
 
 ## Reference
-[Github example](https://github.com/liuxt/Compiler/blob/master/hw3)
-[Simple intro of yacc & lex](https://bluelove1968.pixnet.net/blog/post/222285652?utm_source=PIXNET&utm_medium=Blog_CollectionEXP_login)
-[Simple intro of Graphviz](https://www.netadmin.com.tw/netadmin/zh-tw/technology/122966CB664D4A17ABAAD11FC2AA887C?page=3)
-[A GUIDE TO LEX & YACC from TA](https://arcb.csc.ncsu.edu/~mueller/codeopt/codeopt00/y_man.pdf)
-大推：[以lex/yacc實作算式計算機](https://good-ed.blogspot.com/2010/04/lexyacc.html)
+* [Github example](https://github.com/liuxt/Compiler/blob/master/hw3)
+* [Simple intro of yacc & lex](https://bluelove1968.pixnet.net/blog/post/222285652?utm_source=PIXNET&utm_medium=Blog_CollectionEXP_login)
+* [Simple intro of Graphviz](https://www.netadmin.com.tw/netadmin/zh-tw/technology/122966CB664D4A17ABAAD11FC2AA887C?page=3)
+* [A GUIDE TO LEX & YACC from TA](https://arcb.csc.ncsu.edu/~mueller/codeopt/codeopt00/y_man.pdf)
+* 大推：[以lex/yacc實作算式計算機](https://good-ed.blogspot.com/2010/04/lexyacc.html)

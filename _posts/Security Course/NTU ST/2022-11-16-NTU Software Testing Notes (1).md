@@ -11,10 +11,6 @@ date: 2022-11-16
 ###### tags: `NTU_ST` `Software Testing`
 **All content in this presentation is refer to [Pro. Farn Wang Website](http://cc.ee.ntu.edu.tw/~farn/courses/ST/2021.Spring/)**
 
-:::spoiler Click to open TOC
-[TOC]
-:::
-
 ## 6.1 Regression Testing
 * Definition
     > The process of re-testing software that has been modified
@@ -54,6 +50,7 @@ date: 2022-11-16
 * Choosing Which Regression Tests to Run
     * Change Impact Analysis(CIA) - 一個小小的改動會對整體的測試造成多大的影響?
     * Strategy:
+
         | Strategy | Pros | Cons |
         | -------- | -------- | -------- |
         | <font color=#FF0000>Run all tests</font>| More safety| High cost of time|
@@ -85,10 +82,11 @@ date: 2022-11-16
         * Testing integration aspects of the full system
         * Putting the system together “piece by piece”
 * Software Scaffolding(鷹架)
-是為support integration和testing而創建的extra software components
-![process of software scaffolding](https://imgur.com/5V4zxEw.png)
-    * Stubs(票根/存根聯): 單純模擬尚未實踐或整合的method，被call的result
-    * Drivers: 單純模擬make a call to 正在測試的component(CUT)的方法
+    
+    是為support integration和testing而創建的extra software components
+    ![process of software scaffolding](https://imgur.com/5V4zxEw.png)
+        * Stubs(票根/存根聯): 單純模擬尚未實踐或整合的method，被call的result
+        * Drivers: 單純模擬make a call to 正在測試的component(CUT)的方法
 * Stubs
     * The first responsibility of a stub is to allow the CUT(Component Under Test) to be compiled and linked without error
     * Approaches:
@@ -99,7 +97,8 @@ date: 2022-11-16
         5.Processing formal specifications of the stubbed method
         * Note that 1 ↦ 5 is more costly / more effective
 * Drivers
-Many good programmers add drivers to every class as a matter of habit
+    
+    Many good programmers add drivers to every class as a matter of habit
     * Instantiate objects and carry out simple testing(實例化+簡單測試)
     * Criteria from previous chapters can be implemented in drivers
     * Test drivers can easily be created automatically

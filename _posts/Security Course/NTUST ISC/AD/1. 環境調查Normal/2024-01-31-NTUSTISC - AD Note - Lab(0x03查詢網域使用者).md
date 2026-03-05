@@ -14,15 +14,14 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
 
 ## Lab Time - 環境調查
 
-### ==查詢網域使用者==
+### 查詢網域使用者
 常用的cheat sheet
-```bash!
+```bash
 $ net user /domain
 $ net user <username> /domain
 ```
 
-:::spoiler Implementation
-```bash!
+```bash
 $ net user /domain
 這項要求會在網域 kuma.org 下的網域控制站處理。
 
@@ -67,9 +66,9 @@ shantee.marylin          sherri.jacquetta         sile.rhiamon
 sofie.darlleen           star.rikki               stormie.natala
 命令已經成功完成。
 ```
-:::
+
 說明：如果目前登入的帳號是在domain底下，就會出現類似如上的結果，會有一大堆使用者，但是目前的帳號沒有在該domain底下，會出現以下error:
-```bash!
+```bash
 $ C:\User\low>net user /domain
 這項要求會在網域 kuma.org 下的網域控制站處理。
 
@@ -77,5 +76,3 @@ $ C:\User\low>net user /domain
 
 存取被拒。
 ```
-
----

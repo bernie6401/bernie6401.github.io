@@ -18,7 +18,8 @@ date: 2023-04-20
 > MAC 在 MDC 的基礎上增加了 Key 的使用。同時驗證數據完整性和發送者，保證發送者是特定人並且傳輸過程中數據沒有被更改。MAC 函數又稱為 Key 哈希函數（Keyed Hash Function）
 > ![](https://img-blog.csdnimg.cn/20210603225822420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyOTUwODM4,size_16,color_FFFFFF,t_70)
 
-:::spoiler [About RC4](https://ithelp.ithome.com.tw/articles/10263124)
+
+[About RC4](https://ithelp.ithome.com.tw/articles/10263124)
 * 第一部分 前置作業
     1. 建立一個 S-box（寫作 S）
     2. 決定密鑰
@@ -61,7 +62,6 @@ print(c_list)
 * Drawback
 > RC4在後來被指出他所產生的密鑰並不隨機，存在統計上的偏誤，並且密文有洩漏明文資訊的可能，
 因此已不再被建議使用。
-:::
 
 ---
 [About Feistel Cipher](https://youtu.be/dXuN-2CIdIY)

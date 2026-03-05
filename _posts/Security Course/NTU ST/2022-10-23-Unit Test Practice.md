@@ -140,7 +140,7 @@ public void Debit_WithValidAmount_UpdatesBalance()
 
 ## Fix your code and rerun your tests
 * Return to BankAccount.cs and observe Debit() function.
-![](https://imgur.com/sGGMxu7.png)
+    ![](https://imgur.com/sGGMxu7.png)
 * Must change `m_balance += amount;` to `m_balance -= amount;`
 * Build and Run the code again and you'll find the test is correct this time![](https://imgur.com/BNKS05j.png)
 

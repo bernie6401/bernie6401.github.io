@@ -64,12 +64,12 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=JAnGtFoJl
     > * 網絡容量和利用率監視
 
 ### [What is VNC(Virtual Network Computing)?](https://blog.csdn.net/Cheese_pop/article/details/102958997)
-就類似TeamViewer那樣的遠端連線工具，它是使用RFB(Remote Frame Buffer)的協定，通常linux系統預設是用VNC，啟動VNC的教學可以這邊[^activate-vnc-teach][^activate-vnc-linux]，兩者的比較可以看一下這邊[^diff-vnc-&-rdp]
+就類似TeamViewer那樣的遠端連線工具，它是使用RFB(Remote Frame Buffer)的協定，通常linux系統預設是用VNC，啟動VNC的教學可以這邊[^activate-vnc-teach][^activate-vnc-linux]，兩者的比較可以看一下這邊[^diff-vnc-rdp]
 
 ### [What is AAD(Azure Active Directory)?](https://learn.microsoft.com/zh-tw/azure/active-directory/fundamentals/whatis)
 > Azure Active Directory (Azure AD) 是雲端式身分識別與存取管理服務。 Azure AD 可讓您的員工存取外部資源，例如 Microsoft 365、Azure 入口網站和數千個其他 SaaS 應用程式。 Azure Active Directory 也可協助他們存取內部資源，例如公司內部網路上的應用程式，以及為您自己的組織開發的任何雲端應用程式
 
-如果想知道AD和AAD之間的差異，可以看[^diff-between-ad-&-aad]
+如果想知道AD和AAD之間的差異，可以看[^diff-between-ad-aad]
 如果官方的太雜或太深可以先看這個影片[[Azure]AD與AAD的區別是甚麼?](https://youtu.be/C-H9pbOFjVw?si=wnErFaMChkRm5Sr2)，講的非常的清楚
 > AzureAD不是AD的雲端版本
 
@@ -114,7 +114,7 @@ What is IR(incident response)?
 ## Reference
 [^activate-vnc-teach]:[ VNC教學 ](https://www.youtube.com/watch?v=4Fc2hInOw3o&ab_channel=DSP202NCYU)
 [^activate-vnc-linux]:[ vnc遠端桌面圖像界面 安裝與使用 ](https://youtu.be/_av-tO3dHAI?si=Cki11X8RLKOh-iHb)
-[^diff-vnc-&-rdp]:[VNC與RDP區別](https://blog.csdn.net/Cheese_pop/article/details/102958997)
+[^diff-vnc-rdp]:[VNC與RDP區別](https://blog.csdn.net/Cheese_pop/article/details/102958997)
 [^psexec-teach-hackercat]:[利用PsExec提權為system管理員教學(windows提權)](https://hackercat.org/windows/psexec-local-privilege-escalation)
 [^what-is-psexec]:[psexec工具的使用](https://cloud.tencent.com/developer/article/1937700)
-[^diff-between-ad-&-aad]:[比較 Active Directory 與 Azure Active Directory](https://learn.microsoft.com/zh-tw/azure/active-directory/fundamentals/compare)
+[^diff-between-ad-aad]:[比較 Active Directory 與 Azure Active Directory](https://learn.microsoft.com/zh-tw/azure/active-directory/fundamentals/compare)

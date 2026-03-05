@@ -11,22 +11,22 @@ date: 2022-12-19
 ###### tags: `NTU_CT` `NTU` `Compiler Techonology of Programming Language` `Final Exam`
 
 1. According to the grammar of AC in the right , please write down the recursive descent parsing procedure for nonterminal Expr. (10 points/10)
-![](https://imgur.com/fIUehwA.png)
+    ![](https://imgur.com/fIUehwA.png)
 
 2. Please write down a regular expression that defines the set of strings recognized by the FA in the following and explain your answer (5points/ 15)
-![](https://imgur.com/oWs2kC0.png)
+    ![](https://imgur.com/oWs2kC0.png)
 
 3. Please write down a `DFA` recognizing the tokens defined by the following regular expression and explain your answer (5 points/20)
-![](https://imgur.com/SDEdOWl.png)
+    ![](https://imgur.com/SDEdOWl.png)
 
 4. Please write down a regular expression that defines C-like comments delimited by /* and */. Individual *’s and /’s may appear in the comment body, but the pair */ may not. (5 points/ 25)
 
 5. Consider the ac grammar in question 1 . 
-5a. Please write down the value of First(`Stmts`)! ( 2 points/ 27)
-5b. Please write down the value of First(`Stmt`)! ( 2 points/ 29)
-5c. Please write down the value of First(`Expr`)! ( 2 points/ 31)
-5d. Please write down the value of Follow(`Stmts`)! ( 2 points/ 33)
-5e. Please write down the value of Follow(`Expr`)! ( 2 points/ 35)
+    * 5a. Please write down the value of First(`Stmts`)! ( 2 points/ 27)
+    * 5b. Please write down the value of First(`Stmt`)! ( 2 points/ 29)
+    * 5c. Please write down the value of First(`Expr`)! ( 2 points/ 31)
+    * 5d. Please write down the value of Follow(`Stmts`)! ( 2 points/ 33)
+    * 5e. Please write down the value of Follow(`Expr`)! ( 2 points/ 35)
 
 6. Please explain the technology of recursive descent LL(1) parsers. There is no standard answer to this question. But the points you get depend on our evaluation of the depth of your correct understanding of the technology purely based on to your answer below. (10points/45)
 

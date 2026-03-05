@@ -34,8 +34,11 @@ date: 2024-02-07
 
 ## Summary of Reflections on Trusting Trust
 It attempts to convey the concept that there are vulnerabilities in the compiler that are not easy to find. The main concept is if the compiler itself is tampered with maliciously, then the whole system will become vulnerable.
+
 In this paper, the author tried to demo how his perspective and actual attack concept.
+
 In addition, this kind of attack is untraceable, which means it's hard to defend.
+
 The conclusion is before we trust the computing system, we must take compiler security seriously and try to find an algorithm or method to detect if the compiler is tampered with or not.
 
 ## Summary of Reflections on trusting distributed trust
