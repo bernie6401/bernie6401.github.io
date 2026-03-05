@@ -388,7 +388,7 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     * [libc6_2.31-0ubuntu9_amd64.deb](https://ubuntu.pkgs.org/20.04/ubuntu-main-amd64/libc6_2.31-0ubuntu9_amd64.deb.html)
 
 ## `checksec`保護
-* No RELRO or Partial RELRO → <span style="background-color: yellow">GOT Hijacking(改寫GOT)</span> → `-z norelro`
+* No RELRO or Partial RELRO → <span style="background-color: yellow">GOT Hijacking(也就是改寫GOT中某個address為我們要執行的call)</span> → `-z norelro`
 * PIE(Position Independent Executable) → <span style="background-color: yellow">BOF(ret2 series)</span> → `-no-pie`
 * NX (No eXecute, Data Execution Prevention, DEP) off → `-zexecstack`，如果有NX就不能執行shellcode
     * 可以用 ROP 繞過
@@ -399,13 +399,16 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     * 打開指令: `sudo sh -c "echo 2 > /proc/sys/kernel/randomize_va_space"`
 * Stack Canary → `-fno-stack-protector`
 
+    Bypass Skill
+    * BOF → Leak canary
+    * GOT Hijacking: 把 stack_chk_fail 的 GOT 蓋成只有 ret ，這樣即使 canary 判斷沒過，還是可以繼續執行
+
 ## Stack Vulnerabilities
 ### Bof Series
 * Overwrite sensitive data
 * Overwrite return address
     * Statically Link Binary: 可以直接試看看ROP chain(從binary本身找gadget)
     * Dynamically Link Binary: 看有沒有辦法leak出libc base address，再用ROP chain(從libc中找gadget)
-* Canary → Leak canary
 * 如果BoF的長度不夠的話，可以考慮用stack pivot的方式再搭配ROP chain: 範例可以參考[Simple PWN 0x35(2023 Lab - Stack Pivot)]({{base.url}}/Simple-PWN-0x35(2023-Lab-Stack-Pivot)/)
 
 ### Format String Bug
@@ -417,13 +420,13 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     * `k$` - 指定第 **k** 個參數
     * `%(hhn\|hn\|n)` - 將**輸出的字元數**以 1 / 2 / 4 bytes 寫到參數**指向的位址**
     * 若該值為 addr 可透過 `%s` 輸出該地址的 value
+    * `%N$` 可以直接指到第 N 個參數，預設禁用
 * Note:
     * 因為能控制寫入的⼤⼩與位址，因此也可以配合 partial overwrite 做 exploit
     * 基本上不太會⽤ `%k$n` 此 format，因為⼀次寫入 4 bytes 會太多
 
 ### GOT Series
-紀錄 Library 裡面 function 的實際 Address ，在該 function 都沒被 call 過時，會是 存一個位於 plt 段的 Address 可以利用 GOT 來 leak libc 的 base
-* GOT hijacking: 必須要是No RELRO or Partial RELRO才能使用這個技巧
+* GOT hijacking的前提: 必須要是No RELRO or Partial RELRO才能使用這個技巧
 * Ret2plt - 控制執⾏流程到 `function@plt`，也代表執⾏該 function (以 functionA 代稱)，詳細可以看[Simple-PWN-0x34-(2023-Lab-ret2plt)]({{base.url}}/Simple-PWN-0x34-(2023-Lab-ret2plt)/)
 * Leak libc - functionA 在被解析後，GOT 會存放 functionA 的絕對位址，因此如果可以讀取 GOT，就能得到位於 library 當中的 address
     * FunctionA 的絕對位址減去他在 library 當中的 offset，能得到 library base address，繞過 ASLR

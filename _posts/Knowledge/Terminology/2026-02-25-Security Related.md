@@ -560,7 +560,7 @@ __declspec(thread) int counter = 0;
 * Rodata: Read-Only Data（唯讀資料）
 * Data: 已初始化的全域 / 靜態變數
 * Bss: 未初始化的全域 / 靜態變數
-* Got(Global Offset Table): 紀錄 Library 裡面 function 的實際 Address
+* Got(Global Offset Table): 紀錄 Library 裡面 function 的實際 Address，在該 function 都沒被 call 過時，會是存一個位於 plt 段的 Address 可以利用 GOT 來 leak libc 的 base
     * PLT 會透過 GOT 找到真正函式。
         ```
         printf → libc address
@@ -585,7 +585,7 @@ __declspec(thread) int counter = 0;
     * Partial RELRO - link map不可寫，GOT可寫(有lazy binding)
     * Full RELRO - link map和GOT都不可寫(事先把library的位置都先resolve完並寫在GOT上，再把GOT權限關掉，比較花時間但安全)
     * 關閉指令：`-z norelro`
-* Position Independent Executable(PIE) → <span style="background-color: yellow">BOF(ret2 series)</span>，開啟時，data 段以及 code 段位址隨機化
+* PIE(Position Independent Executable) → <span style="background-color: yellow">BOF(ret2 series)</span>，開啟時，data 段以及 code 段位址隨機化
     * 關閉指令：`-no-pie`
 * NX (No eXecute, Data Execution Prevention, DEP) off → 基本上不能直接執行shellcode，但可以用<span style="background-color: yellow">ROP</span>繞過 → 可寫得不可執⾏，可執⾏的不可寫
     * 關閉指令：`-zexecstack`
@@ -612,3 +612,26 @@ int main() {
 #### ROP(Return Oriented Programming)
 就是一大堆在 text segment 的 code 片段，結尾都是`ret` instruction，前面可能會有一些`pop rsp`, `pop rbp`, `jmp`之類的指令，這個好處是可以透過這個feature，達到好幾個不同的攻擊手法
 * 用 ROP call mmap 拿到一塊 rwx 的 memory 繞過 NX 保護
+
+#### GOT Hijacking
+在RELRO為Partial RELRO的前提下，把 GOT 寫成我們想要的 Address ，然後去 call 該 function 
+
+#### ret2plt
+```c
+BOF // BOF需要先蓋到stack並且預先做到以下事情
+puts@plt(puts@got) // 先利用puts在got上的addrress leak出來 → leak libc
+gets@plt(puts@got) // 把puts在got上的address利用gets改掉，改成&system → GOT Hijacking
+puts@plt("sh") // 當再次執行puts時，會自動跳到system開shell
+```
+
+#### Stack Pivot
+如果bof的長度不夠可以考慮的技巧，透過 `leave ; ret` 來控制 stack frame
+
+#### Format String Attack
+printf 系列 function 的 format string 可控的惡意利用，也就是如果source code有使用到format類型的print，那麼就有機會利用format本身的特性，leak/write data
+* Calling Convention
+    * rdi rsi , rdx , rcx , r8, r9, \[rsp\], \[rsp+8\], \[rsp+0x10\],...
+    * 前五個 `%p` 會 leak reg ，6th 開始 leak rsp 上的 data
+* 若該值為 addr 可透過 `%s` 輸出該地址的 value
+* 可以 自行在 stack 上寫入 addr 來做到任意 leak
+* •% 可以直接指到第 N 個參數

