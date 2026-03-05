@@ -14,8 +14,7 @@ date: 2023-06-19
 [What is PPM file?](https://www.adobe.com/tw/creativecloud/file-types/image/raster/ppm-file.html)
 
 ## Source code
-:::spoiler Source Code
-```python=
+```python
 #!/usr/bin/env python
 
 from Crypto.Cipher import AES
@@ -38,7 +37,7 @@ def to_bytes(n):
 
     pad = (len(decoded) % BLOCK_SIZE)
     if pad != 0: 
-        decoded = "\0" * (BLOCK_SIZE - pad) + decoded
+        decoded = "\\0" * (BLOCK_SIZE - pad) + decoded
     return decoded
 
 
@@ -95,7 +94,6 @@ if __name__=="__main__":
         fw.write(c_img)
 
 ```
-:::
 
 ## Recon
 這一題也蠻有趣的，可以先看一下他怎麼加密的
@@ -103,6 +101,7 @@ if __name__=="__main__":
 2. 在51行用AES-ECB加密data，而我們知道ECB mode就很不安全
 3. 在53行再把每一個block分出來並在開頭的地方插入initial vector
 4. 57-62行的for-loop，就是把兩個block相加再mod UMAX就是對應的下一個block的值，意即:
+
 $$
 c[0] \leftarrow Initial\ Vector=AES[0]\\
 c[i+1] \leftarrow (AES[i+1]+c[i])\ \% \ 2^{128}\\
@@ -115,7 +114,7 @@ $$
 
 
 ## Exploit
-```python=
+```python
 #!/usr/bin/env python
 
 from Crypto.Cipher import AES
@@ -138,7 +137,7 @@ def to_bytes(n):
 
     pad = (len(decoded) % BLOCK_SIZE)
     if pad != 0: 
-        decoded = b"\0" * (BLOCK_SIZE - pad) + decoded
+        decoded = b"\\0" * (BLOCK_SIZE - pad) + decoded
     return decoded
 
 

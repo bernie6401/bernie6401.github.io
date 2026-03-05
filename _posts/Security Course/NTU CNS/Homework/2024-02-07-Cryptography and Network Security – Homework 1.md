@@ -865,7 +865,7 @@ for block in reversed(range(1, len(cipher_block))):
                         print( "[-] Error decryption failed the padding is > " + str(size_block) )
                         sys.exit()
 
-                    print( "\033[36m" + "\033[1m" + "[+]" + "\033[0m" + " Found", i + 1, "bytes :", bytes_found, )
+                    print( "\\033[36m" + "\\033[1m" + "[+]" + "\\033[0m" + " Found", i + 1, "bytes :", bytes_found, )
                     print("")
 
                     break

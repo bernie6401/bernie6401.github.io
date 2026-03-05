@@ -11,7 +11,7 @@ date: 2024-01-31
 
 One of our employees at the company complained about suspicious behavior on the machine, our IR team took a memory dump from the machine and we need to investigate it.
 
-## ==Attaaaaack 1==
+## **Attaaaaack 1**
 > Q1. What is the best profile for the the machine?
 
 ### Exploit
@@ -35,7 +35,7 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
 
 Flag: `crew{Win7SP1x86_23418}`
 
-## ==Attaaaaack 2==
+## **Attaaaaack 2**
 > Q2. How many processes were running ? (number)
 
 ### Exploit
@@ -97,7 +97,7 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 
 Flag: `47`
 
-## ==Attaaaaack 3==
+## **Attaaaaack 3**
 > Q3. i think the user left note on the machine. can you find it ?
 
 ### Recon
@@ -139,7 +139,7 @@ Flag: `47`
 
 Flag: `crew{1_l0v3_M3m0ry_F0r3ns1cs_S0_muchhhhhhhhh}`
 
-## ==Attaaaaack 4==
+## **Attaaaaack 4**
 > Q4. What is the name and PID of the suspicious process ?
 > example : crew{abcd.exe_111}
 
@@ -149,7 +149,7 @@ Flag: `crew{1_l0v3_M3m0ry_F0r3ns1cs_S0_muchhhhhhhhh}`
 ### Exploit
 Flag: `crew{runddl32.exe_300}`
 
-## ==Attaaaaack 5==
+## **Attaaaaack 5**
 > Q5. What is the another process that is related to this process and it's strange ?
 > example : crew{spotify.exe}
 
@@ -167,7 +167,7 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 
 Flag: `crew{notepad.exe}`
 
-## ==Attaaaaack 6==
+## **Attaaaaack 6**
 > Q6. What is the full path (including executable name) of the hidden executable?
 example : crew{C:\Windows\System32\abc.exe}
 
@@ -178,13 +178,13 @@ example : crew{C:\Windows\System32\abc.exe}
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memdump.raw --profile Win7SP1x86_23418 filescan | findstr runddl32.exe
 Volatility Foundation Volatility Framework 2.6
-0x0000000024534f80      5      0 R--r-d \Device\HarddiskVolume1\Users\0XSH3R~1\AppData\Local\Temp\MSDCSC\runddl32.exe
-0x000000003ea44038      8      0 RWD--- \Device\HarddiskVolume1\Users\0XSH3R~1\AppData\Local\Temp\MSDCSC\runddl32.exe
+0x0000000024534f80      5      0 R--r-d \Device\HarddiskVolume1\Users\\0XSH3R~1\AppData\Local\Temp\MSDCSC\runddl32.exe
+0x000000003ea44038      8      0 RWD--- \Device\HarddiskVolume1\Users\\0XSH3R~1\AppData\Local\Temp\MSDCSC\runddl32.exe
 ```
 
-Flag: `crew{C:\Users\0XSH3R~1\AppData\Local\Temp\MSDCSC\runddl32.exe}`
+Flag: `crew{C:\Users\\0XSH3R~1\AppData\Local\Temp\MSDCSC\runddl32.exe}`
 
-## ==Attaaaaack 7==
+## **Attaaaaack 7**
 > Q7. What is the API used by the malware to retrieve the status of a specified virtual key on the keyboard ?
 flag format: crew{AbcDef}
 
@@ -243,7 +243,7 @@ UntControlKey
 
 Flag: `crew{GetKeyState}`
 
-## ==Attaaaaack 8==
+## **Attaaaaack 8**
 > Q8. What is the Attacker's C2 domain name and port number ? (domain name:port number)
 example : crew{abcd.com:8080}
 
@@ -259,7 +259,7 @@ example : crew{abcd.com:8080}
 
 Flag: `crew{test213.no-ip.info:1604}`
 
-## ==Attaaaaack 9==
+## **Attaaaaack 9**
 > Q9. Seems that there is Keylogger, can you find it's path ?
 example : crew{C:\Windows\System32\abc.def}
 
@@ -277,12 +277,12 @@ example : crew{C:\Windows\System32\abc.def}
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memdump.raw --profile Win7SP1x86_23418 filescan | findstr .dc | findstr \AppData\Roaming\dclogs
 Volatility Foundation Volatility Framework 2.6
-0x000000003fcb3350      8      0 -W-r-- \Device\HarddiskVolume1\Users\0xSh3rl0ck\AppData\Roaming\dclogs\2023-02-20-2.dc
+0x000000003fcb3350      8      0 -W-r-- \Device\HarddiskVolume1\Users\\0xSh3rl0ck\AppData\Roaming\dclogs\2023-02-20-2.dc
 ```
 
-Flag: `crew{C:\Users\0xSh3rl0ck\AppData\Roaming\dclogs\2023-02-20-2.dc}`
+Flag: `crew{C:\Users\\0xSh3rl0ck\AppData\Roaming\dclogs\2023-02-20-2.dc}`
 
-## ==Attaaaaack 10==
+## **Attaaaaack 10**
 > Q10. we think that the malware uses persistence technique can you detect it ?
 example : crew{Scheduled_tasks} (first letter of the first word is uppercase and the first letter of other is lowercase)
 
@@ -299,14 +299,14 @@ Volatility Foundation Volatility Framework 2.6
 Legend: (S) = Stable   (V) = Volatile
 
 ----------------------------
-Registry: \??\C:\Users\0xSh3rl0ck\ntuser.dat
+Registry: \??\C:\Users\\0xSh3rl0ck\ntuser.dat
 Key name: Run (S)
 Last updated: 2023-02-20 19:03:40 UTC+0000
 
 Subkeys:
 
 Values:
-REG_SZ        MicroUpdate     : (S) C:\Users\0XSH3R~1\AppData\Local\Temp\MSDCSC\runddl32.exe
+REG_SZ        MicroUpdate     : (S) C:\Users\\0XSH3R~1\AppData\Local\Temp\MSDCSC\runddl32.exe
 ----------------------------
 Registry: \REGISTRY\USER\S-1-5-20
 Key name: Run (S)
@@ -329,7 +329,7 @@ REG_EXPAND_SZ Sidebar         : (S) %ProgramFiles%\Windows Sidebar\Sidebar.exe /
 
 Flag: `crew{Registry_keys}`
 
-## ==Attaaaaack 11==
+## **Attaaaaack 11**
 > Q11. can you find the key name and it's value ?
 example : crew{CurrentVersion_ProductName}
 
@@ -337,7 +337,7 @@ example : crew{CurrentVersion_ProductName}
 從上一題的輸出就知道key name是run，然後value是MicroUpdate
 Flag: `crew{Run_MicroUpdate}`
 
-## ==Attaaaaack 12==
+## **Attaaaaack 12**
 > Q12. What is the strange handle used by the malware ?
 example : crew{the name of the handle}
 
@@ -362,7 +362,7 @@ Offset(V)     Pid     Handle     Access Type             Details
 
 Flag: `crew{DC_MUTEX-KHNEW06}`
 
-## ==Attaaaaack 13==
+## **Attaaaaack 13**
 > Q13. Now can you help us to know the Family of this malware ?
 example : crew{Malware}
 

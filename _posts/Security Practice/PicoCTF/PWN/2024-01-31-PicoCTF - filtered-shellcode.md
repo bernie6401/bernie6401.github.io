@@ -10,12 +10,12 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-Shell Code
-Reverse
+* Shell Code
+* Reverse
 
 ## Source code
-:::spoiler Source Code Got From Server After Get Shell
-```cpp!
+Source Code Got From Server After Get Shell
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
     setbuf(stdout, NULL);
     char buf[MAX_LENGTH];
     size_t length = 0;
-    char c = '\0';
+    char c = '\\0';
 
     printf("Give me code to run:\n");
     c = fgetc(stdin);
@@ -66,18 +66,17 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
-:::
 
 ## Recon
 這一題沒有很難，但我沒有解出來，主要是因為reverse看不懂，完了QAQ，IDA都亂翻，只能求助於[^pico_pwn_filtered_shellcode_wp]，其實很簡單，好像也沒有filter的成分在，如果限制只能用每次兩bytes寫shell code不算的話
 1. 其實就兩個function，一個是main function，另外一個是execute function，execute function主要會每一個shell code中間插入兩個nop，然後用function pointer的方式執行，所以我們的目標是寫一個shell code script開server的shell
 2. 重點是shell code的instruction只能用2 bytes的instruction，所以沒辦法用類似`mov eax, 0x6e69622f`的這種方式，會GG，原因出自於execute function的for loop，他會把我們寫的shell code用2 bytes的方式切開，然後中間塞兩個nop(也就是兩個\x90，也是兩個bytes)，所以這其實就是限制我們只能用2 bytes寫shell code
-    ```cpp!
+    ```cpp
     if ((i % 4) < 2) {result[i] = shellcode[spot++];}
     else {result[i] = '\x90';}
     ```
 4. 所以不能隨便用exploit db上找到的shell code複製貼上，或是用以下payload，必須要善用`shl`，只要shl 16次(也就是2 bytes)就可以同時方式0x6e69622f，效果和`mov eax, 0x6e69622f`一樣
-    ```asm!
+    ```asm
     payload = asm("""
         mov eax, 0x6e69622f
         push eax
@@ -94,7 +93,7 @@ int main(int argc, char *argv[]) {
     ```
 
 ## Exploit - Write Properly Shell Code
-```python!
+```python
 from pwn import *
 
 r = process('./fun')

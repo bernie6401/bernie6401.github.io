@@ -13,7 +13,6 @@ date: 2024-01-31
 Heap Exploitation / Used After Free
 
 ## Source code
-:::spoiler Source Code
 ```cpp
 #include <stdint.h>
 #include <stdio.h>
@@ -69,7 +68,7 @@ char * getsline(void) {
 		if((*line++ = c) == '\n')
 			break;
 	}
-	*line = '\0';
+	*line = '\\0';
 	return linep;
 }
 
@@ -170,7 +169,6 @@ int main(){
 }
 
 ```
-:::
 
 ## Recon
 這題該怎麼說呢，有點像是被設計好的問題
@@ -189,7 +187,7 @@ int main(){
     保護機制雖然沒有全開，不過應該是一個heap題
 2. source code有一個`hahaexploitgobrrr` function，是print出flag的function所以我們的目標很明確，就是要想辦法踩到這個function，而`s()`/`p()`/`m()`都是無用的資訊
 3. 遇到這種heap的題目，我會先看哪裡有malloc和free，確保幾個簡單的exploitation的可能性，例如uaf或double free之類的，而i function有一個free，是要註銷帳號的功能，但是main function中的`doProcess(user);`卻持續使用user這個變數，所以這個就是一個典型的UAF漏洞(我也是看了別人的WP[^uaf_wp_martin][^uaf_wp_Dvd848]後才知道他的題目已經有提示了，一開始是我想的太複雜了)，試想如果一開始我先輸入`i`，讓程式`free(user)`，接著他就會執行`doProcess(user)`也就是user指向的function pointer，如果我們可以拿到被free掉的user這個chunk然後輸入`hahaexploitgobrrr`這個function的address，那我們就可以拿到flag了
-4. 所以重點來了，要怎麼拿到被free掉的chunk呢?這個程式==也很好心的==幫我們實作了`leaveMessage`這個function，他會malloc 8 bytes，其實就剛好是user的大小，所以如果要拿8 bytes的chunk他會先到Tcache搜尋，然後給我們寫一些資訊，此時我們就可以寫上`hahaexploitgobrrr`這個function的address(address的資訊可以透過`s` function得知)
+4. 所以重點來了，要怎麼拿到被free掉的chunk呢?這個程式**也很好心的**幫我們實作了`leaveMessage`這個function，他會malloc 8 bytes，其實就剛好是user的大小，所以如果要拿8 bytes的chunk他會先到Tcache搜尋，然後給我們寫一些資訊，此時我們就可以寫上`hahaexploitgobrrr`這個function的address(address的資訊可以透過`s` function得知)
 5. 綜合以上資訊可以開寫script
 
 ## Exploit

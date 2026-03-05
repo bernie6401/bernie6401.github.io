@@ -23,8 +23,7 @@ date: 2024-01-31
 > Return Value: This function returns a pointer points to the first character of the found s2 in s1 otherwise a null pointer if s2 is not present in s1. If s2 points to an empty string, s1 is returned. 
 
 ## Source code
-:::spoiler Source Code
-```cpp=
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -89,7 +88,7 @@ int tgetinput(char *input, unsigned int l)
         read_bytes = read(0, input, l-1);
         if(input[read_bytes-1]=='\n'){
         --read_bytes;
-        input[read_bytes]='\0';
+        input[read_bytes]='\\0';
         }
         if(read_bytes==0){
             printf("No data given.\n");
@@ -135,7 +134,7 @@ bool play () {
 
 
 int main () {
-  char input[3] = {'\0'};
+  char input[3] = {'\\0'};
   int command;
   int r;
 
@@ -178,17 +177,13 @@ int main () {
 
   return 0;
 }
-
-
 ```
-:::
 
 ## Recon
 這一題有reverse的感覺，主要是利用`strstr()`這個function拿到win++，在第100行的地方是利用`strstr()`搜索字串達到判斷勝利的功能，但是如果我們把三種結果結合在一起，則這一段結果就一定會試true
 
 ## Exploit
 Payload: `paperscissorsrock`
-:::spoiler Whole Progress
 ```bash
 $ nc saturn.picoctf.net 51418
 Welcome challenger to the game of Rock, Paper, Scissors
@@ -259,7 +254,7 @@ picoCTF{50M3_3X7R3M3_1UCK_58F0F41B}
 Type '1' to play a game
 Type '2' to exit the program
 ```
-:::
+
 Flag: `picoCTF{50M3_3X7R3M3_1UCK_58F0F41B}`
 
 ## Reference

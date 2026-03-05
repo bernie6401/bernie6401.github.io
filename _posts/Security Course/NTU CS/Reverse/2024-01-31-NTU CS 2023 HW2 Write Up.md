@@ -503,7 +503,7 @@ Flag: `FLAG{just_4_simple_unpackme_challenge!}`
     ```cpp
     LOAD:0000000000005AF5 jmp     r13
     ```
-    :::info
+    
     如何在動態取得這一行的位置呢?手動算出rebase address
     1. 首先先用靜態分析看starti的時候的offset
     2. 開始動態執行程式
@@ -539,10 +539,11 @@ Flag: `FLAG{just_4_simple_unpackme_challenge!}`
        0x7ffff7ffdb06:      ins    BYTE PTR es:[rdi],dx
        0x7ffff7ffdb07:      data16 (bad)
     ```
-    :::
+    
 2. 利用動態看r13的address會跳去哪邊 → 0x00007ffff7ff1000
 3. 接下來我找不太到分析的地方，所以就直接c(continue)到user input的地方停下來，再看vmmap
-    :::spoiler vmmap
+    
+    vmmap
     ```bash
     [ Legend:  Code | Heap | Stack ]
     Start              End                Offset             Perm Path
@@ -570,11 +571,11 @@ Flag: `FLAG{just_4_simple_unpackme_challenge!}`
     0x00007ffff7fff000 0x00007ffff8020000 0x0000000000000000 rw- [heap]
     0x00007ffffffdd000 0x00007ffffffff000 0x0000000000000000 rw- [stack]
     ```
-    :::
+    
     可以看到`0x00007ffff7ff8000`開始會有ELF的字樣，代表應該是他脫殼完的結果，我的作法是直接把`0x00007ffff7ff8000`~`0x00007ffff7ffd000`全部dump下來進行分析
     ```bash
     gef➤  x/s 0x00007ffff7ff8000
-    0x7ffff7ff8000: "\177ELF\002\001\001"
+    0x7ffff7ff8000: "\177ELF\\002\\001\\001"
     gef➤  dump memory real_file 0x00007ffff7ff8000 0x00007ffff7ffd000
     ```
 4. 開始分析real_file，先用靜態看一下(如source code所示)
@@ -661,6 +662,7 @@ Flag: `FLAG{50_y0u_p4y_7h3_r4n50m?!hmmmmm}`
         2. 利用`SystemFunction032`把我們的檔案加密
         3. 創一個`enc_flag.txt`這個檔案然後把加密的cipher寫進去
 4. 加密的部分
+    
     從[SystemFunction033](https://forum.butian.net/share/2204)這個網站可以知道`SystemFunction033`一開始的結構，我們可以順著這個結構去推敲解密需要的key
     ```cpp
     struct ustring {
@@ -690,11 +692,11 @@ Flag: `FLAG{jmp1ng_a1l_ar0und}`
 
 1. 一樣由上而下，首先會先進到sleep睡眠兩分鐘，並且判斷進到下一行的時候，時間是否在範圍內，這也是time based的anti debugging手法，這部分可以動態直接patch掉
     * Patch Sleep Function Result
-    ![圖片](https://hackmd.io/_uploads/SkPJKTiN6.png)
-    ![圖片](https://hackmd.io/_uploads/ByKlFaiN6.png)
+        ![圖片](https://hackmd.io/_uploads/SkPJKTiN6.png)
+        ![圖片](https://hackmd.io/_uploads/ByKlFaiN6.png)
 2. 接著會進到loc_401AE0，這部分應該是一個function但不知道為甚麼IDA翻譯不出來，不過看了一下source code也是蠻簡單的，就是一直跳到`sub_401220`，這個在動態也可以patch
     * Patch Anti-Debug Result
-    ![圖片](https://hackmd.io/_uploads/r15VqajVa.png)
+        ![圖片](https://hackmd.io/_uploads/r15VqajVa.png)
 3. `sub_401220`主要是在其他anti debug的部分，具體怎麼做不是很清楚，只知道大概是和exception handler有關係，不過我在開了scylla hide之後沒有出現甚麼特別的事情
     ![圖片](https://hackmd.io/_uploads/rySec6jN6.png)
 4. 接著會進到`sub_401170`，這一段蠻重要的，就是處理一些Exception Handler的事情，然後莫名其妙的會進到0x40120F中的`InputFlag_Check`，中間的一些操作可能是被scylla hide擋掉了，不過中間也確實有檢察`IsDebuggerPresent`這東西

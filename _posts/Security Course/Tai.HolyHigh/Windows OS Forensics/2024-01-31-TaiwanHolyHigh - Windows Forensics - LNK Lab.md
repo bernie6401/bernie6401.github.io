@@ -8,18 +8,15 @@ date: 2024-01-31
 
 # TaiwanHolyHigh - Windows Forensics - LNK Lab
 <!-- more -->
-[TOC]
-
-:::info
 以下引用若無特別說明皆來自於講師的上課簡報
-:::
 
 ## Background
 * What is .LNK?
     > LNK 檔為 Windows 系統中，執行程式或開啟檔案後會留存的捷徑檔，該檔案內會有相當多的資訊
 * Where is .LNK?
     > 預設 LNK 檔案會放在使用者目錄下，可透過以下指令檢視：`$ dir c:\Users\{username}\*.lnk /b /s`
-    :::spoiler 執行結果
+    
+    執行結果
     ```bash
     $ dir c:\Users\Bernie\*.lnk /b /s
     c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group1\1 - Desktop.lnk
@@ -28,16 +25,16 @@ date: 2024-01-31
     c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group2\3 - Windows Explorer.lnk
     c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group2\4 - Control Panel.lnk
     c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group2\5 - Task Manager.lnk
-    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\01a - Windows PowerShell.lnk
-    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\02a - Windows PowerShell.lnk
-    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\03 - Computer Management.lnk
-    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\04 - Disk Management.lnk
-    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\04-1 - NetworkStatus.lnk
-    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\05 - Device Manager.lnk
-    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\06 - SystemAbout.lnk
-    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\07 - Event Viewer.lnk
-    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\08 - PowerAndSleep.lnk
-    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\09 - Mobility Center.lnk
+    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\\01a - Windows PowerShell.lnk
+    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\\02a - Windows PowerShell.lnk
+    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\\03 - Computer Management.lnk
+    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\\04 - Disk Management.lnk
+    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\\04-1 - NetworkStatus.lnk
+    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\\05 - Device Manager.lnk
+    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\\06 - SystemAbout.lnk
+    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\\07 - Event Viewer.lnk
+    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\\08 - PowerAndSleep.lnk
+    c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\\09 - Mobility Center.lnk
     c:\Users\Bernie\AppData\Local\Microsoft\Windows\WinX\Group3\10 - AppsAndFeatures.lnk
     c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\Chromium.lnk
     c:\Users\Bernie\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\File Shredder.lnk
@@ -65,12 +62,11 @@ date: 2024-01-31
     c:\Users\Bernie\Links\Downloads.lnk
     c:\Users\Bernie\OneDrive\Personal Vault.lnk
     ```
-    :::
 
 ## Lab
 可以先到[這邊](https://code.google.com/archive/p/lnk-parser/downloads)下載`lnk_parser_cmd.exe`
 
-### ==利用lnk parser leak info==
+### **利用lnk parser leak info**
 ```bash
 $ lnk_parser_cmd.exe
 Please enter the name of the shortcut file, or a directory you wish to scan: D:\NTU\Taiwan Holy High 8-th\Windows OS Forensics\LNK
@@ -82,10 +78,10 @@ Select a report to output:
 Select: 0
 Do you want to output results to the console? (Y/N) y
 ```
-:::danger
-切記，輸入要parse的folder中不能有任何中文字，不然會無法正確parse到路徑
-:::
-:::spoiler 執行結果
+
+**切記，輸入要parse的folder中不能有任何中文字，不然會無法正確parse到路徑**
+
+執行結果
 ```bash
 [Filename]:                             D:\NTU\Taiwan Holy High 8-th\Windows OS Forensics\LNK\$RU2R11Q.lnk
 
@@ -532,11 +528,11 @@ Unknown data at end of file.
 
 Press any key to continue . . .
 ```
-:::
 
-### ==利用手動的方式parse lnk file==
+### **利用手動的方式parse lnk file**
 SO代表offset，LE代表取多少個bytes
 1. 標的檔案路徑
+    
     ![](https://hackmd.io/_uploads/SJi5e37Ma.png)
     如果有特別幫Parition取名字的話，lnk就會把partition的名字放在兩個固定byte中間，也就是`10 00 00 00`和`00`中間，可以用以下的script把big5轉成中文
     ```python
@@ -545,9 +541,10 @@ SO代表offset，LE代表取多少個bytes
     '新增磁碟區'
     ```
 2. 標的檔案路徑之磁碟序號 (Drive serial number)
+    
     ![](https://hackmd.io/_uploads/Hyrkc2Qza.png)
     順序是倒著看，以此為例就是`D4 21 3D DD`，如果把硬碟換掉/重灌/對partition有其他異動都會使這個serial number和原本不一樣
-    :::info
+    
     如何知悉本電腦的磁區序號:
     ```bash
     $ dir /a
@@ -561,8 +558,9 @@ SO代表offset，LE代表取多少個bytes
      磁碟區 C 中的磁碟沒有標籤。
      磁碟區序號:  1AA2-C9B1
     ```
-    :::
+    
 3. 標的檔案時間戳記(在Header欄位中，如下圖)
+    
     SO = 28 / LE = 24(Timestamp開時前的四個bytes都是固定`20 00 00 00`)
     ![](https://hackmd.io/_uploads/ry58EhXza.png)
     因為我的HxD也沒有出現特別編輯器的視窗，所以就土法煉鋼的把東西轉換
@@ -590,7 +588,9 @@ SO代表offset，LE代表取多少個bytes
     datetime.datetime(2022, 1, 15, 9, 12, 41, 429668)
     ```
     的確和lnk parser上的時間一模一樣，或是也可以像講師上課的時候提到的線上工具[endian convert](https://blockchain-academy.hs-mittweida.de/litte-big-endian-converter/), [ldap timestamp convert](https://www.epochconverter.com/ldap)
+
 4. 標的檔案大小
+    
     SO = 52 / LE = 8
     順序也是倒著看
     ![](https://hackmd.io/_uploads/BywhO2XMa.png)
@@ -600,6 +600,7 @@ SO代表offset，LE代表取多少個bytes
     36735600
     ```
 5. 標的檔案 ObjectID
+    
     ![](https://hackmd.io/_uploads/SJXfIa7fp.png)
     有一點複雜，但從上往下看
     1. 紅色框起來的是不會變動的16 bytes
@@ -611,8 +612,10 @@ SO代表offset，LE代表取多少個bytes
     7. 深紅色+深黃色 = Birth Object ID
     Birth和New的差別就是，如果哪一天把該檔案拉到其他地方，則new會和birth的部分不一樣，更準確的說，是把檔案從一個NTFS的檔案系統中換到另外一個NTFS的檔案系統時，才會更新此object/volume ID，如果是換到FAT32的話，會沒有變動
 6. 標的檔案所在主機之 MAC Address
+    
     就如上圖所列的最後一個欄位，也就是土黃色的區塊(其實如果new object ID沒變的話，最後6個bytes也會是MAC address)
 7. UUID 時間戳記
+    
     這個時間戳記是取自深黃色的前8個bytes，先像前面一樣轉換成big endian然後轉成int，再扣掉`5748192000000000`，詳細可以看[泛科學的文章](https://pansci.asia/archives/137717)
     ```bash
     >>> timestamp = 'DF 94 76 93 E1 75 EC 01'
@@ -622,6 +625,7 @@ SO代表offset，LE代表取多少個bytes
     datetime.datetime(2022, 1, 15, 9, 0, 24, 375626)
     ```
 8. UUID Sequence 編號
+    
     這個講師沒有時間講，所以我自己用現有的檔案自己推敲應該是先取MAC address之前的兩個bytes，然後把第一個byte減掉0x80，再把全部的byte轉乘int就是了
     ```bash
     >>> uuid_num = '90 A7'.split(' ')
@@ -630,5 +634,5 @@ SO代表offset，LE代表取多少個bytes
     ```
 
 ## 延伸閱讀
-[Analyzing malicious LNK file](https://lifeinhex.com/analyzing-malicious-lnk-file/)
-[EMF - Enhanced MetaFile format](https://web.archive.org/web/20190723103847/http://www.undocprint.org/formats/winspool/emf)
+* [Analyzing malicious LNK file](https://lifeinhex.com/analyzing-malicious-lnk-file/)
+* [EMF - Enhanced MetaFile format](https://web.archive.org/web/20190723103847/http://www.undocprint.org/formats/winspool/emf)

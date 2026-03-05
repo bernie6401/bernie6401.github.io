@@ -16,54 +16,40 @@ date: 2024-02-07
 ## 1. DDoS
 ### 1)
 * Hint: You can use I/O Graphs to find the time that the flow starts to burst. Then you can find the first packet near there.
-
 * Ans: Using I/O graph in `Statistic/I/O Graphs` in wireshark, then you can figure out the whole trend of this network flow.
-    :::spoiler Result Screenshot
-    ![](https://hackmd.io/_uploads/rJk-LueL3.jpg)
-    :::
-    Also, you can set the different scale of the graph and figure out the attack time precisely. I set the `Interval=100ms` and find the increasing time at `24.8s` which is `No.55862` packet shown as below.
-    :::spoiler Result Screenshot
-    ![](https://hackmd.io/_uploads/ryG7POxL2.png)
-    :::
-    Thus, the attack time should be at <font color="FF0000">`24.945277`</font> and the victim is <font color="FF0000">`192.168.232.95`</font>
-    :::spoiler Result Screenshot
-    ![](https://hackmd.io/_uploads/Syurtue8h.png)
-    :::
-    
-    :::info
-    Note: You can observe that how many packets of each address received or transmitted in `Statistic/Endpoints`. You can note that the address `192.168.232.95` has received tons of packets.
-    :::spoiler Result Screenshot
-    ![](https://hackmd.io/_uploads/BJ6r9dgI3.png)
-    :::
 
+    ![](https://hackmd.io/_uploads/rJk-LueL3.jpg)
+        Also, you can set the different scale of the graph and figure out the attack time precisely. I set the `Interval=100ms` and find the increasing time at `24.8s` which is `No.55862` packet shown as below.
+    ![](https://hackmd.io/_uploads/ryG7POxL2.png)
+        Thus, the attack time should be at <span style="background-color: yellow">`24.945277`</span> and the victim is <span style="background-color: yellow">`192.168.232.95`</span>
+    ![](https://hackmd.io/_uploads/Syurtue8h.png)
+        
+    Note: You can observe that how many packets of each address received or transmitted in `Statistic/Endpoints`. You can note that the address `192.168.232.95` has received tons of packets.
+
+    ![](https://hackmd.io/_uploads/BJ6r9dgI3.png)
+    
 ### 2)
 * Hint: How to find attack packets if you know the victim?
-* Ans: The protocol that the attack exploit is <font color="FF0000">`UDP`</font>. Maybe this is a `UDP` flood attack. And the size of an attack packet should be <font color="FF0000">$482$</font> bytes.
+* Ans: The protocol that the attack exploit is <span style="background-color: yellow">`UDP`</span>. Maybe this is a `UDP` flood attack. And the size of an attack packet should be <span style="background-color: yellow">482</span> bytes.
 * Note: You can set the filter `ip.dst==192.168.232.95 && udp` and observe the flow and packets.
-    :::spoiler Result Screenshot
     ![](https://hackmd.io/_uploads/HJ4hkte8n.png)
-    :::
-
+    
 ### 3)
 * Ans: 
 
 ### 4)
 * Background: this DDoS attack using NTP protocol to amplify the packets to achieve the attack.
     > NTP 放大 DoS 攻擊利用響應遠程 monlist 請求的網絡時間協議（NTP）服務器。 monlist 函數返回與服務器交互的所有設備的列表，在某些情況下最多達 600 個列表。 攻擊者可以偽造來自目標 IP 地址的請求，並且漏洞服務器將為每個發送的請求返回非常大的響應 - by [Kali Linux網絡掃描秘籍第六章拒絕服務(二)](https://cloud.tencent.com/developer/article/2182801)
-    :::spoiler Background
+
     ![](https://hackmd.io/_uploads/BkX8K9eL2.png)
-    :::
 * Hint: You can find some useful statistics in `IPv4 Statistics`.
-* Ans: In `IPv4 Statistics`, we can note the several victims receive most of the packets. $\to$ <font color="FF0000">`192.168.232.80`, `192.168.232.10`, `192.168.232.95`</font>
-    :::spoiler Result Screenshot
+* Ans: In `IPv4 Statistics`, we can note the several victims receive most of the packets. → <span style="background-color: yellow">`192.168.232.80`, `192.168.232.10`, `192.168.232.95`</span>
     ![](https://hackmd.io/_uploads/B1W9QcgIn.png)
-    
     ![](https://hackmd.io/_uploads/SyBgw5xLh.png)
-    :::
     * `192.168.232.80`: 28320 packets received
     * `192.168.232.10`: 26870 packets received
     * `192.168.232.95`: 23327 packets received
-    * 3 major amplifiers: <font color="FF0000">`34.93.220.190`, `128.111.19.188`, `129.236.255.8`</font>
+    * 3 major amplifiers: <span style="background-color: yellow">`34.93.220.190`, `128.111.19.188`, `129.236.255.8`</span>
 
 ### 5)
 * Background:
@@ -74,9 +60,9 @@ date: 2024-02-07
 * Ans:
     1. Determine if the remote server is running NTP service
         I tried 9 IP(3 IP from previous question + 6 IPs provided from TAs)
-        Note: `-sU` option can be used to specify <font color="FF0000">UDP</font>, then the `-p` option can be used to specify the port
-        :::spoiler Command Result
-        ```bash!
+        Note: `-sU` option can be used to specify <span style="background-color: yellow">UDP</span>, then the `-p` option can be used to specify the port
+        
+        ```bash
         $ sudo nmap -sU 128.111.19.188 -p 123
         Starting Nmap 7.80 ( https://nmap.org ) at 2023-05-28 22:01 CST
         Nmap scan report for cms28.physics.ucsb.edu (128.111.19.188)
@@ -149,21 +135,21 @@ date: 2024-02-07
         
         Nmap done: 1 IP address (1 host up) scanned in 0.55 seconds
         ```
-        :::
+        ```
         Final Result:
-        34.93.220.190 $\to$ down
-        128.111.19.188 $\to$ closed
-        129.236.255.89 $\to$ down
-        142.44.162.188 $\to$ open
-        91.121.132.146 $\to$ open
-        82.65.72.200 $\to$ open
-        81.23.0.110 $\to$ open|filtered
-        72.76.155.29 $\to$ open
-        61.216.81.26 $\to$ open|filtered
+        34.93.220.190 → down
+        128.111.19.188 → closed
+        129.236.255.89 → down
+        142.44.162.188 → open
+        91.121.132.146 → open
+        82.65.72.200 → open
+        81.23.0.110 → open|filtered
+        72.76.155.29 → open
+        61.216.81.26 → open|filtered
+        ```
 
     2. Determine if NTP service can be used for amplification attacks
-        :::spoiler Command Result
-        ```bash!
+        ```bash
         $ ntpdc -n -c monlist 34.93.220.190
         34.93.220.190: timed out, nothing received
         ***Request timed out
@@ -195,23 +181,23 @@ date: 2024-02-07
         61.216.81.26: timed out, nothing received
         ***Request timed out
         ```
-        :::
+        ```
         In this moment the final result:
-        34.93.220.190 $\to$ timed out
-        128.111.19.188 $\to$ Connection refused
-        129.236.255.89 $\to$ timed out
-        142.44.162.188 $\to$ <font color="FF0000">Success</font>
-        91.121.132.146 $\to$ incomplete
-        82.65.72.200 $\to$ incomplete
-        81.23.0.110 $\to$ incomplete
-        72.76.155.29 $\to$ incomplete
-        61.216.81.26 $\to$ timed out
+        34.93.220.190 → timed out
+        128.111.19.188 → Connection refused
+        129.236.255.89 → timed out
+        142.44.162.188 → Success
+        91.121.132.146 → incomplete
+        82.65.72.200 → incomplete
+        81.23.0.110 → incomplete
+        72.76.155.29 → incomplete
+        61.216.81.26 → timed out
+        ```
     3. Record the network flow and compute the amplification factor
-       In my network situation and remote server circumstances, I received 100 packets with $482\ bytes*100\ packets=48200\ bytes$ from NTP server so the amplification factor is just <font color="FF0000">$48200/234 \cong 206$</font> directly (234 is transmit packet size).
-        :::spoiler Result Screenshot
+       In my network situation and remote server circumstances, I received 100 packets with $482\ bytes*100\ packets=48200\ bytes$ from NTP server so the amplification factor is just $48200/234 \cong 206$ directly (234 is transmit packet size).
+    
         ![](https://hackmd.io/_uploads/SyUpW5-8h.png)
-        :::
-
+        
 ### 6)
 * Ans 1: 
     * Implement rate limiting to restrict the number of UDP packets from a single source IP.
@@ -235,12 +221,11 @@ date: 2024-02-07
 Username: `CNS-user`
 Password: `CNS-password`
 1. Basic Authentication
-How to deploy your service? You can refer to [this video](https://www.youtube.com/watch?v=G1EVWLjwvrE&ab_channel=TechieBlogging) and remember to set the extra command `pip install flask-httpauth` to install other library.
-    :::spoiler Example Screenshot
+
+    How to deploy your service? You can refer to [this video](https://www.youtube.com/watch?v=G1EVWLjwvrE&ab_channel=TechieBlogging) and remember to set the extra command `pip install flask-httpauth` to install other library.
+
     ![](https://hackmd.io/_uploads/Sko6ZheD2.png)
-    :::
-    :::spoiler Whole Script
-    ```python=
+    ```python
     from flask import Flask
     from flask_httpauth import HTTPBasicAuth
 
@@ -264,17 +249,14 @@ How to deploy your service? You can refer to [this video](https://www.youtube.co
     if __name__ == '__main__':
         app.run(port=8880)
     ```
-    :::
     Flag: `CNS{H77P_4U7h_r0CK2}`
 
 2. Cookie-Based Authentication
-    :::spoiler Description
     > In this subtask, you will implement cookie-based authentication.
     First, I will perform 'POST /', which contains two fields: 'username' and 'password', in application/x-www-form-urlencoded format.
     Then I will execute 'GET /', which will contain the cookies returned in the previous POST request.
-    :::
-    :::spoiler Whole Script
-    ```python=
+
+    ```python
     from flask import Flask, request, redirect, render_template, make_response
     import hashlib
     
@@ -313,16 +295,13 @@ How to deploy your service? You can refer to [this video](https://www.youtube.co
     if __name__ == '__main__':
         app.run(host="127.0.0.1", port=7777, debug=True)
     ```
-    :::
     Flag: `CNS{CooK135_4R3_d3L1c1ou2}`
 3. JWT-Based
-    :::spoiler Description
     > In this subtask, you will implement JWT-based authentication.
     First, I will execute 'POST /', which contains two fields: 'username' and 'password', in application/x-www-form-urlencoded format.
     Your service should output the token directly in the HTTP response body.
     Then I will execute 'GET /' with the token.
-    :::
-
+    
 ### b)
 * Basic HTTP Authentication:
     * Pros:
@@ -356,9 +335,10 @@ How to deploy your service? You can refer to [this video](https://www.youtube.co
 Alice implemented a great web service that uses the `JWT` stored in the cookie to authenticate users. So, we can access the token as below:
 * Header: `{"alg":"RS256","typ":"JWT"}`
 * Payload: `{"username":"guest","flag1":"CNS{JW7_15_N07_a_900d_PLACE_70_H1DE_5ecrE75}","exp":1686041128}`
-* :::spoiler Signature with base64 encode:
-    `Wz1mXQiYh3OvEdrQ2y1nWTwAbNs7HE1rjBQ8HBv9DhFLax9im4J4CQqS-vXymyuLJGXnrq18b4HlurRwjoIo1036ecsHM_dQfkkUZm9NqhYMmRwl1DRjQx7RvH4FccBIXhhOBu2Jzw3pSHfILFmMUqg26weWiu4f-gE3u5by0ylMqfIwZtG-J-VLA9QFSth9vobjM610MNIuTPQODH9r8Cy1cpttZ2QPuHfPMPARF11kIIJ-ebDXnV6t1I7FB6Nv4-Mk3JUsBOKBRMVh1eiZ2_3Xx4YzNUfZb5LQzCMcjsMpHWoV1WvIEEMW5SXAVOCbCyRUhcVtqXVI_VodM_hnKA`
-    :::
+* Signature with base64 encode:
+    ```
+    Wz1mXQiYh3OvEdrQ2y1nWTwAbNs7HE1rjBQ8HBv9DhFLax9im4J4CQqS-vXymyuLJGXnrq18b4HlurRwjoIo1036ecsHM_dQfkkUZm9NqhYMmRwl1DRjQx7RvH4FccBIXhhOBu2Jzw3pSHfILFmMUqg26weWiu4f-gE3u5by0ylMqfIwZtG-J-VLA9QFSth9vobjM610MNIuTPQODH9r8Cy1cpttZ2QPuHfPMPARF11kIIJ-ebDXnV6t1I7FB6Nv4-Mk3JUsBOKBRMVh1eiZ2_3Xx4YzNUfZb5LQzCMcjsMpHWoV1WvIEEMW5SXAVOCbCyRUhcVtqXVI_VodM_hnKA
+    ```
 * Flag 1: Just hide in cookie and use `base64` online decoder, you'll obtain `CNS{JW7_15_N07_a_900d_PLACE_70_H1DE_5ecrE75}`
 
 #### Exp for another flag
@@ -373,28 +353,27 @@ How to implement `JWT` signature to sign the payload?
 
 ---
 1. Find the `N` and `e` of RSA public key
-We note that every time your refresh the web page, the tokens are quite different because of different expired time.
-So, how can we used these plaintext and signature pair to construct original `N`
-$$
-\downarrow\\
-m_1^e \equiv c_1\ (mod\ N)\\
-m_2^e \equiv c_2\ (mod\ N)\\
-m_3^e \equiv c_3\ (mod\ N)\\
-\downarrow\\
-m_1^e - c_1\ = \alpha N\\
-m_2^e - c_2\ = \beta N\\
-m_3^e - c_3\ = \gamma N
-$$
-Thus, we can find $N$ using $gcd(αN, βN, γN)=N$. Note that the large number calculation can use <font color="FF0000">`gmpy2`</font> library.
 
-    :::danger
-    Remember the work flow of signature in RSA: You can refer [this page](https://pycryptodome.readthedocs.io/en/latest/src/signature/pkcs1_v1_5.html)
-    The work flow is `b'hello'`$\to$do hash by `sha256`$\to$do padding by`pkcs#1v1.5`$\to$ then sign$\to$ciphertext
-    
-    Note 2 From TA: PKCS v1.5 padding 在encryption與signature的操作不太一樣喔，有 random bytes的是encryption，詳細可以參考[spec](https://www.rfc-editor.org/rfc/rfc3447#section-9.2)
-    :::
-    :::spoiler Exp Script
-    ```python=
+    We note that every time your refresh the web page, the tokens are quite different because of different expired time. So, how can we used these plaintext and signature pair to construct original `N`
+
+    $$
+    \downarrow\\
+    m_1^e \equiv c_1\ (mod\ N)\\
+    m_2^e \equiv c_2\ (mod\ N)\\
+    m_3^e \equiv c_3\ (mod\ N)\\
+    \downarrow\\
+    m_1^e - c_1\ = \alpha N\\
+    m_2^e - c_2\ = \beta N\\
+    m_3^e - c_3\ = \gamma N
+    $$
+
+    Thus, we can find $N$ using $gcd(αN, βN, γN)=N$. Note that the large number calculation can use **`gmpy2`** library.
+
+    Remember the work flow of signature in RSA: You can refer [this page](https://pycryptodome.readthedocs.io/en/latest/src/signature/pkcs1_v1_5.html). The work flow is `b'hello'` → do hash by `sha256` → do padding by`pkcs#1v1.5` →  then sign → ciphertext
+
+    **Note 2 From TA: PKCS v1.5 padding 在encryption與signature的操作不太一樣喔，有 random bytes的是encryption，詳細可以參考[spec](https://www.rfc-editor.org/rfc/rfc3447#section-9.2)**
+
+    ```python
     import base64
     import gmpy2
     from Crypto.Signature import pkcs1_15
@@ -402,7 +381,7 @@ Thus, we can find $N$ using $gcd(αN, βN, γN)=N$. Note that the large number c
     from base64 import urlsafe_b64encode, urlsafe_b64decode
     import jwt
     from Crypto.PublicKey import RSA
-    
+
     '''
     Compute RSA Public Key - (N, e)
     '''
@@ -411,21 +390,21 @@ Thus, we can find $N$ using $gcd(αN, βN, γN)=N$. Note that the large number c
             return gmpy2.mpz(int(base64.urlsafe_b64decode(message).hex(), 16))
         elif c_or_m == 'm':
             return gmpy2.mpz(int(pkcs1_15._EMSA_PKCS1_V1_5_ENCODE(SHA256.new(message.encode()), 256).hex(), 16))
-    
+
     ciphertext = {
         0 : "AMpJDyvv2burdO35LvbtykwdhCOItlRv0pyvE3WB7ysDqrpmy0ZbIJfkvddHLBMTLad9jgz9DV9B_Y4aPNIAs6_QibK22BoPMwmbhE_qw88rMjpf5Ph-SmmuTb51VLz4gO9QEX03AekBD5VHYHttuyln4AJdZ8y0-VUCvlyi_lEDqmRPpCnCUN1tuK6KcnKVa0IfaB1kTKzBFEFtL3oPrC9Qtp5bkYxrPXslhYhlCHRDjL_TrGn_A5g5CwONHFNczVNRig5oSyY6XV49vAJrxWMUeNKXkU49JLgGYF01tQvRDPi7m7gtTVjhQLVTV_-qkYuVbGr2bgx2PhSheA2Xcg==",
         1 : "R8QnOGx9aBt7Hjh6wXG3JmqhutNB7a7oCNWZvVUg4bhtdVWpG1WyehCczOnBs-uLcZnXg4AO6ppf4Qt2p70s7dCKsSv3YJ2L_BBXFWjlgSmNlfxTznGgMY49_0l8hmSB4A1TRbIrxLmncZmmHiTt7Fm-sUNqCl097myfu-54sMNunZktpNrQfj9PYrQuDf2HmEfw-7uDGQPThSl0vjTBQDW3adnRZOKtQ1n-xDucEVy5twxS6Tn8LNs25xn7u2ts8qFrVHFe_WlihBmZgGjmgjvkbhcKinQ3uLFx5XRw_kpQ1yjN9NMZcELV_XeGLExuRIS4TundCGYLuDIp8NKLhQ==",
         2 : "BfwxVR2DBeti1TdWm37Mj9V6hYOz-tdTisf7Lu98tz-jQgHWDUkM0RDzjUYha6wH7ZCqXGn8Les4Lk-k5zbpT_flEtu6e_w5wEKJbm2-i6OeZxZLiXLP0aOs-sSVmkdcRR-3tGWSuA6SL4VQokZUTv-4Td5FrurU6NKi6ZuwSWk8F5O6MIBi7Boncv6SnWtH93GsHCeXlVmQKvSWH0dPJDS00UwvtNSQ9moF0zhuBWIZqhjS89VWwWt5LJnbtzkEGSM5MxYsk-F8xKntwO9oiPYWeK-mo9JvGg6RnM5Poanzzbmcdw055X1wseBS2Pbv1pPEN0g6mHKuRQoc7slWEA==",
         3 : "M74GetHK2cRPuaB9HFrXYhMX8iAaQmyEOCC2xIGaYDTgZ0EfbcyST5acMfHmlLZ4ylsCVzIc3uoRWHnKo-KTTn4ECCWpdAzbzKvlpxurm4zF1b1oAfsnw7Mdv68XR1X7FEpnGT2FnXJNTbhEOwc2Bb8qgy8lYVXhIKuL-0734JWjs9V4V3UnC2TBcXfwRR1xddeXzEYoyGAm_vIY9T051jTT0OljDruQhIDH1kPTuBrJNXuedDlIc9BXZzPcBsKPdRhFb7EET8C-UheTwDM8tLAykWNcegf0-VVqP92bC80scJEgKV7HHtPU6nh7FA0_i49QSMndRsFB_96RjdTSQA=="
     }
-    
+
     plaintext = {
         0 : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1ZXN0IiwiZmxhZzEiOiJDTlN7Slc3XzE1X04wN19hXzkwMGRfUExBQ0VfNzBfSDFERV81ZWNyRTc1fSIsImV4cCI6MTY4NjU4Mzc1OX0",
         1 : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1ZXN0IiwiZmxhZzEiOiJDTlN7Slc3XzE1X04wN19hXzkwMGRfUExBQ0VfNzBfSDFERV81ZWNyRTc1fSIsImV4cCI6MTY4NjU4MzgwNX0",
         2 : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1ZXN0IiwiZmxhZzEiOiJDTlN7Slc3XzE1X04wN19hXzkwMGRfUExBQ0VfNzBfSDFERV81ZWNyRTc1fSIsImV4cCI6MTY4NjU4Mzg1MH0",
         3 : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1ZXN0IiwiZmxhZzEiOiJDTlN7Slc3XzE1X04wN19hXzkwMGRfUExBQ0VfNzBfSDFERV81ZWNyRTc1fSIsImV4cCI6MTY4NjU4Mzg4Mn0"
     }
-    
+
     c = {}
     m = {}
     for i in range(4):
@@ -437,13 +416,12 @@ Thus, we can find $N$ using $gcd(αN, βN, γN)=N$. Note that the large number c
     a_N = c[0]**e - m[0]
     b_N = c[1]**e - m[1]
     c_N = c[2]**e - m[2]
-    
+
     n = gmpy2.gcd(a_N, b_N, c_N)
     ```
-    :::
 2. Generate `public-key.pem` file
-Now, we know what `N` is, so we can generate a `.pem` file with properly format. According to [this page](https://stackoverflow.com/questions/76458680/how-can-i-generate-rsa-public-key-with-specified-n-and-e-parameter-by-using-open), the script is show as below:
-    :::spoiler Whole script
+
+    Now, we know what `N` is, so we can generate a `.pem` file with properly format. According to [this page](https://stackoverflow.com/questions/76458680/how-can-i-generate-rsa-public-key-with-specified-n-and-e-parameter-by-using-open), the script is show as below:
     ```python
     from Crypto.PublicKey import RSA
     n = 0x8ffcd5ae700b26f96316817101f254071b082b209196371eabf52d9a5e80eb64d5f4c4a1533e147f3c27b7e941622c25db41f21f502f6fd94d4b994b9448d824f24d27845da8cf5f8e10ddd1ac05ef54c490aaa7ac028efafe205d0633c62cd72ff3f874497a67c5458adaec91be0859e82a300f345ecd007115b9cb653e6b9ba670ea61e31b4b4b13bcba8cb324777e751c6b9fe531f5c6d61dd459674e57d08c03e1202f66b835220d097a9429fa5dcc22f8fbf80ddb1bb0b59ad98d4b462619ec3642ea1f6fdb7420b9602b4a8c4f66aaa0932b36d7ab4102392cd71803076acf2947cd253ea5580a0c1228ddd7647ef3d6e7c43f3d5d9654cf0d47d390d1
@@ -454,11 +432,11 @@ Now, we know what `N` is, so we can generate a `.pem` file with properly format.
     f.write(key.exportKey().decode())
     f.close()
     ```
-    :::
-
+    
 3. Implement `JWT` to sign the payload by using public key
-   <font color="FF0000">Note that you must make sure that the public key has a new line symbol at the end of the file</font>
-    :::spoiler Whole Script
+   
+    Note that you must make sure that the public key has a new line symbol at the end of the file
+   
     ```python
     import jwt
     import hashlib
@@ -481,7 +459,6 @@ Now, we know what `N` is, so we can generate a `.pem` file with properly format.
     jwt = '{}.{}.{}'.format(header.decode(), payload.decode(), sig)
     print(jwt)
     ```
-    :::
 4. Then replace the web page original token and you'll get the flag
 Note that the expire time in payload should be careful.
 
@@ -489,8 +466,7 @@ Note that the expire time in payload should be careful.
 
 ### d)
 * Just follow the [library code](https://github.com/pyauth/pyotp/tree/develop)
-    :::spoiler Script Code
-    ```python!
+    ```python
     '''
     Implement TOTP
     '''
@@ -552,7 +528,7 @@ Note that the expire time in payload should be careful.
             while i != 0:
                 result.append(i & 0xFF)
                 i >>= 8
-            return bytes(bytearray(reversed(result)).rjust(padding, b"\0"))
+            return bytes(bytearray(reversed(result)).rjust(padding, b"\\0"))
 
 
     class TOTP(OTP):
@@ -604,8 +580,7 @@ Note that the expire time in payload should be careful.
 
     # r.interactive()
     ```
-    :::
-    Flag: `CNS{2FA_15_9R347_y0U_5H0Uld_h4v3_0N3}`
+        Flag: `CNS{2FA_15_9R347_y0U_5H0Uld_h4v3_0N3}`
 
 ### e)
 * Hint 1: There are strings in the cookie that look like hashes, what could they be? 
@@ -613,16 +588,17 @@ Note that the expire time in payload should be careful.
 * Hint 3: What are some common ways to get the user’s IP when the web service is behind a reverse proxy? Are these common practices secure?
 
 #### Recon and Hint
-* From the hint and description, we know that our goal is to brute force this login authentication with <font color="FF0000">captcha challenge</font> and <font color="FF0000">rate limitations(3 attempts)</font>.
+* From the hint and description, we know that our goal is to brute force this login authentication with <span style="background-color: yellow">captcha challenge</span> and <span style="background-color: yellow">rate limitations(3 attempts)</span>.
 * As the [reference here](https://xxgblog.com/2018/10/12/x-forwarded-for-header-trick/), we can bypass the rate limitation.
 * As the hint above, we have 2 types attack, `CNN recognition`, `replay attack`, and I choose `replay attack`, btw.
 The replay attack is just fit the same cookie and captcha parameter at each attack, then we can bypass this captcha.
 
 #### How to exploit?
 1. Access `http://cns.csie.org:17505` in Burp Suite
-Intercept the packet and send to <font color="FF0000">Intruder</font>
+    
+    Intercept the packet and send to <span style="background-color: yellow">Intruder</span>
 2. Generate variety IP
-    ```python!
+    ```python
     f = open("./Gen_IP.txt", "w")
     
     for i in range(256):
@@ -632,17 +608,17 @@ Intercept the packet and send to <font color="FF0000">Intruder</font>
     f.close()
     ```
 3. wget password payload
-    ```bash!
+    ```bash
     $ wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/xato-net-10-million-passwords-10000.txt
     ```
 4. Set Payload & Start Attack
-    * Use <font color="FF0000">`Pitchfork`</font> as your attack type
-        :::spoiler Screenshot
+    * Use <span style="background-color: yellow">`Pitchfork`</span> as your attack type
+    
         ![](https://hackmd.io/_uploads/rkQvwz1v2.png)
         ![](https://hackmd.io/_uploads/BknuPG1wh.png)
         ![](https://hackmd.io/_uploads/SkKtPG1P2.png)
-        :::
         Password: `everett`
+
         Flag: `CNS{8Ru73_f0Rc3_Pr3v3n710N_C4n_83_C0mPl1c473d}`
 
 ### f)
@@ -660,8 +636,7 @@ It is more scalable, as it can work across thousands of accounts and services th
 
 ### a)
 * Just following the TODO hint and complete the each sub-function
-    :::spoiler Exp
-    ```python=
+    ```python
     from Crypto.Util.number import getPrime, isPrime, GCD, bytes_to_long, long_to_bytes, inverse
     from random import randrange
     from hashlib import sha256
@@ -800,38 +775,41 @@ It is more scalable, as it can work across thousands of accounts and services th
         else:
             print( "The proof is wrong." )
     ```
-    :::
-
+    
 ### b) Really thx for R11944034 許智翔 for inspiration
 * Goal: We have to construct a fake member $m' \notin S$
-* We know: 
-$$
-p=g^{\prod \limits_{s \in S/\{m'\}}S}=g^{\prod \limits_{s \in S}S}=d
-$$
-* :+1:If we used normal $p$ and normal $m \in S$: 
-$$
-p^m=g^{\prod \limits_{s \in S/\{m\}}S*m}=g^{\prod \limits_{s \in S}S}=d
-$$
-* :-1:If we used normal $p$ and new message $m'$: 
-$$
-p^{m'}=g^{\prod \limits_{s \in S}S \cdot m'}=d^{m'} \neq d
-$$
-* :+1:If we used fake proof $p'$ and new message $m'$: 
-{% raw %}
-$$
-{p'}^{m'}=d^{{\{m'\}}^{-1} *m'}=d
-$$
-{% endraw %}
+* We know:
+
+    $$
+    p=g^{\prod \limits_{s \in S/\{m'\}}S}=g^{\prod \limits_{s \in S}S}=d
+    $$
+* :+1:If we used normal $p$ and normal $m \in S$:
+
+    $$
+    p^m=g^{\prod \limits_{s \in S/\{m\}}S*m}=g^{\prod \limits_{s \in S}S}=d
+    $$
+* :-1:If we used normal $p$ and new message $m'$:
+
+    $$
+    p^{m'}=g^{\prod \limits_{s \in S}S \cdot m'}=d^{m'} \neq d
+    $$
+* :+1:If we used fake proof $p'$ and new message $m'$:
+
+    {% raw %}
+    $$
+    {p'}^{m'}=d^{{\{m'\}}^{-1} *m'}=d
+    $$
+    {% endraw %}
 * We can control proof $p'$ and new message $m'$, so we need to construct fake proof $p'$
-$$
-p' \equiv d^{\{m'\}^{-1}}\ (mod\ N) \equiv p^{\{m'\}^{-1}\ (mod\ \varphi(N))}\ (mod\ N)\ -\ Euler\ Theorem
-$$
-    :::info
-    To achieve this attack, one condition must be met: We have to compute $\varphi (n)$, so we need the private key of RSA
-    :::
-    Then we can use any member that's not in member set but still can pass the verification.
-:::spoiler Whole Script
-```python=
+
+    $$
+    p' \equiv d^{\{m'\}^{-1}}\ (mod\ N) \equiv p^{\{m'\}^{-1}\ (mod\ \varphi(N))}\ (mod\ N)\ -\ Euler\ Theorem
+    $$
+
+To achieve this attack, one condition must be met: We have to compute $\varphi (n)$, so we need the private key of RSA
+Then we can use any member that's not in member set but still can pass the verification.
+
+```python
 from pwn import *
 from accumulator import RSA_Accumulator
 from Crypto.Util.number import inverse
@@ -871,28 +849,30 @@ r.sendline(str(proof_new).encode())
 
 r.interactive()
 ```
-:::
 Flag: `cns{ph4k3_m3m83r5H1p!}`
 
 ### c)
 Like the previous question mentioned, we'd like to give a fake proof that can pass the verification process even the member is not in member set.
-* We know that if $gcd(m,\ delta)=1$, then we can find coefficient $a$ and $b$ so that $a\cdot m+b\cdot delta=1$: 
-$$
-delta={\prod \limits_{s \in S}s}
-$$
-* :+1:If we used normal $p$ and normal $m \in S$: 
-$$
-(g^a)^m\cdot d^b=g^{a\cdot m}\cdot g^{b\cdot ({\prod \limits_{s \in S}s})}=g^{a\cdot m+b\cdot ({\prod \limits_{s \in S}s})}=g
-$$
-* :-1:If we used normal $proof=(g^a, b)$ and new message $m'$: 
-You can not find $a$ and $b$ to fit $a\cdot m+b\cdot delta=1$
+* We know that if $gcd(m,\ delta)=1$, then we can find coefficient $a$ and $b$ so that $a\cdot m+b\cdot delta=1$:
+
+    $$
+    delta={\prod \limits_{s \in S}s}
+    $$
+* :+1:If we used normal $p$ and normal $m \in S$:
+
+    $$
+    (g^a)^m\cdot d^b=g^{a\cdot m}\cdot g^{b\cdot ({\prod \limits_{s \in S}s})}=g^{a\cdot m+b\cdot ({\prod \limits_{s \in S}s})}=g
+    $$
+* :-1:If we used normal $proof=(g^a, b)$ and new message $m'$: You can not find $a$ and $b$ to fit $a\cdot m+b\cdot delta=1$
 * :+1:If we used fake proof $proof'=(g^{a'}, b')$ and new message $m'$:
-If $a'=m^{-1}, b=0$
-$$
-(g^{a'})^m\cdot d^b=g^{m^{-1}\cdot m}\cdot g^{b\cdot ({\prod \limits_{s \in S}s})}=g^{1+0}=g
-$$
-:::spoiler Whole Script
-```python=
+    
+    If $a'=m^{-1}, b=0$
+    
+    $$
+    (g^{a'})^m\cdot d^b=g^{m^{-1}\cdot m}\cdot g^{b\cdot ({\prod \limits_{s \in S}s})}=g^{1+0}=g
+    $$
+
+```python
 from pwn import *
 from accumulator import RSA_Accumulator
 from Crypto.Util.number import inverse
@@ -944,7 +924,6 @@ r.sendline(b'0')
 
 r.interactive()
 ```
-:::
 Flag: `cns{N0N_n0n_m3M83RSh1p!}`
 
 ### d)

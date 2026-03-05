@@ -45,7 +45,7 @@ int main()
     int nr = read(1, flag, 0x30);
     if (nr <= 0)
         exit(1);
-    flag[nr - 1] = '\0';
+    flag[nr - 1] = '\\0';
     printf("This is your flag: ctf{% raw %}{%{% endraw %}s}... Just kidding :)\n", flag);
 
     return 0;
@@ -55,7 +55,7 @@ int main()
 * At line `19~22`, it allow user input an address and its value
 * At line `25`, you may think it's weird that it use `stdout` as `read` function's parameter.
 * In addition, it doesn't have buffer overflow, so that we can not use the technique before to get flag.
-* Thus, our perspective is we can <font color="FF0000">overlap the `read GOT` by `write plt`</font>, so that it can execute write function:
+* Thus, our perspective is we can **overlap the `read GOT` by `write plt`**, so that it can execute write function:
 `int nr=write(1, flag, 0x30);`
 
 ## Exploit
@@ -68,7 +68,7 @@ int main()
     ```
     ![reference link](https://imgur.com/LFfc5fS.png)
 * Then we wanna know `read GOT` address
-![](https://imgur.com/hygnwEQ.png)
+    ![](https://imgur.com/hygnwEQ.png)
 * My exploit is:
     ```python
     from pwn import *
@@ -86,7 +86,7 @@ int main()
 
     r.interactive()
     ```
-    Then, we can use `read` function as `write` function to get flag  <font color="FF0000">`FLAG{apple_1f3870be274f6c49b3e31a0c6728957f}`</font>
+    Then, we can use `read` function as `write` function to get flag  `FLAG{apple_1f3870be274f6c49b3e31a0c6728957f}`
 
 ## Reference
 [PWN week1](https://youtu.be/ktoVQB99Gj4)

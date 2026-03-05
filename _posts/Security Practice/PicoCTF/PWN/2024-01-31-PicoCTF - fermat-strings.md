@@ -25,8 +25,7 @@ date: 2024-01-31
 [Format Specifiers in C](https://www.geeksforgeeks.org/format-specifiers-in-c/)
 
 ## Source code
-:::spoiler
-```cpp!
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -79,17 +78,16 @@ int main(void)
   if(answer != -1) printf("Found the answer: %d\n", answer);
 }
 ```
-:::
 
 ## Recon
 這一題太難了，可以參考的資料太少了，大部分都有一些缺失，而且重點是server那邊的版本和local端不一樣就會造成got hijack失敗，所以最後沒有做出來，但是流程還是可以記錄一下
 1. 先leak stack的資訊，例如`__libc_start_main`的address，然後到[^libc_database_search]查詢，光這一點耗費蠻多心力，雖然說只要查看stack上相對的位置，就可以leak出對應的address，但有可能是因為我local端libc version是2.35，所以找不到對應位置上libc address在database上的資料，但在server端卻找得到，這可能是不同版本的鍋，所以之後要找這種libc version的問題，最好是在2.31的地方
 2. 得到libc的version後，就可以算offset，得出libc base address，然後就可以得出system在libc的確切位址，又由於這隻程式只會執行一次就結束，所以我們要讓他有loop的效果，作法就是got hijack，改掉pow的got位置為main function的address
 註：為甚麼是改pow而不是atoi, snprintf之類的function的got?因為pow是比較後面被呼叫到的function，如果修改那些太早被呼叫到的function就馬上從main開始執行，這樣就沒辦法開shell了
-3. 接著我們可以再從第二次的input中開shell，這就是最後做不出來的地方，除了之前沒有寫過相關的題目不知道怎麼開以外，其他WP[^fermat-strings][^picoMini-by-redpwn][^picoMini-by-redpwn-2021-Darin's-Challenges]也都會有其他的問題
+3. 接著我們可以再從第二次的input中開shell，這就是最後做不出來的地方，除了之前沒有寫過相關的題目不知道怎麼開以外，其他WP[^fermat-strings][^picoMini-by-redpwn][^picoMini-by-redpwn-2021-Darin-s-Challenges]也都會有其他的問題
 
 ## Exploit
-```python!
+```python
 from pwn import *
 exe = ELF("chall")
 libc = ELF("./libc6_2.31-0ubuntu9.1_amd64.so")
@@ -148,5 +146,5 @@ Flag: `picoCTF{f3rm4t_pwn1ng_s1nc3_th3_17th_c3ntury}`
 ## Reference
 [^fermat-strings]:[fermat-strings](https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF_redpwn/fermat-strings.md)
 [^picoMini-by-redpwn]:[picoMini by redpwn](https://heinen.dev/picoctf-2021-redpwn/#fermat-strings)
-[^picoMini-by-redpwn-2021-Darin's-Challenges]:[picoMini by redpwn 2021 - Darin's Challenges](https://activities.tjhsst.edu/csc/writeups/picomini-redpwn-darin#fermat-strings-pwn)
+[^picoMini-by-redpwn-2021-Darin-s-Challenges]:[picoMini by redpwn 2021 - Darin's Challenges](https://activities.tjhsst.edu/csc/writeups/picomini-redpwn-darin#fermat-strings-pwn)
 [^libc_database_search]:[libc database search](https://libc.blukat.me/?q=__libc_start_main_ret%3A0x7fa8cf54d0b3&l=libc6_2.31-0ubuntu9.1_amd64)
