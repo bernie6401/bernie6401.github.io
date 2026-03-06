@@ -47,8 +47,7 @@ date: 2024-01-31
 >剩下就是利用這些預先計算好的參數，將各個 $E'$ 的 $G'$ 當作 public key $P$ 傳給 oracle，然後得到 $Q=dP$，然後用前面的方法得到 $d \equiv d \pmod{f_i}$ 的值，最後使用 CRT 求回 $d$ 即可。
 
 ## Source code
-:::spoiler Server
-```python=
+```python
 from sage.all import *
 from elliptic_curve_97cadb52fbd7b2cd import Curve, Point
 from Crypto.Util.number import bytes_to_long
@@ -68,10 +67,9 @@ G = Point(E, Gx, Gy)
 hint = G * bytes_to_long(FLAG)
 print(hint)
 ```
-:::
 
-:::spoiler Self-Defined Elliptic Curve
-```python=
+Self-Defined Elliptic Curve
+```python
 # Reference: https://github.com/maple3142/My-CTF-Challenges/blob/7d9141ac7b61fdbb71f29c07d489018d7c0a0aaa/AIS3%20Pre-exam%202022/pekobot/README.md
 class Curve:
     def __init__(self, p, a, b):
@@ -158,12 +156,12 @@ class Point:
 
 INFINITY = Point(None, None, None)
 ```
-:::
 
 ## Recon
 1. 觀察source code會發現maple實作了一個沒有檢查我們傳送的點是否在一開始創的橢圓曲線上的elliptiv curve class，然後他把我們給的point當作參數，創立一個初始點，可以看一下下面裡個範例，如果是maple的實作，給予一個根本不在該Elliptic Curve的點他還是會算一個G+G的點給你，只是該點其實是在別的曲線上的2G這個點，反觀正常的sage中的實作會發現只要給予的點不在該曲線上就會直接報錯
     ![](https://hackmd.io/_uploads/H15TTzBZa.png)
-    :::spoiler maple 實作的Elliptic Curve
+    
+    maple 實作的Elliptic Curve
     ```python
     >>> from elliptic_curve_97cadb52fbd7b2cd import Curve, Point
     >>> p=23
@@ -179,10 +177,9 @@ INFINITY = Point(None, None, None)
     >>> print(fake_G+fake_G)
     (17, 1)
     ```
-    :::
-
-    :::spoiler 正常的Elliptic Curve
-    ```python!
+    
+    正常的Elliptic Curve
+    ```python
     >>> from sage.all import *
     >>> p=23
     >>> a=5
@@ -227,9 +224,8 @@ INFINITY = Point(None, None, None)
         raise TypeError("Coordinates %s do not define a point on %s" % (list(v), curve))
     TypeError: Coordinates [4, 3, 1] do not define a point on Elliptic Curve defined by y^2 = x^3 + 5*x + 1 over Ring of integers modulo 23
     ```
-    :::
 2. 有了這個性質就可以回去參考一下maple在github上的說明，我們要解決的問題是$hint=G*flag$中的flag到底是甚麼，如果是像前面舉例的那樣($p=23/a=5/b=1/order=31$)很小的order，其實只要直接算`discrete_log(K, G, operation='+')`就可以了，範例如下，可以看到我先定義`K = E(19, 3)`，算出`discete log=28`，事後驗證也證明$K=28*G$。但是，像題目中這樣這麼大的order，如果要計算discrete_log的話會非常非常久的時間，總之我先往smooth order的方向思考，也就是說order被factor後其實是由好幾個小的prime所組成，我是直接調整$b$這個不會被Elliptic Curve Multiplication運算使用到的參數(代表其他參數$p, a$要照舊)，然後factor曲線的order看夠不夠smooth，但這樣找也一樣要非常非常久，或者說找到的$b$所得到的order都不夠smooth，最大的prime都還是超過$2^{65}$(e.g. 範例如下)
-    ```python!
+    ```python
     >>> G = E.gen(0)
     >>> print(G)
     (15 : 1 : 1)
@@ -251,23 +247,27 @@ INFINITY = Point(None, None, None)
     65
     ```
 3. 所以我開始朝maple的說明繼續前進，如果有invalid curve的問題就可以考慮用Pohlig–Hellman algorithm的方法求出flag為多少，就如同maple在background中提到的，我們選擇不同的$b$所產生的Elliptic Curve Order被factor後不一定有一個超大prime存在，因此我們就可以把問題簡化($n$就是改變$b$之後取得的Elliptic Curve Order)
+
 $$
 hint=flag*G\\
 \hookrightarrow {n \over prime}hint=flag'\times {n\over prime} G\\
 flag'=discrete\_log({n \over prime}hint, {n\over prime} G, operation='+')
 $$
+
 4. 等我們找到很多個$b$就可以找到很多不同的$flag'$，最後我們再用CRT找出真正的$flag$為何就可以了，也就是
+
 $$
 flag\equiv flag'\ (mod\ prime_1)\\
 flag\equiv flag''\ (mod\ prime_2)\\
 flag\equiv flag'''\ (mod\ prime_3)\\
 ...
 $$
+
 所以重點在於要找到足夠多的$flag'$和$prime_n$組合
 
 ## Exploit
 實作的部分主要是參考[^hackthebox-invalid-curve-attack-wp]的幫忙，大致上就和上面提到的差不多
-```python=
+```python
 from sage.all import *
 from Crypto.Util.number import bytes_to_long, getPrime, long_to_bytes
 from pwn import *
@@ -329,8 +329,8 @@ print(f"primes: {primes}")
 super_secret = CRT_list(dlogs, primes)
 print(f'Flag: {long_to_bytes(super_secret).decode()}')
 ```
-:::spoiler Result
-```bash!
+
+```bash
 $ $ python exp.py
 [+] Opening connection to 10.113.184.121 on port 10034: Done
 [*] Closed connection to 10.113.184.121 port 10034
@@ -396,7 +396,6 @@ dlogs: [27360610332, 1023158172, 19279, 99180577, 1431258, 152629534, 36835, 156
 primes: [144923720933, 357189282511, 62189, 572762753, 1649429, 172592237, 163171, 34381453, 443616973637, 11159, 568852214543, 371177, 8924527]
 Flag: FLAG{YouAreARealECDLPMaster}
 ```
-:::
 
 Flag: `FLAG{YouAreARealECDLPMaster}`
 

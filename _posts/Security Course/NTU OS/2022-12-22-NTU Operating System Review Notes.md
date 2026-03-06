@@ -20,7 +20,8 @@ date: 2022-12-22
     * Disable interrupt
     process在對shared memory進行變數存取之前，先disable interrupt，直到完成此次存取後才enable，這樣的話這段時間，CPU就不會被其他processes搶走(preempted)
     * Critical section design
-    必須滿足三個criteria
+        
+        必須滿足三個criteria
         * Mutual exclusion: 在任何時間點，最多只允許一個process在他自己的CS內活動，不可同時有多個process在各自的CS內活動
         * Progress: 如果有人想進去CS，遲早進的去
         * Bounded waiting: 在一定時間內一定進的去
@@ -117,9 +118,11 @@ process不能任意剝奪其他process正在持有的資源，給自己用，要
 * <font color="FF0000">利用register或memory或TLB來存取page table</font>
 ![](https://imgur.com/EsOE41W.png)
 * Effective memory access time公式(P is TLB hit ratio)
+
     $$
     P*(TLB time+memory access time) + (1-P)*(TLBtime+2*memory access time)
     $$
+    
 * Page Table Too large solution
     * Hierarchical paging
     ![](https://imgur.com/IUk4mig.png)

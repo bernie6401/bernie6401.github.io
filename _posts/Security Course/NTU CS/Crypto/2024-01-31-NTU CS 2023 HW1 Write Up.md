@@ -121,13 +121,16 @@ Flag: `FLAG{EphemeralKeyShouldBeRandom}`
     ```
 2. 已知(題目給的部分)
     只要我們給兩次要簽章的message，總共可以得到以下資訊
+
     $$
     coordinate\ (x_0,\ y_0),\\
     hash\ H_1,\ hash\ H_2,\\
     signature\ (s_1,\ r_1),\ (s_2,\ r_2)
     $$
+
 3. 推導
     假設$msg=b'a'$
+
     $$
     H_1 = H_2 = sha256(msg)\\
     \begin{aligned}
@@ -140,6 +143,7 @@ Flag: `FLAG{EphemeralKeyShouldBeRandom}`
     d\cdot (H_2\cdot {s_2}^{-1} - 1337\cdot H_1\cdot {s_1}^{-1})=1337\cdot r_1\cdot {s_1}^{-1}-r_2\cdot {s_2}^{-1}\\
     \hookrightarrow d = {1337\cdot r_1\cdot {s_1}^{-1}-r_2\cdot {s_2}^{-1} \over H_2\cdot {s_2}^{-1} - 1337\cdot H_1\cdot {s_1}^{-1}}
     $$
+
 4. 得到原本的private key $d$之後就可以直接選一個亂數nonce $k$，然後重新自己簽署`Give me the FLAG.`的signature
 
 ## Lab-coppersmith
@@ -147,11 +151,13 @@ Flag: `FLAG{RandomPaddingIsImportant}`
 
 ### 解題流程與思路
 這一題看到`e=3`直覺會想到[小明文攻擊](https://zhuanlan.zhihu.com/p/76228394)，但是前提除了$e$要很小以外，明文也不能太大，要不然會找很久，他的原理是(假設`e=3`):
+
 $$
 \because C\equiv m^3\ mod\ N\\
 \therefore m^3=C+k\times N \\
 ↪m=\root 3 \of {C+k\times N}
 $$
+
 所以可以枚舉很多的k，並且依次開三次方，直到開出整數為止，但就像前面的前提，明文不能太大，不然也會找的很痛苦，此時就可以用到上課教到的coppersmith，解出這樣的問題
 
 * Review Coppersmith Attack
@@ -162,25 +168,32 @@ $$
     首先這個問題因為mod是一個循環，所以正常情況下很難知道$r$多少能符合，因此我們可以簡化一下問題，或者說增加一些限制，這樣在尋找$r$的時候會比較好找一點
     
     1. 首先構造一個
+
         $$
         \{Q(x)=s(x)\cdot f(x)+t(x)\cdot N\ (mod\ N)\ |\ Q(r)\equiv 0\ (mod\ N), r\in \mathbb{Z}\}
         $$
+
         在這裡可以先把$r$帶進去這個構造的式子，就會發現其實跟一開始求的問題，也就是$f(x)\equiv 0\ (mod\ N)$其實一樣，但為甚麼要這樣做呢?是因為把問題拉到實數域中求解後比較好做，等我們拿到$r$在實數域得到的root之後就可以帶回去$f(x)$中。
     
         我們可以把$r$想像成是一個flag，然後flag會有一個最大可能性的上界，也就是$R$，假設flag有32個字元，代表256個bits，我們可以想像$R=2^{256}$，我們不知道flag是多少，但一定在$R$的這個範圍中，且flag一定是整數(換算成int的話)
     2. 所以我們就可以重新寫一個bounded equation
+
         $$
         Q(r)=|Q_nr^n+...+Q_2r^2+Q_1r^1+Q_0|\le |Q_n|R^n+...+|Q_2|R^2+|Q_1|R+|Q_0|
         $$
+
         有了這個bound equation後，我們就可以說
+
         $$
         \because |Q(r)| < |Q(R)| < N且Q(r) ≡ 0\ mod\ N\\
         \therefore Q(r)=0
         $$
+
         有了以上條件和說明，此時我們確定把問題拉到實數域上了，現在還不知到$r$為多少
     3. 而要知道$r$就必須知道$Q(r)$，只要得到$Q(r)$再利用找root的sage method就可以直接得到$r$為多少，但在得到$Q(r)$之前我們要先得到$Q(R)$，我們可以利用前面提到的$s(x)\cdot f(x)+t(x)\cdot N\ (mod\ N)$建一個多項式，然後用matrix表示並把$R$帶入，再利用LLL求shortest vector，此時的shortest vector是以$x=R$為條件帶入，所以只要在各個term把$R$除掉，就可以得到$Q(r)$各個term的係數，然後就求得$r$為多少了，舉例來說：
     
         在RSA中，已知$c= m^e\ (mod\ N)$，當我們今天拿到一個有padding明文(當然我們拿到的是密文，只是知道明文有經過padding，且padding的部分我們知道，另外flag的大小也不能太大，具體能多大可以看影片)，且$e=3$，我們可以rewrite整個式子(假設padding的部分為$a$，flag的部分為$x$)
+
         $$
         \begin{aligned}
         m &= padding + flag\\
@@ -199,7 +212,9 @@ $$
           0 & 0 & 0 & N
         \end{bmatrix}
         $$
+
         $s(x)=c_3$，如果把$f(x)$乘開就會是$x^3 + 3ax^2 + 3a^2x + (a^3 - c)$，而$t(x)=c_2x^2 + c_1x + c_0$。此時把矩陣的$x$帶入上界$R$再利用LLL求shortest vector，也就是
+
         $$
         \begin{bmatrix}
         c_3R^3\\
@@ -208,7 +223,9 @@ $$
         (c_3(a^3-c) + c_0N)
         \end{bmatrix}^T
         $$
+
         詳細過程如下:
+
         $$
         \begin{aligned}
         M&=\begin{bmatrix}
@@ -247,6 +264,7 @@ $$
           1\\
         \end{bmatrix}\le N
         $$
+
     4. 求flag(也就是求得$Q(x)$的root $x_0$)
         由以上過程，我們已經取得了$Q(x)$，則我們就可以在實數域中求$Q(x)$的根$x_0$
 
@@ -346,18 +364,22 @@ Flag: `FLAG{YouAreARealECDLPMaster}`
     65
     ```
 3. 所以我開始朝maple的說明繼續前進，如果有invalid curve的問題就可以考慮用Pohlig–Hellman algorithm的方法求出flag為多少，就如同maple在background中提到的，我們選擇不同的$b$所產生的Elliptic Curve Order被factor後不一定有一個超大prime存在，因此我們就可以把問題簡化($n$就是改變$b$之後取得的Elliptic Curve Order)
+
 $$
 hint=flag*G\\
 \hookrightarrow {n \over prime}hint=flag'\times {n\over prime} G\\
 flag'=discrete\_log({n \over prime}hint, {n\over prime} G, operation='+')
 $$
+
 4. 等我們找到很多個$b$就可以找到很多不同的$flag'$，最後我們再用CRT找出真正的$flag$為何就可以了，也就是
+
 $$
 flag\equiv flag'\ (mod\ prime_1)\\
 flag\equiv flag''\ (mod\ prime_2)\\
 flag\equiv flag'''\ (mod\ prime_3)\\
 ...
 $$
+
 所以重點在於要找到足夠多的$flag'$和$prime_n$組合
 
 ## HW-signature_revenge
@@ -365,22 +387,28 @@ $$
 ### 解題流程與思路
 這一題沒有做出來，但跟一些朋友討論有得出解題的思路
 1. 首先$k_1, k_2$是很特別的組合，他們符合以下式子
+
     $$
     k_1 = magic_1*2^{128} + magic_2\\
     k_2 = magic_2*2^{128} + magic_1
     $$
+
 2. 所以我們可以改寫一下原本的公式
+
     $$
     k_1 + tk_2 + u \equiv 0\ (mod\ n)\\
     \to magic_1*2^{128} + magic_2 + t(magic_2*2^{128} + magic_1) + u \equiv 0 (mod\ n)\\
     \to (t+2^{128})magic_1 + (1 + t*2^{128})*magic_2+u\equiv 0 (mod\ n)\\
     \to magic_1+(1 + t*2^{128})(t+2^{128})^{-1}magic_2+(t+2^{128})^{-1}u\equiv 0 (mod\ n)
     $$
+
     此時新的$t,u$
+
     $$
     new_t=(1 + t*2^{128})(t+2^{128})^{-1}\\
     new_u=(t+2^{128})^{-1}u
     $$
+    
 3. 建立B matrix
 4. 解LLL找最小的vector
 5. 有了$magic_1, magic_2$之後就可以爆搜找$d$，並還原出原本的flag

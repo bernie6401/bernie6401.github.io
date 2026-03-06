@@ -70,8 +70,10 @@ int main()
     ![](https://imgur.com/nuYGx24.png)
     Used `gdb` can find the current address of library → <font color="FF0000">`0x7ffff7d8f000`</font>
     ![](https://imgur.com/Et3r2hI.png)
-    Then we can know the offset and construct apart of payload as below 
+    Then we can know the offset and construct apart of payload as below
+
     $$0x7ffff7def770 - 0x7ffff7d8f000 = 0x60770$$
+    
     ```python
     from pwn import *
     import sys

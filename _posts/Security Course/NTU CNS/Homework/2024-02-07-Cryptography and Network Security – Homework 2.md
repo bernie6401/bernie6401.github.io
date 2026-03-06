@@ -296,11 +296,13 @@ Refer to [online tool](https://shrek.unideb.hu/~tengely/crypto/section-6.html#p-
 
 #### Exploit
 a) Assume 
+
 $$
 a=g^r (mod\ p) \\
 w=cx+r \\
 Verified\ Expression \to g^w=y^c*a(mod\ p) \\
 $$
+
 ```sequence
 Note left of Alice: Choose random r and compute a
 Alice->Bob: a

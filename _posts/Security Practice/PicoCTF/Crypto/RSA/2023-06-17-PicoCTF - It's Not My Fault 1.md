@@ -10,11 +10,8 @@ date: 2023-06-17
 <!-- more -->
 ###### tags: `PicoCTF` `CTF` `Crypto`
 
-## Background
-
 ## Source code
-:::spoiler Source code
-```python=
+```python
 #!/usr/bin/python3 -u
 import random
 import string
@@ -81,11 +78,14 @@ if user_input[:5] == vals1 and user_hash[-6:] == vals2:
 * 可以看到在54行先產出大質數$p$, $q$，並把$n$ release出來
 * 隨後進到get_clue function，可以看到他先create一個$d_q$和$d_p$，且$d_p$的range被限制在$(1,\ 2^{20}=1048576)$
 * 在28行的地方進入CRT function，這一段是在找一個$d$使其符合中國餘式定理，也就是:
+
 $$
 d\ \%\ m=a\\
 d\ \%\ n=b
 $$
+
 帶入參數就是
+
 $$
 d\ \%\ (p-1)=d_p\\
 d\ \%\ (q-1)=d_q

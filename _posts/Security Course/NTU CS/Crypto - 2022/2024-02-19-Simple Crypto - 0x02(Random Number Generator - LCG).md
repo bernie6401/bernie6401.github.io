@@ -16,6 +16,7 @@ Linear Congruential Generator:
 
 ## Analysis
 LCG Formula
+
 $$
 \begin{aligned}
 Unknown: S_0&=Seed,\  A,\  B,\  m = 2^{32} \\
@@ -27,6 +28,7 @@ S_3 &\equiv (AS_2\ +\ B)\ \%\ m\\
 $$
 
 Derived A
+
 $$
 \begin{aligned}
 &\left\{ 
@@ -45,6 +47,7 @@ A&=((S_2-S_3)(S_1-S_2)^{-1})\ \%\ m
 $$
 
 Note
+
 $$
 \begin{aligned}
 a\ \%\ m&=\ b \\
@@ -53,17 +56,19 @@ a\ \%\ m&=\ b \ \%\ m= \ b\\
 $$
 
 Derive B
+
 $$
 B=(S_2\ -\ AS_1)\ \%\ m
 $$
 
 Derive m
+
 $$
 m=gcd((t_{n+1}t_{n-1}-t_n^2),(t_nt_{n-2}-t_{n-1}^2))
 $$
 
 ## Implement Code
-```python=
+```python
 import random
 from Crypto.Util.number import inverse
 import math
@@ -97,7 +102,7 @@ print('S = ', S)
 
 ## Exploit
 [密码学——LCG算法 公式2](https://goodapple.top/archives/404)
-```python=30
+```python
 # Exploit it
 # A
 A = (S[1] - S[2]) * inverse((S[0] - S[1]), rng.m) % rng.m

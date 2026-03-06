@@ -23,6 +23,7 @@ Compute\ gcd(140,\ 297)\\
 17=4*4+1 \\
 4=4*4+0 
 $$
+
 Then we found the $gcd(140,\ 297)=1$
 
 ---
@@ -35,18 +36,22 @@ Compute\ gcd(270,\ 192)\\
 78=2*36+6\\
 36=6*6+0
 $$
+
 Then we found $gcd(270,\ 192)=6$
 
 [Extended Euclidean Algorithm](https://youtu.be/hB34-GSDT3k)
 其實就只是把原本用Euclidean Algorithm算出來的$gdc(a,\ b)$，變成Linear Combination的形式而已
 For example above:
 As we know $gcd(270,\ 192)=6$, then...
+
 $$
 6=78-36*2\\
 36=192-2*78\\
 78=270-1*192
 $$
+
 $$\downarrow$$
+
 $$
 \begin{aligned}
 6&=78-(192-2*78)*2\\
@@ -56,11 +61,14 @@ $$
 &=270*5-7*192
 \end{aligned}
 $$
+
 Then we know the linear combination coefficient of $gcd(270,\ 192)$ is $+5$ and $-7$
 
 [質數愈大愈孤獨：談質數分布](https://ir.nctu.edu.tw/bitstream/11536/129288/1/yaucenter-20131201-08.pdf)
 Prime Number Theorem:
+
 $$\lim\limits_{x\to \infty}{x \over \pi(x)}=\ln(x)$$
+
 ![](https://i.imgur.com/lsITjjM.png)
 
 
@@ -134,9 +142,13 @@ Polynomial Rings
 而我們說$f$ is irreducible over $R$代表$f$不能分解成degree是正的多項式乘積(簡單來說就是不能因式分解)
 
 承接上述的$GF(p)$為例，若是$GF(2)$就代表多項式的元素之間在做加減等運算時，每一個項的係數都要$mod\ 2$，例如：
+
 $$f(x)=x^7+x^5+x^4+x^3+x+1$$
+
 $$g(x)=x^3+x+1$$
+
 $$f(x)+g(x)=x^7+x^5+x^4$$
+
 因為其他項次的係數$mod\ 2$之後就變成零了
 * 多項式找最大公因式也可以使用Euclid's Algorithm
 
@@ -171,6 +183,7 @@ Reference:
 > $\mathbb{Z}_p$就是上述的概念只是$n$一定是prime number，另外$\mathbb{Z}_p^*$就是$\mathbb{Z}_p$除去0，意味着$\mathbb{Z}_p$中的所有元素都是可逆的，0除外，而$\mathbb{Z}_p^*$的大小就是$p-1$
 
 模運算
+
 $$xy\ mod\ q=(x\ mod q)(y\ mod\ q)\ mod\ q$$
 
 ---
@@ -180,8 +193,11 @@ Fermat's Little Theorem
 {% raw %}{%youtube SyK3IXPITco %}{% endraw %}
 
 假定 $a∈Z$，$p$是一個質數，且：
+
 $$(a,p)=1$$
+
 則：
+
 $$a^{p−1}≡1(mod\ p)$$
 
 $\downarrow$
@@ -192,11 +208,17 @@ $\downarrow$
 ## Discrete Logarithms
 Basic Definition
 If $g$ is a generator of $\mathbb{Z}_n^*$, then for all $y$ there is a unique $x$ such that
+
 $$y=g^x\ mod\ n$$
+
 This is called discrete algorithm of $y$ and we use the notation
+
 $$x=\log_g(y)$$
+
 or more precisely:
+
 $$x=\log_{g,n}(y)$$
+
 For example:
 ![](https://i.imgur.com/xtTZniH.png)
 
@@ -206,6 +228,7 @@ For example:
 For $x,m≠0$, $a$ is a **quadratic residue** $mod\ m$ if $x^2=a\ (mod\ m)$. Otherwise, $a$ is a **quadratic nonresidue(二次非剩餘)**.
 >
 >例如對模10而言，可能的餘數集合為{0,1,4,5,6,9}：
+
 $$
 \left\{ 
   \begin{array}{c}
@@ -226,13 +249,16 @@ $$
 
 [Blum Integers](https://blog.csdn.net/qq_41359358/article/details/113715657)
 簡單來說就是一個整數$N\in\mathbb{Z}$, 是兩個質數的乘積$N=p*q$，而$p,\ q$剛好滿足
+
 $$
 \begin{aligned}
 3&= q\ (mod\ 4)\\
 3&= p\ (mod\ 4)
 \end{aligned}
 $$
+
 例如：
+
 $$
 \begin{aligned}
 33&=3*11\\
@@ -247,6 +273,7 @@ $$
 
 Legendre Symbol
 課本定義：Let $p$ be an odd prime and $a$ an integer. The Legendre symbol is defined to be
+
 $$
 \left(\dfrac{a}{p}\right)=
 \left\{
@@ -274,6 +301,7 @@ $$
 橢圓曲線是由以下形式的方程式定義 的平面曲線
 
 $${\displaystyle y^{2}=x^{3}+ax+b,\ where\ a,b \in \mathbb{Z}}\to Weierstrass方程式$$
+
 ![](https://i.imgur.com/kI5v9LO.png)
 
 * 橢圓曲線運算規則(群組規則, Group)

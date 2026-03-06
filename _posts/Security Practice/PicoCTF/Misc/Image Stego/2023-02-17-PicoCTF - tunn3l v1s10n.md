@@ -78,15 +78,19 @@ Something strange with the following header:
 * height：`32 01 00 00` $\to$ `0x132` $\to$ `306 pixels`
 * bits：`18 00` $\to$ `0x18` $\to$ `each pixels need 24 bits`
 If these headers are true:
+
 $$
 1134\ pixels\ *\ 306\ pixels\ *\ 24\ bits\ per\ pixel\ /\ 8\ bits\ per\ byte=1041012\ bytes
 $$
+
 And this is obviously not the real storage size system told us(2893454 bytes)
 
 4. Modify height pixels
+
 $$
 2893454\ bytes\ *\ 8\ bits\ per\ bytes\ /\ 24\  bits\ per\ pixel\ /\ 1134\ pixels=850.5\ pixels
 $$
+
 The height should be 850 pixels $\to$ `0x352` $\to$ `52 03 00 00`
 
 5. Done!!!

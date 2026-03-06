@@ -44,6 +44,7 @@ hint = 1121128045245823938586751764605953384844280483386117536558697330597689291
 
 ## Recon
 這一題也是看了別人的WP[^wp_1]，有了一些想法，其實題目的敘述有一點點玄機(但我當時沒想到)，因為題目有提到key space是$10^{15}$，因為看了一下簡單的source code，他是創了五把key
+
 $$
 key_1 \leftarrow Rand(2, 1000)^{65537}\ \% \ p\\
 key_2 \leftarrow Rand(1002, 2000)^{65537}\ \% \ p\\
@@ -51,12 +52,15 @@ key_3 \leftarrow Rand(2002, 3000)^{65537}\ \% \ p\\
 key_4 \leftarrow Rand(3002, 4000)^{65537}\ \% \ p\\
 key_5 \leftarrow Rand(4002, 5000)^{65537}\ \% \ p\\
 $$
+
 再分別用這五把key進行運算$enc=flag*key\ \%\ p$
 乍看之下好像很難，但其實掌握題目講到的縮小key space的角度出發就會有一點概念要用MITM attack，畢竟他還有給$hint=key_1 \oplus  key_2 \oplus key_3 \oplus key_4 \oplus key_5$這個hint
 具體來說會變成
+
 $$
 hint\oplus key_5\oplus key_4\oplus key_3=key_1\oplus key_2
 $$
+
 而TA也有給$key_5=pow(4668, 65537, p)$，代表key space真的減少超多($10^6$)
 
 ## Exploit

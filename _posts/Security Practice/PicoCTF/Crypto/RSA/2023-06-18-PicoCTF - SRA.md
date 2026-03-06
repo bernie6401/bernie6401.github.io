@@ -44,9 +44,11 @@ else:
 
 ## Recon
 這一題也蠻有趣的，有給$e, d, c$，而我們知道$ed\equiv 1\ (mod\ \phi(n))$但目前不知道$n$是多少，這也是這一題比較難的地方，不過仔細看$p, q$的bits range只有128 bits，感覺有機會可以爆破，試想:
+
 $$
 e*d-1=\phi(n) * k=(p-1)*(q-1)*k
 $$
+
 所以我們只要先用[online tool](https://www.dcode.fr/prime-factors-decomposition)，分析所有的質因數，再暴力破解看可能的$p$有多少就可以了
 :::spoiler Screenshot
 ![](https://hackmd.io/_uploads/BJPyZn3D3.png)

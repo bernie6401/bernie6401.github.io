@@ -8,8 +8,6 @@ date: 2024-01-31
 
 # NTUSTISC - AD Note - Lab(其他方法得到lsass.dmp)
 <!-- more -->
-[TOC]
-
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&t=4257)
 
 ## Background

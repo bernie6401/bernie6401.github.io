@@ -784,16 +784,19 @@ It is more scalable, as it can work across thousands of accounts and services th
     $$
     p=g^{\prod \limits_{s \in S/\{m'\}}S}=g^{\prod \limits_{s \in S}S}=d
     $$
+
 * :+1:If we used normal $p$ and normal $m \in S$:
 
     $$
     p^m=g^{\prod \limits_{s \in S/\{m\}}S*m}=g^{\prod \limits_{s \in S}S}=d
     $$
+
 * :-1:If we used normal $p$ and new message $m'$:
 
     $$
     p^{m'}=g^{\prod \limits_{s \in S}S \cdot m'}=d^{m'} \neq d
     $$
+
 * :+1:If we used fake proof $p'$ and new message $m'$:
 
     {% raw %}
@@ -801,6 +804,7 @@ It is more scalable, as it can work across thousands of accounts and services th
     {p'}^{m'}=d^{{\{m'\}}^{-1} *m'}=d
     $$
     {% endraw %}
+
 * We can control proof $p'$ and new message $m'$, so we need to construct fake proof $p'$
 
     $$
@@ -859,11 +863,13 @@ Like the previous question mentioned, we'd like to give a fake proof that can pa
     $$
     delta={\prod \limits_{s \in S}s}
     $$
+
 * :+1:If we used normal $p$ and normal $m \in S$:
 
     $$
     (g^a)^m\cdot d^b=g^{a\cdot m}\cdot g^{b\cdot ({\prod \limits_{s \in S}s})}=g^{a\cdot m+b\cdot ({\prod \limits_{s \in S}s})}=g
     $$
+    
 * :-1:If we used normal $proof=(g^a, b)$ and new message $m'$: You can not find $a$ and $b$ to fit $a\cdot m+b\cdot delta=1$
 * :+1:If we used fake proof $proof'=(g^{a'}, b')$ and new message $m'$:
     

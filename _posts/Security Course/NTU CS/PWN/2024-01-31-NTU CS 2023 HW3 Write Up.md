@@ -448,19 +448,25 @@ flag和secret這兩個變數都是global variable
 思路很簡單:
 雖然整隻程式都沒有呼叫到check function，但如果我們拿到secret，又可以進到check，是否可以做一些操作拿到flag
 一開始一定會做的事情是把flag加密
+
 $$
 cipher= flag \oplus secret\\
 $$
+
 如果可以進到check function
+
 $$
 input\leftarrow kyoumokawaii\oplus secret
 $$
+
 $$
 output\leftarrow cipher\oplus kyoumokawaii=flag\oplus secret\oplus kyoumokawaii
 $$
+
 $$
 flag = output\oplus secret\oplus kyoumokawaii
 $$
+
 此時`output`, `secret`都已知，我們反推出flag為何，但重點是要怎麼呼叫到check function?==ROP chain + BOF==
 
 1. 先利用該隻binary的gadget蓋成我們需要的chain，並且隨便找一個區間是不太會寫入的bss section address

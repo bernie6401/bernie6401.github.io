@@ -82,13 +82,16 @@ for _ in range(3):
     ```
 2. 已知(題目給的部分)
     只要我們給兩次要簽章的message，總共可以得到以下資訊
+
     $$
     coordinate\ (x_0,\ y_0),\\
     hash\ H_1,\ hash\ H_2,\\
     signature\ (s_1,\ r_1),\ (s_2,\ r_2)
     $$
+
 3. 推導
     假設$msg=b'a'$
+
     $$
     H_1 = H_2 = sha256(msg)\\
     \begin{aligned}
@@ -101,11 +104,11 @@ for _ in range(3):
     d\cdot (H_2\cdot {s_2}^{-1} - 1337\cdot H_1\cdot {s_1}^{-1})=1337\cdot r_1\cdot {s_1}^{-1}-r_2\cdot {s_2}^{-1}\\
     \hookrightarrow d = {1337\cdot r_1\cdot {s_1}^{-1}-r_2\cdot {s_2}^{-1} \over H_2\cdot {s_2}^{-1} - 1337\cdot H_1\cdot {s_1}^{-1}}
     $$
+
 4. 得到原本的private key $d$之後就可以直接選一個亂數nonce $k$，然後重新自己簽署`Give me the FLAG.`的signature
 
 ## Exploit
-:::spoiler Whole Exploit
-```python=
+```python
 from pwn import *
 from Crypto.Util.number import *
 from hashlib import sha256
@@ -164,7 +167,6 @@ flag = r.recvline().strip().decode()
 log.info(f'Flag: {flag}')
 
 r.close()
-:::
 
 ```bash
 $ python exp.py

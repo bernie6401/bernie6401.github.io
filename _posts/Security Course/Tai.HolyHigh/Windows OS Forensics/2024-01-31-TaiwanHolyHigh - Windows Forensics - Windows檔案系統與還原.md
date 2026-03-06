@@ -8,9 +8,6 @@ date: 2024-01-31
 
 # TaiwanHolyHigh - Windows Forensics - Windows檔案系統與還原
 <!-- more -->
-:::spoiler TOC
-[TOC]
-:::
 
 ## Background
 * What is cluster or sector?
@@ -33,11 +30,13 @@ date: 2024-01-31
     $$
     134217728/512/65526\approx 4
     $$
+
     所以如果記憶卡大小是512MB → ，536870912 bytes，單一cluster最少需要16個sectors
 
     $$
     536870912/512/65526\approx 16
     $$
+    
     當然，這樣的空間使用率是很差的，因為一個cluster就意味著一間總統套房，若所有的檔案不分大小都住進總統套房，就會造成很多浪費，或甚至是有很多file slack產生，試想如果像512MB一樣，一個cluster有16個sector，代表該總統套房可以容納$16*512=8192 bytes$，如果電腦中都是小檔案居多(1kB之類的)，那有很多空間就會浪費掉，但對於鑑識來說遺留的東西越多越能夠還原很多真相
 
 * 以攻擊者或一般使用者來說，如何達到真正的毀屍滅跡?

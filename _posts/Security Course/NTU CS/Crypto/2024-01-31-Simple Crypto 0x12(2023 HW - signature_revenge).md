@@ -14,7 +14,6 @@ date: 2024-01-31
 ![](https://hackmd.io/_uploads/B16No1FzT.png)
 
 ## Source code
-:::spoiler Source Code
 ```python
 from Crypto.Util.number import *
 from hashlib import sha256, md5
@@ -52,10 +51,12 @@ print(f'sig2 = ({sig2.r}, {sig2.s})')
 
 ## Recon
 仔細看source code會發現他和上課講的例子很不一樣，上課講的方式是考慮已知$k1$, $k2$的長度是符合用lattice找的情況，用LLL找到$k1, k2$再回推d，但這一題一開始遇到最大的困難在於
+
 $$
 k_1=2^{128} magic_1+magic_2\\
 k_2=2^{128} magic_2+magic_1
 $$
+
 很明顯$k_1, k_2$的bit_length都已經超過用Lattice找的範圍($K<n^{1\over 2}$，所以如果換個想法呢?我們不找$k_1, k_2$，我們改找$magic_1, magic_2$，之後再回推$k_1, k_2$再回推$d$是不是和原本的目的一樣，設想:
 
 $k_1 + tk_2 + u \equiv 0\ (mod\ n)$
@@ -63,6 +64,7 @@ $\to magic_1*2^{128} + magic_2 + t(magic_2*2^{128} + magic_1) + u \equiv 0 (mod\
 $\to (t+2^{128})magic_1 + (1 + t*2^{128})*magic_2+u\equiv 0 (mod\ n)$
 $\to magic_1+(1 + t*2^{128})(t+2^{128})^{-1}magic_2+(t+2^{128})^{-1}u\equiv 0 (mod\ n)$
 此時新的$t,u$
+
 $$
 new_t=(1 + t*2^{128})(t+2^{128})^{-1}\\
 new_u=(t+2^{128})^{-1}u
@@ -122,6 +124,7 @@ $$
     (-221227854189652752387006500971265535677, 154796202886613489929017650654193194295, 0) (-78316557126501995251733139438552596659, 1809028261633383948620558940699892506, 340282366920938463463374607431768211456) (-190260135239507154352414451870270937822, -390278805794181212650296278313898033211, 0)
     ```
     會發現只有basis1的後面是跟著K，代表線性組合的係數$j$不能為零，因為這樣就會讓我們想要的vector(-m1, m2, K)的最後那個K不是K而是零，而且後面在算factor的inverse時也會出現錯誤，所以詳細的推倒會變成:
+
     $$
     \begin{aligned}
     vector&=i*basis_0+j*basis_1+k*basis_2\\
@@ -131,6 +134,7 @@ $$
     &= (-j*m1, j*m2, j*K)
     \end{aligned}
     $$
+    
     可以看一下為甚麼會變成這樣，原因是從LLL找到的basis，第一個和第三個basis，他們的最後一個dimension都是零，代表vector的最後一個dimension$\to i*basis_0[z]+j*basis_1[z]+k*basis_2[z] = j*basis_1[z]$，所以當我們找到正確的i, j, k時，要記得把$j$取inverse除掉，才會是正確的$maic_1, magic_2$
     
     有了$magic_1, magic_2$之後，就是找$k_1$和$d$，最後我們就可以拿到flag了

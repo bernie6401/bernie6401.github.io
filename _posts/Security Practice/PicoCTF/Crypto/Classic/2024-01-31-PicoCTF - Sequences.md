@@ -66,6 +66,7 @@ if __name__ == "__main__":
     g(i)={{1612({-21})^i+30685\times 2^{2i+5}\times 3^i -1082829\times 13^i+8349\times 17^{i+1}} \over 42636}
     $$
     {% endraw %}
+    
     ![](https://hackmd.io/_uploads/Hy6P0gvxT.png)
 2. 有了優化後的方程式，就可以再次利用wolframalpha的解`i=20000000`的問題，直接打:
 

@@ -36,6 +36,7 @@ The real-world instance including these security requirements is the bank duty s
     
 ### 3. Multi-prime RSA
 1. Ans: Assume $c$ is the cipher that encrypted by RSA, $d$ is the inverse of chosen $e$, and $n$ is the multiplication result of two prime.
+
 $$
 c^d\ mod\ n=(m^e)^d\ mod\ n=m^{ed}\ mod\ n=m^1\ mod\ n=m,\ \because d \equiv e^{-1}\ mod\  \phi(N)
 $$
@@ -45,6 +46,7 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
 3. Ans: WLOG, we can use 3-prime number as RSA parameters and we can also use CRT(Chinese Remainder Theorem) to optimize the problem $M \equiv C^d\ (mod\ N)$, where $N=P_1*P_2*P_3$ and also they're pairwise coprime. So, our objective is to find what $M$ is that we just try to decrypt a cipher $C$. Also, we wonder if CRT can optimize the computation process.
 
     First, we assume
+
     $$
     \left\{ 
       \begin{array}{c}
@@ -81,6 +83,7 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
       \ \because\ (C^{P_1-1})^{\alpha_1}=1
     \right.
     $$
+
     $$
     \left\{ 
       \begin{array}{c}
@@ -93,6 +96,7 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
       \ \because\ (C^{P_2-1})^{\alpha_2}=1
     \right.
     $$
+
     $$
     \left\{ 
       \begin{array}{c}
@@ -108,6 +112,7 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
 
     Third, we can compute $x$ by using $m_1$, $m_2$, $m_3$ and CRT
     We compute two of them first.
+
     $$
     \left\{ 
       \begin{array}{c}
@@ -116,9 +121,13 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
       \end{array}
     \right.
     $$
+
     At the beginning, we use Euclidean Algorithm to construct $1=aP_1+bP_2$ where $\{a,\ b\} \in \mathbb{Z}$, then $x=aP_1m_2+bP_2m_1+P_1P_2k'$ where $\{a,\ b,\ k'\} \in \mathbb{Z}$
+
     $$x \equiv aP_1m_2+bP_2m_1\ (mod\ P_1P_2)$$
+
     Next, we compute the rest of them and repeat the previous step
+
     $$
     \left\{ 
       \begin{array}{c}
@@ -129,6 +138,7 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
       \end{array}
     \right.
     $$
+
     To construct $1=cP_3+dP_1P_2$ by using Euclidean Algorithm then $x=cP_3(aP_1m_2+bP_2m_1)+dP_1P_2m_3+P_1P_2P_3k''$ where $\{a,b,c,d,k',k''\} \in \mathbb{Z}$
     And done, the $x$ is uniquely equivalent to $M$ that what we want.
 
@@ -141,6 +151,7 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
 
     Now, we use CRT to optimize the computation process
     Assume
+
     $$
     \left\{ 
       \begin{array}{c}
@@ -173,6 +184,7 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
       \ \because\ (135^2)^{14}=1
     \right.
     $$
+
     $$
     \left\{ 
       \begin{array}{c}
@@ -186,6 +198,7 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
       \ \because\ (135^6)^{4}=1
     \right.
     $$
+
     $$
     \left\{ 
       \begin{array}{c}
@@ -201,6 +214,7 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
     $$
 
     Next, we can start to compute $x$.
+
     $$
     \left\{ 
       \begin{array}{c}
@@ -210,8 +224,10 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
       \end{array}
     \right.
     $$
+
     We compute 2 of them first.
     The $gcd(3,7)=1$, so we tried to construct $1=1*7+(-2)*3\ \to$
+
     $$
     \begin{aligned}
     x&=7*1*0+3*(-2)*4+21k\\
@@ -219,7 +235,9 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
     x&\equiv 18\ (mod\ 21) 
     \end{aligned}
     $$
+
     Then we compute
+
     $$
     \left\{ 
       \begin{array}{c}
@@ -228,7 +246,9 @@ Second reason: when $p=q$, some message that $x∈\{0…N−1\}$ can not be decr
       \end{array}
     \right.
     $$
+
     Repeat previous step, the $gcd(13,21)=1$, then we can construct $1=21*5+13*(-8)$
+
     $$
     \begin{aligned}
     x&=21*5*5+13*(-8)*18+21*13k' \\
@@ -267,6 +287,7 @@ Assume $f(\cdot )$ is a guessing function that adversary used to guess $b'$ by t
 1. Ans: Assume $SS_{adv}[B, E']$ is negligible $\implies\ SS_{adv}[A, E]$ is negligible. Therefore, I can use contrapositive to prove if $E(Enc, Dec)$ is not $S.S.\ \implies E'(Enc', Dec')$ is not $S.S.$ as well. Because there must exist a magic function $f(\cdot)$ that can guess $b'$ with high confidence $\varepsilon' \gt \varepsilon$
 
     Assume $c=Enc(k,\ m_b)$ and $E$ is not $S.S.$, then we know
+
     $$
     \begin{aligned}
     SS_{adv}[c,\ E]&=|Pr[Exp^{SS}(0)=1]-Pr[Exp^{SS}(1)=1]| \\
@@ -278,6 +299,7 @@ Assume $f(\cdot )$ is a guessing function that adversary used to guess $b'$ by t
     $$
 
     But how about $E'$ that defined a new decryption cipher? We also can use the magic function that found in original decryption cipher to address this question.
+
     $$
     \begin{aligned}
     SS_{adv}[c,\ E']&=|Pr[Exp^{SS}(0)=1]-Pr[Exp^{SS}(1)=1]| \\
@@ -286,8 +308,10 @@ Assume $f(\cdot )$ is a guessing function that adversary used to guess $b'$ by t
     &=|Pr[f(Enc(k,\ m_b)||r)=1|b=0]-Pr[f(Enc(k,\ m_b)||r)=1|b=1]|
     \end{aligned}
     $$
+
     Though, we don't know the length of $r$ (i.e. $|r|$), we still can repeat the guessing process while decrease the 1 byte of $c||r$ for each time until the parameter of function $f(\cdot)$ is $|c|$, then I can still aware of the guessing result with high confidence.
     That is 
+
     $$
     \begin{aligned}
     SS_{adv}[c,\ E']&=|Pr[f(Enc(k,\ m_b)||r)=1|b=0]-Pr[f(Enc(k,\ m_b)||r)=1|b=1]| \\
@@ -304,6 +328,7 @@ Assume $f(\cdot )$ is a guessing function that adversary used to guess $b'$ by t
     Again, if $E(Enc, Dec)$ is not $S.S.$ then there must exist a magic function $f'(\cdot)$ that can guess $b'$ with high confidence $\varepsilon' \gt \varepsilon$
 
     Assume $c=Enc(k,\ m_b')$ and $E$ is not $S.S.$, then we know
+
     $$
     \begin{aligned}
     SS_{adv}[c,\ E]&=|Pr[Exp^{SS}(0)=1]-Pr[Exp^{SS}(1)=1]| \\
@@ -315,6 +340,7 @@ Assume $f(\cdot )$ is a guessing function that adversary used to guess $b'$ by t
     $$
 
     But how about $E'$ that defined a new decryption cipher? We also can use the magic function that found in original decryption cipher to address this question.
+
     $$
     \begin{aligned}
     SS_{adv}[c,\ E']&=|Pr[Exp^{SS}(0)=1]-Pr[Exp^{SS}(1)=1]| \\
@@ -322,8 +348,10 @@ Assume $f(\cdot )$ is a guessing function that adversary used to guess $b'$ by t
     &=|Pr[f'(Enc'(k,\ m_b+r)||r)=1|b=0]-Pr[f'(Enc'(k,\ m_b+r)||r)=1|b=1]|
     \end{aligned}
     $$
+
     Again, we don't know $|r|$, we still can repeat the guessing process while decrease the 1 byte of $c||r$ for each time (i.e. $f'([Enc'(k,m_b')||r][:-j])$ where $j=\{1,\cdots,|r|\}$).
     In a word,
+
     $$
     \begin{aligned}
     SS_{adv}[c,\ E']&=|Pr[f'(Enc(k,\ m_b')||r)=1|b=0]-Pr[f'(Enc'(k,\ m_b')||r)=1|b=1]| \\
@@ -341,6 +369,7 @@ Assume $f(\cdot )$ is a guessing function that adversary used to guess $b'$ by t
     Again, if $E(Enc, Dec)$ is not $S.S.$ then there must exist a magic function $f''(\cdot)$ that can guess $b'$ with high confidence $\varepsilon' \gt \varepsilon$
 
     Assume $c=Enc(k',\ m_b)$ and $E$ is not $S.S.$, then we know
+
     $$
     \begin{aligned}
     SS_{adv}[c,\ E]&=|Pr[Exp^{SS}(0)=1]-Pr[Exp^{SS}(1)=1]| \\
@@ -352,6 +381,7 @@ Assume $f(\cdot )$ is a guessing function that adversary used to guess $b'$ by t
     $$
 
     But how about $E'$ that defined a new decryption cipher? We also can use the magic function that found in original decryption cipher to address this question.
+
     $$
     \begin{aligned}
     SS_{adv}[c,\ E']&=|Pr[Exp^{SS}(0)=1]-Pr[Exp^{SS}(1)=1]| \\
@@ -359,8 +389,10 @@ Assume $f(\cdot )$ is a guessing function that adversary used to guess $b'$ by t
     &=|Pr[f''(Enc'(k',\ m_b)||r)=1|b=0]-Pr[f''(Enc'(k',\ m_b)||r)=1|b=1]|
     \end{aligned}
     $$
+
     Again, we don't know $|r|$, we still can repeat the guessing process while decrease the 1 byte of $c||r$ for each time (i.e. $f'([Enc'(k,m_b')||r][:-j])$ where $j=\{1,\cdots,|r|\}$).
     In a word,
+    
     $$
     \begin{aligned}
     SS_{adv}[c,\ E']&=|Pr[f''(Enc(k',\ m_b)||r)=1|b=0]-Pr[f''(Enc'(k',\ m_b)||r)=1|b=1]| \\
@@ -424,8 +456,11 @@ Just simple rail fence cipher
 ![](https://i.imgur.com/2gSBJin.png)
     As the screenshot above, seems it reused $a$ that it should be chosen randomly.
     Thus, as the algorithm taught on class
+
     $$c_1=c_1'=(self.g)^y\ (mod\ self.P)$$
+
     $$c_2=(self.pk)^y\ (mod\ self.P)\ *\ flag1\ (mod\ self.P)$$
+
     $$c_2=(self.pk)^y\ (mod\ self.P)\ *\ m_2\ (mod\ self.P)$$
 
 2. 6-2
@@ -437,9 +472,10 @@ Just simple rail fence cipher
 #### Exploit
 1. 6-1
     $$tmp = (self.pk)^y\ (mod\ self.P)=c_2'*inverse(m_2,\ self.P)\ \%\ self.P$$
-$$flag1 = c_2*inverse(tmp,\ self.P)\ \%\ self.P$$
-    ::: spoiler source code
-    ```python=
+
+    $$flag1 = c_2*inverse(tmp,\ self.P)\ \%\ self.P$$
+    
+    ```python
     from pwn import *
     from Crypto.Util.number import bytes_to_long, long_to_bytes
     from Crypto.Util.number import inverse
@@ -486,12 +522,17 @@ $$flag1 = c_2*inverse(tmp,\ self.P)\ \%\ self.P$$
 
     r.interactive()
     ```
-    :::
+    
     Flag 6-1: `CNS{n0_r3us3d_3ph3m3ra1_K3Y!}`
 2. 6-2(Bonus)
 3. 6-3
-    Assume: $$m_n={c_1}^{f(n)}\ (mod\ self.P),\ n\in\{1,...,5\}$$where $self.P$ is a group defined by author, $c_1$ is the user-chosen string that should be decrypted
+    Assume: 
+
+    $$m_n={c_1}^{f(n)}\ (mod\ self.P),\ n\in\{1,...,5\}$$
+
+    where $self.P$ is a group defined by author, $c_1$ is the user-chosen string that should be decrypted
     So, I can put each of the response from the server into `Lagrange Interpolation Formula`, that is 
+
     $$
     \begin{aligned}
     f(x)&=ax^4+bx^3+cx^2+dx+sk\\ 
@@ -502,16 +543,17 @@ $$flag1 = c_2*inverse(tmp,\ self.P)\ \%\ self.P$$
     &+ f(5){(x-x_1)(x-x_2)(x-x_3)(x-x_4) \over (x_5-x_1)(x_5-x_2)(x_5-x_3)(x_5-x_4)}
     \end{aligned}
     $$
+
     Then if we wonder $sk$ at the constant of the formula, we can put $x=0,\ x_1=1,\ x_2=2,\ x_3=3,\ x_4=4,\ x_5=5$ into function, that is
+
     $$f(0)=5f(1)-10f(2)+10f(3)-5f(4)+f(5)=sk$$
 
     $$c_1^{sk}=m_1^5*inverse(m_2^{10},\ self.P)*m_3^{10}*inverse(m_4^5,\ self.P)*m_5$$
 
-    :::info
     Note that, we can set $c_1=C1$ which is one return value from `ElGamal Encryption`: $\{C1, C2\} \leftarrow en_{ElGamal}(randomeNumber, message)$
-    :::
 
     So, the flag is:
+
     $$
     \begin{aligned}
     flag &= C2*[inverse(C1, self.P)]^{sk}\  \% \ self.P\\
@@ -519,8 +561,9 @@ $$flag1 = c_2*inverse(tmp,\ self.P)\ \%\ self.P$$
     &= C2*[inverse(c_1^{sk}, self.P)]\  \% \ self.P
     \end{aligned}
     $$
-    :::spoiler 6-3 source code
-    ```python=
+
+    6-3 source code
+    ```python
     from pwn import *
     from Crypto.Util.number import bytes_to_long, long_to_bytes
     from Crypto.Util.number import inverse
@@ -566,16 +609,12 @@ $$flag1 = c_2*inverse(tmp,\ self.P)\ \%\ self.P$$
 
     r.close()
     ```
-    :::
 
     Flag 6-3: `CNS{l4gr4ng3_P0lyn0m14L_12_s0_34SY}`
-    :::danger
-    It may not work sometimes, so, please re-run it again
-    :::
     
+    It may not work sometimes, so, please re-run it again
     
 ### 7. Bank
-
 #### Recon
 If I register an account, I earn `$10`. In addition, If the register name contain `I love CNS`, I can earn `$15` that `$5` for extra.
 Obviously, I should find SHA-1 collision for earning extra money to buy the flag.
@@ -588,7 +627,7 @@ The main flow is like:
 6. Then logout and re-login A account and buy the flag(now A account should have `$20`)
 
 #### Essential Source Code
-```python=116
+```python
 ...
 match cmd:
     case 1:
@@ -612,102 +651,101 @@ match cmd:
 
 #### Exploit
 Just find the collision of SHA-1
-:::spoiler source code
-    ```python
-    from pwn import *
+```python
+from pwn import *
 
-    context.arch = 'amd64'
+context.arch = 'amd64'
 
-    for i in range(2):
-        # r = process('./server.py')
-        r = remote('cns.csie.org', 44377)
+for i in range(2):
+    # r = process('./server.py')
+    r = remote('cns.csie.org', 44377)
 
-        magic1 = open('shattered-1.pdf', 'rb').read() + b'I love CNS'
-        magic2 = open('shattered-2.pdf', 'rb').read() + b'I love CNS'
+    magic1 = open('shattered-1.pdf', 'rb').read() + b'I love CNS'
+    magic2 = open('shattered-2.pdf', 'rb').read() + b'I love CNS'
 
-        '''Register "I love CNS and get the passkey"'''
-        r.recvuntil(b'Your choice: ')
-        r.sendline(b'1')
-        r.recvuntil(b'Username: ')
-        r.sendline(magic1)
-        passkey = r.recvline().decode('utf-8').split(': ')[1].replace('\n', '')
-        log.info("Normal account passkey: {}".format(passkey))
+    '''Register "I love CNS and get the passkey"'''
+    r.recvuntil(b'Your choice: ')
+    r.sendline(b'1')
+    r.recvuntil(b'Username: ')
+    r.sendline(magic1)
+    passkey = r.recvline().decode('utf-8').split(': ')[1].replace('\n', '')
+    log.info("Normal account passkey: {}".format(passkey))
 
-        '''Register another account that has same sha1 value with previous one'''
-        r.recvuntil(b'Your choice: ')
-        r.sendline(b'1')
-        r.recvuntil(b'Username: ')
+    '''Register another account that has same sha1 value with previous one'''
+    r.recvuntil(b'Your choice: ')
+    r.sendline(b'1')
+    r.recvuntil(b'Username: ')
 
-        r.sendline(magic2)
-        passkey_collision = r.recvline().decode('utf-8').split(': ')[1].replace('\n', '')
-        log.info("Collision account passkey: {}".format(passkey_collision))
+    r.sendline(magic2)
+    passkey_collision = r.recvline().decode('utf-8').split(': ')[1].replace('\n', '')
+    log.info("Collision account passkey: {}".format(passkey_collision))
 
-        '''Login Normal Account and Get money'''
-        r.recvuntil(b'Your choice: ')
+    '''Login Normal Account and Get money'''
+    r.recvuntil(b'Your choice: ')
+    r.sendline(b'2')
+    r.recvuntil(b'Username: ')
+    r.sendline(magic1)
+    r.recvuntil(b'Passkey in Base64: ')
+    r.sendline(passkey.encode())
+
+    '''Logout'''
+    r.recvuntil(b'Your choice: ')
+    r.sendline(b'1')
+
+    '''Login Collision Account'''
+    r.recvuntil(b'Your choice: ')
+    r.sendline(b'2')
+    r.recvuntil(b'Username: ')
+    r.sendline(magic2)
+    r.recvuntil(b'Passkey in Base64: ')
+    r.sendline(passkey_collision.encode())
+
+    '''Logout'''
+    r.recvuntil(b'Your choice: ')
+    r.sendline(b'1')
+
+    '''Login Normal Account and Get money'''
+    r.recvuntil(b'Your choice: ')
+    r.sendline(b'2')
+    r.recvuntil(b'Username: ')
+    r.sendline(magic1)
+    r.recvuntil(b'Passkey in Base64: ')
+    r.sendline(passkey.encode())
+
+    r.recvuntil(b'You have $')
+    money = r.recvline().decode().split(" ")[0]
+    log.info("Your money is: {}".format(money))
+
+    r.recvuntil(b'Your choice: ')
+    if i == 0:
         r.sendline(b'2')
-        r.recvuntil(b'Username: ')
-        r.sendline(magic1)
-        r.recvuntil(b'Passkey in Base64: ')
-        r.sendline(passkey.encode())
+        r.recvuntil(b'Here is your flag 1:')
+        flag1 = r.recvline().strip().decode()
+        log.info("Flag1: {}".format(flag1))
+    elif i == 1:
+        r.sendline(b'3')
+        r.recvuntil(b'Here is your flag 2:')
+        flag2 = r.recvline().strip().decode()
+        log.info("Flag2: {}".format(flag2))
 
-        '''Logout'''
-        r.recvuntil(b'Your choice: ')
-        r.sendline(b'1')
+    r.close()
 
-        '''Login Collision Account'''
-        r.recvuntil(b'Your choice: ')
-        r.sendline(b'2')
-        r.recvuntil(b'Username: ')
-        r.sendline(magic2)
-        r.recvuntil(b'Passkey in Base64: ')
-        r.sendline(passkey_collision.encode())
+r.interactive()
+```
 
-        '''Logout'''
-        r.recvuntil(b'Your choice: ')
-        r.sendline(b'1')
-
-        '''Login Normal Account and Get money'''
-        r.recvuntil(b'Your choice: ')
-        r.sendline(b'2')
-        r.recvuntil(b'Username: ')
-        r.sendline(magic1)
-        r.recvuntil(b'Passkey in Base64: ')
-        r.sendline(passkey.encode())
-
-        r.recvuntil(b'You have $')
-        money = r.recvline().decode().split(" ")[0]
-        log.info("Your money is: {}".format(money))
-
-        r.recvuntil(b'Your choice: ')
-        if i == 0:
-            r.sendline(b'2')
-            r.recvuntil(b'Here is your flag 1:')
-            flag1 = r.recvline().strip().decode()
-            log.info("Flag1: {}".format(flag1))
-        elif i == 1:
-            r.sendline(b'3')
-            r.recvuntil(b'Here is your flag 2:')
-            flag2 = r.recvline().strip().decode()
-            log.info("Flag2: {}".format(flag2))
-
-        r.close()
-
-    r.interactive()
-    ```
-:::
-Flag 7-1: `CNS{ha$h_i5_m15used}`
-Flag 7-2: `CNS{$ha1_15_n0t_c0ll1510n_r3s1st@nt}`
+* Flag 7-1: `CNS{ha$h_i5_m15used}`
+* Flag 7-2: `CNS{$ha1_15_n0t_c0ll1510n_r3s1st@nt}`
 
 ### 8. Clandestine Operation
-
 #### Recon
 1. Encrypted by AES
 2. Mode: CBC
 3. Padding type: `PKCS#7`
 4. Padding Oracle Attack
-  * ::: spoiler Seems padding oracle
+    
+    Seems padding oracle
     `menus.py/askNahida()`
-    ```python=22
+    ```python
     ...
     if choice == 1:
         ID = input('Please give me the ID (hex encoded): ').strip()
@@ -722,7 +760,7 @@ Flag 7-2: `CNS{$ha1_15_n0t_c0ll1510n_r3s1st@nt}`
     ...
     ```
     `cryptoFunc.py`
-    ```python=11
+    ```python
     def unpad(c):
         length = c[-1]
         for char in c[-length:]:
@@ -734,12 +772,12 @@ Flag 7-2: `CNS{$ha1_15_n0t_c0ll1510n_r3s1st@nt}`
         return unpad(aes.decrypt(binascii.unhexlify(c))).decode()
     ...
     ```
-    :::
 
 #### Exploit
 Just padding oracle attack
-:::spoiler 8-1 source code
-```python=
+
+8-1 source code
+```python
 from pwn import *
 from tqdm import trange
 from itertools import cycle
@@ -896,14 +934,14 @@ print("[+] Decrypted value (ASCII):", bytes.fromhex(hex_r[0 : -(padding * 2)]).d
 
 r.interactive()
 ```
-:::
 
 Flag 8-1: `CNS{Aka_BIT_f1ipp1N9_atTaCk!}`
 
 ---
+
 In plaintext of `69...` block, we need to tamper specific bytes like(`Cyno` $\to$ `Azar`).
 We can xor the previous ciphertext block(`5c...`)
-```bash!
+```bash
 >>> m1 = 'Cyno'.encode('utf-8').hex()
 >>> m2 = 'Azar'.encode('utf-8').hex()
 >>> hex(int(m1,16)^int(m2,16))
@@ -914,8 +952,9 @@ We can xor the previous ciphertext block(`5c...`)
 So, the `xor_patch` is `0x2030f1d` that we have to xor to the cipher block, `5c...`. And we got 
 
 ![](https://imgur.com/wzdc8WN.png)
-:::spoiler 8-2 source code
-```python=
+
+8-2 source code
+```python
 from pwn import *
 from tqdm import trange
 from itertools import cycle
@@ -969,28 +1008,25 @@ r.recvline()
 flag = r.recvline().strip().decode().split('. ')[-1]
 log.info("flag = {}".format(flag))
 ```
-:::
-
 Flag 8-2: `CNS{W15h_y0U_hav3_a_n1c3_d@y!}`
 
 ## Reference
-
 ### Multi-prime RSA
-[多素数RSA系统简介](https://blog.csdn.net/bhw98/article/details/19676)
-[Why should the primes used in RSA be distinct?](https://crypto.stackexchange.com/questions/26861/why-should-the-primes-used-in-rsa-be-distinct)
-[利用CRT加速RSA解密](https://youtu.be/NkvCZ8qJ34w?t=4203)
-[What is multi-prime RSA (RSA-MP)?](https://crypto.stackexchange.com/questions/67043/what-is-multi-prime-rsa-rsa-mp)
+* [多素数RSA系统简介](https://blog.csdn.net/bhw98/article/details/19676)
+* [Why should the primes used in RSA be distinct?](https://crypto.stackexchange.com/questions/26861/why-should-the-primes-used-in-rsa-be-distinct)
+* [利用CRT加速RSA解密](https://youtu.be/NkvCZ8qJ34w?t=4203)
+* [What is multi-prime RSA (RSA-MP)?](https://crypto.stackexchange.com/questions/67043/what-is-multi-prime-rsa-rsa-mp)
 
 ---
 
 ### Classic
-[MAC訊息驗證碼](https://ithelp.ithome.com.tw/articles/10188333)
-[密碼雜湊函式](https://zh.wikipedia.org/wiki/%E5%AF%86%E7%A2%BC%E9%9B%9C%E6%B9%8A%E5%87%BD%E6%95%B8)
-[Diffie-Hellman](http://www.tsnien.idv.tw/Security_WebBook/chap3/3-6%20Diffie-Hellman%20%E9%91%B0%E5%8C%99%E4%BA%A4%E6%8F%9B%E6%B3%95.html)
-[Linux匹配文字grep指令用法教學與範例](https://blog.gtwang.org/linux/linux-grep-command-tutorial-examples/)
-[How can I split multiple joined words?](https://stackoverflow.com/questions/195010/how-can-i-split-multiple-joined-words)
-[subprocess --- Subprocess management](https://docs.python.org/zh-tw/3.7/library/subprocess.html)
-[How to Check SHA1 Hash of a String](https://osxdaily.com/2012/06/06/check-sha1-hash-of-string/)
+* [MAC訊息驗證碼](https://ithelp.ithome.com.tw/articles/10188333)
+* [密碼雜湊函式](https://zh.wikipedia.org/wiki/%E5%AF%86%E7%A2%BC%E9%9B%9C%E6%B9%8A%E5%87%BD%E6%95%B8)
+* [Diffie-Hellman](http://www.tsnien.idv.tw/Security_WebBook/chap3/3-6%20Diffie-Hellman%20%E9%91%B0%E5%8C%99%E4%BA%A4%E6%8F%9B%E6%B3%95.html)
+* [Linux匹配文字grep指令用法教學與範例](https://blog.gtwang.org/linux/linux-grep-command-tutorial-examples/)
+* [How can I split multiple joined words?](https://stackoverflow.com/questions/195010/how-can-i-split-multiple-joined-words)
+* [subprocess --- Subprocess management](https://docs.python.org/zh-tw/3.7/library/subprocess.html)
+* [How to Check SHA1 Hash of a String](https://osxdaily.com/2012/06/06/check-sha1-hash-of-string/)
 
 ---
 
@@ -1000,15 +1036,15 @@ Flag 8-2: `CNS{W15h_y0U_hav3_a_n1c3_d@y!}`
 ---
 
 ### Bank
-[長度擴充攻擊 | Length Extension Attack (LEA)](https://maojui.me/Crypto/LEA/)
-[SHA-1 psuedo code](https://zh.wikipedia.org/wiki/SHA-1#SHA-0%E7%9A%84%E7%A0%B4%E8%A7%A3)
-[LEA-CTF實例](https://github.com/oalieno/Crypto-Course/tree/9430c4dcb3b1666098a84b37d4c2122205003609/HASH/Length-Extension-Attack)
-[HashPump教學](https://www.cnblogs.com/pcat/p/5478509.html)
-[淺談HASH長度擴充攻擊](https://iter01.com/525343.html)
-[SHA-1 is a Shambles](https://sha-mbles.github.io/)
+* [長度擴充攻擊 | Length Extension Attack (LEA)](https://maojui.me/Crypto/LEA/)
+* [SHA-1 psuedo code](https://zh.wikipedia.org/wiki/SHA-1#SHA-0%E7%9A%84%E7%A0%B4%E8%A7%A3)
+* [LEA-CTF實例](https://github.com/oalieno/Crypto-Course/tree/9430c4dcb3b1666098a84b37d4c2122205003609/HASH/Length-Extension-Attack)
+* [HashPump教學](https://www.cnblogs.com/pcat/p/5478509.html)
+* [淺談HASH長度擴充攻擊](https://iter01.com/525343.html)
+* [SHA-1 is a Shambles](https://sha-mbles.github.io/)
 
 ---
 
 ### Clandestine Operation:
-[Padding Oracle Attack - github](https://github.com/mpgn/Padding-oracle-attack/blob/master/exploit.py)
-[[2022 fall] 0923 Crypto](https://youtu.be/hnXtaiyvQ3s?t=7801)
+* [Padding Oracle Attack - github](https://github.com/mpgn/Padding-oracle-attack/blob/master/exploit.py)
+* [[2022 fall] 0923 Crypto](https://youtu.be/hnXtaiyvQ3s?t=7801)
