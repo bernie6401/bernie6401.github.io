@@ -11,8 +11,8 @@ date: 2024-01-31
 
 ## Installation
 ### 環境
-WSL2 - Ubuntu 20.04
-Docker
+* WSL2 - Ubuntu 20.04
+* Docker
 
 ### Reference
 [二刀流Windows日誌分析　精準掌握資安蛛絲馬跡](https://www.netadmin.com.tw/netadmin/zh-tw/technology/84E5EAA4BC494BB6A4B15607E62418A0)
@@ -25,8 +25,9 @@ Docker
     $ docker run --detach --publish=7474:7474  --publish=7687:7687 --publish=8080:8080 -e LTHOSTNAME=0.0.0.0 jpcertcc/docker-logontracer
     ```
 3. 先進入neo4j(`localhost:7474`)
+    
     預設密碼: `neo4j/neo4j`
-    :::info
+    
     若有遇到登入不進去的問題，error message$\to$`Neo.ClientError.Security.Unauthorized: The client is unauthorized due to authentication failure.`
     可參考[訪問neo4j驗證失敗](https://blog.csdn.net/weixin_39198406/article/details/85068102)，我是直接把neo4j.conf的驗證註解拿掉
     ```bash
@@ -43,8 +44,9 @@ Docker
     nifty_stonebraker
     ```
     之後再重新進入`localhost:7474`，用預設帳密登入就可以了
-    :::
+
 4. 進入LogonTracer(`localhost:8080`)
+    
     預設帳密也是`neo4j/neo4j`
 
 ### Python Version (Recommended)
@@ -57,7 +59,6 @@ Docker
 6. 最後安裝都沒問題後pandas的部分因為是安裝最新版，所以語法上會有差，若是在`2.0`以上，就不能用`append`，要改成`_append`，這個就要慢慢看logontrace的log慢慢去改
 
 * 實作
-    如下
     ```bash
     $ conda create --name test python=3.11 -y
     $ conda activate test
@@ -92,6 +93,4 @@ Docker
 
     我的requirements.txt和原本的有一點不一樣，然後只要按照這個步驟就可以正常啟動logontracer，前提是neo4j也有好好啟動(這部分可以用docker自行安裝)
     
-:::info
 在使用上有一點要特別注意，因為source code中的#1954的地方會判斷目前的紀錄是不是來自localhost，如果是就不儲存username/domain/hostname，我是不知道為甚麼要這樣設計，但反正如果給的evtx不夠大或是不夠複雜，他就沒辦法parse，或者應該說他認為沒必要parse，因為只是內部的log紀錄?我不確定
-:::

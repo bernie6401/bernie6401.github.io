@@ -15,6 +15,7 @@ date: 2024-01-31
 ## Prepare JS Modules
 當拿到一個web題目，通常會包含Dockerfile / docker-compose.yml / package.json，我們要做的就是把這個專案所需要的library都載好，這些通常都會記錄在package.json中
 * Windows
+    
     在windows也需要下載js的interpreter，也就是node js / npm這些東西，詳細可以看[MSDN文件](https://learn.microsoft.com/zh-tw/windows/dev-environment/javascript/nodejs-on-windows)
     1. 到[nvm windows github官方](https://github.com/coreybutler/nvm-windows/releases)下載latest ==nvm-setup.exe==並安裝
         ```bash
@@ -83,6 +84,7 @@ date: 2024-01-31
         $ npm install # 安裝所有package.json中的library
         ```
 * WSL / Linux
+    
     同樣的操作需要再做一次，詳細可以看[MSDN - 在 Windows 子系統 Linux 版 (WSL2) 上安裝 Node.js](https://learn.microsoft.com/zh-tw/windows/dev-environment/javascript/nodejs-on-wsl)
     1. Install nvm
         ```bash
@@ -172,6 +174,4 @@ CMD [ "node", "app.js" ]
 ## Download Web Storm
 到[官網](https://www.jetbrains.com/webstorm/download/#section=windows)下載對應OS的Installer，不過這東西是要收費的，如果要白嫖的話可以參考[Jetbrain 軟體教育許可授權申請流程](https://hackmd.io/@nfu-johnny/B1yOz8KQs)，不過台大的帳號不知道為啥會過不了，所以要用提供**官方文件**的方式申請
 
-:::danger
-後續的操作其實就和vscode差不了多少，有點懶得寫了，而且web storm還需要收錢，但vscode也沒多難用，只是如果習慣用他們家的會蠻好操作的就是了，包含直接和docker連動之類的，但debug還是要用local端build起來(就是上面vscode的流程那樣)，也是沒有方便多少
-:::
+<span style="background-color: yellow">後續的操作其實就和vscode差不了多少，有點懶得寫了，而且web storm還需要收錢，但vscode也沒多難用，只是如果習慣用他們家的會蠻好操作的就是了，包含直接和docker連動之類的，但debug還是要用local端build起來(就是上面vscode的流程那樣)，也是沒有方便多少</span>

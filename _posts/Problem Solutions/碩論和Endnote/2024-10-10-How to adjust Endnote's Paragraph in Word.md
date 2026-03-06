@@ -15,6 +15,7 @@ date: 2024-10-10
 
 ## Solution
 1. 先確定投稿的Reference Format長怎樣
+    
     例如要左右對齊、固定行高、特殊縮排等等
     ![螢幕擷取畫面 2024-10-10 153232](https://hackmd.io/_uploads/Hk7wYWr1Jg.png =300x)
 2. 然後到[常用] > [樣式]中右鍵Endnote Bibliography，點選修改，就能針對Endnote的Format進行調整
@@ -22,4 +23,5 @@ date: 2024-10-10
     包含段落、定位點、字型、大小等等
     ![圖片](https://hackmd.io/_uploads/rJoRcWr11x.png)
 3. Done
+    
     接著就可以放心使用自己設定的Reference格式

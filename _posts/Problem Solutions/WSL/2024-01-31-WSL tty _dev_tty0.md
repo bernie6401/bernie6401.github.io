@@ -23,16 +23,16 @@ date: 2024-01-31
       Ubuntu-20.04           Running         1
       Ubuntu-22.04           Stopped         1
     ```
-  可以看到目前所有版本都還是1
+    可以看到目前所有版本都還是1
 2. Switch
-用管理員權限打開PowerShell
-  ```shell
-  $ Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform 
-  $ wsl --set-version Ubuntu-18.04 2
-  $ wsl --set-version Ubuntu-20.04 2
-  $ wsl --set-version Ubuntu-22.04 2
-  ```
-最後就可以開始設定gef config
+    用管理員權限打開PowerShell
+    ```shell
+    $ Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform 
+    $ wsl --set-version Ubuntu-18.04 2
+    $ wsl --set-version Ubuntu-20.04 2
+    $ wsl --set-version Ubuntu-22.04 2
+    ```
+    最後就可以開始設定gef config
 
 ## Reference
 [^switch-wsl1-2-wsl2]:[[WSL] 將 WSL 升級成 WSL2 吧 !](https://samiouob.github.io/2019/06/17/WSL2/)

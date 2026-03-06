@@ -14,11 +14,13 @@ date: 2024-10-26
 ## Android Studio Emulator
 本方法完全是參考[Root an Android emulator with just one command](https://youtu.be/zZZVoUTZipw?si=-r7H1aWTeTDFkSOr)，很簡單而且成功率很高，如果有特殊的需求而需要使用Physical Device，再往下看其他的Physical Device的Rooted Method
 1. 用Android Studio開啟Emulator
+    
     請記住Emulator的API Level，以我的為例是31
     ![圖片](https://hackmd.io/_uploads/Hy2UPOFAR.png)
 2. Download Script & Execute it
+    
     到 https://gitlab.com/newbit/rootAVD 下載latest script
-    ```bash!
+    ```bash
     $ git clone https://gitlab.com/newbit/rootAVD
     $ cd rootAVD
     $ rootAVD.bat ListAllAVDs
@@ -33,6 +35,7 @@ date: 2024-10-26
     ...
     ```
 3. 選擇適當的command
+    
     可以從上面的output看到，API Level 31的所有commands，選擇第一個執行就可以了
     ```bash
     $ rootAVD.bat system-images\android-31\google_apis_playstore\x86_64\ramdisk.img
@@ -61,11 +64,11 @@ date: 2024-10-26
 2. 安裝方法是:
     1. 下載[OrangeFox Img](https://orangefox.download/zh-TW/device/zenfone3)
     2. 進入fastboot
-        ```bash!
+        ```bash
         $ adb reboot bootloader
         ```
     2. 確認fastboot有抓到device並且把recovery檔案丟進去
-        ```bash!
+        ```bash
         $ fastboot devices
         H7AZCY01Z728HGB fastboot
         $ fastboot flash recovery recovery.img
@@ -80,7 +83,6 @@ date: 2024-10-26
         看了XDA的留言串，發現也有人有這個問題，雖然時間有點久，但我還是嘗試問看看該名網友有沒有找到解決方法
 
 ## HTC 10
-
 ### Unlock Bootloader
 1. 註冊[HTCdev](https://www.htcdev.com/bootloader/unlock-instructions)
 2. 選擇標的
@@ -137,11 +139,10 @@ date: 2024-10-26
 ### Install Third Party Recovery
 我是參考[ How to Root the HTC 10 ](https://youtu.be/VubMLsETfpA?si=o4wVZP3LwP0jE-dh)
 1. 直接去[TWRP - HTC 10](https://twrp.me/htc/htc10.html)下載img，然後按照上面的guidelines進行安裝
-    :::info
+
     這邊記得是`$ adb reboot download`，和平常的reboot到bootloader不一樣喔
-    :::
 3. 下adb command
-    ```bash!
+    ```bash
     $ adb reboot download
     $ fastboot flash recovery twrp.img
     Warning: skip copying recovery image avb footer (recovery partition size: 0, recovery image size: 30965760).
@@ -158,17 +159,17 @@ date: 2024-10-26
     Finished. Total time: 0.002s
     ```
 3. 在手機端安裝Magisk並且在電腦端也下載同一個apk，接著進到TWRP Recover的地方，原本到這邊應該就直接在Install的地方進行安裝Magisk，但是就如同[阿哲的影片](https://youtu.be/AcWvTfdm1vE?si=uKtkbGuVElDvcaHO&t=1388)所說，這一台手機也是無法直接在TWRP進行安裝apk的，也是要用sideload才可以
-    ```bash!
+    ```bash
     $ adb reboot bootloader
     ```
 4. sideload進行安裝
     在TWRP中點選Advanced，然後點選sideload並且wipe cache，下完command後點選reboot system後就結束了
-    ```bash!
+    ```bash
     $ adb sideload Magisk-v27.0.apk
     Total xfer: 3.01x
     ```
 5. 測試
-    ```bash!
+    ```bash
     $ adb shell
     htc_pmeuhl:/ $ whoami
     shell
@@ -193,7 +194,7 @@ date: 2024-10-26
     Submit後會給另外一個Code
     ![圖片](https://hackmd.io/_uploads/rkbKUWoAT.png)
 5. 這一部分和哲有一點點不一樣，我是參考[Sony Xperia 10 V (XQ-DC72) Root教學，解鎖Bootloader與刷Magisk](https://ivonblog.com/posts/sony-xperia-10-v-root/)，先想辦法進入開發者模式後，開啟adb debugging並且開啟OEM解鎖，接著連接電腦重啟
-    ```bash!
+    ```bash
     $ adb devices
     List of devices attached
     HQ615A42D4      device
@@ -210,7 +211,7 @@ date: 2024-10-26
     ![圖片](https://hackmd.io/_uploads/BkbF0x2C6.png)
 3. 下載[sony_dump](https://xdaforums.com/t/tool-windows-linux-android-apple-unpack-any-sony-firmware-file.3530077/)並且把對應的電腦架構放到剛剛的下載的img folder(windows是sony_dump.exe)
 4. 在該資料夾執行command，command後面接的檔案試不同型號會有不一樣的檔名，這點要特別注意
-    ```bash!
+    ```bash
     $ sony_dump.exe output boot_X-FLASH-ALL-8A63.sin
     --------------------------------------------------------
            Sony File Dumper by Munjeni @ 2016
@@ -227,7 +228,7 @@ date: 2024-10-26
     執行成功後應該會在同一個folder中出現output這個folder，把裡面的第一個檔案改成.img file，並且丟到手機端
 5. 在手機端安裝magisk後，用magisk安裝這個img，他會patch這個img
 6. 成功後應該會在手機同一個folder底下看到patch過後的img file，此時就直接把該檔案再丟回到電腦端並且在同一個folder底下開啟terminal
-    ```bash!
+    ```bash
     $ adb devices
     List of devices attached
     HQ615A42D4      device
@@ -245,7 +246,7 @@ date: 2024-10-26
     ```
     此時我們大致上就成功了，等待開機的時候會有一點久(約2-5分鐘不等)，請耐心等候
 7. 測試
-    ```bash!
+    ```bash
     $ adb shell
     XQ-BT52:/ $ whoami
     shell
@@ -267,9 +268,7 @@ date: 2024-10-26
 6. 此時就可以測試，在電腦上開啟ZAP，然後把手機端的Proxy IP和Port設定好，理論上不管是手機端的瀏覽器封包或是部分App的流量就會被抓到
 
 ## 注意事項
-:::info
 有一點要特別注意，如果先安裝模組再進行安裝，或是先前已經安裝過第一個憑證後續又再安裝另外一個但沒有重起，會造成和之前遇到的SSL Pinning一樣的狀況，也就是在第二個憑證的裝置只能抓到GET封包，所以正確的步驟是按照上面的流程，如果有多一台裝置的話，最保險的做法是先把之前所有安裝的憑證刪除→重新啟動→重新安裝"所有"的憑證→重新安裝Magisk模組→Reboot，就可以了
-:::
 
 ## 結論
 最後只有HTC 10成功取得Root權限並且安裝`AlwaysTrustUserCert.zip`的模組，所以我的研究就圍繞在Google Pixel6a這一台原本已經Root好並且安裝好模組的手機以及HTC 10這一台

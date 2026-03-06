@@ -58,7 +58,7 @@ date: 2024-08-30
     $ echo "test string" > max.strings
     $ adb push max.strings /sdcard
     ```
-:::info
+
 * 如何設定成原本的keyboard
     ```bash
     $ adb shell ime reset
@@ -75,7 +75,6 @@ date: 2024-08-30
     ```bash
     $ adb shell am broadcast -a ADB_INPUT_CODE --ei code 67
     ```
-:::
 
 ## 自訂前期的Script
 如果想要自行設定前期的登入或是註冊這樣的flow，就可以利用這個模式，只要先設定好XPATH和action，Fastbot就會按照我們給定的config去執行，執行完了之後就會繼續執行我們前面給的command依序crawl
@@ -94,8 +93,10 @@ date: 2024-08-30
     [Maxim] // com.spotify.login.loginflowimpl.LoginActivity
     ```
 2. 獲取想要互動的View的XPATH
+    
     如果可以screenshot的話，就可以利用Appium-Inspector，否則可以用我給的script慢慢爬，只要手機USB連線，並且開啟想要爬的activity頁面，執行下方script，就會print出目前和該app有關的clickable/editable view XPATH，以下用spotify為例
-    :::spoiler Fetch XPATH Script
+    
+    Fetch XPATH Script
     ```python
     import os
     import uiautomator2 as u2
@@ -192,7 +193,7 @@ date: 2024-08-30
 
         main(emulators[0])
     ```
-    :::
+    
     ```bash
     $ python fetchXPATH.py
     Clickable View XPATH:  //android.widget.Button[@index='0' and @text='Sign up free' and @package='com.spotify.music' and @clickable='true']
@@ -201,6 +202,7 @@ date: 2024-08-30
     Clickable View XPATH:  //android.widget.Button[@index='3' and @text='Log in' and @package='com.spotify.music' and @clickable='true']
     ```
 3. 接下來就把XPATH貼到下方格式的地方就可以了
+    
     在同一個activity的步驟不需要拆分，詳細說明可以看[Fastbot handbook](https://github.com/bytedance/Fastbot_Android/blob/main/handbook-cn.md#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6%E5%BA%8F%E5%88%97)
     ```json
     [
@@ -235,13 +237,11 @@ date: 2024-08-30
     }
     ]
     ```
-    把以上json格式填寫好後，丟到[Json Checker](https://www.json.cn/)檢查有無問題，注意最一開始和最後一定是中括號，格式正確後再填寫到==max.xpath.actions==，並且丟到手機上
+    把以上json格式填寫好後，丟到[Json Checker](https://www.json.cn/)檢查有無問題，注意最一開始和最後一定是中括號，格式正確後再填寫到**max.xpath.actions**，並且丟到手機上
     ```bash
     $ adb push max.xpath.actions /sdcard
     ```
 
 ### 注意
-:::info
 1. 如果有想要填寫文字的情況就一定要保證是用ADBKeyboard的狀態下才會如實的填寫我們設定好的text
 2. Fastbot預設會到/sdcard抓max.xpath.actions，所以不要放到其他地方
-:::

@@ -26,4 +26,5 @@ comments: true
 6. 輸入：
     * 首選 DNS：8.8.8.8
     * 備用 DNS：8.8.4.4
+    
     ![alt text](/assets/posts/螢幕擷取畫面 2025-04-12 220258.png)

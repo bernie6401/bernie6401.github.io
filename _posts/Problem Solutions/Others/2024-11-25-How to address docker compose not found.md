@@ -20,7 +20,7 @@ Building dependency tree... Done
 Reading state information... Done
 E: Unable to locate package docker-compose-plugin
 ```
-Final Solution↓
+Final Solution ↓
 ```bash
 $ sudo mkdir -p /etc/apt/keyrings
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg

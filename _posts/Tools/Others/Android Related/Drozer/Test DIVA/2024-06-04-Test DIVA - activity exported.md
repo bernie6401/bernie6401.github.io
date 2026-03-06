@@ -10,7 +10,7 @@ date: 2024-06-04
 
 # Test DIVA - activity exported
 <!-- more -->
-參考[^csdn-diva-1][^安全客-diva-1][^安全客-diva-2][^hacktricks-diva-sieve]
+參考[^csdn-diva-1][^diva-1][^diva-2][^hacktricks-diva-sieve]
 1. 起手式 - 確認App資訊
     ```bash
     dz> run app.package.list -f diva
@@ -99,13 +99,14 @@ Starting: Intent { act=jakhar.aseem.diva.action.VIEW_CREDS cmp=jakhar.aseem.diva
 $ adb shell am start -n jakhar.aseem.diva/.APICreds2Activity -a jakhar.aseem.diva.action.VIEW_CREDS2
 Starting: Intent { act=jakhar.aseem.diva.action.VIEW_CREDS2 cmp=jakhar.aseem.diva/.APICreds2Activity }
 ```
-`am start`: 啟動一個activity
-`-n <package name + /. + activity class name>`: 指定哪一個activity
-`-a <specified intent>`: 指定的 action，用於告訴應用程式以特定方式處理這個啟動動作
+* `am start`: 啟動一個activity
+* `-n <package name + /. + activity class name>`: 指定哪一個activity
+* `-a <specified intent>`: 指定的 action，用於告訴應用程式以特定方式處理這個啟動動作
 
 按照上面的指示，就會出現剛剛一樣的畫面了
+
 # Reference
 [^csdn-diva-1]:[DIVA靶場測試APP客戶端不規範項（一）](https://blog.csdn.net/weixin_44309905/article/details/123764180)
 [^hacktricks-diva-sieve]:[Drozer Tutorial](https://book.hacktricks.xyz/v/cn/mobile-pentesting/android-app-pentesting/drozer-tutorial)
-[^安全客-diva-1]:[【技術分享】Android App常見安全問題演練分析系統-DIVA-Part1](https://www.anquanke.com/post/id/84603)
-[^安全客-diva-2]:[【技術分享】Android App常見安全問題演練分析系統-DIVA-Part2](https://www.anquanke.com/post/id/86057)
+[^diva-1]:[【技術分享】Android App常見安全問題演練分析系統-DIVA-Part1](https://www.anquanke.com/post/id/84603)
+[^diva-2]:[【技術分享】Android App常見安全問題演練分析系統-DIVA-Part2](https://www.anquanke.com/post/id/86057)

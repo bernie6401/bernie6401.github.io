@@ -19,7 +19,8 @@ date: 2024-06-04
         Permission: null
     ```
 2. 逆向
-    從以上可以知道有兩個service是被export的，這樣的話就可以逆一下判斷可以送出什麼東西以及可能的漏洞在哪，按照教學的說明我直接看==AuthService==這個service，
+    
+    從以上可以知道有兩個service是被export的，這樣的話就可以逆一下判斷可以送出什麼東西以及可能的漏洞在哪，按照教學的說明我直接看**AuthService**這個service，
     在`com.mwr.example.sieve.AuthService`中的其中一段就是有問題的地方:
     ```java
     public class AuthService extends Service {
@@ -64,7 +65,8 @@ date: 2024-06-04
     →[5, 41, 0, {com.mwr.example.sieve.PASSWORD:\<password\>}]
     而這個問題在哪裡呢?經過前期的確認以及逆向，我們可以寫個script爆破，不斷送出一些pin code給這個service，則因為大多時候PIN Code的複雜度比較低，所以總有一天可以得到使用者的密碼了
 3. 和service互動
-    從下面的結果來看，一開始設定的密碼為==123456acitseccom==
+    
+    從下面的結果來看，一開始設定的密碼為**123456acitseccom**
     ```bash
     dz> run app.service.send com.mwr.example.sieve com.mwr.example.sieve.AuthService --msg 2354 9234 1 --extra string com.mwr.example.sieve.PIN <User PIN> --bundle-as-obj
     Attempting to run shell module

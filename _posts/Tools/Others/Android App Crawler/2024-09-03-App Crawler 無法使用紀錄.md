@@ -9,12 +9,12 @@ date: 2024-09-03
 # App Crawler 無法使用紀錄
 <!-- more -->
 根據[Android Studio官網](https://developer.android.com/studio/test/other-testing-tools/app-crawler)的說明
-```bash!
+```bash
 $ java -jar crawl_launcher.jar --apk-file path/to/my/app.apk --android-sdk path/to/my/android/sdk
 ```
 
 我已經有安裝app在手機了，所以實際的command如下
-```bash!
+```bash
 $ java -jar crawl_launcher.jar --app-package-name com.xueqiu.android --android-sdk C:\Users\Bernie\AppData\Local\Android\Sdk
 Preparing to crawl com.xueqiu.android
 Crawl started.

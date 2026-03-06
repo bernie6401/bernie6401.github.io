@@ -17,7 +17,7 @@ $ ./setup.sh
 ```
 
 ## Problem I
-```bash!
+```bash
 The following information may help to resolve the situation:
 
 The following packages have unmet dependencies:
@@ -26,16 +26,16 @@ The following packages have unmet dependencies:
 E: Unable to correct problems, you have held broken packages.
 ```
 1. 如果遇到這種的問題，就直接分析setup.sh是crash在哪邊，照理說應該是跟python的版本有關係，想我的狀況是原本安裝python3的version是3.10，而不是3.8，所以最直接的做法是修改setup.sh file，在第23行的地方修改一下，直接指定安裝的版本，另外
-    ```bash=22
+    ```bash
     # original
     sudo apt-get install -y git gdb gdbserver python3-dev python3-venv python3-pip python3-setuptools libglib2.0-dev libc6-dbg
     ```
-    ```bash=22
+    ```bash
     # revised
     sudo apt-get install -y git gdb gdbserver python3-dev=3.8.2-0ubuntu2 python3-venv=3.8.2-0ubuntu2 python3-pip python3-setuptools libglib2.0-dev libc6-dbg
     ```
     * 另外如果gdb吃的python版本不是3.8，就需要直接指定，也就是在第172行的地方新增版本
-        ```bash=172
+        ```bash
         $ PYVER=$(gdb -batch -q --nx -ex 'pi import platform; print(".".join(platform.python_version_tuple()[:2]))')
         $ PYVER="3.8" # 直接指定，上面那行不要刪掉
         ```
@@ -128,8 +128,8 @@ end
 end
 ```
 ---
+
 到最後安裝的結果就會如下
-:::spoiler Complete Result
 ```bash
 $ dpkg -l|grep python
 ii  libpython3-dev:amd64                   3.10.4-0ubuntu2                         amd64        header files and a static library for Python (default)
@@ -187,7 +187,6 @@ Reading symbols from chal...
 Pwndbg context displays where the program branches to thanks to emulating few instructions into the future. You can disable this with set emulate off which may also speed up debugging
 pwndbg>
 ```
-:::
 
 ## Reference
 [^apt_remove_python]:[uninstall_python3](https://gist.github.com/zhensongren/811dcf2471f663ed3148a272f1faa957)

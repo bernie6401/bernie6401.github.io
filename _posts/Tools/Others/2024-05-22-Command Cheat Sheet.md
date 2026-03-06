@@ -62,13 +62,13 @@ date: 2024-05-22
 
 * String → Binary
     * if you'd like to do this transformation, 1st conversion is better
-    ```python
-    # string to hex to binary
-    >>> bin(int('I love CNS'.encode('utf-8').hex(), 16))[2:].zfill(8)
-    '1001001001000000110110001101111011101100110010100100000010000110100111001010011'
-    >>> ''.join(format(ord(x), 'b') for x in 'I love CNS')
-    '10010011000001101100110111111101101100101100000100001110011101010011'
-    ```
+        ```python
+        # string to hex to binary
+        >>> bin(int('I love CNS'.encode('utf-8').hex(), 16))[2:].zfill(8)
+        '1001001001000000110110001101111011101100110010100100000010000110100111001010011'
+        >>> ''.join(format(ord(x), 'b') for x in 'I love CNS')
+        '10010011000001101100110111111101101100101100000100001110011101010011'
+        ```
 
 * Byte → String
     ```python
@@ -204,7 +204,9 @@ date: 2024-05-22
 
 ## Linux 奇技淫巧語法
 * 設定英文+數字的亂碼 - [Linux - tr語法](https://www.runoob.com/linux/linux-comm-tr.html)
-    `$ tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 16`
+    ```bash
+    $ tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 16
+    ```
 * 計算行數 - [Linux 使用 wc 指令計算字數、行數教學與範例](https://blog.gtwang.org/linux/linux-wc-command-tutorial-examples/)
     ```bash
     $ cat document.xml | wc -l

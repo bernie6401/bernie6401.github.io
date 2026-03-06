@@ -11,12 +11,12 @@ date: 2024-06-04
 
 ## Basic Console
 基本上最常用的command就是
-```bash!
+```bash
 dz> run <drozer module> <optional object> # 啟動內建的module做到依稀操作
 dz> help <drozer module> # 查看該module的說明以及參數設定
 ```
 
-```bash!
+```bash
 dz> run app.package.list #列出所有已安裝的app package
 dz> run app.package.list -f <key word> #列出特定的app package 
 dz> run app.package.info -a <app package name> # 列出該app的基本訊息
@@ -32,15 +32,16 @@ Attack Surface:
 接著根據得到的資訊看要用以下哪一種的攻擊模式
 
 ### activities exported
-如果確定該app的AndroidManifest.xml有設定==android:export="true"==，就代表有機會bypass他的權限，根據[^csdn-androidmanifest-xml]這個地方的風險如下:
+如果確定該app的AndroidManifest.xml有設定**android:export="true"**，就代表有機會bypass他的權限，根據[^csdn-androidmanifest-xml]這個地方的風險如下:
 > android:exported
 > 這個屬性用於指示該服務是否能夠被其他應用程序組件call或跟它interact。如果設置為true，則callable或interactable，否則不能。設置為false時，只有同一個應用程序的組件或帶有相同用戶ID的應用程序才能啟動或綁定該服務。
+
 1. 列出export activities有哪些
-    ```bash!
+    ```bash
     dz> run app.activity.info -a <app package name>
     ```
 2. 啟動activity
-    ```bash!
+    ```bash
     dz> run app.activity.start --component <app package name> <activity name fetched by above command>
     ```
     此時會看到手機啟動Sieve App，並且原本應該是需要password才能access的activity，居然可以直接bypass
@@ -49,7 +50,7 @@ Attack Surface:
 ### services exported
 和上面的問題差不多，只是差在被export的是services
 1. 列出export services有哪些
-    ```bash!
+    ```bash
     dz> run app.service.info -a <app package nam>
     ```
 2. 與該services互動
@@ -151,7 +152,7 @@ Attack Surface:
         ```
 
 ### is debuggable
-可以直接用drozer找，或者是直接看AndroidManifest.xml中有無提到==debuggable="true"==
+可以直接用drozer找，或者是直接看AndroidManifest.xml中有無提到**debuggable="true"**
 ```bash
 # 找到所有debuggable的app
 dz> run app.package.debuggable

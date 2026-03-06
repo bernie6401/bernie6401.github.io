@@ -13,9 +13,9 @@ date: 2024-08-14
 
 ## How to Solve
 這是參考[StackOverflow - ADB device list empty using WSL2](https://stackoverflow.com/a/71414575/15036381)的說明，具體原理就是我們直接把Windows安裝adb的path，soft link給WSL2的path就可以了
-1. 先找出Windows安裝adb的path
-    自行尋找
+1. 先找出Windows安裝adb的path: 自行尋找
 2. 找出WSL2中adb的path
+    
     通常是`/usr/bin/adb`
     ```bash
     $ ll /usr/bin/adb

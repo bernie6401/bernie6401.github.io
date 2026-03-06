@@ -17,19 +17,20 @@ date: 2022-11-09
 + I just want to write up some problems while I set up the environment and hardware of this project
 
 ## Hardware info.
-Spec.|Raspberry Pi 3 Model B+
-:-------------------------:|:---:
-CPU|ARM Cortex-A53 1.4GHz
-RAM|1GB SRAM
-Wi-Fi|2.4GHz and 5GHz
-Ethernet speed|300Mbps
-Bluetooth|4..2
+
+|Spec.|Raspberry Pi 3 Model B+|
+|:-------------------------:|:---:|
+|CPU|ARM Cortex-A53 1.4GHz|
+|RAM|1GB SRAM|
+|Wi-Fi|2.4GHz and 5GHz|
+|Ethernet speed|300Mbps|
+|Bluetooth|4..2|
 
 ## Set up sequence(Ideal)
 * Install OS to Raspberry pi
 	> You can just check this [page](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#4-boot-ubuntu-server)
-	```
-	$  vim /etc/netplan/50-cloud-init.yaml
+	```bash
+	$ vim /etc/netplan/50-cloud-init.yaml
 	(add the line at the end, and the indentation is very important)
 	wifis:
 		wlan0:
@@ -38,9 +39,10 @@ Bluetooth|4..2
 		access-points:
 			"home network":
 				password: "123456789"
-	$  sudo reboot
-* Install Anaconda in a correct version
+	$ sudo reboot
 	```
+* Install Anaconda in a correct version
+	```bash
 	$  cd ~
 	$  curl -O https://repo.anaconda.com/archive/Anaconda3-2021.04-Linux-aarch64.sh
 	$  bash Anaconda3-2021.04-Linux-aarch64.sh
@@ -49,7 +51,7 @@ Bluetooth|4..2
 	$  source ~/.bashrc
 	$  sudo reboot
 * Install the Library you need
-	```
+	```bash
 	$  conda install -c anaconda scipy
 	$  conda install -c conda-forge/label/broken tensorflow
 	$  pip install opencv-contrib-python
@@ -60,6 +62,7 @@ Bluetooth|4..2
 	$  conda install -c conda-forge imutils
 	$  conda install -c conda-forge face_recognition
 	$  conda install -c conda-forge dlib
+	```
 * Run the python file you mount from the external disk, e.g. flash disk
 
 ## Problem
@@ -99,7 +102,7 @@ Bluetooth|4..2
 5. Other problems must address
 	* If you install OS and Anaconda successfully.
 
-	```
+	```bash
 	$  python
 	$  import numpy
 	
@@ -115,7 +118,7 @@ This solution seems fine so far, so I write it up as below
 1. First, we can install **Raspberry Pi OS (64-bit)** by Raspberry Pi Imager. It has a desktop version and is still compatible with the hardware.
 2. Second, install Miniconda by following the instruction on this [page](https://blog.csdn.net/mtl1994/article/details/122240677)(PS version is Miniconda3-py37_4.9.2-Linux-aarch64.sh)
 3. Third, create a new environment in Anaconda without python. You should install python independently(v3.6).
-    ```
+    ```bash
     $ conda install -c moussi python
     $ conda install -c akode face_recognition_models
     $ conda install -c gilbertfrancois imutils

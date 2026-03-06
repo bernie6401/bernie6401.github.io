@@ -58,4 +58,3 @@ date: 2022-11-09
 * [3](https://ithelp.ithome.com.tw/articles/10240199)
 * [4](https://www.chosemaker.com/board/esp32/lesson-3/)
 * [Very Important](https://honeststore.com.tw/esp8266-wifi-between-client-server/)
-* 

@@ -37,7 +37,8 @@ date: 2024-06-04
     ```
     從以上測試結果可以知道`jakhar.aseem.diva.NotesProvider`的狀況，以及對應的URI為何
 2. 逆向
-從`NotesProvider`這個class可以知道他就是一個負責管理Notes資料庫的一個class，並且同時負責query/update/insert/delete這幾個function，那我們是不是也可以用和Sieve類似的方法對這個database發出request
+
+    從`NotesProvider`這個class可以知道他就是一個負責管理Notes資料庫的一個class，並且同時負責query/update/insert/delete這幾個function，那我們是不是也可以用和Sieve類似的方法對這個database發出request
 3. query/insert/update/delete/sqli
     * query
         我們達到了一開始題目的要求，只需要直接query就好了

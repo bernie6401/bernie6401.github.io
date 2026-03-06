@@ -13,7 +13,7 @@ date: 2024-06-04
 <!-- more -->
 參考[^csdn-sieve-1][^hacktricks-diva-sieve]，在測試之前要先點進去Sieve App中設定password和email之類的基本資訊，這樣之後測試才知道哪邊其實是漏洞
 1. 起手式-確認基本資訊
-    ```bash!
+    ```bash
     dz> run app.package.list -f Sieve # 確認該App的package name
     Attempting to run shell module
     com.mwr.example.sieve (Sieve)

@@ -7,8 +7,8 @@ date: 2024-12-17
 ---
 
 # How to download blob videos
-參考資料: https://stackoverflow.com/questions/42901942/how-do-we-download-a-blob-url-video
-參考資料: https://superuser.com/questions/1260846/downloading-m3u8-videos
+* 參考資料: https://stackoverflow.com/questions/42901942/how-do-we-download-a-blob-url-video
+* 參考資料: https://superuser.com/questions/1260846/downloading-m3u8-videos
 <!-- more -->
 
 ## Prerequisite

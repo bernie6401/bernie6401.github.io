@@ -32,14 +32,13 @@ date: 2024-07-22
 
 # How to use Burp Suite as Proxy?
 這個完全是翻譯並且按照[ Intercepting Android App Traffic with BurpSuite ](https://youtu.be/xp8ufidc514?si=4y0JhxW0kbnO1HjF)的影片教學
-
 ## Prepare
-
 ### (有取得Root實機的情況下)
 如果要保險一點零失敗的達成目標，按照影片的步驟和環境比較好，如果是已經有一台取得Root的實機，就可以忽略用VMware開的Emulator
 * 取得Burp Suite Cert(在開啟Burp Suite的前提下)
+    
     有關於DER和PEM的背景知識可以參考[[背景知識] 憑證的格式 PEM 與 DER | 自然人憑證開發筆記](https://medium.com/chouhsiang/背景知識-pem-與-der-dad659e0a40d)
-    ```bash!
+    ```bash
     $ curl localhost:8080/cert -o cert.der
 
     # 這一段是強制把der檔案轉換成pem檔案
@@ -47,18 +46,20 @@ date: 2024-07-22
     ```
 * 丟到手機端後直接在手機安裝憑證
 * 接著就要參考[How to Root Android Phone & Install AlwaysTrustUserCert.zip Module?]({{base.url}}/How-to-Root-Android-Phone-and-Install-AlwaysTrustUserCert.zip-Module#Install-AlwaysTrustUserCertzip-Module)這篇文章下面註解的地方重新安裝AlwaysTrustUserCert.zip這個plugin，最保險的做法是
+    ```
     先把之前所有安裝的憑證刪除→
     重新啟動→
     重新安裝"所有"的憑證→
     重新安裝Magisk模組→
     Reboot
     接著就直接跳到下一段(實際攔截前)
-
+    ```
 ### (利用VMware開Emulator)
 * VMware 記得啟動 Virtualization
 * 安裝Genymotion, virtualbox, adb
+    
     安裝前先到Genymotion官網註冊帳號
-    ```bash!
+    ```bash
     $ wget https://dl.genymotion.com/releases/genymotion-3.6.0/genymotion-3.6.0-linux_x64.bin
     $ chmod +x genymotion-3.6.0-linux_x64.bin
     $ ./genymotion-3.6.0-linux_x64.bin
@@ -68,8 +69,9 @@ date: 2024-07-22
     ```
 * 選擇Emulator的手機型號就可以開啟一個全新的Emulator
 * 取得Burp Suite Cert(在開啟Burp Suite的前提下)
+    
     有關於DER和PEM的背景知識可以參考[[背景知識] 憑證的格式 PEM 與 DER | 自然人憑證開發筆記](https://medium.com/chouhsiang/背景知識-pem-與-der-dad659e0a40d)
-    ```bash!
+    ```bash
     $ curl localhost:8080/cert -o cert.der
 
     # 這一段是強制把der檔案轉換成pem檔案
@@ -109,8 +111,9 @@ date: 2024-07-22
     subject=C = PortSwigger, ST = PortSwigger, L = PortSwigger, O = PortSwigger, OU = PortSwigger CA, CN = PortSwigger CA
     ```
 * 丟到手機端中儲存憑證的絕對位址
+    
     如果直接用adb push到該位置，會發現錯誤，原因是該位置是read only的狀態，所以我們要進到su進到root權限改變read only的狀態，再把東西丟進去就完成安裝了
-    ```bash!
+    ```bash
     $ adb shell
     # su
     # mount -o remount,rw /
@@ -123,8 +126,9 @@ date: 2024-07-22
 1. 打開的Burp Suite一定要把Bind to address改成All interfaces
     ![圖片](https://hackmd.io/_uploads/B1HBnVVPR.png =400x)
 2. 設定手機端的網路Proxy
+    
     這一部分就跟ZAP當初設定的時候一模一樣，當然也是可以像教學影片那樣用CLI的方式處理
-    ```bash!
+    ```bash
     $ adb shell settings put global http_proxy <proxy server ip>:8080 # set phone proxy
     $ adb shell settings put global http_proxy :0 # unset phone proxy
     ```
@@ -160,13 +164,15 @@ date: 2024-07-22
         $ adb shell "/data/local/tmp/frida-server &"
         ```
 2. 下載Instagram的腳本
-同樣根據影片教學，到[Eltion/Instagram-SSL-Pinning-Bypass](https://github.com/Eltion/Instagram-SSL-Pinning-Bypass?tab=readme-ov-file)下載最關鍵的.js script，他裡面還有其他的App Script，包含threads和messager之類的
-    ```bash!
+
+    同樣根據影片教學，到[Eltion/Instagram-SSL-Pinning-Bypass](https://github.com/Eltion/Instagram-SSL-Pinning-Bypass?tab=readme-ov-file)下載最關鍵的.js script，他裡面還有其他的App Script，包含threads和messager之類的
+    ```bash
     $ wget https://raw.githubusercontent.com/Eltion/Instagram-SSL-Pinning-Bypass/main/instagram-ssl-pinning-bypass.js
     ```
 4. 啟動Burp Suite和腳本
+    
     **Run腳本之前把Instagram的App強制停止**
-    ```bash!
+    ```bash
     $ frida -U -l ./instagram-ssl-pinning-bypass.js -f com.instagram.android
          ____
         / _  |   Frida 16.2.1 - A world-class dynamic instrumentation toolkit
@@ -194,7 +200,6 @@ date: 2024-07-22
     此時如果Burp Suite有開Intercept，並且App有送出一些東西，理論上都會被攔截到
 
 ## 對比
-
 ### 沒有使用Frida的時候
 會得到以下截圖
 ![Screenshot_20240523-101015](https://hackmd.io/_uploads/Bk7aFN37R.png#pic_center =200x)
@@ -205,7 +210,7 @@ date: 2024-07-22
 ![Screenshot_20240523-120440](https://hackmd.io/_uploads/H1-tlBhXR.png =200x)
 可以在傳輸的封包中找到這個json parameter body，而我輸入的Username: testqqqqqqwwwwww也的確在其中
 ![圖片](https://hackmd.io/_uploads/SygolHnm0.png)
-```jsonld
+```json
 {
   "client_input_params": {
     "device_id": "android-70ea1739c3d78fb5",
@@ -265,8 +270,10 @@ date: 2024-07-22
 # How to use mitmproxy as Proxy?
 這有點小複雜，我看網路上的教學有時候都東漏西漏，
 1. 安裝mitmrproxy
+    
     我是直接用`$ pip install mitmproxy`，並且直接run起來，`$ mitmweb`
 2. 下載憑證
+    
     如果一開始拿到的手機就是已經Rooted，那就直接下載憑證就好，我是用電腦版下載，首先把電腦上的proxy設定起來
     ![圖片](https://hackmd.io/_uploads/HJ5drE4wC.png =300x)
     並且在瀏覽器上打 http://mitm.it 然後就會看到以下畫面
@@ -280,6 +287,7 @@ date: 2024-07-22
 4. 設定手機的Proxy IP
     我是直接用電腦的hot spot來測試，所以手機就填電腦IP和8080的Port
 5. 攔截流量
+    
     此時一切幾乎準備就緒，但有個小問題，如果按照前面的command，會一直出現以下問題
     ![圖片](https://hackmd.io/_uploads/r1Huu44PA.png =400x)
     根據[Stackoverflow](https://stackoverflow.com/questions/52068746/mitmproxy-client-connection-killed-by-block-global)的說明，我們可以加上set參數

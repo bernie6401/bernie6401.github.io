@@ -16,7 +16,7 @@ date: 2024-11-27
 3. 安裝 [Android Studio](https://developer.android.com/studio) 並設置環境變量：
    - 配置 `ANDROID_HOME` 環境變量，指向你的 Android SDK 安裝路徑。
    - 將以下路徑添加到 `PATH`：
-     ```
+     ```bash
      $ANDROID_HOME/tools
      $ANDROID_HOME/tools/bin
      $ANDROID_HOME/platform-tools
@@ -64,9 +64,7 @@ android.enableJetifier=true
    ```
    - 按照提示設置密鑰密碼。
    - 這將生成一個 `my-release-key.jks` 文件。
-
 2. 將密鑰文件移動到 `android/app` 目錄。
-
 3. 在 `android/gradle.properties` 文件中添加簽名信息：
    ```properties
    MYAPP_RELEASE_STORE_FILE=my-release-key.jks
@@ -74,7 +72,6 @@ android.enableJetifier=true
    MYAPP_RELEASE_STORE_PASSWORD=your-store-password
    MYAPP_RELEASE_KEY_PASSWORD=your-key-password
    ```
-
 4. 修改 `android/app/build.gradle`，添加簽名配置：
    ```gradle
    android {
@@ -100,17 +97,14 @@ android.enableJetifier=true
 
 ## **4. 構建 APK 文件**
 使用 React Native 提供的 Gradle 構建工具生成 APK。
-
 1. 進入項目目錄：
    ```bash
    cd android
    ```
-
 2. 構建 Debug APK：
    ```bash
    ./gradlew assembleDebug
    ```
-
 3. 構建 Release APK：
    ```bash
    ./gradlew assembleRelease
@@ -120,12 +114,10 @@ android.enableJetifier=true
 
 ## **5. 獲取生成的 APK 文件**
 構建完成後，APK 文件會保存在以下路徑：
-
 - Debug APK：
   ```
   android/app/build/outputs/apk/debug/app-debug.apk
   ```
-
 - Release APK：
   ```
   android/app/build/outputs/apk/release/app-release.apk

@@ -56,7 +56,7 @@ Package: com.mwr.example.sieve
       ...
     </manifest>
     ```
-    ```bash!
+    ```bash
     dz> run app.broadcast.send --action org.owasp.goatdroid.fourgoats.SOCIAL_SMS --component org.owasp.goatdroid.fourgoats.broadcastreceivers SendSMSNowReceiver --extra string phoneNumber 123456789 --extra string message "Hello mate!"
     ```
     因為fourgoat這個App需要一個server，但是原作把server的link下架了，所以我也不知道實際送出這個broadcast會有什麼效果，但就是先紀錄起來，之後有機會可以用

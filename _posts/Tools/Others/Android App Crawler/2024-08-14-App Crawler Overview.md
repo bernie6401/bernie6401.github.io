@@ -21,9 +21,9 @@ date: 2024-08-14
 
 ## 根據Paper Related Work
 1. [Stoat](https://github.com/tingsu/Stoat)
-    :::info
+
     Ting Su, Guozhu Meng, Yuting Chen, Ke Wu, Weiming Yang, Yao Yao, Geguang Pu, Yang Liu, and Zhendong Su. 2017. Guided, stochastic model-based GUI testing of Android apps. In Proceedings of the 2017 11th Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017). Association for Computing Machinery, New York, NY, USA, 245–256. https://doi.org/10.1145/3106237.3106298
-    :::
+
     詳細的說明(包含Demo影片、比較的工具、測試的App)，都可以參考 https://tingsu.github.io/files/stoat.html
 2. [UI/Application Exerciser Monkey](https://developer.android.com/studio/test/other-testing-tools/monkey) - 不會採用
     這是上一篇所比較的對象之一，可以想像成一個猴子正在對一個手機上的App進行隨機互動，可能包含簡單的click, double click, long click或是swipe等等
@@ -40,14 +40,14 @@ date: 2024-08-14
 6. [Fastbot Android](https://github.com/bytedance/Fastbot_Android) - 可採用
     這是前一個APE官網有提到的工具，而且開發時間還蠻近的，github star也很多，也有[CSDN教學](https://blog.csdn.net/u010698107/article/details/127347704)
 7. [Droidbot](https://github.com/honeynet/droidbot) - 可能採用
-    :::info
+
     Li, Y., Yang, Z., Guo, Y., & Chen, X. (2017, May). Droidbot: a lightweight ui-guided test input generator for android. In 2017 IEEE/ACM 39th International Conference on Software Engineering Companion (ICSE-C) (pp. 23-26). IEEE.
-    :::
+
     年代有點久遠，但網路上的[教學](https://juejin.cn/post/7316582773434204171)也蠻多的，官網也有提供[範例](http://honeynet.github.io/droidbot/report_com.yelp.android/)
 8. [Androidenv](https://github.com/google-deepmind/android_env) - 可能採用
-    :::info
+
     Toyama, D., Hamel, P., Gergely, A., Comanici, G., Glaese, A., Ahmed, Z., ... & Precup, D. (2021). Androidenv: A reinforcement learning platform for android. arXiv preprint arXiv:2105.13231.
-    :::
+
     年代較近，也有教學
 
 ## 實驗的來源以及標準

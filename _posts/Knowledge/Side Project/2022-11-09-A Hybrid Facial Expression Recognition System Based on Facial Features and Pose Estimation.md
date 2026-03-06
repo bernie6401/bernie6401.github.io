@@ -9,9 +9,6 @@ date: 2022-11-09
 # A Hybrid Facial Expression Recognition System Based on Facial Features and Pose Estimation
 <!-- more -->
 ###### tags: `NTUST` `Emotional Recognition` `Openpose` `PyTorch` `Special Topic`
-:::spoiler
-[TOC]
-:::
 
 ## Author
 JING-MING GUO<sup>1</sup>, (Senior Member, IEEE), CHIH-HSIEN HSIA<sup>2</sup>,  (Member, IEEE), PING-HSUEH HO<sup>1</sup>, (Bachelor), YANG-CHEN CHANG<sup>1</sup>, (Bachelor)

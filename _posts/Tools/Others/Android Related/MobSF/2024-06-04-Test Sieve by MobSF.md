@@ -12,12 +12,13 @@ date: 2024-06-04
 
 ## Static Analysis
 * Overview
-    一開始就告訴測試者有多少的東西被export，和Drozer分析的一樣
     ![圖片](https://hackmd.io/_uploads/H1oU-p3E0.png)
+    一開始就告訴測試者有多少的東西被export，和Drozer分析的一樣
 * Application Permission
-    MobSF還可以分析實際寫的code並且查看哪邊有Permission相關的威脅，在Code Analysis的地方有重複的提到External Read/Write的漏洞
     ![圖片](https://hackmd.io/_uploads/SJW6fTnV0.png)
+    MobSF還可以分析實際寫的code並且查看哪邊有Permission相關的威脅，在Code Analysis的地方有重複的提到External Read/Write的漏洞
 * Manifest Analysis
+    
     這一段就很像Drozer做attack surface後的結果，也就是activity/service/broadcast receiver/content providers exported + is debuggable
     * Activity Exported
         ![圖片](https://hackmd.io/_uploads/HJZw4ahVC.png)
@@ -38,6 +39,7 @@ date: 2024-06-04
         * Backupable
             ![圖片](https://hackmd.io/_uploads/B1LSvpn4A.png)
         * 和最近的CVE PoC分析
+            
             這個功能蠻好的，例如下圖，這三個漏洞都是去分析`FileSelectActivity`/`MainLoginActivity`/`PWList`得出可能會有StrandHogg 2.0 或StrandHogg的問題，關於StrandHogg 2.0 的說明可以看[twcert的文章](https://www.twcert.org.tw/tw/cp-104-3636-6072b-1.html)，簡單來說這個惡意軟體的效果是常駐在各個正常執行的軟體背後，並且竊取一些機敏資料
             ![圖片](https://hackmd.io/_uploads/HJf0IpnN0.png)
             ![圖片](https://hackmd.io/_uploads/S16AL634R.png)
@@ -53,5 +55,3 @@ date: 2024-06-04
         ![圖片](https://hackmd.io/_uploads/Sk3I-C3NC.png)
     * Read/Write External Storage
         ![圖片](https://hackmd.io/_uploads/SJ_TZR2NA.png)
-
-## Dynamic Analysis

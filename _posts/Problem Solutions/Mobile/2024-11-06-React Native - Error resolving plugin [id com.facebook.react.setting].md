@@ -10,7 +10,7 @@ date: 2024-11-06
 ## Problem Statement
 這個錯誤是發生在我想要創建一個新的React Native專案，但不管是用[Official Document](https://reactnative.cn/docs/environment-setup)還是其他網路文章的分享，我都無法順利創建，確切的錯誤message如下
 <!-- more -->
-```
+```bash
 $ yarn android
 yarn run v1.22.22
 $ react-native run-android

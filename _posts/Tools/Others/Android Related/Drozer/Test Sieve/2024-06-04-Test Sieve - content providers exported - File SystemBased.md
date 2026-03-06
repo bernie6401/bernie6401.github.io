@@ -9,6 +9,7 @@ date: 2024-06-04
 # Test Sieve - content providers exported - File SystemBased
 <!-- more -->
 1. 有關於基於File System的Content Provider - 逆向
+    
     在`com.mwr.example.sieve.FileBackupProvider`中可以特別注意onCreate以及ParcelFileDescriptor這個funnction
     ```java
     public class FileBackupProvider extends ContentProvider {
@@ -41,6 +42,7 @@ date: 2024-06-04
         }
     ```
 5. 實際讀取文件或是Path Traversal
+    
     為了測試他真的能夠讀取到特定文件，我在手機的Download創了一個secret.txt，不管是哪一個file，都可以正常讀取
     ```bash
     $ echo "this is secret file" > /storage/emulated/0/Download/secret.txt

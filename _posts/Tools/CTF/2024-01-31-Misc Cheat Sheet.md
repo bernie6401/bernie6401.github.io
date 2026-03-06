@@ -40,19 +40,25 @@ $ file [filename]
 
 ## Disk Analysis
 * [Foremost](https://darkranger.no-ip.org/archives/v5/document/linux/foremost_recovery.htm): 針對所支援的檔案結構去進行資料搜尋與救援
-    `$ foremost -v {filename}`
+    ```bash
+    $ foremost -v {filename}
+    ```
 * [Sleuth kit/Autopsy](https://blog.csdn.net/wxh0000mm/article/details/99447206)
 * [FTK Imager](https://www.exterro.com/ftk-imager)
 * [Logontracer]({{base.url}}/How-to-install-LogonTracer/): Just use GUI to present event log traced on windows
-    `$ python logontracer.py -r -o 8000 -u neo4j -p neo4j -s localhost`
+    ```bash
+    $ python logontracer.py -r -o 8000 -u neo4j -p neo4j -s localhost
+    ```
 
 ## Memory Forensics
 * 建議直接使用[windown protable version](https://www.volatilityfoundation.org/releases)會比較穩定而且不需要處理環境的問題
 * [Volatility - Cheat Sheet](https://hackmd.io/@TuX-/BymMpKd0s)
 * [Volatility 3](https://github.com/volatilityfoundation/volatility3)
-    :::spoiler Set up & How2Use
-    [Windows Volatility 3 Problems & Solutions](https://blog.csdn.net/u011250160/article/details/120461405)
-    [Windows Set up Tutorials](https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html)
+    
+    Set up & How2Use
+    * [Windows Volatility 3 Problems & Solutions](https://blog.csdn.net/u011250160/article/details/120461405)
+    * [Windows Set up Tutorials](https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html)
+    
     ```bash
     $ git clone https://github.com/volatilityfoundation/volatility3
     $ cd volatility3
@@ -60,9 +66,10 @@ $ file [filename]
     $ python vol.py -f <path to memory image> plugin_name plugin_option
     $ python vol.py -h # For help
     ```
-    :::
+    
 * [Volatility 2](https://github.com/volatilityfoundation/volatility)
-    :::spoiler Set up & How2Use
+    
+    Set up & How2Use
     [Windows Set up Tutorials](https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html)
     ```bash
     $ conda create --name py27 python=2.7
@@ -74,16 +81,21 @@ $ file [filename]
     $ python vol.py -f <path to memory image> plugin_name plugin_option
     $ python vol.py -h # For help
     ```
-    :::
 
 ## Package
 * [Wireshark cheat sheet](https://packetlife.net/blog/2008/oct/18/cheat-sheets-tcpdump-and-wireshark/)
 * [`nmap`](http://www.osslab.tw/books/linux-administration/page/nmap-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E9%9B%86):
-    `$ sudo apt-get install nmap`
+    ```bash
+    $ sudo apt-get install nmap
+    ```
 * [`ntpdc`](https://www.ibm.com/docs/zh-tw/aix/7.3?topic=n-ntpdc4-command)
-    `$ sudo apt-get install ntpdc`
+    ```bash
+    $ sudo apt-get install ntpdc
+    ```
 * tcpflow
-    `$ sudo tcpflow -r {pcap file}`
+    ```bash
+    $ sudo tcpflow -r {pcap file}
+    ```
 
 ## Brute Force Password
 * for WPA/Wifi based: [`aircrack-ng`](https://linuxhint.com/install_aircrack-ng_ubuntu/), [Wifite](https://ithelp.ithome.com.tw/articles/10280928)
