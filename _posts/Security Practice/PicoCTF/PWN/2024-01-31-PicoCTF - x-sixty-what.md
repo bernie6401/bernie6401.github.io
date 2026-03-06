@@ -9,13 +9,6 @@ date: 2024-01-31
 # PicoCTF - x-sixty-what
 <!-- more -->
 
-## Source code
-:::spoiler
-```cpp=
-
-```
-:::
-
 ## Recon
 這一題有點奇怪，沒有想像中簡單，看起來就是一個簡單的return 2 function的問題，但是看了objdump的flag function原本應該是0x401236，但是會友segmentation fault，看了其他的WP[^x_sixty_what_WP]，發現應該return到0x40123b，不太知道為甚麼
 * 第一張是return 2 0x401236
@@ -26,10 +19,12 @@ date: 2024-01-31
 
 ## Exploit
 1. 用動態的方式看offset
-$$
-0x7fffffffd758 - 0x00007fffffffd710 = 0x48
-$$
-```python=
+
+    $$
+    0x7fffffffd758 - 0x00007fffffffd710 = 0x48
+    $$
+
+```python
 from pwn import *
 
 r = remote('saturn.picoctf.net', 58166)

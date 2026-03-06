@@ -8,9 +8,8 @@ date: 2025-03-21
 
 # Fastbot2: Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning
 <!-- more -->
-:::info
 Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbot2: Reusable automated model-based gui testing for android enhanced by reinforcement learning. In Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering (pp. 1-5).
-:::
+
 參考資料: https://github.com/bytedance/Fastbot_Android/blob/main/handbook-cn.md
 ![image](https://hackmd.io/_uploads/SJFpdcp51x.png)
 
@@ -38,18 +37,17 @@ Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbo
 > 如果此應用從未被測試過，也並未儲存過概率模型，那麽 Fastbot 會以隨機選擇組件的方式應對冷啟動的問題。
 
 ### 
-
 ## Code Analysis
 可以直接看官方的說明: https://github.com/bytedance/Fastbot_Android/blob/main/fastbot_code_analysis.md
 總之如果想要研究具體決策的model，要看Native Folder(c++)，如果想要知道native怎麼和mobile溝通，要看mokey folder(java)
 我是只有看native，要具體來看他怎麼進行決策。
 從上到下的順序如下
 * native/project/jni/fastbot_native.cpp # 該文件為上層的Java層提供了JNI的介面實作。其中 b0bhkadf函數提供了決策的核心功能。 
-    ```cpp=28
+    ```cpp
         std::string operationString = _fastbot_model->getOperate(xmlString, activityString);
     ```
 * native/model/Model.cpp
-    ```cpp=74
+    ```cpp
     std::string Model::getOperate(const ElementPtr &element, const std::string &activity,
                                       const std::string &deviceID) {
             OperatePtr operate = getOperateOpt(element, activity, deviceID);
@@ -66,7 +64,7 @@ Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbo
     ```
     這裡有兩個主要的操作，一個是#85選出一個action送到java layer執行，另外一個是要update agent，以下先列出如何選出action
 * native/agent/AbstractAgent.cpp
-    ```cpp=105
+    ```cpp
         ActionPtr AbstractAgent::resolveNewAction() {
             // update priority
             this->adjustActions();
@@ -76,7 +74,7 @@ Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbo
         }
     ```
 * native/agent/ModelReusableAgent.cpp: 這是最重要的核心，也就是決定了如何判斷要哪一個action(就是hyper-event)要被執行
-    ```cpp=248
+    ```cpp
         ActionPtr ModelReusableAgent::selectNewAction() {
             ActionPtr action = nullptr;
             action = this->selectUnperformedActionNotInReuseModel();
@@ -117,7 +115,7 @@ Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbo
         }
     ```
 * native/agent/ModelReusableAgent.cpp: 這一段開始就是說明如何update agent，包含用在論文中提到的那些sarsa formula更新q-value等等
-    ```cpp=169
+    ```cpp
         void ModelReusableAgent::updateStrategy() {
             if (nullptr == this->_newAction) // need to call resolveNewAction to update _newAction
                 return;

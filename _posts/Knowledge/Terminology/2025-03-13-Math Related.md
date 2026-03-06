@@ -24,6 +24,7 @@ date: 2025-03-13
 \mathcal{P}, \mathcal{L}, \mathcal{M}, \mathcal{N}
 ```
 顯示為：
+
 $$
 \mathcal{P}, \mathcal{L}, \mathcal{M}, \mathcal{N}
 $$
@@ -44,6 +45,7 @@ $$
 \mathbb{R}, \mathbb{Z}, \mathbb{Q}, \mathbb{C}
 ```
 顯示為：
+
 $$
 \mathbb{R}, \mathbb{Z}, \mathbb{Q}, \mathbb{C}
 $$
@@ -64,6 +66,7 @@ $$
 \mathscr{F}, \mathscr{L}, \mathscr{M}
 ```
 顯示為：
+
 $$
 \mathscr{F}, \mathscr{L}, \mathscr{M}
 $$
@@ -85,6 +88,7 @@ $$
 \mathrm{sin}, \mathrm{mod}, \mathrm{kg}
 ```
 顯示為：
+
 $$
 \mathrm{sin}, \mathrm{mod}, \mathrm{kg}
 $$
@@ -105,6 +109,7 @@ $$
 \mathbf{A}, \mathbf{x}, \mathbf{F}
 ```
 顯示為：
+
 $$
 \mathbf{A}, \mathbf{x}, \mathbf{F}
 $$
@@ -125,6 +130,7 @@ $$
 \mathfrak{g}, \mathfrak{h}, \mathfrak{so}, \mathfrak{su}
 ```
 顯示為：
+
 $$
 \mathfrak{g}, \mathfrak{h}, \mathfrak{so}, \mathfrak{su}
 $$

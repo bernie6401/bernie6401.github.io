@@ -67,6 +67,7 @@ with open('output.txt', 'w') as f:
 $$
 flag \oplus key \oplus lots\ of\ random\ string=output
 $$
+
 所以如果我們要得到flag首先就是要先把random string的成分拿掉，因為他只有32種結果，也就是
 1. `my encryption method`
 2. `is absolutely impenetrable`
@@ -77,7 +78,7 @@ $$
 之間的排列組合，進行XOR，然後我們可以用itertools中的combinations method，先把所有組合排出來(這個寫法還不錯，可以學起來)，然後依序把結果存起來，接著我們就要找出key是多少，由於第14行會把key延伸(反正大概就是這個意思)，而我們唯一知道的是最後的flag一定是`picoCTF{`開頭，也就是說這個key有大機率應該只有8個字元，那我們就可以拿前面得到的32種結果，直接和`picoCTF{`進行XOR然後查看一下最後的strings有沒有有意義且長度小於8的，從結果來看，的確有一個`Africa!`的東西印入眼簾，看起來應該就是我們的key，所以我們就可以直接進行最後的XOR得到flag
 
 ## Exploit
-```python!
+```python
 from itertools import product
 from pwn import *
 from itertools import combinations
@@ -148,5 +149,5 @@ for i in range(len(cipher)):
 ```
 
 ## Reference
-[pico crypto XtraORdinary wp - partender810](https://partender810.hatenablog.com/entry/2021/05/19/210459#XtraORdinary-150pt)
-[XtraORdinary WP - whiteSHADOW1234](https://github.com/whiteSHADOW1234/picoCTF_writeup/blob/main/picoCTF_writeup(11~15page).md#xtraordinary)
+* [pico crypto XtraORdinary wp - partender810](https://partender810.hatenablog.com/entry/2021/05/19/210459#XtraORdinary-150pt)
+* [XtraORdinary WP - whiteSHADOW1234](https://github.com/whiteSHADOW1234/picoCTF_writeup/blob/main/picoCTF_writeup(11~15page).md#xtraordinary)

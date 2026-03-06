@@ -14,10 +14,12 @@ comments: true
 * Divide-and-Conquer： 子問題彼此獨立、不重複
 * Dynamic Programming： 子問題會重複出現，要記下來避免重算
 * 使用DP的時機: 線性的排序法 + 無法重新排列
+
 <span style="background-color: yellow">
     * Optimal Substructure: 整體最佳解可以由子問題的最佳解組合而成
     * Overlapping Subproblem: 同一個子問題會被反覆計算很多次
 </span>
+
 * 常見例子
     * Linear assembly lines
     * matrices in a chain
@@ -62,6 +64,7 @@ comments: true
     \end{array}
     \right.
     $$
+    
 * 實際的Pseudo Code
     <img src="/assets/posts/Algorithm/DP-Assembly-line-Scheduling-Fastest-Way-Psuedo Code.png" width=300>
     * 仔細看pseudo code還蠻簡單的，就只是實作出前面寫的formula而已
@@ -101,6 +104,7 @@ else let C be a new A.rows * B.columns matrix
         \end{array}
         \right.
         $$
+
 * 先判斷能不能用DP
     * 因為matrix chain是linearly ordered並且不能rearranged(每一種矩陣都要存在並且順序不能被改變)
     * Optimal Substructure:如果最優解在第 $k$ 個位置切開，那麼左半部$A_i,...A_k$，右半部$A_{k+1},...,A_j$都一定各自是最優的，否則：如果左邊不是最優，換成更好的左邊，整體一定更好（矛盾）
@@ -217,6 +221,7 @@ return m[i, j]
     \end{array}
     \right.
     $$
+
     * $c[i,j]$代表$X_i$和$Y_j$的LCS長度
     * 當某一個sequence為零，則LCS一定為零
 * Overlapping Subproblem: LCS(5, 5) 和 LCS(6, 5)都會算 LCS(5, 4) ➡️ 同一個 (i, j) 被重算很多次
@@ -297,6 +302,7 @@ else Print-LCS(b, X, i, j-1)
     \end{array}
     \right.
     $$
+
     也就是：
     * 區間內 **所有成功搜尋機率**
     * 加上 **夾在中間的所有失敗搜尋機率**
@@ -310,6 +316,7 @@ else Print-LCS(b, X, i, j-1)
     \end{array}
     \right.
     $$
+
 * $root[i,j]$: 代表在$k_i,...,k_j$中有一個$k_r$最適合當作root達到optimal，也就是紀錄optimal solution怎麼來的
 * Objective: 要慢慢推導到$e[1,n]$
 

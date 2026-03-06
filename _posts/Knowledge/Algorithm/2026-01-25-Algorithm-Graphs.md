@@ -249,6 +249,7 @@ $$
   \end{array}
 \right.
 $$
+
 * 應用: weight可以是任何東西，例如距離、時間、電線成本、delay等等
 
 
