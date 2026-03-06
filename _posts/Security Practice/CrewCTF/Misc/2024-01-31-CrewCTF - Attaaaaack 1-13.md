@@ -39,7 +39,6 @@ Flag: `crew{Win7SP1x86_23418}`
 > Q2. How many processes were running ? (number)
 
 ### Exploit
-:::spoiler Command Result
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memdump.raw --profile Win7SP1x86_23418 pslist
 Volatility Foundation Volatility Framework 2.6
@@ -93,7 +92,6 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 0x84f1caf8 DumpIt.exe             2724   1596      2       38      1      0 2023-02-20 19:10:52 UTC+0000
 0x84f3d878 conhost.exe            3664    416      2       51      1      0 2023-02-20 19:10:52 UTC+0000
 ```
-:::
 
 Flag: `47`
 

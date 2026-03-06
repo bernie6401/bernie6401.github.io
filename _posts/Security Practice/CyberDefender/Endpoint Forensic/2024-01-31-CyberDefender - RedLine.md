@@ -9,14 +9,11 @@ date: 2024-01-31
 # CyberDefender - RedLine
 <!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/106
-:::spoiler TOC
-[TOC]
-:::
 
 ## Background
 這一次的instance必須要使用volatility3才能解
 
-## ==Q1==
+## Q1
 > What is the name of the suspicious process? 
 
 ### Recon
@@ -24,7 +21,6 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/106
 
 ### Exploit
 * 方法一: 直接pslist
-    :::spoiler Command Result
     ```bash
     $ python vol.py -f MemoryDump.mem windows.pslist
     PID     PPID    ImageFileName   Offset(V)       Threads Handles SessionId       Wow64   CreateTime      ExitTime  File output
@@ -130,7 +126,6 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/106
     8920    3580    FTK Imager.exe  0xad818ef81080  20      -       1       False   2023-05-21 23:02:28.000000      N/Disabled
     5480    448     oneetx.exe      0xad818d3d6080  6       -       1       True    2023-05-21 23:03:00.000000      N/Disabled
     ```
-    :::
 * 方法二: 用malfind排出一些正常的process
     ```bash
     $ python vol.py -f MemoryDump.mem windows.malfind
@@ -179,22 +174,18 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/106
     ```
     可以看到`oneetx.exe`和`smartscreen.ex`都有進行一些可疑操作，果然`oneetx.exe`就是答案
 
-:::spoiler Flag
 Flag: `oneetx.exe`
-:::
 
-## ==Q2==
+## Q2
 > What is the child process name of the suspicious process?
 
 ### Recon
 透過上一題的結果可以知道PID 5896的`oneetx.exe`創造了`rundll32.exe`，所以`rundll32.exe`就是`oneetx.exe`的子程序
 
 ### Exploit
-:::spoiler Flag
 Flag: `rundll32.exe`
-:::
 
-## ==Q3==
+## Q3
 > What is the memory protection applied to the suspicious process memory region?
 
 ### Recon
@@ -202,11 +193,9 @@ Flag: `rundll32.exe`
 
 ### Exploit
 
-:::spoiler Flag
-Flag: `PAGE_EXECUTE_READWRITE  `
-:::
+Flag: `PAGE_EXECUTE_READWRITE`
 
-## ==Q4==
+## Q4
 > What is the name of the process responsible for the VPN connection?
 
 ### Recon
@@ -222,18 +211,15 @@ Flag: `PAGE_EXECUTE_READWRITE  `
 [Outline](https://getoutline.org/zh-TW/)
 > Outline 可讓任何人建立和執行自己專屬的 VPN，以及分享 VPN 的存取權。由於經過特殊設計，Outline 可防禦封鎖機制，並讓你控制自己的伺服器設定，包含伺服器的所在位置。Outline 採用公開透明的技術及完整開放原始碼，而且經過兩家安全性機構的稽核，確保這款軟體採用最新技術且安全無虞。
 
-:::spoiler Flag
 Flag: `Outline.exe`
-:::
 
-## ==Q5==
+## Q5
 > What is the attacker's IP address?
 
 ### Recon
 直覺就是netscan
 
 ### Exploit
-:::spoiler Command Result
 ```bash
 $ python vol.py -f MemoryDump.mem windows.netscan
 Volatility 3 Framework 2.4.2
@@ -354,14 +340,11 @@ Offset  Proto   LocalAddr       LocalPort       ForeignAddr     ForeignPort     
 0xad8190e59d80  UDPv4   0.0.0.0 56228   *       0               4628    tun2socks.exe   2023-05-21 23:00:38.000000
 0xad8190e5b040  UDPv4   0.0.0.0 49734   *       0               4628    tun2socks.exe   2023-05-21 23:00:41.000000
 ```
-:::
 直接看`oneetx.exe`的PID就可以看到了
 
-:::spoiler Flag
 Flag: `77.91.124.20`
-:::
 
-## ==Q6==
+## Q6
 > Based on the previous artifacts. What is the name of the malware family?
 
 ### Recon
@@ -374,11 +357,9 @@ Flag: `77.91.124.20`
 3. 該文章說明`RedLine Stealer`是一隻怎樣的惡意程式
     > RedLine Stealer is a malware available on underground forums for sale apparently as standalone ($100/$150 depending on the version) or also on a subscription basis ($100/month). This malware harvests information from browsers such as saved credentials, autocomplete data, and credit card information. A system inventory is also taken when running on a target machine, to include details such as the username, location data, hardware configuration, and information regarding installed security software. More recent versions of RedLine added the ability to steal cryptocurrency. FTP and IM clients are also apparently targeted by this family, and this malware has the ability to upload and download files, execute commands, and periodically send back information about the infected computer.
 
-:::spoiler Flag
 Flag: `Redline Stealer`
-:::
 
-## ==Q7==
+## Q7
 > What is the full URL of the PHP file that the attacker visited?
 
 ### Recon
@@ -398,11 +379,9 @@ http://77.91.124.20/store/games/index.php
 http://77.91.124.20/store/games/index.php
 ```
 
-:::spoiler Flag
 Flag: `http://77.91.124.20/store/games/index.php`
-:::
 
-## ==Q8==
+## Q8
 > What is the full path of the malicious executable?
 
 ### Recon
@@ -416,9 +395,7 @@ $ python vol.py -f MemoryDump.mem windows.filescan | findstr oneetx.exe
 0xad818ef1a0b0  \Users\Tammam\AppData\Local\Temp\c3912af058\oneetx.exe  216
 ```
 
-:::spoiler Flag
 Flag: `C:\Users\Tammam\AppData\Local\Temp\c3912af058\oneetx.exe`
-:::
 
 ## Reference
 [^redline-wp]:[CyberDefenders Challenges: RedLine Walkthrough](https://medium.com/@iCreaM/cyberdefenders-challenges-redline-walkthrough-1212bca626)

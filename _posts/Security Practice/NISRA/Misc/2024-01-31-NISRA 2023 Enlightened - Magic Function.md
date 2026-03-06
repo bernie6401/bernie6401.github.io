@@ -13,7 +13,7 @@ date: 2024-01-31
 [Magic Function of Python](https://hacktricks.boitatech.com.br/misc/basic-python/magic-methods)
 
 ## Source Code
-```python=
+```python
 class Test():
 	def __init__(self, email='test@nisra.net'):
 		self.info = 'test'

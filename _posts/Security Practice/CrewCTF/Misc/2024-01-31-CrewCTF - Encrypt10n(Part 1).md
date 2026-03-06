@@ -15,8 +15,10 @@ date: 2024-01-31
 ## Recon
 * Description: We made a memory dump on the criminal machine after entering the crime scene. Our investigator thought he was using encryption software to hide the secret. can you help me to detect it?
 * Q1 : crew{password}
-這種類型之前沒碰過，所以看了別人的WP學一下[^CTFTime_WP]
-首先他有提到他有用加密的技術隱藏secret，所以我們的目的就是要找到password
+
+    這種類型之前沒碰過，所以看了別人的WP學一下[^CTFTime_WP]
+    
+    首先他有提到他有用加密的技術隱藏secret，所以我們的目的就是要找到password
 
 ## Exploit - Memory Forensics
 1. 先找到運行的OS version或其他軟硬體資訊
@@ -95,6 +97,7 @@ date: 2024-01-31
     [TrueCrypt - Wiki](https://zh.wikipedia.org/zh-tw/TrueCrypt)
     > TrueCrypt是一款已停止開發的動態（On-the-fly）磁碟加密軟體，支援Windows、macOS和Linux作業系統。它可在單個檔案和磁碟分割區中建立加密區，也可以加密整個作業系統，解密後使用者即可像普通分割區一樣使用其中的檔案。TrueCrypt支援使用密碼、金鑰檔案作為解密憑據。 
 3. 取得密碼
+    
     用volatility 2的plugin(目前好像只有Ver. 2有這個plugin)
     ```bash
     $ python ../../Software/CTF/Misc/volatility/vol.py -f dump.raw --profile=Win7SP0x86 truecryptsummary

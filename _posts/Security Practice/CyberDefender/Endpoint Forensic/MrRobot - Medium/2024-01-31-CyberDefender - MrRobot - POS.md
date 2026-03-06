@@ -13,7 +13,6 @@ date: 2024-01-31
 * Target 2: {{base.url}}/CyberDefender-MrRobot-Target-2/
 
 ## Lab - POS
-
 ### 起手式
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memory.dmp imageinfo
@@ -31,7 +30,7 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
 ```
 重要資訊System Name: 
 
-### ==Q21==
+### Q21
 > What is the malware CNC's server?
 
 #### Background
@@ -52,11 +51,9 @@ Offset(P)          Proto    Local Address                  Foreign Address      
 ...
 ```
 
-:::spoiler Flag
 Flag: `54.84.237.92`
-:::
 
-### ==Q22==
+### Q22
 > What is the common name of the malware used to infect the POS system?
 
 #### Recon
@@ -72,11 +69,9 @@ $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 malfind
 ```
 可以先看一下malfind的全部結果再決定要特別把哪一個process dump出來，丟到virustotal之後會看到八成是dexter這支trojan malware，詳細結果可以看[這邊](https://www.virustotal.com/gui/file/bf067ffc68f3f1c23bc3402e4494d83e738cc6e158c4f57176b4f5def412e056)，另外我還有看到ithome的這篇早期的文章，FYI，[PoS系統遭致Dexter木馬程式感染!鴻璟科技提供專業的安全對策](https://www.ithome.com.tw/pr/78499)
 
-:::spoiler Flag
 Flag: `dexter`
-:::
 
-### ==Q23==
+### Q23
 > In the POS malware whitelist. What application was specific to Allsafecybersec?
 
 #### Recon
@@ -101,11 +96,9 @@ iexplore.exe
 lHost.exe
 ```
 
-:::spoiler Flag
 Flag: `allsafe_protector.exe`
-:::
 
-### ==Q24==
+### Q24
 > What is the name of the file the malware was initially launched from?
 
 #### Background
@@ -136,9 +129,7 @@ Last accessed: 2015-10-09 12:35:58 UTC+0000
 URL: pos@http://54.84.237.92/allsafe_update.exe
 ```
 
-:::spoiler Flag
 Flag: `allsafe_update.exe`
-:::
 
 ## Reference
 [^cyberdefender-mrrobot-wp]:[MrRobot Walkthrough — Cyberdefenders](https://responderj01.medium.com/mrrobot-walkthrough-cyberdefenders-7694e3120897)

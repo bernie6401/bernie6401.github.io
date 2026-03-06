@@ -9,13 +9,7 @@ date: 2024-01-31
 # BTLO - Paranoid
 <!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/paranoid-e5e164befb
-
-:::spoiler TOC
-[TOC]
-:::
-:::info
 此lab大部分是參考[^wp1]的說明，因為本身第一次接觸aureport，所以不太清楚指令或者是注意的地方
-:::
 
 ## Tool
 AUReport: `$ sudo apt install auditd`
@@ -100,7 +94,7 @@ Number of process IDs: 10679
 Number of events: 16732
 ```
 
-## ==Q1==
+## **Q1**
 > What account was compromised?
 
 ### Recon
@@ -126,33 +120,27 @@ Authentication Report
 91. 10/05/21 08:25:40 btlo ? /dev/pts/1 /usr/bin/sudo no 473858
 92. 10/05/21 08:25:41 btlo ? /dev/pts/1 /usr/bin/sudo no 473860
 ```
-可以發現account name都是==btlo==，不過奇怪的是前面有一大堆的認證失敗，到最後才有三次的認證成功，所以我們可以很清楚的知道攻擊者就是==192.168.4.155==嘗試用==bruteforce==的方式透過ssh登入進來
+可以發現account name都是**btlo**，不過奇怪的是前面有一大堆的認證失敗，到最後才有三次的認證成功，所以我們可以很清楚的知道攻擊者就是**192.168.4.155**嘗試用**bruteforce**的方式透過ssh登入進來
 
-:::spoiler Flag
 Flag: `btlo`
-:::
 
-## ==Q2==
+## **Q2**
 > What attack type was used to gain initial access?
 
 ### Recon
 呈上題
 
-:::spoiler Flag
 Flag: `bruteforce`
-:::
 
-## ==Q3==
+## **Q3**
 > What is the attacker's IP address?
 
 ### Recon
 呈上題
 
-:::spoiler Flag
 Flag: `192.168.4.155`
-:::
 
-## ==Q4==
+## **Q4**
 > What tool was used to perform system enumeration?
 
 ### Recon
@@ -186,13 +174,11 @@ TTY Report
 20. 10/05/21 08:27:50 481064 1001 pts1 49 sh "exit",<nl>
 21. 10/05/21 08:27:53 481065 1001 pts1 49 sh "exit",<nl>
 ```
-從以上結果得知，攻擊者進來以後先recon一下(hostname / whoami / ls / sudo -l(查看目前的身分可以下甚麼command))，最重要的是他wget了一個linpeas.sh，這是一個專用於linux based的提權工具，詳細的資訊可以看[Linux權限提升研究: 自動化信息收集](https://cloud.tencent.com/developer/article/1841447)，甚至後面下載了一個evil，應該是自己寫的或是自己蒐集的武器庫，提權完了之後就是要查看最重要的地方，也就是==/etc/shadow==，就是真實存密碼的地方
+從以上結果得知，攻擊者進來以後先recon一下(hostname / whoami / ls / sudo -l(查看目前的身分可以下甚麼command))，最重要的是他wget了一個linpeas.sh，這是一個專用於linux based的提權工具，詳細的資訊可以看[Linux權限提升研究: 自動化信息收集](https://cloud.tencent.com/developer/article/1841447)，甚至後面下載了一個evil，應該是自己寫的或是自己蒐集的武器庫，提權完了之後就是要查看最重要的地方，也就是**/etc/shadow**，就是真實存密碼的地方
 
-:::spoiler Flag
 Flag: `linpeas`
-:::
 
-## ==Q5==
+## **Q5**
 > What is the name of the binary and pid used to gain root?
 
 ### Recon
@@ -205,40 +191,32 @@ $ sudo aureport -if audit.log -p | grep "evil"
 16156. 10/05/21 08:27:17 829992 /home/btlo/evil/evil 59 1001 481021
 ```
 
-:::spoiler Flag
 Flag: `evil, 829992`
-:::
 
-## ==Q6==
+## **Q6**
 > What CVE was exploited to gain root access? (Do your research!)
 
 ### Recon
 只要上網找這一題的題目就會出現相關的CVE
 ![圖片](https://hackmd.io/_uploads/HyiwqlydT.png)
 
-:::spoiler Flag
 Flag: `CVE-2021-3156`
-:::
 
-## ==Q7==
+## **Q7**
 > What type of vulnerability is this?
 
 ### Recon
 呈上題，也可以看[chatgpt的回答](https://chat.openai.com/share/197d29c6-3298-45b2-b332-cd0f6e814a2f)
 
-:::spoiler Flag
 Flag: `heap_based buffer overflow`
-:::
 
-## ==Q8==
+## **Q8**
 > What file was exfiltrated once root was gained?
 
 ### Recon
 呈第4題
 
-:::spoiler Flag
 Flag: `/etc/shadow`
-:::
 
 ## Reference
 [^wp1]:[BTLO - Paranoid](https://05t3.github.io/posts/Paranoid/)

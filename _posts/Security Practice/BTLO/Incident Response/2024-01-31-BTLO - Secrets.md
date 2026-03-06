@@ -10,10 +10,6 @@ date: 2024-01-31
 <!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/secrets-85aa2bb3a9
 
-:::spoiler TOC
-[TOC]
-:::
-
 ## Scenario
 > You’re a senior cyber security engineer and during your shift, we have intercepted/noticed a high privilege actions from unknown source that could be identified as malicious. We have got you the ticket that made these actions.
 You are the one who created the secret for these tickets. Please fix this and submit the low privilege ticket so we can make sure that you deserve this position.
@@ -21,38 +17,32 @@ Here is the ticket:
 >
 > eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmbGFnIjoiQlRMe180X0V5ZXN9IiwiaWF0Ijo5MDAwMDAwMCwibmFtZSI6IkdyZWF0RXhwIiwiYWRtaW4iOnRydWV9.jbkZHll_W17BOALT95JQ17glHBj9nY-oWhT1uiahtv8 
 
-## ==Q1==
+## **Q1**
 > Can you identify the name of the token? (Format: String)
 
 ### Recon
 看到三段用`.`拼起來就直覺是jwt
 
-:::spoiler Flag
 Flag: `jwt`
-:::
 
-## ==Q2==
+## **Q2**
 > What is the structure of this token? (Format: Section.Section.Section)
 
 ### Recon
 Common Sense就是header + payload + signature
 ![圖片](https://hackmd.io/_uploads/rk--WjCva.png)
 
-:::spoiler Flag
 Flag: `header.payload.signature`
-:::
 
-## ==Q3==
+## **Q3**
 > What is the hint you found from this token? (Format: String)
 
 ### Recon
 這一題真的不知道在衝三小，最後參考[^wp1]才知道，但實在是太隱晦了，不管是問題還是答案出乎意料
 
-:::spoiler Flag
 Flag: `_4_Eyes`
-:::
 
-## ==Q4==
+## **Q4**
 > What is the Secret? (Format: String)
 
 ### Recon
@@ -111,6 +101,7 @@ Flag: `_4_Eyes`
     Stopped: Sun Dec 31 03:50:53 2023
     ```
 * John - [Hacking JWT Tokens: Bruteforcing Weak Signing Key (JohnTheRipper)](https://blog.pentesteracademy.com/hacking-jwt-tokens-bruteforcing-weak-signing-key-johntheripper-89f0c7e6a87)
+    
     這要取決於wordlist有沒有，所以我只是先以secret=1234，然後用john爆破
     ![圖片](https://hackmd.io/_uploads/rkTfhsRDT.png)
     ```bash
@@ -126,20 +117,16 @@ Flag: `_4_Eyes`
     Session completed. 
     ```
 
-:::spoiler Flag
 Flag: `bT!0`
-:::
 
-## ==Q5==
+## **Q5**
 > Can you generate a new verified signature ticket with a low privilege? (Format: String.String.String)
 
 ### Recon
-我們知道了secrets===bT!0==，所以我們可以用這個secrets簽章新的payload
+我們知道了secrets**=bT!0**，所以我們可以用這個secrets簽章新的payload
 ![圖片](https://hackmd.io/_uploads/ByhNToRvT.png)
 
-:::spoiler Flag
 Flag: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmbGFnIjoiQlRMe180X0V5ZXN9IiwiaWF0Ijo5MDAwMDAwMCwibmFtZSI6IkdyZWF0RXhwIiwiYWRtaW4iOmZhbHNlfQ.nMXNFvttCvtDcpswOQA8u_LpURwv6ZrCJ-ftIXegtX4`
-:::
 
 ## Reference
 [^wp1]:[BTLO — Secrets Walkthrough](https://medium.com/@prajjwal029/btlo-secrets-5314312e4aef)

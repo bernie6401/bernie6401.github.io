@@ -10,7 +10,7 @@ date: 2023-07-16
 <!-- more -->
 
 ## Source Code
-:::spoiler IDA Fake Main Function
+IDA Fake Main Function
 ```cpp
 void __fastcall __noreturn main(int a1, char **a2, char **a3)
 {
@@ -28,7 +28,6 @@ void __fastcall __noreturn main(int a1, char **a2, char **a3)
   sub_401202();
 }
 ```
-:::
 
 ## Recon
 首先這一題真的太難了，超出我的守備範圍，所以我先寫一些當作紀錄，之後可以更快銜接繼續解
@@ -57,9 +56,9 @@ void __fastcall __noreturn main(int a1, char **a2, char **a3)
     ```
     這是因為他和這隻程式執行的過程有關係
 2. 用IDA看一下發現有翻譯出main function，但這個main function其實是假的，這個可以從上面的進度條看出來，橘色的部分感覺很可疑，而假的main function卻是在整個進度的後半段，代表可以往前分析一下，但由於整體的流程太長，所以搞事的部分沒辦法分析出來，這要用動態去看會比較清楚(真正的main function是在==sub_40123E()==)
-![](https://hackmd.io/_uploads/rkqsdVzc3.png)
-另外也可以用strings xref的方式知道他call strings的地方有兩個，其中一個就是真的main function
-![](https://hackmd.io/_uploads/rJnTY4z92.png)
+    ![](https://hackmd.io/_uploads/rkqsdVzc3.png)
+    另外也可以用strings xref的方式知道他call strings的地方有兩個，其中一個就是真的main function
+    ![](https://hackmd.io/_uploads/rJnTY4z92.png)
 
 3. 分析real main function過程大概是
     1. 用ptrace看有沒有使用debugger，所以這邊要先patch
@@ -101,7 +100,6 @@ void __fastcall __noreturn main(int a1, char **a2, char **a3)
 
 ## Exploit
 Discord上別人的腳本
-:::spoiler Script
 ```python
 from z3 import *
 s = Solver()
@@ -314,6 +312,5 @@ flag[154] = 0
 
 print(bytes(flag))
 ```
-:::
 
 Flag: `crewctf{well_i_didnt_know_rop_can_be_so_obnoxious_especially_for_rever_but_if_you_can_find_this_you_are_a_god_rever}`

@@ -24,7 +24,7 @@ date: 2024-01-31
 * MFTDump
 
 
-## ==Q28==
+## Q28
 > What cloud service was a Startup item for the user admin? 
 
 ### Recon
@@ -33,17 +33,15 @@ date: 2024-01-31
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/BJodWuDmp.png)
 
-:::spoiler Flag
 Flag: `OneDrive`
-:::
 
-## ==Q29==
+## Q29
 > Which Firefox prefetch file has the most runtimes?
 (Flag format is )
 
 ### Exploit
 直接export出和firefox有關的prefetch file，再用PECmd去parse他就可以看到各個執行檔執行的次數
-```bash!
+```bash
 $ ./PECmd.exe -f FIREFOX\ INSTALLER.EXE-71BB164E.pf | grep "Run count"
 Run count: 1
 $ ./PECmd.exe -f FIREFOX.EXE-20153F0F.pf | grep "Run count"
@@ -56,22 +54,18 @@ $ ./PECmd.exe -f FIRSTLOGONANIM.EXE-674CDAB9.pf | grep "Run count"
 Run count: 1
 ```
 
-:::spoiler Flag
 Flag: `FIREFOX.EXE-A606B53C.pf/21`
-:::
 
-## ==Q30==
+## Q30
 > What was the last IP address the machine was connected to?
 
 ### Exploit
 直接看`SYSTEM/ControlSet001/Services/Tcpip/Parameters/Interfaces/`
 ![圖片.png](https://hackmd.io/_uploads/S18wduPQT.png)
 
-:::spoiler Flag
 Flag: `192.168.2.242`
-:::
 
-## ==Q31==
+## Q31
 > Which user had the most items pinned to their taskbar? 
 
 ### Recon
@@ -89,11 +83,9 @@ Flag: `192.168.2.242`
 * suzy.strawberry
     ![圖片.png](https://hackmd.io/_uploads/Sk1SyqvmT.png)
 
-:::spoiler Flag
 Flag: `admin`
-:::
 
-## ==Q32==
+## Q32
 > What was the last run date of the executable with an MFT record number of 164885?
 (Format: MM/DD/YYYY HH:MM:SS (UTC).) 
 
@@ -112,11 +104,9 @@ Flag: `admin`
     Last run: 2020-04-12 02:32:09
     ```
 
-:::spoiler Flag
 Flag: `04/12/2020 02:32:09`
-:::
 
-## ==Q33==
+## Q33
 > What is the log file sequence number for the file "fruit_Assortment.jpg"? 
 
 ### Recon
@@ -129,11 +119,9 @@ Flag: `04/12/2020 02:32:09`
 1276820064
 ```
 
-:::spoiler Flag
 Flag: `1276820064`
-:::
 
-## ==Q34==
+## Q34
 > Jim has some dirt on the company stored in a docx file. Find it, the flag is the fourth secret, in the format of <"The flag is a sentence you put in quotes">.
 (Secrets, secrets are no fun) 
 
@@ -147,11 +135,9 @@ Flag: `1276820064`
 3. 再把`./Document1/Content.xml`用Microsoft Word開啟，就可以看到主要的內容了，這神奇的操作也是第一次看到
     ![圖片.png](https://hackmd.io/_uploads/SytYatPmT.png)
 
-:::spoiler Flag
 Flag: `Customer data is not stored securely`
-:::
 
-## ==Q35==
+## Q35
 > In the company Slack, what is threatened to be deactivated if the user gets their email deactivated? 
 
 ### Recon
@@ -171,7 +157,7 @@ Flag: `Customer data is not stored securely`
     ![圖片.png](https://hackmd.io/_uploads/Hyr_PqvQ6.png)
     可以看到應該是`./Users/hansel.apricot/AppData/Roaming/Slack/IndexedDB/https_app.slack.com_0.indexeddb.leveldb/000003.log matches`比較符合
 4. 直接strings search
-    ```bash!
+    ```bash
     $ strings ./Users/hansel.apricot/AppData/Roaming/Slack/IndexedDB/https_app.slack.com_0.indexeddb.leveldb/000003.lo
     g | grep text > log_dump.txt
     ```
@@ -180,9 +166,7 @@ Flag: `Customer data is not stored securely`
     text"5And so do your kneecaps, well, as much as they do now{
     ```
     
-:::spoiler Flag
 Flag: `kneecaps`
-:::
 
 ## Reference
 [^wp]:[CyberDefenders: CorporateSecrets](https://forensicskween.com/ctf/cyberdefenders/corporatesecrets/)

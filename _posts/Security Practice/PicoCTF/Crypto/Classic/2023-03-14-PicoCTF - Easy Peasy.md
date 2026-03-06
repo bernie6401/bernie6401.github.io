@@ -11,11 +11,8 @@ date: 2023-03-14
 ###### tags: `PicoCTF` `CTF` `Crypto`
 Challenge: [Easy Peasy]()
 
-## Background
-
 ## Source code
-:::spoiler source code
-```python=
+```python
 #!/usr/bin/python3 -u
 import os.path
 
@@ -68,24 +65,25 @@ while c >= 0:
 	c = encrypt(c)
 
 ```
-:::
 
 ## Exploit - Reuse Key
 1. Observe the length of key
-It's 50000. So, we can reuse it after sending the trash value with length $50000 - len(flag)\ /\ 2$
+    
+    It's 50000. So, we can reuse it after sending the trash value with length $50000 - len(flag)\ /\ 2$
 2. Then send a given strings with length 32
-After sending the trash data, we can reuse the key and though we do not know the flag nor key, we can send something with size 32 that we construct ourselves such as `'a' * 32`
-The workflow is as below:
-$flag\ xor\ key = A$
-$\{'a'*32\}\ xor\ key = B$
-The exploit is $\to$
-$B\ xor\ \{'a'*32\}=key$
-$key\ xor\ A=flag$
+
+    After sending the trash data, we can reuse the key and though we do not know the flag nor key, we can send something with size 32 that we construct ourselves such as `'a' * 32`
+    The workflow is as below:
+    $flag\ xor\ key = A$
+    $\{'a'*32\}\ xor\ key = B$
+    The exploit is →
+    $B\ xor\ \{'a'*32\}=key$
+    $key\ xor\ A=flag$
 
     So, the whole expression is $B\ xor\ \{'a'*32\}\ xor\ A=flag$
 
 3. These code aimed to find the cipher flag and cipher `'a'*32`
-    ```python!=
+    ```python
     from pwn import *
     import sys
 
@@ -126,5 +124,5 @@ $key\ xor\ A=flag$
     The flag is **`picoCTF{7904ff830f1c5bba8f763707247ba3e1}`**
 
 ## Reference
-[picoCTF 2021 easypeasy](https://youtu.be/VodIW2TT_ag)
-[Easy Peasy - write up](https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Easy_Peasy.md)
+* [picoCTF 2021 easypeasy](https://youtu.be/VodIW2TT_ag)
+* [Easy Peasy - write up](https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Easy_Peasy.md)

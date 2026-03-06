@@ -12,8 +12,7 @@ date: 2023-03-18
 Challenge: [New Caesar](https://play.picoctf.org/practice/challenge/158?category=2&page=1)
 
 ## Source code
-::: spoiler source code
-```python=
+```python
 import string
 
 LOWERCASE_OFFSET = ord("a")
@@ -44,30 +43,39 @@ for i, c in enumerate(b16):
 print(enc)
 
 ```
-:::
 
 ## Recon
 1. Hint in the code
-It gave two hints in the code that represented by `assert`
+
+    It gave two hints in the code that represented by `assert`
+
     1.1 The key must in the first 16 character of alphabet strings, that is, the key is composed of `a~p`.
+
     1.2 The key length is just 1
 2. Encode to binary
-Then it encodes each character to hex and split it in the middle. Then map the value to alphabet sequence, that is, 
-`a` $\to$ `0`
-`b` $\to$ `1`
-...
-`o` $\to$ `14`
-`p` $\to$ `15`
+    
+    Then it encodes each character to hex and split it in the middle. Then map the value to alphabet sequence, that is, 
+    ```
+    a → 0
+    b → 1
+    ...
+    o → 14
+    p → 15
+    ```
 3. Shift string
-This process is just like `rot n` that it shift the concatenated strings with `n` characters.
+
+    This process is just like `rot n` that it shift the concatenated strings with `n` characters.
 
 ## Exploit - Recover
 1. Guess it shift `n` character
-First, we can guess the `n` value for example 1. And then we try to shift it back.
+
+    First, we can guess the `n` value for example 1. And then we try to shift it back.
 2. Regroup and Re-mapping
-Then we can represent the shifted string as binary. If the length of the binary value is equal to `8`, that means we can regroup it to a real strings as ascii.
+
+    Then we can represent the shifted string as binary. If the length of the binary value is equal to `8`, that means we can regroup it to a real strings as ascii.
 3. Then repeat 16 times
-Here is the 16 outcomes...
+
+    Here is the 16 outcomes...
     ```bash
     et_tu?_23217b54456fb10e908b5e87c6e89156
     v`@`CDCBHsFEEFGwsBAvJAIsFvIHtGvIJBFG
@@ -82,8 +90,8 @@ Here is the 16 outcomes...
     ```
     Seems the first one is quite normal. And we got the flag...
     Flag: `picoCTF{et_tu?_23217b54456fb10e908b5e87c6e89156}`
-:::spoiler whole exploit
-```python!=
+
+```python
 import string
 
 LOWERCASE_OFFSET = ord("a")
@@ -136,4 +144,4 @@ for i in range(1, 16):
     tmp = ""
     print(guess_strings)
     guess_strings = ""
-:::
+```

@@ -15,28 +15,24 @@ date: 2024-01-31
 ## Tools
 * [JLECmd](https://ericzimmerman.github.io/#!index.md)
 
-## ==Q21==
+## **Q21**
 > One of the installed applications is a file shredder. What is the name of the application? (two words space separated) 
 
 ### Recon
 承接上一題，我們已經知道BCWipe就是題目要的答案，也就是類似file shredder的工具，但前面六個字還是沒有想法，看了一下外層資料夾才發現[Jetico](https://www.jetico.com/)是啥東西啊，上網查才發現是提供各種data encryption/data wiping/endpoint data protection之類的公司，所以這一題的正確答案是`Jetico BCWipe`
 
-:::spoiler Flag
 Flag: `Jetico BCWipe`
-:::
 
-## ==Q22==
+## **Q22**
 > How many prefetch files were discovered on the system? 
 
 ### Recon
 就只是到`/root/Windows/Prefetch/`中數有多少的.pf檔案(善用排序)
 ![圖片.png](https://hackmd.io/_uploads/ByDB9sgX6.png)
 
-:::spoiler Flag
 Flag: `174`
-:::
 
-## ==Q23==
+## **Q23**
 > How many times was the file shredder application executed? 
 
 ### Recon
@@ -44,7 +40,6 @@ Flag: `174`
 
 ### Exploit
 從結果可以得知共執行五次
-:::spoiler Result
 ```bash
 $ ./PECmd.exe -f BCWIPE.EXE-36F3F2DF.pf
 PECmd version 1.5.0.0
@@ -213,53 +208,42 @@ Files referenced: 113
 
 ---------- Processed BCWIPE.EXE-36F3F2DF.pf in 0.07580980 seconds ----------
 ```
-:::
-:::spoiler Flag
 Flag: `5`
-:::
 
-## ==Q24==
+## **Q24**
 > Using prefetch, determine when was the last time ZENMAP.EXE-56B17C4C.pf was executed? 
 
 ### Recon
 直接看[Part 1 - Q9]({{base.url}}/CyberDefender-Hunter-(Part-1)#Q9)的輸出結果就好了
 
-:::spoiler Flag
 Flag: `06/21/2016 12:08:13 PM`
-:::
 
-## ==Q25==
+## **Q25**
 > A JAR file for an offensive traffic manipulation tool was executed. What is the absolute path of the file? 
 
 ### Recon
 通常直覺會是到program file去看一下，不過有時候載下來的軟體可能是portable version，所以我也到downloads去看，發現唯一一個jar file就是burpsuite
 
-:::spoiler Flag
 Flag: `C:\Users\Hunter\Downloads\burpsuite_free_v1.7.03.jar`
-:::
 
-## ==Q26==
+## **Q26**
 > The suspect employee tried to exfiltrate data by sending it as an email attachment. What is the name of the suspected attachment? 
 
 ### Recon
 用[pst viewer](https://goldfynch.com/pst-viewer/index.html#0/33474)瀏覽一下信件就知道了
 
-:::spoiler Flag
 Flag: `Pictures.7z`
-:::
 
-## ==Q27==
+## **Q27**
 > Shellbags shows that the employee created a folder to include all the data he will exfiltrate. What is the full path of that folder? 
 
 ### Recon
 看一下pictures裡面的資料夾很明顯的Exfil就是我們的目標
 ![圖片.png](https://hackmd.io/_uploads/SksFlnlXa.png)
 
-:::spoiler Flag
 Flag: `C:\Users\Hunter\Pictures\Exfil`
-:::
 
-## ==Q28==
+## **Q28**
 > The user deleted two JPG files from the system and moved them to $Recycle-Bin. What is the file name that has the resolution of 1920x1200? 
 
 ### Recon
@@ -270,11 +254,9 @@ Flag: `C:\Users\Hunter\Pictures\Exfil`
 ![ws_Small_cute_kitty_1920x1200.jpg](https://hackmd.io/_uploads/SkQ8ZngX6.jpg)
 剛好檔案大小誠如題目所述
 
-:::spoiler Flag
 Flag: `ws_Small_cute_kitty_1920x1200.jpg`
-:::
 
-## ==Q29==
+## **Q29**
 > Provide the name of the directory where information about jump lists items (created automatically by the system) is stored? 
 
 ### Background
@@ -300,11 +282,9 @@ Flag: `ws_Small_cute_kitty_1920x1200.jpg`
 >```
 >This directory contains files that store information about recently accessed items and is used by the Jump List feature in Windows. Each file corresponds to a specific application or taskbar icon. Please note that these files are in a binary format and are not meant to be manually modified.
 
-:::spoiler Flag
 Flag: `AutomaticDestinations`
-:::
 
-## ==Q30==
+## **Q30**
 > Using JUMP LIST analysis, provide the full path of the application with the AppID of "aa28770954eaeaaa" used to bypass network security monitoring controls. 
 
 ### Recon
@@ -360,9 +340,7 @@ AppID: aa28770954eaeaaa, Description: null
 我們到了jump list的absolute path之後就可以回去翻他在哪邊，原來是在desktop
 ![圖片.png](https://hackmd.io/_uploads/rykII2gXp.png)
 
-:::spoiler Flag
 Flag: `C:\Users\Hunter\Desktop\Tor Browser\Browser\firefox.exe`
-:::
 
 ## Reference
 [Cyberdefenders.org Hunter Walkthrough](https://medium.com/@cyberforensicator57/cyberdefenders-org-hunter-walkthrough-65c0c6cb8e87)

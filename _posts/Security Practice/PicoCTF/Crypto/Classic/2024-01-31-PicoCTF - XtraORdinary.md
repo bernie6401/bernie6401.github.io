@@ -10,14 +10,13 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-[How to Convert Hex String to Bytes in Python?](https://blog.finxter.com/how-to-convert-hex-string-to-bytes-in-python/)
-[Python 好用模組介紹 - itertools & more-itertools](https://myapollo.com.tw/blog/python-itertools-more-itertools/)
-[Python File readline() Method](https://www.w3schools.com/python/ref_file_readline.asp)
-[Python append to a file](https://www.geeksforgeeks.org/python-append-to-a-file/)
+* [How to Convert Hex String to Bytes in Python?](https://blog.finxter.com/how-to-convert-hex-string-to-bytes-in-python/)
+* [Python 好用模組介紹 - itertools & more-itertools](https://myapollo.com.tw/blog/python-itertools-more-itertools/)
+* [Python File readline() Method](https://www.w3schools.com/python/ref_file_readline.asp)
+* [Python append to a file](https://www.geeksforgeeks.org/python-append-to-a-file/)
 
 ## Source code
-:::spoiler Source Code
-```python=
+```python
 #!/usr/bin/env python3
 
 from random import randint
@@ -61,10 +60,10 @@ for random_str in random_strs:
 with open('output.txt', 'w') as f:
     f.write(ctxt.hex())
 ```
-:::
 
 ## Recon
 這一題我覺得出的不錯，首先他把flag和secret-key做XOR，然後做了一大堆random_strs之間的XOR，但我們都知道XOR做了兩次等於沒做，所以最後的output其實就是
+
 $$
 flag \oplus key \oplus lots\ of\ random\ string=output
 $$

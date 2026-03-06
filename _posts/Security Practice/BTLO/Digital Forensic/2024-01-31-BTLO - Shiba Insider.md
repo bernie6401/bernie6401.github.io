@@ -10,18 +10,14 @@ date: 2024-01-31
 <!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/shiba-insider-5b48123711
 
-:::spoiler TOC
-[TOC]
-:::
-
 ## Tools
-Wireshark
-CyberChef
-Steghide
-Command Line
-Exiftool 
+* Wireshark
+* CyberChef
+* Steghide
+* Command Line
+* Exiftool 
 
-## ==Q1==
+## **Q1**
 > What is the response message obtained from the PCAP file?
 
 ### Recon
@@ -32,61 +28,49 @@ Exiftool
 
 傳回來的訊息說: `use your own password`，其實也就是該題的答案
 
-:::spoiler Flag
 Flag: `use your own password`
-:::
 
-## ==Q2==
+## **Q2**
 > What is the password of the ZIP file?
 
 ### Recon
-呈上題，我們看到他給的提示後，往上看他的Authorization其實是個base64 encode的可疑資訊，decode之後發現是個username:password的資訊→==fakeblue:redforever==
+呈上題，我們看到他給的提示後，往上看他的Authorization其實是個base64 encode的可疑資訊，decode之後發現是個username:password的資訊 → **fakeblue:redforever**
 
-:::spoiler Flag
 Flag: `redforever`
-:::
 
-## ==Q3==
+## **Q3**
 > Will more passwords be required?
 
 ### Recon
 呈上題，利用密碼解開zip file後會看到readme.txt和ssdog1.jpeg，根據readme的內容，我們之後不會需要用到其他的密碼
 
-:::spoiler Flag
 Flag: `No`
-:::
 
-## ==Q4==
+## **Q4**
 > What is the name of a widely-used tool that can be used to obtain file information?
 
 ### Recon
-呈上題，看到圖片直覺就是那幾個工具: steghide / exiftool / pngcheck / stat / file / formost / zsteg / binwalk...，所以該題就是==exiftool==
+呈上題，看到圖片直覺就是那幾個工具: steghide / exiftool / pngcheck / stat / file / formost / zsteg / binwalk...，所以該題就是**exiftool**
 
-:::spoiler Flag
 Flag: `exiftool`
-:::
 
-## ==Q5==
+## **Q5**
 > What is the name and value of the interesting information obtained from the image file metadata?
 
 ### Recon
 查看完了exiftool的確看到蠻多資訊，包含steghide，所以根據字數的提示找到flag
 
-:::spoiler Flag
 Flag: `Technique:Steganography`
-:::
 
-## ==Q6==
+## **Q6**
 > Based on the answer from the previous question, what tool needs to be used to retrieve the information hidden in the file?
 
 ### Recon
 呈上題，看解析出的info就知道是用steghide藏訊息在裡面
 
-:::spoiler Flag
 Flag: `steghide`
-:::
 
-## ==Q7==
+## **Q7**
 > Enter the ID retrieved.
 
 ### Recon
@@ -97,11 +81,9 @@ Enter passphrase:
 wrote extracted data to "idInsider.txt".
 ```
 
-:::spoiler Flag
 Flag: `0726ba878ea47de571777a`
-:::
 
-## ==Q8==
+## **Q8**
 > What is the profile name of the attacker?
 
 ### Recon
@@ -112,9 +94,7 @@ Flag: `0726ba878ea47de571777a`
 是一個叫做bluetiger的用戶，也就是我們此題的答案
 
 ### Exploit
-:::spoiler Flag
 Flag: `bluetiger`
-:::
 
 ## Reference
 [^wp]:[ Shiba Insider - Steganography Challenge - Blue Team Labs Online ](https://youtu.be/Ij5954djG3o?si=0woTtMAfv36SlHZe)

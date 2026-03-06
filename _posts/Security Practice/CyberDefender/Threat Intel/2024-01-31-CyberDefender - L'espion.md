@@ -10,10 +10,6 @@ date: 2024-01-31
 <!-- more -->
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/73
 
-:::spoiler TOC
-[TOC]
-:::
-
 ## Scenario
 > You, as a soc analyst, have been tasked by a client whose network was compromised and brought offline to investigate the incident and determine the attacker's identity.
 >
@@ -27,7 +23,7 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/73
 * [sherlock](https://github.com/sherlock-project/sherlock)
 
 
-## ==Q1==
+## Q1
 > File -> Github.txt:
 What is the API key the insider added to his GitHub repositories? 
 
@@ -35,11 +31,9 @@ What is the API key the insider added to his GitHub repositories?
 直接在github key word search，就找到了
 ![圖片.png](https://hackmd.io/_uploads/H11t-rrmp.png)
 
-:::spoiler Flag
 Flag: `aJFRaLHjMXvYZgLPwiJkroYLGRkNBW`
-:::
 
-## ==Q2==
+## Q2
 > File -> Github.txt:
 What is the plaintext password the insider added to his GitHub repositories? 
 
@@ -52,11 +46,9 @@ What is the plaintext password the insider added to his GitHub repositories?
 b'PicassoBaguette99'
 ```
 
-:::spoiler Flag
 Flag: `PicassoBaguette99`
-:::
 
-## ==Q3==
+## Q3
 > File -> Github.txt:
 What is the plaintext password the insider added to his GitHub repositories? 
 
@@ -64,21 +56,17 @@ What is the plaintext password the insider added to his GitHub repositories?
 像第一題一樣直接key word search
 ![圖片.png](https://hackmd.io/_uploads/HkJVZHH76.png)
 
-:::spoiler Flag
 Flag: `xmrig`
-:::
 
-## ==Q4==
+## Q4
 > What university did the insider go to? 
 
 ### Recon
 看了第一個hint，發現可以用linkedin找大學
 
-:::spoiler Flag
 Flag: `Sorbonne`
-:::
 
-## ==Q5==
+## Q5
 > What gaming website the insider had an account on? 
 
 ### Exploit
@@ -102,32 +90,26 @@ $ python sherlock/sherlock.py EMarseille99
 [*] Search completed with 9 results
 ```
 
-:::spoiler Flag
 Flag: `steam`
-:::
 
-## ==Q6==
+## Q6
 > What is the link to the insider Instagram profile? 
 
 ### Recon
 直接google search: `Émilie Marseille`
 
-:::spoiler Flag
 Flag: `https://www.instagram.com/emarseille99/`
-:::
 
-## ==Q7==
+## Q7
 > Where did the insider go on the holiday? (Country only) 
 
 ### Recon
 直接看[IG的貼文](https://www.instagram.com/p/CAjDd_dlHds/?hl=en)，可以用image search搜尋圖片，發現這就是新加坡濱海灣金沙飯店
 ![未命名.jpg](https://hackmd.io/_uploads/H1KnoBB7p.jpg)
 
-:::spoiler Flag
 Flag: `Singapore`
-:::
 
-## ==Q8==
+## Q8
 > Where is the insider's family live? (City only) 
 
 ### Recon
@@ -138,30 +120,22 @@ Flag: `Singapore`
 ### Exploit
 第一張圖片可以看到若隱若現的國旗，可能是Jordan / Palestine / United Arab Emirates，這三個國家的國旗都很像，再看第二張圖片可以發現有一個高塔，幾乎確定就是杜拜塔，也很符合他的國家(United Arab Emirates)
 
-:::spoiler Flag
 Flag: `Dubai`
-:::
 
-## ==Q9==
+## Q9
 > File -> office.jpg:
 You have been provided with a picture of the building in which the company has an office. Which city is the company located in? 
 
 ### Recon
 直接找`hippodrome theatre chinese quarter`就知道是在英國的Birmingham
 
-:::spoiler Flag
 Flag: `Birmingham`
-:::
 
-## ==Q10==
+## Q10
 > File -> Webcam.png:
 With the intel, you have provided, our ground surveillance unit is now overlooking the person of interest's suspected address. They saw them leaving their apartment and followed them to the airport. Their plane took off and has landed in another country. Our intelligence team spotted the target with this IP camera. Which state is this camera in? 
 
 ### Recon
 直接丟到image search就知道是`university of notre dame`，就在印第安納州
 
-:::spoiler Flag
 Flag: `INDIANA`
-:::
-
-## Reference

@@ -10,20 +10,16 @@ date: 2024-01-31
 <!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/log-analysis-compromised-wordpress-ce000f5b59
 
-:::spoiler TOC
-[TOC]
-:::
-
 ## Scenario
 > One of our WordPress sites has been compromised but we're currently unsure how. The primary hypothesis is that an installed plugin was vulnerable to a remote code execution vulnerability which gave an attacker access to the underlying operating system of the server. 
 
 ## Tools
-Grep
-Sort
-Uniq
-Apache Log Analyzer 
+* Grep
+* Sort
+* Uniq
+* Apache Log Analyzer 
 
-## ==Q1==
+## Q1
 > Identify the URI of the admin login panel that the attacker gained access to (include the token)
 
 ### Recon
@@ -38,11 +34,9 @@ $ cat access.log | grep "wp-login.php" | more | grep "token" -n --color=auto
 ...
 ```
 
-:::spoiler Flag
 Flag: `/wp-login.php?itsec-hb-token=adminlogin`
-:::
 
-## ==Q2==
+## Q2
 > Can you find two tools the attacker used?
 
 ### Recon
@@ -78,22 +72,18 @@ sh: 1: /usr/sbin/sendmail: not found
 sqlmap/1.4.11#stable (http://sqlmap.org)
 ```
 
-:::spoiler Flag
 Flag: `wpscan sqlmap`
-:::
 
-## ==Q3==
+## Q3
 > The attacker tried to exploit a vulnerability in ‘Contact Form 7’. What CVE was the plugin vulnerable to? (Do some research!)
 
 ### Recon
 直接上網找Contact Form 7 CVE就會出現[CVE-2020-35489](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35489)
 > The contact-form-7 (aka Contact Form 7) plugin before 5.3.2 for WordPress allows Unrestricted File Upload and remote code execution because a filename may contain special characters.
 
-:::spoiler Flag
 Flag: `CVE-2020-35489`
-:::
 
-## ==Q4==
+## Q4
 > What plugin was exploited to get access?
 
 ### Recon
@@ -129,17 +119,15 @@ wordpress-seo
 wp-advanced-search
 wp-live-chat-support-pro
 ```
-:::info
+
 Format: Plugin Name Here X.X.X
 後面的X代表版本號
-:::
+
 依序上網搜尋對應的plugin，剛好看到Simple File List有一個版本4.2.2是有任意上傳檔案的洞[Exploit DB - Simple File List](https://www.exploit-db.com/exploits/48979)
 
-:::spoiler Flag
 Flag: `Simple File List 4.2.2`
-:::
 
-## ==Q5==
+## Q5
 > What is the name of the PHP web shell file?
 
 ### Recon
@@ -167,11 +155,9 @@ fr34k.png HTTP
 test.png HTTP
 ```
 
-:::spoiler Flag
 Flag: `fr34k.php`
-:::
 
-## ==Q6==
+## Q6
 > What was the HTTP response code provided when the web shell was accessed for the final time?
 
 ### Recon
@@ -201,9 +187,7 @@ $ cat access.log | grep 'fr34k' | cut -d '"' -f 3
 可以看到最後一筆是404的狀態
 
 ### Exploit
-:::spoiler Flag
 Flag: `404`
-:::
 
 ## Reference
 [^wp1]:[Log Analysis -Compromised WordPress — BTLO, WriteUp](https://systemweakness.com/log-analysis-compromised-wordpress-btlo-writeup-5effda72462c)

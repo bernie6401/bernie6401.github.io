@@ -24,29 +24,25 @@ date: 2024-01-31
 * MFTDump
 
 
-## ==Q10==
+## Q10
 > What is the SID of the machine?
 
 ### Exploit
 直接看`SOFTWARE/Microsoft/Windows NT/CurrentVersion/ProfileList`就知道了
 ![圖片.png](https://hackmd.io/_uploads/ry8fOuU7T.png)
 
-:::spoiler Flag
 Flag: `S-1-5-21-2446097003-76624807-2828106174`
-:::
 
-## ==Q11==
+## Q11
 > How many web browsers are present? 
 
 ### Recon
 直接搜索一下所有user的AppData或是program1，可以發現有五個瀏覽器(Firefox / Internet Explorer / Chrome / Edge / Tor)
 ![圖片.png](https://hackmd.io/_uploads/HkKLxF8Xp.png)
 
-:::spoiler Flag
 Flag: `5`
-:::
 
-## ==Q12==
+## Q12
 > How many super secret CEO plans does Tim have?
 (Dr. Doofenshmirtz Type Beat) 
 
@@ -65,22 +61,18 @@ Flag: `5`
     •	Fire Jim Tomato
     ```
 
-:::spoiler Flag
 Flag: `4`
-:::
 
-## ==Q13==
+## Q13
 > Which employee does Tim plan to fire?
 (He's Dead, Tim. Enter the full name - two words - space separated) 
 
 ### Recon
 呈上題
 
-:::spoiler Flag
 Flag: `Jim Tomato`
-:::
 
-## ==Q14==
+## Q14
 > What was the last used username?
 (I didn't start this conversation, but I'm ending it!) 
 
@@ -94,11 +86,9 @@ Flag: `Jim Tomato`
     在`SOFTWARE/Microsoft/Windows NT/CurrentVersion/Winlogon`可以找到
     ![圖片.png](https://hackmd.io/_uploads/SkEDG5Lm6.png)
 
-:::spoiler Flag
 Flag: `jim.tomato`
-:::
 
-## ==Q15==
+## Q15
 > What was the role of the employee Tim was flirting with? 
 
 ### Recon
@@ -108,31 +98,25 @@ Flag: `jim.tomato`
 主要是export出他在browser上的history database file，並看他的瀏覽紀錄
 ![圖片.png](https://hackmd.io/_uploads/HkLXgvvX6.png)
 
-:::spoiler Flag
 Flag: `secretary`
-:::
 
-## ==Q16==
+## Q16
 > What is the SID of the user "suzy.strawberry"?
 
 ### Exploit
 同第十題，`suzy.strawberry`的SID是`S-1-5-21-2446097003-76624807-2828106174-1004`
 
-:::spoiler Flag
 Flag: `1004`
-:::
 
-## ==Q17==
+## Q17
 > List the file path for the install location of the Tor Browser.
 
 ### Exploit
 呈第11題
 
-:::spoiler Flag
 Flag: `C:\Program1`
-:::
 
-## ==Q18==
+## Q18
 > What was the URL for the Youtube video watched by Jim? 
 
 ### Recon
@@ -141,9 +125,7 @@ Flag: `C:\Program1`
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/SkN2-IPQp.png)
 
-:::spoiler Flag
 Flag: `https://www.youtube.com/watch?v=Y-CsIqTFEyY`
-:::
 
 ## Reference
 [^wp]:[CyberDefenders: CorporateSecrets](https://forensicskween.com/ctf/cyberdefenders/corporatesecrets/)

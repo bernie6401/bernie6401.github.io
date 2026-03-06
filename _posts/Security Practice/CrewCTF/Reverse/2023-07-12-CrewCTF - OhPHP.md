@@ -11,30 +11,23 @@ date: 2023-07-12
 
 ## Background
 * [PHP - substr()](https://www.wibibi.com/info.php?tid=96)
-    :::spoiler 
     > `substr( $string , $start , $length )`
     > `$strting` 是原始的字串，`$start` 是要開始擷取的位置，`$length` 則為要截取的字串長度，要注要的是 `$start` 與 $length 都必須為數字才有作用，可以是正整數，也可以是負整數，以下提供幾個範例參考。
-    :::
 * [PHP - strstr()](https://www.runoob.com/php/func-string-strstr.html)
-    :::spoiler 
     > 查找 "world" 在 "Hello world!" 中是否存在，如果是，返回該字符串及後面剩餘部分
     > ```php
     > <?php
     >   echo strstr("Hello world!","world");  // 輸出 world!
     > ?>
     > ```
-    :::
 * [PHP - strrev()](https://www.runoob.com/php/func-string-strrev.html)
-    :::spoiler 
     > 反轉字符串 "Hello World!"：
     > ```php
     > <?php
     >     echo strrev("Hello world!"); // 輸出!dlroW olleH 
     > ?>
     > ```
-    :::
 * [PHP  strnatcmp()](https://www.w3school.com.cn/php/func_string_strnatcmp.asp)
-    :::spoiler 
     > 使用"自然"算法來比較兩個字符串（區分大小寫）：
     > ```php
     > <?php
@@ -45,28 +38,22 @@ date: 2023-07-12
     > ```
     > strnatcmp() 函數使用一種"自然"算法來比較兩個字符串。
     > 在自然算法中，數字 2 小於數字 10。在計算機排序中，10 小於 2，這是因為 10 中的第一個數字小於 2。
-    :::
 * [PHP - crc32()](https://www.w3schools.com/php/func_string_crc32.asp)
-    :::spoiler
     > ```php
     >  <?php
     >  $str = crc32("Hello World!"); // Output: 472456355
     >  printf("%u\n",$str);
     >  ?> 
     >  ```
-    :::
 * [PHP - srand()](https://www.w3school.com.cn/php/func_math_srand.asp)
 * [PHP - strpos()](https://www.w3school.com.cn/php/func_string_strpos.asp)
-    :::spoiler
     > 查找 "php" 在字符串中第一次出現的位置：
     > ```php
     > <?php
     > echo strpos("You love php, I love php too!","php"); // Output: 9
     > ?>
     > ```
-    :::
 * [PHP - array_sum()](https://www.wibibi.com/info.php?tid=183)
-    :::spoiler
     > array_sum 這個函式用來統計陣列 Array 中的數值總數，並回傳統計值，如果陣列內的數值為整數，array_sum 傳回統計值將為整數，若陣列內數值為浮點數，則 array_sum 可能會傳回整數或浮點數。
     > ```php
     > <?php
@@ -76,19 +63,15 @@ date: 2023-07-12
     > 　echo array_sum($b); // Output: 6.5
     > ?>
     > ```
-    :::
 * [PHP - pack()](https://www.w3school.com.cn/php/func_misc_pack.asp)
-    :::spoiler
     > pack() 函數把數據裝入一個二進制字符串。詳細的格式可以看原網頁
     > ```php
     > <?php
     > echo pack("C3",80,72,80);
     > ?>
     > ```
-    :::
 * [PHP - Arrays](https://www.w3schools.com/php/php_arrays.asp)
 * [PHP使用SHA256、SHA512等演算法的寫法](https://blog.longwin.com.tw/2015/10/php-sha256-sha512-hash-algorithm-2015/)
-    :::spoiler
     > ```php
     >     <?php
     >         echo hash('sha256', 'abc');
@@ -98,16 +81,13 @@ date: 2023-07-12
     >         echo hash('sha1', 'abc');
     >     ?>
     > ```
-    :::
 * [PHP - base64_decode()](https://www.php.net/manual/en/function.base64-decode.php)
-    :::spoiler
     > ```php
     > <?php
     > $str = 'VGhpcyBpcyBhbiBlbmNvZGVkIHN0cmluZw==';
     > echo base64_decode($str); // Output: This is an encoded string
     > ?>
     > ```
-    :::
 
 ## Source Code
 詳細的source code請參考[HackMD筆記]({{base.url}}/CrewCTF-OhPHP/)
@@ -117,7 +97,6 @@ date: 2023-07-12
 
 ## Exploit
 1. 先利用別人的腳本把PHP fuck轉換回原本的code
-    :::spoiler Script
     ```csharp
     using System;
     using System.IO;
@@ -211,9 +190,7 @@ date: 2023-07-12
         }
     }
     ```
-    :::
     
-    :::spoiler Result
     ```php
     <?php
     (in_array(count(get_included_files()),[1])?(strcmp(php_sapi_name(),cli)?printf(Use. .php.-.cli. .to. .run. .the. .challenge.!.
@@ -228,10 +205,10 @@ date: 2023-07-12
     ));
     ?>
     ```
-    :::
     我另外把這坨東西弄的比較好讀一點
-    :::spoiler Beautiful Result
-    ```php=
+    
+    Beautiful Result
+    ```php
     <?php
     (in_array(count(get_included_files()),[1])?
         (
@@ -269,16 +246,12 @@ date: 2023-07-12
     );
     ?>
     ```
-    :::
-
 2. 依照上面的background reference慢慢分析
     * 首先第五行的printf不是很重要，他只是印出題目logo
-        :::spoiler
         ![](https://hackmd.io/_uploads/HkCOpC3th.png)
-        :::
     * 第12行開始就是flag的驗證，前五個字元是==crew{==
     * 第14行就是把我們輸入的flag從第五個字元開始算四個字元，先進行crc32的運算，然後在反轉string，然後看是不是等於`7607349263`，所以先reverse回去成正常的字串，然後用github上人家寫的crc32 unhash腳本[^crc32_tool]轉換有可能的字串，可以看到結果有幾種，不過因為這邊只有取4 bytes代表答案是==php_==
-        ```bash!
+        ```bash
         $ ./psysh
         > strrev(7607349263)
         = "3629437067"
@@ -308,8 +281,7 @@ date: 2023-07-12
         '1s_4'
         ```
     * 第20行比較複雜，他先固定rand的seed，然後用openssl_decrypt解密一串密文，並和我們輸入的flag前16個字元做比較，但剛剛我們得到的flag只有到`crew{php_1s_4`共13個字元，代表我們要爆破剩下三個字元，所以我寫了一個php script和python script去擷取可能的結果
-        :::spoiler php script
-        ```php!
+        ```php
         <?php
         $encryption = "wCX3NcMho0BZO0SxG2kHxA==";
         $ciphering = "AES-128-CBC";
@@ -333,9 +305,7 @@ date: 2023-07-12
         }
         ?>
         ```
-        :::
-
-        :::spoiler python script
+        
         ```python
         import string
 
@@ -356,7 +326,7 @@ date: 2023-07-12
             except:
                 pass
         ```
-        :::
+        
         ```bash
         $ php exp.php > result.txt
         $ python exp.py

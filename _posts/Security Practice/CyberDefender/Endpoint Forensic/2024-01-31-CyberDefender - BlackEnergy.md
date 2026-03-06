@@ -8,15 +8,12 @@ date: 2024-01-31
 
 # CyberDefender - BlackEnergy
 <!-- more -->
-:::spoiler TOC
-[TOC]
-:::
 Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/99
 
 ## Scenario
 > A multinational corporation has been hit by a cyber attack that has led to the theft of sensitive data. The attack was carried out using a variant of the BlackEnergy v2 malware that has never been seen before. The company's security team has acquired a memory dump of the infected machine, and they want you, as a soc analyst, to analyze the dump to understand the attack scope and impact.
 
-## ==Q1==
+## **Q1**
 > Which volatility profile would be best for this machine?
 
 ### Exploit
@@ -39,11 +36,9 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
      Image local date and time : 2023-02-13 10:29:11 -0800
 ```
 
-:::spoiler Flag
 Flag: `WinXPSP2x86`
-:::
 
-## ==Q2==
+## **Q2**
 > How many processes were running when the image was acquired? 
 
 ### Exploit
@@ -80,36 +75,31 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 0x89a0fda0 DumpIt.exe              276   1484      1       25      0      0 2023-02-13 18:29:08 UTC+0000
 ```
 
-:::spoiler Flag
 Flag: `19`
-:::
 
-## ==Q3==
+## **Q3**
 > What is the process ID of cmd.exe? 
 
 ### Exploit
 呈上題
 
-:::spoiler Flag
 Flag: `1960`
-:::
 
-## ==Q4==
+## **Q4**
 > What is the name of the most suspicious process? 
 
 ### Exploit
 呈第3題，感覺這個process應該就是提權的工具
 
-:::spoiler Flag
 Flag: `rootkit.exe`
-:::
 
-## ==Q5==
+## **Q5**
 > Which process shows the highest likelihood of code injection? 
 
 ### Exploit
 直覺會看`malfind`，然後找相關的process
-:::spoiler malfind result
+
+malfind result
 ```bash
 $ ./volatility_2.6_win64_standalone.exe -f CYBERDEF-567078-20230213-171333.raw malfind
 Volatility Foundation Volatility Framework 2.6
@@ -573,13 +563,10 @@ Flags: CommitCharge: 9, MemCommit: 1, PrivateMemory: 1, Protection: 6
 0x0098003d 0000             ADD [EAX], AL
 0x0098003f 00               DB 0x0
 ```
-:::
 
-:::spoiler Flag
 Flag: `svchost.exe`
-:::
 
-## ==Q6==
+## **Q6**
 > There is an odd file referenced in the recent process. Provide the full path of that file. 
 
 ### Exploit
@@ -614,21 +601,19 @@ C:\WINDOWS\system32\drivers\str.sys
         030e0l0p0t0x0|0
 ```
 
-:::spoiler Flag
 Flag: `C:\WINDOWS\system32\drivers\str.sys`
-:::
 
-## ==Q7==
+## **Q7**
 > What is the name of the injected dll file loaded from the recent process? 
 
 ### Recon
-這一題完全沒有想法，同樣是參考[^wp]，學到一個新東西，不過思路差不多，我是想如果可以利用dlllist直接看pid 880 load進甚麼樣的dll就可以篩選出正確的答案，不過有一個新的plugin更強，叫做==ldrmodules==
+這一題完全沒有想法，同樣是參考[^wp]，學到一個新東西，不過思路差不多，我是想如果可以利用dlllist直接看pid 880 load進甚麼樣的dll就可以篩選出正確的答案，不過有一個新的plugin更強，叫做**ldrmodules**
 > The ldrmodules plugin can be used to list the loaded modules (DLLs) in a process, and it can also be used to detect unlinked/hidden DLLs. We can use this plugin to examine the malicious svchost.exe process, which has a PID of 880.
 
 如果比對我的方法和[^wp]的方法會發現就是只有差在答案的那一個dll沒有顯示出來而已
 
 ### Exploit
-:::spoiler dlllist (我的方法)
+dlllist (我的方法)
 ```bash
 $ ./volatility_2.6_win64_standalone.exe -f CYBERDEF-567078-20230213-171333.raw --profile WinXPSP2x86 dlllist --pid 880
 ************************************************************************
@@ -697,9 +682,8 @@ Base             Size  LoadCount Path
 0x76f20000    0x27000        0x1 C:\WINDOWS\system32\DNSAPI.dll
 0x76fc0000     0x6000        0x1 C:\WINDOWS\system32\rasadhlp.dll
 ```
-:::
 
-:::spoiler ldrmodules ([^wp]的方法)
+ldrmodules ([^wp]的方法)
 ```bash
 $ ./volatility_2.6_win64_standalone.exe -f CYBERDEF-567078-20230213-171333.raw --profile WinXPSP2x86 ldrmodules --pid 880
 Pid      Process              Base       InLoad InInit InMem MappedPath
@@ -764,14 +748,11 @@ Pid      Process              Base       InLoad InInit InMem MappedPath
      880 svchost.exe          0x75110000 True   True   True  \WINDOWS\system32\mstlsapi.dll
      880 svchost.exe          0x77fe0000 True   True   True  \WINDOWS\system32\secur32.dll
 ```
-:::
-可以看到==msxml3r.dll==的三種狀態都是False，代表這個dll不在已經load的memory中，也不在初始化的階段，更不在目前的process memory中，意味著別的工具試圖隱藏該dll
+可以看到**msxml3r.dll**的三種狀態都是False，代表這個dll不在已經load的memory中，也不在初始化的階段，更不在目前的process memory中，意味著別的工具試圖隱藏該dll
 
-:::spoiler Flag
 Flag: `msxml3r.dll`
-:::
 
-## ==Q8==
+## **Q8**
 > What is the base address of the injected dll?
 
 ### Exploit
@@ -823,9 +804,7 @@ Flags: CommitCharge: 9, MemCommit: 1, PrivateMemory: 1, Protection: 6
 0x0098003f 00               DB 0x0
 ```
 
-:::spoiler Flag
 Flag: `0x980000`
-:::
 
 ## Reference
 [^wp]:[BlackEnergy Walkthrough — Cyberdefenders](https://responderj01.medium.com/blackenergy-walkthrough-cyberdefenders-8502d4e37301)

