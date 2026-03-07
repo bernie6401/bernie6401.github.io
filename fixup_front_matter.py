@@ -20,7 +20,7 @@ def fetch_date_in_filename(filepath):
     return None
 
 def file_io(io: str, new_lines=None):
-    with open(filepath, io, encoding="utf-8") as f:
+    with open(filepath, io, encoding="utf-8", newline="") as f:
         if io == "r":
             return f.readlines()
         elif io == "w":
@@ -30,7 +30,7 @@ def file_io(io: str, new_lines=None):
 if __name__ == "__main__":
     
     POSTS_DIR = "_posts/"
-    # POSTS_DIR = "_posts/Test"
+    # POSTS_DIR = "_posts/Books Notes/大眾文學/日本/"
     date_prefix_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}-")
 
     # 確保資料夾存在

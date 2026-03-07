@@ -2,7 +2,7 @@
 title: Simple Web - 0x08(Lab - Particles.js)
 tags: [CTF, Web, eductf]
 
-category: "Security Course｜NTU CS｜Web"
+category: "Security Course｜NTU CS｜Web 2022"
 date: 2023-02-13
 ---
 
