@@ -358,9 +358,53 @@ $ file [filename]
 ### AD
 * [Ping Castle](https://www.pingcastle.com/): 這個工具可以幫AD環境做快速的稽核，然後會產生報表，讓使用者可以一目了然目前AD的狀況
 
-### Sysinternal
+## Sysinternal
+### 系統操作與管理
 * [PsExec](https://learn.microsoft.com/zh-tw/sysinternals/downloads/psexec)
     > psexec是windows下非常好的一款遠程命令行工具。psexec的使用不需要對方主機開機3389端口，只需要對方開啟admin共享或c(該共享默認開啟，依賴於445端口)。但是，假如目標主機開啟了防火墻(因為防火墻默認禁止445端口的連接)，psexec也是不能使用的，會提示找不到網絡路徑。由於psexec是windows提供的工具，所以殺毒軟件會將其添加到白名單中。
+* PsKill: 終止本地或遠端進程。
+* PsList: 列出進程資訊，包括 CPU、記憶體使用情況。
+* PsLoggedOn	查看誰登入了本機或遠端系統。
+* PsService	管理本地或遠端服務（啟動、停止、查詢狀態）。
+
+### 系統資訊與監控
+* Sysmon
+    > 事件識別碼 1：處理程序建立
+    > 處理程序建立事件會提供新建立處理程序的延伸資訊。 完整的命令列提供處理程序執行的內容。 `ProcessGUID` 欄位是跨定義域此處理程式的唯一值，可讓事件相互關聯更容易。 雜湊是檔案的完整雜湊，具有 `HashType` 欄位中的演算法。
+    > 
+    > 事件識別碼 8：CreateRemoteThread
+    > `CreateRemoteThread` 事件會偵測處理程序何時在另一個處理程序中建立執行緒。 惡意程式碼會使用這項技術來插入程式碼，並隱藏在其他處理程序中。 事件表示來源和目標處理程序。 其會提供將在新執行緒中執行之程式碼的資訊：StartAddress、`StartModule` 和 `StartFunction`。 請注意，系統會推斷 `StartModule` 和 `StartFunction` 欄位，如果起始位址位於載入的模組或已知的匯出函式之外，這些欄位可能會是空的。
+    > 
+    > 事件識別碼 11：FileCreate
+    > 建立或覆寫檔案時，系統會記錄檔案建立作業。 此事件適用於監視自動啟動位置，例如開機資料夾，以及暫存和下載目錄，這是初始感染期間惡意程式碼放置的常見位置。
+    > 
+    > 事件識別碼 13：RegistryEvent (值已設定)
+    > 此登錄事件類型會識別登錄值修改。 事件會記錄針對類型為 `DWORD` 和 `QWORD` 的登錄值所寫入的值。
+* Procexp (Process Explorer) & Process Hacker
+    好看版的工作管理員
+* Procmon
+    * 監控程序行為
+    * Registry
+    * File system
+    * Network
+    * Process/Thread
+* Procdump: 產生指定進程的 memory dump
+    ```bash
+    $ dump lsass.exe memory # 取得憑證（這是很多 Windows 後門 / lateral movement 攻擊的方式）。
+    ```
+
+### 網路分析
+* TCPView: 顯示所有 TCP/UDP 連線和端口使用狀態，可用於偵測可疑連線。
+* PsPing: 提供 ping、延遲測試和帶寬測量功能，比內建 ping 更靈活。
+* whois
+    ```bash
+    $ whois64.exe -v domainname
+    ```
+
+### 安全取證 / 數位取證
+* AccessChk: 查看檔案、登錄項、服務的權限，方便檢查系統安全性。
+* Sigcheck: 驗證執行檔簽名與版本資訊，檢測潛在惡意程式。
+* VMMap: 分析程序的記憶體使用情況，包括堆、棧、映射文件。
 
 ## Reference
 [^1]:Ravindran, U., & Potukuchi, R. V. (2022). A Review on Web Application Vulnerability Assessment and Penetration Testing. Review of Computer Engineering Studies, 9(1).

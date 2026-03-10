@@ -29,9 +29,9 @@ date: 2024-01-31
 ## Recon - Event Log呈現的攻擊順序
 1. Event ID: 8 → CreateRemoteThread
     
-    首先看到23/12/17 15:1024的時候，由==NT AUTHORITY\SYSTEM==發起的新的thread，從原本的Process(ID: 820)幫另外一個Process(ID: 7464)建立，誠如MSDN上的說明這應該是惡意程式為了不要被砍掉
+    首先看到23/12/17 15:1024的時候，由**NT AUTHORITY\SYSTEM**發起的新的thread，從原本的Process(ID: 820)幫另外一個Process(ID: 7464)建立，誠如MSDN上的說明這應該是惡意程式為了不要被砍掉
     ![圖片](https://hackmd.io/_uploads/rJjOTA-wa.png)
-    比較經典的案例是類似NTU CS助教 - @Ice1187 在Window Malware講到的[reflective dll injection](https://attack.mitre.org/techniques/T1055/001/)，也就是Mitre紀載的==T1055.001==，其本質上就是利用CreateRemoteThread在一個正常的process開一個thread，然後做一些惡意的事情，這樣的話defender也不會把它砍掉，因為從外部看，就只是一個正常的process
+    比較經典的案例是類似NTU CS助教 - @Ice1187 在Window Malware講到的[reflective dll injection](https://attack.mitre.org/techniques/T1055/001/)，也就是Mitre紀載的**T1055.001**，其本質上就是利用CreateRemoteThread在一個正常的process開一個thread，然後做一些惡意的事情，這樣的話defender也不會把它砍掉，因為從外部看，就只是一個正常的process
     ![圖片](https://hackmd.io/_uploads/Hy9wgyfPp.png)
 2. Kernel開Thread
     
@@ -67,7 +67,7 @@ date: 2024-01-31
     這條command就好玩了，接著auto-attack.bat又接續執行powershell，並且執行command如下，這一條command一開始看不太懂，隨便搜尋發現是一個經典的payload，主要是參考@3gstudent的文章[《MiniDumpWriteDump via COM+ Services DLL》的利用測試](https://3gstudent.github.io/MiniDumpWriteDump-via-COM+-Services-DLL-%E7%9A%84%E5%88%A9%E7%94%A8%E6%B5%8B%E8%AF%95)，一般來說我們都會想辦法用procdump之類的工具把lsass或是SYSTEM dump出來，但其實也可以用其他internal dll呼叫MiniDump的方式，把東西拿到手，範例的話可以參考[comsvcs MiniDump examples](https://gist.github.com/JohnLaTwC/3e7dd4cd8520467df179e93fb44a434e)
     > "C:\Windows\System32\rundll32.exe"  C:\Windows\System32\comsvcs.dll MiniDump \<PID> \Windows\Temp\<filename>.dmp full
     
-    其實就和這一條payload有87趴像，中間的 ==((Get-Process lsass).Id)== 就是在抓lsass的PID，另外@3gstudent也有提到這個必須要是管理員權限才可以執行
+    其實就和這一條payload有87趴像，中間的 **((Get-Process lsass).Id)** 就是在抓lsass的PID，另外@3gstudent也有提到這個必須要是管理員權限才可以執行
     ```
     ParentProcessId 7544 
     ParentImage C:\Windows\System32\cmd.exe 
@@ -122,9 +122,13 @@ date: 2024-01-31
     >>> payload = "JgAgACgAZwBjAG0AIAAoACcAaQBlAHsAMAB9ACcAIAAtAGYAIAAnAHgAJwApACkAIAAoACIAVwByACIAKwAiAGkAdAAiACsAIgBlAC0ASAAiACsAIgBvAHMAdAAgACcASAAiACsAIgBlAGwAIgArACIAbABvACwAIABmAHIAIgArACIAbwBtACAAUAAiACsAIgBvAHcAIgArACIAZQByAFMAIgArACIAaAAiACsAIgBlAGwAbAAhACcAIgApAA=="
     >>> decode = b64decode(payload.encode())
     >>> decode.replace(b'\x00', b'').decode()
-    '& (gcm (\'ie{0}\' -f \'x\')) ("Wr"+"it"+"e-H"+"ost \'H"+"el"+"lo, fr"+"om P"+"ow"+"erS"+"h"+"ell!\'")'
+    '& (gcm (\\'ie{0}\\' -f \\'x\\')) ("Wr"+"it"+"e-H"+"ost \\'H"+"el"+"lo, fr"+"om P"+"ow"+"erS"+"h"+"ell!\\'")'
     ```
-    所以這一個正確的payload應該是 ==& (gcm ('ie{0}' -f 'x')) ("Write-Host 'Hello, from PowerShell!'")==
+
+    所以這一個正確的payload應該是 
+    ```
+    & (gcm ('ie{0}' -f 'x')) ("Write-Host 'Hello, from PowerShell!'")
+    ```
     
     其實後來仔細找找就會發現[redcanary的文章](https://redcanary.com/threat-detection-report/techniques/powershell/)中就有提到這一個obfuscated，就如同上面寫的，他就是`Invoke-Expression "Write-Host 'Hello, from PowerShell!'"`，如果實際丟到powershell的話就會在console印出`Hello, from PowerShell!`的字樣
 
@@ -235,7 +239,7 @@ date: 2024-01-31
     ```
 15. Open Service Control Manager → Timeout → Query Registry → Delete Registry
     
-    根據[MSDN](https://learn.microsoft.com/zh-tw/windows-server/administration/windows-commands/sc-create)的說明，==sc.exe==是一個在資料庫中建立服務的子機碼和專案的工具，而記錄如下:
+    根據[MSDN](https://learn.microsoft.com/zh-tw/windows-server/administration/windows-commands/sc-create)的說明，**sc.exe**是一個在資料庫中建立服務的子機碼和專案的工具，而記錄如下:
     ```
     ParentProcessId: 7544
     ParentImage: C:\Windows\System32\cmd.exe
@@ -244,7 +248,7 @@ date: 2024-01-31
     OriginalFileName: sc.exe
     CommandLine: sc  create CMDTestService type=own binPath="cmd /c date /T > C:\Windows\Temp\current_date.txt"
     ```
-    總的來說，目的是創建一個名為 "CMDTestService" 的服務，該服務指定在其本身process中執行的服務，且不會與其他服務共用可執行檔，並且它的主要功能是運行一個命令，將當前日期寫入到指定的文本文件中，也的確在Event ID: 13中看到創了一個registry event在==HKLM\System\CurrentControlSet\Services\CMDTestService\Start==
+    總的來說，目的是創建一個名為 "CMDTestService" 的服務，該服務指定在其本身process中執行的服務，且不會與其他服務共用可執行檔，並且它的主要功能是運行一個命令，將當前日期寫入到指定的文本文件中，也的確在Event ID: 13中看到創了一個registry event在**HKLM\System\CurrentControlSet\Services\CMDTestService\Start**
     不過接著就像上面看到排程的操作一樣，他進行了該Event的query，當query到的時候就是確定惡意程式可以透過registry進行操作，並且直接把該event刪除，詳細紀錄如下:
     ```
     OriginalFileName: sc.exe

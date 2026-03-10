@@ -11,23 +11,23 @@ date: 2024-01-31
 
 ## Set Up
 先進到https://bit.ly/44IFecN下載ArcSight Console，並且全部default下一步
-1. (editor需要admin權限)進入localhost host DNS解析 -> C:\Windows\System32\drivers\etc\host
+1. (editor需要admin權限)進入localhost host DNS解析 → C:\Windows\System32\drivers\etc\host
 	新增 211.75.237.80 chtpoc
 2. 打開ArcSight Console，用之前提供的帳密以及最後打chtpoc，進行登入
     ![圖片](https://hackmd.io/_uploads/B1_MkKc8p.png)
 3. 登入之後的狀態
     ![圖片](https://hackmd.io/_uploads/BJNleKc8p.png)
 
-![圖片](https://hackmd.io/_uploads/Hy8IUYqIa.png)
-![圖片](https://hackmd.io/_uploads/Syx6UK986.png)
-![圖片](https://hackmd.io/_uploads/S1vRUKcUp.png)
-ArcSight預設有分大小寫
-![圖片](https://hackmd.io/_uploads/SJrXPY5UT.png)
+    ![圖片](https://hackmd.io/_uploads/Hy8IUYqIa.png)
+    ![圖片](https://hackmd.io/_uploads/Syx6UK986.png)
+    ![圖片](https://hackmd.io/_uploads/S1vRUKcUp.png)
+    ArcSight預設有分大小寫
+    ![圖片](https://hackmd.io/_uploads/SJrXPY5UT.png)
 
 
-活動頻道可以儲存0
-![圖片](https://hackmd.io/_uploads/SJCEqt9Up.png)
-![圖片](https://hackmd.io/_uploads/HkSr5t5La.png)
+    活動頻道可以儲存0
+    ![圖片](https://hackmd.io/_uploads/SJCEqt9Up.png)
+    ![圖片](https://hackmd.io/_uploads/HkSr5t5La.png)
 
 ## 規則
 * WAF規則

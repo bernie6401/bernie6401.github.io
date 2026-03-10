@@ -257,7 +257,7 @@ date: 2024-01-31
 ### 如何dump memory
 可以參考[Simple-Reverse-0x13(Lab-Meow)]({{base.url}}/Simple-Reverse-0x13(Lab-Meow)/)，就是直接用Scylla中`File/Dump Memory`處理
 
-## Process相關的操作與資訊
+## Process相關的操作與資訊 (SysinternalSuite)
 * Procexp & Process Hacker
     好看版的工作管理員
 * Procmon
