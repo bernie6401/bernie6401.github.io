@@ -34,12 +34,12 @@ date: 2024-01-31
     >>> 0x291D400-0x291D000
     1024
     ```
-* 從上圖也可以看到magical word就是`FILE0`$\to$`46 49 4C 45 30`
+* 從上圖也可以看到magical word就是`FILE0` → `46 49 4C 45 30`
 
 ### Overview(從上到下)
 ![](https://hackmd.io/_uploads/S1l-DgEtzp.png)
 
-* Staus: `01 00`$\to$File
+* Staus: `01 00` → File
 * `04 00 00 00`是固定的
 * \$MFT Record: `74 A4`先轉換endian然後變十進位，在乘以1024就會是目前此檔案的開頭位址
     ```python
@@ -91,7 +91,7 @@ date: 2024-01-31
     Filename Timestamp都是`2011, 1, 27, 0, 5, 23, 349211`，和前面的create time相同
 
 ## Lab - Offset 43208704(d)
-* Staus: `01 00`$\to$File
+* Staus: `01 00` → File
 * \$MFT Record: `D4 A4`
     ```python
     >>> hex(int("".join('d4 a4'.split(' ')[::-1]), 16) * 1024)
@@ -115,7 +115,7 @@ date: 2024-01-31
     Filename Time = Create Time = `2011, 1, 27, 0, 5, 24, 208586`
     
 ## Lab - Offset 53550080(d)
-* Staus: `01 00`$\to$File
+* Staus: `01 00` → File
 * \$MFT Record: `47 CC`
     ```python
     >>> hex(int("".join('47 CC'.split(' ')[::-1]), 16) * 1024)

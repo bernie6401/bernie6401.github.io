@@ -17,10 +17,10 @@ date: 2024-01-31
     * 特定路徑或資料夾: 
         * Program Files/Program Data
         * Download
-        * Temp$\to$這在玩分析memory中很常出現
+        * Temp → 這在玩分析memory中很常出現
     * 電腦特定檔案:
         * LNK
-        * Email$\to$這在玩分析memory中也很常出現
+        * Email → 這在玩分析memory中也很常出現
         * 系統還原檔(VSS, [volume shadow copy](https://learn.microsoft.com/zh-tw/windows-server/storage/file-server/volume-shadow-copy-service)): 站在藍隊的角度可以藉此知道受害者的遭到入侵的一些證據；站在紅隊的角度可以藉此撈到一些受害者的基敏資料
 * Artifacts分析面向
     * 檔案Metadata: Timestamp(一般檔案的MAC time至少有兩個, Modify/Access/Create Time)可以藉此知道檔案的異動時間

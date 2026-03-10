@@ -1,5 +1,5 @@
 ---
-title: $\LaTeX$ 語法筆記
+title: Latex Cheat Sheet
 tags: [LaTeX]
 
 category: "Tools｜Others"
@@ -8,7 +8,7 @@ date: 2023-11-23
 
 > HackMD 是透過 MathJax 支援 $\LaTeX$ ，雖未支援所有語法，對多數人應已足夠，一起把 Web 上醜死的公式換成美美的吧～
 
-# $\LaTeX$ 語法筆記
+# Latex Cheat Sheet
 <!-- more -->
 
 $$

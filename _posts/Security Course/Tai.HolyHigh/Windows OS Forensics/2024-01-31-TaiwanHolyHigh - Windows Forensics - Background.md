@@ -51,7 +51,7 @@ date: 2024-01-31
     * Process
     * System
     * Artifacts(registry/log/temp...)
-* Duplicate(Image): 製作證據的映像檔$\to$非揮發性的資料
+* Duplicate(Image): 製作證據的映像檔 → 非揮發性的資料
     * RAW Image
     * Evidence File
 * Forensics Analysis

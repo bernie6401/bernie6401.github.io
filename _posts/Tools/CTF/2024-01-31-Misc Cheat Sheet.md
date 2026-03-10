@@ -298,6 +298,7 @@ $ file [filename]
 * dos2unix
 
 ## Forensics
+* [LNK Parser](https://code.google.com/archive/p/lnk-parser/downloads)
 ### Disk Analysis
 * [Foremost](https://darkranger.no-ip.org/archives/v5/document/linux/foremost_recovery.htm): 針對所支援的檔案結構去進行資料搜尋與救援
     ```bash
@@ -348,6 +349,7 @@ $ file [filename]
 
 
 ## 資安防禦平台與工具
+* 完整的流程可以參考[TaiwanHolyHigh - Windows Forensics - Background]({{base.url}}/TaiwanHolyHigh-Windows-Forensics-Background/)
 ### XDR
 * [WAZUH](https://wazuh.com/)
 

@@ -10,10 +10,6 @@ date: 2022-10-23
 <!-- more -->
 ###### tags: `NTU_ST` `Software Testing`
 
-:::spoiler Click to open TOC
-[TOC]
-:::
-
 ## Install the environment
 * Install Visual Studio with .NET that we can use C# language to implement unit test properly.![install c#](https://imgur.com/VwMKdZM.png)
 

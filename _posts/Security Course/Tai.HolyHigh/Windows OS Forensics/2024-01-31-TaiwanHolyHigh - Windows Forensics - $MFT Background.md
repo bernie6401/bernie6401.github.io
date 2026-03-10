@@ -8,12 +8,7 @@ date: 2024-01-31
 
 # TaiwanHolyHigh - Windows Forensics - \$MFT Background
 <!-- more -->
-:::spoiler TOC
-[TOC]
-:::
-:::info
 以下引用若無特別說明皆來自於講師的上課簡報
-:::
 
 ## Background
 * `$`在windows代表系統檔案
