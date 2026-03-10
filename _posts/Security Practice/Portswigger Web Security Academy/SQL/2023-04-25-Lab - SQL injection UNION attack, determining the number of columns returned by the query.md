@@ -15,9 +15,5 @@ date: 2023-04-25
 
 #### Exp
 Payload: `https://0ab2008b04e96b8f8057358e008d00d0.web-security-academy.net/filter?category=%27%20UNION%20SELECT%20NULL,NULL,NULL--`
-:::spoiler Success Screenshot
+
 ![](https://i.imgur.com/yZ3QPPF.png)
-:::
-
-
-## Reference

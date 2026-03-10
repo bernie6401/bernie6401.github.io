@@ -15,8 +15,6 @@ You have two accounts on the application that you can use to help design your at
 `wiener:peter`
 `carlos:montoya`
 
-* Hint:
-
 
 ## Recon
 1. Username: `wiener`
@@ -35,11 +33,5 @@ Session: `eblGI5f9PddGlEpYdJvsIUe6chNkLjrd`
 CSRF Key: `liMgrTpwX5psfFRMCHyzuuH6GDT0va5v` $\to$ The same with `wiener`
 CSRF Token: `ZZYoEyE0OQqp1rvb6XCgs4Uz9us4OCgG` $\to$ The same with `wiener`
 
-
-## Exp
-:::spoiler Success Screenshot
-
-:::
-
 ## Reference
-[Writeup: CSRF where token is tied to non-session cookie @ PortSwigger Academy](https://medium.com/@frank.leitner/writeup-csrf-where-token-is-tied-to-non-session-cookie-portswigger-academy-60fb8062363b)
+* [Writeup: CSRF where token is tied to non-session cookie @ PortSwigger Academy](https://medium.com/@frank.leitner/writeup-csrf-where-token-is-tied-to-non-session-cookie-portswigger-academy-60fb8062363b)

