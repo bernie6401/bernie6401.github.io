@@ -8,7 +8,7 @@ date: 2024-05-14
 
 ## [什麼是 DevOps？](https://ithelp.ithome.com.tw/articles/10184557)
 > DevOps 簡而言之，就是 Development + Operations ，也就是開發與維運。但大部分的文章都會說是「開發」「測試」「維運」三者的結合。如同下面這張圖想表示的意義一樣，當三者有了交集，即是 DevOps
-> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Devops.svg/512px-Devops.svg.png)
+> <img src="/assets/posts/Terminology/Wiki DevOps.png" width=300>
 > #### DevOps 想要達成的目標為何？
 >
 >從 Patrick Debois 發現的問題與參考葉大一句話囊括 DevOps 的目標一文，可以了解，最大的目標即為速度。「天下武功，唯快不破」，從發現需求到產品上線的時間越短，能得到的回饋與市場也就越大；但快還不夠，還要好，也就是要有品質！如果只有快，而沒有品質，只是更快把 bug 上線，並破壞企業名聲而已。如何兼顧速度與品質，即為 DevOps 的主要目標。
