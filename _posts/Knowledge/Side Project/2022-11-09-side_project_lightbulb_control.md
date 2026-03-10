@@ -9,9 +9,6 @@ date: 2022-11-09
 # side_project_lightbulb_control
 <!-- more -->
 ###### tags: `Side Project` `Arduino`
-:::spoiler
-[TOC]
-:::
 
 ## Project Purpose
 * In order to deal with the inconvenient experiment on lightbulb of bathroom, I decided to write some code and implent the circuit. Specifically speaking about the inconvenient, I wish exhaust fan in bathroom can always work without switch control it. But unfortunately, it has connected with lightbulb circuit at the beginning, and the circuit hided in the wall that I can't change the circuit directly.

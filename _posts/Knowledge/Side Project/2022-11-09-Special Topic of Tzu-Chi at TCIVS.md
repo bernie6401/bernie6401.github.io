@@ -9,9 +9,6 @@ date: 2022-11-09
 # Special Topic of Tzu-Chi at TCIVS
 <!-- more -->
 ###### tags: `TCIVS` `Side Project` `Special Topic`
-:::spoiler
-[TOC]
-:::
 
 ## Purpose of this file
 + I just want to write up some problems while I set up the environment and hardware of this project
