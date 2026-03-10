@@ -1,14 +1,13 @@
 ---
-title: NTUSTISC - AD Note - Lab(偵測密碼揮灑)
+title: NTUSTISC - AD Note - Lab(0x15 偵測密碼揮灑)
 tags: [NTUSTISC, AD, information security]
 
 category: "Security Course｜NTUST ISC｜AD｜3. 更多密碼"
 date: 2024-01-31
 ---
 
-# NTUSTISC - AD Note - Lab(偵測密碼揮灑)
+# NTUSTISC - AD Note - Lab(0x15 偵測密碼揮灑)
 <!-- more -->
-[TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&t=4257)
 

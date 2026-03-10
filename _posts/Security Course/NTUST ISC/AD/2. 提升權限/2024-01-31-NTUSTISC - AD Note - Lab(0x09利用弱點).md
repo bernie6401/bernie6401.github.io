@@ -1,14 +1,13 @@
 ---
-title: NTUSTISC - AD Note - Lab(利用弱點)
+title: NTUSTISC - AD Note - Lab(0x09利用弱點)
 tags: [information security, NTUSTISC, AD]
 
 category: "Security Course｜NTUST ISC｜AD｜2. 提升權限"
 date: 2024-01-31
 ---
 
-# NTUSTISC - AD Note - Lab(利用弱點)
+# NTUSTISC - AD Note - Lab(0x09利用弱點)
 <!-- more -->
-[TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCMCOy58LN&t=3600)
 

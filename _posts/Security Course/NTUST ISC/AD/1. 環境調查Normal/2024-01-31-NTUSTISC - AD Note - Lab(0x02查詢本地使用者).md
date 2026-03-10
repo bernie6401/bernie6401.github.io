@@ -1,19 +1,17 @@
 ---
-title: NTUSTISC - AD Note - Lab(查詢本地使用者)
+title: NTUSTISC - AD Note - Lab(0x02查詢本地使用者)
 tags: [NTUSTISC, AD, information security]
 
 category: "Security Course｜NTUST ISC｜AD｜1. 環境調查Normal"
 date: 2024-01-31
 ---
 
-# NTUSTISC - AD Note - Lab(查詢本地使用者)
+# NTUSTISC - AD Note - Lab(0x02查詢本地使用者)
 <!-- more -->
-[TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)
 
 ## Lab Time - 環境調查
-
 ### 查詢本地使用者
 常用的cheat sheet
 ```bash
@@ -60,7 +58,7 @@ $ net user administrator
 ```
 
 要注意的地方是：
-1. 帳戶是否使用中 - 
+1. 帳戶是否使用中
 2. 帳戶到期
 3. 密碼到期
 4. 上次設定密碼

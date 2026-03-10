@@ -1,20 +1,18 @@
 ---
-title: NTUSTISC - AD Note - Lab(查詢網域群組)
+title: NTUSTISC - AD Note - Lab(0x06查詢網域群組)
 tags: [NTUSTISC, AD, information security]
 
 category: "Security Course｜NTUST ISC｜AD｜1. 環境調查Normal"
 date: 2024-01-31
 ---
 
-# NTUSTISC - AD Note - Lab(查詢網域群組)
+# NTUSTISC - AD Note - Lab(0x06查詢網域群組)
 <!-- more -->
-[TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)
 
 ## Lab Time - 環境調查
-
-### ==查詢網域群組==
+### 查詢網域群組
 常用的cheat sheet
 `Domain Admins`, `Schema Admins`, `Enterprise Admins`是預設的權限，通常一進到AD網域都會先看這幾個權限有哪些成員
 ```bash

@@ -1,12 +1,12 @@
 ---
-title: NTUSTISC - AD Note - Lab(AS-REP Roasting)
+title: NTUSTISC - AD Note - Lab(0x21 AS-REP Roasting)
 tags: [NTUSTISC, AD, information security]
 
 category: "Security Course｜NTUST ISC｜AD｜3. 更多密碼"
 date: 2024-01-31
 ---
 
-# NTUSTISC - AD Note - Lab(AS-REP Roasting)
+# NTUSTISC - AD Note - Lab(0x21 AS-REP Roasting)
 <!-- more -->
 
 Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=CRVWKo4tnpx3LqxK)

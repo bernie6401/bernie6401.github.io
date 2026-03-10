@@ -8,7 +8,6 @@ date: 2024-01-31
 
 # NTUSTISC - AD Note - 環境建置 & Background
 <!-- more -->
-[TOC]
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)
 
@@ -43,42 +42,40 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
 
 ### 帳號密碼
 * Win10(Client)
-
-    帳號：administrator
-
-    密碼：1qaz@WSX3edc
+    * 帳號：administrator
+    * 密碼：1qaz@WSX3edc
     * 一般的網域帳號
-    帳號：bear
-    密碼：1qaz@WSX3edc
+        * 帳號：bear
+        * 密碼：1qaz@WSX3edc
     * 低權限帳號
-    帳號：low
-    密碼：<無>
+        * 帳號：low
+        * 密碼：<無>
 * Win2016(DC)
-
-    帳號：administrator
-
-    密碼：1qaz@WSX3edc
+    * 帳號：administrator
+    * 密碼：1qaz@WSX3edc
 * Note: 如果要指定本機端的帳戶進行登入，可以在帳號前面加入`.\`的符號或是直接寫主機名稱，強制用本地端的帳號登入，這個帳戶就是沒有加入AD domain底下
 
 
 ### 詳細步驟
 1. 把講師提供的兩支VM(win10/win2016)灌起來並自行下載[kali2022](https://old.kali.org/kali-images/kali-2022.4/)，==建議用VMware==
 2. 啟用Neo4j & BloodHound
+    
     因為環境目前預設的JDK version是1.8，所以如果啟用後續會用到的Neo4j會出問題，所以我們要先改java版本，改成JDK-11，比較詳細的流程可以參考[^neo4j-java-error]
     1. Uninstall JDK-1.8
     2. Download JDK-11 & Install it([Link](https://www.oracle.com/tw/java/technologies/javase/jdk11-archive-downloads.html))
         * 下載之前會需要你登入Oracle帳號
         * 如果想要知道哪一個版本的JAVA對應到哪一個版本的Neo4j，可以從這邊[^neo4j-java]找，照法就是在網址的地方中間有一個neo4j的版本，打上你的neo4j版本，他就會到對應的頁面告訴你JAVA的版本應該是多少，例如我的版本是4.3，就打上`https://neo4j.com/docs/operations-manual/4.3/installation/requirements/`，不過他也只有分3.x和4.x
-        ![](https://hackmd.io/_uploads/r1_7srupn.png)
+            ![](https://hackmd.io/_uploads/r1_7srupn.png)
     3. Modify Environment Variable
         * 更改環境變數這件事情一定要在Win10加入AD之前做的原因是，只要加入AD就無法改變環境變數的系統變數(如下圖)，那我有想過把Win10直接退掉AD的網域，不過過程困難重重，所以我想還是直接開一個新的Win10從頭來會比要快，而且加入AD後還不能連網，畢竟DNS都被改掉了，會很不方便
-        ![](https://hackmd.io/_uploads/rJOVhBda3.png)
+            ![](https://hackmd.io/_uploads/rJOVhBda3.png)
         * 首先要在系統變數的地方新增JAVA_HOME然後value就是當初安裝JDK-11的位置
-        ![](https://hackmd.io/_uploads/Sy-fTr_a2.png)
+            ![](https://hackmd.io/_uploads/Sy-fTr_a2.png)
         * 並在Path中新增`%JAVA_HOME%\bin`和`<JDK-11 path to bin>`並按下確定後到Command Prompt確認有沒有成功
-        ![](https://hackmd.io/_uploads/BkbYTHOp2.png)
-        ![](https://hackmd.io/_uploads/Syb-0BOa2.png)
+            ![](https://hackmd.io/_uploads/BkbYTHOp2.png)
+            ![](https://hackmd.io/_uploads/Syb-0BOa2.png)
     4. Activate Neo4j
+        
         在neo4j的目錄中進到bin，然後打開cmd，輸入`$ neo4j.bat console`，理論上前面有做對，應該就會開啟Neo4j的服務
         
         Activate Neo4j Log
@@ -112,6 +109,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
         接著進到`http://localhost:7474/`，輸入預設帳密`neo4j/neo4j`，最後改密碼就好了
         ![](https://hackmd.io/_uploads/Syof1Uupn.png)
     5. Activate BloodHound
+        
         進到BloodHound/bin目錄然後執行`BloodHound.exe`輸入neo4j的帳密，就可以進到一個全新的bloodhound頁面
         ![](https://hackmd.io/_uploads/S1O51Idp2.png)
 
@@ -137,7 +135,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
 [^fei-directory-service]:[AD Security - [Day2] 一起來學 AD 安全吧！：什麼是 AD(1) ](https://ithelp.ithome.com.tw/articles/10292831)
 [^wiki-Active-Directory]:[Active Directory](https://zh.wikipedia.org/zh-tw/Active_Directory)
 [^aws-what-is-ldaps]:[啟用安全 LDAP (LDAPS)](https://docs.aws.amazon.com/zh_tw/directoryservice/latest/admin-guide/ms_ad_ldap.html)
-[^fei-organization-units][AD Security - [Day5] 一起來學 AD 安全吧！：什麼是 AD(3) Container & OU & Security Group ](https://ithelp.ithome.com.tw/articles/10295116)
+[^fei-organization-units]:[AD Security - [Day5] 一起來學 AD 安全吧！：什麼是 AD(3) Container & OU & Security Group](https://ithelp.ithome.com.tw/articles/10295116)
 [^upas1030-gpo]:[GPO概念](https://upas1030.pixnet.net/blog/post/116192137)
 [^neo4j-java]:[System requirements](https://neo4j.com/docs/operations-manual/4.0/installation/requirements/)
-[^neo4j-java-error]:[當安裝Neo4j後，在cmd中輸入neo4j遇到(ERROR!Neo4j cannot be started using java version 1.8.0_211](https://blog.csdn.net/Linsice/article/details/129748823)
+[^neo4j-java-error]:[當安裝Neo4j後，在cmd中輸入neo4j遇到(ERROR!Neo4j cannot be started using java version 1.8.0_211)](https://blog.csdn.net/Linsice/article/details/129748823)

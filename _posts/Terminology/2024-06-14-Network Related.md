@@ -56,6 +56,18 @@ date: 2024-06-14
 [什麼是 SSL/TLS 憑證？](https://aws.amazon.com/tw/what-is/ssl-certificate/)
 > SSL/TLS 憑證是一種數位物件，允許系統驗證身分並隨後使用 Secure Sockets Layer/Transport Layer Security (SSL/TLS) 協定，與另一個系統建立加密網路連線。憑證是在稱為公開金鑰基礎設施 (PKI) 的加密系統內使用。如果雙方都信任第三方 (稱為憑證授權單位)，PKI 會使用憑證讓其中一方建立另一方的身分。因此，SSL/TLS 憑證可作為數位身份證，用於保護網路通訊安全，以及為網際網路上的網站和私有網路上的資源建立身分。
 
+### 常見明文協定 + SSL/TLS
+
+| 明文協定 | 加密後協定 (TLS/SSL)  | 端口 / 備註 |
+| ---- | ---------------- | ------------- |
+| HTTP | HTTPS            | 80 → 443      |
+| LDAP | LDAPS            | 389 → 636     |
+| SMTP | SMTPS / STARTTLS | 25 → 465/587  |
+| IMAP | IMAPS            | 143 → 993     |
+| POP3 | POP3S            | 110 → 995     |
+| FTP  | FTPS / FTPES     | 21 → 990 / 21 |
+| RDP  | RDP over TLS     | 3389（可選加密）|
+
 ## WebSocket
 根據[WebSocket 基本介紹及使用筆記](https://www.letswrite.tw/websocket/)的說明如下:
 > ![](https://imgur.com/WurUgR9.png)

@@ -1,12 +1,12 @@
 ---
-title: NTUSTISC - AD Note - Lab(遠端執行(RDP))
+title: NTUSTISC - AD Note - Lab(0x22 遠端執行(RDP))
 tags: [NTUSTISC, AD, information security]
 
 category: "Security Course｜NTUST ISC｜AD｜4. 遠端執行-讀檔"
 date: 2024-01-31
 ---
 
-# NTUSTISC - AD Note - Lab(遠端執行(RDP))
+# NTUSTISC - AD Note - Lab(0x22 遠端執行(RDP))
 <!-- more -->
 
 Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz2CB-O-7S5d)

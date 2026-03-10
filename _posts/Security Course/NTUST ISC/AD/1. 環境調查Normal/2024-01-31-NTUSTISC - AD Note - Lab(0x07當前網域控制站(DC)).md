@@ -1,12 +1,12 @@
 ---
-title: NTUSTISC - AD Note - Lab(當前網域控制站(DC))
+title: NTUSTISC - AD Note - Lab(0x07當前網域控制站(DC))
 tags: [NTUSTISC, AD, information security]
 
 category: "Security Course｜NTUST ISC｜AD｜1. 環境調查Normal"
 date: 2024-01-31
 ---
 
-# NTUSTISC - AD Note - Lab(當前網域控制站(DC))
+# NTUSTISC - AD Note - Lab(0x07當前網域控制站(DC))
 <!-- more -->
 
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)

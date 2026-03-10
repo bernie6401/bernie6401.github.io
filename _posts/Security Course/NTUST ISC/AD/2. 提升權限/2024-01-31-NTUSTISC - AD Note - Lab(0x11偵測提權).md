@@ -1,15 +1,13 @@
 ---
-title: NTUSTISC - AD Note - Lab(偵測提權)
+title: NTUSTISC - AD Note - Lab(0x11偵測提權)
 tags: [NTUSTISC, AD, information security]
 
 category: "Security Course｜NTUST ISC｜AD｜2. 提升權限"
 date: 2024-01-31
 ---
 
-# NTUSTISC - AD Note - Lab(偵測提權)
+# NTUSTISC - AD Note - Lab(0x11偵測提權)
 <!-- more -->
-[TOC]
-
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCMCOy58LN&t=3600)
 
 ## Background

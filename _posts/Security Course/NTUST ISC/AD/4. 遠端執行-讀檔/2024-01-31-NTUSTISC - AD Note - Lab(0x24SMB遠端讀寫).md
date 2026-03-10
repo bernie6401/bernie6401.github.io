@@ -1,12 +1,12 @@
 ---
-title: NTUSTISC - AD Note - Lab(SMB遠端讀寫)
+title: NTUSTISC - AD Note - Lab(0x24 SMB遠端讀寫)
 tags: [NTUSTISC, AD, information security]
 
 category: "Security Course｜NTUST ISC｜AD｜4. 遠端執行-讀檔"
 date: 2024-01-31
 ---
 
-# NTUSTISC - AD Note - Lab(SMB遠端讀寫)
+# NTUSTISC - AD Note - Lab(0x24 SMB遠端讀寫)
 <!-- more -->
 Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz2CB-O-7S5d)
 
