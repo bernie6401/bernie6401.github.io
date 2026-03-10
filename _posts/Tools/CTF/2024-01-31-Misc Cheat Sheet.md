@@ -84,6 +84,19 @@ $ file [filename]
 
 ## Package
 * [Wireshark cheat sheet](https://packetlife.net/blog/2008/oct/18/cheat-sheets-tcpdump-and-wireshark/)
+    
+    |Type|eth|ip|tcp|udp|說明|
+    |---|---|---|---|---|---|
+    |dst|eth.dst == ff:ff:ff:ff:ff|ip.dst == 140. 134.4. 1|||目的 MAC/IP|
+    |src|eth.src == 00:e0:18:64;ce:f2|ip.src == 140.134. 30.72|||來源 MAC/IP|
+    |addr|eth.addr == ff:ff:ff:ff:ff|ip.addr == 140.134. 30.72|||MAC/IP 位址|
+    |proto||ip.proto == 0x06(TCP)<br>ip.proto == 0x01(ICMP)<br>ip.proto == 0x11 (UDP)|||下一層協定|
+    |type|eth.type == 0x800(IP)<br>eth.type == 0x806(ARP)||||下一層協定|
+    |port|||tcp.port == 23(Talnet)|ucp.port == 53|Port編號|
+    |dstport|||tcp.dstport == 80(HTTP)|ucp.dstport == 53(DNS)|目的Port|
+    |scrport|||tcp.scrport == 21(FTP)|ucp.scrport == 69(TSTP)|來源Port|
+
+
 * [`nmap`](http://www.osslab.tw/books/linux-administration/page/nmap-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E9%9B%86):
     ```bash
     $ sudo apt-get install nmap
@@ -100,6 +113,13 @@ $ file [filename]
 ## Brute Force Password
 * for WPA/Wifi based: [`aircrack-ng`](https://linuxhint.com/install_aircrack-ng_ubuntu/), [Wifite](https://ithelp.ithome.com.tw/articles/10280928)
 * for system user: [John the Ripper](https://ithelp.ithome.com.tw/articles/10300529)
+* 生成字典: [Crunch](https://www.kali.org/tools/crunch/)
+    ```bash
+    # crunch <min_length> <max_length> [charset]
+    $ crunch 4 4 # 生成所有 4 個字元的組合aaaa ~ zzzz
+    $ crunch 4 4 abc # 可以指定可使用的字元 aaaa ~ cccc
+    ```
+
 
 ## Sound
 * hide files: [MP3stego](https://www.petitcolas.net/steganography/mp3stego/)

@@ -89,16 +89,16 @@ date: 2024-06-14
 > HTTPS 把這件事變得有點麻煩。在 TCP 連線建立完成後，接著進行的是 TLS handshake ，這時候 Server 會需要回應一張證書給 client 。如果今天一個網站有一張以上的證書，事情就變得很麻煩，我到底要給哪一張。這時候沒辦法看 Host header ，原因是 TLS 會發生在 HTTP headers 訊息傳送之前。除非你可以預知未來，不然無法偷看到 Host header 。因此 SNI 要解決的問題，就是 server 不知道要給哪一張 certificate 的問題。SNI extensionSNI 是在 TLS handshake 的 client hello 規格部分加一個額外的欄位，裡面放的是 client 想訪問的域名。如此一來 server 就知道要回應哪一張證書了。
 > ![](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*IuBvaDxx276KOQi6QER_9w.png)
 
-## Access Control List(ACL)
+## Access Control List (ACL)
 資料來源: [善用存取控制清單 Cisco網路設備變身防火牆](https://www.netadmin.com.tw/netadmin/zh-tw/technology/8AA504183CD84FEC8B32701550A9CB52)
 >  眾所周知，防火牆可以透過設定來控制所通過的網路封包，以便於決定何種網路協定或何種埠的封包能夠通過，甚至可設定哪些來源端或目的地端套用這樣的設定。防火牆就是由許多這樣的規則所組成，以增加網路的安全性，而Cisco網路設備也可以提供這樣的功能，本文將示範如何設定Cisco路由器來當作網路防火牆。
 > 為了讓Cisco路由器擁有如防火牆般的功能，最重要的技術就是透過Access Control List來完成。Access Control List簡稱ACL，可稱為存取控制清單。
 > 簡單來說，存取控制清單包含一些規則，每一條規則可用來定義要允許或拒絕特定形式的網路封包，而這裡的特定形式，則包含網路協定的定義、來源端或目的地端的指定，或是埠的指定之類。接下來，說明Cisco路由器的存取控制清單的概念。 
 
-## What is IP/Subnet Mask/Default Gateway, ICMP, ARP, Broadcast Storm, Storage Area Network(SAN)
+## What is IP/Subnet Mask/Default Gateway, ICMP, ARP, Broadcast Storm, Storage Area Network (SAN)
 可以直接參考之前上的[PADNS筆記]({{base.url}}/A&D-of-Network-Security-Note/)
 
-## NAT(Network Address Translation)
+## NAT (Network Address Translation)
 是一種網路技術，用來 將一個 IP 位址轉換成另一個 IP 位址。最常見的用途是讓 多台內網裝置共享一個 Public IP 上網。
 > NAT 讓 private IP 可以透過 router 轉換成 public IP 與 Internet 通訊。
 
@@ -112,14 +112,14 @@ date: 2024-06-14
 ## ARP（Address Resolution Protocol）
 用來把IP address → MAC address
 
-## DHCP(Dynamic Host Configuration Protocol)
+## DHCP (Dynamic Host Configuration Protocol)
 DHCP（Dynamic Host Configuration Protocol） 的功能是自動分配網路設定，例如：
 * IP address
 * Subnet mask
 * Default gateway
 * DNS server
 
-## DNS(Domain Name System)
+## DNS (Domain Name System)
 DNS 用來把：domain → IP: `google.com → 142.250.x.x`
 
 ## 其他名詞解釋

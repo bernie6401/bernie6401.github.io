@@ -637,7 +637,7 @@ printf 系列 function 的 format string 可控的惡意利用，也就是如果
 * •% 可以直接指到第 N 個參數
 
 ## Network
-### ARP Spoofing 攻擊
+### ARP Spoofing
 * 攻擊者發送 假的 ARP reply：`192.168.1.1 is attacker_MAC`
 * 受害者就會更新 ARP table：`192.168.1.1 → attacker_MAC`
 * 結果：Victim → Attacker → Router，所有流量先經過 attacker。
@@ -654,7 +654,7 @@ printf 系列 function 的 format string 可控的惡意利用，也就是如果
 * 攻擊者讓受害者的 DNS 解析結果變成：`bank.com → attacker_IP`
 * 結果：使用者訪問：`bank.com`，卻被導向：`attacker server`
 
-### 攻擊結果
+#### 攻擊結果
 * Phishing
 * Credential stealing
 * Malware distribution
