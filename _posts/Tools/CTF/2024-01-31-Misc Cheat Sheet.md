@@ -10,13 +10,10 @@ date: 2024-01-31
 <!-- more -->
 
 ## CTF - Encode & Decode
-
-| Encode & Decode |
-| -------- |
-|[Free Online Barcode Reader](https://online-barcode-reader.inliteresearch.com/)|
-|[QR Code Barcode Reader Online](https://products.aspose.app/barcode/recognize/qr#/recognized)|
-| [Encoding](https://emn178.github.io/online-tools/index.html)|
-| [獸語](https://roar.iiilab.com/)|
+* [Free Online Barcode Reader](https://online-barcode-reader.inliteresearch.com/)
+* [QR Code Barcode Reader Online](https://products.aspose.app/barcode/recognize/qr#/recognized)
+* [Encoding](https://emn178.github.io/online-tools/index.html)
+* [獸語](https://roar.iiilab.com/)
 
 ## CTF - Check file info
 ```bash
@@ -359,6 +356,7 @@ $ file [filename]
 
 ### AD
 * [Ping Castle](https://www.pingcastle.com/): 這個工具可以幫AD環境做快速的稽核，然後會產生報表，讓使用者可以一目了然目前AD的狀況
+* Active Directory Users and Computers(ADUC): 可以看到整個網域使用者的部分資料，例如Name, Type和Description，而這個東西其實是所有整個網域使用者都看的到，所以不可以把機敏資料寫在這裡例如帳密之類的。本身不是獨立軟體，而是 Windows Server 的 RSAT（Remote Server Administration Tools）工具集的一部分。
 
 ## Sysinternal
 ### 系統操作與管理

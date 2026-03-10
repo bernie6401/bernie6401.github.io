@@ -129,5 +129,5 @@ Andree Suki
 Bear Brown
 ```
 
-* 帳密一、Lina Allene$\to$`r2NE4/9:F;[k`
-* 帳密二、Fara Iseabal$\to$`8F%kJ2q_cVFg`
+* 帳密一、Lina Allene → `r2NE4/9:F;[k`
+* 帳密二、Fara Iseabal → `8F%kJ2q_cVFg`
