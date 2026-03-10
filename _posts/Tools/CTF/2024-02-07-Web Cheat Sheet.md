@@ -36,6 +36,11 @@ date: 2024-02-07
     <data><ID>&xxe;</ID></data>
 ```
 
+* 如何預防: 
+    * 使用安全配置的 XML parser（如 Java 的 XMLInputFactory 關閉 DTD 與 external entities），因為xxe的攻擊前提在於開啟了不必要的兩個feature，讓attacker可以構造出一組讀取自創的DTD或是外部entity，達成LFI(算是?)
+    * 避免不必要的功能開啟
+    * 做好輸入驗證和最小權限策略
+
 #### XSS - [CheatSheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
 ```javascript
 </script><script>
@@ -114,7 +119,57 @@ fetch(`/getflag\)
 create一個偽造的payload和一個對外的中間server溝通，並讓這個中間server因為我的偽造payload而同意讓我和更裡面的內網server溝通，這樣我就打到inner server，如果有preview card這樣的網站要特別注意有沒有SSRF的問題
 * 利用gopher協議建一個偽造payload
 
-### Upload: 
+* 如何預防:
+    * 限制可訪問的 URL / IP 範圍(使用whitelist)
+    * 避免解析內部 IP → 防止攻擊者透過 URL 指向內網或 localhost (127.0.0.1) 服務。
+    * 使用安全的 HTTP client → 設定 timeout、最大連線數、禁用不必要的協議（FTP、file://、gopher:// 等）。
+    * 對特殊情境使用代理 / sandbox
+
+### CSRF(Cross-Site Request Frogery)
+* [[Day25]- 新手的Web系列CSRF](https://ithelp.ithome.com.tw/articles/10251769)
+> 1. 使用者登入網站
+> 2. 使用者透過身份驗證在本機形成cookie
+> 3. 使用者點擊含有惡意程式的連結，或是直接連結了第三方網站，並瀏覽了帶有以下html程式碼的網頁：`<img src=http://www.***.com/transfer.php?id=5&money=22>`
+> 4. 惡意程式碼利用使用者的身份發請求，即執行CSRF
+> 5. 使用者的帳號少錢錢勒QQ
+>
+> ![](https://i.imgur.com/gwCvSqZ.png)
+> 
+> 常見的CSRF方法
+> * HTML標籤
+>    * `<img>`標籤屬性
+>        ```html
+>        <img src="惡意連結">
+>        ```
+>        以GET方式請求第三方網站，瀏覽器會帶上使用者的cookie發出GET請求
+>    
+>    * `<script>`標籤屬性
+>        ```javascript
+>        `<script src="惡意連結">`
+>        ```
+>    * `<iframe>`標籤屬性
+>        ```html
+>        `<iframe src="惡意連結">`
+>        ```
+
+也就是他和XSS的其中一個目的有點像，那就是偷到使用者的cookie/session，只是方式不同，一個是利用javascript的injection，一個則是利用釣魚或其他的方式迫使使用者**點開**惡意網站，並且冒用使用者的身份對原本使用者正在使用的網站進行各種request，如果該網站沒有對user進行額外的身份驗證，那們光靠user cookie/session就有機會達成轉帳、發文之類的操作
+
+#### 如何預防CSRF
+* CSRF Token: 這是最簡單的方式，既然attacker可以透過惡意網站得到victim的cookie，那我就額外在server side多一個驗證token的步驟，而該token無論如何都不會被attacker利用惡意網站得知，就可以確保目前的request是不是本人，而為什麼CSRF token無法被attacker得知呢?核心原因在於 Same-Origin Policy (SOP)。這是瀏覽器的安全機制，規定：
+    > JavaScript 或網頁只能讀取**同一來源（protocol + domain + port）**的資源，不能跨域讀取其他網站的內容。
+
+    所以，attacker的惡意網站並不會得知user在a.com這個網域的token，應該說原本就是這樣設計的，所以除非attacker**現場**看到受害者的browser content，才能得知CSRF Token
+* SameSite Cookie
+    
+    就是設定cookie
+    > Set-Cookie: sessionid=abc123; SameSite=Strict
+
+    SameSite的效果是跨網站 request 不會帶 cookie，那麼同樣的就算victim點開malicious website，也一樣不會被對方讀取到cookie
+* 敏感操作使用 POST
+
+    前面的payload範例有提到很多都是透過GET qeury進行惡意操作，那麼我們只要把敏感操作都利用POST的方式處理，就可以大大降低CSRF發生的情況
+
+### Upload
 * 如果沒有任何保護: 直接upload webshell.php(`<?php system($_GET["sh"]); ?>`)達到RCE
 * 如果有保護但只看extension: 那就偽造extension後夾帶webshell達到RCE(`webshell.png.php`)
 * bypass `IMAGETYPE`(加入合法的File Signature) + bypass file type(修改封包header)

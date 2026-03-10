@@ -635,3 +635,46 @@ printf 系列 function 的 format string 可控的惡意利用，也就是如果
 * 若該值為 addr 可透過 `%s` 輸出該地址的 value
 * 可以 自行在 stack 上寫入 addr 來做到任意 leak
 * •% 可以直接指到第 N 個參數
+
+## Network
+### ARP Spoofing 攻擊
+* 攻擊者發送 假的 ARP reply：`192.168.1.1 is attacker_MAC`
+* 受害者就會更新 ARP table：`192.168.1.1 → attacker_MAC`
+* 結果：Victim → Attacker → Router，所有流量先經過 attacker。
+
+#### 攻擊效果
+* MITM（Man in the Middle）
+* 竊聽流量
+* 修改流量
+* Session hijacking
+* SSL stripping
+* DoS
+
+### DNS Spoofing（DNS Cache Poisoning）
+* 攻擊者讓受害者的 DNS 解析結果變成：`bank.com → attacker_IP`
+* 結果：使用者訪問：`bank.com`，卻被導向：`attacker server`
+
+### 攻擊結果
+* Phishing
+* Credential stealing
+* Malware distribution
+
+#### 防禦方法
+* DNSSEC
+* HTTPS / HSTS
+* DNS query randomization
+* 不使用不可信 DNS server
+
+### DHCP Spoofing
+在同一個 LAN 中，攻擊者架設一個 假的 DHCP server。當 victim 連上網路時：`Victim → DHCP Discover`，攻擊者比真正 DHCP server 更快回應：`Attacker → DHCP Offer`，victim 就會接受 attacker 提供的設定。
+
+#### 攻擊者可以控制什麼
+攻擊者可以指定：
+* Gateway
+* DNS server
+* IP address
+
+#### 後續的攻擊手法
+* MITM attack: 篡改封包
+* DNS Spoofing
+* DoS: 給 victim 一個錯誤 gateway：`Gateway = 0.0.0.0`

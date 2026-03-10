@@ -73,8 +73,4 @@ date: 2024-05-10
 
 
 ### Problem & Solved
-:::info
 If you can not install `dsniff`, you may update and upgrade the whole system with command `sudo apt-get update; sudo apt-get upgrade`(It may take lot's of time to finish the work)
-:::
-
-## DNS SPOOFING

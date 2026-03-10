@@ -6,33 +6,33 @@ category: "Terminology"
 date: 2024-06-14
 ---
 
-# What is HTTP/SSH Tunnel, TLS/SSL, WebSocket?
+# Network Related
 <!-- more -->
 在讀When TLS Meets Proxy on Mobile[^paper]這篇paper的時候一直提到這些觀念，有時候會差點搞混中間的意思
 
 ## SSL Tunnel
 根據[SSH Tunneling (Port Forwarding) 詳解 ](https://johnliu55.tw/ssh-tunnel.html)的說明:
 > Tunneling 指的是將網路上的 A、B 兩個端點用某種方式連接起來，形成一個「隧道」，讓兩端的通訊能夠穿透某些限制（例如防火牆），或是能將通訊內容加密避免洩漏。而 SSH Tunneling 就是指利用 SSH 協定來建立這個隧道
-> ![](https://johnliu55.tw/ssh-tunnel/images/tunneling.png =400x)
+> ![](https://johnliu55.tw/ssh-tunnel/images/tunneling.png)
 
 有分成以下三種，以下接取自[^link1]的說明，但不特別解釋，原文也有補充很多實際如何使用的Command和教學
 * Local Port Forwarding
     * 使用情境一：連到位在防火牆後的開發伺服器上的服務
-        ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario1_problem.png =400x)
-        ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario1_solved.png =400x)
+        ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario1_problem.png)
+        ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario1_solved.png)
     * 使用情境二：透過防火牆後的機器，連到防火牆後的特定服務
-        ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario2_problem.png =400x)
-        ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario2_solved.png =400x)
+        ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario2_problem.png)
+        ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario2_solved.png)
 * Remote Port Forwarding
     * 使用情境一：透過對外機器，讓其他人能夠連到你的電腦上的服務
-        ![](https://johnliu55.tw/ssh-tunnel/images/remote_scenario1_problem.png =400x)
-        ![](https://johnliu55.tw/ssh-tunnel/images/remote_scenario1_solved.png =400x)
+        ![](https://johnliu55.tw/ssh-tunnel/images/remote_scenario1_problem.png)
+        ![](https://johnliu55.tw/ssh-tunnel/images/remote_scenario1_solved.png)
     * 使用情境二：透過對外機器，從外面連回內部網路上的服務
-        ![](https://johnliu55.tw/ssh-tunnel/images/remote_scenario2_problem.png =400x)
-        ![](https://johnliu55.tw/ssh-tunnel/images/remote_scenario2_solved.png =400x)
+        ![](https://johnliu55.tw/ssh-tunnel/images/remote_scenario2_problem.png)
+        ![](https://johnliu55.tw/ssh-tunnel/images/remote_scenario2_solved.png)
 * Dynamic Port Forwarding
     * 使用情境：建立一個 HTTP 代理伺服器連到內網的所有 HTTP(S) 服務
-        ![](https://johnliu55.tw/ssh-tunnel/images/dynamic.png =400x)
+        ![](https://johnliu55.tw/ssh-tunnel/images/dynamic.png)
 
 ## HTTP Tunnel
 根據[http tunnel 原理及穿透防火牆方法](http://www.wiseuc.com/facontent.php?id=903)中提到的說明，其實和上述的SSH Tunnel的原理和功能差不多，只是建立tunnel的Port變成HTTP的80為主
@@ -61,7 +61,7 @@ date: 2024-06-14
 > ![](https://imgur.com/WurUgR9.png)
 
 如果只在意這是什麼的話，那只要注意上半部就可以了，他和傳統的HTTP協定差異如下，HTTP協定必須要一來一回互相傳遞資料，但WebSocket只需要Handshake一次就可以開始互相主動傳遞資料，是HTML5提供的一種新的網路傳輸協定:
-![](https://i.imgur.com/S3Mhxau.png =400x)
+![](https://i.imgur.com/S3Mhxau.png)
 > 參考資料：https://hackmd.io/@Heidi-Liu/javascript-websocket
 
 ## Socket
@@ -73,11 +73,10 @@ date: 2024-06-14
 在[^socket1]有說明如何寫socket，以及更詳細的說明何為socket，有需要可以直接看內文的範例
 > ![](http://i.imgur.com/cqr4O2P.png =300x)
 
-# What is Subject Alternative Name(SAN), Server Name Indication(SNI)
 ## SAN
 資料來源: [使用 openssl 制作一個包含 SAN（Subject Alternative Name）的證書](https://www.z01.com/help/https/3173.shtml)
 > SAN(Subject Alternative Name) 是 SSL 標準 x509 中定義的一個擴展。使用了 SAN 字段的 SSL 證書，可以擴展此證書支持的域名，使得一個證書可以支持多個不同域名的解析。先來看一看 Google 是怎樣使用 SAN 證書的，下面是 Youtube 網站的證書信息：
-> ![6363260315098898213519066](https://hackmd.io/_uploads/rkY-awtBR.png =400x)
+> ![6363260315098898213519066](https://hackmd.io/_uploads/rkY-awtBR.png)
 > 這里可以看到這張證書的 Common Name 字段是 \*.google.com，那麽為什麽這張證書卻能夠被 www.youtube.com 這個域名所使用呢。原因就是這是一張帶有 SAN 擴展的證書，下面是這張證書的 SAN 擴展信息：
 > ![6363260315666115456453456](https://hackmd.io/_uploads/H1DfTwYHA.png =300x)
 > ![6363260316281773611299520](https://hackmd.io/_uploads/SJmm6vKBA.png =300x)
@@ -96,13 +95,34 @@ date: 2024-06-14
 > 為了讓Cisco路由器擁有如防火牆般的功能，最重要的技術就是透過Access Control List來完成。Access Control List簡稱ACL，可稱為存取控制清單。
 > 簡單來說，存取控制清單包含一些規則，每一條規則可用來定義要允許或拒絕特定形式的網路封包，而這裡的特定形式，則包含網路協定的定義、來源端或目的地端的指定，或是埠的指定之類。接下來，說明Cisco路由器的存取控制清單的概念。 
 
-## Reference
-[^paper]:Debnath, J., Chau, S. Y., & Chowdhury, O. (2020). When tls meets proxy on mobile. In Applied Cryptography and Network Security: 18th International Conference, ACNS 2020, Rome, Italy, October 19–22, 2020, Proceedings, Part II 18 (pp. 387-407). Springer International Publishing.
-[^link1]:[SSH Tunneling (Port Forwarding) 詳解 ](https://johnliu55.tw/ssh-tunnel.html)
-[^socket1]:[ TCP Socket Programming 學習筆記 ](http://zake7749.github.io/2015/03/17/SocketProgramming/)
-[^socket2]:[【筆記】Socket，Websocket，Socket.io的差異 ](https://leesonhsu.blogspot.com/2018/07/socketwebsocketsocketio.html)
+## What is IP/Subnet Mask/Default Gateway, ICMP, ARP, Broadcast Storm, Storage Area Network(SAN)
+可以直接參考之前上的[PADNS筆記]({{base.url}}/A&D-of-Network-Security-Note/)
 
-# 其他名詞解釋
+## NAT(Network Address Translation)
+是一種網路技術，用來 將一個 IP 位址轉換成另一個 IP 位址。最常見的用途是讓 多台內網裝置共享一個 Public IP 上網。
+> NAT 讓 private IP 可以透過 router 轉換成 public IP 與 Internet 通訊。
+
+### NAT 與 Port Forwarding
+
+| 技術              | 方向      |
+| --------------- | ------- |
+| NAT             | 內網 → 外網 |
+| Port Forwarding | 外網 → 內網 |
+
+## ARP（Address Resolution Protocol）
+用來把IP address → MAC address
+
+## DHCP(Dynamic Host Configuration Protocol)
+DHCP（Dynamic Host Configuration Protocol） 的功能是自動分配網路設定，例如：
+* IP address
+* Subnet mask
+* Default gateway
+* DNS server
+
+## DNS(Domain Name System)
+DNS 用來把：domain → IP: `google.com → 142.250.x.x`
+
+## 其他名詞解釋
 * [Day16-分散式系統溝通的方法-RPC](https://ithelp.ithome.com.tw/articles/10223580)
 * [FTP](https://experience.dropbox.com/zh-tw/resources/what-is-ftp)
 * [WebDAV](https://experience.dropbox.com/zh-tw/resources/what-is-ftp)
@@ -111,3 +131,9 @@ date: 2024-06-14
 * [API VS Method VS Library](http://thecodingtime.blogspot.com/2014/02/apimethodlibrary.html)
 * [RAID 0, 1, 0+1, 1+0, 5, 6](https://raidnas.tw/hsinchu-nas-raid-explain-rescue/)
 * [HttpOnly](https://devco.re/blog/2014/06/11/setcookie-httponly-security-issues-of-http-headers-3/)
+
+## Reference
+[^paper]:Debnath, J., Chau, S. Y., & Chowdhury, O. (2020). When tls meets proxy on mobile. In Applied Cryptography and Network Security: 18th International Conference, ACNS 2020, Rome, Italy, October 19–22, 2020, Proceedings, Part II 18 (pp. 387-407). Springer International Publishing.
+[^link1]:[SSH Tunneling (Port Forwarding) 詳解 ](https://johnliu55.tw/ssh-tunnel.html)
+[^socket1]:[ TCP Socket Programming 學習筆記 ](http://zake7749.github.io/2015/03/17/SocketProgramming/)
+[^socket2]:[【筆記】Socket，Websocket，Socket.io的差異 ](https://leesonhsu.blogspot.com/2018/07/socketwebsocketsocketio.html)
