@@ -9,15 +9,13 @@ date: 2024-05-14
 # DeepLog: Anomaly Detection and Diagnosis from System Logs through Deep Learning
 <!-- more -->
 ###### tags: `Meeting Paper` `NTU`
-:::info
+
 Du, M., Li, F., Zheng, G., & Srikumar, V. (2017, October). Deeplog: Anomaly detection and diagnosis from system logs through deep learning. In Proceedings of the 2017 ACM SIGSAC conference on computer and communications security (pp. 1285-1298).
-:::
 
 ## Background
-
 Model - Log Parser
-[Longest Common Subsequence(LCS)](https://web.ntnu.edu.tw/~algo/Subsequence2.html)
-[認識 OpenStack](https://www.redhat.com/zh-tw/topics/openstack)
+* [Longest Common Subsequence(LCS)](https://web.ntnu.edu.tw/~algo/Subsequence2.html)
+* [認識 OpenStack](https://www.redhat.com/zh-tw/topics/openstack)
 
 ---
 

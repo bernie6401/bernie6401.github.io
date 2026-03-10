@@ -142,5 +142,3 @@ $ file [filename]
 * [All stego encrypt tools](https://tools.miku.ac/)
 * [ctf tool](http://www.ctftools.com/)
 * [Other people's note](https://w1a2d3s4q5e6.blogspot.com/2016/06/blog-post.html)
-
-

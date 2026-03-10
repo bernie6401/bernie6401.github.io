@@ -8,9 +8,9 @@ date: 2024-06-20
 
 # Identifying vulnerabilities of SSL_TLS certificate verification in Android apps with static and dynamic analysis
 <!-- more -->
-:::info
+
 Wang, Y., Xu, G., Liu, X., Mao, W., Si, C., Pedrycz, W., & Wang, W. (2020). Identifying vulnerabilities of SSL/TLS certificate verification in Android apps with static and dynamic analysis. Journal of Systems and Software, 167, 110609.
-:::
+
 這一篇論文對我要做的東西非常類似，雖然本質上不一樣但有很多的觀點以及解決方式是可以參照的
 
 ## Introduction
@@ -50,10 +50,8 @@ Wang, Y., Xu, G., Liu, X., Mao, W., Si, C., Pedrycz, W., & Wang, W. (2020). Iden
 ## Proposed Method
 整體的分析流程如下，首先給定一個App，然後先進行靜態分析，並且分析取得的smali code，用一開始定義的演算法以及漏洞方法，找到潛在的漏洞，並且把vulnerable activity給動態分析，實際安裝與執行後，利用MITM工具攔截流量，並使用VPNService捕獲智能手機上的流量。最後，我們通過比較智慧手機和攻擊工具之間的流量來確認那些真正易受攻擊的應用程式。
 ![圖片](https://hackmd.io/_uploads/SkfW7I6SC.png)
-'
 
 ### 如何定義潛在的易受攻擊代碼並觸發它們
-
 #### 如何定義vulnerable method
 1. X509TrustManager: 如果開發者有擴充這個class，他就會實際的看==checkClientTrusted==和==checkServerTrusted==這兩個method，如果這兩個method只有`return void`這一行code，那就代表這個App信任具有X509TrustManager 介面的所有證書，那當然就是有問題的地方
 2. HostNameVerifier: 先檢查HostNameVerifier有沒有被實作，如果有就往下檢查==verify== method，他直接查看這個方法如果第一行是const開頭，第二行直接return的話，就代表他沒有檢查Domain Name，也一樣是有問題的
@@ -62,9 +60,10 @@ Wang, Y., Xu, G., Liu, X., Mao, W., Si, C., Pedrycz, W., & Wang, W. (2020). Iden
 
 #### 如何判斷這些vulnerable method會被觸發
 1. Vulnerable Method最後會被誰call到
+    
     這段演算法的目的是通過遍歷Method Call Graph，找到所有可能調用Vulnerable Method的入口點方法，這些入口點方法是應用啟動時首先執行的方法或初始化方法。這樣可以幫助開發者了解潛在的Vulnerable Method是如何被call的，在動態分析階段優先考慮這些entry point，以便執行它們。這個演算法的概念是，從vulnerable method的角度出發一直往上走(看誰有call到)，比方說A call B, B call C, C call vulnerable method v1，而因為A是最後一個和VM有關係的class，那就直接看A裡面的constructor，並且向剛剛一樣，不斷往上看誰call了這個class method，找到最後，如果有一個class constructor是沒有被app任何一個code所呼叫，代表他一定是被系統所呼叫，這樣的話這個constructor就是我們要找的entry point
     演算法:
-    ```=
+    ```
     Require: MCG : Method Call Graph,VM : Vulnerable Method 
     Ensure: Result : Set of Entry Point Methods 
     function FindFinalCaller ( MCG, VM ) 
@@ -85,9 +84,10 @@ Wang, Y., Xu, G., Liu, X., Mao, W., Si, C., Pedrycz, W., & Wang, W. (2020). Iden
     end function
     ```
 2. 取得Entry Activity: 建立Activity Call Graph(ACG)
+    
     這個psuedo code的主要目的是構建一個Activity Call Graph，識別從任意Activity到包含潛在Vulnerable View的Activity的所有可能路徑。這對於安全分析和優化應用程序的設計非常有用。通過這樣的Call Graph，開發者可以清晰地了解應用程序的Activity之間的跳轉關系，尤其是涉及到Vulnerable View的路徑，從而有針對性地進行安全防護和性能優化。一些複雜的事件（如Swipe和長按）會被忽略，因為它們不太可能觸發 HTTPS 連接
     演算法: 
-    ```=
+    ```
     Input: AndroidManifest.xml potientalVulnerableViews
     Output: ActivityCallGraph(ACG)
     function BuildACG(potientalVulnerableViews, AndroidManifest.xml)
@@ -124,7 +124,7 @@ UI自動化元件有三個任務:
 為了避免相似的view重複被執行，所以用了另外一個演算法找出類似的view，以及最多只取前四個
 ![螢幕擷取畫面 2024-06-17 161914](https://hackmd.io/_uploads/B1A1zOTrA.png)
 如果一個元件繼承自同一個父元件，並且具有相同的屬性（例如相同的大小、顏色等），那麼我們就認為它們是相同的
-```=
+```
 Require: Views 
 Ensure: Set of Vulnerable Views 
 function SimilarViewsFinder (Views) 
@@ -165,15 +165,13 @@ end function
 方法是讀取`/proc/net/tcp`和`/proc/net/tcp6`檔案來取得PID的IP及其URL。使用UsageStatsManager class可以取得目前正在執行的應用程式的PID。 PackageManager class可以取得PID和app之間的對應關係。這樣我們就可以得到每個HTTPS流量和應用程式之間的對應關係。透過比較智慧型手機和MITM攻擊工具所獲得的HTTPS流量，可以確認存在漏洞的應用程式。我們開發了一款Android流量抓取工具來實現這個功能。
 
 ## Experiment
-
 ### Dataset
 從360app和google play商店中分別於2018/12以及2016/06取得1253 apps和960 apps，特別說明，他們把超過100M的app刪除，因為大部分這些app都是複雜的遊戲程式，在動態測試時會頻繁的crash
 ![圖片](https://hackmd.io/_uploads/HkY1KOaHA.png)
 
 ### Static Analysis
-:::warning
 這個table在設計上有誤，他把360app和google play下面的底線標錯了，360app應該是包含前面的count和他底下的percentage，而圖片上包含的count是屬於google play，至於google paly包含的count則是360app和google play兩者相加的結果
-:::
+
 靜態分析的結果如下，總共有30/2213(1.36%)的App無法disassembly，並且有 457 個 （20.65%） 應用程式具有潛在的易受攻擊代碼，這些應用程式被認為具有潛在的證書驗證漏洞。
 ![圖片](https://hackmd.io/_uploads/rJFitdaHA.png=500x)
 作者把以上的結果和之前的工具AndroBugs, kingkong and appscan進行比較，結果如下，AndroBugs 在靜態檢測的檢測精度方面略優於DCDroid。但是，在沒有動態檢測的情況下，它會生成大量誤報。至於kingkong和appscan，DCDroid在靜態檢測的檢測精度方面更好。此外，他們無法檢測到 HostNameVerifier 漏洞。這兩個工具還包含許多誤報。因此，DCDroid 在靜態檢測階段並不是最好的。但是，DCDroid 的**主要優點是我們可以動態運行應用程式並刪除誤報**

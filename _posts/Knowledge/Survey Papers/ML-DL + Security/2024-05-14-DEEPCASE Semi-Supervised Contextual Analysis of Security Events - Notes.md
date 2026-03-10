@@ -9,23 +9,25 @@ date: 2024-05-14
 # DEEPCASE Semi-Supervised Contextual Analysis of Security Events - Notes
 <!-- more -->
 ###### tags: `Meeting Paper` `NTU`
-:::info
 Van Ede, T., Aghakhani, H., Spahn, N., Bortolameotti, R., Cova, M., Continella, A., ... & Vigna, G. (2022, May). Deepcase: Semi-supervised contextual analysis of security events. In 2022 IEEE Symposium on Security and Privacy (SP) (pp. 522-539). IEEE.
-:::
 
 ## Background
 [What is NSM(Network Security Monitors)?](https://ithelp.ithome.com.tw/articles/10202297)
 > NSM主要目的是偵測、找出入侵者，提高能見度。它建立在「我們一定會被攻擊，而且最終防禦一定會被突破」的思惟上。假設意志堅決的駭客最終打穿我們辛苦建立的防禦，但只要能在入侵者進一步破壞、感染系統前偵測、做出回應，讓入侵者無法達到目的，便能阻擋這波攻擊
-
+> 
 > NSM不是等接收IDS/IPS等等資安設備觸發警示後才開始收集，而是平時便預先主動收集資料，提供NSM平台審視、分析，強化可見度，主動找出入侵軌跡
+
 ---
+
 [What is IDS(Intrusion Detection Systems)?](https://www.ithome.com.tw/tech/28712)
 > 入侵偵測系統（Intrusion Detection System，IDS）是用來偵測資訊系統或網路上潛在的惡意破壞活動
 
 * 網路型入侵偵測系統(NIDS):主要是由一個或多個偵測器，加上收集與分析資料的主控臺所組成，可以分析每個通過的網路封包，並與已知的攻擊特徵進行比對，如果符合某項攻擊特徵，系統就會啟動防護機制，例如發簡訊或命令防火牆中斷該連線。
 * 主機型入侵偵測系統(HIDS):是從主機系統稽核日誌檔演進而來，必須在主機上安裝代理程式﹙Agent﹚，負責監視主機內部的程序，並監控記錄檔與可疑活動，若有任何系統事件都會被記錄至日誌檔，並與攻擊特徵資料庫比對，判斷主機是否遭到攻擊
 * 誘捕型入侵偵測系統(Deception Systems):目的是偵測未經授權的活動，任何進出誘捕系統的封包都會被認定是可疑的。但它卻是受到爭議的產品，有些廠商認為誘捕型系統只適合學術研究，因為它誘導駭客上勾，因此收集的證據無法用來起訴駭客
+
 ---
+
 Basic security event checking workflow
 ```mermaid
 graph TD;
@@ -64,25 +66,25 @@ e.g. `https://www.example.com.tw/index.html
 ---
 
 Model Background
-[NTU ADL - Attention Mechanism 注意力機制](https://youtu.be/YJYcMLq1_f4)
-[NTU ML - 自注意力機制 (Self-attention) (上)](https://youtu.be/hYdO9CscNes)
-[NTU ML - 自注意力機制 (Self-attention) (下)](https://youtu.be/gmsMY5kc-zw)
-[NTU ML - 自編碼器 (Auto-encoder) (上) – 基本概念](https://youtu.be/3oHlf8-J3Nc)
-[NTU ML - 自編碼器 (Auto-encoder) (下)](https://youtu.be/JZvEzb5PV3U)
-[GRU VS LSTM](https://tengyuanchang.medium.com/比較長短期記憶模型-lstm-與改良後的遞歸神經網路模型-gru-813dec22ec6d)
+* [NTU ADL - Attention Mechanism 注意力機制](https://youtu.be/YJYcMLq1_f4)
+* [NTU ML - 自注意力機制 (Self-attention) (上)](https://youtu.be/hYdO9CscNes)
+* [NTU ML - 自注意力機制 (Self-attention) (下)](https://youtu.be/gmsMY5kc-zw)
+* [NTU ML - 自編碼器 (Auto-encoder) (上) – 基本概念](https://youtu.be/3oHlf8-J3Nc)
+* [NTU ML - 自編碼器 (Auto-encoder) (下)](https://youtu.be/JZvEzb5PV3U)
+* [GRU VS LSTM](https://tengyuanchang.medium.com/比較長短期記憶模型-lstm-與改良後的遞歸神經網路模型-gru-813dec22ec6d)
 
 ---
 
 Model Trick
-[Label Smooth](https://medium.com/aiot-taipei/training-trick-label-smoothing-93833db95ef8)
-[KL Divergence](https://roger010620.medium.com/關於深度學習中的loss-function-entropy-cross-entropy-kl-divergence-and-f-divergence-3e997f293b2)
-[DBSCAN](https://pyecontech.com/2020/07/15/dbscan/)
+* [Label Smooth](https://medium.com/aiot-taipei/training-trick-label-smoothing-93833db95ef8)
+* [KL Divergence](https://roger010620.medium.com/關於深度學習中的loss-function-entropy-cross-entropy-kl-divergence-and-f-divergence-3e997f293b2)
+* [DBSCAN](https://pyecontech.com/2020/07/15/dbscan/)
 
 ---
 
 Experience Metrics
-[Precision, Recall, F1-score, Accuracy](https://ycc.idv.tw/confusion-matrix.html)
-[Homogeneity Score](https://blog.csdn.net/u010159842/article/details/78624135)
+* [Precision, Recall, F1-score, Accuracy](https://ycc.idv.tw/confusion-matrix.html)
+* [Homogeneity Score](https://blog.csdn.net/u010159842/article/details/78624135)
 
 ---
 

@@ -20,9 +20,9 @@ Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbo
 
 ## 主要流程
 1. 其實很簡單，就是2個東西合併，一個是可以儲存過往測試的流程中，event和activity之間的關係(transitions)，該機率模型就是在記憶每一次的測試round中，獲得的一些knowledge，比方說哪一個哪些event會跑到哪個activity之類的；
-> 旨在根據曾經探索的頁面的情況，對當前的備選組件進行挑選，從中選出最有可能觸發未曾探索過的頁面的組件，也就更有可能提升測試結果的 Activity 覆蓋率
+    > 旨在根據曾經探索的頁面的情況，對當前的備選組件進行挑選，從中選出最有可能觸發未曾探索過的頁面的組件，也就更有可能提升測試結果的 Activity 覆蓋率
 
-另一個就是決定如何event的RL agent
+    另一個就是決定如何event的RL agent
 3. a1~a3: 擷取apk檔案中的valid text(static text labels widgets)；接著安裝在手機上，如果之前有測試過就把相關紀錄以及儲存的東西提取出來給機率模型
 4. b1~b6: 首先把目前的GUI畫面傳給hyper-event abstractor，這樣就會知道目前畫面有哪些event可以觸發，接著藉由機率模型以及RL agent選擇一個event，並且實際執行，最後把下一個畫面的資訊同步更新給機率模型以及historical data中，重複b1~b6的步驟直到時間結束
 

@@ -1,12 +1,12 @@
 ---
-title: Reinforcement Learning
+title: Reinforcement Learning Related
 tags: [名詞解釋]
 
 category: "Terminology"
 date: 2025-03-07
 ---
 
-# Reinforcement Learning
+# Reinforcement Learning Related
 <!-- more -->
 
 ## 什麼是RL

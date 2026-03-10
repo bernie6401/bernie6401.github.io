@@ -21,12 +21,10 @@ pip install pyautogui
 pip install selenium
 ```
 
-
 ## Some Set-Up
 1.	Make sure your web driver is the latest version. You can download it here(https://chromedriver.chromium.org/)
 2.	Make sure your desktop is the idle one in your home that you'll not use it for a while.
 3.	Make sure your desktop language keyboard is for English.
-
 
 ## Something can solve in the future
 * The content data you download may not be the same as the latest because I just verify the hot news title before downloading.(Solved, I refresh the news_list.txt every day and then the page with the same title will download again.)

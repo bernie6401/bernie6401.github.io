@@ -1,11 +1,12 @@
 ---
-title: 'What is DevOps, MLOps, CI/CD?'
+title: 'IT Development Related'
 tags: [名詞解釋]
 
 category: "Terminology"
 date: 2024-05-14
 ---
 
+# IT Development Related
 ## [什麼是 DevOps？](https://ithelp.ithome.com.tw/articles/10184557)
 > DevOps 簡而言之，就是 Development + Operations ，也就是開發與維運。但大部分的文章都會說是「開發」「測試」「維運」三者的結合。如同下面這張圖想表示的意義一樣，當三者有了交集，即是 DevOps
 > <img src="/assets/posts/Terminology/Wiki DevOps.png" width=300>

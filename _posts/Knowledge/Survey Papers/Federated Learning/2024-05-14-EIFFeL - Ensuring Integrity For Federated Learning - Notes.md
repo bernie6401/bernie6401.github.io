@@ -9,9 +9,9 @@ date: 2024-05-14
 # EIFFeL: Ensuring Integrity For Federated Learning - Notes
 <!-- more -->
 ###### tags: `Meeting Paper` `NTU`
-:::info
+
 Roy Chowdhury, A., Guo, C., Jha, S., & van der Maaten, L. (2022, November). Eiffel: Ensuring integrity for federated learning. In Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (pp. 2535-2549).
-:::
+
 
 ## Background
 * [聯邦學習的簡單介紹](https://medium.com/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9F%A5%E8%AD%98%E6%AD%B7%E7%A8%8B/%E8%81%AF%E9%82%A6%E5%AD%B8%E7%BF%92%E7%9A%84%E7%B0%A1%E5%96%AE%E4%BB%8B%E7%B4%B9-776924277d13)
@@ -49,6 +49,7 @@ Roy Chowdhury, A., Guo, C., Jha, S., & van der Maaten, L. (2022, November). Eiff
     >Overall, secret-shared non-interactive proofs are an important tool in modern cryptography for enabling secure and private computation in collaborative settings.
 
     ---
+
     Example:
     >Suppose that Alice, Bob, and Charlie each have a secret number, x, y, and z respectively, and they want to compute the sum of their three numbers without revealing their individual inputs to each other.
     >
@@ -60,7 +61,6 @@ Roy Chowdhury, A., Guo, C., Jha, S., & van der Maaten, L. (2022, November). Eiff
     >
     >Overall, this example demonstrates how secret-shared non-interactive proofs can be used to enable secure and private multi-party computation.
 
-    :::spoiler Chinese Version
     秘密共享的非交互式證明是一種加密協議，它允許多方共同證明一個計算的正確性，而不透露任何關於他們輸入的私人信息。
 
     在秘密共享的非交互式證明中，計算被分為多個部分，每一方都持有計算的輸入和輸出的份額。然後，各方可以通過互相交換消息來共同證明計算的正確性，而不透露他們在輸入和輸出中的份額。
@@ -79,7 +79,6 @@ Roy Chowdhury, A., Guo, C., Jha, S., & van der Maaten, L. (2022, November). Eiff
     一旦證明完成，他們就可以使用共享值來計算他們三個秘密數字的總和，而不透露任何關於他們個人輸入的信息。
 
     總的來說，這個例子展示了秘密共享的非交互式證明如何被用來實現安全和隱私的多方計算。
-    :::
     
 * [What is Probabilistic Polynomial Time?](https://blog.csdn.net/cw397265362/article/details/121385234)
     > A probabilistic polynomial-time (PPT) algorithm A is an algorithm that runs in polynomial time but also has access to some oracle which provides true random bits. So if we input x into A, instead of getting an output y=A(x) that is a deterministic value, we get a random variable Y which has a certain probability of being a set of different values.
