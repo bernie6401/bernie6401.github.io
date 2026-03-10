@@ -7,7 +7,6 @@ date: 2024-05-14
 ---
 
 ## [什麼是 DevOps？](https://ithelp.ithome.com.tw/articles/10184557)
-:::spoiler 
 > DevOps 簡而言之，就是 Development + Operations ，也就是開發與維運。但大部分的文章都會說是「開發」「測試」「維運」三者的結合。如同下面這張圖想表示的意義一樣，當三者有了交集，即是 DevOps
 > ![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Devops.svg/512px-Devops.svg.png)
 > #### DevOps 想要達成的目標為何？
@@ -27,12 +26,10 @@ DevOps 到底在做什麼？
 > 這是了解 DevOps 概念的好方向之一。
 
 ## [什麼是MLOps？-30 Days of MLOps](https://ithelp.ithome.com.tw/articles/10238335)
-:::spoiler 
 > 用最短的一句話來解釋它的話，MLOps 就是 Machine Learning 的 DevOps
 > 在 Machine Learning 團隊中，除了資料科學家、資料工程師、DevOps 工程師作為固定班底外，協作單位還有產品經理、後端工程師等等。我們要讓所有人可以彼此良好的協作，這需要依賴更好的維運架構。除了最直覺想到的 Model 部署外，常見的挑戰還有例如：訓練 Model、測試與分析 Model、資料的預處理等等。
 > ![](https://github.com/alincode/30-days-of-mlops/raw/master/assets/mlops-collenges.png)
 * [CI/CD是什麼？一篇認識CI/CD工具及優勢，將日常瑣事自動化](https://www.wingwill.com.tw/zh-tw/%E9%83%A8%E8%90%BD%E6%A0%BC/%E9%9B%B2%E5%9C%B0%E6%B7%B7%E5%90%88%E6%87%89%E7%94%A8/cicd%E5%B7%A5%E5%85%B7/)
-:::spoiler
 
 ## What is CI/CD
 > CI/CD工具也是為了此概念(DevOps)而產生的自動化工具，透過持續整合、持續部署的方式，在開發階段就自動協助開發人員偵測程式碼問題，並部署至伺服器

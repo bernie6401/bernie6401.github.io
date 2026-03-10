@@ -11,7 +11,6 @@ date: 2024-11-27
 
 ## Android App本身
 * [[Android] Activity基本介紹](https://ironglion.com/archives/334)
-    :::spoiler
     > * 什麼是Activity?
     Activity是App中，提供畫面的一個元件，
     例如：使用Google地圖App時，顯示地圖的那個畫面。
@@ -38,7 +37,6 @@ date: 2024-11-27
     >    </manifest >
     >    ```
 * [Android基本(2)-Intent基本觀念與使用釐清](https://ithelp.ithome.com.tw/articles/10231988)
-    :::spoiler
     > 我們該如何從一個 activity 去啟動另外一個 activity，又或者我們要怎麼進行兩個 activity 間的資料通等等的問題，這時候最常見的方式就是使用我們今天的主角 Intent 
     > ### 種類
     >下方名稱網路上對他們的名稱有些需的差異，在這邊以 android doc 上名稱為主。
@@ -63,7 +61,6 @@ date: 2024-11-27
 * What is entity in android?
     > fields and classes defined in Android framework
 * What is field in Android?
-    :::spoiler
     [Documentation](https://developer.android.com/reference/java/lang/reflect/Field)
     > A Field provides information about, and dynamic access to, a single field of a class or an interface. The reflected field may be a class (static) field or an instance field.
     >
@@ -84,7 +81,7 @@ date: 2024-11-27
 * [Android adb基本用法教學](https://shengyu7697.github.io/android-adb/)
     > adb(Android Debug Bridge)指令是開發 Android 時常用到的工具，使用 adb 指令可對 android 裝置進行除錯、測試、檔案處理、安裝/移除 apk 等的操作
 * Android的簽章
-    :::spoiler
+    
     在Android系統安全中有3個主要的技術: Permission Management, Signature Authentication, 以及Sandbox Mechanism，現在主要探討的問題就是在簽章的技術底下。Android的數位簽章總共會包含三個東西: MANIFEST.MF, CERT.SF, CERT.RSA
     * MANIFEST.MF
         是一個Digest File也就是存所有更新的打包檔案的Hash Value
@@ -98,9 +95,7 @@ date: 2024-11-27
     > 而目前 Hybrid 的架構有很多種，例如：React Native, Cordova, Capacitor, Ionic, Flutter, Xamarin, Onsen UI, Framework7，每種開發方式及優缺點都不太一樣
 
     資料來源:
-    :::info
     Liu, Y., Zuo, C., Zhang, Z., Guo, S., & Xu, X. (2018). An automatically vetting mechanism for SSL error-handling vulnerability in android hybrid Web apps. World Wide Web, 21, 127-150.
-    :::
     > Hybrid mobile Web apps的優點如下：
     > 構建速度更快、成本更低
     > 可以利用特定於裝置的功能，例如作為電話聯繫人訪問
@@ -108,10 +103,12 @@ date: 2024-11-27
     > 易於維護。因為Hybrid mobile Web apps在 Web 伺服器上完成大部分工作易於維護
 
 * 什麼是Gradle?
+    
     資料來源: [ 認識 Gradle 專案建置自動化工具 ](https://ithelp.ithome.com.tw/articles/10129873)
     > Gradle 簡單說就是 Java 世界的 Makefile，它可以幫忙打理那些在專案開發過程中的瑣事，舉凡編譯、測試、檢查程式碼、產生文件、清理或壓縮檔案、上傳、發佈、重新啟動伺服器到送出電子郵件，都可以利用 Gradle 撰寫的 Script 來自動完成作業。
 
 * Android Broadcast Receiver
+    
     資料來源: [Android Broadcast Receiver 教學](https://waynestalk.com/android-broadcast-receiver/)
     > Android Broadcast Receiver 元件讓 app 可以從 Android 系統或其他 apps 接收訊息，也可以傳送訊息給 app 自己的其他元件，或是其他 apps。它類似於 publish-subscribe 設計模式。本文章將介紹如何使用 Broadcast Receiver。
     > 
@@ -121,6 +118,7 @@ date: 2024-11-27
     > Manifest-declared receivers 指的是在 AndroidManifest.xml 中註冊的 receivers。在 <receiver/> 中設定監聽事件的 class，並且在 <intent-filter/> 中指定要監聽的事件。如果事件來源是系統或是其他的 apps，還要設定 android:exported="true"。
 
 * What is ABI(Application Binary Interface)?
+    
     資料來源: [Android中的ABI以及對應CPU的版本說明](https://blog.csdn.net/Dreamhai/article/details/109891208)
     > * ABI是Application Binary Interface的縮寫。
     > * ABI常表示兩個Process Module之間的接口，且其中一個module常為機器碼級別的library或操作系統。
@@ -131,10 +129,12 @@ date: 2024-11-27
     > ![圖片](https://hackmd.io/_uploads/H1fGDz_SC.png)
 
 * ARM64 VS aarch64
+    
     資料來源: [arm64和aarch64之間的區別](https://blog.csdn.net/qq_33121481/article/details/122602974)
     > 直接給出結論：arm64已經與aarch64合並，因為aarch64和arm64指的是同一件事。
 
 * What is Deeplink?
+    
     資料來源: [Deep Link教學 - 點擊網址開啟APP](https://codus.me/blog/app-musashi-deeplink.html)
     > 點擊網址開啟APP，就是 deep link，只要在APP上設定 url scheme即可。
     > ![image-editor-GXBI2mtT2G157959888112324](https://hackmd.io/_uploads/BkMpvK7w0.jpg =200x)
@@ -142,9 +142,8 @@ date: 2024-11-27
     更準確的說，deeplink在做的事情是實現跨App之間的跳轉，資料來源: [Android App Links 設定心得筆記](https://louis383.medium.com/android-app-links-設定心得筆記-6bd8ab212297)
 
 ## Android Framework
-
 ### React-Native 檔案結構與說明
-```
+```bash
 $ tree -L 3 ./android
 .
 ├── app

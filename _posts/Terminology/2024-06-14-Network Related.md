@@ -74,7 +74,6 @@ date: 2024-06-14
 > ![](http://i.imgur.com/cqr4O2P.png =300x)
 
 # What is Subject Alternative Name(SAN), Server Name Indication(SNI)
-
 ## SAN
 資料來源: [使用 openssl 制作一個包含 SAN（Subject Alternative Name）的證書](https://www.z01.com/help/https/3173.shtml)
 > SAN(Subject Alternative Name) 是 SSL 標準 x509 中定義的一個擴展。使用了 SAN 字段的 SSL 證書，可以擴展此證書支持的域名，使得一個證書可以支持多個不同域名的解析。先來看一看 Google 是怎樣使用 SAN 證書的，下面是 Youtube 網站的證書信息：
