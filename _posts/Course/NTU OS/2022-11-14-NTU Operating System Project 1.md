@@ -9,9 +9,6 @@ date: 2022-11-14
 # NTU Operating System Project 1
 <!-- more -->
 ###### tags: `NTU_OS` `Operating System` `NachOS` `Thread Management` 
-:::spoiler
-[TOC]
-:::
 
 ## How to parse this project
 * You can research userkernel.cc file first. UserProgKernel will parse the command line and store the file you want to execute in execfile variable which defined at userkernel.h.
