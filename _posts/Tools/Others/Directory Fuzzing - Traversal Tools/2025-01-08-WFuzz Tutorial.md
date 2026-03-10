@@ -1,12 +1,12 @@
 ---
-title: WFuzz
+title: WFuzz Tutorial
 tags: [Tools]
 
 category: "Tools｜Others｜Directory Fuzzing - Traversal Tools"
 date: 2025-01-08
 ---
 
-# WFuzz
+# WFuzz Tutorial
 <!-- more -->
 * 參考網站-1: https://www.ddosi.org/wfuzz-guide/
 * 參考網站-2: https://www.ddosi.org/wfuzz/

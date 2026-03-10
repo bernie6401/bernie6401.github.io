@@ -136,10 +136,10 @@ $ file [filename]
     * [DNS Lookup(從Domain Name看IP)](https://www.whatismyip.com/dns-lookup/)
 * 如果要查看手機本身的Network IP(不是wifi)，可以看 https://ipinfo.io 
 
-#### Web Directory
+#### [Web Directory]({{base.url}}/Directory-Fuzzing-&-Traversal-Tools/)
 * Dirbuster
 * Gobuster
-* Wfuzz
+* [Wfuzz]({{base.url}}/WFuzz/)
 
 #### Network Info & Package
 * [Wireshark cheat sheet](https://packetlife.net/blog/2008/oct/18/cheat-sheets-tcpdump-and-wireshark/)
