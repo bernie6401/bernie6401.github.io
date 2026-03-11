@@ -9,8 +9,8 @@ date: 2024-01-31
 # NTUSTISC - CyberDefender - MrRobot - Target 1
 <!-- more -->
 * Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/88
-* Target 2: {{base.url}}/CyberDefender-MrRobot-Target-2/
-* POS: {{base.url}}/CyberDefender-MrRobot-POS/
+* [Target 2]({{base.url}}/CyberDefender-MrRobot-Target-2/)
+* [POS]({{base.url}}/CyberDefender-MrRobot-POS/)
 * Lecture Video: [ 2022/06/29 藍隊安全系列課程 04 ](https://youtu.be/4u5ckjfFRuM?si=MKeBkxyz5vcnsJfh)
 * [Volatility - Cheat Sheet](https://hackmd.io/@TuX-/BymMpKd0s)
 

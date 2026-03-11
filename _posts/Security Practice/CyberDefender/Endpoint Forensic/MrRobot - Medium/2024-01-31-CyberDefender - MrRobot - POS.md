@@ -9,8 +9,8 @@ date: 2024-01-31
 # CyberDefender - MrRobot - POS
 <!-- more -->
 * Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/88
-* Target 1: {{base.url}}/CyberDefender-MrRobot-Target-1/
-* Target 2: {{base.url}}/CyberDefender-MrRobot-Target-2/
+* [Target 1]({{base.url}}/CyberDefender-MrRobot-Target-1/)
+* [Target 2]({{base.url}}/CyberDefender-MrRobot-Target-2/)
 
 ## Lab - POS
 ### 起手式

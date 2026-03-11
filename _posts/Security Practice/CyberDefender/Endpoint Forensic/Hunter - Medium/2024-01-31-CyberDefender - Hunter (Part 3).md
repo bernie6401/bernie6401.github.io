@@ -9,8 +9,8 @@ date: 2024-01-31
 # CyberDefender - Hunter (Part 3)
 <!-- more -->
 * Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/32
-* Part 1: {{base.url}}/CyberDefender-Hunter-(Part-1)/
-* Part 2: {{base.url}}/CyberDefender-Hunter-(Part-2)/
+* [Part 1]({{base.url}}/CyberDefender-Hunter-(Part-1)/)
+* [Part 2]({{base.url}}/CyberDefender-Hunter-(Part-2)/)
 
 ## Tools
 * [JLECmd](https://ericzimmerman.github.io/#!index.md)

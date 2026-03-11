@@ -126,7 +126,7 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/106
     8920    3580    FTK Imager.exe  0xad818ef81080  20      -       1       False   2023-05-21 23:02:28.000000      N/Disabled
     5480    448     oneetx.exe      0xad818d3d6080  6       -       1       True    2023-05-21 23:03:00.000000      N/Disabled
     ```
-* 方法二: 用malfind排出一些正常的process
+* 方法二: 用malfind排除一些正常的process
     ```bash
     $ python vol.py -f MemoryDump.mem windows.malfind
     Volatility 3 Framework 2.4.2
@@ -355,7 +355,7 @@ Flag: `77.91.124.20`
 2. 從community中，最下面有一個[RedLine的討論](https://www.virustotal.com/gui/collection/f6cb8976174a8e375963a0821b3a0a19205d9d739b4522be61e8408eaf5534d0)
     ![](https://hackmd.io/_uploads/ByHYH6ibT.png)
 3. 該文章說明`RedLine Stealer`是一隻怎樣的惡意程式
-    > RedLine Stealer is a malware available on underground forums for sale apparently as standalone ($100/$150 depending on the version) or also on a subscription basis ($100/month). This malware harvests information from browsers such as saved credentials, autocomplete data, and credit card information. A system inventory is also taken when running on a target machine, to include details such as the username, location data, hardware configuration, and information regarding installed security software. More recent versions of RedLine added the ability to steal cryptocurrency. FTP and IM clients are also apparently targeted by this family, and this malware has the ability to upload and download files, execute commands, and periodically send back information about the infected computer.
+    > RedLine Stealer is a malware available on underground forums for sale apparently as standalone (\$100/\$150 depending on the version) or also on a subscription basis (\$100/month). This malware harvests information from browsers such as saved credentials, autocomplete data, and credit card information. A system inventory is also taken when running on a target machine, to include details such as the username, location data, hardware configuration, and information regarding installed security software. More recent versions of RedLine added the ability to steal cryptocurrency. FTP and IM clients are also apparently targeted by this family, and this malware has the ability to upload and download files, execute commands, and periodically send back information about the infected computer.
 
 Flag: `Redline Stealer`
 
@@ -363,7 +363,7 @@ Flag: `Redline Stealer`
 > What is the full URL of the PHP file that the attacker visited?
 
 ### Recon
-這一題也不到怎麼用正規的方式知道他訪問了哪些頁面，所以也是參考[^redline-wp]的解法才知道可以用string search
+這一題也不知道怎麼用正規的方式知道他訪問了哪些頁面，所以也是參考[^redline-wp]的解法才知道可以用string search
 
 ### Exploit
 從前面可以知道C&C server IP是`77.91.124.20`，則我們可以知道他應該是request這個IP所建立的網站

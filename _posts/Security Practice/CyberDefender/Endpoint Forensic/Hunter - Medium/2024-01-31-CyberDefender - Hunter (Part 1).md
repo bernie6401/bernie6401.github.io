@@ -9,8 +9,8 @@ date: 2024-01-31
 # CyberDefender - Hunter (Part 1)
 <!-- more -->
 * Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/32
-* Part 2: {{base.url}}/CyberDefender-Hunter-(Part-2)/
-* Part 3: {{base.url}}/CyberDefender-Hunter-(Part-3)
+* [Part 2]({{base.url}}/CyberDefender-Hunter-(Part-2)/)
+* [Part 3]({{base.url}}/CyberDefender-Hunter-(Part-3))
 
 ## Scenario
 > The SOC team got an alert regarding some illegal port scanning activity coming from an employee's system. The employee was not authorized to do any port scanning or any offensive hacking activity within the network. The employee claimed that he had no idea about that, and it is probably a malware acting on his behalf. The IR team managed to respond immediately and take a full forensic image of the user's system to perform some investigations.

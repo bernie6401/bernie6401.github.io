@@ -9,9 +9,9 @@ date: 2024-01-31
 # CyberDefender - CorporateSecrets (Part 3)
 <!-- more -->
 * Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/33
-* Part 1: {{base.url}}/CyberDefender-CorporateSecrets-(Part-1)/
-* Part 2: {{base.url}}/CyberDefender-CorporateSecrets-(Part-2)/
-* Part 4: {{base.url}}/CyberDefender-CorporateSecrets-(Part-4)/
+* [Part 1]({{base.url}}/CyberDefender-CorporateSecrets-(Part-1)/)
+* [Part 2]({{base.url}}/CyberDefender-CorporateSecrets-(Part-2)/)
+* [Part 4]({{base.url}}/CyberDefender-CorporateSecrets-(Part-4)/)
 
 ## Tools: 
 * FTK Imager

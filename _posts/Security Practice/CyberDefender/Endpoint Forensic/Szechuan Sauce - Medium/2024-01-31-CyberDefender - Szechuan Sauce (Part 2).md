@@ -9,7 +9,7 @@ date: 2024-01-31
 # CyberDefender - Szechuan Sauce (Part 2)
 <!-- more -->
 * Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/31
-* Part 1: {{base.url}}/CyberDefender-Szechuan-Sauce-(Part-1)/
+* [Part 1]({{base.url}}/CyberDefender-Szechuan-Sauce-(Part-1)/)
 
 ## Scenario
 > An employee at a large company was assigned a task with a two-day deadline. Realizing that he could not complete the task in that timeframe, he sought help from someone else. After one day, he received a notification from that person who informed him that he had managed to finish the assignment and sent it to the employee as a test. However, the person also sent a message to the employee stating that if he wanted the completed assignment, he would have to pay $160.

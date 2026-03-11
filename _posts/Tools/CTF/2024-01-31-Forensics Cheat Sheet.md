@@ -71,6 +71,7 @@ date: 2024-01-31
     yarascan -Y "example strings" # 在memory中用yarascan去search不同的pattern
     consoles # console中的command紀錄
     iehistory # 查看iexplorer的紀錄
+    filescan # 可以從mem中找出各種file的path
     ```
 
 ### Registry
@@ -119,15 +120,19 @@ date: 2024-01-31
 
 ## mac-OS
 ### plist
+Apple 系統用來儲存設定與資料的檔案格式
 ```bash
 $ sudo apt install libplist-utils -y
 $ plistutil -i {plist file} -o {output file}
 ```
-* System Version: `./root/System/Library/CoreServices/SystemVersion.plist`
-* Browser Bookmark: `./root/Users/{username}/Library/Safari/Bookmarks.plist`
-* Password information: `./root/private/var/db/dslocal/nodes/Default/users/{username}.plist`
-* The process responsible for connecting iPhones/iPads with MacOS is lockdown: `./root/private/var/db/dslocal/nodes/Default/users/_usbmux.plist`
-* Spotlight(這個不需要透過plistutil就可以直接cat): `./root/Users/{username}/Library/Application Support/com.apple.spotlight/com.apple.spotlight.Shortcuts`
+
+```bash
+./root/System/Library/CoreServices/SystemVersion.plist # System Version
+./root/private/var/db/dslocal/nodes/Default/users/{username}.plist # Password information
+./root/private/var/db/dslocal/nodes/Default/users/_usbmux.plist # The process responsible for connecting iPhones/iPads with MacOS is lockdown
+./root/Users/{username}/Library/Safari/Bookmarks.plist # Browser Bookmark
+./root/Users/{username}/Library/Application Support/com.apple.spotlight/com.apple.spotlight.Shortcuts # Spotlight(這個不需要透過plistutil就可以直接cat)
+```
 
 ### Event Log
 * 短期檔案系統變更儲存在`.fseventsd`中，必須使用`mac_apt`這個工具幫忙parse(FSEVENTS): `./root/.fseventsd/`
