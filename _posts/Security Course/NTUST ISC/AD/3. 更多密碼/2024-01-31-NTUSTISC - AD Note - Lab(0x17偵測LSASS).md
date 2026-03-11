@@ -20,7 +20,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
     * 記憶體(lsass)
         * How to detect LSASS access?
         
-            利用Sysmon這個工具中有設定的event ID: 10，這個工具類似Event Viewer但更多元更強，下載可見[Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
+            利用Sysmon這個工具中有設定的event ID: 10，這個工具類似Event Viewer但更多元更強，下載[Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
         * How to install?
         
             簡單來說它需要先準備一個config file，然後安裝的時候就會一起把config設定好(每一間公司或每一個人都不一樣，算是機密)

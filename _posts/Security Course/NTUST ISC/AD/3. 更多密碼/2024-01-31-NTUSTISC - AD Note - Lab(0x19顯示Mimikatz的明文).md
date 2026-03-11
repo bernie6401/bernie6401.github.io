@@ -24,8 +24,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 
 ## Lab
 ### 顯示Mimikatz的明文
-1. 只要打開regedit，在`電腦\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest`可能會看到`UseLogonCredential`的名稱，只要把
-    對應的數值改成1就可以了，當然如果沒看到的話也可以自己新增
+1. 只要打開regedit，在`電腦\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest`可能會看到`UseLogonCredential`的名稱，只要把對應的數值改成1就可以了，當然如果沒看到的話也可以自己新增
     ![](https://hackmd.io/_uploads/BkQAC8ERn.png)
 2. 重開機
     

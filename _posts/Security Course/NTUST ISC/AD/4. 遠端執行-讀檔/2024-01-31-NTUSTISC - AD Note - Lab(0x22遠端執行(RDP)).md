@@ -38,7 +38,7 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz
     
     微軟的遠端執行工具，具有微軟的簽章，第一次使用需要接受EULA
     ```bash
-    $ PsExec.exe -i \\<Remote IP> -accepteula -u [<domain>]\<Remote Username> -p <Remote Password> cmd
+    $ PsExec.exe -i \\<Remote IP> -accepteula -u [<domain>]\\<Remote Username> -p <Remote Password> cmd
     ```
 
 ##### How to use xfreerdp

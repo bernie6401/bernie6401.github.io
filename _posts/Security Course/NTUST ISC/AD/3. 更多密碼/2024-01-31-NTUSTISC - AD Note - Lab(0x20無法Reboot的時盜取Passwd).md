@@ -27,9 +27,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
     Injected =)
     ```
 2. Relogin: 重新登出再登入才會看到
-3. Result
-
-    在`C:\Windows\System32\mimilsa.log`
+3. 在`C:\Windows\System32\mimilsa.log`
     ```bash
     [00000000:001f7c0f] kuma\DESKTOP-G95U93T$	maj"2g<h(&iQZ7kqFHQ4X&c;_wQq3V;*gq.(A=4&)\2eesNp8S=W)C,"nM:ns?6m.%;K4+CSGDFew>VaNQ;N_)?mB1\P9udE7Gs'Lsr ccxo*CyL=JdK"'kF
     [00000000:001f7c0f] kuma\DESKTOP-G95U93T$	maj"2g<h(&iQZ7kqFHQ4X&c;_wQq3V;*gq.(A=4&)\2eesNp8S=W)C,"nM:ns?6m.%;K4+CSGDFew>VaNQ;N_)?mB1\P9udE7Gs'Lsr ccxo*CyL=JdK"'kF

