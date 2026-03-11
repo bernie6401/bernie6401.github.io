@@ -35,7 +35,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCM
     * Turn off Defender
     * Check the other users' info
 * 本地特出使用者
-    * ==NT Authority\System==(本地端真正的最高權限使用者)
+    * **NT Authority\System**(本地端真正的最高權限使用者)
     * NT Authority\Network Service
     * NT Authority\Local Service
     * NT Authority\IUSR
@@ -55,8 +55,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCM
     * 錯誤配置
 
 ## Lab Time - 本地提權
-
-### ==利用弱點==
+### 利用弱點
 ```bash
 $ git clone https://github.com/bitsadmin/wesng.git --depth 1
 $ cd wesng
@@ -64,9 +63,9 @@ $ python wes.py --update
 $ systeminfo.exe > systeminfo.txt # 這條指令是windows內建的指令，所以一定要在cmd中操作
 $ python wes.py systeminfo.txt
 ```
-:::spoiler Result
-```
-python wes.py systeminfo.txt
+
+```bash
+$ python wes.py systeminfo.txt
 Windows Exploit Suggester 1.03 ( https://github.com/bitsadmin/wesng/ )
 [+] Parsing systeminfo output
 [+] Operating System
@@ -388,7 +387,6 @@ Exploit: n/a
     - Release date: 20211216
 [+] Done. Displaying 30 of the 30 vulnerabilities found.
 ```
-:::
 
 ## Reference
 [^win-exp-suggest-fei]:[Day32 - Windows 提權(3)-Windows Exploit Suggester](https://ithelp.ithome.com.tw/articles/10281994)

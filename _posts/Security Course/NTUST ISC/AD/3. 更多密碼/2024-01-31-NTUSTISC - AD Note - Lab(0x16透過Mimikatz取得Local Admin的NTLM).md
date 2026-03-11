@@ -46,12 +46,6 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
     Using 'mimikatz.log' for logfile : OK
 
     mimikatz # Sekurlsa::logonPasswords
-    ```
-    
-    ```bash
-    Using 'mimikatz.log' for logfile : OK
-
-    mimikatz # Sekurlsa::logonPasswords
 
     Authentication Id : 0 ; 23133312 (00000000:0160fc80)
     Session           : CachedInteractive from 1

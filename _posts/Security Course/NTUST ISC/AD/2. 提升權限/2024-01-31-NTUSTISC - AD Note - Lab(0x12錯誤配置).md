@@ -19,11 +19,11 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCM
     * 錯誤配置
         * 服務使用高權限執行且檔案權限配置錯誤，所以只要把這項服務替換成惡意程式，最後再利用前面提到的print operator重開機，就可以達到控制的目的
         * 透過[accesschk.exe](https://docs.microsoft.com/en-us/sysinternals/downloads/accesschk)找出有問題的地方
-            ```bash!
+            ```bash
             $ accesschk.exe <user> <path>
             ```
         * For example
-            ```bash!
+            ```bash
             $ accesschk.exe "Administrator" "C:\Program Files\"
 
             Accesschk v6.15 - Reports effective permissions for securable objects
@@ -33,10 +33,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=M0LV3dBCM
             ```
 
 ## Lab Time - 本地提權
-
-### ==錯誤配置==
+### 錯誤配置
 找出low有存取權限的service檔案
-```bash!
+```bash
 $ accesschk.exe "low" "C:\tools"
 
 Accesschk v6.15 - Reports effective permissions for securable objects

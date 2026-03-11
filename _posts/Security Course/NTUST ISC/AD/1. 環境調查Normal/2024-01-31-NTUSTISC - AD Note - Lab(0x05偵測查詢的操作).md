@@ -12,7 +12,7 @@ date: 2024-01-31
 Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWohlu97dc3)
 
 ## Lab Time - 環境調查
-### Lab - How to observe they've audited the record?
+### Lab - How to observe they\'ve audited the record?
 像前面說的，如果在群組的user要觀察ad的name, description之類的，要如何觀察到他們正在做的事情?可以利用**Windows Event ID: 4662**，這個event ID會針對所有user對LDAP的查詢進行log，這樣不管是誰進行查詢都會留下紀錄，但是事先要啟用(預設不開)
 1. GPO(Group Policy Object)啟動相關事件稽核
     在Win2016一開機會啟動Server Manager，其中的`Tools/Group Policy Management`

