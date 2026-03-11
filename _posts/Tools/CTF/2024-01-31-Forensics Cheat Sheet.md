@@ -9,8 +9,91 @@ date: 2024-01-31
 # Forensics Cheat Sheet
 <!-- more -->
 
-## Windows
+## Forensics Tools
+* [LNK Parser](https://code.google.com/archive/p/lnk-parser/downloads)
 
+### Disk Analysis
+* [Foremost](https://darkranger.no-ip.org/archives/v5/document/linux/foremost_recovery.htm): 針對所支援的檔案結構去進行資料搜尋與救援
+    ```bash
+    $ foremost -v {filename}
+    ```
+* [Sleuth kit/Autopsy](https://blog.csdn.net/wxh0000mm/article/details/99447206)
+* [FTK Imager](https://www.exterro.com/ftk-imager)
+* [Logontracer]({{base.url}}/How-to-install-LogonTracer/): Just use GUI to present event log traced on windows
+    ```bash
+    $ python logontracer.py -r -o 8000 -u neo4j -p neo4j -s localhost
+    ```
+
+### Memory Forensics
+* 建議直接使用[windown protable version](https://www.volatilityfoundation.org/releases)會比較穩定而且不需要處理環境的問題
+* [Volatility - Cheat Sheet](https://hackmd.io/@TuX-/BymMpKd0s)
+* [Volatility 3](https://github.com/volatilityfoundation/volatility3)
+    
+    Set up & How2Use
+    * [Windows Volatility 3 Problems & Solutions](https://blog.csdn.net/u011250160/article/details/120461405)
+    * [Windows Set up Tutorials](https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html)
+    
+    ```bash
+    $ git clone https://github.com/volatilityfoundation/volatility3
+    $ cd volatility3
+    $ pip install -r requirement.txt
+    $ python vol.py -f <path to memory image> plugin_name plugin_option
+    $ python vol.py -h # For help
+    ```
+    
+* [Volatility 2](https://github.com/volatilityfoundation/volatility)
+    
+    Set up & How2Use
+    [Windows Set up Tutorials](https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html)
+    ```bash
+    $ conda create --name py27 python=2.7
+    $ conda activate py27
+    $ git clone https://github.com/volatilityfoundation/volatility
+    $ cd volatility
+    $ pip install pycrypto
+    $ pip install distorm3
+    $ python vol.py -f <path to memory image> plugin_name plugin_option
+    $ python vol.py -h # For help
+    ```
+* 教學
+    ```bash
+    # ldrmodules: 更進階的dlllist，可以顯示被隱藏的dll，以及dll的狀態
+    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} ldrmodules --pid {pid}
+
+    # 如果要dump被injected過的process
+    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} malfind --pid {pid} --dump-dir={output folder}
+
+    # dump hash
+    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} hashdump > ntlm.hash
+
+    # 如果是要找到某個東西的timestamp，可以考慮直接用timeliner這個plubin，主要的功能是就是建立記憶體中的各種痕跡資訊的時間線
+    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} timeliner
+
+    # 查看網路連線紀錄
+    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} netscan
+
+    # 在memory中用yarascan去search不同的pattern
+    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} yarascan -Y "example strings"
+
+    # console中的command紀錄
+    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} consoles
+    
+    # 查看iexplorer的紀錄
+    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} iehistory
+    ```
+
+### Registry
+* [Regshot](https://sourceforge.net/projects/regshot/): 可以snapshot目前registry的狀態並且和第二次的snapshot做比較
+
+### Incident Response (查看Log)
+* 如果是直接給一個log file，那麼多多利用unix command會方便很多grep, cat, cut, uniq, sort...
+    ```bash
+    $ cat access.log | cut -d '"' -f 6| sort | uniq | grep -v -E "AH01276|Mozilla" --color=auto
+    ```
+* [Timeline Explorer](https://ericzimmerman.github.io/#!index.md):為時間軸資訊分析提供了一個全面、高效且高度整合的系統，用於搜尋不同資源的時間線軸資訊，並可以輕鬆過濾、分組與排序
+* For Linux: [aureport 教學]({{base.url}}/BTLO-Paranoid/): 是 Linux 系統上 auditd (Linux Audit Daemon) 的報告工具，主要用於 分析系統安全審計日誌 (audit logs)。它屬於 Linux 原生審計與事件監控工具，能幫助系統管理員和資安分析人員快速彙整、搜尋和報告各種安全事件。
+
+## Windows
 ### Where
 * SOFTWARE: `root/Windows/System32/config/SOFTWARE`
 * SYSTEM: `root/Windows/System32/config/SYSTEM`
@@ -33,7 +116,6 @@ date: 2024-01-31
 * 時區: `SYSTEM/ControlSet001/Control/TimeZoneInformation`
 * USB資訊: `SYSTEM/ControlSet001/Enum/USBSTOR/`
 * CPU架構: `SYSTEM/ControlSet001/Control/Session Manager/Environment/`
-
 
 ### Database
 * Chrome History: `./Users/{username}/AppData/Local/Google/Chrome/User Data/Default/History`
@@ -64,14 +146,3 @@ $ plistutil -i {plist file} -o {output file}
 * Note: `./root/Users/{username}/Library/Group Containers/group.com.apple.notes`
 * Quarantined Events: `./root/Users/{username}/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2`
 * Messages: `./root/Users/{username}/Library/Messages/chat.db`
-    
-## Volatilitys
-* [主要的CheatSheet](https://hackmd.io/@TuX-/BymMpKd0s)
-* ldrmodules: 更進階的dlllist，可以顯示被隱藏的dll，以及dll的狀態: `$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} ldrmodules --pid {pid}`
-* 如果要dump被injected過的process: `$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} malfind --pid {pid} --dump-dir={output folder}`
-* dump hash: `$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} hashdump > ntlm.hash`
-* 如果是要找到某個東西的timestamp，可以考慮直接用timeliner這個plubin，主要的功能是就是建立記憶體中的各種痕跡資訊的時間線: `$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} timeliner `
-* 查看網路連線紀錄: `$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} netscan`
-* 在memory中用yarascan去search不同的pattern: `$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} yarascan -Y "example strings"`
-* console中的command紀錄: `$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} consoles`
-* 查看iexplorer的紀錄: `$ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} iehistory`

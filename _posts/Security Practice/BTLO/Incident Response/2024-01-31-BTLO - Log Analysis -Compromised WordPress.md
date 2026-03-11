@@ -89,7 +89,7 @@ Flag: `CVE-2020-35489`
 ### Recon
 這一題可以搭配grep做出比較精確的filtering，我們想要找出plugins的部分，所以先grep出`/plugins/`的關鍵字，再用上面新學到的方式進階filter，到最後就只有一小部分的數量而已，
 ```bash
-cat access.log | grep '/plugins/' | cut -d '/' -f 6 | sort | uniq
+$ cat access.log | grep '/plugins/' | cut -d '/' -f 6 | sort | uniq
 
 %20contact-form-7%20
 %2e

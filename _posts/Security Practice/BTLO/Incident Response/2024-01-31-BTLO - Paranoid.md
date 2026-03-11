@@ -9,15 +9,16 @@ date: 2024-01-31
 # BTLO - Paranoid
 <!-- more -->
 Challenge: https://blueteamlabs.online/home/challenge/paranoid-e5e164befb
+
 此lab大部分是參考[^wp1]的說明，因為本身第一次接觸aureport，所以不太清楚指令或者是注意的地方
 
 ## Tool
-AUReport: `$ sudo apt install auditd`
-Linux CLI
+* AUReport: `$ sudo apt install auditd`
+* Linux CLI
 
 ## Background
 ```bash
-aureport --help
+$ aureport --help
 usage: aureport [options]
         -a,--avc                        Avc report
         -au,--auth                      Authentication report
