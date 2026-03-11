@@ -42,9 +42,6 @@ date: 2024-01-31
     ```
     
 * [Volatility 2](https://github.com/volatilityfoundation/volatility)
-    
-    Set up & How2Use
-    [Windows Set up Tutorials](https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html)
     ```bash
     $ conda create --name py27 python=2.7
     $ conda activate py27
@@ -55,31 +52,25 @@ date: 2024-01-31
     $ python vol.py -f <path to memory image> plugin_name plugin_option
     $ python vol.py -h # For help
     ```
+
 * 教學
+    `$ ./vol.exe -f <image name> --profile <profile name> <cmd>`
     ```bash
-    # ldrmodules: 更進階的dlllist，可以顯示被隱藏的dll，以及dll的狀態
-    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} ldrmodules --pid {pid}
+    $ ./vol.exe -f <image name> --profile <profile name> <cmd>
 
-    # 如果要dump被injected過的process
-    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} malfind --pid {pid} --dump-dir={output folder}
-
-    # dump hash
-    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} hashdump > ntlm.hash
-
-    # 如果是要找到某個東西的timestamp，可以考慮直接用timeliner這個plubin，主要的功能是就是建立記憶體中的各種痕跡資訊的時間線
-    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} timeliner
-
-    # 查看網路連線紀錄
-    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} netscan
-
-    # 在memory中用yarascan去search不同的pattern
-    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} yarascan -Y "example strings"
-
-    # console中的command紀錄
-    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} consoles
-    
-    # 查看iexplorer的紀錄
-    $ ./volatility_2.6_win64_standalone.exe -f {image name} --profile {profile name} iehistory
+    # <cmd>
+    imageinfo # 看目前的memory來自哪一種profile，e.g. WinXPSP2x86, WinXPSP3x86
+    pslist # 查看process info
+    ldrmodules --pid <pid> # ldrmodules: 更進階的dlllist，可以顯示被隱藏的dll，以及dll的狀態
+    malfind --pid <pid> --dump-dir <output folder> # 如果要dump被injected過的process
+    dlllist --pid <PID> # 查看該process load什麼樣的dll
+    ldrmodules --pid <PID> # 比dlllist更強也更全面
+    hashdump > ntlm.hash # dump hash
+    timeliner # 如果是要找到某個東西的timestamp，可以考慮直接用timeliner這個plubin，主要的功能是就是建立記憶體中的各種痕跡資訊的時間線
+    netscan # 查看網路連線紀錄
+    yarascan -Y "example strings" # 在memory中用yarascan去search不同的pattern
+    consoles # console中的command紀錄
+    iehistory # 查看iexplorer的紀錄
     ```
 
 ### Registry
