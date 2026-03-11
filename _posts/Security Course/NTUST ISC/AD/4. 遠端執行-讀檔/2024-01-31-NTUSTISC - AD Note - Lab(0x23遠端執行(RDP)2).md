@@ -19,7 +19,7 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz
 ## Lab
 ### 遠端執行(RDP)2
 * Kali-Linux Tools
-    * Impacket(Kali-Linux愛好者可使用的PsExec)
+    * Impacket(讓Kali-Linux愛好者也可以使用的PsExec)
         ```bash
         # Set up & Install
         $ git clone https://github.com/fortra/impacket.git

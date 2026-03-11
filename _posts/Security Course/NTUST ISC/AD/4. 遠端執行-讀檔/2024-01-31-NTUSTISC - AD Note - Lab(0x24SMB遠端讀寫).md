@@ -20,8 +20,7 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz
 3. Login Local Admin
     ![](https://hackmd.io/_uploads/S1uCNUBlp.png)
 
-* Result
-    我在Win10中利用上述步驟，成功讀取到Win2016的資料
+* 我在Win10中利用上述步驟，成功讀取到Win2016的資料
     ![](https://hackmd.io/_uploads/HJbEr8Bxa.png)
 
 ### 遠端讀寫(w/o GUI)

