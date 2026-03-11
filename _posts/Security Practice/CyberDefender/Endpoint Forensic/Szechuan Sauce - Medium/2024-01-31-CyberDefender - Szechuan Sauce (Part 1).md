@@ -26,7 +26,7 @@ date: 2024-01-31
 ## 前提
 這一題有分兩個裝置，一個是Desktop，另外一個是server，也分別對這兩個進行FTK packet和export memory，所以在分析的時候要特別注意，以下問題的順序會在這兩個裝置之間切換
 
-## ==Q1==
+## Q1
 > What’s the Operating System version of the Server? (two words) 
 
 ### Recon
@@ -51,24 +51,20 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
      Image local date and time : 2020-09-18 21:39:59 -0700
 ```
 
-:::spoiler Flag
 Flag: `2012 R2`
-:::
 
-## ==Q2==
+## Q2
 > What’s the Operating System of the Desktop? (four words separated by spaces) 
 
 ### Recon
-這一題可以參考[Hunter - Part 1 - Q5]({{base.url}}/CyberDefender-Hunter-(Part-1)#Q5)，我可以直接把Software的registry export出來，然後用registry explorer查看`/root/Microsoft/Windows NT/CurrentVersion`就會知道==Desktop==的OS
+這一題可以參考[Hunter - Part 1 - Q5]({{base.url}}/CyberDefender-Hunter-(Part-1)#Q5)，我可以直接把Software的registry export出來，然後用registry explorer查看`/root/Microsoft/Windows NT/CurrentVersion`就會知道Desktop的OS
 
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/SJlmnxMmT.png)
 
-:::spoiler Flag
 Flag: `Windows 10 Enterprise Evaluation`
-:::
 
-## ==Q3==
+## Q3
 > What was the IP address assigned to the domain controller? 
 
 ### Recon
@@ -78,11 +74,9 @@ Flag: `Windows 10 Enterprise Evaluation`
 就是察看Server的SYSTEM中，`ControlSet001/Services/Tcpip/Parameters/Interfaces/`
 ![圖片.png](https://hackmd.io/_uploads/rkCmT0Xma.png)
 
-:::spoiler Flag
 Flag: `10.42.85.10`
-:::
 
-## ==Q4==
+## Q4
 > What was the timezone of the Server? 
 
 ### Recon
@@ -106,32 +100,27 @@ Flag: `10.42.85.10`
         ![圖片.png](https://hackmd.io/_uploads/Hk2QskEXp.png)
         可以看到event log的時間是`2020-09-19 03:21:48`，而封包的時間是`2020-09-19 02:21:47`，兩者大約差了一個小時，因為當時的月份是9月也就是還在夏令時間，所以正確的時間應該是UTC-7，也就是說封包的時間是UTC-7的結果，而server上的3點是快了一小時的結果，所以應該是UTC-6就是server上設定的時間
 
-:::spoiler Flag
 Flag: `UTC-6`
-:::
 
-## ==Q5==
+## Q5
 > What was the initial entry vector (how did they get in)?. Provide protocol name. 
 
 ### Recon
 從上一題就可以知道他是利用RDP連到domain controller
 
-:::spoiler Flag
 Flag: `RDP`
-:::
 
-## ==Q6==
+## Q6
 > What was the malicious process used by the malware? (one word) 
 
 ### Recon
 這一題提到malware馬上就要想到
-1. 他怎麼傳送過去到受害主機$\to$wireshark$\to$Export Object
-2. 如果他有跑起來，可不可以直接知道是哪一支檔案$\to$memory analysis$\to$volatility$\to$pslist
+1. 他怎麼傳送過去到受害主機 → wireshark → Export Object
+2. 如果他有跑起來，可不可以直接知道是哪一支檔案 → memory analysis → volatility → pslist
 3. 如果可以dump出來就送到virustotal看
 
 ### Exploit
 1. 首先我先用volatility看他執行process的狀況
-    :::spoiler Result
     ```bash
     $ ./volatility_2.6_win64_standalone.exe -f citadeldc01.mem --profile Win2012R2x64 pslist
     Volatility Foundation Volatility Framework 2.6
@@ -216,8 +205,7 @@ Flag: `RDP`
 
     0xffffe00062c0a900 WmiPrvSE.exe           2764    640      6        0      0      0 2020-09-19 04:37:42 UTC+0000
     ```
-    :::
-    當然有幾個我是有一點懷疑，例如`WmiPrvSE.exe`, `WMIADAP.exe`, `spoolsv.exe`等等，不過查了一下應該都是windows裡面內建的正常程序，不過也不能掉以輕心，可能是被駭客換過只是名字一樣，不過有一個process令人擔心，就是==coreupdater.exe==，因為查資料的時候無意間看到[這個網站](https://www.hybrid-analysis.com/sample/10f3b92002bb98467334161cf85d0b1730851f9256f83c27db125e9a0c1cfda6/5f7695f4a553eb21aa0cdfe1#mitre-matrix-modal)，裡面有提到詳細這支程式的攻擊手法和IP位置，因此感覺不是巧合，先dump出來再說
+    當然有幾個我是有一點懷疑，例如`WmiPrvSE.exe`, `WMIADAP.exe`, `spoolsv.exe`等等，不過查了一下應該都是windows裡面內建的正常程序，不過也不能掉以輕心，可能是被駭客換過只是名字一樣，不過有一個process令人擔心，就是**coreupdater.exe**，因為查資料的時候無意間看到[這個網站](https://www.hybrid-analysis.com/sample/10f3b92002bb98467334161cf85d0b1730851f9256f83c27db125e9a0c1cfda6/5f7695f4a553eb21aa0cdfe1#mitre-matrix-modal)，裡面有提到詳細這支程式的攻擊手法和IP位置，因此感覺不是巧合，先dump出來再說
 2. 我是用volatility procdump，但是遇到一些問題導致dump不出來，可能是和paging有關係，導致PEB結構parse不出來
     ```bash
     $ ./volatility_2.6_win64_standalone.exe -f citadeldc01.mem --profile Win2012R2x64 procdump -p 3644 --dump-dir="Export Files/Server"
@@ -233,11 +221,9 @@ Flag: `RDP`
     [完整分析結果](https://www.virustotal.com/gui/file/10f3b92002bb98467334161cf85d0b1730851f9256f83c27db125e9a0c1cfda6)
     ![圖片.png](https://hackmd.io/_uploads/B15zigE7T.png)
 
-:::spoiler Flag
 Flag: `coreupdater`
-:::
 
-## ==Q7==
+## Q7
 > Which process did malware migrate to after the initial compromise? (one word) 
 
 ### Recon
@@ -251,7 +237,6 @@ Flag: `coreupdater`
 `Process: explorer.exe Pid: 3472 Address: 0x5770000`
 `Process: ServerManager. Pid: 400 Address: 0x5dc9ce0000`
 
-:::spoiler Result
 ```bash
 $ ./volatility_2.6_win64_standalone.exe -f citadeldc01.mem --profile Win2012R2x64 malfind
 Volatility Foundation Volatility Framework 2.6
@@ -865,13 +850,10 @@ Flags: PrivateMemory: 1, Protection: 6
 0xc9e7003e 41               INC ECX
 0xc9e7003f 8d               DB 0x8d
 ```
-:::
 
-:::spoiler Flag
 Flag: `spoolsv`
-:::
 
-## ==Q8==
+## Q8
 > Identify the IP Address that delivered the payload. 
 
 ### Recon
@@ -880,11 +862,9 @@ Flag: `spoolsv`
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/Syh-4-4Qp.png)
 
-:::spoiler Flag
 Flag: `194.61.24.102`
-:::
 
-## ==Q9==
+## Q9
 > What IP Address was the malware calling to? 
 
 ### Recon
@@ -898,11 +878,9 @@ Volatility Foundation Volatility Framework 2.6
 0x60182590         TCPv4    10.42.85.10:62613              203.78.103.109:443   ESTABLISHED      3644     coreupdater.ex
 ```
 
-:::spoiler Flag
 Flag: `203.78.103.109`
-:::
 
-## ==Q10==
+## Q10
 > Where did the malware reside on the disk? 
 
 ### Recon
@@ -918,9 +896,7 @@ Volatility Foundation Volatility Framework 2.6
 0x000000005faa4f20      5      0 R--r-d \Device\HarddiskVolume2\Windows\System32\coreupdater.exereupdater.exe
 ```
 
-:::spoiler Flag
 Flag: `C:\Windows\System32\coreupdater.exe`
-:::
 
 ## Reference
 [^szechuan-sauce-wp]:[CyberDefenders: Szechuan Sauce CTF Writeup](https://ellisstannard.medium.com/cyberdefenders-szechuan-sauce-writeup-ab172eb7666c)

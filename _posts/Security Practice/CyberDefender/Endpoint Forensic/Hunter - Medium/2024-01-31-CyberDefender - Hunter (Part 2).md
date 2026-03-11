@@ -53,7 +53,7 @@ Flag: `7.12`
 ![](https://hackmd.io/_uploads/H18KDdvzp.png)
 
 ### Exploit
-又是使用新工具的時候([DB Browser for SQLlite](https://sqlitebrowser.org/dl/))，直接看Message這個table，一開始就講到了兩個名字$\to$`linux-rul3z`和`hunterehpt`
+又是使用新工具的時候([DB Browser for SQLlite](https://sqlitebrowser.org/dl/))，直接看Message這個table，一開始就講到了兩個名字 → `linux-rul3z`和`hunterehpt`
 ![](https://hackmd.io/_uploads/rJlyRL_vG6.png)
 
 Flag: `linux-rul3z`

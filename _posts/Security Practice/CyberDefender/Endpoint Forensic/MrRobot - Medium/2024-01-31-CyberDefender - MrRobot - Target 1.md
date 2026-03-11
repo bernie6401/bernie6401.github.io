@@ -76,8 +76,8 @@ Owner: Process OUTLOOK.EXE Pid 3196
 0x086e00c1  2d 4e 65 74 77 6f 72 6b 2d 4d 65 73 73 61 67 65   -Network-Message
 0x086e00d1  2d 49 64 3a 20 34 35 35 36 64 33 61 34 2d 33 38   -Id:.4556d3a4-38
 ```
-→
-Flag: `th3wh1t3r0s3@gmail.com`→
+
+Flag: `th3wh1t3r0s3@gmail.com`
 
 ### **Q2**
 > What is the filename that was delivered in the email?
@@ -88,7 +88,6 @@ Flag: `th3wh1t3r0s3@gmail.com`→
 #### Exploit
 1. 先查詢當時執行那些process
     Command: `python vol.py -f ..\memory.dmp --profile Win7SP0x86 pslist`
-    :::spoiler Command Result
     ```python
     $ python vol.py -f ..\memory.dmp --profile Win7SP0x86 pslist
     Volatility Foundation Volatility Framework 2.6.1
@@ -138,7 +137,6 @@ Flag: `th3wh1t3r0s3@gmail.com`→
     0x858bc278 TeamViewer_Des         1092   2680     16      405      1      0 2015-10-09 12:10:56 UTC+0000
     0x83f1ed40 mstsc.exe              2844   2116     11      484      1      0 2015-10-09 12:12:03 UTC+0000
     ```
-    :::
     重要資訊: OUTLOOK.EXE → PID → **3196**
 2. 把執行OUTLOOK.EXE時候的memory dump下來
     ```bash
@@ -152,8 +150,8 @@ Flag: `th3wh1t3r0s3@gmail.com`→
     $ strings 3196.dmp | grep "\.exe" > output.txt
     ```
     經過不斷的嘗試最後找到`AnyConnectInstaller.exe`為最終答案
-→
-Flag: `AnyConnectInstaller.exe`→
+
+Flag: `AnyConnectInstaller.exe`
 
 ### **Q3**
 > What is the name of the rat's family used by the attacker? 
@@ -184,15 +182,14 @@ Flag: `AnyConnectInstaller.exe`→
     ImageSectionObject 0x3e0bc5e0   None   \Device\HarddiskVolume2\Users\frontdesk\Downloads\AnyConnectInstaller.exe
     DataSectionObject 0x3e0bc5e0   None   \Device\HarddiskVolume2\Users\frontdesk\Downloads\AnyConnectInstaller.exe
     ```
-    :::info
-    -n: 代表包含文件原始名稱
-    -Q: 代表physical offset
-    -D: 代表dump出來要放的位址
-    :::
+    
+    * -n: 代表包含文件原始名稱
+    * -Q: 代表physical offset
+    * -D: 代表dump出來要放的位址
 3. 放到VirusTotal上查詢
 詳細的審查結果可以看[這邊](https://www.virustotal.com/gui/file/94a4ef65f99c594a8bfbfbc57f369ec2b6a5cf789f91be89976086aaa507cd47)
-→
-Flag: `XtremeRat`→
+
+Flag: `XtremeRat`
 
 ### **Q4**
 > The malware appears to be leveraging process injection. What is the PID of the process that is injected?
@@ -207,8 +204,9 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 ...
 0x85d0d030 iexplore.exe           2996   2984      6      463      1      0 2015-10-09 11:31:27 UTC+0000
 ...
-```→
-Flag: `2996` $\to$ iexplore.exe→
+```
+
+Flag: `2996` → iexplore.exe
 
 ### **Q5**
 > What is the unique value the malware is using to maintain persistence after reboot? 
@@ -240,10 +238,10 @@ Values:
 REG_SZ        VMware User Process : (S) "C:\Program Files\VMware\VMware Tools\vmtoolsd.exe" -n vmusr
 REG_EXPAND_SZ MrRobot         : (S) c:\users\anyconnect\AnyConnect\AnyConnectInstaller.exe
 ```
-printkey: 印出機碼路徑/子路徑/內容
--K: 機碼的路徑→
-→
-Flag: `MrRobot`→
+* printkey: 印出機碼路徑/子路徑/內容
+* -K: 機碼的路徑
+
+Flag: `MrRobot`
 
 ### **Q6**
 > Malware often uses a unique value or name to ensure that only one copy runs on the system. What is the unique name the malware is using? 
@@ -268,8 +266,9 @@ Volatility Foundation Volatility Framework 2.6
 根據主要參考WP[^cyberdefender-mrrobot-wp]的說法
 > Malware typically uses a mutant/mutex to run a single copy of malware on the system and to avoid reinfecting the host, which can increase the chances of detection by security tools.
 
-而根據[MSDN-HANDLE](https://learn.microsoft.com/zh-tw/windows-hardware/drivers/debugger/-handle)中的說明，mutant是handle的其中一種類型，他還有其他的，例如event, file, port, directory之類的→
-Flag: `fsociety0.dat`→
+而根據[MSDN-HANDLE](https://learn.microsoft.com/zh-tw/windows-hardware/drivers/debugger/-handle)中的說明，mutant是handle的其中一種類型，他還有其他的，例如event, file, port, directory之類的
+
+Flag: `fsociety0.dat`
 
 ### **Q7**
 > It appears that a notorious hacker compromised this box before our current attackers. Name the movie he or she is from. 
@@ -282,8 +281,8 @@ Flag: `fsociety0.dat`→
 $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 filescan | findstr User > .\output\filescan\findstr_User.txt
 ```
 然後就利用一些文字編輯器，找名字，應該沒有很多，所以可以找到一些名字，大部分是`frontdesk`, `FRONTD~1`, `Administrator`等等，但應該可以找到`gideon`和`zerocool`的名字，前者應該是原使用者的名字，而後者應該是駭客的名字，上網搜尋一下發現zerocool是《Hackers》(1995年上映的電影)中出現的駭客名字
-→
-Flag: `Hackers`→
+
+Flag: `Hackers`
 
 ### **Q8**
 > What is the NTLM password hash for the administrator account?
@@ -302,8 +301,8 @@ Administrator:500:aad3b435b51404eeaad3b435b51404ee:79402b7671c317877b8b954b3311f
 Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 front-desk:1000:aad3b435b51404eeaad3b435b51404ee:2ae4c526659523d58350e4d70107fc11:::
 ```
-→
-Flag: `79402b7671c317877b8b954b3311fa82`→
+
+Flag: `79402b7671c317877b8b954b3311fa82`
 
 ### **Q9**
 > The attackers appear to have moved over some tools to the compromised front desk host. How many tools did the attacker move? 
@@ -349,10 +348,10 @@ C:\Windows\Temp>dir
               17 File(s)      3,177,896 bytes                                   
                4 Dir(s)  22,602,948,608 bytes free
 ...
-```→
+```
 可以從該指令的結果輸出，看出該文件含有幾個exe file: `getlsasrvaddr.exe`, `nbtscan.exe`, `Rar.exe`, `wce.exe`，所以基本上答案應該是4但因為`getlsasrvaddr.exe`和`wce.exe`都是來自一個[wce](https://github.com/returnvar/wce)github repo中，所以其實只有算3個
-→
-Flag: `3`→
+
+Flag: `3`
 
 ### **Q10**
 > What is the password for the front desk local administrator account? 
@@ -390,8 +389,8 @@ $ wce.exe -w
 $ wce.exe -w > w.tmp # 從這邊取得Administrator\front-desk-PC的密碼為flagadmin@1234
 ```
 然後實際用[online tool](https://codebeautify.org/ntlm-hash-generator)查看該密碼的ntlm的確是前兩題得到的`79402b7671c317877b8b954b3311fa82`
-→
-Flag: `flagadmin@1234`→
+
+Flag: `flagadmin@1234`
 
 ### **Q11**
 > What is the std create data timestamp for the nbtscan.exe tool? 
@@ -409,8 +408,8 @@ $ volatility_2.6_win64_standalone.exe -f memory.dmp --profile Win7SP0x86 timelin
 Volatility Foundation Volatility Framework 2.6
 2015-10-09 10:45:12 UTC+0000|[SHIMCACHE]| \??\C:\Windows\Temp\nbtscan.exe|
 ```
-→
-Flag: `2015-10-09 10:45:12 UTC`→
+
+Flag: `2015-10-09 10:45:12 UTC`
 
 ### **Q12**
 > The attackers appear to have stored the output from the nbtscan.exe tool in a text file on a disk called nbs.txt. What is the IP address of the first machine in that file?
@@ -432,8 +431,8 @@ $ strings file.None.0x83eda598.nbs.txt.dat
 10.1.1.20       ALLSAFECYBERSEC\FRONT-DESK-PC   SHARING
 10.1.1.21       ALLSAFECYBERSEC\GIDEON-PC       SHARING
 ```
-→
-Flag: `10.1.1.2`→
+
+Flag: `10.1.1.2`
 
 ### **Q13**
 > What is the full IP address and the port was the attacker's malware using? 
@@ -463,8 +462,8 @@ Offset(P)          Proto    Local Address                  Foreign Address      
 0x3fa95df8         TCPv4    10.1.1.20:49297                192.96.201.138:5938  ESTABLISHED      2680     TeamViewer.exe
 0x3fb7a560         TCPv4    10.1.1.20:49301                10.1.1.21:3389       ESTABLISHED      2844     mstsc.exe
 0x3fc426a8         TCPv4    10.1.1.20:49291                107.6.97.19:5938     ESTABLISHED      2680     TeamViewer.exe
-```→
-Flag: `180.76.254.120:22`→
+```
+Flag: `180.76.254.120:22`
 
 ### **Q14**
 > It appears the attacker also installed legit remote administration software. What is the name of the running process?
@@ -472,8 +471,8 @@ Flag: `180.76.254.120:22`→
 #### Recon
 這一題超簡單，應該寫到前面幾題就可以寫這一題了，也就是attacker還安裝了別種RDP軟體，看了前面的pslist就知道TeamViewer在搞事
 
-#### Exploit→
-Flag: `TeamViewer.exe`→
+#### Exploit
+Flag: `TeamViewer.exe`
 
 ### **Q15**
 > It appears the attackers also used a built-in remote access method. What IP address did they connect to?
@@ -485,8 +484,8 @@ mstsc是windows內建的遠端連線工具
 #### Recon
 這也超簡單，看一下上上一題的netscan執行結果，就可以知道他有執行mstsc.exe的process，如果直接看pslist也看得出來他有執行，所以在前面幾題的時候久可以朝這個方向思考可能的攻擊手法
 
-#### Exploit→
-Flag: `10.1.1.21`→
+#### Exploit
+Flag: `10.1.1.21`
 
 ## Reference
 [^cyberdefender-mrrobot-wp]:[MrRobot Walkthrough — Cyberdefenders](https://responderj01.medium.com/mrrobot-walkthrough-cyberdefenders-7694e3120897)

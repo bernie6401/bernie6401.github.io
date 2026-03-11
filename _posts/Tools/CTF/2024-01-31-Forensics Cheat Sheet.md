@@ -76,6 +76,40 @@ date: 2024-01-31
 
 ### Registry
 * [Regshot](https://sourceforge.net/projects/regshot/): 可以snapshot目前registry的狀態並且和第二次的snapshot做比較
+* [Registry Explorer](https://ericzimmerman.github.io/#!index.md): 用來分析reg file
+
+#### Registry在哪裡
+* SOFTWARE: `root/Windows/System32/config/SOFTWARE`
+    ```bash
+    SOFTWARE/Microsoft/Windows NT/CurrentVersion # 原本電腦OS的基本資訊(Build Number/Product Name/)
+    SOFTWARE/Microsoft/Windows NT/CurrentVersion/ProfileList # 檢查SID
+    SOFTWARE/Microsoft/Windows NT/CurrentVersion/Winlogon # 查看登入
+    SOFTWARE/Microsoft/Windows/CurrentVersion/Run # StartUp Run
+    ```
+* SYSTEM: `root/Windows/System32/config/SYSTEM`
+    ```bash
+    SYSTEM/ControlSet001/Control/ComputerName/ComputerName # 電腦名稱
+    SYSTEM/ControlSet001/Control/TimeZoneInformation # 時區
+    SYSTEM/ControlSet001/Control/Session Manager/Environment/ # CPU架構
+    SYSTEM/ControlSet001/Services/Tcpip/Parameters/Interfaces/ # 電腦IP/DHCP相關資訊
+    SYSTEM/ControlSet001/Enum/USBSTOR/ # USB資訊
+    ```
+* NTUSER.DAT: `root/Users/{username}/NTUSER.DAT`
+    ```bash
+    root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/UserAssist # UserAssit
+    root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/RecentDocs # Recent Docs
+    ```
+* \$MFT: `root/$MFT`
+* Database相關
+    ```bash
+    ./Users/{username}/AppData/Local/Google/Chrome/User Data/Default/History # Chrome History
+    ./Users/{username}/AppData/Roaming/Mozilla/Firefox/Profiles/{random}.default-release/places.sqlite # Firefox History
+    ./Users/{username}/AppData/Roaming/Skype/{account name} # Skype Chat History
+    ```
+* Taskbar相關
+    ```bash
+    ./Users/{username}/AppData/Roaming/Microsoft/Internet Explorer/Quick Launch/User Pinned/TaskBar
+    ```
 
 ### Incident Response (查看Log)
 * 如果是直接給一個log file，那麼多多利用unix command會方便很多grep, cat, cut, uniq, sort...
@@ -84,39 +118,6 @@ date: 2024-01-31
     ```
 * [Timeline Explorer](https://ericzimmerman.github.io/#!index.md):為時間軸資訊分析提供了一個全面、高效且高度整合的系統，用於搜尋不同資源的時間線軸資訊，並可以輕鬆過濾、分組與排序
 * For Linux: [aureport 教學]({{base.url}}/BTLO-Paranoid/): 是 Linux 系統上 auditd (Linux Audit Daemon) 的報告工具，主要用於 分析系統安全審計日誌 (audit logs)。它屬於 Linux 原生審計與事件監控工具，能幫助系統管理員和資安分析人員快速彙整、搜尋和報告各種安全事件。
-
-## Windows
-### Where
-* SOFTWARE: `root/Windows/System32/config/SOFTWARE`
-* SYSTEM: `root/Windows/System32/config/SYSTEM`
-* NTUSER.DAT: `root/Users/{username}/NTUSER.DAT`
-* \$MFT: `root/$MFT`
-
-### SOFTWARE Information
-* 原本電腦OS的基本資訊(Build Number/Product Name/): `SOFTWARE/Microsoft/Windows NT/CurrentVersion`
-* 檢查SID: `SOFTWARE/Microsoft/Windows NT/CurrentVersion/ProfileList`
-* 查看登入: `SOFTWARE/Microsoft/Windows NT/CurrentVersion/Winlogon`
-* StartUp Run: `SOFTWARE/Microsoft/Windows/CurrentVersion/Run`
-
-#### NTUSER.DAT(每個使用者都不一樣)
-* UserAssit: `root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/UserAssist`
-* Recent Docs: `root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/RecentDocs`
-
-### System Information
-* 電腦名稱: `SYSTEM/ControlSet001/Control/ComputerName/ComputerName`
-* 電腦IP/DHCP相關資訊: `SYSTEM/ControlSet001/Services/Tcpip/Parameters/Interfaces/`
-* 時區: `SYSTEM/ControlSet001/Control/TimeZoneInformation`
-* USB資訊: `SYSTEM/ControlSet001/Enum/USBSTOR/`
-* CPU架構: `SYSTEM/ControlSet001/Control/Session Manager/Environment/`
-
-### Database
-* Chrome History: `./Users/{username}/AppData/Local/Google/Chrome/User Data/Default/History`
-* Firefox History: `./Users/{username}/AppData/Roaming/Mozilla/Firefox/Profiles/{random}.default-release/places.sqlite`
-* Skype Chat History: `./Users/{username}/AppData/Roaming/Skype/{account name}`
-    
-### Taskbar
-* `./Users/{username}/AppData/Roaming/Microsoft/Internet Explorer/Quick Launch/User Pinned/TaskBar`
-
 
 ## mac-OS
 ### plist

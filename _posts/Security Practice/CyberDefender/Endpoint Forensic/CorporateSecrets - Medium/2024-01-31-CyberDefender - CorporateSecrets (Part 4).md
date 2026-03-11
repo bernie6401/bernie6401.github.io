@@ -93,7 +93,7 @@ Flag: `admin`
 直覺會看第26題用mftdump的結果，然後去看164885的offset address，再去看\$MFT的timestamp，不過後來想想，\$MFT的timestamp所記錄的是`Creat Time + Modified Time + $MFT Modified Time + Access Time`，並不是最後執行的timestamp，所以應該是去看是哪一個檔案，然後去看他的prefetch file
 
 ### Exploit
-1. Record No. 164885 $\to$ 0x0a105400
+1. Record No. 164885 → 0x0a105400
 2. `7zG.exe`
     ![圖片.png](https://hackmd.io/_uploads/Syb-8KD7a.png)
 3. Export Prefetch

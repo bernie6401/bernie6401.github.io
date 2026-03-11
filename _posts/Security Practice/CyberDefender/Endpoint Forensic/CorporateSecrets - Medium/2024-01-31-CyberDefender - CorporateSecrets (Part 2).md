@@ -120,7 +120,7 @@ Flag: `C:\Program1`
 > What was the URL for the Youtube video watched by Jim? 
 
 ### Recon
-這個是有點新的舊觀念，先看Jim的瀏覽器是用哪一個$\to$Chrome，所以可以查一下Chrome的樓覽紀錄在哪邊$\to$`root/Users/jim.tomato/AppData/Local/Google/Chrome/UserData/Default/`中可以找到History這個database file，接著就是用db browser parse這個file
+這個是有點新的舊觀念，先看Jim的瀏覽器是用哪一個 → Chrome，所以可以查一下Chrome的樓覽紀錄在哪邊 → `root/Users/jim.tomato/AppData/Local/Google/Chrome/UserData/Default/`中可以找到History這個database file，接著就是用db browser parse這個file
 
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/SkN2-IPQp.png)

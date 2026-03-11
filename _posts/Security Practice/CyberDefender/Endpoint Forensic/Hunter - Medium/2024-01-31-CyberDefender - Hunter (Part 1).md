@@ -252,7 +252,7 @@ Flag: `zenmap.exe,2016-06-21 12:08:13 UTC`
 ```
 其他可能有一些原因導致資料遺失，所以感覺上這個路徑會有一些資訊可以撈
 ![](https://hackmd.io/_uploads/BJMH0DDMT.png)
-大概看過一遍之後發現他的target是`scanme.nmap.org`，結果的路徑會放在`recent_scans.txt`中$\to$`C:\Users\Hunter\Desktop\nmapscan.xml`，實際去翻了一下發現真的有一些重要資訊
+大概看過一遍之後發現他的target是`scanme.nmap.org`，結果的路徑會放在`recent_scans.txt`中 → `C:\Users\Hunter\Desktop\nmapscan.xml`，實際去翻了一下發現真的有一些重要資訊
 
 ### Exploit
 xml檔案內容

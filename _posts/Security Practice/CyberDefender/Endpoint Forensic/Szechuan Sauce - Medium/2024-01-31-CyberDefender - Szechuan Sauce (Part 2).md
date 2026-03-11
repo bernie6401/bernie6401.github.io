@@ -23,28 +23,24 @@ date: 2024-01-31
 * Wireshark
 * Registry Explorer
 
-## ==Q11==
+## Q11
 > What's the name of the attack tool you think this malware belongs to? (one word) 
 
 ### Recon
 和malware相關的資訊，直覺會先看virustotal上的資訊，也的確發現答案的蹤跡
 
-:::spoiler Flag
 Flag: `Metasploit`
-:::
 
-## ==Q12==
+## Q12
 > One of the involved malicious IP's is based in Thailand. What was the IP? 
 
 ### Recon
 這個在virustotal上也有完整的資訊，只能說那個network graph真的太屌了，不只清楚也很炫泡
 ![圖片.png](https://hackmd.io/_uploads/BJw07aEX6.png)
 
-:::spoiler Flag
 Flag: `203.78.103.109`
-:::
 
-## ==Q13==
+## Q13
 > Another malicious IP once resolved to klient-293.xyz . What is this IP? 
 
 ### Recon
@@ -57,13 +53,11 @@ Flag: `203.78.103.109`
 * 方法二:
     ![圖片.png](https://hackmd.io/_uploads/HJ1xYpEQa.png)
 
-所以根據上一題可知我們現在有兩個可疑的IP，一個是傳送payload的IP$\to$`194.61.24.102`，而另外一個是駭客的C2 server(在泰國的那個)$\to$`203.78.103.109`
+所以根據上一題可知我們現在有兩個可疑的IP，一個是傳送payload的IP → `194.61.24.102`，而另外一個是駭客的C2 server(在泰國的那個) → `203.78.103.109`
 
-:::spoiler Flag
 Flag: `194.61.24.102`
-:::
 
-## ==Q14==
+## Q14
 > The attacker performed some lateral movements and accessed another system in the environment via RDP. What is the hostname of that system? 
 
 ### Background
@@ -89,22 +83,18 @@ WP中有提到兩種解析方式，一種是看network packets，另外一種是
     看了MSDN的logon type可以發現，如果是用RDP登入的話，要看type 10(RemoteInteractive)和3(使用者或電腦從網路登入這部電腦。)，所以橫向移動應該是logon type 3的範疇
     ![圖片.png](https://hackmd.io/_uploads/rJ9EK0EX6.png)
     
-:::spoiler Flag
 Flag: `DESKTOP-SDN1RPT`
-:::
 
-## ==Q15==
+## Q15
 > Other than the administrator, which user has logged into the Desktop machine? (two words) 
 
 ### Recon
 這一題直覺就是延續上一題的狀況，直接看timeline explorer有登入的target
 ![圖片.png](https://hackmd.io/_uploads/HyOgT0E76.png)
 
-:::spoiler Flag
 Flag: `rick sanchez`
-:::
 
-## ==Q16==
+## Q16
 > What was the password for "jerrysmith" account? 
 
 ### Recon
@@ -117,7 +107,6 @@ Flag: `rick sanchez`
 1. Export NTDS.DIT & SYSTEM
     NTDS.DIT在Domain Server的`C:\Windows\NTDS\ntds.dit`，而SYSTEM在`C:\Windows\System32\config\SAM`
 2. 用Kali裡面的[`impacket-secretsdump`](https://www.kali.org/tools/impacket/)轉成hash
-    :::spoiler Result
     ```bash
     $ impacket-secretsdump -system SYSTEM -ntds ntds.dit LOCAL -outputfile hashes.txt
     Impacket v0.11.0 - Copyright 2023 Fortra
@@ -180,7 +169,6 @@ Flag: `rick sanchez`
     C137.local\birdman:1118:aad3b435b51404eeaad3b435b51404ee:944055b77ebe7d6fd80f24b5fce634fb:::
     DESKTOP-SDN1RPT$:1602:aad3b435b51404eeaad3b435b51404ee:fa6ecdc900cbeeb623cfc92297e5b653:::
     ```
-    :::
 3. Brute Force
     * [Online Tool 1](https://www.cmd5.com/)
     * [Online Tool 2](https://hashes.com/en/decrypt/hash)
@@ -202,11 +190,9 @@ Flag: `rick sanchez`
     fa6ecdc900cbeeb623cfc92297e5b653: (None)
     ```
 
-:::spoiler Flag
 Flag: `!BETHEYBOO12!`
-:::
 
-## ==Q17==
+## Q17
 > What was the original filename for Beth’s secrets? 
 
 ### Recon
@@ -215,29 +201,23 @@ Flag: `!BETHEYBOO12!`
 ### Exploit
 ![圖片.png](https://hackmd.io/_uploads/rysZqVH76.png)
 
-:::spoiler Flag
 Flag: `SECRET_beth.txt`
-:::
 
-## ==Q18==
+## Q18
 > What was the content of Beth’s secret file? ( six words, spaces in between) 
 
 ### Recon
 直接呈上題，下一個檔案就是他的file content
 
-:::spoiler Flag
 Flag: `Earth beth is the real beth`
-:::
 
-## ==Q19==
+## Q19
 > The malware tried to obtain persistence in a similar way to how Carbanak malware obtains persistence. What is the corresponding MITRE technique ID? 
 
 ### Exploit
 直接看Carbanak的MITRE頁面，詳細的訊息可以看[這邊](https://attack.mitre.org/groups/G0008/)
 
-:::spoiler Flag
 Flag: `T1543.003`
-:::
 
 ## Reference
 [^szechuan-sauce-wp]:[CyberDefenders: Szechuan Sauce CTF Writeup](https://ellisstannard.medium.com/cyberdefenders-szechuan-sauce-writeup-ab172eb7666c)
