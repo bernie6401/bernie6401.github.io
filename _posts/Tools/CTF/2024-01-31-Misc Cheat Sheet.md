@@ -34,6 +34,7 @@ $ file [filename]
     $ sudo apt install ./stegseek_0.6-1.deb -y
     $ stegseek [stegofile.jpg] [wordlist.txt]
     ```
+* [Online Tool - Aperi'Solve](https://aperisolve.fr/)
 
 ## CTF - Sound
 * hide files: [MP3stego](https://www.petitcolas.net/steganography/mp3stego/)
@@ -100,8 +101,7 @@ $ file [filename]
     |related|搜尋類似於指定網站的其他網站|related:www.fcu.edu.tw|
     |inurl|尋找指定的字串是否在網址列當中|inurl:www.fcu.edu.tw|
     | site   | 搜尋指定網址的內容|site:www.fcu.edu.tw|
-* [Shodan](https://www.shodan.io/dashboard)
-* [Censys](https://search.censys.io/)
+* [Shodan](https://www.shodan.io/dashboard) / [Censys](https://search.censys.io/): 搜尋 Internet 上所有公開設備與服務的搜尋引擎
     ![](https://hackmd.io/_uploads/Hym-h3oH2.png)
 
 #### Inspect Platform
@@ -109,6 +109,7 @@ $ file [filename]
 * [Alien Vault](https://otx.alienvault.com)
 * [IBM X-Force](https://exchange.xforce.ibmcloud.com)
 * [Any.Run](https://app.any.run/): Online Sandbox
+* [Hybrid Analysis](https://www.hybrid analysis.com/)
 
 #### Mail
 * [PST Viewer](https://goldfynch.com/goldfynch-pst-viewer)
@@ -163,7 +164,7 @@ $ file [filename]
     ```bash
     $ sudo tcpflow -r {pcap file}
     ```
-* [dsniff]: Various tools to sniff network traffic for cleartext insecurities
+* [dsniff](https://github.com/tecknicaltom/dsniff): Various tools to sniff network traffic for cleartext insecurities
     * arpspoof: 
         ```bash
         $ arpspoof -t victim_ip router_ip
@@ -183,12 +184,14 @@ $ file [filename]
         ```bash
         $ snort -dev -l ./log
         ```
-    * Network Intrusion Detection Mode（最常用）: 使用 rules 來偵測攻擊
+    * Network Intrusion Detection System Mode（NIDS最常用）: 使用 rules 來偵測攻擊
         ```bash
         $ snort -c snort.conf
+        $ sudo snort -d -l [target directory]
+        $ sudo snort -d -l /var/log/snort/ -c /etc/snort/snort.conf -A console
         ```
 
-        ```
+        ```txt
         # 如果任何 TCP 流量連到192.168.1.10:80就產生 alert
         alert tcp any any -> 192.168.1.10 80 (msg:"Possible attack"; 
         sid:10001;)
@@ -212,6 +215,10 @@ $ file [filename]
         detection_filter:track by_src, count 2, seconds 1; 
         sid:1000001; 
         rev:1;)
+
+        /etc/snort/snort.conf # Snort config file
+        /var/log/snort/ # Snort log path
+        /etc/snort/rules/ # Snort rule path
         ```
 
 ### Threat Modeling
@@ -296,6 +303,7 @@ $ file [filename]
 
 ## Forensics
 * [LNK Parser](https://code.google.com/archive/p/lnk-parser/downloads)
+
 ### Disk Analysis
 * [Foremost](https://darkranger.no-ip.org/archives/v5/document/linux/foremost_recovery.htm): 針對所支援的檔案結構去進行資料搜尋與救援
     ```bash
@@ -340,13 +348,12 @@ $ file [filename]
     $ python vol.py -h # For help
     ```
 
-
-
-
-
+### Registry
+* [Regshot](https://sourceforge.net/projects/regshot/): 可以snapshot目前registry的狀態並且和第二次的snapshot做比較
 
 ## 資安防禦平台與工具
 * 完整的流程可以參考[TaiwanHolyHigh - Windows Forensics - Background]({{base.url}}/TaiwanHolyHigh-Windows-Forensics-Background/)
+
 ### XDR
 * [WAZUH](https://wazuh.com/)
 

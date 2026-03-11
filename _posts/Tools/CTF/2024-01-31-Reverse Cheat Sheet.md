@@ -8,6 +8,7 @@ date: 2024-01-31
 
 # Reverse Cheat Sheet
 <!-- more -->
+<img src="/assets/posts/Tools/Reverse Useful Tools for Analyzing.png" width=300>
 
 ## 解題思路
 1. 先觀察
@@ -258,15 +259,8 @@ date: 2024-01-31
 可以參考[Simple-Reverse-0x13(Lab-Meow)]({{base.url}}/Simple-Reverse-0x13(Lab-Meow)/)，就是直接用Scylla中`File/Dump Memory`處理
 
 ## Process相關的操作與資訊 (SysinternalSuite)
-* Procexp & Process Hacker
-    好看版的工作管理員
-* Procmon
-    * 監控程序行為
-    * Registry
-    * File system
-    * Network
-    * Process/Thread
-
+有關SysinternalSuite可以直接參考[Misc Cheat Sheet]({{base.url}}/Misc-Cheat-Sheet#Sysinternal)
+* [ProcDot](https://www.procdot.com/): 結合Process Monitor和Wireshark的分析工具，並且**可視化**分析的結果
     
 ## Anti-Revese
 * Scylla Hide
