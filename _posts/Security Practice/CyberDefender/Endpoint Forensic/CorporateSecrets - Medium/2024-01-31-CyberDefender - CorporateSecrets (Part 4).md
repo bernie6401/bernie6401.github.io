@@ -90,7 +90,9 @@ Flag: `admin`
 (Format: MM/DD/YYYY HH:MM:SS (UTC).) 
 
 ### Recon
-直覺會看第26題用mftdump的結果，然後去看164885的offset address，再去看\$MFT的timestamp，不過後來想想，\$MFT的timestamp所記錄的是`Creat Time + Modified Time + $MFT Modified Time + Access Time`，並不是最後執行的timestamp，所以應該是去看是哪一個檔案，然後去看他的prefetch file
+直覺會看第26題用mftdump的結果，然後去看164885的offset address，再去看 \$MFT 的 timestamp 
+
+不過後來想想，\$MFT的timestamp所記錄的是`Creat Time + Modified Time + $MFT Modified Time + Access Time`，並不是最後執行的timestamp，所以應該是去看是哪一個檔案，然後去看他的prefetch file
 
 ### Exploit
 1. Record No. 164885 → 0x0a105400
@@ -140,8 +142,6 @@ Flag: `Customer data is not stored securely`
 ## Q35
 > In the company Slack, what is threatened to be deactivated if the user gets their email deactivated? 
 
-### Recon
-
 ### Exploit
 我覺得[^wp]解法比較有效率，不然慢慢找真的會瘋掉
 1. 先找到有誰使用slack這套軟體，因為之前在寫前面的東西的時候就翻到了，所以可以參考就好
@@ -158,8 +158,7 @@ Flag: `Customer data is not stored securely`
     可以看到應該是`./Users/hansel.apricot/AppData/Roaming/Slack/IndexedDB/https_app.slack.com_0.indexeddb.leveldb/000003.log matches`比較符合
 4. 直接strings search
     ```bash
-    $ strings ./Users/hansel.apricot/AppData/Roaming/Slack/IndexedDB/https_app.slack.com_0.indexeddb.leveldb/000003.lo
-    g | grep text > log_dump.txt
+    $ strings ./Users/hansel.apricot/AppData/Roaming/Slack/IndexedDB/https_app.slack.com_0.indexeddb.leveldb/000003.log | grep text > log_dump.txt
     ```
 5. 仔細看其中的內容，看來看去`kneecaps`應該就是答案，但我不確定這一題到底在幹嘛，或者說出題意義不明
     ```

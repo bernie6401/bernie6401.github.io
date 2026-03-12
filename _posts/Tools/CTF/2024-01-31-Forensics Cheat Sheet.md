@@ -11,11 +11,19 @@ date: 2024-01-31
 
 ## Forensics Tools
 * [LNK Parser](https://code.google.com/archive/p/lnk-parser/downloads)
+* [PECmd - Prefetch parser](https://ericzimmerman.github.io/#!index.md): 用來解析 Windows Prefetch 檔案
+    ```bash
+    $ PECmd.exe -f <PrefetchFile>
+    ```
+* [EvtxECmd - Event Log Parser](https://ericzimmerman.github.io/#!index.md)
+    ```bash
+    $ EvtxECmd.exe -f Security.evtx --csv out
+    ```
 
 ### Disk Analysis
 * [Foremost](https://darkranger.no-ip.org/archives/v5/document/linux/foremost_recovery.htm): 針對所支援的檔案結構去進行資料搜尋與救援
     ```bash
-    $ foremost -v {filename}
+    $ foremost -v <filename>
     ```
 * [Sleuth kit/Autopsy](https://blog.csdn.net/wxh0000mm/article/details/99447206)
 * [FTK Imager](https://www.exterro.com/ftk-imager)
@@ -94,7 +102,7 @@ date: 2024-01-31
     SYSTEM/ControlSet001/Services/Tcpip/Parameters/Interfaces/ # 電腦IP/DHCP相關資訊
     SYSTEM/ControlSet001/Enum/USBSTOR/ # USB資訊
     ```
-* NTUSER.DAT: `root/Users/{username}/NTUSER.DAT`
+* NTUSER.DAT: `root/Users/<username>/NTUSER.DAT`
     ```bash
     root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/UserAssist # UserAssit
     root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/RecentDocs # Recent Docs
@@ -102,13 +110,13 @@ date: 2024-01-31
 * \$MFT: `root/$MFT`
 * Database相關
     ```bash
-    ./Users/{username}/AppData/Local/Google/Chrome/User Data/Default/History # Chrome History
-    ./Users/{username}/AppData/Roaming/Mozilla/Firefox/Profiles/{random}.default-release/places.sqlite # Firefox History
-    ./Users/{username}/AppData/Roaming/Skype/{account name} # Skype Chat History
+    ./Users/<username>/AppData/Local/Google/Chrome/User Data/Default/History # Chrome History
+    ./Users/<username>/AppData/Roaming/Mozilla/Firefox/Profiles/<random>.default-release/places.sqlite # Firefox History
+    ./Users/<username>/AppData/Roaming/Skype/<account name> # Skype Chat History
     ```
 * Taskbar相關
     ```bash
-    ./Users/{username}/AppData/Roaming/Microsoft/Internet Explorer/Quick Launch/User Pinned/TaskBar
+    ./Users/<username>/AppData/Roaming/Microsoft/Internet Explorer/Quick Launch/User Pinned/TaskBar
     ```
 
 ### Incident Response (查看Log)
@@ -124,22 +132,22 @@ date: 2024-01-31
 Apple 系統用來儲存設定與資料的檔案格式
 ```bash
 $ sudo apt install libplist-utils -y
-$ plistutil -i {plist file} -o {output file}
+$ plistutil -i <plist file> -o <output file>
 ```
 
 ```bash
 ./root/System/Library/CoreServices/SystemVersion.plist # System Version
-./root/private/var/db/dslocal/nodes/Default/users/{username}.plist # Password information
+./root/private/var/db/dslocal/nodes/Default/users/<username>.plist # Password information
 ./root/private/var/db/dslocal/nodes/Default/users/_usbmux.plist # The process responsible for connecting iPhones/iPads with MacOS is lockdown
-./root/Users/{username}/Library/Safari/Bookmarks.plist # Browser Bookmark
-./root/Users/{username}/Library/Application Support/com.apple.spotlight/com.apple.spotlight.Shortcuts # Spotlight(這個不需要透過plistutil就可以直接cat)
+./root/Users/<username>/Library/Safari/Bookmarks.plist # Browser Bookmark
+./root/Users/<username>/Library/Application Support/com.apple.spotlight/com.apple.spotlight.Shortcuts # Spotlight(這個不需要透過plistutil就可以直接cat)
 ```
 
 ### Event Log
 * 短期檔案系統變更儲存在`.fseventsd`中，必須使用`mac_apt`這個工具幫忙parse(FSEVENTS): `./root/.fseventsd/`
-* ScreenTime: 一樣要透過`mac_apt`幫忙parse(SCREENTIME)，記得要把`RMAdminStore-Local.sqlite-wal`這個檔案和`RMAdminStore-Local.sqlite`放在一起執行: `./root/private/var/folders/bf/{random strings}/0/com.apple.ScreenTimeAgent/Store/RMAdminStore-Local.sqlite`
+* ScreenTime: 一樣要透過`mac_apt`幫忙parse(SCREENTIME)，記得要把`RMAdminStore-Local.sqlite-wal`這個檔案和`RMAdminStore-Local.sqlite`放在一起執行: `./root/private/var/folders/bf/<random strings>/0/com.apple.ScreenTimeAgent/Store/RMAdminStore-Local.sqlite`
 
 ### Database
-* Note: `./root/Users/{username}/Library/Group Containers/group.com.apple.notes`
-* Quarantined Events: `./root/Users/{username}/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2`
-* Messages: `./root/Users/{username}/Library/Messages/chat.db`
+* Note: `./root/Users/<username>/Library/Group Containers/group.com.apple.notes`
+* Quarantined Events: `./root/Users/<username>/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2`
+* Messages: `./root/Users/<username>/Library/Messages/chat.db`

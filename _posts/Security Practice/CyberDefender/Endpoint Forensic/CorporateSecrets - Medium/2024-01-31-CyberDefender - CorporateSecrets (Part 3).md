@@ -255,13 +255,17 @@ Flag: `2020-04-11 23:23:36`
 我是直接在`/root`的地方export出\$MFT file，然後去看magic header(`FILE0`)的數量有多少(`219811`)，但這樣不準確(不清楚為甚麼)，我記得之前[@Jimmy說過]({{base.url}}/TaiwanHolyHigh-Windows-Forensics-$MFT-%E5%9F%BA%E6%9C%AC%E5%AF%A6%E4%BD%9C#Lab---Offset-43110400d)
 > $MFT長度一段就是1024 Bytes(0x400)
 
-所以我想說可以把最後出現的位置除已0x400可能就是答案$\to 0xd6aac00/0x400=219819.0$
+所以我想說可以把最後出現的位置除已0x400可能就是答案 → $0xd6aac00/0x400=219819.0$
 ![圖片.png](https://hackmd.io/_uploads/BkUuMwDmp.png)
 * 方法一
     不過以上的方法是確實可行的，因為計算entries不是只要看有多少有紀錄的File，而是整個\$MFT有多少空間，意思是我們要看最後位址是多少再除以0x400，而不是只算到最後一個FILE0的地方就直接除已0x400
     ![圖片.png](https://hackmd.io/_uploads/SJCs2DwX6.png)
     該檔案的最後位址是在0xd6bfff0
-    $(0xd6bfff0+0x10)/0x400 = 219904.0$
+
+    $$
+    (0xd6bfff0+0x10)/0x400 = 219904.0
+    $$
+
     加上0x10是因為要算出完整的0x400才算一個，也就是我們要算最後一個就要padding
 * 方法二
     後來參考[^wp]才知道比較正確的解法
