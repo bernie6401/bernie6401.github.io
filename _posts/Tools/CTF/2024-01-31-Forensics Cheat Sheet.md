@@ -37,6 +37,7 @@ date: 2024-01-31
     ```
 
 ### Memory Forensics
+#### Volatility
 * 建議直接使用[windown protable version](https://www.volatilityfoundation.org/releases)會比較穩定而且不需要處理環境的問題
 * [Volatility - Cheat Sheet](https://hackmd.io/@TuX-/BymMpKd0s)
 * [Volatility 3](https://github.com/volatilityfoundation/volatility3)
@@ -84,6 +85,12 @@ date: 2024-01-31
     consoles # console中的command紀錄
     iehistory # 查看iexplorer的紀錄
     filescan # 可以從mem中找出各種file的path
+    ```
+
+#### 其他
+* [vmss2core](https://flings.vmware.com/vmss2core): .vmss是VMware經過轉換的snapshot，而這個工具可以把snapshot轉換成memory dump
+    ```bash
+    $ vmss2core.exe -W <.vmss file>
     ```
 
 ### Registry
