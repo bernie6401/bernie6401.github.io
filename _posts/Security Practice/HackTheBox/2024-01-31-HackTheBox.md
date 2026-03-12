@@ -143,23 +143,24 @@ NMAP/SMB
     protocol negotiation failed: NT_STATUS_INVALID_NETWORK_RESPONSE
     Failed to connect with SMB1 -- no workgroup available 
     ```
+
 * Login by user bob and get flag.txt
     ```bash
     $ smbclient -U bob \\\\10.129.136.29\\users
     WARNING: The "syslog" option is deprecated
-    Enter WORKGROUP\bob's password:
+    Enter WORKGROUP\\bob password:
     Try "help" to get a list of possible commands.
-    smb: \> dir
+    smb: \\> dir
       .                                   D        0  Fri Feb 26 07:06:52 2021
       ..                                  D        0  Fri Feb 26 04:05:31 2021
       flag                                D        0  Fri Feb 26 07:09:26 2021
       bob                                 D        0  Fri Feb 26 05:42:23 2021
     cd f
                     4062912 blocks of size 1024. 1124740 blocks available
-    smb: \> cd flag\
-    smb: \flag\> get flag.txt
-    getting file \flag\flag.txt of size 33 as flag.txt (0.0 KiloBytes/sec) (average 0.0 KiloBytes/sec)
-    smb: \flag\> exit
+    smb: \\> cd flag\\
+    smb: \\flag\\> get flag.txt
+    getting file \\flag\\flag.txt of size 33 as flag.txt (0.0 KiloBytes/sec) (average 0.0 KiloBytes/sec)
+    smb: \\flag\\> exit
     $ cat flag.txt
     dceece590f3284c3866305eb2473d099
     ```

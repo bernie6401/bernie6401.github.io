@@ -14,7 +14,7 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/146#nav-questions
 > Your organization's security team has detected a surge in suspicious network activity. There are concerns that LLMNR (Link-Local Multicast Name Resolution) and NBT-NS (NetBIOS Name Service) poisoning attacks may be occurring within your network. These attacks are known for exploiting these protocols to intercept network traffic and potentially compromise user credentials. Your task is to investigate the network logs and examine captured network traffic.
 
 ## Background
-* [ NetBIOS and LLMNR Poisoning | Attack Demonstration ](https://youtu.be/s2YIU2w9T9Q?si=ZCj8xuSR6Jp_7WTW)
+* [ NetBIOS and LLMNR Poisoning \| Attack Demonstration ](https://youtu.be/s2YIU2w9T9Q?si=ZCj8xuSR6Jp_7WTW)
 * [本機多點傳送名稱解析 (LLMNR)](https://netpc.pixnet.net/blog/post/12409336)
     > 同時允許 IPv6 和 IPv4 主機為鄰接電腦執行名稱解析，而不需設定 DNS 伺服器或 DNS 用戶端。
     >

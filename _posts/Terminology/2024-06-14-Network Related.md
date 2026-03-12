@@ -138,6 +138,17 @@ DNS 用來把：domain → IP: `google.com → 142.250.x.x`
 是 Link-Local Multicast Name Resolution 的縮寫，是一種 在本地網路內解析主機名稱 (hostname) 的協定。它主要用在 DNS 解析失敗時的備援機制。
 > 在沒有 DNS 或 DNS 解析失敗時，用 multicast 問區域網路「誰是這個主機？」
 
+## NetBIOS(Network Basic Input/Output System)
+它是一個 API / 網路服務架構，讓電腦在 LAN 中可以：
+* 找到其他電腦
+* 建立 session
+* 傳送資料
+
+## NBNS(NetBIOS Name Service)
+用途是：把 NetBIOS name 轉換成 IP address，角色很像 DNS。
+> hostname → IP
+> FILESERVER → 192.168.1.20
+
 ## 其他名詞解釋
 * [Day16-分散式系統溝通的方法-RPC](https://ithelp.ithome.com.tw/articles/10223580)
 * [FTP](https://experience.dropbox.com/zh-tw/resources/what-is-ftp)
