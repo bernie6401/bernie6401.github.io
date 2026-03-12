@@ -140,7 +140,7 @@ $ cat file.None.0x85a86af0.At1.dat
   </Principals>
   <Actions Context="Author">
     <Exec>
-      <Command>c:\users\gideon\1.bat</Command>
+      <Command>c:\\users\\gideon\\1.bat</Command>
     </Exec>
   </Actions>
 </Task>%
@@ -150,4 +150,4 @@ $ cat file.None.0x85a86af0.At1.dat
 Flag: `1.bat`
 
 ## Reference
-[^cyberdefender-mrrobot-wp]:[MrRobot Walkthrough — Cyberdefenders](https://responderj01.medium.com/mrrobot-walkthrough-cyberdefenders-7694e3120897)
+[MrRobot Walkthrough — Cyberdefenders](https://responderj01.medium.com/mrrobot-walkthrough-cyberdefenders-7694e3120897)
