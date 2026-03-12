@@ -74,17 +74,23 @@ date: 2024-01-31
     # <cmd>
     imageinfo # 看目前的memory來自哪一種profile，e.g. WinXPSP2x86, WinXPSP3x86
     pslist # 查看process info
-    ldrmodules --pid <pid> # ldrmodules: 更進階的dlllist，可以顯示被隱藏的dll，以及dll的狀態
+
     malfind --pid <pid> --dump-dir <output folder> # 如果要dump被injected過的process
-    dlllist --pid <PID> # 查看該process load什麼樣的dll
-    ldrmodules --pid <PID> # 比dlllist更強也更全面
+    dlllist --pid <pid> # 查看該process load什麼樣的dll
+    ldrmodules --pid <pid> # ldrmodules: 更進階的dlllist，可以顯示被隱藏的dll，以及dll的狀態
+    handles --pid <pid> # 查看該process的handle有哪些
+    
     hashdump > ntlm.hash # dump hash
+    dumpfile -n -D <output path> -Q <memory address>
+
     timeliner # 如果是要找到某個東西的timestamp，可以考慮直接用timeliner這個plubin，主要的功能是就是建立記憶體中的各種痕跡資訊的時間線
-    netscan # 查看網路連線紀錄
-    yarascan -Y "example strings" # 在memory中用yarascan去search不同的pattern
     consoles # console中的command紀錄
     iehistory # 查看iexplorer的紀錄
+    printkey -K <機碼的路徑> # 印出機碼路徑/子路徑/內容
+    
+    netscan # 查看網路連線紀錄
     filescan # 可以從mem中找出各種file的path
+    yarascan -Y "example strings" # 在memory中用yarascan去search不同的pattern
     ```
 
 #### 其他

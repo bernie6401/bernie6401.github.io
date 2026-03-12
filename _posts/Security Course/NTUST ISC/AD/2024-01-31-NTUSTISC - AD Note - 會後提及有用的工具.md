@@ -85,9 +85,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=JAnGtFoJl
 
 |      | AD                         | AAD  |
 | ---- | -------------------------- | ---- |
-| 協定 | Kerberos</br>NTLM</br>LDAP | SAML</br>OAuth2</br>OIDC</br>WS-Fed |
+| 協定 | Kerberos<br>NTLM<br>LDAP | SAML<br>OAuth2<br>OIDC<br>WS-Fed |
 |How to use cloud APP?|ADFS認證|IdaaS|
-|特別的功能|無|Multi-Factor Authentication</br>條件訪問</br>Identity Protection|
+|特別的功能|無|Multi-Factor Authentication<br>條件訪問<br>Identity Protection|
 
 ### [ IR從零開始的自我修煉之路-Day 02 ](https://ithelp.ithome.com.tw/articles/10238765)
 What is IR(incident response)?
