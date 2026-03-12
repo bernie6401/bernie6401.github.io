@@ -13,11 +13,15 @@ date: 2024-01-31
 * [LNK Parser](https://code.google.com/archive/p/lnk-parser/downloads)
 * [PECmd - Prefetch parser](https://ericzimmerman.github.io/#!index.md): 用來解析 Windows Prefetch 檔案
     ```bash
-    $ PECmd.exe -f <PrefetchFile>
+    $ PECmd.exe -f C:\\Windows\\Prefetch\\<PrefetchFile>
     ```
 * [EvtxECmd - Event Log Parser](https://ericzimmerman.github.io/#!index.md)
     ```bash
     $ EvtxECmd.exe -f Security.evtx --csv out
+    ```
+* [JLECmd - Jump List Parser](https://ericzimmerman.github.io/#!index.md)
+    ```bash
+    $ ./JLECmd.exe -f aa28770954eaeaaa.customDestinations-ms
     ```
 
 ### Disk Analysis

@@ -91,10 +91,9 @@ Flag: `home-network-design-networking-for-a-single-family-home-case-house-arkko-
 ## **Q18**
 > The user Documents' directory contained a PDF file discussing data exfiltration techniques. What is the name of the file? 
 
-### Recon
-
 ### Exploit
 仔細看一下Document裡面的一些pdf，會看到有一個叫做`Ryan_VanAntwerp_thesis.pdf`就是答案
+
 Flag: `Ryan_VanAntwerp_thesis.pdf`
 
 ## **Q19**
