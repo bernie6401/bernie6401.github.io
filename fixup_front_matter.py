@@ -19,7 +19,7 @@ def fetch_date_in_filename(filepath):
         return match.group(0).rstrip("-")
     return None
 
-def file_io(io: str, new_lines=None):
+def file_io(filepath, io: str, new_lines=None):
     with open(filepath, io, encoding="utf-8", newline="") as f:
         if io == "r":
             return f.readlines()
@@ -29,7 +29,7 @@ def file_io(io: str, new_lines=None):
 
 if __name__ == "__main__":
     
-    POSTS_DIR = "_posts/"
+    POSTS_DIR = "_posts/Books Notes/"
     # POSTS_DIR = "_posts/Books Notes/大眾文學/日本/"
     date_prefix_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}-")
 
@@ -48,9 +48,8 @@ if __name__ == "__main__":
             date = fetch_date_in_filename(filepath) # fetch date in filename
             category = fetch_category_in_posts(filepath) # fetch category in filepath
 
-            lines = file_io(io="r", new_lines=None)
+            lines = file_io(filepath, io="r", new_lines=None)
 
-            # 處理 YAML front matter（以 `---` 區塊為界）
             if lines[0].strip() == "---":
                 end_index = 1
                 while end_index < len(lines) and lines[end_index].strip() != "---":
@@ -83,4 +82,13 @@ if __name__ == "__main__":
 
                 new_lines = ["---\n"] + front_matter + ["---\n"] + content
 
-                file_io(io="w", new_lines=new_lines)
+                file_io(filepath, io="w", new_lines=new_lines)
+
+            
+            # content = "".join(lines)
+            # content = re.sub(r'img src="/assets/posts/([^/]+\.jpg)"', r'img src="/assets/posts/Books Cover/\1"', content)
+            # content = re.sub(r'img src="/assets/posts/([^/]+\.png)"', r'img src="/assets/posts/Books Cover/\1"', content)
+            # content = re.sub(r'img src="/assets/posts/([^/]+\.jpeg)"', r'img src="/assets/posts/Books Cover/\1"', content)
+            # content = re.sub(r'img src="/assets/posts/([^/]+\.webp)"', r'img src="/assets/posts/Books Cover/\1"', content)
+            # lines = content.splitlines(True)
+            # file_io(filepath, io="w", new_lines=lines)
