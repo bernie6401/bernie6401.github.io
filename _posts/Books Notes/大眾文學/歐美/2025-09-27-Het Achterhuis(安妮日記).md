@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 皇冠
 * 譯版出版日期: 2013/07
 
-<img src="/assets/posts/安妮日記.jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/安妮日記.jpg" alt="" width="300">
 1959年上映的⟪The Diary of Anne Frank⟫中最後一個Anne的台詞:
 > In spite of everything, I still believe that people are really good in heart
 

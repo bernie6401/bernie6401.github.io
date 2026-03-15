@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 臉譜
 * 譯版出版日期: 2018/11/08
 
-<img src="/assets/posts/雌性物種.jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/雌性物種.jpg" alt="" width="300">
 這不是一本推理懸疑類性的小說，而是青少年文學，主要探討女性被強暴的各種面向
 <!-- more -->
 

@@ -16,7 +16,7 @@ comments: true
 * 譯版出版社: 時報出版
 * 譯版出版日期: 2017/04/28
 
-<img src="/assets/posts/大查帳.jpg" alt="" width="300"/>
+<img src="/assets/posts/Books Cover/大查帳.jpg" alt="" width="300"/>
 <!-- more -->
 
 ## 心得

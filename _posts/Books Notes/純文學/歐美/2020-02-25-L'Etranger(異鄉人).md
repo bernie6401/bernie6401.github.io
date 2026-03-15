@@ -16,7 +16,7 @@ comments: true
 * 譯版出版社: 麥田
 * 譯版出版日期: 2009/09/11
 
-<img src="/assets/posts/異鄉人.jpg" alt="" width="300"/>
+<img src="/assets/posts/Books Cover/異鄉人.jpg" alt="" width="300"/>
 <!-- more -->
 
 ## 心得

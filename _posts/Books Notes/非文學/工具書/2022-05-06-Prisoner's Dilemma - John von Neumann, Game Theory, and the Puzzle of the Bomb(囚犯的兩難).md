@@ -16,7 +16,7 @@ comments: true
 * 譯版出版社: 左岸文化
 * 譯版出版日期: 2019/06/12
 
-<img src="/assets/posts/囚犯的兩難.jpg" alt="" width="300"/>
+<img src="/assets/posts/Books Cover/囚犯的兩難.jpg" alt="" width="300"/>
 <!-- more -->
 
 ## 心得

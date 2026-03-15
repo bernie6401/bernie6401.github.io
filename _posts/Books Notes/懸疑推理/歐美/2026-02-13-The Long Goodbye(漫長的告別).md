@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 臉譜出版
 * 譯版出版日期: 1998
 
-<img src="/assets/posts/The_Long_Goodbye(漫長的告別).jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/The_Long_Goodbye(漫長的告別).jpg" alt="" width="300">
 如果看習慣現今的推理小說，這本書可能會非常不習慣，畢竟文學性與推理兼併的小說，現代我沒有那麼常接觸到，如果想要直接看精簡的劇情介紹，可以參考[^2]
 <!-- more -->
 

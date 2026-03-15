@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 春天出版
 * 譯版出版日期: 2024/03/20
 
-<img src="/assets/posts/黑色夏天殺人事件.jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/黑色夏天殺人事件.jpg" alt="" width="300">
 <!-- more -->
 
 ## 心得

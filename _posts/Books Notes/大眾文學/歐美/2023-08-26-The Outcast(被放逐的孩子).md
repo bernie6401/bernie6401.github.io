@@ -16,7 +16,7 @@ comments: true
 * 譯版出版社: 商周出版
 * 譯版出版日期: 2010/03/05
 
-<img src="/assets/posts/被放逐的孩子.jpg" alt="" width="300"/>
+<img src="/assets/posts/Books Cover/被放逐的孩子.jpg" alt="" width="300"/>
 <!-- more -->
 
 ## 故事大綱

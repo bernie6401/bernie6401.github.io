@@ -16,7 +16,7 @@ comments: true
 * 譯版出版社: 野人
 * 譯版出版日期: 2019/12
 
-<img src="/assets/posts/海底兩萬里.jpg" alt="" width="300"/>
+<img src="/assets/posts/Books Cover/海底兩萬里.jpg" alt="" width="300"/>
 <!-- more -->
 
 ## 心得

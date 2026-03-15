@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 時報出版
 * 譯版出版日期: 2021/05/04
 
-<img src="/assets/posts/聊天紀錄.jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/聊天紀錄.jpg" alt="" width="300">
 有一點點點點類似現代版並且去除歌德元素的⟪簡愛⟫(畢竟這本書前期一直讓我想到這本書)，可想而知我沒有很喜歡這個題材，但作者的寫作、捕捉情緒以及掌握針對現代人病態情感的能力還是很佩服
 <!-- more -->
 

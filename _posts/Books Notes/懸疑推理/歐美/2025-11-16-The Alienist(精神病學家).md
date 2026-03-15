@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 春天出版社
 * 譯版出版日期: 2018/08/31
 
-<img src="/assets/posts/精神病學家.jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/精神病學家.jpg" alt="" width="300">
 近期看過建構非常完整、黑暗變態又獨樹一格的偽歷史推理小說
 <!-- more -->
 

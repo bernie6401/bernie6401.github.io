@@ -13,7 +13,7 @@ date: 2025-03-17
 * 譯版出版社: 崇文館
 * 譯版出版日期: 2006/08/23
 
-<img src="/assets/posts/十日談.jpg" alt="" width="300"/>
+<img src="/assets/posts/Books Cover/十日談.jpg" alt="" width="300"/>
 <!-- more -->
 
 ## 心得

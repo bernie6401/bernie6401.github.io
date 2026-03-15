@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 三采文化
 * 譯版出版日期: 2022/02/25
 
-<img src="/assets/posts/極限返航.jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/極限返航.jpg" alt="" width="300">
 <!-- more -->
 
 ## 心得

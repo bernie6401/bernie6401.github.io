@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 木馬文化
 * 譯版出版日期: 2013/05/03
 
-<img src="/assets/posts/The_Absolutely_True_Diary_of_a_Part-Time_Indian(一個印第安少年的超真實日記).jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/The_Absolutely_True_Diary_of_a_Part-Time_Indian(一個印第安少年的超真實日記).jpg" alt="" width="300">
 
 一個被大家視為弱勢的群體，有沒有勇敢追夢的權利，這絕絕對對不只是一本青少年文學，而是橫跨所有年齡層的廣泛讀物，任何人、任何年齡、任何人生經歷都一定會引起共鳴的傑作
 <!-- more -->

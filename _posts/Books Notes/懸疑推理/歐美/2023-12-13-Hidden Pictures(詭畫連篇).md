@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 寂寞
 * 譯版出版日期: 2023/12/01
 
-<img src="/assets/posts/詭畫連篇.jpg" alt="" width="300"/>
+<img src="/assets/posts/Books Cover/詭畫連篇.jpg" alt="" width="300"/>
 <!-- more -->
 
 ## 心得

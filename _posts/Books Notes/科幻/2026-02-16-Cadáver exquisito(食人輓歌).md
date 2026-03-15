@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 小異出版
 * 譯版出版日期: 2020/01/16
 
-<img src="/assets/posts/Cadáver_exquisito(食人輓歌).jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/Cadáver_exquisito(食人輓歌).jpg" alt="" width="300">
 作者建立了一個很有趣?的世界觀："如果世界上有一個動物病毒100%會讓患者死亡，食用感染動物也會，導致人食人的情況出現，會怎麼樣?"
 
 既然不能吃肉，難道不能吃素嗎?即使一定要攝取蛋白質為什麼一定要吃人呢?難道沒有解藥嗎?

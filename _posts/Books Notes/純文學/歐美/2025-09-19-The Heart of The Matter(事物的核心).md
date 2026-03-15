@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 臉譜
 * 譯版出版日期: 2010/09
 
-<img src="/assets/posts/事物的核心.jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/事物的核心.jpg" alt="" width="300">
 
 * [故事簡介 - 城邦讀書花園](https://www.cite.com.tw/book?id=357)
 >  故事發生在英屬西非殖民地，時間是二次世界大戰期間。斯高比是位有原則的高階警官，也是虔誠的天主教徒；他的妻子露易絲對於他無法獲得升遷一直耿耿於懷，斯高比因此被迫借錢送她到南非度假。
@@ -31,7 +31,7 @@ comments: true
 ## 人物和地點
 ### 地點
 英屬西非，從左至右為：甘比亞、獅子山、黃金海岸和奈及利亞，從書中描寫的線索以及作者的後日談來看，確切的地點應該是在Sierra Leone的Freetown
-<img src="/assets/posts/事物的核心-英屬西非.png" alt="" width="300">
+<img src="/assets/posts/Books Cover/事物的核心-英屬西非.png" alt="" width="300">
 
 ### 人物
 #### 主要角色

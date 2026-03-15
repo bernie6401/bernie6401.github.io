@@ -17,7 +17,7 @@ comments: true
 * 譯版出版社: 時報出版
 * 譯版出版日期: 2010/01/27
 
-<img src="/assets/posts/失落的符號.jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/失落的符號.jpg" alt="" width="300">
 是一部可以看但以Dan Brown的標準來說不及格的小說，所以如果是抱持著看過同系列的其他作品而有期待的話，不甚推薦
 <!-- more -->
 

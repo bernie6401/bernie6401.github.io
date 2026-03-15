@@ -17,14 +17,14 @@ comments: true
 * 譯版出版社: 大塊文化
 * 譯版出版日期: 1998
 
-<img src="/assets/posts/最後14堂星期二的課.jpg" alt="" width="300">
+<img src="/assets/posts/Books Cover/最後14堂星期二的課.jpg" alt="" width="300">
 人生一定至少要看一次的書，沒有什麼大道理，就只是面對死亡的態度有一些想法，不適用每個人，只要擷取對自己有用的就好
 <!-- more -->
 
 ## 心得
 本書是作者Mitch Albon對於自己的老師人生最後一程的回憶錄，篇幅非常短，只有200多頁，大概一個晚上就可以看完，起初我對這樣的安排並沒有很感興趣，畢竟探討人生死亡哲學相關的書，很容易淪為雞湯文學，而且篇幅這麼有限的情況下，就更不可能講出什麼非常發人深省的想法，但讀到後來才驚覺這就是本書的其中一個特點與不得不的書寫方式，因為本書的主角是作者的恩師，罹患ASL(Amyotrophic Lateral Sclerosis，路格瑞氏症，肌萎縮性脊髓側索硬化症，也被稱為漸凍人，比較知名的漸凍人患者是英國物理學家Stephen Hawking以及海綿寶寶之父Stephen Hillenburg)，所以每一次的對談都沒辦法有太多的篇幅，只能以大方向的方式訴說面對死亡的幾個面向
-<img src="/assets/posts/Stephen Hawking.jpg" width=300>
-<img src="/assets/posts/Stephen Hillenburg.jpg" width=300>
+<img src="/assets/posts/Books Cover/Stephen Hawking.jpg" width=300>
+<img src="/assets/posts/Books Cover/Stephen Hillenburg.jpg" width=300>
 
 這本書寫的很發散，完全就是寫一個人的生平、作者如何和老師相識相惜、過往的點滴和一些作者對於家庭、家人的想法，也可以說就是他和老師之間的對話，所以如果覺得寫的不夠深入，蜻蜓點水一般的敘事，不知所云等等感覺，我想都是非常正常的，如果出版社把書名改成⟪面對死亡該注意的事情-初階版⟫，俗氣了點但可能比較貼近書中內容的編排。
 
