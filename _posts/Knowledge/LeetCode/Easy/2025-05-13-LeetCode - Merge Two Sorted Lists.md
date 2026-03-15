@@ -78,4 +78,4 @@ if __name__ == "__main__":
 ```
 
 ## Result
-![](/assets/posts/螢幕擷取畫面 2025-05-14 105731.png)
+![](/assets/posts/LeetCode/螢幕擷取畫面 2025-05-14 105731.png)

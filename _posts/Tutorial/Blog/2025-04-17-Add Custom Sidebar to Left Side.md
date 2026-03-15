@@ -164,7 +164,7 @@ comments: true
     }
     ```
     但是這會造成總畫面的寬度超過100%，這樣會變成底下一定會有一個scrollbar，並且右上角也有一些空白的缺口
-    ![](/assets/posts/螢幕擷取畫面 2025-04-17 004943.png)
+    ![](/assets/posts/Tutorial/螢幕擷取畫面 2025-04-17 004943.png)
     所以我直接設定.footer的width和position為relative和auto，並且為了不要讓視窗縮小的時候，sidebar擋住content，.main/.header/.footer我都設定margin-left為250px，這個數值和前面第一點是一樣的
     ```css
     // Push main layout next to sidebar
