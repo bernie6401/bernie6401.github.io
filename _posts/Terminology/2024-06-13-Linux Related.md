@@ -151,3 +151,7 @@ date: 2024-06-13
 > index.php task testOne >/dev/null 2>&1
 > 我們可以理解為，左邊是標準輸出，好，現在標準輸出直接輸入到/dev/null中，而2>&1是將標準錯誤重定向到標準輸出，所以當程序產生錯誤的時候，相當於錯誤流向左邊，而左邊依舊是輸入到/dev/null中。
 > 可以理解為，如果寫在中間，那會把隔斷標準輸出指定輸出的文件
+
+## Daemon是什麼
+資訊來源: [第十七章、認識系統服務 (daemons)](https://linux.vbird.org/linux_basic/centos7/0560daemons.php)
+> 簡單的說，系統為了某些功能必須要提供一些服務 (不論是系統本身還是網路方面)，這個服務就稱為 service 。 但是 service 的提供總是需要程式的運作吧！否則如何執行呢？所以達成這個 service 的程式我們就稱呼他為 daemon 囉！ 舉例來說，達成循環型例行性工作排程服務 (service) 的程式為 crond 這個 daemon 啦！這樣說比較容易理解了吧！

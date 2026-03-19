@@ -30,6 +30,7 @@ date: 2024-08-14
     $ sudo ln -sf /mnt/<folder path to adb>/adb.exe /usr/bin/adb
     ```
 5. 測試
+
     ```bash
     $ adb devices
     * daemon not running; starting now at tcp:5037
