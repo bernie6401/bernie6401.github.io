@@ -15,7 +15,7 @@ Challenge: https://play.picoctf.org/practice/challenge/186?category=4&page=1
 [ExifTool](https://ubunlog.com/zh-TW/exiftool-manipula-metadatos-ubuntu/)
 
 ## Exploit
-```bash!
+```bash
 $ exiftool cat.jpg
 ExifTool Version Number         : 11.88
 File Name                       : cat.jpg

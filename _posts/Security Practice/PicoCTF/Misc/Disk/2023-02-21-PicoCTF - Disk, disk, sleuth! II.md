@@ -23,7 +23,6 @@ Hint 3: This disk can also be booted with [qemu](https://idobest.pixnet.net/blog
 ## Exploit - Use Autopsy Tool to analyze
 In root folder.
 ![](https://i.imgur.com/3Vvbk2R.png)
-:::spoiler flag
 ```
 _     _     _     _     _     _     _     _     _     _     _     _     _  
   / \   / \   / \   / \   / \   / \   / \   / \   / \   / \   / \   / \   / \ 
@@ -41,4 +40,3 @@ _     _     _     _     _     _     _     _     _     _     _     _     _
 
 ------------------------------METADATA------------------------------
 ```
-:::

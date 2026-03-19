@@ -21,7 +21,7 @@ Challenge: [Sleuthkit Intro](https://play.picoctf.org/practice/challenge/301?cat
 
 
 ## Exploit - Follow the description
-```bash!
+```bash
 $ file disk.img.gz
 disk.img.gz: gzip compressed data, was "disk.img", last modified: Tue Sep 21 19:34:53 2021, from Unix, original size modulo 2^32 104857600
 $ gzip -d disk.img.gz

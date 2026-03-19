@@ -34,7 +34,7 @@ Download this disk image, find the key and log into the remote machine. Note: if
 這一題和DF有關，主要就是分析拿到的img file，可以用Autopsy之類的分析軟體
 1. ssh參數
 先看launch instance之後出現的連線command，ssh帶有`-i`的參數，根據tldr的常用說明，代表需要給他一個private key file，這也是description中有提到的部分
-    ```bash!
+    ```bash
     $ tldr ssh
     ...
       - Connect to a remote server using a specific port:
@@ -42,13 +42,15 @@ Download this disk image, find the key and log into the remote machine. Note: if
     ...
     ```
 2. Using Autopsy
-使用Autopsy分析img file，會面臨到ssh private key在哪裡的問題，根據[^picoctf-forensics-wp-almond-force]的說明通常會放在`~/.ssh/`或是`/root/.ssh/`的folder中，所以我們就可以往這個方向找看看
-![](https://hackmd.io/_uploads/S1m4W6R1p.png)
-果不其然，的確有一個pub檔案和private key file，直接export出這個檔案，然後夾帶進command就可以了
+    
+    使用Autopsy分析img file，會面臨到ssh private key在哪裡的問題，根據[^picoctf-forensics-wp-almond-force]的說明通常會放在`~/.ssh/`或是`/root/.ssh/`的folder中，所以我們就可以往這個方向找看看
+    ![](https://hackmd.io/_uploads/S1m4W6R1p.png)
+    果不其然，的確有一個pub檔案和private key file，直接export出這個檔案，然後夾帶進command就可以了
 
 3. Error
-過程中可能會遇到`Permission Too Open`這個error，原因可以看[^ssh-error-permission-too-open]或是看Almond的WP[^picoctf-forensics-wp-almond-force]
-    ```bash!
+
+    過程中可能會遇到`Permission Too Open`這個error，原因可以看[^ssh-error-permission-too-open]或是看Almond的WP[^picoctf-forensics-wp-almond-force]
+    ```bash
     $ ssh -i ssh-private-key -p 59801 ctf-player@saturn.picoctf.net
     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
@@ -63,7 +65,7 @@ Download this disk image, find the key and log into the remote machine. Note: if
     ![](https://hackmd.io/_uploads/BJYm760JT.png)
 
 ## Exploit
-```bash!
+```bash
 $ ll
 -rwxrwxrwx 1 sbk6401 sbk6401  411 Sep 25 13:59 ssh-private-key
 $ chmod 600 ssh-private-key

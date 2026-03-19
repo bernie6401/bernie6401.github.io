@@ -28,19 +28,21 @@ Challenge: [Trivial Flag Transfer Protocol](https://play.picoctf.org/practice/ch
 
 ## Exploit - TFTP + steghide
 1. Save files
-According to the article: [TFTP協定是什麼？](https://tw511.com/a/01/2927.html), we can aware that this protocol is aim to transfer the data without authentication. So, we can download the files using wireshark.
-![](https://i.imgur.com/rETlGmm.png)
+    
+    According to the article: [TFTP協定是什麼？](https://tw511.com/a/01/2927.html), we can aware that this protocol is aim to transfer the data without authentication. So, we can download the files using wireshark.
+    ![](https://i.imgur.com/rETlGmm.png)
 
 2. Check files
-Check `instructions.txt` first.
-Seems encoding by `rot13` $\to$ `TFTP DOESNT ENCRYPT OUR TRAFFIC SO WE MUST DISGUISE OUR FLAG TRANSFER. FIGURE OUT A WAY TO HIDE THE FLAG AND I WILL CHECK BACK FOR THE PLAN`.
+    
+    Check `instructions.txt` first.
+    Seems encoding by `rot13` → `TFTP DOESNT ENCRYPT OUR TRAFFIC SO WE MUST DISGUISE OUR FLAG TRANSFER. FIGURE OUT A WAY TO HIDE THE FLAG AND I WILL CHECK BACK FOR THE PLAN`.
 
-Check `plan` file next.
-Seems encoded by `rot13` again $\to$ `I USED THE PROGRAM AND HID IT WITH - DUEDILIGENCE. CHECK OUT THE PHOTOS`.
-The author seems hide some files in transferred photos.
+    Check `plan` file next.
+    Seems encoded by `rot13` again → `I USED THE PROGRAM AND HID IT WITH - DUEDILIGENCE. CHECK OUT THE PHOTOS`.
+    The author seems hide some files in transferred photos.
 
 3. `steghide`
-    ```bash!
+    ```bash
     $ steghide info picture1.bmp
     "picture1.bmp":
       format: Windows 3.x bitmap
@@ -67,14 +69,15 @@ The author seems hide some files in transferred photos.
         compressed: yes
     ```
     * Note that the passphrace must enter `DUEDILIGENCE` that author gave us.
-    Seems `picture3.bmp` has something
-    ```bash
-    $ steghide extract -sf picture3.bmp
-    Enter passphrase:
-    wrote extracted data to "flag.txt".
-    $ cat flag.txt
-    picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}
-    ```
+    
+        Seems `picture3.bmp` has something
+        ```bash
+        $ steghide extract -sf picture3.bmp
+        Enter passphrase:
+        wrote extracted data to "flag.txt".
+        $ cat flag.txt
+        picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}
+        ```
 
 ## Reference
 [picoCTF 2021 Trivial Flag Transfer Protocol](https://youtu.be/VmSgalNMw_Y)

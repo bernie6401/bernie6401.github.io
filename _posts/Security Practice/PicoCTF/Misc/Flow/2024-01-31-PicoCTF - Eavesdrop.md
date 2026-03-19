@@ -34,17 +34,18 @@ date: 2024-01-31
     ```
     從以上對話紀錄可以知道他們在9002 port有傳輸資料，並且解密的command是`openssl des3 -d -salt -in file.des3 -out file.txt -k supersecretpassword123`
 2. Extract File
-我們可以增加兩個column專門顯示source/destination port
-![](https://hackmd.io/_uploads/B1ZrNEdOh.png)
-然後找到port 9002的地方，可以發現No.57有附帶資料，把這筆資料另存起來
-![](https://hackmd.io/_uploads/r11KNV_O2.png)
-Note: 儲存資料到file.des3的時候，內容必須要是`Salted__9BæÄ'÷b4Ó[ÐNXämn±'-ärGsðÏú :›çk¿«@Û=6`
-Note2: 也可以用`tcpflow`的方式把資料download下來
-    ```bash!
+    
+    我們可以增加兩個column專門顯示source/destination port
+    ![](https://hackmd.io/_uploads/B1ZrNEdOh.png)
+    然後找到port 9002的地方，可以發現No.57有附帶資料，把這筆資料另存起來
+    ![](https://hackmd.io/_uploads/r11KNV_O2.png)
+    Note: 儲存資料到file.des3的時候，內容必須要是`Salted__9BæÄ'÷b4Ó[ÐNXämn±'-ärGsðÏú :›çk¿«@Û=6`
+    Note2: 也可以用`tcpflow`的方式把資料download下來
+    ```bash
     $ sudo tcpflow -r {pcap file}
     ```
 3. Decrypt File
-    ```bash!
+    ```bash
     $ openssl des3 -d -salt -in file.des3 -out file.txt -k supersecretpassword123
     *** WARNING : deprecated key derivation used.
     Using -iter or -pbkdf2 would be better.

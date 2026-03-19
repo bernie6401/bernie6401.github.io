@@ -14,27 +14,26 @@ Challenge: [File types]()
 ## Background
 
 ### For Shell Script
-[Linux MD5](https://blog.gtwang.org/linux/generate-verify-check-files-md5-sha1-checksum-linux/)
-[Linux egrep命令](https://www.runoob.com/linux/linux-comm-egrep.html)
-[Shell test 命令](https://www.runoob.com/linux/linux-shell-test.html)
-> -f 文件名: 如果文件存在且为普通文件则为真
-
-[How to modify $PATH](https://phoenixnap.com/kb/linux-add-to-path)
-[touch - time stamp](https://blog.gtwang.org/linux/linux-touch-command-tutorial-examples/)
-[What is $$ in bash?](https://unix.stackexchange.com/questions/291570/what-is-in-bash)
+* [Linux MD5](https://blog.gtwang.org/linux/generate-verify-check-files-md5-sha1-checksum-linux/)
+* [Linux egrep命令](https://www.runoob.com/linux/linux-comm-egrep.html)
+* [Shell test 命令](https://www.runoob.com/linux/linux-shell-test.html)
+    > -f 文件名: 如果文件存在且为普通文件则为真
+* [How to modify $PATH](https://phoenixnap.com/kb/linux-add-to-path)
+* [touch - time stamp](https://blog.gtwang.org/linux/linux-touch-command-tutorial-examples/)
+* [What is $$ in bash?](https://unix.stackexchange.com/questions/291570/what-is-in-bash)
 
 ### For Compress Command
-[Linux 備份檔案操作 cpio 指令教學與範例](https://officeguide.cc/linux-copy-files-to-and-from-archives-cpio-command-tutorial-examples/)
-[bzip2 command in Linux](https://www.geeksforgeeks.org/bzip2-command-in-linux-with-examples/)
-[Gzip Command in Linux](https://linuxize.com/post/gzip-command-in-linux/)
-[Lzip Manual](https://www.nongnu.org/lzip/manual/lzip_manual.html)
-[lz4 manual](https://manpages.ubuntu.com/manpages/xenial/man1/lz4.1.html)
-[lzma manual](https://manpages.ubuntu.com/manpages/xenial/man1/lzmp.1.html)
-[lzop(1) - Linux man page](https://linux.die.net/man/1/lzop)
+* [Linux 備份檔案操作 cpio 指令教學與範例](https://officeguide.cc/linux-copy-files-to-and-from-archives-cpio-command-tutorial-examples/)
+* [bzip2 command in Linux](https://www.geeksforgeeks.org/bzip2-command-in-linux-with-examples/)
+* [Gzip Command in Linux](https://linuxize.com/post/gzip-command-in-linux/)
+* [Lzip Manual](https://www.nongnu.org/lzip/manual/lzip_manual.html)
+* [lz4 manual](https://manpages.ubuntu.com/manpages/xenial/man1/lz4.1.html)
+* [lzma manual](https://manpages.ubuntu.com/manpages/xenial/man1/lzmp.1.html)
+* [lzop(1) - Linux man page](https://linux.die.net/man/1/lzop)
 
 ## Source code
-:::spoiler Flag.pdf
-```bash=
+Flag.pdf
+```bash
 #!/bin/sh
 # This is a shell archive (produced by GNU sharutils 4.15.2).
 # To extract the files from this archive, save it to some FILE, remove
@@ -208,11 +207,9 @@ else ${echo} "x - failed to remove lock directory ${lock_dir}."
 fi
 exit 0
 ```
-:::
 
 ## Exploit - Google and Uncompress
-:::spoiler whole process
-```bash!
+```bash
 # shell script
 $ file Flag.pdf  
 Flag.pdf: POSIX shell script, ASCII text executable, with CRLF line terminators
@@ -321,8 +318,7 @@ flag: ASCII text
 $cat flag | xxd -r -p
 picoCTF{f1len@m3_m@n1pul@t10n_f0r_0b2cur17y_3c79c5ba}
 ```
-:::
 
 ## Reference
-[Bash script – "/bin/bash^M: bad interpreter: No such file or directory"](https://stackoverflow.com/questions/14219092/bash-script-bin-bashm-bad-interpreter-no-such-file-or-directory)
-[Convert Hex to ASCII](https://www.baeldung.com/linux/character-hex-to-ascii)
+* [Bash script – "/bin/bash^M: bad interpreter: No such file or directory"](https://stackoverflow.com/questions/14219092/bash-script-bin-bashm-bad-interpreter-no-such-file-or-directory)
+* [Convert Hex to ASCII](https://www.baeldung.com/linux/character-hex-to-ascii)

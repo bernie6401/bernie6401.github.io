@@ -21,7 +21,7 @@ Hint 1: Finding the IEEE 802.11 wireless protocol used in the wireless traffic p
 Hint 2: `Aircrack-ng` can make a `pcap` file catch big air...and crack a password.
 
 ## Exploit - [`aircrack-ng`](https://linuxhint.com/install_aircrack-ng_ubuntu/)
-```bash!
+```bash
 $ aircrack-ng wpa-ing_out.pcap -w ./rockyou.txt
 Reading packets, please wait...
 Opening wpa-ing_out.pcap
@@ -61,7 +61,7 @@ Read 23523 packets.
 So...The flag is `picoCTF{mickeymouse}`
 
 ## Reference
-[Install tshark](https://tshark.dev/setup/install/)
-[Some error you may encounter](https://www.cnblogs.com/liqinglucky/p/16989773.html)
-[ubuntu下安装lex,yacc](https://blog.csdn.net/hitwhylz/article/details/25342271)
-[WU1 - WPA-ing Out](https://cscbinus.com/articles/WU1-WPA-ing_Out)
+* [Install tshark](https://tshark.dev/setup/install/)
+* [Some error you may encounter](https://www.cnblogs.com/liqinglucky/p/16989773.html)
+* [ubuntu下安装lex,yacc](https://blog.csdn.net/hitwhylz/article/details/25342271)
+* [WU1 - WPA-ing Out](https://cscbinus.com/articles/WU1-WPA-ing_Out)

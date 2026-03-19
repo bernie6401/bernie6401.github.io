@@ -41,7 +41,6 @@ Challenge: [MacroHard WeakEdge](https://play.picoctf.org/practice/challenge/130?
     ...
     ```
 
-    :::spoiler whole output
     ```bash
     $ binwalk Forensics\ is\ fun.pptm
 
@@ -202,9 +201,8 @@ Challenge: [MacroHard WeakEdge](https://play.picoctf.org/practice/challenge/130?
     88548         0x159E4         Zip archive data, at least v2.0 to extract, compressed size: 81, uncompressed size: 99, name: ppt/slideMasters/hidden
     100071        0x186E7         End of Zip archive, footer length: 22
     ```
-    :::
     Obviously, this file is compressed and you can notice this hint using `exiftool` command
-    ```bash!
+    ```bash
     $ exiftool Forensics\ is\ fun.pptm
     ExifTool Version Number         : 11.88
     File Name                       : Forensics is fun.pptm
@@ -230,7 +228,7 @@ Challenge: [MacroHard WeakEdge](https://play.picoctf.org/practice/challenge/130?
     
 2. Unzip it
 After unzipping it, you can observe the whole structure and files clearly.
-    ```bash!
+    ```bash
     $ ls -la *
     ...
     $ cd ppt
@@ -240,7 +238,7 @@ After unzipping it, you can observe the whole structure and files clearly.
     There're 2 files that worth noting: <font color="FF0000">`ppt/slideMasters/hidden`</font> and <font color="FF0000">`ppt/vbaProject.bin`</font>font>
 
 3. Strings
-    ```bash!
+    ```bash
     $ strings vbaProject.bin
     ...
     sorry_but_this_isn't_it

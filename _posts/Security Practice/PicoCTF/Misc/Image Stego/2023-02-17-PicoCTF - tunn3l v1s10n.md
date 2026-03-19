@@ -17,7 +17,7 @@ Challenge: [tunn3l v1s10n](https://play.picoctf.org/practice/challenge/112?categ
 
 ## Exploit - Recover file
 1. Analyze
-    ```bash!
+    ```bash
     $ exiftool tunn3l_v1s10n
     ExifTool Version Number         : 11.88
     File Name                       : tunn3l_v1s10n
@@ -52,14 +52,15 @@ Challenge: [tunn3l v1s10n](https://play.picoctf.org/practice/challenge/112?categ
     ```
     It seems a `bmp` file and check the file signature of the 2 bytes is `42 4D` :heavy_check_mark: 
 2. Check file headers
-According to [BMP_file_format](https://en.wikipedia.org/wiki/BMP_file_format) and [BMP點陣圖格式說明](https://www.jinnsblog.com/2009/08/bmp-format-graphic-illustration.html)
-![](https://i.imgur.com/YU6exro.png)
-    * :heavy_check_mark:size: `8E 26 2C 00` $\to$ `0x2C268E` $\to$ `2893454 bytes`
-![](https://i.imgur.com/H6G44kT.png)
+    
+    According to [BMP_file_format](https://en.wikipedia.org/wiki/BMP_file_format) and [BMP點陣圖格式說明](https://www.jinnsblog.com/2009/08/bmp-format-graphic-illustration.html)
+    ![](https://i.imgur.com/YU6exro.png)
+    * :heavy_check_mark:size: `8E 26 2C 00` → `0x2C268E` → `2893454 bytes`
+    ![](https://i.imgur.com/H6G44kT.png)
     * :heavy_check_mark:reserved1: `00 00`
     * :heavy_check_mark:reserved2:  `00 00`
-    * :negative_squared_cross_mark:offset: `BA D0 00 00` $\to$ `0xD0BA` $\to$ `53434` means it'll read the bitmap data from offset 53434 bytes. But actually, the data of bitmap is just connect with the header. So, we just need to shift 14 bytes for file header + 40 bytes for info header = 54 bytes $\to$ `0x36`
-![](https://i.imgur.com/crETYOD.png)
+    * :negative_squared_cross_mark:offset: `BA D0 00 00` → `0xD0BA` → `53434` means it'll read the bitmap data from offset 53434 bytes. But actually, the data of bitmap is just connect with the header. So, we just need to shift 14 bytes for file header + 40 bytes for info header = 54 bytes → `0x36`
+    ![](https://i.imgur.com/crETYOD.png)
 
 ---
 
@@ -71,12 +72,12 @@ It said `notaflag{sorry}`, means we need to recover other parts.
 
 3. Check info headers
 ![](https://i.imgur.com/SMZn71k.png)
-* :negative_squared_cross_mark:size：`BA D0 00 00` $\to$ `0x0DBA` $\to$ `3514 bytes` means the size of info header. However, the real size is `40 bytes` $\to$ `0x28` $\to$ `28 00 00 00`
+* :negative_squared_cross_mark:size：`BA D0 00 00` → `0x0DBA` → `3514 bytes` means the size of info header. However, the real size is `40 bytes` → `0x28` → `28 00 00 00`
 
 Something strange with the following header:
-* width：`6E 04 00 00` $\to$ `0x46E` $\to$ `1134 pixels`
-* height：`32 01 00 00` $\to$ `0x132` $\to$ `306 pixels`
-* bits：`18 00` $\to$ `0x18` $\to$ `each pixels need 24 bits`
+* width：`6E 04 00 00` → `0x46E` → `1134 pixels`
+* height：`32 01 00 00` → `0x132` → `306 pixels`
+* bits：`18 00` → `0x18` → `each pixels need 24 bits`
 If these headers are true:
 
 $$
@@ -91,12 +92,11 @@ $$
 2893454\ bytes\ *\ 8\ bits\ per\ bytes\ /\ 24\  bits\ per\ pixel\ /\ 1134\ pixels=850.5\ pixels
 $$
 
-The height should be 850 pixels $\to$ `0x352` $\to$ `52 03 00 00`
+The height should be 850 pixels → `0x352` → `52 03 00 00`
 
 5. Done!!!
-    :::spoiler flag
     ![](https://i.imgur.com/IJMO8Pd.jpg)
-    :::
+
 
 ## Reference
 [CTFtime Write Up](https://ctftime.org/writeup/28157)

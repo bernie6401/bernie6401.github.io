@@ -14,9 +14,9 @@ date: 2024-01-31
 
 ## Exploit - Forensics / Openssl
 1. Find Encryption Flag File(Autopsy)
-可以在/root中找到，然後.ash_history的command紀錄中知道加密的password phrase
-    ![](https://hackmd.io/_uploads/rJdlBhLgp.png)
     
+    可以在/root中找到，然後.ash_history的command紀錄中知道加密的password phrase
+    ![](https://hackmd.io/_uploads/rJdlBhLgp.png)
     ```bash
     touch flag.txt
     nano flag.txt 
@@ -30,6 +30,7 @@ date: 2024-01-31
     ls -al
     halt
     ```
+    
 2. Script
     ```bash
     $ openssl aes-256-cbc -in flag.txt.enc -d

@@ -17,6 +17,6 @@ date: 2024-01-31
 
 ## Exploit - TLS Decrypt
 1. 在`Edit/Preferences/RSA Keys/`中`Add new keyfile`
-![](https://hackmd.io/_uploads/ByMdwwSe6.png)
+    ![](https://hackmd.io/_uploads/ByMdwwSe6.png)
 2. 加入題目給的private key file後記得要重新開啟該pcap file
-![](https://hackmd.io/_uploads/S1PMPDSx6.png)
+    ![](https://hackmd.io/_uploads/S1PMPDSx6.png)

@@ -12,14 +12,13 @@ date: 2023-02-25
 Challenge: [Investigative Reversing 0](https://play.picoctf.org/practice/challenge/70?category=4&page=3)
 
 ## Background
-[fputc() - C語言庫函數](http://tw.gitbook.net/c_standard_library/c_function_fputc.html)
-[C/C++ fread 用法與範例](https://shengyu7697.github.io/cpp-fread/)
-[C中fread()函数的返回值](https://blog.51cto.com/u_6680689/3260951)
-[C语言之1ULL/1UL/1L区别](https://blog.csdn.net/u010164190/article/details/124945191)
+* [fputc() - C語言庫函數](http://tw.gitbook.net/c_standard_library/c_function_fputc.html)
+* [C/C++ fread 用法與範例](https://shengyu7697.github.io/cpp-fread/)
+* [C中fread()函数的返回值](https://blog.51cto.com/u_6680689/3260951)
+* [C语言之1ULL/1UL/1L区别](https://blog.csdn.net/u010164190/article/details/124945191)
 
 ## Source code - IDA
-:::spoiler source code
-```cpp=
+```cpp
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
   int i; // [rsp+4h] [rbp-4Ch]
@@ -55,22 +54,28 @@ int __cdecl main(int argc, const char **argv, const char **envp)
   return __readfsqword(40u) ^ v10;
 }
 ```
-:::
 
 ## Exploit
 1. Analyze source code
-First, it open `mystery.png` and `flag.txt` file and read 26 characters in `flag.txt`
-Then it append first 6 characters to `mystery.png` and do some disalignment like rot13.
+    
+    First, it open `mystery.png` and `flag.txt` file and read 26 characters in `flag.txt`
+    
+    Then it append first 6 characters to `mystery.png` and do some disalignment like rot13.
 
 2. In addition...
-Observing `mystery.png` by `HxD`
-![](https://i.imgur.com/V7qMwSx.png)
-Seems we got a flag-like answer.
+    Observing `mystery.png` by `HxD`
+    ![](https://i.imgur.com/V7qMwSx.png)
+    Seems we got a flag-like answer.
 
 3. Recover it
-The first 6 character can copy paste.
-`K€k5zsid6` $\to$ `F{f0und_1` by minusing 5 based on ascii table
-`q` $\to$ `t` by adding 3 based on ascii table again
-The rest strings still copy paste again
-Then we got flag... $\to$
-`picoCTF{f0und_1t_3d659f57}`
+    The first 6 character can copy paste.
+    
+    `K€k5zsid6` → `F{f0und_1` by minusing 5 based on ascii table
+    
+    `q` → `t` by adding 3 based on ascii table again
+    
+    The rest strings still copy paste again
+    
+    Then we got flag... →
+    
+    `picoCTF{f0und_1t_3d659f57}`

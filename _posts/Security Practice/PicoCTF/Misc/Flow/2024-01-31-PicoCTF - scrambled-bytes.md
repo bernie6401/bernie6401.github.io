@@ -22,13 +22,12 @@ date: 2024-01-31
 > sendp()，在第二層發包，沒有接收功能。sr(Ether()/IP(dst="www.baidu.com"))
 > ```
 
-[time-時間的訪問和轉換](https://docs.python.org/zh-tw/3/library/time.html#time.time)
-[python 的pyshark庫如何使用](https://zhuanlan.zhihu.com/p/602431298)
-[PyShark入門(2)：FileCapture和LiveCapture模塊](https://segmentfault.com/a/1190000006064442)
+* [time-時間的訪問和轉換](https://docs.python.org/zh-tw/3/library/time.html#time.time)
+* [python 的pyshark庫如何使用](https://zhuanlan.zhihu.com/p/602431298)
+* [PyShark入門(2)：FileCapture和LiveCapture模塊](https://segmentfault.com/a/1190000006064442)
 
 ## Source code
-:::spoiler Source Code
-```python=
+```python
 #!/usr/bin/env python3
 
 import argparse
@@ -76,17 +75,19 @@ if __name__=='__main__':
   parser.add_argument('input', help='input file')
   main(parser.parse_args())
 ```
-:::
 
 ## Recon
 這一題真的沒必要出的那麼複雜，有點硬要的感覺，不喜歡...，不看[^picoMini-misc-scrambled-bytes-wp-0x534b]我已經猜到八成了，但我感受到一股惡意...
 
 1. Recon pcapng & Source Code
-一開始我先做基本的packet的recon，然後沒啥發現，他的description寫說: `I sent my secret flag over the wires, but the bytes got all mixed up!`
-代表他應該是傳了一些東西，然後把network flow記錄下來，可以看一下source code也的確是這樣，但標題和內文就有提示，說明他有打亂要transfer的東西，不過因為我不知道實際執行這支程式後，wireshark到底會錄到怎麼樣的東西，應該說形式上到底長怎樣，所以為了確定就直接reproduce一下
+    
+    一開始我先做基本的packet的recon，然後沒啥發現，他的description寫說: `I sent my secret flag over the wires, but the bytes got all mixed up!`
+    
+    代表他應該是傳了一些東西，然後把network flow記錄下來，可以看一下source code也的確是這樣，但標題和內文就有提示，說明他有打亂要transfer的東西，不過因為我不知道實際執行這支程式後，wireshark到底會錄到怎麼樣的東西，應該說形式上到底長怎樣，所以為了確定就直接reproduce一下
 2. Reproduce the outcome
+    
     Q1: 先說，如果用wsl的環境下command，但會出現以下error
-    ```bash!
+    ```bash
     $ python send.py 192.168.137.2 8888 test_flag.txt
     Sending |                                | 0/22
     Traceback (most recent call last):
@@ -105,7 +106,7 @@ if __name__=='__main__':
     PermissionError: [Errno 1] Operation not permitted
     ```
     根據[^permissionerror-operation-not-permitted]的說明，應該是沒有用sudo，但如果用sudo又會出現`no module named scapy`或是`no module named progress`的問題，解決方式就是直接進入root然後安裝這兩個library，如果沒有進入root然後看pip list其實會看到這兩個library我之前就裝過了，但root好像不是找一般放library的地方
-    ```bash!
+    ```bash
     $ sudo su
     # pip install scapy; pip install progress
     # exit
@@ -116,8 +117,9 @@ if __name__=='__main__':
     以上問題都解決之後，就可以利用wireshark抓一下中間過程會有甚麼特別的東西，首先我傳送的`test_flag.txt`的內容是`picoCTF{test_12345678}`，總共要傳送22個bytes，可以看到的確他一次是傳送一個bytes，然後是用UDP傳送，destination IP也是我們指定的`192.168.137.2`，但是會發現他每一個packet所帶的data，都和我們的flag沒有任何關聯，再回去看一下他在傳送前做了哪些事情，首先他在31行做了shuffle，然後在傳送前和產生的random number進行XOR，所以才會看起來都不一樣
     ![](https://hackmd.io/_uploads/SJAfx3763.png)
 3. Extract Data
-到這邊我們就成功一半了，接著就是把data dump下來進行還原就好(開始感受痛苦吧!一袋米要扛幾樓)，我們把data印出來後就可以直接拿來用
-    ```python!
+
+    到這邊我們就成功一半了，接著就是把data dump下來進行還原就好(開始感受痛苦吧!一袋米要扛幾樓)，我們把data印出來後就可以直接拿來用
+    ```python
     import pyshark
 
     capture = pyshark.FileCapture('./capture.pcapng', display_filter='udp and ip.dst == 172.17.0.3 and !icmp')
@@ -130,21 +132,22 @@ if __name__=='__main__':
             pass
     print(data)
     ```
-    * ==陷阱一==
-    如果觀察data的length會發現他只有==1990==，但是用wireshark卻filter出==1992==，仔細看會發現有兩個data是unknown(No.1943那個不算)
-    ![](https://hackmd.io/_uploads/SkJTQnX6h.png)
-    他應該是抓不到No. 4777的0x23和No.10562的0x0f，所以要手動把這兩個數值插入我們的list中
+    * 陷阱一: 如果觀察data的length會發現他只有==1990==，但是用wireshark卻filter出==1992==，仔細看會發現有兩個data是unknown(No.1943那個不算)
+        ![](https://hackmd.io/_uploads/SkJTQnX6h.png)
+        他應該是抓不到No. 4777的0x23和No.10562的0x0f，所以要手動把這兩個數值插入我們的list中
     
 4. Recover input.txt
-首先他有先利用time()的epoch當作random的seed，所以我是先看第一個傳送的packet他的時間是==1614044650==，當作他的seed，接下來只要有關random的操作都要和send.py一模一樣
-![](https://hackmd.io/_uploads/H1m-rhXpn.png)
-由於我們還要考慮到他有事先進行shuffle，所以還要想辦法把順序調整回來，這邊我是參考[^picoMini-misc-scrambled-bytes-wp-0x534b]的方式，先建立一個大小為len(data)的list，再針對這個list進行shuffle，就可以得到一模一樣的順序，接著我們就把data和random所產出的東西做XOR就可以放回去到對應的index
-    * ==陷阱二==
-    這邊就不是原作者的鍋，反而是參考的WP有問題，原本是想說可以直接試看看[^picoMini-misc-scrambled-bytes-wp-0x534b]寫的腳本，但怎麼樣都沒有像是圖片的byte code出現，幾經波折後才發現原來用他的腳本會在data list的最後多一個null element，這會導致len(data)不是1992而是1993，這樣shuffle的結果可想而知一定不一樣，我也回報給原作者了[^report-error-to-0x534b]，就看他要不要修
-只要把最後的random byte $\oplus$ data的結果寫回去到一個file，就會發現是一個png圖檔，那就是flag
+    
+    首先他有先利用time()的epoch當作random的seed，所以我是先看第一個傳送的packet他的時間是==1614044650==，當作他的seed，接下來只要有關random的操作都要和send.py一模一樣
+    ![](https://hackmd.io/_uploads/H1m-rhXpn.png)
+    由於我們還要考慮到他有事先進行shuffle，所以還要想辦法把順序調整回來，這邊我是參考[^picoMini-misc-scrambled-bytes-wp-0x534b]的方式，先建立一個大小為len(data)的list，再針對這個list進行shuffle，就可以得到一模一樣的順序，接著我們就把data和random所產出的東西做XOR就可以放回去到對應的index
+    * 陷阱二
+        這邊就不是原作者的鍋，反而是參考的WP有問題，原本是想說可以直接試看看[^picoMini-misc-scrambled-bytes-wp-0x534b]寫的腳本，但怎麼樣都沒有像是圖片的byte code出現，幾經波折後才發現原來用他的腳本會在data list的最後多一個null element，這會導致len(data)不是1992而是1993，這樣shuffle的結果可想而知一定不一樣，我也回報給原作者了[^report-error-to-0x534b]，就看他要不要修
+        
+        只要把最後的random byte $\oplus$ data的結果寫回去到一個file，就會發現是一個png圖檔，那就是flag
 
 ## Exploit
-```python=
+```python
 from time import time
 import random
 # import pyshark

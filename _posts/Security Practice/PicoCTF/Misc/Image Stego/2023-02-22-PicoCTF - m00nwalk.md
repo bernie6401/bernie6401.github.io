@@ -25,7 +25,7 @@ Hint:
 ## Exploit - qsstv + 
 1. First, I thought it might be a `mp3stego` problem but found nothing. So, I tried to find the write up about this question.
 2. Use QSSTV
-    ```bash!
+    ```bash
     $ sudo apt-get install pavucontrol
     $ sudo apt-get install qsstv
     $ pactl load-module module-null-sink sink_name=virtual-cable
@@ -33,7 +33,7 @@ Hint:
     ```
 3. The Setting
 * `pavucontrol`
-    ```bsh!
+    ```bsh
     $ pavucontrol # then it should show up a GUI interface
     ```
     ![](https://i.imgur.com/yScUDWN.png)
@@ -41,18 +41,18 @@ Hint:
     * Note that must set the output from Null(Monitor of Null Output)
 
 * `qsstv`
-    ```bash!
+    ```bash
     $ qsstv # again, it should show up a GUI interface
     ```
     ![](https://i.imgur.com/R3OYHMi.png)
         * Note that the `Audio Interface` should be `PaulseAudio`
     * Then we can start to record in qsstv and set the command
-    ```bash!
+    ```bash
     $ paplay -d virtual-cable message.wav
     ```
 
 4. After finish the recording, we'll got a `png` file that contains the flag
-* Note that, the sequence of the audio is `message.wmv` $\to$ `pavucontrol` $\to$ `qsstv`. The main job of `pavucontrol` is to manage the audio that we play and send it to the right application(e.g. `qsstv`)
+    * Note that, the sequence of the audio is `message.wmv` → `pavucontrol` → `qsstv`. The main job of `pavucontrol` is to manage the audio that we play and send it to the right application(e.g. `qsstv`)
 
 
 ## Reference

@@ -19,11 +19,13 @@ Hint:
 
 ## Exploit - <font color="FF0000">通靈</font>
 1. Audacity to Analyze
-The sound seems quite normal but when you zoom in the audio track, it looks like something encode. 
-![](https://i.imgur.com/D1H1jpU.png)
+    
+    The sound seems quite normal but when you zoom in the audio track, it looks like something encode. 
+    ![](https://i.imgur.com/D1H1jpU.png)
 2. Read it - `scipy.io`
-Use `scipy.io` library to read it and print the data out.
-    ```python!
+    
+    Use `scipy.io` library to read it and print the data out.
+    ```python
     >>> from scipy.io.wavfile import read
     >>> rate, data = read("./main.wav")
     >>> print(data)
@@ -51,9 +53,7 @@ Use `scipy.io` library to read it and print the data out.
     `8500 ~ 8509`
     It has exactly 16 intervals $\to$ hex value
 3. Let's try to exploit it
-* Whole exploit
-    :::spoiler exploit
-    ```python!
+    ```python
     from scipy.io.wavfile import read
     from tqdm import trange
 
@@ -85,7 +85,7 @@ Use `scipy.io` library to read it and print the data out.
 
     print(bytes.fromhex(message).decode())
     ```
-    :::
+
 Then you can get the source code and flag...
 
 ## Reference

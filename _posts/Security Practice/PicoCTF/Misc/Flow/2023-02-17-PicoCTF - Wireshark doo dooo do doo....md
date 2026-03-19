@@ -19,5 +19,6 @@ $ strings shark1.pcapng | grep "{"
 Gur synt vf cvpbPGS{c33xno00_1_f33_h_qrnqorrs}
 ...
 ```
-Obviously a encrypted flag $\to$ use rot13
-flag: `picoCTF{p33kab00_1_s33_u_deadbeef}`
+Obviously a encrypted flag → use rot13
+
+Flag: `picoCTF{p33kab00_1_s33_u_deadbeef}`

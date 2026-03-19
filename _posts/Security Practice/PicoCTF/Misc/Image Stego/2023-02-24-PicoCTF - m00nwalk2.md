@@ -23,13 +23,11 @@ Hint:
 
 ## Exploit - QSSTV
 1. Follow the write up of m00nwalk then you'll get 3 images from 3 clues respectively.
-![](https://i.imgur.com/Vq8ciM2.png)
-![](https://i.imgur.com/Y5nS8wS.png)
-![](https://i.imgur.com/C0xk8YL.png)
+    ![](https://i.imgur.com/Vq8ciM2.png)
+    ![](https://i.imgur.com/Y5nS8wS.png)
+    ![](https://i.imgur.com/C0xk8YL.png)
 
 2. Search Alan Eliasen the Future Boy
-It's a [website](https://futureboy.us/) that contains encoding steganography files.
-So, we select the message file and enter the password
-![](https://i.imgur.com/dx3zsVj.png)
-Then we got the flag
-`picoCTF{the_answer_lies_hidden_in_plain_sight}`
+    It's a [website](https://futureboy.us/) that contains encoding steganography files. So, we select the message file and enter the password
+    ![](https://i.imgur.com/dx3zsVj.png)
+    Then we got the flag: `picoCTF{the_answer_lies_hidden_in_plain_sight}`
