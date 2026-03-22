@@ -709,6 +709,24 @@ Client → Server : ACK
 * SYN Cookies: Server 不立即分配資源，而是把資訊放在 cookie。
 * Firewall / IDS: `Snort, Suricata`可以偵測 SYN flood pattern。
 * Rate limiting: 限制 SYN request 數量。
+## Windows AD
+### 更多密碼的方式
+#### Kerberoasting
+在 AD 裡某些服務（例如 SQL、Web Server）會用「服務帳號(service account)」，這些帳號會註冊一個 SPN（Service Principal Name），當你請求該服務時，Kerberos 會給你一張 加密的ticket（TGS）
+
+問題來了，這張 ticket 是用「服務帳號的密碼」加密的，攻擊者可以：<span style="background-color: yellow">拿到這張 ticket → 離線暴力破解 → 還原出服務帳號密碼</span>
+
+1. 需要一個合法帳號(普通user也可以)
+2. 查詢有哪些 SPN（服務帳號）
+    ```bash
+    $ GetUserSPNs.py domain/user:password -request # 找出所有 service account
+    ```
+3. 拿到 TGS（加密票證）
+4. 離線破解密碼: hashcat or john
+5. 拿到密碼後可以
+    * 登入系統
+    * 橫向移動
+    * 提權
 
 ## 資安工具與平台
 ### Overview
