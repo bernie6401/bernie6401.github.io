@@ -28,19 +28,35 @@ date: 2024-01-31
 * [Oletools](https://github.com/decalage2/oletools): 是一套專為分析 Microsoft Office 文件（如 doc, xls, docx, xlsm）而設計的 Python 工具集，用於偵測潛在的惡意Macro（VBA巨集）和分析OLE2檔案結構
     ```bash
     $ pip install -U oletools
-    $ olevba \<filename\> # 用於提取、解析 Word 或 Excel 中的 VBA 巨集代碼，並檢測是否有可疑行為（如啟動程式、下載檔案）
+    $ olevba <filename> # 用於提取、解析 Word 或 Excel 中的 VBA 巨集代碼，並檢測是否有可疑行為（如啟動程式、下載檔案）
     ```
 * [xlmdeobfuscator](https://github.com/DissectMalware/XLMMacroDeobfuscator): 是一款用於分析惡意 Excel 4.0 (XLM) 巨集的開源工具。它透過模擬執行和暴破技術，能將混淆的巨集指令還原，直接提取出網址、shell 執行命令等威脅情資 (IOCs)，幫助分析人員快速辨識惡意文件。 
     ```bash
     $ pip install XLMMacroDeobfuscator
-    $ xlmdeobfuscator --file \<惡意文件.xlsm\> # 對惡意 Excel 文件進行分析並輸出還原後的程式碼
-    $ xlmdeobfuscator --file \<文件\> --no-indent --output-formula-format "[[INT-FORMULA]]" # 僅顯示反混淆後的公式
+    $ xlmdeobfuscator --file <惡意文件.xlsm> # 對惡意 Excel 文件進行分析並輸出還原後的程式碼
+    $ xlmdeobfuscator --file <文件> --no-indent --output-formula-format "[[INT-FORMULA]]" # 僅顯示反混淆後的公式
+    ```
+* [oledump.py](https://github.com/DidierStevens/DidierStevensSuite/blob/master/oledump.py): 如果不想要點開xlsm，而是直接把其中的vba dump下來，就可以用這個
+    ```bash
+    $ python oledump.py invoice-42369643.xlsm 
+    A: xl/vbaProject.bin 
+    A1: 573 'PROJECT' 
+    A2: 113 'PROJECTwm' 
+    A3: 97 'UZdcUQeJ/\x01CompObj' 
+    A4: 290 'UZdcUQeJ/\x03VBFrame' 
+    A5: 94 'UZdcUQeJ/f' 
+    A6: 7124 'UZdcUQeJ/o' 
+    A7: M 11454 'VBA/Module1' # M 代表Module
+    A8: m 1196 'VBA/Sheet1' # m 應該不重要
+    A9: m 1015 'VBA/ThisWorkbook' 
+    A10: M 1566 'VBA/UZdcUQeJ'
+    $ python oledump.py -s 7 -v invoice-42369643.xlsm # 把A7的部分dump下來
     ```
 
 ### Disk Analysis
 * [Foremost](https://darkranger.no-ip.org/archives/v5/document/linux/foremost_recovery.htm): 針對所支援的檔案結構去進行資料搜尋與救援
     ```bash
-    $ foremost -v \<filename\>
+    $ foremost -v <filename>
     ```
 * [Sleuth kit/Autopsy](https://blog.csdn.net/wxh0000mm/article/details/99447206)
 * [FTK Imager](https://www.exterro.com/ftk-imager)
