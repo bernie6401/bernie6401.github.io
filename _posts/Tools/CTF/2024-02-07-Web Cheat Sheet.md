@@ -29,6 +29,9 @@ date: 2024-02-07
 #### SQLi
 * [SQLMAP1](https://ithelp.ithome.com.tw/articles/10249487)
 * [SQLMAP2](https://ithelp.ithome.com.tw/articles/10202811)
+    ```bash
+    $ sudo apt install sqlmap
+    ```
 
 #### XXE - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
 ```html
