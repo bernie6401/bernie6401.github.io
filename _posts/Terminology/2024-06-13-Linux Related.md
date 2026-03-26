@@ -155,3 +155,41 @@ date: 2024-06-13
 ## Daemon是什麼
 資訊來源: [第十七章、認識系統服務 (daemons)](https://linux.vbird.org/linux_basic/centos7/0560daemons.php)
 > 簡單的說，系統為了某些功能必須要提供一些服務 (不論是系統本身還是網路方面)，這個服務就稱為 service 。 但是 service 的提供總是需要程式的運作吧！否則如何執行呢？所以達成這個 service 的程式我們就稱呼他為 daemon 囉！ 舉例來說，達成循環型例行性工作排程服務 (service) 的程式為 crond 這個 daemon 啦！這樣說比較容易理解了吧！
+
+## 要怎麼看netstat
+```bash
+mark@cctv:~$ netstat -a
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 localhost:8554          0.0.0.0:*               LISTEN
+tcp        0      0 localhost:33060         0.0.0.0:*               LISTEN
+tcp        0      0 localhost:9081          0.0.0.0:*               LISTEN
+tcp        0      0 _localdnsstub:domain    0.0.0.0:*               LISTEN
+tcp        0      0 localhost:8888          0.0.0.0:*               LISTEN
+tcp        0      0 _localdnsproxy:domain   0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN
+tcp        0      0 localhost:mysql         0.0.0.0:*               LISTEN
+tcp        0      0 localhost:7999          0.0.0.0:*               LISTEN
+tcp        0      0 localhost:1935          0.0.0.0:*               LISTEN
+tcp        0      0 172.18.0.1:37556        172.18.0.2:8554         ESTABLISHED
+tcp        0      0 10.129.12.109:ssh       10.10.15.108:36554      ESTABLISHED
+tcp        0      1 10.129.12.109:38526     8.8.8.8:domain          SYN_SENT
+tcp   107712      0 localhost:50484         localhost:8554          ESTABLISHED
+tcp        0 1079838 localhost:8554          localhost:50484         ESTABLISHED
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN
+tcp6       0      0 [::]:http               [::]:*                  LISTEN
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  3      [ ]         STREAM     CONNECTED     14317    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     16593
+unix  3      [ ]         STREAM     CONNECTED     21307    /run/containerd/containerd.sock.ttrpc
+unix  3      [ ]         STREAM     CONNECTED     18538
+unix  2      [ ]         DGRAM      CONNECTED     15028
+unix  4      [ ]         DGRAM      CONNECTED     9751     /run/systemd/notify
+unix  2      [ ACC ]     STREAM     LISTENING     9754     /run/systemd/private
+unix  3      [ ]         STREAM     CONNECTED     21321    /run/containerd/containerd.sock.ttrpc
+...
+```
+有分兩個區塊`Internet connections` & `UNIX domain sockets`
+* `Internet connections`: host對外的服務，主要看LISTEN這個state，正在等別人連線，ESTABLISHED則是已經建立的連線，Local Address可以看到`[::]:ssh`表示只要外部連線`:20`，就會ssh connection，並且允許任何其他人連線(`[::]:*`)，如果Foreign Address為`0.0.0.0:*`代表這個service只允許這個host本身query
+* `UNIX domain sockets`: 這個代表本機內部通訊（process ↔ process）

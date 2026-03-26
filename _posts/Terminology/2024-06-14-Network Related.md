@@ -20,6 +20,20 @@ date: 2024-06-14
     * 使用情境一：連到位在防火牆後的開發伺服器上的服務
         ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario1_problem.png)
         ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario1_solved.png)
+        詳細的步驟可以看[HackTheBox - CCTV]({{base.url}}/HackTheBox-CCTV)
+        ```bash
+        $ ssh mark@cctv.htb
+        mark@cctv:~$ netstat -a
+        Active Internet connections (servers and established)
+        Proto Recv-Q Send-Q Local Address           Foreign Address         State
+        ...
+        tcp        0      0 localhost:8765          0.0.0.0:*               LISTEN
+        ```
+        可以看到我自己的host透過ssh連到cctv.htb這個domain，並且看到他有一個8765的service，但localhost:8765只允許localhost連線，那我在自己的host要如何才能再自己的browser連線呢?就是透過這個local port forwarding的ssh tunnel處理這個問題
+        ```bash
+        $ ssh -L 7999:127.0.0.1:8765 mark@cctv.htb
+        ```
+        也就是我在自己的host開了一個7999的port，透過ssh轉發來自7999流量到target 127.0.0.1:8765
     * 使用情境二：透過防火牆後的機器，連到防火牆後的特定服務
         ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario2_problem.png)
         ![](https://johnliu55.tw/ssh-tunnel/images/local_scenario2_solved.png)
