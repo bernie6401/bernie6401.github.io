@@ -66,7 +66,7 @@ http://facts.htb/admin/users/7/updated_ajax
 
 <img src="/assets/posts/HackTheBox/Facts-1.png">
 
-## 連線s3 dump ssh
+## 連線S3 Dump SSH
 因為沒有用過AWS所以要先install
 ```bash
 $ sudo apt update
