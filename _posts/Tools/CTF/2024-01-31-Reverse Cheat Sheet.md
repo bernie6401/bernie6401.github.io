@@ -8,7 +8,7 @@ date: 2024-01-31
 
 # Reverse Cheat Sheet
 <!-- more -->
-<img src="/assets/posts/Tools/Reverse Useful Tools for Analyzing.png" width=300>
+<img src="/assets/posts/Tools/Reverse Useful Tools for Analyzing.png">
 
 ## 解題思路
 1. 先觀察
@@ -69,7 +69,7 @@ date: 2024-01-31
 | **GDB**     | Linux / macOS | User-mode   | CLI 為主、支援多架構、可遠端除錯      | Linux 逆向、CTF、pwn、程式除錯       |
 
 ### 好用的解題工具
-* \[angr - cheatsheet](https://docs.angr.io/en/latest/appendix/cheatsheet.html): `$ pip install angr claripy`
+* [angr - cheatsheet](https://docs.angr.io/en/latest/appendix/cheatsheet.html): `$ pip install angr claripy`
     
     直接對 binary 做 symbolic execution 幫你「走所有路徑」找出能到 win() 的 input
 

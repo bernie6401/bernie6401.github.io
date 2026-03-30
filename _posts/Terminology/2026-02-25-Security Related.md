@@ -57,6 +57,16 @@ comments: true
     | File path     | `C:\Users\Public\svchost.exe`                 |
     | Email address | phishing sender                               |
 
+* EASM（External Attack Surface Management）：找你暴露在外的東西
+    > EASM 主要是在盤點企業對外暴露的資產，例如網站、子網域、IP 或 API endpoint，目的就是了解攻擊者可以看到哪些入口。
+* BAS（Breach and Attack Simulation）：模擬攻擊是否成功
+    > BAS 是用自動化的方式去模擬攻擊，例如模擬 malware 或 lateral movement，來驗證現有防禦機制是否有效。
+    > ![](https://blog.feifei.tw/wp-content/uploads/2022/06/post-645-62a2edee1f985.png)
+    > From 林子婷 (飛飛/Phoebe菲比)
+* CTEM（Continuous Threat Exposure Management）：整合 + 持續管理
+    > CTEM 是一個比較完整的流程，包含找攻擊面、風險排序，以及實際驗證攻擊是否可行，並且持續監控與改善。
+
+    EASM/BAS/CTEM 這三者其實是互補的，EASM 負責找 attack surface，BAS 負責驗證攻擊，而 CTEM 則是把這些流程整合起來，形成一個持續的風險管理機制。
 
 
 ## Web
