@@ -796,6 +796,9 @@ Client → Server : ACK
 
     DC 不會驗證：「你是不是 Administrator」，它只驗證：「你有沒有 delegation 權限」
 
+### Persistent
+* Golden Ticket: 拿到krbtgt這個高權限帳號的hash就等於拿到domain admin，可以利用這個帳號偽造一個TGT，並且會自動透過這個TGT拿到TGS，我們就可以利用偽造的TGT去access任意的service，最簡單mitigate的方式就是把krbtgt的密碼改掉
+
 ## 資安工具與平台
 ### Overview
 
