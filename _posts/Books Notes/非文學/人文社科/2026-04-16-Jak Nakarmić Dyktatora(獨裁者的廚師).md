@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jak Nakarmić Dyktatora(獨裁者的廚師)"
+title: "獨裁者的廚師"
 date: 2026-04-16
 category: "Books Notes｜非文學｜人文社科"
 tags: []
