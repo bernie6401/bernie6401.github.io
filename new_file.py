@@ -26,9 +26,9 @@ def crawl_book_info(books_id):
 
     books_url = f"https://www.books.com.tw/products/{books_id}"
     response = requests.get(books_url)
+    info = {}
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
-        info = {}
 
         info_block = soup.find("div", class_="type02_p003")
 
@@ -111,7 +111,7 @@ def generate_post(file_path):
     category_str = categories.replace("/", "｜")
 
     book_cover_file_name = os.path.splitext(args.file_path.split('/')[-1])[0].replace(" ", "_") + ".jpg"
-    img_dir = "./assets/posts/"
+    img_dir = "./assets/posts/Books Cover/"
     os.makedirs(img_dir, exist_ok=True)
     book_cover_file_path = os.path.join(img_dir, book_cover_file_name)
     if args.books_id:

@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/new_file.py",
             "console": "integratedTerminal",
-            "args": "--file_path='Books Notes/純文學/Of Mice and Men(人鼠之間).md' --books_id 0011007257"
+            "args": ["--file_path", "Books Notes\\非文學\\人文社科\\Jak Nakarmić Dyktatora(獨裁者的廚師).md", "--books_id", "0010887983"]
         }
     ]
 }
