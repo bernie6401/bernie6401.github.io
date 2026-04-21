@@ -2,7 +2,7 @@
 layout: post
 title: "HackTheBox - RedTrails"
 date: 2026-03-15
-category: "Security Practice｜HackTheBox"
+category: "Security Practice｜HackTheBox｜Forensics"
 tags: []
 draft: false
 toc: true

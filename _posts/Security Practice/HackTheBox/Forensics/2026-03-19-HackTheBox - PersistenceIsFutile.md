@@ -2,7 +2,7 @@
 layout: post
 title: "HackTheBox - PersistenceIsFutile"
 date: 2026-03-19
-category: "Security Practice｜HackTheBox"
+category: "Security Practice｜HackTheBox｜Forensics"
 tags: []
 draft: false
 toc: true

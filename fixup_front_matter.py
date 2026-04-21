@@ -29,8 +29,7 @@ def file_io(filepath, io: str, new_lines=None):
 
 if __name__ == "__main__":
     
-    POSTS_DIR = "_posts/Books Notes/"
-    # POSTS_DIR = "_posts/Books Notes/大眾文學/日本/"
+    POSTS_DIR = "_posts/"
     date_prefix_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}-")
 
     # 確保資料夾存在

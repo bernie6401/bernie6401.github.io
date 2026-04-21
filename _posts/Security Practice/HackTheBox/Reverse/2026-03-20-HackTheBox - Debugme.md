@@ -2,7 +2,7 @@
 layout: post
 title: "HackTheBox - Debugme"
 date: 2026-03-20
-category: "Security Practice｜HackTheBox"
+category: "Security Practice｜HackTheBox｜Reverse"
 tags: []
 draft: false
 toc: true

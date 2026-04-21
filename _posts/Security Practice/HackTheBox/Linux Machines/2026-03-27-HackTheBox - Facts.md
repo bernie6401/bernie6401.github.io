@@ -2,7 +2,7 @@
 layout: post
 title: "HackTheBox - Facts"
 date: 2026-03-27
-category: "Security Practice｜HackTheBox"
+category: "Security Practice｜HackTheBox｜Linux Machines"
 tags: []
 draft: false
 toc: true

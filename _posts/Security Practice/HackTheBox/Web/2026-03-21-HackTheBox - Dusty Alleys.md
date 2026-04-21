@@ -2,7 +2,7 @@
 layout: post
 title: "HackTheBox - Dusty Alleys"
 date: 2026-03-21
-category: "Security Practice｜HackTheBox"
+category: "Security Practice｜HackTheBox｜Web"
 tags: []
 draft: false
 toc: true

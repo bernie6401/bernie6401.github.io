@@ -2,7 +2,7 @@
 layout: post
 title: "HackTheBox - MonitorsFour"
 date: 2026-03-24
-category: "Security Practice｜HackTheBox"
+category: "Security Practice｜HackTheBox｜Windows Machines"
 tags: []
 draft: false
 toc: true

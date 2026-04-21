@@ -2,7 +2,7 @@
 layout: post
 title: "HackTheBox - Acknowledge the corn"
 date: 2026-03-31
-category: "Security Practice｜HackTheBox"
+category: "Security Practice｜HackTheBox｜Forensics"
 tags: []
 draft: false
 toc: true
