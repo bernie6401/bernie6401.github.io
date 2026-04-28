@@ -2,7 +2,7 @@
 layout: post
 title: "不馴之翼"
 date: 2026-04-21
-category: "Books Notes｜奇幻"
+category: "Books Notes｜青少年文學"
 tags: []
 draft: false
 toc: true
