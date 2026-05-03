@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The man who died twice(死了兩次的男人（週四謀殺俱樂部2）)"
+title: "週四謀殺俱樂部2"
 date: 2026-05-03
 category: "Books Notes｜懸疑推理｜歐美"
 tags: []
@@ -11,8 +11,8 @@ comments: true
 
 # The man who died twice(死了兩次的男人（週四謀殺俱樂部2）)
 * 作者: Richard Osman
-* 出版社: 
-* 出版日期: 
+* 出版社: Random House Large Print
+* 出版日期: 2021/09/16
 * 譯者: 鄭煥昇
 * 譯版出版社: 臉譜
 * 出版日期: 2024/03/02
@@ -38,3 +38,5 @@ comments: true
 不過，最後一個章節還蠻突兀的，雖說作者想要達到一個call back的效果，但是Sylvia和他老公Dennis在故事中都沒有出現過，只有Sylvia出現在prologue，不免會懷疑是不是自己漏看什麼，但國外網友好像也有這樣的疑問[ [Spoilers] The Man Who Died Twice by Richard Osman ](https://www.reddit.com/r/books/comments/qoosax/spoilers_the_man_who_died_twice_by_richard_osman/?utm_source=chatgpt.com)，這就要提到書名的由來，看起來好像是在講伊莉莎白的前夫，但實際上暗指失智症的問題以及乏味人生的暗喻，在書中的伊博辛好不容易踏出自己的養老院生活圈，卻被路上的小混混攻擊，導致他又龜縮在舒適圈中，那樣的生活與死了沒兩樣，一開始我根本不會預期除了娛樂以外的其他收穫，作者在書中分散式的討論這樣的心裡變化，我覺得蠻不錯的
 
 最後提到一個小小的Bug，我知道娛樂大於推理的小說中應該滿滿可以攻擊的點，但我只有對這一個過意不去，為什麼沒有人詳細驗證認屍的家屬身份，那這樣就會知道那個自稱是Poppy媽媽的Siobhan是假的，也就沒有後續的其他事情了🤔
+
+Score: 8 out of 10
