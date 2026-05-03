@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "First Lie Wins(第一個謊最關鍵)"
+title: "第一個謊最關鍵"
 date: 2026-04-30
 category: "Books Notes｜懸疑推理｜歐美"
 tags: []
