@@ -9,9 +9,9 @@ toc: true
 comments: true
 ---
 
-# The man who died twice(死了兩次的男人（週四謀殺俱樂部2）)
+# The Man Who Died Twice(死了兩次的男人（週四謀殺俱樂部2）)
 * 作者: Richard Osman
-* 出版社: Random House Large Print
+* 出版社: Viking Press
 * 出版日期: 2021/09/16
 * 譯者: 鄭煥昇
 * 譯版出版社: 臉譜
