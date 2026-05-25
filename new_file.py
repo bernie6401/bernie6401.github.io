@@ -80,6 +80,7 @@ def get_author_info(info, book_cover_file_path):
     else:
         author_info = f'* 作者: \n* 出版社: \n* 出版日期: \n* 譯者: \n* 譯版出版社: \n* 譯版出版日期: \n'
 
+    author_info = f'* 作者: \n* 出版社: \n* 出版日期: \n* 譯者: \n* 譯版出版社: \n* 譯版出版日期: \n'
     author_info += f'\n<img src="{book_cover_file_path}" alt="" width="300">\n'
 
     return author_info
