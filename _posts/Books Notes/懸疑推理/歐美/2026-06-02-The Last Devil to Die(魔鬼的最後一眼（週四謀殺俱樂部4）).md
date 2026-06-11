@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Last Devil to Die(魔鬼的最後一眼（週四謀殺俱樂部4）)"
+title: "魔鬼的最後一眼（週四謀殺俱樂部4）"
 date: 2026-06-02
 category: "Books Notes｜懸疑推理｜歐美"
 tags: []

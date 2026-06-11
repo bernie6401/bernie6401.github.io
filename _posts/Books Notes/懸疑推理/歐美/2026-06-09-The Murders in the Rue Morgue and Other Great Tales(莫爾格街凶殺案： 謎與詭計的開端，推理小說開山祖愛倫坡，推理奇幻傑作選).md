@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Murders in the Rue Morgue and Other Great Tales(莫爾格街凶殺案： 謎與詭計的開端，推理小說開山祖愛倫坡，推理奇幻傑作選)"
+title: "莫爾格街凶殺案"
 date: 2026-06-09
 category: "Books Notes｜懸疑推理｜歐美"
 tags: []
