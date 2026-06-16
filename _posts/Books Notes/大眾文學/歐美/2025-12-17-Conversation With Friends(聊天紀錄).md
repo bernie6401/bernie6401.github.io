@@ -3,7 +3,7 @@ layout: post
 title: "Conversation With Friends(聊天紀錄)"
 date: 2025-12-17
 category: "Books Notes｜大眾文學｜歐美"
-tags: []
+tags: [Sally Rooney, 歐美文學, 開放式關係, 情感糾葛]
 draft: false
 toc: true
 comments: true

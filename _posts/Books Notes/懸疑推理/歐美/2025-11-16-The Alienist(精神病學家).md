@@ -3,7 +3,7 @@ layout: post
 title: "The Alienist(精神病學家)"
 date: 2025-11-16
 category: "Books Notes｜懸疑推理｜歐美"
-tags: []
+tags: [Caleb Carr, 歐美文學, 犯罪側寫, 1890年代, 紐約]
 draft: false
 toc: true
 comments: true

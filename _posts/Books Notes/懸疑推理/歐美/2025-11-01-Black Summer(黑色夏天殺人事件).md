@@ -3,7 +3,7 @@ layout: post
 title: "Black Summer(黑色夏天殺人事件)"
 date: 2025-11-01
 category: "Books Notes｜懸疑推理｜歐美"
-tags: []
+tags: [M.W. Craven, 歐美文學, 連環殺人, Washington系列, 英國]
 draft: false
 toc: true
 comments: true

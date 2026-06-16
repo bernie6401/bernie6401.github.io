@@ -3,7 +3,7 @@ layout: post
 title: "The Outcast(被放逐的孩子)"
 date: 2023-08-26
 category: "Books Notes｜大眾文學｜歐美"
-tags: []
+tags: [童年創傷, 歐美文學, 自我放逐, 戰後英國]
 draft: false
 toc: true
 comments: true

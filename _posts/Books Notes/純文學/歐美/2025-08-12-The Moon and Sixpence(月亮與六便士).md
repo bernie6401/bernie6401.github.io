@@ -3,7 +3,7 @@ layout: post
 title: "The Moon and Sixpence(月亮與六便士)"
 date: 2025-08-12
 category: "Books Notes｜純文學｜歐美"
-tags: []
+tags: [毛姆, 純文學, 歐美文學, 高更, 藝術]
 draft: false
 toc: true
 comments: true

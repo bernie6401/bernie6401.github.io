@@ -3,7 +3,7 @@ layout: post
 title: "銀翼殺手"
 date: 2025-06-04
 category: "Books Notes｜科幻"
-tags: []
+tags: [Philip K. Dick, 科幻, 仿生人, 末世, 人性]
 draft: false
 toc: true
 comments: true

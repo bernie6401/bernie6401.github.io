@@ -3,7 +3,7 @@ layout: post
 title: "Billy Lynn's Long Halftime Walk(半場無戰事)"
 date: 2025-05-29
 category: "Books Notes｜大眾文學｜歐美"
-tags: []
+tags: [伊拉克戰爭, 歐美文學, 反戰, 美國政治]
 draft: false
 toc: true
 comments: true

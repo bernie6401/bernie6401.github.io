@@ -3,7 +3,7 @@ layout: post
 title: "Lessons in Chemistry(化學家)"
 date: 2026-06-05
 category: "Books Notes｜大眾文學｜歐美"
-tags: []
+tags: [女權, Bonnie Garmus, 歐美文學, 1950年代, 化學]
 draft: false
 toc: true
 comments: true

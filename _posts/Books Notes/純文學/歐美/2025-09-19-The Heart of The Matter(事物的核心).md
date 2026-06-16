@@ -3,7 +3,7 @@ layout: post
 title: "The Heart of The Matter(事物的核心)"
 date: 2025-09-19
 category: "Books Notes｜純文學｜歐美"
-tags: []
+tags: [Graham Greene, 純文學, 歐美文學, 西非, 信仰]
 draft: false
 toc: true
 comments: true

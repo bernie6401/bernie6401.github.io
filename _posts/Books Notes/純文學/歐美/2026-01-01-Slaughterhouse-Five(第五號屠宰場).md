@@ -3,7 +3,7 @@ layout: post
 title: "第五號屠宰場"
 date: 2026-01-01
 category: "Books Notes｜純文學｜歐美"
-tags: []
+tags: [Kurt Vonnegut, 純文學, 反戰, 時間旅行, 德勒斯登]
 draft: false
 toc: true
 comments: true

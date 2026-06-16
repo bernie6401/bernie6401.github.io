@@ -3,7 +3,7 @@ layout: post
 title: "食人輓歌"
 date: 2026-02-16
 category: "Books Notes｜科幻"
-tags: []
+tags: [Agustina Bazterrica, 科幻, 反烏托邦, 食人, 人口控制]
 draft: false
 toc: true
 comments: true

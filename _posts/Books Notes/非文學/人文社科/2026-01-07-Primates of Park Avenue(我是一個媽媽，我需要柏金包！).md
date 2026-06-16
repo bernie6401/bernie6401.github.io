@@ -3,7 +3,7 @@ layout: post
 title: "我是一個媽媽，我需要柏金包！"
 date: 2026-01-07
 category: "Books Notes｜非文學｜人文社科"
-tags: []
+tags: [上東區, 階級, 母職, 消費文化, 紐約]
 draft: true
 toc: true
 comments: true

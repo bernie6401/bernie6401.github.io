@@ -3,7 +3,7 @@ layout: post
 title: "少年維特的煩惱"
 date: 2020-03-08
 category: "Books Notes｜純文學｜歐美"
-tags: []
+tags: [歌德, 純文學, 歐美文學, 愛情, 自殺]
 draft: false
 toc: true
 comments: true

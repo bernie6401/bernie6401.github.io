@@ -3,7 +3,7 @@ layout: post
 title: "The Puppet Show(歡迎觀賞殺人預告)"
 date: 2025-09-12
 category: "Books Notes｜懸疑推理｜歐美"
-tags: []
+tags: [M.W. Craven, 歐美文學, 連環殺人, 犯罪側寫, 英國]
 draft: false
 toc: true
 comments: true

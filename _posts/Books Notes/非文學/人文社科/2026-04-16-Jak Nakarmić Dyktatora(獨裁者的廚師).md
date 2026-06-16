@@ -3,7 +3,7 @@ layout: post
 title: "獨裁者的廚師"
 date: 2026-04-16
 category: "Books Notes｜非文學｜人文社科"
-tags: []
+tags: [獨裁, 紀實, 極權, 廚師, 口述歷史]
 draft: false
 toc: true
 comments: true

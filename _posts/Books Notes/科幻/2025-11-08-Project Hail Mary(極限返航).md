@@ -3,7 +3,7 @@ layout: post
 title: "Project Hail Mary(極限返航)"
 date: 2025-11-08
 category: "Books Notes｜科幻"
-tags: []
+tags: [Andy Weir, 科幻, 太空, 外星人, 硬科幻]
 draft: false
 toc: true
 comments: true

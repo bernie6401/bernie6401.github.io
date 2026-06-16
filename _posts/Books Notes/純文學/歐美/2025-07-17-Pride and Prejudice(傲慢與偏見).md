@@ -3,7 +3,7 @@ layout: post
 title: "Pride and Prejudice(傲慢與偏見)"
 date: 2025-07-17
 category: "Books Notes｜純文學｜歐美"
-tags: []
+tags: [Jane Austen, 純文學, 歐美文學, 愛情, 階級]
 draft: false
 toc: true
 comments: true

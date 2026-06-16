@@ -3,7 +3,7 @@ layout: post
 title: "A Gentleman in Moscow(莫斯科紳士)"
 date: 2026-01-30
 category: "Books Notes｜大眾文學｜歐美"
-tags: []
+tags: [俄國革命, Amor Towles, 歐美文學, 軟禁]
 draft: false
 toc: true
 comments: true

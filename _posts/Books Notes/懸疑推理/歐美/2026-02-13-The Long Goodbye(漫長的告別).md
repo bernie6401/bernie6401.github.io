@@ -3,7 +3,7 @@ layout: post
 title: "The Long Goodbye(漫長的告別)"
 date: 2026-02-13
 category: "Books Notes｜懸疑推理｜歐美"
-tags: []
+tags: [Raymond Chandler, 歐美文學, 硬漢推理, 洛杉磯, 黑色電影]
 draft: false
 toc: true
 comments: true

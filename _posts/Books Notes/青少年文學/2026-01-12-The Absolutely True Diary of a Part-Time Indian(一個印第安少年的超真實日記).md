@@ -3,7 +3,7 @@ layout: post
 title: "一個印第安少年的超真實日記"
 date: 2026-01-12
 category: "Books Notes｜青少年文學"
-tags: []
+tags: [Sherman Alexie, 青少年文學, 原住民, 保留區, 成長]
 draft: false
 toc: true
 comments: true

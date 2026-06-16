@@ -3,7 +3,7 @@ layout: post
 title: "Sophie’s Choice(蘇菲的抉擇)"
 date: 2026-04-23
 category: "Books Notes｜純文學｜歐美"
-tags: []
+tags: [William Styron, 純文學, 歐美文學, 納粹, 創傷]
 draft: false
 toc: true
 comments: true

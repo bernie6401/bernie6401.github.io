@@ -3,7 +3,7 @@ layout: post
 title: "Hidden Pictures(詭畫連篇)"
 date: 2023-12-13
 category: "Books Notes｜懸疑推理｜歐美"
-tags: []
+tags: [Jason Rekulak, 歐美文學, 推理, 塗鴉, 戒毒]
 draft: false
 toc: true
 comments: true
