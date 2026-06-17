@@ -3,7 +3,7 @@ layout: post
 title: "魔鬼的最後一眼（週四謀殺俱樂部4）"
 date: 2026-06-02
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [Richard Osman, 歐美文學, 週四謀殺俱樂部, 失智症, 安樂死]
+tags: [Richard Osman, 歐美文學, 週四謀殺俱樂部, 失智症, 安樂死, Cozy Mystery]
 draft: false
 toc: true
 comments: true
