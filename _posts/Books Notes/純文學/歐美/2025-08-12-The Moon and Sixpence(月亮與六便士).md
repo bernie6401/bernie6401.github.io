@@ -3,7 +3,7 @@ layout: post
 title: "The Moon and Sixpence(月亮與六便士)"
 date: 2025-08-12
 category: "Books Notes｜純文學｜歐美"
-tags: [毛姆, 純文學, 歐美文學, 高更, 藝術]
+tags: [William Somerset Maugham, 純文學, 歐美文學, 藝術, William Heinemann, 陳逸軒, 麥田出版]
 draft: false
 toc: true
 comments: true
@@ -14,8 +14,8 @@ comments: true
 * 出版社: William Heinemann
 * 出版日期: 1919/04/15
 * 譯者: 陳逸軒
-* 譯版出版社: 2013/12
-* 譯版出版日期: 麥田出版
+* 譯版出版社: 麥田出版
+* 譯版出版日期: 2013/12
 
 <img src="/assets/posts/月亮與六便士/月亮與六便士.jpg" alt="" width="300">
 

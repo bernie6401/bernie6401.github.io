@@ -3,7 +3,7 @@ layout: post
 title: "The Heart of The Matter(事物的核心)"
 date: 2025-09-19
 category: "Books Notes｜純文學｜歐美"
-tags: [Graham Greene, 純文學, 歐美文學, 西非, 信仰]
+tags: [Graham Greene, 純文學, 歐美文學, 傅惟慈, William Heinemann, 二戰, 戰爭, 愛情, 臉譜出版]
 draft: false
 toc: true
 comments: true
@@ -14,7 +14,7 @@ comments: true
 * 出版社: William Heinemann
 * 出版日期: 1948
 * 譯者: 傅惟慈
-* 譯版出版社: 臉譜
+* 譯版出版社: 臉譜出版
 * 譯版出版日期: 2010/09
 
 <img src="/assets/posts/事物的核心/事物的核心.jpg" alt="" width="300">

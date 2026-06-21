@@ -3,7 +3,7 @@ layout: post
 title: "大查帳"
 date: 2020-03-15
 category: "Books Notes｜非文學｜人文社科"
-tags: [會計史, 財政, 複式簿記, 歷史, Jacob Soll, Basic Books, 陳儀, 時報出版]
+tags: [歷史, Jacob Soll, Basic Books, 陳儀, 時報出版]
 draft: false
 toc: true
 comments: true

@@ -3,7 +3,7 @@ layout: post
 title: "我是一個媽媽，我需要柏金包！"
 date: 2026-01-07
 category: "Books Notes｜非文學｜人文社科"
-tags: [上東區, 紐約, Wednesday Martin, Simon & Schuster, 許恬寧, 時報出版]
+tags: [社會, 紐約, Wednesday Martin, Simon & Schuster, 許恬寧, 時報出版]
 draft: true
 toc: true
 comments: true

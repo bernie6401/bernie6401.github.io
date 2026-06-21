@@ -3,7 +3,7 @@ layout: post
 title: "第五號屠宰場"
 date: 2026-01-01
 category: "Books Notes｜純文學｜歐美"
-tags: [Kurt Vonnegut, 純文學, 反戰, 時間旅行, 德勒斯登]
+tags: [Kurt Vonnegut, 純文學, 反戰, 麥田出版, 陳枻樵, 戰爭, 二戰, Dell, 歐美文學]
 draft: false
 toc: true
 comments: true
@@ -14,7 +14,7 @@ comments: true
 * 出版社: Dell
 * 出版日期: 1969/03/31
 * 譯者: 陳枻樵
-* 譯版出版社: 麥田
+* 譯版出版社: 麥田出版
 * 譯版出版日期: 2016/03/31
 
 <img src="/assets/posts/Books Cover/Slaughterhouse-Five(第五號屠宰場).jpg" alt="" width="300">

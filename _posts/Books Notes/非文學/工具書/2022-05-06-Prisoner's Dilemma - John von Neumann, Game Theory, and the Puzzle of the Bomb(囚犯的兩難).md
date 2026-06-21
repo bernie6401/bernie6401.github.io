@@ -3,7 +3,7 @@ layout: post
 title: "囚犯的兩難"
 date: 2022-05-06
 category: "Books Notes｜非文學｜工具書"
-tags: [賽局理論, 馮紐曼, 核武, 數學, William Poundstone, Doubleday, 周惠玲, 左岸文化]
+tags: [工具書, William Poundstone, Doubleday, 周惠玲, 左岸文化]
 draft: false
 toc: true
 comments: true

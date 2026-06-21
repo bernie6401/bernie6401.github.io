@@ -3,7 +3,7 @@ layout: post
 title: "人鼠之間"
 date: 2025-12-25
 category: "Books Notes｜純文學｜歐美"
-tags: [John Steinbeck, 純文學, 歐美文學, 大蕭條, 夢想]
+tags: [John Steinbeck, 純文學, 歐美文學, Penguin Books, 蔡宗翰, 如果出版社]
 draft: false
 toc: true
 comments: true

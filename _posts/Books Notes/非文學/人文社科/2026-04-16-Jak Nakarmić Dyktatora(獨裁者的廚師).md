@@ -3,7 +3,7 @@ layout: post
 title: "獨裁者的廚師"
 date: 2026-04-16
 category: "Books Notes｜非文學｜人文社科"
-tags: [獨裁, 紀實, 極權, 廚師, 口述歷史, Witold Szabłowski, W.A.B., 葉祉君, 衛城出版]
+tags: [紀實, Witold Szabłowski, W.A.B., 葉祉君, 衛城出版, 歷史]
 draft: false
 toc: true
 comments: true

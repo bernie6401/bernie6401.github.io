@@ -3,7 +3,7 @@ layout: post
 title: "The Great Gatsby(大亨小傳)"
 date: 2025-10-16
 category: "Books Notes｜純文學｜歐美"
-tags: [F. Scott Fitzgerald, 純文學, 歐美文學, 美國夢, 1920年代]
+tags: [F. Scott Fitzgerald, 純文學, 歐美文學, 美國, Charles Scribner's Sons, 汪芃, 遠流]
 draft: false
 toc: true
 

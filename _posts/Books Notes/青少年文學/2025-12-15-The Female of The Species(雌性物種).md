@@ -3,7 +3,7 @@ layout: post
 title: "雌性物種"
 date: 2025-12-15
 category: "Books Notes｜青少年文學"
-tags: [Mindy McGinnis, 青少年文學, 性暴力, 私刑, 復仇, Katherine Tegen Books, 臉譜, 蘇雅薇]
+tags: [Mindy McGinnis, 青少年文學, 性暴力, Katherine Tegen Books, 臉譜出版, 蘇雅薇, 女權, 平權, 兩性, 校園, 歐美文學]
 draft: false
 toc: true
 comments: true
@@ -14,7 +14,7 @@ comments: true
 * 出版社: Katherine Tegen Books
 * 出版日期: 2016/09/20
 * 譯者: 蘇雅薇
-* 譯版出版社: 臉譜
+* 譯版出版社: 臉譜出版
 * 譯版出版日期: 2018/11/08
 
 <img src="/assets/posts/Books Cover/雌性物種.jpg" alt="" width="300">

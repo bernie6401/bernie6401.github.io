@@ -3,7 +3,7 @@ layout: post
 title: "cocoon 繭"
 date: 2025-09-28
 category: "Books Notes｜漫畫"
-tags: [沖繩, 二戰, 漫畫, 戰爭, 今日マチ子, 秋田書店, 臉譜, 黃鴻硯]
+tags: [沖繩, 二戰, 漫畫, 戰爭, 今日マチ子, 秋田書店, 臉譜出版, 黃鴻硯]
 draft: false
 toc: true
 comments: true
@@ -14,7 +14,7 @@ comments: true
 * 出版社: 秋田書店
 * 出版日期: 2010/08
 * 譯者: 黃鴻硯
-* 譯版出版社: 臉譜
+* 譯版出版社: 臉譜出版
 * 譯版出版日期: 2021/07
 
 <img src="/assets/posts/Books Cover/COCOON繭.jpg" alt="" width="300">
