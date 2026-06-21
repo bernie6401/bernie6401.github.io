@@ -3,7 +3,7 @@ layout: post
 title: "海底兩萬里"
 date: 2020-03-01
 category: "Books Notes｜科幻"
-tags: [Jules Verne, 科幻, 潛水艇, 冒險, 經典]
+tags: [Jules Verne, 科幻, 潛水艇, 冒險, 經典, 許雅雯, Pierre-Jules Hetzel, 野人]
 draft: false
 toc: true
 comments: true
@@ -11,7 +11,8 @@ comments: true
 
 # Vingt Mille Lieues sous les mers(海底兩萬里)
 * 作者: Jules Verne
-* 原文出版日期: 1870
+* 出版社: Pierre-Jules Hetzel
+* 出版日期: 1870
 * 譯者: 許雅雯
 * 譯版出版社: 野人
 * 譯版出版日期: 2019/12

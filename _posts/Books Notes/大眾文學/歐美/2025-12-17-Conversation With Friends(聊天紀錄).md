@@ -3,7 +3,7 @@ layout: post
 title: "Conversation With Friends(聊天紀錄)"
 date: 2025-12-17
 category: "Books Notes｜大眾文學｜歐美"
-tags: [Sally Rooney, 歐美文學, 開放式關係, 情感糾葛]
+tags: [Sally Rooney, 歐美文學, 開放式關係, 情感糾葛, Faber and Faber Ltd, 兩性, 同性, 時報出版, 李靜宜]
 draft: false
 toc: true
 comments: true

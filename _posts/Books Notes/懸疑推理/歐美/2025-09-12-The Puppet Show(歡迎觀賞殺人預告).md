@@ -3,7 +3,7 @@ layout: post
 title: "The Puppet Show(歡迎觀賞殺人預告)"
 date: 2025-09-12
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [M.W. Craven, 歐美文學, 連環殺人, 犯罪側寫, 英國]
+tags: [M.W. Craven, 歐美文學, 連環殺人, 犯罪, 側寫, 英國, Constable & Robinson, 春天出版, 陳岳辰]
 draft: false
 toc: true
 comments: true
@@ -14,7 +14,7 @@ comments: true
 * 出版社: Constable & Robinson
 * 出版日期: 2018/06/07
 * 譯者: 陳岳辰
-* 譯版出版社: 春天出版社
+* 譯版出版社: 春天出版
 * 譯版出版日期: 2021/09/17
 
 <img src="/assets/posts/Books Cover/歡迎觀賞殺人預告.jpg" alt="" width="300">

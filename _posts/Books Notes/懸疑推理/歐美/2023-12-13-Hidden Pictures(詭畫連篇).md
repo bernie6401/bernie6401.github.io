@@ -3,7 +3,7 @@ layout: post
 title: "Hidden Pictures(詭畫連篇)"
 date: 2023-12-13
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [Jason Rekulak, 歐美文學, 推理, 塗鴉, 戒毒]
+tags: [Jason Rekulak, 歐美文學, 推理, 毒品, Flatiron Books, 寂寞, 章晉唯]
 draft: false
 toc: true
 comments: true
@@ -11,8 +11,9 @@ comments: true
 
 # Hidden Pictures(詭畫連篇)
 * 作者: Jason Rekulak
-* 原文出版日期: 2022/05/10
 * 繪者： Will Staehle, Doogie Horner
+* 出版社: Flatiron Books
+* 出版日期: 2022/05/10
 * 譯者: 章晉唯
 * 譯版出版社: 寂寞
 * 譯版出版日期: 2023/12/01

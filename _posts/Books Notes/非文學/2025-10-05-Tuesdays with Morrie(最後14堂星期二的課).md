@@ -3,7 +3,7 @@ layout: post
 title: "Tuesdays with Morrie(最後14堂星期二的課)"
 date: 2025-10-05
 category: "Books Notes｜非文學"
-tags: [Mitch Albom, 死亡, 人生哲學, 師生, 漸凍人]
+tags: [Mitch Albom, 死亡, 人生哲學, 師生, 漸凍人, Random House, 白裕承, 大塊文化]
 draft: false
 toc: true
 comments: true

@@ -3,7 +3,7 @@ layout: post
 title: "cocoon 繭"
 date: 2025-09-28
 category: "Books Notes｜漫畫"
-tags: [沖繩, 二戰, 漫畫, 姬百合學徒隊, 戰爭]
+tags: [沖繩, 二戰, 漫畫, 姬百合學徒隊, 戰爭, 今日マチ子, 秋田書店, 臉譜, 黃鴻硯]
 draft: false
 toc: true
 comments: true

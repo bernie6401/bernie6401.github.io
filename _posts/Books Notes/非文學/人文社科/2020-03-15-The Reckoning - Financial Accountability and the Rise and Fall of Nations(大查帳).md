@@ -3,7 +3,7 @@ layout: post
 title: "大查帳"
 date: 2020-03-15
 category: "Books Notes｜非文學｜人文社科"
-tags: [會計史, 財政, 複式簿記, 歷史]
+tags: [會計史, 財政, 複式簿記, 歷史, Jacob Soll, Basic Books, 陳儀, 時報出版]
 draft: false
 toc: true
 comments: true
@@ -11,7 +11,8 @@ comments: true
 
 # The Reckoning: Financial Accountability and the Rise and Fall of Nations(大查帳：掌握帳簿就是掌握權力，會計制度與國家興衰的故事)
 * 作者: Jacob Soll
-* 原文出版日期: 2014/04/29
+* 出版社: Basic Books
+* 出版日期: 2014/04/29
 * 譯者: 陳儀
 * 譯版出版社: 時報出版
 * 譯版出版日期: 2017/04/28

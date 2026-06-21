@@ -3,7 +3,7 @@ layout: post
 title: "莫爾格街凶殺案"
 date: 2026-06-09
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [Edgar Allan Poe, 歐美文學, 推理始祖, 偵探小說, 短篇集]
+tags: [Edgar Allan Poe, 歐美文學, 推理, 偵探, 短篇, Penguin Classics, 大牌出版, 沈聿德]
 draft: false
 toc: true
 comments: true

@@ -3,7 +3,7 @@ layout: post
 title: "香水"
 date: 2025-08-27
 category: "Books Notes｜大眾文學｜歐美"
-tags: [Patrick Süskind, 歐美文學, 氣味書寫, 巴黎, 連環殺人]
+tags: [Patrick Süskind, 歐美文學, 氣味書寫, 巴黎, 連環殺人, Diogenes Verlag, 味道, 皇冠, 洪翠娥]
 draft: false
 toc: true
 comments: true

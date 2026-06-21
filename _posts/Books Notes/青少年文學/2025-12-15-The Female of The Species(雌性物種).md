@@ -3,7 +3,7 @@ layout: post
 title: "雌性物種"
 date: 2025-12-15
 category: "Books Notes｜青少年文學"
-tags: [Mindy McGinnis, 青少年文學, 性暴力, 私刑, 復仇]
+tags: [Mindy McGinnis, 青少年文學, 性暴力, 私刑, 復仇, Katherine Tegen Books, 臉譜, 蘇雅薇]
 draft: false
 toc: true
 comments: true
@@ -11,8 +11,8 @@ comments: true
 
 # The Female of The Species(雌性物種)
 * 作者: Mindy McGinnis
-* 出版社: 2016/09/20
-* 出版日期: Katherine Tegen Books
+* 出版社: Katherine Tegen Books
+* 出版日期: 2016/09/20
 * 譯者: 蘇雅薇
 * 譯版出版社: 臉譜
 * 譯版出版日期: 2018/11/08

@@ -3,7 +3,7 @@ layout: post
 title: "Cat's Cradle(貓的搖籃)"
 date: 2025-08-04
 category: "Books Notes｜科幻"
-tags: [Kurt Vonnegut, 科幻, 宗教諷刺, 末日, 黑色幽默]
+tags: [Kurt Vonnegut, 科幻, 宗教, 末日, 黑色幽默, Rinehart and Winston, 謝瑤玲, 曾志傑, 麥田出版]
 draft: false
 toc: true
 comments: true

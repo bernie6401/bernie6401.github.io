@@ -3,7 +3,7 @@ layout: post
 title: "第一個謊最關鍵"
 date: 2026-04-30
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [Ashley Elston, 歐美文學, 特務, 社交工程, 反轉]
+tags: [Ashley Elston, 歐美文學, 特務, 社交工程, Pamela Dorman Books, 春天出版, 葉旻臻]
 draft: false
 toc: true
 comments: true
@@ -14,7 +14,7 @@ comments: true
 * 出版社: Pamela Dorman Books
 * 出版日期: 2024/01/02
 * 譯者: 葉旻臻
-* 譯版出版社: 春天出版社
+* 譯版出版社: 春天出版
 * 譯版出版日期: 2025/07/31
 
 <img src="/assets/posts/Books Cover/First_Lie_Wins(第一個謊最關鍵).jpg" alt="" width="300">

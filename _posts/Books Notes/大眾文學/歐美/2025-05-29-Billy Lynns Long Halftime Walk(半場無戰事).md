@@ -3,7 +3,7 @@ layout: post
 title: "Billy Lynn's Long Halftime Walk(半場無戰事)"
 date: 2025-05-29
 category: "Books Notes｜大眾文學｜歐美"
-tags: [伊拉克戰爭, 歐美文學, 反戰, 美國政治]
+tags: [伊拉克戰爭, 歐美文學, 反戰, 美國政治, Ecco Press, 戰爭, 時報出版, 張茂芸]
 draft: false
 toc: true
 comments: true
@@ -11,8 +11,8 @@ comments: true
 
 # Billy Lynn's Long Halftime Walk(半場無戰事)
 * 作者： Fountain, Ben
-* 原文出版社: Ecco Press
-* 原文出版日期: 2016/10/25
+* 出版社: Ecco Press
+* 出版日期: 2016/10/25
 * 譯者: 張茂芸
 * 譯版出版社: 時報出版
 * 譯版出版日期: 2015/04/24

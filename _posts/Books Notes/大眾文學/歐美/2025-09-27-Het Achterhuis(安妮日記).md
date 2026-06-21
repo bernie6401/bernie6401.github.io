@@ -3,7 +3,7 @@ layout: post
 title: "安妮日記"
 date: 2025-09-27
 category: "Books Notes｜大眾文學｜歐美"
-tags: [Anne Frank, 二戰, 歐美文學, 猶太人, 日記]
+tags: [Anne Frank, 二戰, 歐美文學, 猶太人, 日記, 戰爭, 家庭, Contact Publishing, 皇冠, 呂玉嬋]
 draft: false
 toc: true
 comments: true

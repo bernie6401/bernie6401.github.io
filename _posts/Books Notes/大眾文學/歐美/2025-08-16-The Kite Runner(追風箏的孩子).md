@@ -3,7 +3,7 @@ layout: post
 title: "The Kite Runner(追風箏的孩子)"
 date: 2025-08-16
 category: "Books Notes｜大眾文學｜歐美"
-tags: [阿富汗, 卡勒德·胡賽尼, 歐美文學, 贖罪, 友情]
+tags: [阿富汗, 卡勒德·胡賽尼, 歐美文學, 贖罪, 友情, 戰爭, Riverhead Books, 同性, 木馬文化, 李靜宜]
 draft: false
 toc: true
 comments: true

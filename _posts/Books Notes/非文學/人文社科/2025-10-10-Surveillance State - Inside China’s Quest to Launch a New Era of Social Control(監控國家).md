@@ -3,7 +3,7 @@ layout: post
 title: "監控國家"
 date: 2025-10-10
 category: "Books Notes｜非文學｜人文社科"
-tags: [監控, 中國, 社會控制, 科技, 個資]
+tags: [監控, 中國, 社會控制, 科技, 個資, St. Martin's Press, 李易安, Josh Chin, Liza Lin, 麥田出版]
 draft: false
 toc: true
 comments: true

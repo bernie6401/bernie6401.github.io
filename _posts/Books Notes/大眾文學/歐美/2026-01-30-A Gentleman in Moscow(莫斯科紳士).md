@@ -3,7 +3,7 @@ layout: post
 title: "A Gentleman in Moscow(莫斯科紳士)"
 date: 2026-01-30
 category: "Books Notes｜大眾文學｜歐美"
-tags: [俄國革命, Amor Towles, 歐美文學, 軟禁]
+tags: [俄國革命, Amor Towles, 歐美文學, 軟禁, 俄國, 二戰, 一戰, 戰爭, 冷戰, 蘇聯, Viking Press, 漫遊者文化, 李靜宜]
 draft: false
 toc: true
 comments: true
@@ -11,7 +11,7 @@ comments: true
 
 # A Gentleman in Moscow(莫斯科紳士)
 * 作者: Amor Towles
-* 出版社: Viking
+* 出版社: Viking Press
 * 出版日期: 2016/09/06
 * 譯者: 李靜宜
 * 譯版出版社: 漫遊者文化

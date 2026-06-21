@@ -3,7 +3,7 @@ layout: post
 title: "The Outcast(被放逐的孩子)"
 date: 2023-08-26
 category: "Books Notes｜大眾文學｜歐美"
-tags: [童年創傷, 歐美文學, 自我放逐, 戰後英國]
+tags: [童年創傷, 歐美文學, 自我放逐, 戰後英國, HarperCollins Publishers, 家庭, 商周出版, 楊惠君]
 draft: false
 toc: true
 comments: true
@@ -11,7 +11,8 @@ comments: true
 
 # The Outcast(被放逐的孩子)
 * 作者: Sadie Jones
-* 原文出版日期: 2008/03/11
+* 出版社: HarperCollins Publishers
+* 出版日期: 2008/03/11
 * 譯者: 楊惠君
 * 譯版出版社: 商周出版
 * 譯版出版日期: 2010/03/05

@@ -3,7 +3,7 @@ layout: post
 title: "一個印第安少年的超真實日記"
 date: 2026-01-12
 category: "Books Notes｜青少年文學"
-tags: [Sherman Alexie, 青少年文學, 原住民, 保留區, 成長]
+tags: [Sherman Alexie, 青少年文學, 原住民, 保留區, 成長, Brown and Company, 盧秋瑩, 木馬文化, Ellen Forney]
 draft: false
 toc: true
 comments: true
@@ -11,9 +11,10 @@ comments: true
 
 # The Absolutely True Diary of a Part-Time Indian(一個印第安少年的超真實日記)
 * 作者: Sherman Alexie
+* 繪者: Ellen Forney
 * 出版社: Little, Brown and Company
 * 出版日期: 2007/09/12
-* 譯者: 盧秋瑩繪者：雅倫．傅妮
+* 譯者: 盧秋瑩
 * 譯版出版社: 木馬文化
 * 譯版出版日期: 2013/05/03
 

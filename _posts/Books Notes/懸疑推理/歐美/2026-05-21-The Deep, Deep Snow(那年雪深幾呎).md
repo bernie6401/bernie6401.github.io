@@ -3,7 +3,7 @@ layout: post
 title: "那年雪深幾呎"
 date: 2026-05-21
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [Brian Freeman, 歐美文學, 犯罪懸疑, 北歐, 綁架]
+tags: [Brian Freeman, 歐美文學, 犯罪懸疑, 美國, Blackstone Publishing, 尖端, 甘鎮隴]
 draft: false
 toc: true
 comments: true

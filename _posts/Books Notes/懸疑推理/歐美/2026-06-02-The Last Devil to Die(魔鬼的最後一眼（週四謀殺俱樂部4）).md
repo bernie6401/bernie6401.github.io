@@ -3,7 +3,7 @@ layout: post
 title: "魔鬼的最後一眼（週四謀殺俱樂部4）"
 date: 2026-06-02
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [Richard Osman, 歐美文學, 週四謀殺俱樂部, 失智症, 安樂死, Cozy Mystery]
+tags: [Richard Osman, 歐美文學, 週四謀殺俱樂部, 失智症, 安樂死, Cozy Mystery, Viking Press, 臉譜出版, 鄭煥昇, 英國]
 draft: false
 toc: true
 comments: true
@@ -11,7 +11,7 @@ comments: true
 
 # The Last Devil to Die(魔鬼的最後一眼（週四謀殺俱樂部4）)
 * 作者: Richard Osman
-* 出版社: Penguin Random House
+* 出版社: Viking Press
 * 出版日期: 2023/09/14
 * 譯者: 鄭煥昇
 * 譯版出版社: 臉譜

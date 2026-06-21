@@ -3,7 +3,7 @@ layout: post
 title: "茶館裡的嫌疑人"
 date: 2026-05-08
 category: "Books Notes｜懸疑推理"
-tags: [推理, 溫馨, 華裔作家, 茶館]
+tags: [推理, 溫馨, 華裔作家, Berkley, 亞洲媽媽, 新經典文化, 尤傳莉, 陳梅玲]
 draft: false
 toc: true
 comments: true
@@ -14,8 +14,8 @@ comments: true
 * 出版社: Berkley
 * 出版日期: 2023/03/14
 * 譯者: 尤傳莉
-* 譯版出版社：新經典文化
-* 譯版出版日期：2026/01/28
+* 譯版出版社: 新經典文化
+* 譯版出版日期: 2026/01/28
 
 <img src="/assets/posts/Books Cover/Vera_Wong's_Unsolicited_Advice_for_Murderers(茶館裡的嫌疑人).jpg" alt="" width="300">
 好看，但某部分不喜歡，所以就算續集有翻譯，應該也不會買

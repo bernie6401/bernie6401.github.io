@@ -3,7 +3,7 @@ layout: post
 title: "囚犯的兩難"
 date: 2022-05-06
 category: "Books Notes｜非文學｜工具書"
-tags: [賽局理論, 馮紐曼, 核武, 數學]
+tags: [賽局理論, 馮紐曼, 核武, 數學, William Poundstone, Doubleday, 周惠玲, 左岸文化]
 draft: false
 toc: true
 comments: true
@@ -11,7 +11,8 @@ comments: true
 
 # Prisoner’s Dilemma: John von Neumann, Game Theory, and the Puzzle of the Bomb(囚犯的兩難：賽局理論、數學天才馮紐曼，以及原子彈的謎題)
 * 作者: William Poundstone
-* 原文出版日期: 1993/01/01
+* 出版社: Doubleday
+* 出版日期: 1993/01/01
 * 譯者: 周惠玲
 * 譯版出版社: 左岸文化
 * 譯版出版日期: 2019/06/12

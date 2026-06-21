@@ -3,7 +3,7 @@ layout: post
 title: "銀翼殺手"
 date: 2025-06-04
 category: "Books Notes｜科幻"
-tags: [Philip K. Dick, 科幻, 仿生人, 末世, 人性]
+tags: [Philip K. Dick, 科幻, 仿生人, 末世, 人性, Doubleday, 寂寞, 祁怡瑋]
 draft: false
 toc: true
 comments: true
@@ -11,7 +11,8 @@ comments: true
 
 # Do Androids Dream of Electric Sheep?(銀翼殺手)
 * 作者: Philip K. Dick
-* 原文出版日期: 1968
+* 出版社: Doubleday
+* 出版日期: 1968
 * 譯者: 祁怡瑋
 * 譯版出版社: 寂寞
 * 譯版出版日期: 2017/09/01
