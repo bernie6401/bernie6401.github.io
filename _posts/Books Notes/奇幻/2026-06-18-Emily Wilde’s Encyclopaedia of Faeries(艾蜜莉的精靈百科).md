@@ -3,7 +3,7 @@ layout: post
 title: "艾蜜莉的精靈百科"
 date: 2026-06-18
 category: "Books Notes｜奇幻"
-tags: [奇幻, Cozy Fantasy, Heather Fawcett, 精靈, 學術, 郭庭瑄]
+tags: [奇幻, Cozy Fantasy, Heather Fawcett, 精靈, 學術, 郭庭瑄, 歐美文學]
 draft: false
 toc: true
 comments: true

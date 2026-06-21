@@ -3,7 +3,7 @@ layout: post
 title: "擦身而過的子彈（週四謀殺俱樂部3）"
 date: 2026-05-05
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [Richard Osman, 歐美文學, 週四謀殺俱樂部, 養老院, 推理, Cozy Mystery, Viking Press, 臉譜出版, 英國, 鄭煥昇]
+tags: [Richard Osman, 歐美文學, 推理, Cozy Mystery, Viking Press, 臉譜出版, 英國, 鄭煥昇]
 draft: false
 toc: true
 comments: true

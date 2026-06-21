@@ -3,7 +3,7 @@ layout: post
 title: "海底兩萬里"
 date: 2020-03-01
 category: "Books Notes｜科幻"
-tags: [Jules Verne, 科幻, 潛水艇, 冒險, 經典, 許雅雯, Pierre-Jules Hetzel, 野人]
+tags: [Jules Verne, 科幻, 許雅雯, Pierre-Jules Hetzel, 野人, 歐美文學]
 draft: false
 toc: true
 comments: true

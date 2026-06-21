@@ -3,7 +3,7 @@ layout: post
 title: "Black Summer(黑色夏天殺人事件)"
 date: 2025-11-01
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [M.W. Craven, 歐美文學, 連環殺人, 英國, Constable, 春天出版, 陳岳辰]
+tags: [M.W. Craven, 歐美文學, 英國, Constable, 春天出版, 陳岳辰]
 draft: false
 toc: true
 comments: true

@@ -3,7 +3,7 @@ layout: post
 title: "異鄉人"
 date: 2020-02-25
 category: "Books Notes｜純文學｜歐美"
-tags: [Albert Camus, 純文學, 存在主義, 荒謬, 法庭]
+tags: [Albert Camus, 純文學, 存在主義, 哲學, Gallimard, 張一喬, 麥田出版]
 draft: false
 toc: true
 comments: true
@@ -11,9 +11,10 @@ comments: true
 
 # L'Etranger(異鄉人)
 * 作者: Albert Camus
-* 原文出版日期: 1942
+* 出版社: Gallimard
+* 出版日期: 1942
 * 譯者: 張一喬
-* 譯版出版社: 麥田
+* 譯版出版社: 麥田出版
 * 譯版出版日期: 2009/09/11
 
 <img src="/assets/posts/Books Cover/異鄉人.jpg" alt="" width="300"/>

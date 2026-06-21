@@ -3,7 +3,7 @@ layout: post
 title: "Project Hail Mary(極限返航)"
 date: 2025-11-08
 category: "Books Notes｜科幻"
-tags: [Andy Weir, 科幻, 太空, 外星人, 硬科幻, Ballantine Books, 郭庭瑄, 三采文化]
+tags: [Andy Weir, 科幻, 太空, 外星人, Ballantine Books, 郭庭瑄, 三采文化, 歐美文學]
 draft: false
 toc: true
 comments: true

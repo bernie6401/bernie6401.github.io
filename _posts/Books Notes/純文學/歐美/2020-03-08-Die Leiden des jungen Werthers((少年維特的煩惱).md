@@ -3,7 +3,7 @@ layout: post
 title: "少年維特的煩惱"
 date: 2020-03-08
 category: "Books Notes｜純文學｜歐美"
-tags: [歌德, 純文學, 歐美文學, 愛情, 自殺]
+tags: [純文學, 歐美文學, 愛情, 自殺, Johann Wolfgang von Goethe, Weygand'sche Buchhandlung, 林柏年, 天蠍座文創]
 draft: false
 toc: true
 comments: true
@@ -11,7 +11,8 @@ comments: true
 
 # Die Leiden des jungen Werthers(少年維特的煩惱)
 * 作者: Johann Wolfgang von Goethe
-* 原文出版日期: 1774
+* 出版社: Weygand'sche Buchhandlung
+* 出版日期: 1774
 * 譯者: 林柏年
 * 譯版出版社: 天蠍座文創
 * 譯版出版日期: 2020/02
