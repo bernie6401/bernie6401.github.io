@@ -3,7 +3,7 @@ layout: post
 title: "食人輓歌"
 date: 2026-02-16
 category: "Books Notes｜科幻"
-tags: [Agustina Bazterrica, 科幻, 反烏托邦, 食人, 人口控制, Alfaguara, 阿根廷, 劉家亨, 小易出版]
+tags: [Agustina Bazterrica, 科幻, 反烏托邦, 人口控制, Alfaguara, 阿根廷, 劉家亨, 小易出版]
 draft: false
 toc: true
 comments: true
