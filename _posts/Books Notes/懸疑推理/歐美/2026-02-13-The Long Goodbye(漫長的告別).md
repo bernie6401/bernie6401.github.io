@@ -3,7 +3,7 @@ layout: post
 title: "The Long Goodbye(漫長的告別)"
 date: 2026-02-13
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [Raymond Chandler, 歐美文學, 硬漢推理, 洛杉磯, 黑色電影, Hamish Hamilton, 臉譜出版, 宋碧雲]
+tags: [Raymond Chandler, 歐美文學, 硬漢推理, 洛杉磯, 黑色電影, Hamish Hamilton, 臉譜出版, 宋碧雲, 犯罪]
 draft: false
 toc: true
 comments: true
