@@ -3,7 +3,7 @@ layout: post
 title: "Kill For Me Kill For You(血色交易)"
 date: 2026-06-25
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [Steve Cavanagh, Headline, 郭庭瑄, 翁裕庭, 馬可孛羅, 紐約, 推理, 犯罪, 懸疑, 交換殺人]
+tags: [Steve Cavanagh, Headline, 郭庭瑄, 翁裕庭, 馬可孛羅, 紐約, 推理, 犯罪, 懸疑, 交換殺人, 歐美文學]
 draft: false
 toc: true
 comments: true

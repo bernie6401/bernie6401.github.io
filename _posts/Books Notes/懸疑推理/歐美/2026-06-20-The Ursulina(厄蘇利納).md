@@ -3,7 +3,7 @@ layout: post
 title: "厄蘇利納"
 date: 2026-06-20
 category: "Books Notes｜懸疑推理｜歐美"
-tags: [Brian Freeman, Blackstone Publishing, 甘鎮隴, 尖端, 美國, 推理, 懸疑, 女性, 平權, 同性, 犯罪, 小鎮案件]
+tags: [Brian Freeman, Blackstone Publishing, 甘鎮隴, 尖端, 美國, 推理, 懸疑, 女性, 平權, 同性, 犯罪, 小鎮案件, 歐美文學]
 draft: false
 toc: true
 comments: true
