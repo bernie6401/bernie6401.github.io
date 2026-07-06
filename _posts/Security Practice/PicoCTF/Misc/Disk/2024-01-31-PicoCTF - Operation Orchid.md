@@ -39,5 +39,5 @@ date: 2024-01-31
     Using -iter or -pbkdf2 would be better.
     bad decrypt
     140342062343488:error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt:crypto/evp/evp_enc.c:612:
-    picoCTF{h4un71ng_p457_5113beab}%
+    picoCTF{h4un71ng_p457_5113beab}%
     ```

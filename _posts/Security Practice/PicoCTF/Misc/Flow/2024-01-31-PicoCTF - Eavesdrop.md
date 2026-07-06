@@ -39,7 +39,7 @@ date: 2024-01-31
     ![](https://hackmd.io/_uploads/B1ZrNEdOh.png)
     然後找到port 9002的地方，可以發現No.57有附帶資料，把這筆資料另存起來
     ![](https://hackmd.io/_uploads/r11KNV_O2.png)
-    Note: 儲存資料到file.des3的時候，內容必須要是`Salted__9BæÄ'÷b4Ó[ÐNXämn±'-ärGsðÏú :›çk¿«@Û=6`
+    Note: 儲存資料到file.des3的時候，內容必須要是`Salted__9BæÄ'÷b4Ó[ÐNXämn±'-ärGsðÏú :›çk¿«@Û=6`
     Note2: 也可以用`tcpflow`的方式把資料download下來
     ```bash
     $ sudo tcpflow -r {pcap file}

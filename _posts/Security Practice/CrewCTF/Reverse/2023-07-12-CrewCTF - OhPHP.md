@@ -195,7 +195,7 @@ date: 2023-07-12
     <?php
     (in_array(count(get_included_files()),[1])?(strcmp(php_sapi_name(),cli)?printf(Use. .php.-.cli. .to. .run. .the. .challenge.!.
     ):printf(gzinflate(base64_decode(1dTBDYAgDAXQe6fgaC8O4DDdfwyhVGmhbaKe./.BfQfF8gAQFKz8aRh0JEJY0qIIenINTBEY3qNNVUAfuXzIGitJVqpiBa4yp2U8ZKtKmANzewbaqG2lrAGbNWslOvgD52lULNLfgY9ZiZtdxCsLJ3.+.Q./.2RVuOxji0jyl9aJfrZLJzxhgtS65TWS66wdr7fYzRFtvc./.wU9Wpn6BQGc))).define(F,readline(Flag.':'. )).(strcmp(strlen(constant(F)),41)?printf(Nope.!.
-    ):(in_array(substr(constant(F),'0',5),[crew.{])?(strstr(strrev((crc32)(substr(constant(F),5,4))),7607349263)?(strnatcmp(A../.k,substr(constant(F),5,4)^substr(constant(F),9,4))?printf(Nope. .xor.!.
+    ):(in_array(substr(constant(F),'0',5),[crew.{])?(strstr(strrev((crc32)(substr(constant(F),5,4))),7607349263)?(strnatcmp(A../.k,substr(constant(F),5,4)^substr(constant(F),9,4))?printf(Nope. .xor.!.
     ):srand(31337).define(D,openssl_decrypt(wCX3NcMho0BZO0SxG2kHxA.=.=,aes.-.128.-.cbc,substr(constant(F),'0',16),2,pack(L.*,rand(),rand(),rand(),rand()))).(in_array(array_sum([ctype_print(constant(D)),strpos(substr(constant(F),15,17),constant(D))]),[2])?(strcmp(base64_encode(hash(sha256,substr(constant(F),'0',32))^substr(constant(F),32)),BwdRVwUHBQVF)?printf(Nope.!.
     ):printf(Congratulations.','. .this. .is. .the. .right. .flag.!.
     )):printf(Nope.!.
@@ -224,7 +224,7 @@ date: 2023-07-12
                     (
                         strstr(strrev((crc32)(substr(constant(F),5,4))),7607349263)?
                         (
-                            strnatcmp(A/k,substr(constant(F),5,4)^substr(constant(F),9,4))?
+                            strnatcmp(A/k,substr(constant(F),5,4)^substr(constant(F),9,4))?
                             printf(Nope xor!):
                             srand(31337)
                             define(D,openssl_decrypt(wCX3NcMho0BZO0SxG2kHxA==,aes-128-cbc,substr(constant(F),'0',16),2,pack(L*,rand(),rand(),rand(),rand())))
@@ -275,7 +275,7 @@ date: 2023-07-12
         6 bytes: yjv03M (OK)
         6 bytes: yv9l2Y (OK)
         ```
-    * 第17行他先把剛剛得到的`php_`和後面的四個字元做xor，並比對`A/k`，所以我們就把這幾個東西轉換成hex，再xor就好了
+    * 第17行他先把剛剛得到的`php_`和後面的四個字元做xor，並比對`A/k`，所以我們就把這幾個東西轉換成hex，再xor就好了
         ```python
         >>> bytes.fromhex('{:x}'.format(0x411b2F6B ^ 0x7068705F)).decode('utf-8')
         '1s_4'
