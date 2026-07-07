@@ -10,6 +10,11 @@ comments: true
 ---
 
 # HackTheBox - Interstellar
+這一題的漏洞利用如下
+1. 透過前期的recon FFuF知道`communicate.php`
+2. 查看source code或者看前端的操作了解可能有SSRF
+3. 透過SSRF找到內網特定的操作而該操作還有另外一個SQLi漏洞
+4. 利用SQLi就可以上傳webshell拿到RCE
 <!-- more -->
 
 ## 前情提要
