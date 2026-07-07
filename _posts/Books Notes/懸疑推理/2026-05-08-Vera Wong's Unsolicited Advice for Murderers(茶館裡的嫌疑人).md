@@ -20,7 +20,7 @@ comments: true
 <img src="/assets/posts/Books Cover/Vera_Wong's_Unsolicited_Advice_for_Murderers(茶館裡的嫌疑人).jpg" alt="" width="300">
 好看，但某部分不喜歡，所以就算續集有翻譯，應該也不會買
 
-我是看到[推書手L的大力分享](https://youtube.com/shorts/cH9pNPf36ro?si=Jw1zGiKZ4ihD-MiM)認識這本書，之後買來也是擱了一段時間沒看，完全忘記是在講什麼，好看的部分可能和⟪週四謀殺俱樂部⟫類似，都是用輕鬆、愉悅的氛圍帶領讀者釐清來龍去脈，大概可以想像成1/4⟪週四謀殺俱樂部⟫的好笑，但更認真解謎的版本，格局也比較小，是聚焦在一間中式茶館的命案
+我是看到[推書手L的大力分享](https://youtube.com/shorts/cH9pNPf36ro?si=Jw1zGiKZ4ihD-MiM)認識這本書，之後買來也是擱了一段時間沒看，完全忘記是在講什麼，好看的部分可能和《週四謀殺俱樂部》類似，都是用輕鬆、愉悅的氛圍帶領讀者釐清來龍去脈，大概可以想像成1/4《週四謀殺俱樂部》的好笑，但更認真解謎的版本，格局也比較小，是聚焦在一間中式茶館的命案
 
 <!-- more -->
 

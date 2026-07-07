@@ -19,7 +19,7 @@ comments: true
 
 <img src="/assets/posts/Books Cover/TheDeepDeepSnow(那年雪深幾呎).jpg" alt="" width="300">
 
-犯罪懸疑類型的書，能讓我看這麼快又這麼爽的書可能要追溯到Stieg Larsson(史迪格·拉森)寫的⟪千禧系列⟫，這一本大概半天就可以飆完，重點是翻譯、文字以及排版都超級流暢，書中的每個角色個性都很飽滿，動機也描寫的絲絲入扣，類似去年上映的⟪The Åre Murders(奧勒謀殺案)⟫(也有一點點點會讓我想到⟪A Good Girl's Guide to Murder(好女孩的謀殺調查報告)⟫)，小鎮的每個人長年擁有各自的祕密，而那些祕密又互相牽扯出各種壓力與事件，最終導致一個小男孩的失蹤案
+犯罪懸疑類型的書，能讓我看這麼快又這麼爽的書可能要追溯到Stieg Larsson(史迪格·拉森)寫的《千禧系列》，這一本大概半天就可以飆完，重點是翻譯、文字以及排版都超級流暢，書中的每個角色個性都很飽滿，動機也描寫的絲絲入扣，類似去年上映的⟪The Åre Murders(奧勒謀殺案)⟫(也有一點點點會讓我想到⟪A Good Girl's Guide to Murder(好女孩的謀殺調查報告)⟫)，小鎮的每個人長年擁有各自的祕密，而那些祕密又互相牽扯出各種壓力與事件，最終導致一個小男孩的失蹤案
 
 根據[IG @ayu.shifu](https://www.instagram.com/p/CfToMfLpFI4/)的post
 > * 頻送秋波的餐廳女侍
