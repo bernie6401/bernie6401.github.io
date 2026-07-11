@@ -1,4 +1,10 @@
 // Custom styles.
+$custom-sidebar-bg: #2b2e33;
+$custom-sidebar-bg-alt: #33373d;
+$custom-sidebar-accent: $orange;
+$custom-sidebar-text: #b8bcc4;
+$custom-sidebar-text-dim: #7d828c;
+
 .custom-sidebar {
     position: fixed;
     left: 0;
@@ -6,12 +12,24 @@
     bottom: 0;
     width: 250px;
     z-index: $zindex-4;
-    // box-shadow: inset 0 2px 6px #444;
-    background: #444;
+    background: $custom-sidebar-bg;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.25);
     -webkit-transform: translateZ(0);
     overflow-y: auto;
-    font-size: 12px;
+    font-size: 12.5px;
     transition: transform 0.25s ease;
+
+    // Custom scrollbar
+    &::-webkit-scrollbar { width: 6px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 3px;
+
+        &:hover { background: rgba(255, 255, 255, 0.28); }
+    }
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 
     @include tablet() {
         display: none !important;
@@ -36,16 +54,18 @@
     line-height: 36px;
     padding: 0;
     border: none;
-    border-radius: 4px;
-    background: #444;
-    color: $gainsboro;
-    font-size: 16px;
+    border-radius: 50%;
+    background: $custom-sidebar-bg;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    color: $custom-sidebar-text;
+    font-size: 15px;
     text-align: center;
     cursor: pointer;
-    transition: left 0.25s ease, background 0.2s ease;
+    transition: left 0.25s ease, background 0.2s ease, color 0.2s ease;
 
     &:hover {
-        background: #555;
+        background: $custom-sidebar-accent;
+        color: white;
     }
 
     @include tablet() {
@@ -60,21 +80,38 @@
 .custom-sidebar-collapsed .custom-sidebar-toggle-btn {
     left: 12px;
 }
-  
+
 .custom-sidebar-inner {
     position: relative;
-    padding: 20px 10px;
-    color: $gainsboro;
+    padding: 0 0 24px;
+    color: $custom-sidebar-text;
     text-align: left;
 }
-  
+
 .custom-sidebar-logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: $gainsboro;
-    margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    color: white;
+    background: $custom-sidebar-bg;
+    padding: 18px 16px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    &::before {
+        content: '\f0c9';
+        font-family: FontAwesome;
+        color: $custom-sidebar-accent;
+        font-size: 0.9rem;
+    }
 }
-  
+
 .custom-sidebar-menu,
 .custom-sidebar-menu ul {
     list-style: none;
@@ -82,34 +119,45 @@
     margin: 0;
 }
 
+.custom-sidebar-menu {
+    padding: 0 10px;
+}
+
 .custom-sidebar-menu li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 2px;
 }
 
 .custom-sidebar-menu a {
-    color: $gainsboro;
+    display: block;
+    padding: 6px 10px;
+    border-radius: 5px;
+    color: $custom-sidebar-text;
     text-decoration: none;
+    line-height: 1.5;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .custom-sidebar-menu a:hover {
     color: white;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .custom-sidebar-menu a.active {
-    font-weight: bold;
+    font-weight: 600;
     color: white;
+    background-color: rgba($custom-sidebar-accent, 0.18);
+    box-shadow: inset 2px 0 0 $custom-sidebar-accent;
 }
-  
+
 // Indentation for tree level
 .custom-sidebar-menu > li {
-    padding-left: 0.5em;
+    padding-left: 0.4em;
 }
 .custom-sidebar-menu li ul > li {
-    padding-left: 1.5em;
+    padding-left: 1em;
 }
 .custom-sidebar-menu li ul li ul > li {
-    padding-left: 2.5em;
+    padding-left: 1em;
 }
 
 // Custom sidebar styles
@@ -117,20 +165,51 @@ details summary {
     cursor: pointer;
     list-style: none;
     position: relative;
+    padding: 6px 28px 6px 10px;
+    margin: 1px 0;
+    border-radius: 5px;
+    color: $custom-sidebar-text-dim;
+    font-weight: 500;
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &:hover {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    &::-webkit-details-marker { display: none; }
 }
 
 details summary::before {
-    content: '›';
+    content: '\f105';
+    font-family: FontAwesome;
     position: absolute;
-    right: 0.5rem;
-    top: 2px;
-    font-size: 1rem;
+    right: 10px;
+    top: 50%;
+    font-size: 0.85rem;
+    color: $custom-sidebar-text-dim;
     transform-origin: center;
+    transform: translateY(-50%);
     transition: transform 0.2s ease;
 }
 
-details[open] summary::before {
-    transform: rotate(90deg);
+details[open] > summary::before {
+    transform: translateY(-50%) rotate(90deg);
+    color: $custom-sidebar-accent;
+}
+
+details[open] > summary {
+    color: white;
+}
+
+// Fade-slide open state for nested lists
+details > ul {
+    animation: custom-sidebar-fade-in 0.15s ease;
+}
+
+@keyframes custom-sidebar-fade-in {
+    from { opacity: 0; transform: translateY(-2px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 
