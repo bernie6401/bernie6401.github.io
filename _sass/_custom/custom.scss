@@ -11,15 +11,55 @@
     -webkit-transform: translateZ(0);
     overflow-y: auto;
     font-size: 12px;
-  
+    transition: transform 0.25s ease;
+
     @include tablet() {
         display: none !important;
     }
-  
+
     @include mobile() {
         display: none !important;
     }
   }
+
+.custom-sidebar-collapsed .custom-sidebar {
+    transform: translateX(-100%);
+}
+
+.custom-sidebar-toggle-btn {
+    position: fixed;
+    top: 12px;
+    left: 262px;
+    z-index: $zindex-5;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    background: #444;
+    color: $gainsboro;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: left 0.25s ease, background 0.2s ease;
+
+    &:hover {
+        background: #555;
+    }
+
+    @include tablet() {
+        display: none !important;
+    }
+
+    @include mobile() {
+        display: none !important;
+    }
+}
+
+.custom-sidebar-collapsed .custom-sidebar-toggle-btn {
+    left: 12px;
+}
   
 .custom-sidebar-inner {
     position: relative;
@@ -105,12 +145,21 @@ details[open] summary::before {
 .header,
 .footer {
   margin-left: 250px;
+  transition: margin-left 0.25s ease;
 
   @include tablet() {
     margin-left: 0;
   }
 
   @include mobile() {
+    margin-left: 0;
+  }
+}
+
+.custom-sidebar-collapsed {
+  .main,
+  .header,
+  .footer {
     margin-left: 0;
   }
 }

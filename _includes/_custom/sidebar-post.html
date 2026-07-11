@@ -1,3 +1,7 @@
+<button id="custom-sidebar-toggle" class="custom-sidebar-toggle-btn" type="button" aria-label="Toggle sidebar" title="隱藏/顯示側邊欄">
+  <span class="custom-sidebar-toggle-icon">&#9776;</span>
+</button>
+
 <aside id="custom-sidebar" class="custom-sidebar">
   <div class="custom-sidebar-inner">
     <div class="custom-sidebar-logo">Post Tree</div>
@@ -58,3 +62,25 @@
     </ul>
   </div>
 </aside>
+
+<script type="text/javascript">
+  (function () {
+    var STORAGE_KEY = 'customSidebarCollapsed';
+    var body = document.body;
+    var toggleBtn = document.getElementById('custom-sidebar-toggle');
+
+    function applyState(collapsed) {
+      body.classList.toggle('custom-sidebar-collapsed', collapsed);
+    }
+
+    applyState(localStorage.getItem(STORAGE_KEY) === 'true');
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function () {
+        var collapsed = !body.classList.contains('custom-sidebar-collapsed');
+        applyState(collapsed);
+        localStorage.setItem(STORAGE_KEY, collapsed);
+      });
+    }
+  })();
+</script>
