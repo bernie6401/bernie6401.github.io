@@ -35,7 +35,7 @@ comments: true
 
 我們不得而知，就算父母意識到問題，也沒有方法解決，應該說他們沒有相關的經驗解決這類的問題，這就是那個年代大多數家庭遇到的問題
 
-* 推薦人: [Cari -  主題推薦書單 || 10本有被翻譯成中文 + 女作家寫的書 || Women in Translation Month👸🏻](https://youtu.be/am8UPXgg_3I?si=0G1iJOdHZ9-Ltvn7&t=785)
+* 推薦人: [Cari -  主題推薦書單 \|\| 10本有被翻譯成中文 + 女作家寫的書 \|\| Women in Translation Month👸🏻](https://youtu.be/am8UPXgg_3I?si=0G1iJOdHZ9-Ltvn7&t=785)
 
 <!-- more -->
 
