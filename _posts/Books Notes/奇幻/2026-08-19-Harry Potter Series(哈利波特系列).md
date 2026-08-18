@@ -3,19 +3,19 @@ layout: post
 title: "Harry Potter Series(哈利波特系列)"
 date: 2026-08-19
 category: "Books Notes｜奇幻"
-tags: []
+tags: [J.K. Rowling, 英國文學, 彭倩文, 皇冠文化, 奇幻, 成長, 系列作]
 draft: false
 toc: true
 comments: true
 ---
 
 # Harry Potter Series(哈利波特系列)
-* 作者: 
-* 出版社: 
-* 出版日期: 
-* 譯者: 
-* 譯版出版社: 
-* 譯版出版日期: 
+* 作者: J.K. Rowling
+* 出版社: Bloomsbury（英國，1997/06/26 起，全系列7冊）
+* 出版日期: 1997/06/26 - 2007/07/21
+* 譯者: 彭倩文
+* 譯版出版社: 皇冠文化
+* 譯版出版日期: 2000/06/23 起
 
 <img src="/assets/posts/Books Cover/Harry_Potter_Series(哈利波特系列).jpg" alt="" width="300">
 
