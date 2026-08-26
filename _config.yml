@@ -102,7 +102,7 @@ copyright: true
 # Canonical, set a canonical link tag in your jekyll, you could use it for your SEO of blog.
 # See: https://support.google.com/webmasters/answer/139066
 # Tips: Before you open this tag, remember set up your URL in _config.yml ( ex. url: http://yourdomain.com )
-canonical: false
+canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post/pages titles for better SEO-optimization.
 seo: true
@@ -274,10 +274,10 @@ sidebar:
   offset_float: 0
 
   # Back to top in sidebar
-  b2t: false
+  b2t: true
 
   # Scroll percent label in b2t button
-  scrollpercent: false
+  scrollpercent: true
 
 
 # Blog rolls
@@ -296,7 +296,7 @@ sidebar:
 scroll_to_more: true
 
 # Automatically saving scroll position on each post/page in cookies.
-save_scroll: false
+save_scroll: true
 
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
@@ -532,7 +532,7 @@ leancloud_visitors:
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
   # count values only if the other configs are false
-  enable: false
+  enable: true
   # custom uv span for the whole site
   site_uv: true
   site_uv_header: <i class="fa fa-user"></i>
@@ -608,10 +608,10 @@ exturl: false
 use_motion: false
 
 # Fancybox
-fancybox: true
+fancybox: false
 
 # Progress bar in the top during page loading.
-pace: true
+pace: false
 # Themes list:
 #pace-theme-big-counter
 #pace-theme-bounce
