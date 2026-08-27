@@ -246,7 +246,6 @@ toc:
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: true
 
-
 # Creative Commons 4.0 International License.
 # http://creativecommons.org/
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
