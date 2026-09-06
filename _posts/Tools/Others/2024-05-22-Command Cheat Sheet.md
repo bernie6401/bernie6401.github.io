@@ -249,4 +249,21 @@ date: 2024-05-22
     `|`表示前後2個文件內容有不同</br>
     `<`表示後面文件比前面文件少了1行內容</br>
     `>`表示後面文件比前面文件多了1行內容
-    
+* sed(string editor): 就是改字串的 command
+    ```bash
+    # 把 demo.txt 的每一個 element 的第一個 char 是 1 的都 delete(d)
+    sed -i '/^1/d' demo.txt 
+
+    # 取代（最常用）
+    sed 's/old/new/' file.txt          # 每行第一個匹配
+    sed 's/old/new/g' file.txt         # 全部取代
+    sed -i 's/old/new/g' file.txt      # 直接改檔案（-i = in-place）
+
+    # 刪除
+    sed '/pattern/d' file.txt          # 刪除含 pattern 的行
+    sed '3d' file.txt                  # 刪除第 3 行
+
+    # 印出特定行
+    sed -n '5p' file.txt               # 只印第 5 行
+    sed -n '3,7p' file.txt             # 印第 3~7 行
+    ```
