@@ -478,6 +478,13 @@ create一個偽造的payload和一個對外的中間server溝通，並讓這個�
     %>
     ```
 
+### Webshell
+```bash
+$ cp /usr/share/webshells/php/simple-backdoor.php . # php
+$ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 webshell
+$ 
+```
+
 ### 如果是WordPress網頁
 * [WpScan](https://wpscan.com/)專門檢測WordPress類型的網頁，有哪些漏洞，前期可以掃描出WP版本、安裝的theme或是插件有哪些、安全漏洞等等
 
