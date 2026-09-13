@@ -51,6 +51,79 @@ SAM只會存取本地用戶的NTLM Hash，而lsass.exe是只要有存取過目�
 * NTLM 是 LM 的改進版，用於 Windows NT 系列。不只是 hash，它也是一種 challenge-response authentication protocol。
     * 雖然比 LM 好，但 NTLM 仍然有安全問題，因此在現代 AD 環境中，微軟推薦使用：<span style="background-color: yellow">Kerberos</span>
 
+## Net-NTLMv2（Net-NTLMv2 Hash）
+Net-NTLMv2 是 NTLM 認證過程中，在**網路上傳輸的 challenge-response 驗證資料**，與存在本機的 NTLM Hash 不同。
+
+| 項目         | NTLM Hash                        | Net-NTLMv2 Hash                          |
+| ---------- | -------------------------------- | ---------------------------------------- |
+| 本質         | 密碼的 hash（儲存用）                    | 網路認證過程中產生的 challenge-response             |
+| 儲存位置       | SAM / NTDS.DIT / LSASS memory   | 不儲存，只在認證時出現於網路上                          |
+| 可否用來 Pass-the-Hash | ✅ 可以                             | ❌ 不行                                     |
+| 可否離線破解     | ✅ 可以                             | ✅ 可以（但較慢）                                |
+| 可否用來 Relay | ❌ 不適用                            | ✅ 可以（NTLM Relay Attack）                  |
+
+### NTLM 認證流程（產生 Net-NTLMv2 的過程）
+1. **Client → Server**：Client 發送認證請求（包含 username、domain）
+2. **Server → Client**：Server 回傳一個隨機的 **Server Challenge**（8 bytes）
+3. **Client → Server**：Client 用自己的 NTLM Hash 對 Server Challenge + 自己產生的 Client Challenge 進行 HMAC-MD5 運算，產生 **NTLMv2 Response**，連同 username、domain、Client Challenge 一起送回 Server
+
+這個在網路上傳輸的 Response 就是所謂的 **Net-NTLMv2 Hash**，格式大致如下：
+```
+username::domain:ServerChallenge:NTProofStr:blob
+```
+
+### 攻擊方式
+* **離線暴力破解**：用 Hashcat（mode 5600）或 John the Ripper 對抓到的 Net-NTLMv2 hash 進行字典/暴力破解
+* **NTLM Relay Attack**：不破解 hash，而是把抓到的認證請求直接**轉發（relay）**到另一台目標伺服器，冒充受害者進行認證（工具如 `ntlmrelayx.py`）
+
+## Responder
+[Responder](https://github.com/SpiderLabs/Responder) 是一個專門用於**毒化（poisoning）Windows 名稱解析協定**來竊取 Net-NTLMv2 Hash 的滲透測試工具。
+
+### 原理
+當 Windows 機器嘗試存取一個網路資源（例如 `\\fileserver\share`）時，名稱解析的順序通常是：
+1. **DNS** → 向 DNS Server 查詢
+2. **LLMNR**（Link-Local Multicast Name Resolution）→ 在區域網路廣播查詢
+3. **NBT-NS**（NetBIOS Name Service）→ 在區域網路廣播查詢
+4. **mDNS**（Multicast DNS）→ 多播查詢
+
+如果 DNS 查詢失敗（例如打錯名稱 `\\filsrver\share`），Windows 會 fallback 到 LLMNR / NBT-NS 廣播。**Responder 會監聽這些廣播並回應「我就是你要找的伺服器」**，然後受害者就會把自己的 Net-NTLMv2 認證資料送給 Responder。
+
+### 攻擊流程
+```
+1. 受害者輸入 \\filsrver\share（打錯字）
+2. DNS 查詢失敗
+3. 受害者透過 LLMNR/NBT-NS 廣播詢問「誰是 filsrver？」
+4. Responder 回應「我是 filsrver」
+5. 受害者向 Responder 發起 NTLM 認證
+6. Responder 取得 Net-NTLMv2 Hash
+7. 攻擊者可以離線破解或進行 NTLM Relay
+```
+
+### 基本用法
+```bash
+# 啟動 Responder 監聽（eth0 為網卡介面）
+sudo responder -I eth0 -dwv
+
+# 常用參數
+# -I : 指定網卡介面
+# -d : 啟用 DHCP poisoning
+# -w : 啟用 WPAD proxy 認證捕獲
+# -v : 顯示詳細輸出
+# -F : 強制 WPAD 認證（更積極）
+```
+
+抓到的 hash 會存在 Responder 的 logs 目錄中，可以直接用 Hashcat 破解：
+```bash
+hashcat -m 5600 captured_hash.txt wordlist.txt
+```
+
+### 防禦方式
+* 透過 GPO 停用 LLMNR：`Computer Configuration → Administrative Templates → Network → DNS Client → Turn Off Multicast Name Resolution → Enabled`
+* 停用 NBT-NS：在網路介面設定中，`TCP/IP → WINS → Disable NetBIOS over TCP/IP`
+* 啟用 SMB Signing（防止 NTLM Relay）
+* 使用強密碼（增加離線破解難度）
+* 在企業環境中盡可能使用 Kerberos 取代 NTLM
+
 ## WDigest
 是一種 Windows 身分驗證機制（authentication protocol / package），它存在於 Windows 的 LSASS authentication packages 中，主要用途是支援 HTTP Digest Authentication。但在資安領域它更有名的原因是：它曾經會在記憶體中保存明文密碼（plaintext password）。
 
