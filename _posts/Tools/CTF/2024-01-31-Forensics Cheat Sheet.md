@@ -25,7 +25,7 @@ date: 2024-01-31
     ```
 
 ### Microsoft Office
-* [Oletools](https://github.com/decalage2/oletools): 是一套專為分析 Microsoft Office 文件（如 doc, xls, docx, xlsm）而設計的 Python 工具集，用於偵測潛在的惡意Macro（VBA巨集）和分析OLE2檔案結構
+* [Oletools](https://github.com/decalage2/oletools): 是一套專為分析 Microsoft Office 文件（如 doc, xls, docx, xlsm）而設計的 Python 工具集，用於偵測潛在的惡意 Macro（VBA 巨集）和分析 OLE2 檔案結構
     ```bash
     $ pip install -U oletools
     $ olevba <filename> # 用於提取、解析 Word 或 Excel 中的 VBA 巨集代碼，並檢測是否有可疑行為（如啟動程式、下載檔案）
@@ -36,7 +36,7 @@ date: 2024-01-31
     $ xlmdeobfuscator --file <惡意文件.xlsm> # 對惡意 Excel 文件進行分析並輸出還原後的程式碼
     $ xlmdeobfuscator --file <文件> --no-indent --output-formula-format "[[INT-FORMULA]]" # 僅顯示反混淆後的公式
     ```
-* [oledump.py](https://github.com/DidierStevens/DidierStevensSuite/blob/master/oledump.py): 如果不想要點開xlsm，而是直接把其中的vba dump下來，就可以用這個
+* [oledump.py](https://github.com/DidierStevens/DidierStevensSuite/blob/master/oledump.py): 如果不想要點開 xlsm，而是直接把其中的 vba dump 下來，就可以用這個
     ```bash
     $ python oledump.py invoice-42369643.xlsm 
     A: xl/vbaProject.bin 
@@ -123,16 +123,16 @@ date: 2024-01-31
     ```
 
 #### 其他
-* [vmss2core](https://flings.vmware.com/vmss2core): .vmss是VMware經過轉換的snapshot，而這個工具可以把snapshot轉換成memory dump
+* [vmss2core](https://flings.vmware.com/vmss2core): .vmss 是 VMware 經過轉換的 snapshot，而這個工具可以把 snapshot 轉換成 memory dump
     ```bash
     $ vmss2core.exe -W <.vmss file>
     ```
 
 ### Registry
-* [Regshot](https://sourceforge.net/projects/regshot/): 可以snapshot目前registry的狀態並且和第二次的snapshot做比較
-* [Registry Explorer](https://ericzimmerman.github.io/#!index.md): 用來分析reg file
+* [Regshot](https://sourceforge.net/projects/regshot/): 可以 snapshot 目前 registry 的狀態並且和第二次的 snapshot 做比較
+* [Registry Explorer](https://ericzimmerman.github.io/#!index.md): 用來分析 reg file
 
-#### Registry在哪裡
+#### Registry 在哪裡
 * SOFTWARE: `root/Windows/System32/config/SOFTWARE`
     ```bash
     SOFTWARE/Microsoft/Windows NT/CurrentVersion # 原本電腦OS的基本資訊(Build Number/Product Name/)
@@ -154,19 +154,19 @@ date: 2024-01-31
     root/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/RecentDocs # Recent Docs
     ```
 * \$MFT: `root/$MFT`
-* Database相關
+* Database 相關
     ```bash
     ./Users/<username>/AppData/Local/Google/Chrome/User Data/Default/History # Chrome History
     ./Users/<username>/AppData/Roaming/Mozilla/Firefox/Profiles/<random>.default-release/places.sqlite # Firefox History
     ./Users/<username>/AppData/Roaming/Skype/<account name> # Skype Chat History
     ```
-* Taskbar相關
+* Taskbar 相關
     ```bash
     ./Users/<username>/AppData/Roaming/Microsoft/Internet Explorer/Quick Launch/User Pinned/TaskBar
     ```
 
-### Incident Response (查看Log)
-* 如果是直接給一個log file，那麼多多利用unix command會方便很多grep, cat, cut, uniq, sort...
+### Incident Response (查看 Log)
+* 如果是直接給一個 log file，那麼多多利用 unix command 會方便很多 grep, cat, cut, uniq, sort...
     ```bash
     $ cat access.log | cut -d '"' -f 6| sort | uniq | grep -v -E "AH01276|Mozilla" --color=auto
     ```
@@ -190,8 +190,8 @@ $ plistutil -i <plist file> -o <output file>
 ```
 
 ### Event Log
-* 短期檔案系統變更儲存在`.fseventsd`中，必須使用`mac_apt`這個工具幫忙parse(FSEVENTS): `./root/.fseventsd/`
-* ScreenTime: 一樣要透過`mac_apt`幫忙parse(SCREENTIME)，記得要把`RMAdminStore-Local.sqlite-wal`這個檔案和`RMAdminStore-Local.sqlite`放在一起執行: `./root/private/var/folders/bf/<random strings>/0/com.apple.ScreenTimeAgent/Store/RMAdminStore-Local.sqlite`
+* 短期檔案系統變更儲存在`.fseventsd`中，必須使用`mac_apt`這個工具幫忙 parse(FSEVENTS): `./root/.fseventsd/`
+* ScreenTime: 一樣要透過`mac_apt`幫忙 parse(SCREENTIME)，記得要把`RMAdminStore-Local.sqlite-wal`這個檔案和`RMAdminStore-Local.sqlite`放在一起執行: `./root/private/var/folders/bf/<random strings>/0/com.apple.ScreenTimeAgent/Store/RMAdminStore-Local.sqlite`
 
 ### Database
 * Note: `./root/Users/<username>/Library/Group Containers/group.com.apple.notes`

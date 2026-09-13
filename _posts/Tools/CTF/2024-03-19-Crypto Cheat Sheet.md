@@ -16,10 +16,10 @@ date: 2024-03-19
 | [CyberChef](https://gchq.github.io/CyberChef/) | [Substitution Cipher Solver Tool](https://www.boxentriq.com/code-breaking/cryptogram) | Known Key <br>Python - `pycipher` library<br>[online - Vigenère cipher](https://planetcalc.com/2468/)<br>CAP4|
 | [quipqiup](https://quipqiup.com/)|| Unknown Key<br>[Vigenère Cipher Codebreaker](https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx)<br>[Vigenere Solver](https://www.guballa.de/vigenere-solver) |
 
-## RSA相關攻擊
+## RSA 相關攻擊
 其實整裡的文章內容都差不多
-* [【技術分享】CTF中RSA的常見攻擊方法](https://www.anquanke.com/post/id/84632)
-* [Mod相關攻擊](https://ctf-wiki.org/crypto/asymmetric/rsa/rsa_module_attack/)
+* [【技術分享】CTF 中 RSA 的常見攻擊方法](https://www.anquanke.com/post/id/84632)
+* [Mod 相關攻擊](https://ctf-wiki.org/crypto/asymmetric/rsa/rsa_module_attack/)
 * [CTF RSA](https://zhuanlan.zhihu.com/p/76228394)
 
 ## Coding Tools
@@ -52,7 +52,7 @@ date: 2024-03-19
         print(hex(m2)[2:])
         ```
     
-* Crypto常用library: pycryptodom
+* Crypto 常用 library: pycryptodom
     ```
     $ pip install pycryptodome
     ```

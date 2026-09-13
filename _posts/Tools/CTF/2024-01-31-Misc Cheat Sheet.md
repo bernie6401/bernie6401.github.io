@@ -28,7 +28,7 @@ $ file [filename]
 ## CTF - Steganography
 * text: [zsteg](https://github.com/zed-0xff/zsteg)(just for `bmp` and `png` files), [Quick Crypto](http://quickcrypto.com/download.html)
 * file: steghide(`sudo apt-get install steghide`)(`$ steghide extract -sf atbash.jpg`)
-* 進階的steghide → [stegseek](https://github.com/RickdeJager/stegseek)
+* 進階的 steghide → [stegseek](https://github.com/RickdeJager/stegseek)
     ```bash
     $ wget https://github.com/RickdeJager/stegseek/releases/download/v0.6/stegseek_0.6-1.deb
     $ sudo apt install ./stegseek_0.6-1.deb -y
@@ -64,5 +64,5 @@ $ file [filename]
 * [ArcSight](https://www.microfocus.com/en-us/cyberres/secops/arcsight-esm)
 
 ### AD
-* [Ping Castle](https://www.pingcastle.com/): 這個工具可以幫AD環境做快速的稽核，然後會產生報表，讓使用者可以一目了然目前AD的狀況
-* Active Directory Users and Computers(ADUC): 可以看到整個網域使用者的部分資料，例如Name, Type和Description，而這個東西其實是所有整個網域使用者都看的到，所以不可以把機敏資料寫在這裡例如帳密之類的。本身不是獨立軟體，而是 Windows Server 的 RSAT（Remote Server Administration Tools）工具集的一部分。
+* [Ping Castle](https://www.pingcastle.com/): 這個工具可以幫 AD 環境做快速的稽核，然後會產生報表，讓使用者可以一目了然目前 AD 的狀況
+* Active Directory Users and Computers(ADUC): 可以看到整個網域使用者的部分資料，例如 Name, Type 和 Description，而這個東西其實是所有整個網域使用者都看的到，所以不可以把機敏資料寫在這裡例如帳密之類的。本身不是獨立軟體，而是 Windows Server 的 RSAT（Remote Server Administration Tools）工具集的一部分。

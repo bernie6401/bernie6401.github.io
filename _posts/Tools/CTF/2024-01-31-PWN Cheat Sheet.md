@@ -32,7 +32,7 @@ date: 2024-01-31
         $ sudo apt install build-essential # just for wsl
         $ sudo ./radare2/sys/install.sh
         ```
-    * [Exploit DB - Shell Code](https://www.exploit-db.com/shellcodes)：如果要寫shell code的話可以直接看exploit db上別人寫好的gadget，複製起來就可以用了，不過有時候也有可能會失敗，在確認其他東西都是正確的情況下，可以試看看別的，記得平台要選對
+    * [Exploit DB - Shell Code](https://www.exploit-db.com/shellcodes)：如果要寫 shell code 的話可以直接看 exploit db 上別人寫好的 gadget，複製起來就可以用了，不過有時候也有可能會失敗，在確認其他東西都是正確的情況下，可以試看看別的，記得平台要選對
     * [ROPgadget](https://github.com/JonathanSalwan/ROPgadget)
 
         就是
@@ -51,7 +51,7 @@ date: 2024-01-31
         $ ROPgadget --binary {executed file} --string "/bin/sh"
         ```
 
-        最基本: BOF + ROP gadget開shell → `sys_execve("/bin/sh", NULL, NULL)`
+        最基本: BOF + ROP gadget 開 shell → `sys_execve("/bin/sh", NULL, NULL)`
         ```asm
         BOF
         rdi = &"/bin/sh"
@@ -74,7 +74,7 @@ date: 2024-01-31
         $ gem install seccomp-tools
         $ seccomp-tools dump ./test
         ```
-    * 找glibc版本的online tool
+    * 找 glibc 版本的 online tool
         * [libc-database search API Search](https://libc.rip/)
             * [libc database search](https://libc.blukat.me/?q=__libc_start_main_ret)
     * objdump
@@ -84,8 +84,8 @@ date: 2024-01-31
 
 ### gdb
 常用語法([cheat](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf))
-* starti: 跑到entry point的第一條指令
-* start: 開始run attached的start function，並且停在main
+* starti: 跑到 entry point 的第一條指令
+* start: 開始 run attached 的 start function，並且停在 main
     ```bash
     $ gdb ./a
     gef➤  s
@@ -107,28 +107,28 @@ date: 2024-01-31
     (gdb) x/10gi 0x400686 # print 10 instruction from 0x400686
     (gdb) x/2gs 0x400686 # print 2 strings from 0x400686
     ```
-* vmmap 查看address space # check memory permission and distribution `$ (gdb) vmmap`
+* vmmap 查看 address space # check memory permission and distribution `$ (gdb) vmmap`
 * dump memory: dump [memory/binary/ihex] 檔名 起始位址 結束位址 `gef➤  dump memory ./test.mem 0x7fffffffcf80 0x7fffffffcf80+0x400`
-* bt {number}: 查看call stack
-* info b: 查看目前設的break point
+* bt {number}: 查看 call stack
+* info b: 查看目前設的 break point
 * delete breakpoints 1: 刪除一號斷點
 * context: 顯示目前的所有狀態
-* fin: 直接執行該function到結束
-* got: 直接查看GOT
-* canary: 直接查看canary存放的位置和value
+* fin: 直接執行該 function 到結束
+* got: 直接查看 GOT
+* canary: 直接查看 canary 存放的位置和 value
 * `heap (chunk|chunks|bins|arenas|set-arena)`
-* j/jump {address}: 直接jmp到指定的位置，但要注意如果該位置之後沒有其他breakpoint就會直接執行下去 # jump `$ (gdb) j 0x4896aa`
+* j/jump {address}: 直接 jmp 到指定的位置，但要注意如果該位置之後沒有其他 breakpoint 就會直接執行下去 # jump `$ (gdb) j 0x4896aa`
 * set {long}{address} = 0x61616161: 對特定的位址寫入值 # set memory / register value `$ (gdb) set $rax=0x5`
-* p &{symbol}: print出特定的symbol
-* 如果自己寫一個script讓gdb可以自己load的話可以用: `$ gdb -x {script name} {file name}`
-    script範例
+* p &{symbol}: print 出特定的 symbol
+* 如果自己寫一個 script 讓 gdb 可以自己 load 的話可以用: `$ gdb -x {script name} {file name}`
+    script 範例
     ```
     set LD_PRELOAD=/usr/src/glibc/glibc_dbg/libc.so.6
     b main
     r
     ```
-* heapinfo: 查看heap的狀態
-* heapb: 就是heap base的command，告訴我們目前的base address
+* heapinfo: 查看 heap 的狀態
+* heapb: 就是 heap base 的 command，告訴我們目前的 base address
 * .gdbinit
     * config
         ```bash
@@ -200,7 +200,7 @@ date: 2024-01-31
     context.newline = b'\r\n' # for windows pe file
     ```
 * ELF
-    方便查看GOT或function的address
+    方便查看 GOT 或 function 的 address
     ```python
     exe = ELF('./vuln')
     log.info("main address: " + hex(exe.symbols['main']))
@@ -208,15 +208,15 @@ date: 2024-01-31
     log.info("strcspn GOT address: " + hex(exe.got['strcspn']))
     ```
 * shellcraft
-    pwntools中內建的一些assembly shell code
+    pwntools 中內建的一些 assembly shell code
 
-### 如何寫shellcode
-* 如果要寫shell code的話可以直接看exploit db上別人寫好的gadget，複製起來就可以用了，不過有時候也有可能會失敗，在確認其他東西都是正確的情況下，可以試看看別的，記得平台要選對
+### 如何寫 shellcode
+* 如果要寫 shell code 的話可以直接看 exploit db 上別人寫好的 gadget，複製起來就可以用了，不過有時候也有可能會失敗，在確認其他東西都是正確的情況下，可以試看看別的，記得平台要選對
     * [Exploit DB - Shell Code](https://www.exploit-db.com/shellcodes)
 * [Linux System Call Table](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit)
 * [Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
 
-如果是x86-64的Linux系統的話，參數依序填在 rdi 、 rsi 、 rdx 、 r10 、 r8 、 r9，rax 填入要 call 的 function number
+如果是 x86-64 的 Linux 系統的話，參數依序填在 rdi 、 rsi 、 rdx 、 r10 、 r8 、 r9，rax 填入要 call 的 function number
 ```asm
 mov rax 0x68732f6e69622f bin sh 0
 push rax
@@ -227,12 +227,12 @@ mov rax 0x3b
 syscall
 ```
 
-### 寫/bin/sh\x00的方法
+### 寫/bin/sh\x00 的方法
 * [Shellcode Cheat Sheet](http://shell-storm.org/shellcode/index.html)
 
-1. 如果是x86版本: 建議直接寫在stack上，因為比較少`int 0x80 ; ret;`的gadget可以用，那倒不如直接寫在script上然後計算esp或ebp的位置，一樣可以拿到儲存的位置
-2. 如果是x64版本: 建議可以用system read的方式搭配`syscall ret`的ROP
-3. 如果是直接執行shell code且shell code是可以直接讓我們輸入的話就直接參考exploit db的就好了
+1. 如果是 x86 版本: 建議直接寫在 stack 上，因為比較少`int 0x80 ; ret;`的 gadget 可以用，那倒不如直接寫在 script 上然後計算 esp 或 ebp 的位置，一樣可以拿到儲存的位置
+2. 如果是 x64 版本: 建議可以用 system read 的方式搭配`syscall ret`的 ROP
+3. 如果是直接執行 shell code 且 shell code 是可以直接讓我們輸入的話就直接參考 exploit db 的就好了
 
 * eg 1
     ```asm
@@ -320,13 +320,13 @@ syscall
     int 0x80
     ```
 
-### 如何讓環境執行在指定的libc和loader中
-如果不想要費事裝VM或wsl就可以直接用@ccccc提供的腳本，讓這支程式跑在和server一樣的環境，<span style="background-color: yellow">所以要把對應環境的loader和libc載下來</span>，用法如下:
+### 如何讓環境執行在指定的 libc 和 loader 中
+如果不想要費事裝 VM 或 wsl 就可以直接用@ccccc 提供的腳本，讓這支程式跑在和 server 一樣的環境，<span style="background-color: yellow">所以要把對應環境的 loader 和 libc 載下來</span>，用法如下:
 ```bash
 $ python {script path} {new env loader path} {original elf file}
 # e.g. python ./LD_PRELOAD.py ./ld-2.27.so ./vuln
 ```
-他會產生一個新的執行檔，名字是`V`，在pwntools寫的腳本也要改，用法如下
+他會產生一個新的執行檔，名字是`V`，在 pwntools 寫的腳本也要改，用法如下
 ```python
 r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 ```
@@ -388,9 +388,9 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     * [libc6_2.31-0ubuntu9_amd64.deb](https://ubuntu.pkgs.org/20.04/ubuntu-main-amd64/libc6_2.31-0ubuntu9_amd64.deb.html)
 
 ## `checksec`保護
-* No RELRO or Partial RELRO → <span style="background-color: yellow">GOT Hijacking(也就是改寫GOT中某個address為我們要執行的call)</span> → `-z norelro`
+* No RELRO or Partial RELRO → <span style="background-color: yellow">GOT Hijacking(也就是改寫 GOT 中某個 address 為我們要執行的 call)</span> → `-z norelro`
 * PIE(Position Independent Executable) → <span style="background-color: yellow">BOF(ret2 series)</span> → `-no-pie`
-* NX (No eXecute, Data Execution Prevention, DEP) off → `-zexecstack`，如果有NX就不能執行shellcode
+* NX (No eXecute, Data Execution Prevention, DEP) off → `-zexecstack`，如果有 NX 就不能執行 shellcode
     * 可以用 ROP 繞過
         * 使用 ROP 來做事情
         * 用 ROP call mmap 拿到一塊 rwx 的 memory
@@ -407,12 +407,12 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 ### Bof Series
 * Overwrite sensitive data
 * Overwrite return address
-    * Statically Link Binary: 可以直接試看看ROP chain(從binary本身找gadget)
-    * Dynamically Link Binary: 看有沒有辦法leak出libc base address，再用ROP chain(從libc中找gadget)
-* 如果BoF的長度不夠的話，可以考慮用stack pivot的方式再搭配ROP chain: 範例可以參考[Simple PWN 0x35(2023 Lab - Stack Pivot)]({{base.url}}/Simple-PWN-0x35(2023-Lab-Stack-Pivot)/)
+    * Statically Link Binary: 可以直接試看看 ROP chain(從 binary 本身找 gadget)
+    * Dynamically Link Binary: 看有沒有辦法 leak 出 libc base address，再用 ROP chain(從 libc 中找 gadget)
+* 如果 BoF 的長度不夠的話，可以考慮用 stack pivot 的方式再搭配 ROP chain: 範例可以參考[Simple PWN 0x35(2023 Lab - Stack Pivot)]({{base.url}}/Simple-PWN-0x35(2023-Lab-Stack-Pivot)/)
 
 ### Format String Bug
-* 之前的Demo是利用format string達到<span style="background-color: yellow">GOT hijack</span>
+* 之前的 Demo 是利用 format string 達到<span style="background-color: yellow">GOT hijack</span>
 * 用法:
     * `%p` - leak code / libc / stack address
     * `%{任意值}c%k$(hhn\|hn\|n)` - 寫**任意值**到第 **k** 個參數指向的位址
@@ -426,7 +426,7 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     * 基本上不太會⽤ `%k$n` 此 format，因為⼀次寫入 4 bytes 會太多
 
 ### GOT Series
-* GOT hijacking的前提: 必須要是No RELRO or Partial RELRO才能使用這個技巧
+* GOT hijacking 的前提: 必須要是 No RELRO or Partial RELRO 才能使用這個技巧
 * Ret2plt - 控制執⾏流程到 `function@plt`，也代表執⾏該 function (以 functionA 代稱)，詳細可以看[Simple-PWN-0x34-(2023-Lab-ret2plt)]({{base.url}}/Simple-PWN-0x34-(2023-Lab-ret2plt)/)
 * Leak libc - functionA 在被解析後，GOT 會存放 functionA 的絕對位址，因此如果可以讀取 GOT，就能得到位於 library 當中的 address
     * FunctionA 的絕對位址減去他在 library 當中的 offset，能得到 library base address，繞過 ASLR
@@ -434,10 +434,10 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     * function 在 library 中的位址 (以 functionB 代稱)藉由控制程式流程，讓程式跳到 functionB 上，意即執⾏此 functionB
 
 ### Return 2 Series
-1. Return 2 Code(**必要條件：PIE Off**): 這是代表原本的source code就已經有寫好一個shell，只要改變RIP就可以跳過去
-2. Return 2 Shell Code(**必要條件：NX Off(要完全可讀可寫可執行)**): 代表我們要自己寫一個shell code在記憶體中，然後用RIP跳過去
-    * 作法就是先找到一塊rwx全開的地方，然後想辦法把shell code寫上去，接著控制RIP跳到該段拿到shell
-    * 變形：就像[^pico_pwn_guessing_game_1]和[^ntucs_pwn_rop]一樣，可以先找到.bss section，然後開__libc_read function寫入`/bin/sh\x00`，之後再return到shell code的地方
+1. Return 2 Code(**必要條件：PIE Off**): 這是代表原本的 source code 就已經有寫好一個 shell，只要改變 RIP 就可以跳過去
+2. Return 2 Shell Code(**必要條件：NX Off(要完全可讀可寫可執行)**): 代表我們要自己寫一個 shell code 在記憶體中，然後用 RIP 跳過去
+    * 作法就是先找到一塊 rwx 全開的地方，然後想辦法把 shell code 寫上去，接著控制 RIP 跳到該段拿到 shell
+    * 變形：就像[^pico_pwn_guessing_game_1]和[^ntucs_pwn_rop]一樣，可以先找到.bss section，然後開__libc_read function 寫入`/bin/sh\x00`，之後再 return 到 shell code 的地方
 3. Return 2 libc
 
 ## Heap Vulnerabilities
@@ -455,9 +455,9 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 * 基本的練習可以看[Simple PWN 0x40(2023 HW - UAF++)]({{base.url}}/Simple-PWN-0x40(2023-HW-UAF++)/)
 
 ### Tcache poisoning
-使⽤ double free 讓 tcache 當中存在兩個相同的 chunk，並利⽤修改 fd的⽅式，將對應位址視為 chunk 分配給 user
+使⽤ double free 讓 tcache 當中存在兩個相同的 chunk，並利⽤修改 fd 的⽅式，將對應位址視為 chunk 分配給 user
 * Tcache 拿 chunk 時並不會檢查 chunk size 是否合法，因此常會拿 __free_hook 寫 system
-* Protection 1 - 當釋放 chunk 時，如果 chunk + 8 (key) 位置的值與當前 heap 的&tcache_struct 相等，則會遍歷所有 entry，檢查是否有相同的 chunk，確保沒有double free 的發⽣
+* Protection 1 - 當釋放 chunk 時，如果 chunk + 8 (key) 位置的值與當前 heap 的&tcache_struct 相等，則會遍歷所有 entry，檢查是否有相同的 chunk，確保沒有 double free 的發⽣
 * Protection 2 - 當取出 chunk 時，會檢查對應⼤⼩的 counter 是否⼤於 0，如果是的話才會取出 tcache_struct 當中指向的第⼀塊 chunk
 * Bypass Protection 1 - 透過 UAF 或是 heap overflow，修改 chunk 的 key 欄位
 * Bypass Protection 2
@@ -465,7 +465,7 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
     * 多次 free 相同的 chunk
 
 ### Overlapping chunks
-簡單來說就是<span style="background-color: yellow">修改chunk size</span>，讓 chunk 在被釋放時 trigger consolidation(當釋放記憶體時，若檢查到相鄰的 chunk 沒有被使⽤，會將其合併成⼀塊更⼤的 freed chunk)，使得正在使⽤的 chunk 與已經釋放的 chunk 有部分重疊，也就代表
+簡單來說就是<span style="background-color: yellow">修改 chunk size</span>，讓 chunk 在被釋放時 trigger consolidation(當釋放記憶體時，若檢查到相鄰的 chunk 沒有被使⽤，會將其合併成⼀塊更⼤的 freed chunk)，使得正在使⽤的 chunk 與已經釋放的 chunk 有部分重疊，也就代表
 * 使⽤中的 chunk 可以更改 freed chunk 中的 fd、bk
 * freed chunk 在被分配時，會分配到與使⽤中的 chunk 相同的區塊，可以修改敏感資料
 
