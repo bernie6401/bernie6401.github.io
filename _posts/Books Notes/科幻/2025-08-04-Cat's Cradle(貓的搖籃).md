@@ -7,6 +7,7 @@ tags: [Kurt Vonnegut, 科幻, 宗教, 末日, Rinehart and Winston, 謝瑤玲, �
 draft: false
 toc: true
 comments: true
+permalink: /Cats-Cradle(貓的搖籃)/
 ---
 
 # Cat's Cradle(貓的搖籃)
