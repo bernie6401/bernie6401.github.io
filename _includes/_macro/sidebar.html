@@ -13,6 +13,12 @@
 
       {% if is_post and site.toc.enable %}
         {% assign display_toc = true %}
+        {% if page.toc_number == nil %}
+          {% assign list_number = site.toc.number %}
+        {% else %}
+          {% assign list_number = page.toc_number %}
+        {% endif %}
+        {% assign class = 'nav' %}
         {% assign source = page.content %}
         {% include _helper/toc.html %}
       {% endif %}
@@ -145,15 +151,6 @@
       <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
-
-            {% if page.toc_number == nil %}
-              {% assign list_number = site.toc.number %}
-            {% else %}
-              {% assign list_number = page.toc_number %}
-            {% endif %}
-            {% assign class = 'nav' %}
-            {% assign source = page.content %}
-            {% include _helper/toc.html %}
 
             {% if toc.size <= 1 %}
               <p class="post-toc-empty">{{ __.post.toc_empty }}</p>
