@@ -160,56 +160,97 @@ $custom-sidebar-text-dim: #7d828c;
     padding-left: 1em;
 }
 
-// Custom sidebar styles
-details summary {
-    cursor: pointer;
-    list-style: none;
-    position: relative;
-    padding: 6px 28px 6px 10px;
-    margin: 1px 0;
-    border-radius: 5px;
-    color: $custom-sidebar-text-dim;
-    font-weight: 500;
-    transition: background 0.15s ease, color 0.15s ease;
+// Custom sidebar styles (scoped to the sidebar only — see `.post-body details`
+// below for the in-post spoiler toggle, which needs its own light-theme colors)
+.custom-sidebar {
+    details summary {
+        cursor: pointer;
+        list-style: none;
+        position: relative;
+        padding: 6px 28px 6px 10px;
+        margin: 1px 0;
+        border-radius: 5px;
+        color: $custom-sidebar-text-dim;
+        font-weight: 500;
+        transition: background 0.15s ease, color 0.15s ease;
 
-    &:hover {
-        color: white;
-        background-color: rgba(255, 255, 255, 0.06);
+        &:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.06);
+        }
+
+        &::-webkit-details-marker { display: none; }
     }
 
-    &::-webkit-details-marker { display: none; }
-}
+    details summary::before {
+        content: '\f105';
+        font-family: FontAwesome;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        font-size: 0.85rem;
+        color: $custom-sidebar-text-dim;
+        transform-origin: center;
+        transform: translateY(-50%);
+        transition: transform 0.2s ease;
+    }
 
-details summary::before {
-    content: '\f105';
-    font-family: FontAwesome;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    font-size: 0.85rem;
-    color: $custom-sidebar-text-dim;
-    transform-origin: center;
-    transform: translateY(-50%);
-    transition: transform 0.2s ease;
-}
+    details[open] > summary::before {
+        transform: translateY(-50%) rotate(90deg);
+        color: $custom-sidebar-accent;
+    }
 
-details[open] > summary::before {
-    transform: translateY(-50%) rotate(90deg);
-    color: $custom-sidebar-accent;
-}
+    details[open] > summary {
+        color: white;
+    }
 
-details[open] > summary {
-    color: white;
-}
-
-// Fade-slide open state for nested lists
-details > ul {
-    animation: custom-sidebar-fade-in 0.15s ease;
+    // Fade-slide open state for nested lists
+    details > ul {
+        animation: custom-sidebar-fade-in 0.15s ease;
+    }
 }
 
 @keyframes custom-sidebar-fade-in {
     from { opacity: 0; transform: translateY(-2px); }
     to   { opacity: 1; transform: translateY(0); }
+}
+
+// Spoiler toggle (<details>) inside a post body — same collapsible mechanism
+// as the sidebar, but tuned for the post's light background instead of the
+// sidebar's dark one.
+.post-body details {
+    margin: 0.6em 0;
+
+    > summary {
+        cursor: pointer;
+        list-style: none;
+        position: relative;
+        padding: 4px 28px 4px 4px;
+        border-radius: 4px;
+        transition: background 0.15s ease;
+
+        &:hover { background-color: rgba(0, 0, 0, 0.04); }
+
+        &::-webkit-details-marker { display: none; }
+
+        &::before {
+            content: '\f105';
+            font-family: FontAwesome;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            font-size: 0.85rem;
+            color: $custom-sidebar-text-dim;
+            transform-origin: center;
+            transform: translateY(-50%);
+            transition: transform 0.2s ease;
+        }
+    }
+
+    &[open] > summary::before {
+        transform: translateY(-50%) rotate(90deg);
+        color: $custom-sidebar-accent;
+    }
 }
 
 
@@ -246,4 +287,16 @@ details > ul {
 .footer,
 .header {
     background: #FFF6E5;
+}
+
+// Spoiler (collapsible) title in posts: tinted badge with colored text instead of a solid background
+.post-body details > summary .spoiler {
+    display: inline-block;
+    padding: 0 8px;
+    border: 1px solid rgba(46, 158, 107, 0.5);
+    border-left-width: 3px;
+    border-radius: 4px;
+    background-color: rgba(46, 158, 107, 0.1);
+    color: #2e9e6b;
+    font-weight: 600;
 }
