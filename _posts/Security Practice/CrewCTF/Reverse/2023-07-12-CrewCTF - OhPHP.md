@@ -248,7 +248,7 @@ date: 2023-07-12
     ```
 2. 依照上面的background reference慢慢分析
     * 首先第五行的printf不是很重要，他只是印出題目logo
-        ![](https://hackmd.io/_uploads/HkCOpC3th.png)
+        ![](/assets/posts/CrewCTF - OhPHP/HkCOpC3th.png)
     * 第12行開始就是flag的驗證，前五個字元是==crew{==
     * 第14行就是把我們輸入的flag從第五個字元開始算四個字元，先進行crc32的運算，然後在反轉string，然後看是不是等於`7607349263`，所以先reverse回去成正常的字串，然後用github上人家寫的crc32 unhash腳本[^crc32_tool]轉換有可能的字串，可以看到結果有幾種，不過因為這邊只有取4 bytes代表答案是==php_==
         ```bash

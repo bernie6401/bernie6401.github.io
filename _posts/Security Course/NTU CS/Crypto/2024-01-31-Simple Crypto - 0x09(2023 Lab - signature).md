@@ -11,9 +11,9 @@ date: 2024-01-31
 
 ## Background
 [ [edu-ctf 2023] week03 - crypto2 - ECDSA](https://www.youtube.com/live/u4ZVc8PuJC0?si=ychlqdZnGVfFYRAV&t=4075)
->![](https://hackmd.io/_uploads/ryVbmdMWp.png)
+>![](/assets/posts/Simple Crypto - 0x09(2023 Lab - signature)/ryVbmdMWp.png)
 >
->![](https://hackmd.io/_uploads/HkJMXOG-T.png)
+>![](/assets/posts/Simple Crypto - 0x09(2023 Lab - signature)/HkJMXOG-T.png)
 
 ## Source code
 :::spoiler Source Code

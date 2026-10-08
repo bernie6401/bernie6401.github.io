@@ -14,12 +14,12 @@ Flag: `FLAG{omg_y0u_hack3d_th3_c4t_sh0p!}`
 
 ### 解題流程與思路
 1. 這一題很簡單，只要觀察送出的封包就可以知道每一個品項都是按照順序的(可預期的號碼)，所以只要把品項改成我們要的就可以成功query，如下圖，原本FLAG的column反白無法點選
-    ![圖片](https://hackmd.io/_uploads/SJ3bD8x_T.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW4 Write Up/SJ3bD8x_T.png)
     但因為送出的item number可預期，所以還是能夠正常query
-    ![圖片](https://hackmd.io/_uploads/HJ6yDUe_a.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW4 Write Up/HJ6yDUe_a.png)
 2. 接著看下一個packet就知道連我們的餘額以及支付金額都是裸奔的狀態，所以可以直接更改拿到flag
-    ![圖片](https://hackmd.io/_uploads/Sko9wLldp.png)
-    ![圖片](https://hackmd.io/_uploads/S1CovLldp.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW4 Write Up/Sko9wLldp.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW4 Write Up/S1CovLldp.png)
 
 ## Lab-DNS Lookuper
 Flag: FLAG{Y0U_$(Byp4ssed)\_th3_\`waf\`}
@@ -213,7 +213,7 @@ Flag: `FLAG{sqlite_js0n_inject!on}`
             { a: null, b: 'admin', c: 'FLAG{flag-1}' }
             ```
             第一個參數a為null是因為app.js中，我們的payload經過==JSON.stringify==，會在雙引號前加一個反斜線，這會導致query時，db不知道==$.admin.username\==是甚麼東西，只有單引號沒有這個問題，但如果第一個query data不加上雙引號就會導致閉合不全而導致結果異常(如下)
-            ![圖片](https://hackmd.io/_uploads/Hy29LmYvp.png)
+            ![圖片](/assets/posts/NTU CS 2023 HW4 Write Up/Hy29LmYvp.png)
             所以我乾脆第一個參數就算了，重新利用後兩個參數要到username和password
     3. 有了這個可以幹嘛呢?我們可以下條件，當條件符合的時候做A，否則做B，而A和B是有一些差異，可能是時間長度或是網站是否crash為基準，這樣的話我們就可以知道下的條件是否正確，POC如下:
         * 看長度
@@ -228,11 +228,11 @@ Flag: `FLAG{sqlite_js0n_inject!on}`
                 AND IIF(length(c) = 10, (SELECT randomblob(1000000000 % 10) FROM sqlite_master WHERE 1 LIMIT 1), 1); -- # 
             ```
             在local測試時，FLAG1=`FLAG{test}`，也就是只有10個字，如果條件設定不符合時，就會query出東西，因為條件不符回傳1，如下圖
-            ![圖片](https://hackmd.io/_uploads/SJxwu7Fwa.png)
+            ![圖片](/assets/posts/NTU CS 2023 HW4 Write Up/SJxwu7Fwa.png)
             
             ---
             反之，就會query不出東西，也就是crash
-            ![圖片](https://hackmd.io/_uploads/Hywt_QYvp.png)
+            ![圖片](/assets/posts/NTU CS 2023 HW4 Write Up/Hywt_QYvp.png)
         * 如果想要知道某一個字元可以substr這個function
             ```sql
             SELECT 

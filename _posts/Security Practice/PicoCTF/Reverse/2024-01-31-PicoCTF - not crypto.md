@@ -373,7 +373,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa # fake flag for t
 gef➤  x/s 0x00007fffffffd730
 0x7fffffffd730: "picoCTF{c0mp1l3r_0pt1m1z4t10n_15_pur3_w1z4rdry_but_n0_pr0bl3m?}\n\226\327\377\377\377\177"
 ```
-![](https://hackmd.io/_uploads/r1p1fwk6h.png)
+![](/assets/posts/PicoCTF - not crypto/r1p1fwk6h.png)
 
 Flag: `picoCTF{c0mp1l3r_0pt1m1z4t10n_15_pur3_w1z4rdry_but_n0_pr0bl3m?}`
 

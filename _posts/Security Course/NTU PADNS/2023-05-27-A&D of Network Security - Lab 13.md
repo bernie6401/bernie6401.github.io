@@ -13,27 +13,27 @@ date: 2023-05-27
 ## Metasploit with Bluekeep Vulnerability (CVE-2019-0708)
 ### Setting up environment
 * Open Windows 7 and Kali-Linux with `localhost only` mode
-    ![](https://hackmd.io/_uploads/Skg3sJ93Hh.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/Skg3sJ93Hh.png)
     
-    ![](https://hackmd.io/_uploads/ByyTJqnHh.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/ByyTJqnHh.png)
 
 * Then we can note that the IP of these two machines are different:
-    ![](https://hackmd.io/_uploads/H1gOg5hSn.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/H1gOg5hSn.png)
     
-    ![](https://hackmd.io/_uploads/H1VSlcnB3.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/H1VSlcnB3.png)
     
     Now, we know `Win7`'s IP: `192.168.56.101`
     Kali-Linux's IP: `192.168.56.102`
 
 * Test the connection of these machines
-    ![](https://hackmd.io/_uploads/HJ3D-5hS2.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/HJ3D-5hS2.png)
 
-    ![](https://hackmd.io/_uploads/S1eSW5hB3.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/S1eSW5hB3.png)
 
 * Always allow the remote desktop connection of `Win7`
-    ![](https://hackmd.io/_uploads/Hk0yzchB3.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/Hk0yzchB3.png)
     
-    ![](https://hackmd.io/_uploads/HJQxfc3Sh.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/HJQxfc3Sh.png)
 
 ### Try to Exploit
 * Open Metasploit in Kali-Linux
@@ -49,8 +49,8 @@ date: 2023-05-27
     ```
     
     Sometimes the attack will not always success, you must try until it success.
-    ![](https://hackmd.io/_uploads/H1PUwq2S3.png)
-    ![](https://hackmd.io/_uploads/ByQ6wqnHh.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/H1PUwq2S3.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/ByQ6wqnHh.png)
 
 ### Remote Desktop
 ## Social Engineering in Kali-Linux
@@ -116,7 +116,7 @@ date: 2023-05-27
 
     ```
 4. Open Chrome in Win7 and enter Kali IP and enter your account/password
-    ![](https://hackmd.io/_uploads/SJBgpB1In.png)
+    ![](/assets/posts/A&D of Network Security - Lab 13/SJBgpB1In.png)
 5. Check Kali-Linux Terminal
     ```bash
     192.168.56.101 - - [27/May/2023 05:25:50] "GET / HTTP/1.1" 200 -

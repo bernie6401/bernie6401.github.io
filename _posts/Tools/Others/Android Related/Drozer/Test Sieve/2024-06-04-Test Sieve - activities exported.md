@@ -74,7 +74,7 @@ date: 2024-06-04
         dz> run app.activity.start --component com.mwr.example.sieve com.mwr.example.sieve.PWList
         ```
         此時會看到手機啟動Sieve App，並且原本應該是需要password才能access的activity，居然可以直接bypass
-        ![Screenshot_20240603-163856](https://hackmd.io/_uploads/rkrr-ZsNA.png =200x)
+        ![Screenshot_20240603-163856](/assets/posts/Test Sieve - activities exported/rkrr-ZsNA.png =200x)
 # Reference
 [^csdn-sieve-1]:[drozer之玩轉sieve](https://blog.csdn.net/samlirongsheng/article/details/104926282)
 [^hacktricks-diva-sieve]:[Drozer Tutorial](https://book.hacktricks.xyz/v/cn/mobile-pentesting/android-app-pentesting/drozer-tutorial)

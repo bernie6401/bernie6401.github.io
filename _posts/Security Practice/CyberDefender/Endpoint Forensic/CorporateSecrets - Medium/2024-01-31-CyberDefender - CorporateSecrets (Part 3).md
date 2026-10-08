@@ -40,7 +40,7 @@ Flag: `miriam.grapes`
 
 ### Exploit
 不過我不知道為甚麼答案是21，然後我只有找到20個，看了4672也沒有紀錄(怪怪的)
-![圖片.png](https://hackmd.io/_uploads/Syfldc8Xa.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/Syfldc8Xa.png)
 
 Flag: `21`
 
@@ -49,7 +49,7 @@ Flag: `21`
 
 ### Recon
 直接看`SYSTEM/ControlSet001/Services/Tcpip/Parameters/Interfaces/`
-![圖片.png](https://hackmd.io/_uploads/HJqjU5IQ6.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/HJqjU5IQ6.png)
 
 Flag: `fruitinc.xyz`
 
@@ -61,7 +61,7 @@ Flag: `fruitinc.xyz`
 原本的直覺是像第18題一樣把db file export出來看他的網路操作行為，不過其實可以直接看他下載的file，看他的create time就好
 
 ### Exploit
-![圖片.png](https://hackmd.io/_uploads/SJfBFLvXa.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/SJfBFLvXa.png)
 
 Flag: `04/05/2020 03:49`
 
@@ -70,8 +70,8 @@ Flag: `04/05/2020 03:49`
 
 ### Exploit
 直接把Jim的NTUSER.dat export出來後用timeline explorer看userassist，不過我不確定為甚麼答案是2，因為我查到的都是3
-![圖片.png](https://hackmd.io/_uploads/rJz_098Q6.png)
-![圖片.png](https://hackmd.io/_uploads/ByTKR9UmT.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/rJz_098Q6.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/ByTKR9UmT.png)
 還有另外一個方法是看prefetch，從FTK中export出`TOR.EXE-4B50033F.pf`，用PECmd.exe解析，但這個更怪了，結果顯示只有執行過一次，所以prefetch參考就好
 
 ```bash
@@ -229,7 +229,7 @@ $ cd output/png
 $ file *
 00000011.png: PNG image data, 1000 x 1000, 8-bit/color RGBA, non-interlaced
 ```
-![圖片.png](https://hackmd.io/_uploads/BJMD8sUX6.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/BJMD8sUX6.png)
 
 也可以像[^wp]直接用`$ binwalk --dd=".*" samplePhone.jpg`，一樣可以解壓縮出原本的圖片
 
@@ -244,7 +244,7 @@ Flag: `537fe19a560ba3578d2f9095dc2f591489ff2cde`
 
 ### Exploit
 直接看RecentDocs的資訊就找的到了，該紀錄在Jim的NTUSER.DAT中，`Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs`
-![圖片.png](https://hackmd.io/_uploads/SJvJlOw7p.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/SJvJlOw7p.png)
 
 Flag: `2020-04-11 23:23:36`
 
@@ -256,10 +256,10 @@ Flag: `2020-04-11 23:23:36`
 > $MFT長度一段就是1024 Bytes(0x400)
 
 所以我想說可以把最後出現的位置除已0x400可能就是答案 → $0xd6aac00/0x400=219819.0$
-![圖片.png](https://hackmd.io/_uploads/BkUuMwDmp.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/BkUuMwDmp.png)
 * 方法一
     不過以上的方法是確實可行的，因為計算entries不是只要看有多少有紀錄的File，而是整個\$MFT有多少空間，意思是我們要看最後位址是多少再除以0x400，而不是只算到最後一個FILE0的地方就直接除已0x400
-    ![圖片.png](https://hackmd.io/_uploads/SJCs2DwX6.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/SJCs2DwX6.png)
     該檔案的最後位址是在0xd6bfff0
 
     $$
@@ -277,8 +277,8 @@ Flag: `2020-04-11 23:23:36`
         $ python mftdump.py "MFT" > MFTdumpOutput.txt
         ```
     4. 看解出多少entries再扣掉最前面兩行不算的部分
-        ![圖片.png](https://hackmd.io/_uploads/HJ20owwQp.png)
-        ![圖片.png](https://hackmd.io/_uploads/SkmssPvXa.png)
+        ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/HJ20owwQp.png)
+        ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 3)/SkmssPvXa.png)
         $219906-2=219904$
 
 Flag: `219904`

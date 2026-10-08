@@ -25,7 +25,7 @@ Challenge: https://blueteamlabs.online/home/challenge/bruteforce-16629bf9a2
 直接用timeline explorer下4625的條件
 
 ### Exploit
-![圖片](https://hackmd.io/_uploads/HJGemkJdp.png)
+![圖片](/assets/posts/BTLO - Bruteforce/HJGemkJdp.png)
 
 Flag: `3103`
 
@@ -72,7 +72,7 @@ Flag: `113.161.192.227`
 
 ### Recon
 直接看該IP的訊息，用whois來看相關內容，詳細query result可以看[這邊](https://www.whois.com/whois/113.161.192.227)
-![圖片](https://hackmd.io/_uploads/SkpdSJy_a.png)
+![圖片](/assets/posts/BTLO - Bruteforce/SkpdSJy_a.png)
 
 Flag: `Vietnam`
 

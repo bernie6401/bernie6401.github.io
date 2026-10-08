@@ -518,6 +518,6 @@ $ python exp.py
 Password = fgp5FdHX/7z2E1BCJxvPD5crfedi91Y4DkGaSOD0qUO0V50=
 ```
 最後只要把解出來的東西丟回去revguard就可以拿到真正的flag了
-![圖片.png](https://hackmd.io/_uploads/Sy6cmC1Xa.png)
+![圖片.png](/assets/posts/Simple Reverse - 0x15(2023 HW - crackme_vectorization)/Sy6cmC1Xa.png)
 
 Flag: `FLAG{yOu_kn0w_hOw_to_r3v3r53_4_m47riX!}`

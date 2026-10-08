@@ -39,7 +39,7 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/146#nav-questions
 
 ### Exploit
 Filter Payload: `nbns and ip.addr == 192.168.232.162`
-![image](https://hackmd.io/_uploads/H1APnx4Ip.png)
+![image](/assets/posts/CyberDefender - PoisonedCredentials/H1APnx4Ip.png)
 
 Flag: `fileshaare`
 
@@ -51,7 +51,7 @@ Flag: `fileshaare`
 
 ### Exploit
 可以直接看wireshark的conversation，就知道唯一和他連線溝通的，只有**192.168.232.215**
-![image](https://hackmd.io/_uploads/rywJRbN8T.png)
+![image](/assets/posts/CyberDefender - PoisonedCredentials/rywJRbN8T.png)
 
 Flag: `192.168.232.215`
 
@@ -71,7 +71,7 @@ Flag: `192.168.232.176`
 
 ### Exploit
 Filter Payload: `smb2 and ip.src==192.168.232.215 and ip.dst==192.168.232.176`
-![image](https://hackmd.io/_uploads/S17LNzEI6.png)
+![image](/assets/posts/CyberDefender - PoisonedCredentials/S17LNzEI6.png)
 
 Flag: `janesmith`
 
@@ -81,7 +81,7 @@ Flag: `janesmith`
 ### Exploit
 這一題是看[^wp]的說明，有一個ntlm challenge的error，進去看會發現NetBIOS Computer 
 Filter Payload: `(ip.addr == 192.168.232.162 or ip.addr == 192.168.232.176 or ip.addr == 192.168.232.215) and (smb2)`
-![image](https://hackmd.io/_uploads/SJUFGQV8p.png)
+![image](/assets/posts/CyberDefender - PoisonedCredentials/SJUFGQV8p.png)
 
 Flag: `accountingpc`
 

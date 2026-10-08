@@ -16,9 +16,9 @@ Flag: `FLAG{Corre1ati0n_Attack!_!}`
 * What we have: 我們有的東西就是密文，所以可以利用它動一些手腳
 * Our Goal 1: 目標是要取得原本和47進行XOR的數字是多少
 * Our Goal 2: 這樣才可以取得最後的明文69
-![](https://hackmd.io/_uploads/r1p3yoGlp.png)
+![](/assets/posts/NTU CS 2023 HW1 Write Up/r1p3yoGlp.png)
 * How to achieve: 我們可以簡單猜一個byte，從0x00開始，把密文換成猜測的byte，這樣256種組合和原本的Goal 1所求的byte進行XOR後會padding正確(也就是0x01)，此時假設我們已經猜到目前是0x2f符合padding正確的目標，代表現在的假明文是0x01，則原本和0x47進行XOR的數字就是0x01⊕0x2f，然後我們就可以回到原本解密的流程，也就是原本的密文0x47⊕剛剛得知的(0x01⊕0x2f)，就會得到想要的正確的明文0x69
-![](https://hackmd.io/_uploads/H1yKboMlp.png)
+![](/assets/posts/NTU CS 2023 HW1 Write Up/H1yKboMlp.png)
 
 所以套用到今天的lab意思也是一樣，如果要知道padding是否正確可以問oracle，反正只要符合明文+0x80+(0...15)\*0x00，這一題的flag長度可以從題目給的ciphertext看出來，顯然扣掉16bytes的initial vector後，flag的長度是32 bytes，也就是說我們從第二個block開始解，我們可以單獨把第一個ciphertext block當成第二個ciphertext block的initial vector，合併後再一起送出去，然後不斷變化IV的最後一個byte，如果oracle回傳`Well received :)`代表第一個bytes猜對了，我們就可以把flag的最後一個bytes求出來$\to$我們猜的byte⊕原本ciphertext的最後一個byte⊕0x80(0x80是我們判斷padding正確的依據)，當然找到真正的plaintext byte後要把我們猜測的block恢復原狀，接著繼續找下一個byte
 
@@ -42,9 +42,9 @@ Flag: `FLAG{pAdd1NG_0rAcL3_A77aCK}`
 * What we have: 我們有的東西就是密文，所以可以利用它動一些手腳
 * Our Goal 1: 目標是要取得原本和47進行XOR的數字是多少
 * Our Goal 2: 這樣才可以取得最後的明文69
-![](https://hackmd.io/_uploads/r1p3yoGlp.png)
+![](/assets/posts/NTU CS 2023 HW1 Write Up/r1p3yoGlp.png)
 * How to achieve: 我們可以簡單猜一個byte，從0x00開始，把密文換成猜測的byte，這樣256種組合和原本的Goal 1所求的byte進行XOR後會padding正確(也就是0x01)，此時假設我們已經猜到目前是0x2f符合padding正確的目標，代表現在的假明文是0x01，則原本和0x47進行XOR的數字就是0x01⊕0x2f，然後我們就可以回到原本解密的流程，也就是原本的密文0x47⊕剛剛得知的(0x01⊕0x2f)，就會得到想要的正確的明文0x69
-![](https://hackmd.io/_uploads/H1yKboMlp.png)
+![](/assets/posts/NTU CS 2023 HW1 Write Up/H1yKboMlp.png)
 
 所以套用到今天的lab意思也是一樣，如果要知道padding是否正確可以問oracle，反正只要符合明文+0x80+(0...15)\*0x00，這一題的flag長度可以從題目給的ciphertext看出來，顯然扣掉16bytes的initial vector後，flag的長度是32 bytes，也就是說我們從第二個block開始解，我們可以單獨把第一個ciphertext block當成第二個ciphertext block的initial vector，合併後再一起送出去，然後不斷變化IV的最後一個byte，如果oracle回傳`Well received :)`代表第一個bytes猜對了，我們就可以把flag的最後一個bytes求出來$\to$我們猜的byte⊕原本ciphertext的最後一個byte⊕0x80(0x80是我們判斷padding正確的依據)，當然找到真正的plaintext byte後要把我們猜測的block恢復原狀，接著繼續找下一個byte
 
@@ -58,12 +58,12 @@ Flag: `FLAG{Lf5r_15_50_eZZzZzZZZzzZzzz}`
 我們有的東西就是Companion Matrix，因為題目有給taps，所以可以建出上課提到的矩陣；另外我們還有最後出現的70個State，雖然是每格70個出現一次，換句話說就是$State_{71*256+70},\ State_{71*257+70},\ State_{71*258+70},\ ...State_{71*325+70}$(從0開始算)
 * Goal
 既然我們知道了State的公式為$s_m = p_0s_0 + p_1s_1 + … + p_{m-1}s_{m-1}$，也就是companion matrix的最後一列$*$那64個initial state就會是新的state，換句話說，繼續往下做，其實就只是把companion matrix多乘幾次，然後還是一樣乘以initial state，然後我們只要取得companion matrix乘完之後的最後一列，就是下一個新的state的特徵，如下圖所示:
-![](https://hackmd.io/_uploads/HkwyVkGx6.jpg)
+![](/assets/posts/NTU CS 2023 HW1 Write Up/HkwyVkGx6.jpg)
 
     在Round 0時，companion matrix的最後一列當然就是$S_{64}$的特徵，再往下做，也就是Round 1時，companion matrix的平方後，再取最後一列就是$S_{65}$的特徵，而題目給我們的ouptut[0]以state來說就是第70個(以0來說)，所以companion matrix的7次方，再取最後一列，以此類推，我們陸續算到output[256](這是第一個沒有和flag XOR的bit)，也就是companion matrix的$71*256+7=18183$次方再取最後一列，就是$S_{71*256+70}$的特徵，自此開始，我們就可以開始把這些特徵存起來，存滿64個後，再取反矩陣，乘上原本得到的那64個state，就可以得到一開始的initial state
 
 * 完整的對應關係如下圖
-![](https://hackmd.io/_uploads/SJcl-JGep.jpg)
+![](/assets/posts/NTU CS 2023 HW1 Write Up/SJcl-JGep.jpg)
 
 ## HW-Oracle
 
@@ -84,7 +84,7 @@ print(r.recvline().decode().strip())
 1. 首先我們手上可控的地方，就是key/iv/ciphertext，一開始的想法是，由於此次的flag是一張png，所以一開始的magic header一定都一樣，所以可以透過這個magic header推測出IV是多少，但這樣的作法卻沒辦法知道key，所以這個方法行不通
 
 2. 正確的作法是控制key/iv，變成自己設定的東西，然後試圖加密plaintext(同樣也是自己設定)，然後把自己設定的ciphertext/key以及原本題目給的encrypted_key或是encrypted_iv丟到oracle，要解密的部分(也就是encrypted_key/encrypted_iv)就當作是iv的部分輸入，這樣神奇的操作如下圖所示
-![](https://hackmd.io/_uploads/Skm6TWheT.jpg)
+![](/assets/posts/NTU CS 2023 HW1 Write Up/Skm6TWheT.jpg)
 3. 為甚麼這樣可以解出我們想要解的東西?那就要取決於如何控制plaintext/iv，key可以隨便控，而plaintext則是從零開始，iv也是全部都是零，這樣的好處是pt用AES加密前的部份是我們知道的，換句話說，在解密的時候和iv XOR前的數值也是知道的，此時我們可以從oracle output知道padding正確與否，我們又知道和iv XOR的數值是多少，則我們一定可以利用POA的方式推出原本的IV是多少
 4. 舉個例子
 若
@@ -275,7 +275,7 @@ Flag: `FLAG{YouAreARealECDLPMaster}`
 
 ### 解題流程與思路
 1. 觀察source code會發現maple實作了一個沒有檢查我們傳送的點是否在一開始創的橢圓曲線上的elliptiv curve class，然後他把我們給的point當作參數，創立一個初始點，可以看一下下面裡個範例，如果是maple的實作，給予一個根本不在該Elliptic Curve的點他還是會算一個G+G的點給你，只是該點其實是在別的曲線上的2G這個點，反觀正常的sage中的實作會發現只要給予的點不在該曲線上就會直接報錯
-    ![](https://hackmd.io/_uploads/H15TTzBZa.png)
+    ![](/assets/posts/NTU CS 2023 HW1 Write Up/H15TTzBZa.png)
     :::spoiler maple 實作的Elliptic Curve
     ```python
     >>> from elliptic_curve_97cadb52fbd7b2cd import Curve, Point

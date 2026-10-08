@@ -27,7 +27,7 @@ The helper's demand for payment revealed that he was actually a threat actor. Th
 
 ### Exploit
 Google Chrome的artifact在`.challenge\Users\OMEN\AppData\Local\Google\Chrome\User Data\Default\`的History
-![圖片](https://hackmd.io/_uploads/rkP8Xi5ma.png)
+![圖片](/assets/posts/CyberDefender - KrakenKeylogger/rkP8Xi5ma.png)
 
 Flag: `telegram`
 

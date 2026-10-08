@@ -38,7 +38,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
 這一整個lab雖然是從講師的drive下載下來的(連結爛掉了，有需要可以跟我拿)，但還是可以從網路中自己創一個有這麼多漏洞的lab環境。可以先安裝win2016的虛擬機，然後到[WazeHell/vulnerable-AD](https://github.com/WazeHell/vulnerable-AD)下載script，在該環境中跑起來，就可以了，不果因為跑完之後的所有帳號或密碼都是隨機的，所以如果要看別人或是後續我寫的WP會有點困難
 
 ### 實驗環境拓樸
-![](https://hackmd.io/_uploads/B14swTr62.png)
+![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/B14swTr62.png)
 
 ### 帳號密碼
 * Win10(Client)
@@ -65,15 +65,15 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
     2. Download JDK-11 & Install it([Link](https://www.oracle.com/tw/java/technologies/javase/jdk11-archive-downloads.html))
         * 下載之前會需要你登入Oracle帳號
         * 如果想要知道哪一個版本的JAVA對應到哪一個版本的Neo4j，可以從這邊[^neo4j-java]找，照法就是在網址的地方中間有一個neo4j的版本，打上你的neo4j版本，他就會到對應的頁面告訴你JAVA的版本應該是多少，例如我的版本是4.3，就打上`https://neo4j.com/docs/operations-manual/4.3/installation/requirements/`，不過他也只有分3.x和4.x
-            ![](https://hackmd.io/_uploads/r1_7srupn.png)
+            ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/r1_7srupn.png)
     3. Modify Environment Variable
         * 更改環境變數這件事情一定要在Win10加入AD之前做的原因是，只要加入AD就無法改變環境變數的系統變數(如下圖)，那我有想過把Win10直接退掉AD的網域，不過過程困難重重，所以我想還是直接開一個新的Win10從頭來會比要快，而且加入AD後還不能連網，畢竟DNS都被改掉了，會很不方便
-            ![](https://hackmd.io/_uploads/rJOVhBda3.png)
+            ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/rJOVhBda3.png)
         * 首先要在系統變數的地方新增JAVA_HOME然後value就是當初安裝JDK-11的位置
-            ![](https://hackmd.io/_uploads/Sy-fTr_a2.png)
+            ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/Sy-fTr_a2.png)
         * 並在Path中新增`%JAVA_HOME%\bin`和`<JDK-11 path to bin>`並按下確定後到Command Prompt確認有沒有成功
-            ![](https://hackmd.io/_uploads/BkbYTHOp2.png)
-            ![](https://hackmd.io/_uploads/Syb-0BOa2.png)
+            ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/BkbYTHOp2.png)
+            ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/Syb-0BOa2.png)
     4. Activate Neo4j
         
         在neo4j的目錄中進到bin，然後打開cmd，輸入`$ neo4j.bat console`，理論上前面有做對，應該就會開啟Neo4j的服務
@@ -107,28 +107,28 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=SycYwgWoh
         ```
         
         接著進到`http://localhost:7474/`，輸入預設帳密`neo4j/neo4j`，最後改密碼就好了
-        ![](https://hackmd.io/_uploads/Syof1Uupn.png)
+        ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/Syof1Uupn.png)
     5. Activate BloodHound
         
         進到BloodHound/bin目錄然後執行`BloodHound.exe`輸入neo4j的帳密，就可以進到一個全新的bloodhound頁面
-        ![](https://hackmd.io/_uploads/S1O51Idp2.png)
+        ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/S1O51Idp2.png)
 
 3. 把Win10加入AD
     1. Check Win2016 IP - `192.168.183.129`
-        ![](https://hackmd.io/_uploads/SJds2L8p3.png)
+        ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/SJds2L8p3.png)
     2. 將Win10的DNS指向AD
         
         主要目的就是把Win10網卡的DNS指向前面找到的Domain，在`設定/網路和網際網路/狀態/變更介面卡選項/乙太網路/內容/網際網路通訊協定第4版(TCP/IPV4)/內容`就可以找到更改的地方，然後把Win2016的IP填入
-        ![](https://hackmd.io/_uploads/SkcaAU8T2.png)
+        ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/SkcaAU8T2.png)
     3. 更改Win10網域
 
         從`控制台/系統及安全性/系統/變更設定/變更`中更改網域成<font color="ff0000">`kuma.org`</font>，填入帳密按確定就可以了
-        ![](https://hackmd.io/_uploads/rkJPJD86n.png)
+        ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/rkJPJD86n.png)
     4. Restart Win10
     5. 使用網域帳號登入
     
         用bear這個帳號登入Win10
-        ![](https://hackmd.io/_uploads/rktozsvph.png)
+        ![](/assets/posts/NTUSTISC - AD Note - 0x01環境建置 & Background/rktozsvph.png)
         可以看到系統資訊中，網域的部分已經變成kuma.org
 
 ## Reference

@@ -21,7 +21,7 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/149
 
 ### Exploit
 [Detailed Info](https://www.whois.com/whois/117.11.88.124)
-![image](https://hackmd.io/_uploads/rkeoSKKUp.png)
+![image](/assets/posts/CyberDefender - WebStrike/rkeoSKKUp.png)
 
 Flag: `Tianjin`
 
@@ -33,7 +33,7 @@ Flag: `Tianjin`
 
 ### Exploit
 直接string search就好了，這一題很貼心，它是直接擷取開頭就是attacker和victim之間的conversation，沒有其他額外的protocol，所以比較好找
-![image](https://hackmd.io/_uploads/SJnUdFKUT.png)
+![image](/assets/posts/CyberDefender - WebStrike/SJnUdFKUT.png)
 
 Flag: `Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0`
 
@@ -45,7 +45,7 @@ Flag: `Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0`
 
 ### Exploit
 從下圖可以清楚的看到，他上傳檔案名稱是**image.jpg.php**
-![image](https://hackmd.io/_uploads/rJClFYYIp.png)
+![image](/assets/posts/CyberDefender - WebStrike/rJClFYYIp.png)
 
 Flag: `image.jpg.php`
 
@@ -57,7 +57,7 @@ Flag: `image.jpg.php`
 
 ### Exploit
 從payload和response可以知道存放upload files的path
-![image](https://hackmd.io/_uploads/ByGqYYFI6.png)
+![image](/assets/posts/CyberDefender - WebStrike/ByGqYYFI6.png)
 
 Flag: `/reviews/uploads/`
 
@@ -68,7 +68,7 @@ Flag: `/reviews/uploads/`
 我是直接follow tcp的flow，跟到它實際傳送payload的地方就知道Port Number是8080
 
 ### Exploit
-![image](https://hackmd.io/_uploads/B1dovKKLp.png)
+![image](/assets/posts/CyberDefender - WebStrike/B1dovKKLp.png)
 
 Flag: `8080`
 

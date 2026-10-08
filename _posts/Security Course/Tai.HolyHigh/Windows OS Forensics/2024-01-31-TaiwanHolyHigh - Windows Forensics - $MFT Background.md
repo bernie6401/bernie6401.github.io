@@ -48,9 +48,9 @@ date: 2024-01-31
 ## \$MFT Background
 * What is \$MFT?
     > 常見之 NTFS 系統檔案如下，多以`$`符號為開頭。
-    > ![](https://hackmd.io/_uploads/B1u7eQtGa.png)
+    > ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - $MFT Background/B1u7eQtGa.png)
     > 其中`$MFT`檔案中記錄所有系統中存放之檔案相關屬性值，為 NTFS 分析之重點項目。
-    > ![](https://hackmd.io/_uploads/r1ArgXFGT.png)
+    > ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - $MFT Background/r1ArgXFGT.png)
 
 * \$MFT儲存的內容
     1. Timestamp

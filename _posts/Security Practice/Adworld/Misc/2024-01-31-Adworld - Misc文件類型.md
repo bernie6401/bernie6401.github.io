@@ -36,7 +36,7 @@ date: 2024-01-31
 2. 轉換過後也很明顯是base64
 4. 在轉換過後，只有底線後面的部分要轉換成hex
 5. 如果把東西print出來的話會看到flag.txt的字樣，感覺上是一個file的byte code，到file signature去看會發現magic header是一個zip file，uncompress之後就會發現flag.txt
-![](https://hackmd.io/_uploads/H10OlHGch.png)
+![](/assets/posts/Adworld - Misc文件類型/H10OlHGch.png)
 
 ## Exploit
 ```python

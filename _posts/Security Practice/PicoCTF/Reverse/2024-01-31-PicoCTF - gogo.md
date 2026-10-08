@@ -176,7 +176,7 @@ enter_password: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), static
     print("".join(FLAG))
     ```
 2. Use [online tool](https://md5.gromweb.com/) to unhash
-![](https://hackmd.io/_uploads/HkEBMjztn.png)
+![](/assets/posts/PicoCTF - gogo/HkEBMjztn.png)
 
 3. Conclusion
     ```bash

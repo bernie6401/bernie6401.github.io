@@ -28,5 +28,5 @@ $ nltest /dclist:kuma.org
     WIN-818G5VCOLJO.kuma.org [PDC]  [DS] 站台: Default-First-Site-Name
 命令成功完成
 ```
-![](https://hackmd.io/_uploads/S1pgfnvph.png)
+![](/assets/posts/NTUSTISC - AD Note - Lab(0x07當前網域控制站(DC))/S1pgfnvph.png)
 從Win10當中下指令的確可以知道Win2016的PC Name是`WIN-818G5VCOLJO`

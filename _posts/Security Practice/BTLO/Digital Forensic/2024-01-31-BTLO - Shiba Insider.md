@@ -24,7 +24,7 @@ Challenge: https://blueteamlabs.online/home/challenge/shiba-insider-5b48123711
 這一題首先看到一個pcap file，以及zip file，不過zip file需要密碼才能unzip，所以先看pcap file有沒有相關訊息
 
 這個流量紀錄非常簡單，就是一個簡單的tcp connection，包含前面的三向交握以及get packet，交換完訊息之後當然就是要finish conversation，所以重點在中間他們交換的訊息
-![圖片](https://hackmd.io/_uploads/S1rZCIpPT.png)
+![圖片](/assets/posts/BTLO - Shiba Insider/S1rZCIpPT.png)
 
 傳回來的訊息說: `use your own password`，其實也就是該題的答案
 
@@ -90,7 +90,7 @@ Flag: `0726ba878ea47de571777a`
 這一題是最難的，應該說他的題目敘述讓我很難想到怎麼解，所以這個是按照其他人的[^wp]才知道
 
 首先前一題的內容是一個user的id，而我們在第二題解析出的username其實是個fake username，真正的user其實應該是我們前一題拿到的id對應到的user，也就是BTLO網站上會顯示的user ID，所以只要前往https://blueteamlabs.online/home/user/0726ba878ea47de571777a 的頁面，就會看到該user為何
-![圖片](https://hackmd.io/_uploads/BykebvTva.png)
+![圖片](/assets/posts/BTLO - Shiba Insider/BykebvTva.png)
 是一個叫做bluetiger的用戶，也就是我們此題的答案
 
 ### Exploit

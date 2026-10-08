@@ -11,8 +11,8 @@ date: 2024-01-31
 
 ## Background
 Format String Bug
-![](https://hackmd.io/_uploads/BkqBmpOih.png)
-![](https://hackmd.io/_uploads/SyvLXauon.png)
+![](/assets/posts/PicoCTF - flag leak/BkqBmpOih.png)
+![](/assets/posts/PicoCTF - flag leak/SyvLXauon.png)
 
 ## Source code
 :::spoiler

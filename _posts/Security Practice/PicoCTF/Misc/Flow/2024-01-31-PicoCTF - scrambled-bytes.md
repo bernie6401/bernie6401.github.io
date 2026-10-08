@@ -115,7 +115,7 @@ if __name__=='__main__':
     Q2: 另外一個問題可能會是如[^env-python\r-no-such-file-or-directory]提到的，因為unix系統的換行和一般的windows不一樣，所以要轉換一下
     
     以上問題都解決之後，就可以利用wireshark抓一下中間過程會有甚麼特別的東西，首先我傳送的`test_flag.txt`的內容是`picoCTF{test_12345678}`，總共要傳送22個bytes，可以看到的確他一次是傳送一個bytes，然後是用UDP傳送，destination IP也是我們指定的`192.168.137.2`，但是會發現他每一個packet所帶的data，都和我們的flag沒有任何關聯，再回去看一下他在傳送前做了哪些事情，首先他在31行做了shuffle，然後在傳送前和產生的random number進行XOR，所以才會看起來都不一樣
-    ![](https://hackmd.io/_uploads/SJAfx3763.png)
+    ![](/assets/posts/PicoCTF - scrambled-bytes/SJAfx3763.png)
 3. Extract Data
 
     到這邊我們就成功一半了，接著就是把data dump下來進行還原就好(開始感受痛苦吧!一袋米要扛幾樓)，我們把data印出來後就可以直接拿來用
@@ -133,13 +133,13 @@ if __name__=='__main__':
     print(data)
     ```
     * 陷阱一: 如果觀察data的length會發現他只有==1990==，但是用wireshark卻filter出==1992==，仔細看會發現有兩個data是unknown(No.1943那個不算)
-        ![](https://hackmd.io/_uploads/SkJTQnX6h.png)
+        ![](/assets/posts/PicoCTF - scrambled-bytes/SkJTQnX6h.png)
         他應該是抓不到No. 4777的0x23和No.10562的0x0f，所以要手動把這兩個數值插入我們的list中
     
 4. Recover input.txt
     
     首先他有先利用time()的epoch當作random的seed，所以我是先看第一個傳送的packet他的時間是==1614044650==，當作他的seed，接下來只要有關random的操作都要和send.py一模一樣
-    ![](https://hackmd.io/_uploads/H1m-rhXpn.png)
+    ![](/assets/posts/PicoCTF - scrambled-bytes/H1m-rhXpn.png)
     由於我們還要考慮到他有事先進行shuffle，所以還要想辦法把順序調整回來，這邊我是參考[^picoMini-misc-scrambled-bytes-wp-0x534b]的方式，先建立一個大小為len(data)的list，再針對這個list進行shuffle，就可以得到一模一樣的順序，接著我們就把data和random所產出的東西做XOR就可以放回去到對應的index
     * 陷阱二
         這邊就不是原作者的鍋，反而是參考的WP有問題，原本是想說可以直接試看看[^picoMini-misc-scrambled-bytes-wp-0x534b]寫的腳本，但怎麼樣都沒有像是圖片的byte code出現，幾經波折後才發現原來用他的腳本會在data list的最後多一個null element，這會導致len(data)不是1992而是1993，這樣shuffle的結果可想而知一定不一樣，我也回報給原作者了[^report-error-to-0x534b]，就看他要不要修
@@ -180,7 +180,7 @@ f.write(decoded)
 f.close()
 ```
 
-![](https://hackmd.io/_uploads/S1R0qhQp3.png)
+![](/assets/posts/PicoCTF - scrambled-bytes/S1R0qhQp3.png)
 Flag: `picoCTF{n0_t1m3_t0_w4st3_5hufflin9_ar0und}`
 
 ## Reference

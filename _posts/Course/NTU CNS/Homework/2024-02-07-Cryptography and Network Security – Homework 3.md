@@ -18,21 +18,21 @@ date: 2024-02-07
 * Hint: You can use I/O Graphs to find the time that the flow starts to burst. Then you can find the first packet near there.
 * Ans: Using I/O graph in `Statistic/I/O Graphs` in wireshark, then you can figure out the whole trend of this network flow.
 
-    ![](https://hackmd.io/_uploads/rJk-LueL3.jpg)
+    ![](/assets/posts/Cryptography and Network Security – Homework 3/rJk-LueL3.jpg)
         Also, you can set the different scale of the graph and figure out the attack time precisely. I set the `Interval=100ms` and find the increasing time at `24.8s` which is `No.55862` packet shown as below.
-    ![](https://hackmd.io/_uploads/ryG7POxL2.png)
+    ![](/assets/posts/Cryptography and Network Security – Homework 3/ryG7POxL2.png)
         Thus, the attack time should be at <span style="background-color: yellow">`24.945277`</span> and the victim is <span style="background-color: yellow">`192.168.232.95`</span>
-    ![](https://hackmd.io/_uploads/Syurtue8h.png)
+    ![](/assets/posts/Cryptography and Network Security – Homework 3/Syurtue8h.png)
         
     Note: You can observe that how many packets of each address received or transmitted in `Statistic/Endpoints`. You can note that the address `192.168.232.95` has received tons of packets.
 
-    ![](https://hackmd.io/_uploads/BJ6r9dgI3.png)
+    ![](/assets/posts/Cryptography and Network Security – Homework 3/BJ6r9dgI3.png)
     
 ### 2)
 * Hint: How to find attack packets if you know the victim?
 * Ans: The protocol that the attack exploit is <span style="background-color: yellow">`UDP`</span>. Maybe this is a `UDP` flood attack. And the size of an attack packet should be <span style="background-color: yellow">482</span> bytes.
 * Note: You can set the filter `ip.dst==192.168.232.95 && udp` and observe the flow and packets.
-    ![](https://hackmd.io/_uploads/HJ4hkte8n.png)
+    ![](/assets/posts/Cryptography and Network Security – Homework 3/HJ4hkte8n.png)
     
 ### 3)
 * Ans: 
@@ -41,11 +41,11 @@ date: 2024-02-07
 * Background: this DDoS attack using NTP protocol to amplify the packets to achieve the attack.
     > NTP 放大 DoS 攻擊利用響應遠程 monlist 請求的網絡時間協議（NTP）服務器。 monlist 函數返回與服務器交互的所有設備的列表，在某些情況下最多達 600 個列表。 攻擊者可以偽造來自目標 IP 地址的請求，並且漏洞服務器將為每個發送的請求返回非常大的響應 - by [Kali Linux網絡掃描秘籍第六章拒絕服務(二)](https://cloud.tencent.com/developer/article/2182801)
 
-    ![](https://hackmd.io/_uploads/BkX8K9eL2.png)
+    ![](/assets/posts/Cryptography and Network Security – Homework 3/BkX8K9eL2.png)
 * Hint: You can find some useful statistics in `IPv4 Statistics`.
 * Ans: In `IPv4 Statistics`, we can note the several victims receive most of the packets. → <span style="background-color: yellow">`192.168.232.80`, `192.168.232.10`, `192.168.232.95`</span>
-    ![](https://hackmd.io/_uploads/B1W9QcgIn.png)
-    ![](https://hackmd.io/_uploads/SyBgw5xLh.png)
+    ![](/assets/posts/Cryptography and Network Security – Homework 3/B1W9QcgIn.png)
+    ![](/assets/posts/Cryptography and Network Security – Homework 3/SyBgw5xLh.png)
     * `192.168.232.80`: 28320 packets received
     * `192.168.232.10`: 26870 packets received
     * `192.168.232.95`: 23327 packets received
@@ -197,7 +197,7 @@ date: 2024-02-07
     3. Record the network flow and compute the amplification factor
        In my network situation and remote server circumstances, I received 100 packets with $482\ bytes*100\ packets=48200\ bytes$ from NTP server so the amplification factor is just $48200/234 \cong 206$ directly (234 is transmit packet size).
     
-        ![](https://hackmd.io/_uploads/SyUpW5-8h.png)
+        ![](/assets/posts/Cryptography and Network Security – Homework 3/SyUpW5-8h.png)
         
 ### 6)
 * Ans 1: 
@@ -225,7 +225,7 @@ date: 2024-02-07
 
     How to deploy your service? You can refer to [this video](https://www.youtube.com/watch?v=G1EVWLjwvrE&ab_channel=TechieBlogging) and remember to set the extra command `pip install flask-httpauth` to install other library.
 
-    ![](https://hackmd.io/_uploads/Sko6ZheD2.png)
+    ![](/assets/posts/Cryptography and Network Security – Homework 3/Sko6ZheD2.png)
     ```python
     from flask import Flask
     from flask_httpauth import HTTPBasicAuth
@@ -615,9 +615,9 @@ The replay attack is just fit the same cookie and captcha parameter at each atta
 4. Set Payload & Start Attack
     * Use <span style="background-color: yellow">`Pitchfork`</span> as your attack type
     
-        ![](https://hackmd.io/_uploads/rkQvwz1v2.png)
-        ![](https://hackmd.io/_uploads/BknuPG1wh.png)
-        ![](https://hackmd.io/_uploads/SkKtPG1P2.png)
+        ![](/assets/posts/Cryptography and Network Security – Homework 3/rkQvwz1v2.png)
+        ![](/assets/posts/Cryptography and Network Security – Homework 3/BknuPG1wh.png)
+        ![](/assets/posts/Cryptography and Network Security – Homework 3/SkKtPG1P2.png)
         Password: `everett`
 
         Flag: `CNS{8Ru73_f0Rc3_Pr3v3n710N_C4n_83_C0mPl1c473d}`

@@ -23,7 +23,7 @@ date: 2024-08-14
         ```bash
         $ set java_exe=C:\Program Files\Java\jdk-1.8\bin\java.exe
         ```
-        ![圖片](https://hackmd.io/_uploads/BktkRCFcR.png)
+        ![圖片](/assets/posts/UiAutomatorViewer 常見問題整理/BktkRCFcR.png)
 
 ## Error while obtaining UI hierarchy XML file: com.android.ddmlib.SyncException: Remote object doesn't exist!
 這個的解決方案有很多，我是在使用Spotify的時候出現這個問題，解決的方案是第一個

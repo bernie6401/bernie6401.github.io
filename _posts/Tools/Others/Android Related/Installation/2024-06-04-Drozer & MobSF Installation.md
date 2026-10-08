@@ -20,7 +20,7 @@ date: 2024-06-04
 2. Start a Session
     
     打開agent app會發現右下角有一個Off，點擊後會變成On，代表這個agent已經準備好要和電腦這邊的server連接
-    ![Screenshot_20240603-131808](https://hackmd.io/_uploads/SkPEfC9NC.png =200x)
+    ![Screenshot_20240603-131808](/assets/posts/Drozer & MobSF Installation/SkPEfC9NC.png =200x)
 3. 設定電腦的Port轉發到Android的某個Port
     
     根據[^adb-forward]的說明，以及官網的要求，我們必須要把電腦31415這個port的封包轉發到手機端的31415這個port

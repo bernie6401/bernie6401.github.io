@@ -29,8 +29,8 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/33
 
 ### Exploit
 直接把Software hive從`root/Windows/System32/config/` export出來後找`Microsoft/Windows NT/CurrentVersion`中就有紀錄CurrentBuild number
-![圖片.png](https://hackmd.io/_uploads/ryvoSV8mT.png)
-![圖片.png](https://hackmd.io/_uploads/rJpJ8EUXa.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 1)/ryvoSV8mT.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 1)/rJpJ8EUXa.png)
 
 Flag: `16299`
 
@@ -39,7 +39,7 @@ Flag: `16299`
 
 ### Exploit
 直接看`Microsoft/Windows NT/CurrentVersion/ProfileList`有幾個SID就知道了
-![圖片.png](https://hackmd.io/_uploads/H1A6vVL7a.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 1)/H1A6vVL7a.png)
 
 Flag: `6`
 
@@ -48,7 +48,7 @@ Flag: `6`
 
 ### Exploit
 在`root/Users/hansel.apricot/Pictures/Saved Pictures`可以找到，再用[線上工具](https://www.lddgo.net/en/encrypt/crc)，記得選擇CRC-64-ECMA的演算法才會是對的
-![圖片.png](https://hackmd.io/_uploads/HyAYjVUX6.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 1)/HyAYjVUX6.png)
 
 Flag: `ED865AA6DFD756BF`
 
@@ -57,7 +57,7 @@ Flag: `ED865AA6DFD756BF`
 
 ### Recon
 在`root/Users/suzy.strawberry/Pictures/`可以找到，右鍵看他的內容就知道了
-![圖片.png](https://hackmd.io/_uploads/SkNOwwIma.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 1)/SkNOwwIma.png)
 
 Flag: `72448`
 
@@ -66,7 +66,7 @@ Flag: `72448`
 
 ### Exploit
 這是新的知識，processor architecture就在`SYSTEM/ControlSet001/Control/Session Manager/Environment/`
-![圖片.png](https://hackmd.io/_uploads/BJYgfYLQp.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 1)/BJYgfYLQp.png)
 
 Flag: `amd64`
 
@@ -77,7 +77,7 @@ Flag: `amd64`
 首先進入recycle bin看到底是哪一個SID丟棄這張圖片，發現是`S-1-5-21-2446097003-76624807-2828106174-1005`，回到registry去看他的username是甚麼
 
 ### Exploit
-![圖片.png](https://hackmd.io/_uploads/B11movI7T.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 1)/B11movI7T.png)
 
 Flag: `hansel.apricot`
 
@@ -88,7 +88,7 @@ Flag: `hansel.apricot`
 從`root/Users/miriam.grapes/Pictures/`就可以找到vegetable，看到前面的file signature就可以知道是7z的壓縮檔
 
 ### Exploit
-![圖片.png](https://hackmd.io/_uploads/SJQCpPIXp.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 1)/SJQCpPIXp.png)
 
 Flag: `7z`
 
@@ -97,11 +97,11 @@ Flag: `7z`
 
 ### Recon
 這一題是全部解完才回來解的，因為當初真的一點想法都沒有，不過仔細看Miriam Grapes的folder，發現他是使用firefox當作browser，所以沒想法的時候就看瀏覽紀錄就對了(firefox的artifact就在`./Users/miriam.grapes/AppData/Roaming/Mozilla/Firefox/Profiles/9far2v52.default-release/places.sqlite`)
-![圖片.png](https://hackmd.io/_uploads/SJySlAwma.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 1)/SJySlAwma.png)
 
 ### Exploit
 果然發現一點東西，他設計的這個手機就是面向VSCO女性族群而設計的
-![圖片.png](https://hackmd.io/_uploads/BJamJAwXp.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 1)/BJamJAwXp.png)
 [What is VSCO?](https://hot-tag.com/fashion/vsco%E6%98%AF%E4%BB%80%E9%BA%BC%E6%84%8F%E6%80%9D%EF%BC%9F%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E7%94%A8%EF%BC%9F-vsco/)
 > 有一種意思是指VSCO是一種修圖(濾淨)的APP，全名叫做(Visual Supply Company)，但另一種意思是指一種女性的穿著與生活風格。VSCO Girl幾乎是連在一起的字詞。這種風格的女性穿搭是簡單風，Tshirt 搭配短褲，或是簡單的襯衫與牛仔褲的組合，反正一看就是輕鬆、簡單的穿搭就符合VSCO
 

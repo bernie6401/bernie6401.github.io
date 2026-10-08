@@ -68,12 +68,12 @@ date: 2024-06-04
     ```bash
     dz> run app.activity.start --component jakhar.aseem.diva jakhar.aseem.diva.APICredsActivity
     ```
-    ![Screenshot_20240604-155745](https://hackmd.io/_uploads/By3VCB340.png =200x)
+    ![Screenshot_20240604-155745](/assets/posts/Test DIVA - activity exported/By3VCB340.png =200x)
 
     ```bash
     dz> run app.activity.start --component jakhar.aseem.diva jakhar.aseem.diva.APICreds2Activity
     ```
-    ![Screenshot_20240604-161940](https://hackmd.io/_uploads/ryTHAS3EA.png =200x)
+    ![Screenshot_20240604-161940](/assets/posts/Test DIVA - activity exported/ryTHAS3EA.png =200x)
     按照[^安全客-diva-2]的說明，這是==9.Access Control Issue - Part 1==題目的畫面，原本的設想是不要按`VIEW API CREDENTIALS`這個按鈕也可以取得上面的機敏資料
     
 ## 另外一種解法

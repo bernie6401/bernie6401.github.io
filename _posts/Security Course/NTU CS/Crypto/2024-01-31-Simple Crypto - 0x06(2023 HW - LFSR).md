@@ -44,12 +44,12 @@ date: 2024-01-31
 我們有的東西就是Companion Matrix，因為題目有給taps，所以可以建出上課提到的矩陣；另外我們還有最後出現的70個State，雖然是每格70個出現一次，換句話說就是$State_{71*256+70},\ State_{71*257+70},\ State_{71*258+70},\ ...State_{71*325+70}$(從0開始算)
 * Goal
 既然我們知道了State的公式為$s_m = p_0s_0 + p_1s_1 + … + p_{m-1}s_{m-1}$，也就是companion matrix的最後一列$*$那64個initial state就會是新的state，換句話說，繼續往下做，其實就只是把companion matrix多乘幾次，然後還是一樣乘以initial state，然後我們只要取得companion matrix乘完之後的最後一列，就是下一個新的state的特徵，如下圖所示:
-![](https://hackmd.io/_uploads/HkwyVkGx6.jpg)
+![](/assets/posts/Simple Crypto - 0x06(2023 HW - LFSR)/HkwyVkGx6.jpg)
 
     在Round 0時，companion matrix的最後一列當然就是$S_{64}$的特徵，再往下做，也就是Round 1時，companion matrix的平方後，再取最後一列就是$S_{65}$的特徵，而題目給我們的ouptut[0]以state來說就是第70個(以0來說)，所以companion matrix的7次方，再取最後一列，以此類推，我們陸續算到output[256](這是第一個沒有和flag XOR的bit)，也就是companion matrix的$71*256+7=18183$次方再取最後一列，就是$S_{71*256+70}$的特徵，自此開始，我們就可以開始把這些特徵存起來，存滿64個後，再取反矩陣，乘上原本得到的那64個state，就可以得到一開始的initial state
 
 * 完整的對應關係如下圖
-![](https://hackmd.io/_uploads/SJcl-JGep.jpg)
+![](/assets/posts/Simple Crypto - 0x06(2023 HW - LFSR)/SJcl-JGep.jpg)
 
 ## Exploit
 1. 陷阱1: 此題所有的運算接在mod 2底下運算，包含內積和反矩陣，所以需要用sage的語法幫助我們快速算出答案(真的差很多，如果是手刻不用sage，至少要花一小時，但用了sage，只需要10秒，真香啊!!!)

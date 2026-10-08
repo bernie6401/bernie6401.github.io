@@ -34,7 +34,7 @@ You can detect the blind XXE vulnerability by triggering out-of-band interaction
         </storeId>
     </stockCheck>
     ```
-    ![](https://hackmd.io/_uploads/BJpoMFLE2.png)
+    ![](/assets/posts/Lab - Blind XXE with out-of-band interaction/BJpoMFLE2.png)
     As the result above, it seems can accept a new entity, then we can use it in `xml`
     
     ---
@@ -50,14 +50,14 @@ You can detect the blind XXE vulnerability by triggering out-of-band interaction
         </storeId>
     </stockCheck>
     ```
-    ![](https://hackmd.io/_uploads/HkO4QYUEn.png)
+    ![](/assets/posts/Lab - Blind XXE with out-of-band interaction/HkO4QYUEn.png)
 
 2. So..., we can use out-of-band server try to leak some information
 
 
 ## Exp
 1. Use Burp Collaborator
-    ![](https://hackmd.io/_uploads/Sk3lDtIVh.png)
+    ![](/assets/posts/Lab - Blind XXE with out-of-band interaction/Sk3lDtIVh.png)
     And copy the collaborator's payloads
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -73,9 +73,9 @@ You can detect the blind XXE vulnerability by triggering out-of-band interaction
     ```
     
 2. Result
-    ![](https://hackmd.io/_uploads/S1W7YKIV3.png)
+    ![](/assets/posts/Lab - Blind XXE with out-of-band interaction/S1W7YKIV3.png)
 
-![](https://hackmd.io/_uploads/r13iWF84h.png)
+![](/assets/posts/Lab - Blind XXE with out-of-band interaction/r13iWF84h.png)
 
 ## Reference
 * [Lab: Blind XXE with out-of-band interaction](https://www.cnblogs.com/Zeker62/p/15190054.html)

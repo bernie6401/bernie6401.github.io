@@ -12,7 +12,7 @@ date: 2024-01-31
 ## Background
 * [What is function pointer?](https://chenhh.gitbooks.io/parallel_processing/content/cython/function_pointer.html)
 * [Lecture Vid.](https://www.youtube.com/live/IJlYPH1ljIY?feature=share&t=9587)
-![](https://hackmd.io/_uploads/BJlVKMiO2.png)
+![](/assets/posts/Simple Reverse - 0x03(Lab - Why)/BJlVKMiO2.png)
 
 ## Source Code
 IDA main function

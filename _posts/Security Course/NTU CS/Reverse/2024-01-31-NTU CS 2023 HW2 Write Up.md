@@ -15,10 +15,10 @@ Flag: `FLAG{h311O_revers1ng_3ngineer5}`
 ### 解題流程與思路
 這一題主要是練習如何把如何把bytes變成字串:
 1. 可以先把bytes的型別定義好(單獨的bytes變成array)，變成array有兩種方法，第一種是直接用`Y`定義他的型別成`int dword_2008[32]`，前面的int就看每一個字元是來決定，後面`[32]`就代表有多少字元變成array；第二種方法就是直接按`d`改變一個字元的型態變成int，然後在`edit/Array`的地方可以叫出`Convert to array`的視窗(如果前面沒有先用`d`改變型態的話，他會以為所有字元都是一個byte，然後總共有128個字元這樣換算，但其實我們是總共32個字元，每一個字元是4個bytes，也就是int，這一點要特別注意)
-    ![](https://hackmd.io/_uploads/HJ3yvI-Ga.png)
-    ![](https://hackmd.io/_uploads/r1A_8LWMa.png)
+    ![](/assets/posts/NTU CS 2023 HW2 Write Up/HJ3yvI-Ga.png)
+    ![](/assets/posts/NTU CS 2023 HW2 Write Up/r1A_8LWMa.png)
 2. 接著就是在`Option/String literals`視窗中設定用哪一個型態表示字串，這邊因為每一個字元都是4 bytes，也就是32 bits，所以選擇C-style
-    ![](https://hackmd.io/_uploads/SyQBP8Zfp.png)
+    ![](/assets/posts/NTU CS 2023 HW2 Write Up/SyQBP8Zfp.png)
 
     ```
     .rodata:0000000000002008 unk_2008 db  46h ; F                    ; DATA XREF: main+8↑o
@@ -388,8 +388,8 @@ Flag: `FLAG{462fe0007f86957f59824e113f78947c}`
 1. 進到`sub_140001BF0`之後可以先觀察`sub_140001870`，前面有source code可以看到他正在比對`byte_140005040`的前面兩個字元是不是等於`MZ`，也就是一支PE file的magic header，並且又比對了後面0x18的位置是不是等於0x20B，也就是另外一個magic header(用來判斷該程式是否可於64-bits運行)，由以上操作幾乎可以確定駭客把真正的程式(可能是惡意的)塞在正常的PE file中
     
     如果只是要解題的話，到這邊就可以了，只要利用前一題學到的把`byte_140005040`改變他的type，變成`char[72770]`，再用Shift+E，把raw data export出來，丟到[online md5 checksum](https://emn178.github.io/online-tools/md5_checksum.html)，就可以得到這支檔案的hash(`462fe0007f86957f59824e113f78947c`)
-    ![](https://hackmd.io/_uploads/SJoeiepGT.png)
-    ![](https://hackmd.io/_uploads/rk7SigpGp.png)
+    ![](/assets/posts/NTU CS 2023 HW2 Write Up/SJoeiepGT.png)
+    ![](/assets/posts/NTU CS 2023 HW2 Write Up/rk7SigpGp.png)
 
 ## Lab-Clipboard Stealer 5 -- sub_140001C80
 Flag: `FLAG{C2_cU540m_Pr0t0C01}`
@@ -427,18 +427,18 @@ Flag: `FLAG{C2_cU540m_Pr0t0C01}`
     ```
 2. `send_collected_data_to_c2`
     1. 先切分程式碼的功能
-        ![](https://hackmd.io/_uploads/rkci81Aza.png)
+        ![](/assets/posts/NTU CS 2023 HW2 Write Up/rkci81Aza.png)
         有時候通靈不一定很準，所以要適時的回頭檢查自己的猜測
     2. 前四行初始化的階段(malloc 0x4c然後塞三個dword)，應該是作者自定義的結構，可以利用Structures，自定義一個新的結構，大小就是0x4C，然後前三個可以定義為dd，並且把v4的結構改成packet(按Y)
-        ![](https://hackmd.io/_uploads/ByQtqk0Mp.png)
+        ![](/assets/posts/NTU CS 2023 HW2 Write Up/ByQtqk0Mp.png)
     3. 各種rename
         * field_0看起來像是一個magic bytes，因為一開始附值之後，傳送過去server，再接收回來的packet也是有做驗證的動作，所以看起來是一個verification magic
         * field_8看起來就是接收來自server下達的command
         * field_C就比較多元，在case 1的時候是當作承接server給的encryption key(大小是8個bytes)，但在case 2是當作加密的cipher(大小是0x18個bytes)，所以我取名`enc_key_or_data`，另外大小是0x18(可以從memcpy的大小看出來)，所以可以按Y改變型別成`char[0x18]`
 
     目前整體的流程
-    ![](https://hackmd.io/_uploads/HJJB7gCf6.png)
-    ![](https://hackmd.io/_uploads/BkHSXeCM6.png)
+    ![](/assets/posts/NTU CS 2023 HW2 Write Up/HJJB7gCf6.png)
+    ![](/assets/posts/NTU CS 2023 HW2 Write Up/BkHSXeCM6.png)
     
     ---
     4. 分析pcap
@@ -512,7 +512,7 @@ Flag: `FLAG{just_4_simple_unpackme_challenge!}`
     5. 再把我們想要得知的那一行的offset加回來
     
     ---
-    ![圖片.png](https://hackmd.io/_uploads/Hk8-l9XXa.png)
+    ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/Hk8-l9XXa.png)
     一開始的offset是0x5888
     ```bash
     gef➤  starti
@@ -579,7 +579,7 @@ Flag: `FLAG{just_4_simple_unpackme_challenge!}`
     gef➤  dump memory real_file 0x00007ffff7ff8000 0x00007ffff7ffd000
     ```
 4. 開始分析real_file，先用靜態看一下(如source code所示)
-    ![圖片.png](https://hackmd.io/_uploads/BylZUq7X6.png)
+    ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/BylZUq7X6.png)
 5. 找到我們要停的地方的offset → `0x1213`
     ```bash
     gef➤  x/10i 0x00007ffff7ff8000+0x1213
@@ -623,20 +623,20 @@ Flag: `FLAG{e6b77096375bcff4c8bc765e599fbbc0}`
 1. main function中可以直接看到下面一點的地方，上面只是一些初始化，不用管他，真正在import embedded payload或是進行攻擊的地方在下面的NetworkConfig_1DBB
 2. 說是network config其實和網路操作沒啥屁毛關係，只是前期分析的時候看到有InternetOpen相關的API就先這樣寫，再加上他給了一個https開頭的strings，但看了一圈其實只是scramble過後的payload再加上https，所以其實也和連線沒關係。簡單說一下這一段，詳細可以看一下前面MSDN的background，`InternetOpenUrlA`中帶的`0x84000000`，我看[csdn分析WannaCry的文章](https://blog.csdn.net/qq_43667823/article/details/129952684)表示，是INTERNET_FLAG_RELOAD + INTERNET_FLAG_NO_CACHE_WRITE的結果，也就是從server端拉資料下來，然後不會把結果存到cache中，但這一切我認為都是為了混淆reverse的人，因為`InternetOpenUrl`會對給予的`szUrl`進行連線，有成功的話才會進到if-statement，但他遠永不會成功，因為仔細看`szUrl`其實是`http://M17H+G+4FzeJ69F5.*f)vfquhvnv)*fwdhud)*vf)lpktud)*lj)4)*uk)',27h,'Lpfwjvjcu)Rpkejrv)Tyehu'`，所以直接分析下面的部分就好
 3. 進到part 1的地方先看到一個for loop，那個就是在還原scramble url的部分，還原的結果是`Microsoft Update`，接著下面會把path combine在一起，並且創一個folder，並設定屬性為`FILE_ATTRIBUTE_ARCHIVE` + `FILE_ATTRIBUTE_SYSTEM` + `FILE_ATTRIBUTE_HIDDEN`，所以必須把file explorer的隱藏系統檔案的選項取消，才看得到
-    ![圖片.png](https://hackmd.io/_uploads/rJUGKcO7T.png)
+    ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/rJUGKcO7T.png)
     接著下面的nested if statement有點迷，基本上第一次執行一定會直接進到最後的else，因為基本上`lpFilename`剛創好空間，本身應該沒東西，所以`MoveFile`當然不會成功，接著就進到最後的`ImportantPart`了
 4. 持續跟進會先進到`NextStatePayload`，這一段有個小地方可以注意，也就是`(unsigned int)off_140007088()`，這是個function pointer，主要做的事情就是`isDebuggerPresent`，所以如果有使用x64dbg的話要記得開Scylla Hide的Anti Anti Debugger，這樣才會進到if statement去取得embedded pe file(雖然就算不設定，第二個判斷式也應該會是true才對)
-    ![圖片.png](https://hackmd.io/_uploads/rJw_q5OXa.png)
+    ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/rJw_q5OXa.png)
 5. 終於進到最關鍵的部分了，首先一開始遇到的function其實就是在還原embedded pe file，主要的操作是先取得resource → `00007ff7f219b048`
-    ![圖片.png](https://hackmd.io/_uploads/BJM9hq_Xp.png)
+    ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/BJM9hq_Xp.png)
     再藉由`LoadResource`取得真正的resource → `00007ff7f219b058`
     然後取得該resource的大小 → `0x1ca00`
     
     * 最重要的部分就是每兩個byte都進行XOR `0x8711`的動作，直到`0x1ca00`都做完，這一部分就是解密embedded pe file，解密完可以很明顯看到`MD`這個magic signature
-        ![圖片.png](https://hackmd.io/_uploads/Bk0nGouQ6.png)
+        ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/Bk0nGouQ6.png)
     * 因此只要利用Scylla把這一部分的memory dump出來再拿去md5 file取得hash就可以了
-        ![圖片.png](https://hackmd.io/_uploads/S1CGXjum6.png)
-        ![圖片.png](https://hackmd.io/_uploads/H1JEmjOXa.png)
+        ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/S1CGXjum6.png)
+        ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/H1JEmjOXa.png)
 
 ## HW-Baby Ransom 2
 Flag: `FLAG{50_y0u_p4y_7h3_r4n50m?!hmmmmm}`
@@ -676,12 +676,12 @@ Flag: `FLAG{50_y0u_p4y_7h3_r4n50m?!hmmmmm}`
         struct ustring* keyPointer
     );
     ```
-    ![圖片.png](https://hackmd.io/_uploads/SktO1q9X6.png)
+    ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/SktO1q9X6.png)
     1. 執行這行之前，跟一下他的資料結構，首先前4 bytes是代表大小，後4 bytes代表maximum length，後8 bytes代表該資料的pointer
     2. 第一個parameter就是要加密的檔案，大小就是0x11，儲存在`0x214E5567710`，所以要加密的明文是`FLAG{test_134567}`
-        ![圖片.png](https://hackmd.io/_uploads/HJMYeqcXp.png)
+        ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/HJMYeqcXp.png)
     3. 第二個parameter就是加密所需要的key，大小是0x8，位置是`0x324E556613F`，所以加密所需的key是`2F 37 32 38 33 33 31 33`
-        ![圖片.png](https://hackmd.io/_uploads/S1Oagqc76.png)
+        ![圖片.png](/assets/posts/NTU CS 2023 HW2 Write Up/S1Oagqc76.png)
 5. 既然已經知道所有的流程就直接使用線上工具解密即可
 
 ## HW-Evil FlagChecker
@@ -692,13 +692,13 @@ Flag: `FLAG{jmp1ng_a1l_ar0und}`
 
 1. 一樣由上而下，首先會先進到sleep睡眠兩分鐘，並且判斷進到下一行的時候，時間是否在範圍內，這也是time based的anti debugging手法，這部分可以動態直接patch掉
     * Patch Sleep Function Result
-        ![圖片](https://hackmd.io/_uploads/SkPJKTiN6.png)
-        ![圖片](https://hackmd.io/_uploads/ByKlFaiN6.png)
+        ![圖片](/assets/posts/NTU CS 2023 HW2 Write Up/SkPJKTiN6.png)
+        ![圖片](/assets/posts/NTU CS 2023 HW2 Write Up/ByKlFaiN6.png)
 2. 接著會進到loc_401AE0，這部分應該是一個function但不知道為甚麼IDA翻譯不出來，不過看了一下source code也是蠻簡單的，就是一直跳到`sub_401220`，這個在動態也可以patch
     * Patch Anti-Debug Result
-        ![圖片](https://hackmd.io/_uploads/r15VqajVa.png)
+        ![圖片](/assets/posts/NTU CS 2023 HW2 Write Up/r15VqajVa.png)
 3. `sub_401220`主要是在其他anti debug的部分，具體怎麼做不是很清楚，只知道大概是和exception handler有關係，不過我在開了scylla hide之後沒有出現甚麼特別的事情
-    ![圖片](https://hackmd.io/_uploads/rySec6jN6.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW2 Write Up/rySec6jN6.png)
 4. 接著會進到`sub_401170`，這一段蠻重要的，就是處理一些Exception Handler的事情，然後莫名其妙的會進到0x40120F中的`InputFlag_Check`，中間的一些操作可能是被scylla hide擋掉了，不過中間也確實有檢察`IsDebuggerPresent`這東西
 5. 到了這邊就可以大膽猜測一些常見的操作，諸如scanf或是printf的function，接著我們會進到check這個function，也就是實際把我們的輸入，進行cipher操作後和內部的data bytes進行對比的過程
 6. 所以到了這邊一切都很明瞭了，主要的code如下

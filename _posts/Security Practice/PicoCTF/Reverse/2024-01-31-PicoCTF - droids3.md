@@ -57,7 +57,7 @@ $ java -jar uber-apk-signer-1.3.0.jar --apks three_new.apk
 ```
 3. Android Studio安裝並執行
 最後就直接在android studio執行emulator然後灌已經修改過的apk就好了，此時隨便輸入一些東西，就會噴flag
-![](https://hackmd.io/_uploads/Hk3kHQbeT.png)
+![](/assets/posts/PicoCTF - droids3/Hk3kHQbeT.png)
 
 Flag: `picoCTF{tis.but.a.scratch}`
 

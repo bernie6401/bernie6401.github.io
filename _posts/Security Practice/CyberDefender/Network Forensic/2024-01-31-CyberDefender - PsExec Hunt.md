@@ -19,7 +19,7 @@ date: 2024-01-31
 我判斷的方式很簡單，就直接從endpoints看封包數量，選最多或是前幾多的IP就對了
 
 ### Exploit
-![](https://hackmd.io/_uploads/SJA8VgrM6.png)
+![](/assets/posts/CyberDefender - PsExec Hunt/SJA8VgrM6.png)
 
 Flag: `10.0.0.130`
 
@@ -28,14 +28,14 @@ Flag: `10.0.0.130`
 
 ### Recon
 這一題找超久，題目要找到攻擊者所轉向的電腦主機名稱，首先聚焦在問題中提到的hostname，我一直以為是Browser的host name，但看起來他不是這個意思
-![](https://hackmd.io/_uploads/B16zT8BfT.png)
+![](/assets/posts/CyberDefender - PsExec Hunt/B16zT8BfT.png)
 我先用export看他哪時候把psexec放到該主機上，可見最早放到主機上的時間是packet #192，所以直覺應該是往前找，畢竟要先把該主機compromised才能做後續的操作
-![](https://hackmd.io/_uploads/HyGEC8Hza.png)
+![](/assets/posts/CyberDefender - PsExec Hunt/HyGEC8Hza.png)
 
 ### Exploit
 慢慢找會發現packet #131的target name字數剛好和答案相同，不過也和一開始的猜想大致相同，也就是*-PC代表hostname
 Filter: `ntlmssp.challenge.target_name == "SALES-PC"`
-![](https://hackmd.io/_uploads/BJHgP-rz6.png)
+![](/assets/posts/CyberDefender - PsExec Hunt/BJHgP-rz6.png)
 
 Flag: `SALES-PC`
 
@@ -44,7 +44,7 @@ Flag: `SALES-PC`
 
 ### Recon
 這一題是找最久的，因為沒有和前面連起來，不然其實應該很快就找到，如果把filter去掉，然後看packet #131左右的其他packet會發現NTLM的authentication user name，這就是這一題的答案，我找到最後還想說用regular expression dump出英文字母六碼的所有結果，最後當然也是沒有然後
-![](https://hackmd.io/_uploads/SkPvZDrGT.png)
+![](/assets/posts/CyberDefender - PsExec Hunt/SkPvZDrGT.png)
 
 Flag: `ssales`
 
@@ -86,6 +86,6 @@ Flag: `IPC$`
 
 ### Exploit
 要注意的是，NTLM中的NetBIOS Domain Name貌似和SMB2 Host是不一樣的，NTLM中的domain name應該是連接smb的那台主機所處的domain name為何，而smb2 host應該是被連接的那台機器所處的domain，可能是一台印表機之類的，這樣想就蠻合理的，而題目要我們找的是ntlm domain的hostname
-![](https://hackmd.io/_uploads/BJkUUvHMT.png)
+![](/assets/posts/CyberDefender - PsExec Hunt/BJkUUvHMT.png)
 
 Flag: `MARKETING-PC`

@@ -86,7 +86,7 @@ LOAD:0000000000005B10 dq 4DF5FF6EDFFE02FFh, 5E57370FFFBAFC29h, 50F58596AED7B8Ch,
     5. 再把我們想要得知的那一行的offset加回來
     
     ---
-    ![圖片.png](https://hackmd.io/_uploads/Hk8-l9XXa.png)
+    ![圖片.png](/assets/posts/Simple Reverse - 0x29(2023 Lab - Unpackme)/Hk8-l9XXa.png)
     一開始的offset是0x5888
     ```bash
     gef➤  starti
@@ -157,7 +157,7 @@ LOAD:0000000000005B10 dq 4DF5FF6EDFFE02FFh, 5E57370FFFBAFC29h, 50F58596AED7B8Ch,
     {%endraw%}
 
 4. 開始分析real_file，先用靜態看一下(如source code所示)
-    ![圖片.png](https://hackmd.io/_uploads/BylZUq7X6.png)
+    ![圖片.png](/assets/posts/Simple Reverse - 0x29(2023 Lab - Unpackme)/BylZUq7X6.png)
 
 5. 找到我們要停的地方的offset → `0x1213`
     ```bash

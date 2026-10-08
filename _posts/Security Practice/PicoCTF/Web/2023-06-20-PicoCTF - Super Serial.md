@@ -20,7 +20,7 @@ date: 2023-06-20
 這一題設了太多套路了，但從題目的Title可以猜到應該要用不安全的反序列化
 1. robot.txt
 一開始會從這邊開始著手就是因為假的source code啥都沒有，本來也以為是`sqli`，但也沒收穫，看了WP才知道要從這邊開始，可以看到以下訊息，但副檔名居然不是一般的php而是phps(而且`/admin.phps`沒有任何東西)，可見php是個幌子，則前面的source code就要重新分析
-![](https://hackmd.io/_uploads/BkcThh0Pn.png)
+![](/assets/posts/PicoCTF - Super Serial/BkcThh0Pn.png)
 
 2. index.phps
 用index.phps查看source code發現有一些其他怪東西，包括`authentication.phps`和`cookie.php`
@@ -266,7 +266,7 @@ if(isset($_COOKIE["login"])){
     TzoxMDoiYWNjZXNzX2xvZyI6MTp7czo4OiJsb2dfZmlsZSI7czo3OiIuLi9mbGFnIjt9
     ```
 2. 建一個cookie然後access authentication.phps
-![](https://hackmd.io/_uploads/ByM5qVkdh.png)
+![](/assets/posts/PicoCTF - Super Serial/ByM5qVkdh.png)
 
 Flag: `picoCTF{th15_vu1n_1s_5up3r_53r1ous_y4ll_405f4c0e}`
 

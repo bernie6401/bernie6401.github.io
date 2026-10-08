@@ -38,7 +38,7 @@ date: 2024-01-31
 ## Most Recently Used(MRU) Background
 就是泛指各種windows存取使用者最近access過的檔案、路徑或網路位置，是一種行為，攻防兩端都會注意的地方
 * Overview
-    ![](https://hackmd.io/_uploads/rk1zs9mfT.png)
+    ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - Windows Artifacts/rk1zs9mfT.png)
 * 攻擊者會留下的足跡: `.lnk`, `Jump List`, `User Assist Registry`, `Prefetch`，如果攻擊者想要植入惡意程式，鑑識可以從以上四個地方看出這個intention
     * `Jump List`就有點像是一個shortcut，可以跳到某個地方執行或開啟something
     * `User Assist Registry`

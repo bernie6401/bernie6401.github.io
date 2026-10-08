@@ -15,12 +15,12 @@ date: 2024-01-31
 1. Simple Recon
     
     首先做一些基本的recon，諸如dump files/string search/follow tcp or udp之類的，會發現UDP packets會有一些訊息出現，其中出現Start和一些a/b最後接著end
-    ![](https://hackmd.io/_uploads/rkASlUD02.png)
-    ![](https://hackmd.io/_uploads/BkxFgLPRn.png)
+    ![](/assets/posts/PicoCTF - shark on wire 2/rkASlUD02.png)
+    ![](/assets/posts/PicoCTF - shark on wire 2/BkxFgLPRn.png)
 2. Set filter as `udp.port==22`
     
     會發現其中所有的len都一樣，就只有source port不一樣，同樣都是5xxx開頭，而後三位數就是flag
-    ![](https://hackmd.io/_uploads/BJq71UvC2.png)
+    ![](/assets/posts/PicoCTF - shark on wire 2/BJq71UvC2.png)
 3. Extract Flag
     
     所以只要把所有的port擷取出來拚在一起，就可以拿到flag了

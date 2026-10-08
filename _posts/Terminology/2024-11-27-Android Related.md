@@ -126,7 +126,7 @@ date: 2024-11-27
     > * Android目前支持以下七種ABI：`armeabi`, `armeabi-v7a`, `arm64-v8a`, `x86, x86_64`, `mips`, `mips64`。
     > ###  Android中的ABI與CPU
     > 每種CPU架構都有其自己支持的ABIs。可通過Build.SUPPORTED_ABIS得到根據偏好排序的設備支持的ABI列表。
-    > ![圖片](https://hackmd.io/_uploads/H1fGDz_SC.png)
+    > ![圖片](/assets/posts/Android Related/H1fGDz_SC.png)
 
 * ARM64 VS aarch64
     
@@ -137,7 +137,7 @@ date: 2024-11-27
     
     資料來源: [Deep Link教學 - 點擊網址開啟APP](https://codus.me/blog/app-musashi-deeplink.html)
     > 點擊網址開啟APP，就是 deep link，只要在APP上設定 url scheme即可。
-    > ![image-editor-GXBI2mtT2G157959888112324](https://hackmd.io/_uploads/BkMpvK7w0.jpg =200x)
+    > ![image-editor-GXBI2mtT2G157959888112324](/assets/posts/Android Related/BkMpvK7w0.jpg =200x)
 
     更準確的說，deeplink在做的事情是實現跨App之間的跳轉，資料來源: [Android App Links 設定心得筆記](https://louis383.medium.com/android-app-links-設定心得筆記-6bd8ab212297)
 

@@ -58,7 +58,7 @@ e2467cbf021192c241367b892230dc1e05c0580e
 * Info Hash: `e2467cbf021192c241367b892230dc1e05c0580e`
 * File Name: `ubuntu-19.10-desktop-amd64.iso`
 * Flag: `picoCTF{ubuntu-19.10-desktop-amd64.iso}`
-    ![](https://hackmd.io/_uploads/BJ-y_mPxp.png)
+    ![](/assets/posts/PicoCTF - Torrent Analyze/BJ-y_mPxp.png)
 
 ## Reference
 [^pico-misc-torrent-analyze-almod-force]:[ picoGym (picoCTF) Exercise: Torrent Analyze ](https://youtu.be/XWQDnY2qaZg?si=LbdCmgY2zJG1e25z)

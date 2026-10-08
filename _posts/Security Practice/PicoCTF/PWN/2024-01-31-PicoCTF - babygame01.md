@@ -65,17 +65,17 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 1. Hint當中有提到金手指的操作，觀察source code當中的move_player function中可以按p可以直接跑到終點，這樣就可以不用這麼麻煩
 
 2. 可以看到main function中要使`win_var`達到非零才能夠進入win function，印出flag，所以看了別人的WP[^babygame01_WP]，可以讓player的位置覆蓋掉原本win_var的value，可以看一下在進入第一個getchar()之前stack的狀態
-    ![](https://hackmd.io/_uploads/SkeT2IAq3.png)
+    ![](/assets/posts/PicoCTF - babygame01/SkeT2IAq3.png)
 
 3. 往左邊走之後，user input就會放在\$esp+3的地方，而\$esp+4放y軸的座標，\$esp+8放x軸的座標，所以可想而知，win_var應該是放在\$esp+12的地方
-    ![](https://hackmd.io/_uploads/BkluaLCq2.png)
+    ![](/assets/posts/PicoCTF - babygame01/BkluaLCq2.png)
 
 4. 在座標零零的地方又往左邊走之後x座標會變成0xffffffff，而雖然\$esp+12還是0，但是可以看到$esp+15變成0x40也就是(`@`)這個字元的ascii，所以我們可以在往左邊走點
-    ![](https://hackmd.io/_uploads/H1GYCL0qh.png)
+    ![](/assets/posts/PicoCTF - babygame01/H1GYCL0qh.png)
 5. 現在win_var已經變成0x40了，所以player就有64個flag，此時就可以直接按p到達終點，拿到flag
-    ![](https://hackmd.io/_uploads/BkqVfwR9n.png)
-    ![](https://hackmd.io/_uploads/ryxwGP0ch.png)
-    ![](https://hackmd.io/_uploads/Hy0qMD0q3.png)
+    ![](/assets/posts/PicoCTF - babygame01/BkqVfwR9n.png)
+    ![](/assets/posts/PicoCTF - babygame01/ryxwGP0ch.png)
+    ![](/assets/posts/PicoCTF - babygame01/Hy0qMD0q3.png)
 
 
 

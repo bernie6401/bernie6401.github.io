@@ -151,7 +151,7 @@ print(r.recvline().decode().strip())
 1. 首先我們手上可控的地方，就是key/iv/ciphertext，一開始的想法是，由於此次的flag是一張png，所以一開始的magic header一定都一樣，所以可以透過這個magic header推測出IV是多少，但這樣的作法卻沒辦法知道key，所以這個方法行不通
 
 2. 正確的作法是控制key/iv，變成自己設定的東西，然後試圖加密plaintext(同樣也是自己設定)，然後把自己設定的ciphertext/key以及原本題目給的encrypted_key或是encrypted_iv丟到oracle，要解密的部分(也就是encrypted_key/encrypted_iv)就當作是iv的部分輸入，這樣神奇的操作如下圖所示
-![](https://hackmd.io/_uploads/Skm6TWheT.jpg)
+![](/assets/posts/Simple Crypto - 0x07(2023 HW - Oracle)/Skm6TWheT.jpg)
 3. 為甚麼這樣可以解出我們想要解的東西?那就要取決於如何控制plaintext/iv，key可以隨便控，而plaintext則是從零開始，iv也是全部都是零，這樣的好處是pt用AES加密前的部份是我們知道的，換句話說，在解密的時候和iv XOR前的數值也是知道的，此時我們可以從oracle output知道padding正確與否，我們又知道和iv XOR的數值是多少，則我們一定可以利用POA的方式推出原本的IV是多少
 4. 舉個例子
 若
@@ -415,7 +415,7 @@ open("./Crypto/HW/Oracle/decrypted_flag.png", "wb").write(pt)
 :::
 
 :::spoiler Flag
-![](https://hackmd.io/_uploads/rJCvm-nga.png)
+![](/assets/posts/Simple Crypto - 0x07(2023 HW - Oracle)/rJCvm-nga.png)
 Flag: `FLAG{Rea11yu5efu110rac1eisntit?}`
 :::
 SpeedUp的意思是只考慮一個byte只有一種可能的結果，換句話說，256種可能中只有唯一解，而另外一個script就考慮的比較全面了，有可能在256種結果中，有另外一種可能導致padding正確(雖然機率很低)

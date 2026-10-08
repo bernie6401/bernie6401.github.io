@@ -45,7 +45,7 @@ Attack Surface:
     dz> run app.activity.start --component <app package name> <activity name fetched by above command>
     ```
     此時會看到手機啟動Sieve App，並且原本應該是需要password才能access的activity，居然可以直接bypass
-    ![Screenshot_20240603-163856](https://hackmd.io/_uploads/rkrr-ZsNA.png =200x)
+    ![Screenshot_20240603-163856](/assets/posts/Drozer Cheat Sheet/rkrr-ZsNA.png =200x)
 
 ### services exported
 和上面的問題差不多，只是差在被export的是services

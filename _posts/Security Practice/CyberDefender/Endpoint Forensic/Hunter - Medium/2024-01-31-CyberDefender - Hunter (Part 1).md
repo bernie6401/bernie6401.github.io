@@ -33,11 +33,11 @@ Registry Explorer
 
 ### Exploit
 如果要知道電腦名稱，可以先從`/root/Windows/System32/config/`中找到`SYSTEM`這個檔案，它裡面紀錄了很多registry
-![](https://hackmd.io/_uploads/H18pCZLGp.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/H18pCZLGp.png)
 其中有一個叫做computer name就紀錄本機器的名稱，先把該檔案export出來，再利用registry explorer看裡面的東西，就在`/ControlSet001/Control/ComputerName/ComputerName`
-![](https://hackmd.io/_uploads/By_UkfLfa.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/By_UkfLfa.png)
 其實這個檔案就對應到自己電腦中的`電腦\HKEY_LOCAL_MACHINE\SYSTEM`這個檔案，也可以在依照原本的路徑找到自己電腦的名稱
-![](https://hackmd.io/_uploads/SJLkWz8G6.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/SJLkWz8G6.png)
 
 
 Flag: `4ORENSICS`
@@ -47,17 +47,17 @@ Flag: `4ORENSICS`
 
 ### Exploit
 在同樣的檔案也可以找到這個資訊，就在`\ControlSet001\Services\Tcpip\Parameters\Interfaces\`中可以看到這一題的答案是DhcpIPAddress=`10.0.2.15`
-![](https://hackmd.io/_uploads/B10tmMIG6.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/B10tmMIG6.png)
 如果在自己的電腦看得話，也可以找到一樣的東西，不過數量有點多，是因為我有裝VMware/VirtualBox/WSL，而每一個都有自己對應的虛擬網卡，就會需要很多不同的機碼，可以搭配command的ipconfig
 
 和自己電腦做對照
-![](https://hackmd.io/_uploads/ry6hNGUfp.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/ry6hNGUfp.png)
 
-![](https://hackmd.io/_uploads/rk0ySMLzT.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/rk0ySMLzT.png)
 
-![](https://hackmd.io/_uploads/HyPmBfLzT.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/HyPmBfLzT.png)
 
-![](https://hackmd.io/_uploads/B1J2HzLza.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/B1J2HzLza.png)
 
 
 Flag: `10.0.2.15`
@@ -70,7 +70,7 @@ Flag: `10.0.2.15`
 
 ### Exploit
 也是在同樣的Hive file就可以看到相關的訊息，轉換的方式很簡單，可以直接用datatime這個library或是用[線上工具](https://www.unixtimestamp.com/)，參數就在`\ControlSet001\Services\Tcpip\Parameters\Interfaces\`
-![](https://hackmd.io/_uploads/HkL6N7UG6.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/HkL6N7UG6.png)
 
 ```python
 >>> time = 1466475852
@@ -108,7 +108,7 @@ Flag: `21/06/2016 02:24:12 UTC`
 
 ### Exploit
 在`\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\`，同樣的，`SOFTWARE`也是對應到自己電腦的`電腦\HKEY_LOCAL_MACHINE\SOFTWARE`
-![](https://hackmd.io/_uploads/ByJHnmUzp.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/ByJHnmUzp.png)
 
 和自己電腦做對照
 利用psGetSid.exe這個微軟提供的工具可以知道自己這一台電腦(帳號)的SID為何
@@ -122,7 +122,7 @@ Sysinternals - www.sysinternals.com
 SID for \\BERNIE-DESKTOP:
 S-1-5-21-1994825736-962948173-1409654112
 ```
-![](https://hackmd.io/_uploads/BkEihXIza.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/BkEihXIza.png)
 
 Flag: `S-1-5-21-2489440558-2754304563-710705792`
 
@@ -131,7 +131,7 @@ Flag: `S-1-5-21-2489440558-2754304563-710705792`
 
 ### Exploit
 在`\SOFTWARE\Microsoft\Windows NT\CurrentVersion`中可以看到
-![](https://hackmd.io/_uploads/HJTB0mLfT.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/HJTB0mLfT.png)
 
 Flag: `8.1`
 
@@ -140,10 +140,10 @@ Flag: `8.1`
 
 ### Exploit
 主要是在`\SYSTEM\ControlSet001\Control\TimeZoneInformation`中，可以看到他的時區是Pacific Standard Time，根據[時區換算](https://redbean101.pixnet.net/blog/post/36971406)的說明，有兩種轉換若有考慮夏令時間就是UTC-7，如果沒有就是UTC-8
-![](https://hackmd.io/_uploads/B1Yf4NLGT.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/B1Yf4NLGT.png)
 
 和自己的電腦照
-![](https://hackmd.io/_uploads/HJQ2N4Lfp.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/HJQ2N4Lfp.png)
 可以看到是Taipei Standard Time，也就是UTC+08:00
 
 Flag: `UTC-07:00`
@@ -155,7 +155,7 @@ Flag: `UTC-07:00`
 [二刀流Windows日誌分析　精準掌握資安蛛絲馬跡](https://www.netadmin.com.tw/netadmin/zh-tw/technology/84E5EAA4BC494BB6A4B15607E62418A0)
 
 Event Log在`/root/Windows/System32/winevt/Logs/`中
-![圖片.png](https://hackmd.io/_uploads/H1p5uJ4Q6.png)
+![圖片.png](/assets/posts/CyberDefender - Hunter (Part 1)/H1p5uJ4Q6.png)
 
 ### Recon
 看到題目需要知道使用者操作，直覺會想到稽核的log紀錄，所以可以先把evtx檔案dump出來
@@ -167,7 +167,7 @@ Event Log在`/root/Windows/System32/winevt/Logs/`中
 $ EvtxECmd.exe -f Security.evtx --csv out
 ```
 用timeline explorer觀察一下整體的payload，會發現#text就是前面找到的SID，所以我們的filter自然就可以先設定Hunter這個username，然後我也不知道為啥，event ID的filter居然不是設定4624，而是設定4672，查了一下[MSDN](https://learn.microsoft.com/zh-tw/windows/security/threat-protection/auditing/event-4672)，看起來應該是一個具有更高權限的登入紀錄，不過我還是覺得這一題出的不好，因為如果只是單單看logon的次數，用4624也說得通
-![](https://hackmd.io/_uploads/r1S1vpLzT.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/r1S1vpLzT.png)
 
 Flag: `3`
 
@@ -176,7 +176,7 @@ Flag: `3`
 
 ### Exploit
 呈上題
-![](https://hackmd.io/_uploads/HkS4upIMa.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/HkS4upIMa.png)
 
 Flag: `2016-06-21 01:42:40`
 
@@ -234,7 +234,7 @@ Flag: `zenmap.exe,2016-06-21 12:08:13 UTC`
 97: \DEVICE\HARDDISKVOLUME2\USERS\HUNTER\.ZENMAP\ZENMAP_VERSION
 ```
 其他可能有一些原因導致資料遺失，所以感覺上這個路徑會有一些資訊可以撈
-![](https://hackmd.io/_uploads/BJMH0DDMT.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/BJMH0DDMT.png)
 大概看過一遍之後發現他的target是`scanme.nmap.org`，結果的路徑會放在`recent_scans.txt`中 → `C:\Users\Hunter\Desktop\nmapscan.xml`，實際去翻了一下發現真的有一些重要資訊
 
 ### Exploit
@@ -342,7 +342,7 @@ Nmap done: 1 IP address (1 host up) scanned in 87.13 seconds
 </output><host comment=""><status state="up"></status><address addrtype="ipv4" vendor="" addr="45.33.32.156"></address><hostnames><hostname type="user" name="scanme.nmap.org"></hostname><hostname type="PTR" name="scanme.nmap.org"></hostname></hostnames><ports><extraports count="994" state="closed"></extraports><port protocol="tcp" portid="22"><state reason="syn-ack" state="open" reason_ttl="64"></state><service product="OpenSSH" name="ssh" extrainfo="Ubuntu Linux; protocol 2.0" version="6.6.1p1 Ubuntu 2ubuntu2.7" conf="10" method="probed"></service></port><port protocol="tcp" portid="25"><state reason="no-response" state="filtered" reason_ttl="0"></state><service method="table" conf="3" name="smtp"></service></port><port protocol="tcp" portid="26"><state reason="no-response" state="filtered" reason_ttl="0"></state><service method="table" conf="3" name="rsftp"></service></port><port protocol="tcp" portid="80"><state reason="syn-ack" state="open" reason_ttl="64"></state><service product="Apache httpd" name="http" extrainfo="(Ubuntu)" version="2.4.7" conf="10" method="probed"></service></port><port protocol="tcp" portid="9929"><state reason="syn-ack" state="open" reason_ttl="64"></state><service product="Nping echo" method="probed" conf="10" name="nping-echo"></service></port><port protocol="tcp" portid="31337"><state reason="syn-ack" state="open" reason_ttl="64"></state><service product="Ncat chat" extrainfo="users: nobody" method="probed" conf="10" name="ncat-chat"></service></port></ports><os><portused state="open" portid="22" proto="tcp"></portused><portused state="closed" portid="1" proto="tcp"></portused><portused state="closed" portid="37741" proto="udp"></portused><osmatch line="84526" name="QEMU user mode network gateway" accuracy="96"><osclass type="general purpose" osfamily="QEMU" vendor="QEMU" osgen="" accuracy="96"></osclass></osmatch><osmatch line="27173" name="GNU Hurd 0.3" accuracy="87"><osclass type="general purpose" osfamily="Hurd" vendor="GNU" osgen="" accuracy="87"></osclass></osmatch><osmatch line="2383" name="Allied Telesyn AT-9006SX/SC switch" accuracy="87"><osclass type="switch" osfamily="embedded" vendor="Allied Telesyn" osgen="" accuracy="87"></osclass></osmatch><osmatch line="8655" name="Bay Networks BayStack 450 switch (software version 3.1.0.22)" accuracy="87"><osclass type="switch" osfamily="embedded" vendor="Bay Networks" osgen="" accuracy="87"></osclass></osmatch><osmatch line="8673" name="Bay Networks BayStack 450 switch (software version 4.2.0.16)" accuracy="87"><osclass type="switch" osfamily="embedded" vendor="Bay Networks" osgen="" accuracy="87"></osclass></osmatch><osmatch line="11315" name="Cabletron ELS100-24TXM Switch or Icom IC-7800 radio transceiver" accuracy="87"><osclass type="specialized" osfamily="embedded" vendor="Icom" osgen="" accuracy="87"></osclass></osmatch><osmatch line="13078" name="Cisco Catalyst 1900 switch or RAD IPMUX-1 TDM-over-IP multiplexer" accuracy="87"><osclass type="switch" osfamily="embedded" vendor="RAD Data Communications" osgen="" accuracy="87"></osclass></osmatch><osmatch line="82858" name="Oracle Virtualbox" accuracy="87"><osclass type="bridge" osfamily="Virtualbox" vendor="Oracle" osgen="" accuracy="87"></osclass></osmatch><osmatch line="40192" name="TiVo series 1 (Sony SVR-2000 or Philips HDR112) (Linux 2.1.24-TiVo-2.5, PowerPC)" accuracy="86"><osclass type="media device" osfamily="embedded" vendor="Sony" osgen="" accuracy="86"></osclass></osmatch><osmatch line="37456" name="Konica Minolta 7035 printer" accuracy="86"><osclass type="printer" osfamily="embedded" vendor="Konica Minolta" osgen="" accuracy="86"></osclass></osmatch></os><uptime lastboot="" seconds=""></uptime><tcpsequence index="" values="" difficulty=""></tcpsequence><ipidsequence values="" class=""></ipidsequence><tcptssequence values="" class=""></tcptssequence><trace port="80" proto="tcp"><hop rtt="1.00" host="" ipaddr="10.0.2.2" ttl="1"></hop><hop rtt="1.00" host="scanme.nmap.org" ipaddr="45.33.32.156" ttl="2"></hop></trace></host><runstats><finished timestr="Tue Jun 21 05:12:09 2016" time="1466511129"></finished><hosts down="0" total="1" up="1"></hosts></runstats></nmaprun>
 ```
 如果覺得太冗又很難看可以丟到[online xml parser](https://jsonformatter.org/xml-parser)，就會看到結束的時間
-![](https://hackmd.io/_uploads/HkDbldPfT.png)
+![](/assets/posts/CyberDefender - Hunter (Part 1)/HkDbldPfT.png)
 
 Flag: `Tue Jun 21 05:12:09 2016`
 

@@ -55,7 +55,7 @@ Strings會放在`./res/values/strings.xml`
 
 ### JADX
 其實用jadx也可以直接反編譯，而且還有GUI可以看，不香ㄇ
-![](https://hackmd.io/_uploads/B1i_mB1xT.png)
+![](/assets/posts/PicoCTF - droids1/B1i_mB1xT.png)
 用JADX一樣可以在相同的地方找到code，只是這一些code已經被還原成java
 ```java!
 package com.hellocmu.picoctf;
@@ -74,12 +74,12 @@ public class FlagstaffHill {
 ```
 可以看到FlagstaffHill這個class有兩個member(fenugreek/getFlag)，所以看起來他會把我們輸入的東西和password這個variable做比較，如果一樣就會去call fenugreek(input)，否則回傳NOPE
 而password是從R.string.password來的，可以看到password的值是0x7f0b002f應該是一個offset?或是一個地址，不是很確定
-![](https://hackmd.io/_uploads/HJ3jNr1la.png)
+![](/assets/posts/PicoCTF - droids1/HJ3jNr1la.png)
 反正最後取strings的地方在`./Resource/resources.arsc/res/values/strings.xml`
-![](https://hackmd.io/_uploads/rkmrrSkea.png)
+![](/assets/posts/PicoCTF - droids1/rkmrrSkea.png)
 
 然後我們就可以利用Android Studio或是直接在自己的手機安裝這個apk，接著輸入password(opossum)就可以拿到flag了
-![](https://hackmd.io/_uploads/HyyTBByxp.png)
+![](/assets/posts/PicoCTF - droids1/HyyTBByxp.png)
 
 Flag: `picoCTF{pining.for.the.fjords}`
 

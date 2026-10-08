@@ -49,7 +49,7 @@ date: 2024-01-31
 3. Decode flag
     
     A lots of base64 encoding
-    ![](https://hackmd.io/_uploads/ryXdvQnK3.png)
+    ![](/assets/posts/CrewCTF - Encrypt10n(Part 2)/ryXdvQnK3.png)
 
 4. Unmount & Delete
     ```bash

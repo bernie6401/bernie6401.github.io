@@ -12,10 +12,10 @@ date: 2024-01-31
 ## Recon
 這一題有點奇怪，沒有想像中簡單，看起來就是一個簡單的return 2 function的問題，但是看了objdump的flag function原本應該是0x401236，但是會友segmentation fault，看了其他的WP[^x_sixty_what_WP]，發現應該return到0x40123b，不太知道為甚麼
 * 第一張是return 2 0x401236
-![](https://hackmd.io/_uploads/Bk2PZ_0ch.png)
+![](/assets/posts/PicoCTF - x-sixty-what/Bk2PZ_0ch.png)
 
 * 第二張是return 2 0x40123b
-    ![](https://hackmd.io/_uploads/SymO-uAqn.png)
+    ![](/assets/posts/PicoCTF - x-sixty-what/SymO-uAqn.png)
 
 ## Exploit
 1. 用動態的方式看offset

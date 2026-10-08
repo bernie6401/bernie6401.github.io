@@ -141,9 +141,9 @@ int main(void)
 
 ### 前置作業: Leak Libc Address
 關於這一點可以參考[如何用UAF leak libc address?]({{base.url}}/Simple-PWN-0x38(Lab-UAF)#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-libc-address)，方法都一樣，首先要想辦法讓free chunk進到unsorted bin中(最簡單的方法就是設定超過0x410的空間)，接著因為malloc的時候沒有實作清空原本的資料，導致我們可以leak其中有關libc section的資訊。底下的設定意思是我們先設定三個notes，#14的意思是不要讓#13被free掉的時候被consolidate用的，接著我們把前兩個free掉，結果如下
-![image](https://hackmd.io/_uploads/r14opZfL6.png)
+![image](/assets/posts/Simple PWN - 0x39(Lab - Double Free)/r14opZfL6.png)
 會發現#12和#13被consolidate在一起了，接著我們看其中的一些資訊
-![image](https://hackmd.io/_uploads/SJwX0-GIT.png)
+![image](/assets/posts/Simple PWN - 0x39(Lab - Double Free)/SJwX0-GIT.png)
 裡面確實存著libc相關的資訊，接著只要把這一塊chunk malloc出去給隨便一個note，接著讀其中的資料就可以讀出libc address了
 ```python
 add_note(12, 0x420)
@@ -167,7 +167,7 @@ r.recv(0x420 - 0x8)
 
 ### 方法一: Double Fee
 有了libc address後，我們要想辦法把system address寫到`__free_hook`的位置，如果是要用double free的方法的話可以參考上課的講義:
-![image](https://hackmd.io/_uploads/SJNM1Mf8T.png)
+![image](/assets/posts/Simple PWN - 0x39(Lab - Double Free)/SJNM1Mf8T.png)
 
 最簡單的方法是，我把tcache填滿(一定要)，然後用free(a)→free(b)→free(a)的順序產生double free
 ```python
@@ -182,19 +182,19 @@ del_note(9)
 del_note(8)
 ```
 此時的heapinfo會變成:
-![image](https://hackmd.io/_uploads/H1GGgGM86.png)
+![image](/assets/posts/Simple PWN - 0x39(Lab - Double Free)/H1GGgGM86.png)
 
 接著我們把tcache清空後再繼續add_note就會把fastbin的free chunk搬到tcache中
 ```python
 add_note(8, 0x18)
 ```
-![image](https://hackmd.io/_uploads/B1ErzMM8T.png)
+![image](/assets/posts/Simple PWN - 0x39(Lab - Double Free)/B1ErzMM8T.png)
 
 接著我們寫free_hook address到note #8，這樣的話，tcache的順序就會變成下圖:
 ```python
 write_note(8, p64(free_hook))
 ```
-![image](https://hackmd.io/_uploads/rktIXGMIp.png)
+![image](/assets/posts/Simple PWN - 0x39(Lab - Double Free)/rktIXGMIp.png)
 
 此時我們就把free chunk變成free_hook的地址，我們只不斷的add_note，就可以把tcache的free chunk要回來進行寫入，也就是寫system address:
 ```python
@@ -205,7 +205,7 @@ add_note(10, 0x10)
 add_note(11, 0x10)
 write_note(11, p64(system_addr))
 ```
-![image](https://hackmd.io/_uploads/SydnNzMIa.png)
+![image](/assets/posts/Simple PWN - 0x39(Lab - Double Free)/SydnNzMIa.png)
 
 最後的結果如上圖，會發現note #11已經變成==0x7f900aa8ae48==，這個就是`__free_hook`的位址，進去看發現已經被我們寫入system address，這個時候我們只要把含有`/bin/sh\x00`的note #9 free掉，就可以開shell了
 
@@ -213,7 +213,7 @@ write_note(11, p64(system_addr))
 這一個方法比較方便，也和double free沒關係，反正我們只要利用UAF的特性，也可以把free chunk的fd改掉，再用像前面的方法就可以開shell
 
 下面的建構就是先開兩個note，然後free掉，此時我們就可以利用UAF的漏洞把free chunk的fd改掉，結果如下圖
-![image](https://hackmd.io/_uploads/B1ohIMz86.png)
+![image](/assets/posts/Simple PWN - 0x39(Lab - Double Free)/B1ohIMz86.png)
 ```python
 add_note(1, 0x18)
 add_note(2, 0x18)
@@ -223,7 +223,7 @@ write_note(1, p64(free_hook) + p64(0) * 2)
 ```
 
 接著就把`/bin/sh\x00`寫到note #2，接著就不斷add_note，把`__free_hook`的address拿到手，然後再把system address寫到`__free_hook`，最後把含有`/bin/sh\x00`的note #2 free掉，結果如下圖:
-![image](https://hackmd.io/_uploads/HkGsPGfL6.png)
+![image](/assets/posts/Simple PWN - 0x39(Lab - Double Free)/HkGsPGfL6.png)
 從上圖得知，note #4的address已經被我們換成`__free_hook` address，並且實際跟進去就是system address，最後只要free掉note #2就可以開shell了
 
 ## Exploit - Leak Libc(UAF) + Double Free(?)

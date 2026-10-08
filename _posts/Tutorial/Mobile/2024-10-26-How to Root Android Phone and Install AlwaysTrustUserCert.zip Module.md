@@ -16,7 +16,7 @@ date: 2024-10-26
 1. 用Android Studio開啟Emulator
     
     請記住Emulator的API Level，以我的為例是31
-    ![圖片](https://hackmd.io/_uploads/Hy2UPOFAR.png)
+    ![圖片](/assets/posts/How to Root Android Phone and Install AlwaysTrustUserCert.zip Module/Hy2UPOFAR.png)
 2. Download Script & Execute it
     
     到 https://gitlab.com/newbit/rootAVD 下載latest script
@@ -41,7 +41,7 @@ date: 2024-10-26
     $ rootAVD.bat system-images\android-31\google_apis_playstore\x86_64\ramdisk.img
     ```
     等大約3-5分鐘後，Emulator會自動關機，此時選擇Cold Boot
-    ![圖片](https://hackmd.io/_uploads/Sy__O_YCA.png)
+    ![圖片](/assets/posts/How to Root Android Phone and Install AlwaysTrustUserCert.zip Module/Sy__O_YCA.png)
     開啟後，會發現Magisk已經被安裝在Emulator上，點開Magisk之後會在5秒內重開機，此時所有程序應該就結束了，可以測試一下有沒有確實Root
     ```bash!
     $ adb shell
@@ -79,14 +79,14 @@ date: 2024-10-26
         ```
     4. 此時，直接切換到Recovery模式(`音量鍵-` + `電源鍵`)，要按久一點，應該會回到一開始的頁面，也就是10秒內沒有選擇要去哪裡就預設Restart，此時要選擇去到Recovery的地方，那這樣我們就可以進入OrangeFox的系統
     5. 到這邊理論上都沒有什麼問題，但是我按照[這個影片](https://youtu.be/p1MgtWuvqTM?si=gi5vKJSCNeFRJrgh)提到的要把剛剛載的image zip檔案丟進去並且安裝，但是就會跑出如下錯誤:
-        <img src='https://hackmd.io/_uploads/rymaNviC6.jpg' alt='' width=200>
+        <img src='/assets/posts/How to Root Android Phone and Install AlwaysTrustUserCert.zip Module/rymaNviC6.jpg' alt='' width=200>
         看了XDA的留言串，發現也有人有這個問題，雖然時間有點久，但我還是嘗試問看看該名網友有沒有找到解決方法
 
 ## HTC 10
 ### Unlock Bootloader
 1. 註冊[HTCdev](https://www.htcdev.com/bootloader/unlock-instructions)
 2. 選擇標的
-    ![圖片](https://hackmd.io/_uploads/rJBd1bjAT.png)
+    ![圖片](/assets/posts/How to Root Android Phone and Install AlwaysTrustUserCert.zip Module/rJBd1bjAT.png)
 3. 進入開發者模式
 4. 啟動OEM解鎖
 5. 關機
@@ -120,9 +120,9 @@ date: 2024-10-26
     Finished. Total time: 0.176s
     ```
 8. 回到剛剛的HTCdev網頁後按下一步，在下面貼上剛剛得到的Token
-    ![圖片](https://hackmd.io/_uploads/rJLL-boCT.png =300x)
+    ![圖片](/assets/posts/How to Root Android Phone and Install AlwaysTrustUserCert.zip Module/rJLL-boCT.png =300x)
 9. 沒意外的話他會寄送一封mail到註冊時填寫的email
-    ![圖片](https://hackmd.io/_uploads/SyAqZ-jCp.png)
+    ![圖片](/assets/posts/How to Root Android Phone and Install AlwaysTrustUserCert.zip Module/SyAqZ-jCp.png)
 10. 把寄送的檔案放到fastboot++同一個資料夾後，直接在fastboot++下command
     ```bash
     $ C:\Program Files (x86)\ADB and Fastboot++>fastboot flash unlocktoken unlock_code.bin
@@ -188,11 +188,11 @@ date: 2024-10-26
 1. 在通話的地方輸入`*#*#7378423#*#*`就會進入工程機畫面
 2. 選擇Service Info -> Configuration中會出現Bootloader unlock allowed: Yes(No)的提示，如果是Yes再往下進行
 3. 接著回到電話播打處打上`*#06#`就會跳出IMEI Code
-    <img src='https://hackmd.io/_uploads/ryZRhZjCa.png' alt='' width='200'>
+    <img src='/assets/posts/How to Root Android Phone and Install AlwaysTrustUserCert.zip Module/ryZRhZjCa.png' alt='' width='200'>
 4. 到[Sony Unlock官網](https://developer.sony.com/open-source/aosp-on-xperia-open-devices/get-started/unlock-bootloader)，選擇手機的型號並且輸入剛剛得到的IMEI Code
-    ![圖片](https://hackmd.io/_uploads/r1XUU-jCT.png)
+    ![圖片](/assets/posts/How to Root Android Phone and Install AlwaysTrustUserCert.zip Module/r1XUU-jCT.png)
     Submit後會給另外一個Code
-    ![圖片](https://hackmd.io/_uploads/rkbKUWoAT.png)
+    ![圖片](/assets/posts/How to Root Android Phone and Install AlwaysTrustUserCert.zip Module/rkbKUWoAT.png)
 5. 這一部分和哲有一點點不一樣，我是參考[Sony Xperia 10 V (XQ-DC72) Root教學，解鎖Bootloader與刷Magisk](https://ivonblog.com/posts/sony-xperia-10-v-root/)，先想辦法進入開發者模式後，開啟adb debugging並且開啟OEM解鎖，接著連接電腦重啟
     ```bash
     $ adb devices
@@ -208,7 +208,7 @@ date: 2024-10-26
 這一部分就幾乎都是看[ How to root Sony Xperia 10 V and flash Magisk ](https://youtu.be/CwGieZnmhPM?si=vqY5pszVesD2P8d3)
 1. Install [XperiaFirm](https://xperifirm.com/category/download/)
 2. 選擇自己的型號並且下載，下載完後他會自己解壓縮
-    ![圖片](https://hackmd.io/_uploads/BkbF0x2C6.png)
+    ![圖片](/assets/posts/How to Root Android Phone and Install AlwaysTrustUserCert.zip Module/BkbF0x2C6.png)
 3. 下載[sony_dump](https://xdaforums.com/t/tool-windows-linux-android-apple-unpack-any-sony-firmware-file.3530077/)並且把對應的電腦架構放到剛剛的下載的img folder(windows是sony_dump.exe)
 4. 在該資料夾執行command，command後面接的檔案試不同型號會有不一樣的檔名，這點要特別注意
     ```bash

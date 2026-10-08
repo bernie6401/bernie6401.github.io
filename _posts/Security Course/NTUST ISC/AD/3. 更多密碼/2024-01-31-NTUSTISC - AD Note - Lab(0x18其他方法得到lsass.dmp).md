@@ -17,15 +17,15 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 ### Take LSASS with other ways
 #### 方法一
 在windows工作管理員中，找到Local Security Authority Process(LSASS)，右鍵選**建立傾印檔案**，就可以直接dump memory，然後再把這一份檔案丟到自己可以開mimikatz的電腦，就可以分析了，會有一樣的效果
-![](https://hackmd.io/_uploads/ryINQ7NRh.png)
-![](https://hackmd.io/_uploads/ByvHX7NR2.png)
+![](/assets/posts/NTUSTISC - AD Note - Lab(0x18其他方法得到lsass.dmp)/ryINQ7NRh.png)
+![](/assets/posts/NTUSTISC - AD Note - Lab(0x18其他方法得到lsass.dmp)/ByvHX7NR2.png)
 
 #### 方法二
 如果沒有GUI的話，也可以考慮直接使用[Procdump](https://docs.microsoft.com/zh-tw/sysinternals/downloads/procdump)，當然你必須要取得足夠的權限，要不就是用前面提到的IIS提權執行指令，不然就直接切換administrator帳戶，我是用前者
 ```bash
 c:\tools\PrintSpoofer64.exe -c "c:\windows\system32\cmd.exe /c c:\tools\Procdump\procdump.exe -accepteula -ma lsass.exe lsass.dmp > c:\inetpub\wwwroot\tmp.txt"
 ```
-![](https://hackmd.io/_uploads/HJXt8mN0h.png)
+![](/assets/posts/NTUSTISC - AD Note - Lab(0x18其他方法得到lsass.dmp)/HJXt8mN0h.png)
 可以看到它放在`C:\Windows\system32\lsass.dmp`中
 
 #### 透過Minidump獲取資訊

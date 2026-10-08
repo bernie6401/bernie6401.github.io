@@ -60,7 +60,7 @@ print(output)
 ## Recon
 這是一個簡單的LFSR題目，基本上和去年的題目一樣，只是有一些小變動，諸如taps或是bits的強度不一樣之類的，但經過調整後還是可以沿用去年寫的script，
 1. 簡單來說，雖然題目使用了三層的LFSR確保每一次getBit都會有一定的亂度，但因為x2和x3對於output而言有75%的高機率重複性(如下圖)，所以我們可以針對這一店進行correlation attack，也就是我們可以猜LFSR2和LFSR3的輸出情況(枚舉)，既然output和LFSR2/3各有75%重複，我們可以個別猜，也就是先對其中個枚舉，然後對照output和LFSR吐出的gussing output有沒有超過threshold(例如70%)，如果有就可以把該guessing state存起來，基本上guessing state應該高機率只會有一個，但就算高過一個也沒關係，反正之後要找LFSR1時，再個別考慮即可
-![](https://hackmd.io/_uploads/ryG6Y5Gep.png)
+![](/assets/posts/Simple Crypto - 0x03(2023 Lab - COR)/ryG6Y5Gep.png)
 
 2. 等到個別找到LFSR2/3後，就可以模擬一開始的算法，題目一開始產生output的方式是`x2 if x1 else x3`，所以就像找LFSR2/3一樣，只是把threshold調到1，全部找完之後久可以得到flag了
 

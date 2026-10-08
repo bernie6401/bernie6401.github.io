@@ -142,7 +142,7 @@ $ checksec vuln
     0xffffc9b0│+0x0250: 0xf7fbb000  →  0x001e7d6c
     0xffffc9b4│+0x0254: 0xf7fbb000  →  0x001e7d6c
     ```
-    ![](https://hackmd.io/_uploads/SyZ2l94n3.png)
+    ![](/assets/posts/PicoCTF - Guessing Game 2/SyZ2l94n3.png)
     而libc base address就是`0xf7d34fa1-0x018fa1=0xf7d1c000`
     :::info
     Note: 在x86版本中，fmt的顯示順序是從\$esp的地方開始，所以`__libc_start_main`就是在\$esp往後數==第147個位數==

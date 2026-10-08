@@ -30,7 +30,7 @@ date: 2023-05-08
         </storeId>
     </stockCheck>
     ```
-    ![](https://hackmd.io/_uploads/H1hEjtUNh.png)
+    ![](/assets/posts/Lab - Blind XXE with out-of-band interaction via XML parameter entities/H1hEjtUNh.png)
     Seems not work properly...
 
 
@@ -49,9 +49,9 @@ date: 2023-05-08
     </stockCheck>
     ```
 
-![](https://hackmd.io/_uploads/rJh0sYLEn.png)
+![](/assets/posts/Lab - Blind XXE with out-of-band interaction via XML parameter entities/rJh0sYLEn.png)
 
-![](https://hackmd.io/_uploads/rk7H2FL42.png)
+![](/assets/posts/Lab - Blind XXE with out-of-band interaction via XML parameter entities/rk7H2FL42.png)
 
 ## Reference
 * [XXE Lab Breakdown: Blind XXE with out-of-band interaction via XML parameter entities](https://youtu.be/xjcSMFKVTW4)

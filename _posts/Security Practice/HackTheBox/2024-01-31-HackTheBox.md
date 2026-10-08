@@ -84,7 +84,7 @@ HTB{ju57_4n07h3r_r4nd0m_53r14l}
     console["log"]("HTB{j" + "4v45c" + "r1p7_" + "3num3" + "r4710" + "n_15_" + "k3y}");
     ```
     This main function is mainly send POST data to URL(`/keys.php`). So, we can simulate this action by burp suite or cURL.
-    ![reference link](https://hackmd.io/_uploads/H1KFZyOY3.png)
+    ![reference link](/assets/posts/HackTheBox/H1KFZyOY3.png)
 
 5. Ans: `HTB{r34dy_70_h4ck_my_w4y_1n_2_HTB}`
     

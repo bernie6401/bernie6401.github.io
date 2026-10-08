@@ -18,10 +18,10 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz
 2. Enter `\\<IP>\c$`
     For example: `\\192.168.222.128\c$`
 3. Login Local Admin
-    ![](https://hackmd.io/_uploads/S1uCNUBlp.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x24SMB遠端讀寫)/S1uCNUBlp.png)
 
 * 我在Win10中利用上述步驟，成功讀取到Win2016的資料
-    ![](https://hackmd.io/_uploads/HJbEr8Bxa.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x24SMB遠端讀寫)/HJbEr8Bxa.png)
 
 ### 遠端讀寫(w/o GUI)
 沒有GUI的情況就需要先掛載遠端的C槽在本地端，然後才可以進行後續的讀寫，有時候他會跳出錯誤
@@ -45,7 +45,7 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz
     $ copy Rubeus.exe \\192.168.222.128\C$
     複製了         1 個檔案。
     ```
-    ![](https://hackmd.io/_uploads/BykOL8rgT.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x24SMB遠端讀寫)/BykOL8rgT.png)
     可以看到Win2016的C槽中多了一個Rubeus.exe的檔案，代表成功
 
 ### How to Detect SMB Access

@@ -44,7 +44,7 @@ Download this disk image, find the key and log into the remote machine. Note: if
 2. Using Autopsy
     
     使用Autopsy分析img file，會面臨到ssh private key在哪裡的問題，根據[^picoctf-forensics-wp-almond-force]的說明通常會放在`~/.ssh/`或是`/root/.ssh/`的folder中，所以我們就可以往這個方向找看看
-    ![](https://hackmd.io/_uploads/S1m4W6R1p.png)
+    ![](/assets/posts/PicoCTF - Operation Oni/S1m4W6R1p.png)
     果不其然，的確有一個pub檔案和private key file，直接export出這個檔案，然後夾帶進command就可以了
 
 3. Error
@@ -62,7 +62,7 @@ Download this disk image, find the key and log into the remote machine. Note: if
     ctf-player@saturn.picoctf.net's password:
     ```
     簡單來說就是ssh-private-key這個檔案的權限太多了，因為我是直接export到windows的主機，所以預設是777，根據[^ssh-error-permission-too-open]，只需要設定600就可以過了，同時也可以直接看該檔案在img file中的mode是多少
-    ![](https://hackmd.io/_uploads/BJYm760JT.png)
+    ![](/assets/posts/PicoCTF - Operation Oni/BJYm760JT.png)
 
 ## Exploit
 ```bash

@@ -11,7 +11,7 @@ date: 2024-01-31
 
 ## Background
 ### 資安事件的流程
-![](https://hackmd.io/_uploads/BkbVWYmz6.png)
+![](/assets/posts/TaiwanHolyHigh - Windows Forensics - Background/BkbVWYmz6.png)
 * Prepare
     * 建立Infra
     * 購買ISO(e.g. [ISO 27001](https://www.tsg.com.tw/blog-detail10-248-0-iso27001.htm))

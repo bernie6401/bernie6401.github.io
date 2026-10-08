@@ -22,13 +22,13 @@ date: 2023-05-18
 
 ### Link-List
 * 主要結構: 每一個Element都會有兩個儲存單位，一個是儲存資料本體，另一個是儲存pointer，指向下一個Element的位置
-    ![](https://hackmd.io/_uploads/SJ0yRNXH3.png)
+    ![](/assets/posts/Data Structure Lecture 8/SJ0yRNXH3.png)
 
 * Insert `GAT`: Create新的node，儲存`GAT`，並改變前後的指標，原本`FAT`的指標要assign給`GAT`的pointer，然後`GAT`的位址也要assign給`FAT`
-    ![](https://hackmd.io/_uploads/H1JrREXBh.png)
+    ![](/assets/posts/Data Structure Lecture 8/H1JrREXBh.png)
 
 * Delete `GAT`: 把`HAT`的位址assign給`FAT`
-    ![](https://hackmd.io/_uploads/SJ2zkr7B3.png)
+    ![](/assets/posts/Data Structure Lecture 8/SJ2zkr7B3.png)
     * 缺點：如果要delete某一個Element就需要"先找到該Element的位置在哪裡"，如果Link-List 很長，則要做到這件事情的Overhead就會很高
     * Solution: Double-Link-List，可以從前後同時找要刪除的Element，這樣的話就會比較快
 
@@ -80,7 +80,7 @@ class ThreeLetterList{
         link = 0;
     }
     ```
-    ![](https://hackmd.io/_uploads/By5RniQSh.png)
+    ![](/assets/posts/Data Structure Lecture 8/By5RniQSh.png)
 
 * How to insert 50 in a existed link-list
     ```cpp
@@ -98,4 +98,4 @@ class ThreeLetterList{
         x->link = t;
     }
     ```
-    ![](https://hackmd.io/_uploads/B1nW2imHh.png)
+    ![](/assets/posts/Data Structure Lecture 8/B1nW2imHh.png)

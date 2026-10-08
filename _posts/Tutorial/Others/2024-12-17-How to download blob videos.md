@@ -28,7 +28,7 @@ sudo apt install yt-dlp                         # Install yt-dlp
 
 ## Step
 1. 透過Browser的F12找出m3u8的封包
-    ![image](https://hackmd.io/_uploads/HyrYRTR4kl.png)
+    ![image](/assets/posts/How to download blob videos/HyrYRTR4kl.png)
 2. 透過yt-dlp下載
     複製封包的Request URL
     ```bash

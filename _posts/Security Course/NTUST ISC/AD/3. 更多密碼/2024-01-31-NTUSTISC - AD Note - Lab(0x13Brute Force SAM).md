@@ -24,7 +24,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 ## Lab
 ### Brute Force SAM
 前面有提到SAM在哪裡，所以只要直接打開就看的到密碼了嗎?你會得到一個access denied的錯誤，原因是他已經被設定成read lock了，導致目前無法正常存取
-![](https://hackmd.io/_uploads/SyEUVnMRn.png)
+![](/assets/posts/NTUSTISC - AD Note - Lab(0x13Brute Force SAM)/SyEUVnMRn.png)
 
 1. 匯出SAM File
 
@@ -74,7 +74,7 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
         user:1001:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
         :1002:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
         ```
-        ![](https://hackmd.io/_uploads/HyJXHazCn.png)
+        ![](/assets/posts/NTUSTISC - AD Note - Lab(0x13Brute Force SAM)/HyJXHazCn.png)
         可以看到很多都是disabled，就代表我們要用下面的解法
     * Win10 v1607之後
     
@@ -95,9 +95,9 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
     * 方法一：用online database
         
         接著就是把NTLM Hash丟到隨便的database看有沒有紀錄，例如[cmd5](https://www.cmd5.com/)，如果把最前面找到的`31d6cfe0d16ae931b73c59d7e0c089c0`會顯示空密碼，但我們都知道是錯的
-        ![](https://hackmd.io/_uploads/SkKrp6zCn.png)
+        ![](/assets/posts/NTUSTISC - AD Note - Lab(0x13Brute Force SAM)/SkKrp6zCn.png)
         而如果拿Creddump解析出來的`7ecffff0c3548187607a14bad0f88bb1`，就可以直接顯示出我們的密碼
-        ![](https://hackmd.io/_uploads/H1ZAhpz02.png)
+        ![](/assets/posts/NTUSTISC - AD Note - Lab(0x13Brute Force SAM)/H1ZAhpz02.png)
     * 方法二：爆字典檔
         
         在kali中的/usr/share/wordlists有一些字典檔可以用，例如rockyou等等，可以先用看看

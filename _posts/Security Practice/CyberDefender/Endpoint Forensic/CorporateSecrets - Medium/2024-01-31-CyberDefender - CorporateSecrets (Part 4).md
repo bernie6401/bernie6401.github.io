@@ -31,7 +31,7 @@ date: 2024-01-31
 直接看admin的NTUSER.DAT中的`./Software/Microsoft/Windows/CurrentVersion/Run`就可以了
 
 ### Exploit
-![圖片.png](https://hackmd.io/_uploads/BJodWuDmp.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/BJodWuDmp.png)
 
 Flag: `OneDrive`
 
@@ -61,7 +61,7 @@ Flag: `FIREFOX.EXE-A606B53C.pf/21`
 
 ### Exploit
 直接看`SYSTEM/ControlSet001/Services/Tcpip/Parameters/Interfaces/`
-![圖片.png](https://hackmd.io/_uploads/S18wduPQT.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/S18wduPQT.png)
 
 Flag: `192.168.2.242`
 
@@ -73,15 +73,15 @@ Flag: `192.168.2.242`
 
 ### Exploit
 * admin
-    ![圖片.png](https://hackmd.io/_uploads/Hk8oCKw76.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/Hk8oCKw76.png)
 * jim.tomato
-    ![圖片.png](https://hackmd.io/_uploads/Hy4pRtwma.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/Hy4pRtwma.png)
 * hansel.apricot
-    ![圖片.png](https://hackmd.io/_uploads/BkD-J9v7a.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/BkD-J9v7a.png)
 * miriam.grapes
-    ![圖片.png](https://hackmd.io/_uploads/H1rQkcvm6.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/H1rQkcvm6.png)
 * suzy.strawberry
-    ![圖片.png](https://hackmd.io/_uploads/Sk1SyqvmT.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/Sk1SyqvmT.png)
 
 Flag: `admin`
 
@@ -97,9 +97,9 @@ Flag: `admin`
 ### Exploit
 1. Record No. 164885 → 0x0a105400
 2. `7zG.exe`
-    ![圖片.png](https://hackmd.io/_uploads/Syb-8KD7a.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/Syb-8KD7a.png)
 3. Export Prefetch
-    ![圖片.png](https://hackmd.io/_uploads/SJgmLFvQp.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/SJgmLFvQp.png)
 4. Parse Prefetch File
     ```bash
     $ ./PECmd.exe -f 7ZG.EXE-0F8C4081.pf | grep "Last run"
@@ -135,7 +135,7 @@ Flag: `1276820064`
     從recycle bin中可以看到Jim的SID(1003)有丟棄一些docx file的痕跡，直接把這些file export出來
 2. 一番操作之後都沒有甚麼結果，所以就參考[^wp]的作法，和[之前的經驗]({{base.url}}/NISRA-2023-Enlightened-Jack%E7%9A%84flag/)，先把extension改成zip，然後解壓縮他
 3. 再把`./Document1/Content.xml`用Microsoft Word開啟，就可以看到主要的內容了，這神奇的操作也是第一次看到
-    ![圖片.png](https://hackmd.io/_uploads/SytYatPmT.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/SytYatPmT.png)
 
 Flag: `Customer data is not stored securely`
 
@@ -154,7 +154,7 @@ Flag: `Customer data is not stored securely`
     $ grep -r -i 'deactivate' ./Users/hansel.apricot/AppData/Roaming/Slack > grep_deactivate.txt
     ```
 3. 看哪一個file有和`deactivate`有關係，前面一大段是Cache就不用理他
-    ![圖片.png](https://hackmd.io/_uploads/Hyr_PqvQ6.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 4)/Hyr_PqvQ6.png)
     可以看到應該是`./Users/hansel.apricot/AppData/Roaming/Slack/IndexedDB/https_app.slack.com_0.indexeddb.leveldb/000003.log matches`比較符合
 4. 直接strings search
     ```bash

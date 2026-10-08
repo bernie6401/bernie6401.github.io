@@ -49,7 +49,7 @@ Wang, Y., Xu, G., Liu, X., Mao, W., Si, C., Pedrycz, W., & Wang, W. (2020). Iden
 
 ## Proposed Method
 整體的分析流程如下，首先給定一個App，然後先進行靜態分析，並且分析取得的smali code，用一開始定義的演算法以及漏洞方法，找到潛在的漏洞，並且把vulnerable activity給動態分析，實際安裝與執行後，利用MITM工具攔截流量，並使用VPNService捕獲智能手機上的流量。最後，我們通過比較智慧手機和攻擊工具之間的流量來確認那些真正易受攻擊的應用程式。
-![圖片](https://hackmd.io/_uploads/SkfW7I6SC.png)
+![圖片](/assets/posts/Identifying vulnerabilities of SSL & TLS certificate verification in Android apps with static and dynamic analysis/SkfW7I6SC.png)
 
 ### 如何定義潛在的易受攻擊代碼並觸發它們
 #### 如何定義vulnerable method
@@ -122,7 +122,7 @@ UI自動化元件有三個任務:
 
 ### 如何高效運行-加速
 為了避免相似的view重複被執行，所以用了另外一個演算法找出類似的view，以及最多只取前四個
-![螢幕擷取畫面 2024-06-17 161914](https://hackmd.io/_uploads/B1A1zOTrA.png)
+![螢幕擷取畫面 2024-06-17 161914](/assets/posts/Identifying vulnerabilities of SSL & TLS certificate verification in Android apps with static and dynamic analysis/B1A1zOTrA.png)
 如果一個元件繼承自同一個父元件，並且具有相同的屬性（例如相同的大小、顏色等），那麼我們就認為它們是相同的
 ```
 Require: Views 
@@ -155,7 +155,7 @@ end function
 
 ### 如何有效運行
 這就回到一開始的問題，要如何保證proxy所攔截到的流量是我們正在測試的App所發出去的，作者使用Android內建的VPNService解決這個問題
-![圖片](https://hackmd.io/_uploads/r1qzUdar0.png)
+![圖片](/assets/posts/Identifying vulnerabilities of SSL & TLS certificate verification in Android apps with static and dynamic analysis/r1qzUdar0.png)
 
 1. App透過socket把資料送到NIC(network interface card，網卡)
 2. NIC把所有的packet都送到虛擬網卡(Virtual NIC)
@@ -167,19 +167,19 @@ end function
 ## Experiment
 ### Dataset
 從360app和google play商店中分別於2018/12以及2016/06取得1253 apps和960 apps，特別說明，他們把超過100M的app刪除，因為大部分這些app都是複雜的遊戲程式，在動態測試時會頻繁的crash
-![圖片](https://hackmd.io/_uploads/HkY1KOaHA.png)
+![圖片](/assets/posts/Identifying vulnerabilities of SSL & TLS certificate verification in Android apps with static and dynamic analysis/HkY1KOaHA.png)
 
 ### Static Analysis
 這個table在設計上有誤，他把360app和google play下面的底線標錯了，360app應該是包含前面的count和他底下的percentage，而圖片上包含的count是屬於google play，至於google paly包含的count則是360app和google play兩者相加的結果
 
 靜態分析的結果如下，總共有30/2213(1.36%)的App無法disassembly，並且有 457 個 （20.65%） 應用程式具有潛在的易受攻擊代碼，這些應用程式被認為具有潛在的證書驗證漏洞。
-![圖片](https://hackmd.io/_uploads/rJFitdaHA.png=500x)
+![圖片](/assets/posts/Identifying vulnerabilities of SSL & TLS certificate verification in Android apps with static and dynamic analysis/rJFitdaHA.png=500x)
 作者把以上的結果和之前的工具AndroBugs, kingkong and appscan進行比較，結果如下，AndroBugs 在靜態檢測的檢測精度方面略優於DCDroid。但是，在沒有動態檢測的情況下，它會生成大量誤報。至於kingkong和appscan，DCDroid在靜態檢測的檢測精度方面更好。此外，他們無法檢測到 HostNameVerifier 漏洞。這兩個工具還包含許多誤報。因此，DCDroid 在靜態檢測階段並不是最好的。但是，DCDroid 的**主要優點是我們可以動態運行應用程式並刪除誤報**
-![圖片](https://hackmd.io/_uploads/H1Rm6_prA.png =600x)
+![圖片](/assets/posts/Identifying vulnerabilities of SSL & TLS certificate verification in Android apps with static and dynamic analysis/H1Rm6_prA.png =600x)
 
 ### Dynamic Analysis
 在動態分析中，我們使用AndroidViewClient操作兩部 Android 智慧手機並運行應用程式。平均而言，每個應用程序花費 183 秒。動態檢測結果如表1所示。可以看出，來自 360app 和 Google Play 的 245 個應用被識別為存在證書驗證漏洞，占潛在漏洞代碼的 53.61%，佔所有應用的 11.07%。這表明我們數據集中有 11.07% 的應用存在證書驗證漏洞。從表中可以看出，360app中的證書驗證漏洞佔比為12.05%，Google Play中的證書驗證漏洞佔比為9.79%。360app中的易受攻擊的應用程式比Google Play中的應用程式更多。
-![圖片](https://hackmd.io/_uploads/Sk8aK_TSA.png =600x)
+![圖片](/assets/posts/Identifying vulnerabilities of SSL & TLS certificate verification in Android apps with static and dynamic analysis/Sk8aK_TSA.png =600x)
 
 ## Discusion
 1. DCDroid這套工具是有效地，但仍存在局線性

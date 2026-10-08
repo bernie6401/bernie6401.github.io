@@ -127,4 +127,4 @@ print(result.isValid(test_case[0]))
     ```
 
 ## Result
-![](https://hackmd.io/_uploads/BJgRaNb3n.png)
+![](/assets/posts/LeetCode - Valid Parentheses/BJgRaNb3n.png)

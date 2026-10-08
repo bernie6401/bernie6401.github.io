@@ -102,10 +102,10 @@ date: 2024-06-14
 ## SAN
 資料來源: [使用 openssl 制作一個包含 SAN（Subject Alternative Name）的證書](https://www.z01.com/help/https/3173.shtml)
 > SAN(Subject Alternative Name) 是 SSL 標準 x509 中定義的一個擴展。使用了 SAN 字段的 SSL 證書，可以擴展此證書支持的域名，使得一個證書可以支持多個不同域名的解析。先來看一看 Google 是怎樣使用 SAN 證書的，下面是 Youtube 網站的證書信息：
-> ![6363260315098898213519066](https://hackmd.io/_uploads/rkY-awtBR.png)
+> ![6363260315098898213519066](/assets/posts/Network Related/rkY-awtBR.png)
 > 這里可以看到這張證書的 Common Name 字段是 \*.google.com，那麽為什麽這張證書卻能夠被 www.youtube.com 這個域名所使用呢。原因就是這是一張帶有 SAN 擴展的證書，下面是這張證書的 SAN 擴展信息：
-> ![6363260315666115456453456](https://hackmd.io/_uploads/H1DfTwYHA.png =300x)
-> ![6363260316281773611299520](https://hackmd.io/_uploads/SJmm6vKBA.png =300x)
+> ![6363260315666115456453456](/assets/posts/Network Related/H1DfTwYHA.png =300x)
+> ![6363260316281773611299520](/assets/posts/Network Related/SJmm6vKBA.png =300x)
 > 這里可以看到，這張證書的 Subject Alternative Name 段中列了一大串的域名，因此這張證書能夠被多個域名所使用。對於 Google 這種域名數量較多的公司來說，使用這種類型的證書能夠極大的簡化網站證書的管理。
 
 ## SNI

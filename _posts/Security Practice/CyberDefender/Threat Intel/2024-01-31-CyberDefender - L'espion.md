@@ -29,7 +29,7 @@ What is the API key the insider added to his GitHub repositories?
 
 ### Recon
 直接在github key word search，就找到了
-![圖片.png](https://hackmd.io/_uploads/H11t-rrmp.png)
+![圖片.png](/assets/posts/CyberDefender - L'espion/H11t-rrmp.png)
 
 Flag: `aJFRaLHjMXvYZgLPwiJkroYLGRkNBW`
 
@@ -39,7 +39,7 @@ What is the plaintext password the insider added to his GitHub repositories?
 
 ### Exploit
 還是和上一題一樣慢慢找，終於找到一個base64的密碼
-![圖片.png](https://hackmd.io/_uploads/H1MVJIr7a.png)
+![圖片.png](/assets/posts/CyberDefender - L'espion/H1MVJIr7a.png)
 
 ```python
 >>> b64decode(b'UGljYXNzb0JhZ3VldHRlOTk=')
@@ -54,7 +54,7 @@ What is the plaintext password the insider added to his GitHub repositories?
 
 ### Recon
 像第一題一樣直接key word search
-![圖片.png](https://hackmd.io/_uploads/HkJVZHH76.png)
+![圖片.png](/assets/posts/CyberDefender - L'espion/HkJVZHH76.png)
 
 Flag: `xmrig`
 
@@ -105,7 +105,7 @@ Flag: `https://www.instagram.com/emarseille99/`
 
 ### Recon
 直接看[IG的貼文](https://www.instagram.com/p/CAjDd_dlHds/?hl=en)，可以用image search搜尋圖片，發現這就是新加坡濱海灣金沙飯店
-![未命名.jpg](https://hackmd.io/_uploads/H1KnoBB7p.jpg)
+![未命名.jpg](/assets/posts/CyberDefender - L'espion/H1KnoBB7p.jpg)
 
 Flag: `Singapore`
 
@@ -114,8 +114,8 @@ Flag: `Singapore`
 
 ### Recon
 可以先觀察[IG post 1](https://www.instagram.com/p/CAjCdGrldGr/?hl=en)和[IG post 2](https://www.instagram.com/p/CAjCfM1lKhq/?hl=en)
-![圖片.png](https://hackmd.io/_uploads/HyyzXUSX6.png)
-![圖片.png](https://hackmd.io/_uploads/SJwMXLSma.png)
+![圖片.png](/assets/posts/CyberDefender - L'espion/HyyzXUSX6.png)
+![圖片.png](/assets/posts/CyberDefender - L'espion/SJwMXLSma.png)
 
 ### Exploit
 第一張圖片可以看到若隱若現的國旗，可能是Jordan / Palestine / United Arab Emirates，這三個國家的國旗都很像，再看第二張圖片可以發現有一個高塔，幾乎確定就是杜拜塔，也很符合他的國家(United Arab Emirates)

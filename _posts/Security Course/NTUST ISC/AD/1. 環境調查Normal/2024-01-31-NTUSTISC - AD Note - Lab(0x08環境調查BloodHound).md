@@ -66,7 +66,7 @@ BloodHound是一個環境調查的視覺化工具，所以要先在我們的環�
     ```
     
     理論上成功的話，會在該folder中出現一個.zip file with name `<TimeStamp>.BloodHound.zip`此時按照之前啟動BloodHound的方法啟動BloodHound，然後把zip folder拖進去就可以了
-    ![](https://hackmd.io/_uploads/rk8rZJjT2.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x08環境調查BloodHound)/rk8rZJjT2.png)
 
 ### 如何偵測AD
 有兩種方法，也可以同時使用
@@ -76,17 +76,17 @@ BloodHound是一個環境調查的視覺化工具，所以要先在我們的環�
 2. Event ID: 5146
 
     bloodhound喜歡存取的對象是: **lsarpc/samr/srvsvc**，所以只要有這幾個event出現，就很有可能是bloodhound，而這個event也是像4662一樣預設是關閉的，所以要先到Group Policy Editor打開
-    ![](https://hackmd.io/_uploads/HJjbgTZRn.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x08環境調查BloodHound)/HJjbgTZRn.png)
 
     我查找了5146的event但都沒有偵測到，我有把GPO打開，但是還是沒有偵測到，我是有在Event Viewer中看到很像的，例如5145/5156之類的，但看起來都不是，另外，講師的影片中在59:11的地方也是顯示Event 5145，所以我不知道該怎麼解決這個lab遇到的問題
 
     可以使用Event Viewer中的Create Custom View，自動的filter出想要的Event
-![](https://hackmd.io/_uploads/HkDjhnWR3.png)
+![](/assets/posts/NTUSTISC - AD Note - Lab(0x08環境調查BloodHound)/HkDjhnWR3.png)
 
 #### ResultScreenshot of Event 4662
-![](https://hackmd.io/_uploads/rJRXT3Z0n.png)
+![](/assets/posts/NTUSTISC - AD Note - Lab(0x08環境調查BloodHound)/rJRXT3Z0n.png)
 
-![](https://hackmd.io/_uploads/SyZxpn-R3.png)
+![](/assets/posts/NTUSTISC - AD Note - Lab(0x08環境調查BloodHound)/SyZxpn-R3.png)
 可以看到從3:53~3:54的時間當中有超多的event 4662紀錄，而同時可以看到再另外一台主機中，我也是在差不多時間執行SharpHound.exe，進行情蒐
 
 ## Reference

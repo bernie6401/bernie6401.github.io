@@ -10,7 +10,7 @@ date: 2024-01-31
 <!-- more -->
 
 ## Source Code
-![](https://hackmd.io/_uploads/HkF8f_702.png)
+![](/assets/posts/NISRA 2023 Enlightened - Pixel/HkF8f_702.png)
 
 ## Recon
 這一題真的很難，應該說有想過，不過很麻煩就是了，每一個色塊都有一組RGB的數值，然後只要把它轉換成ASCII，再把每一個字元串起來，就會是一組base64的code，轉換之後就拿到一組ciphertext，接著就丟到cyberchef看看一般的工具可不可以解，最後是用rot13解出來，除了最一開始的地方需要一點通靈之外，其他都很簡單，但...寫script頗麻煩

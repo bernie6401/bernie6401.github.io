@@ -241,6 +241,6 @@ for i in range(len(real_key)):
 print("Exchange Flag is: " + flag.decode())
 # Exchange Flag is: zls4wq/r/wzzU5gE1yAxN5crfedi91Y4DkGaSOD0qUO0V50=
 ```
-![圖片.png](https://hackmd.io/_uploads/H1eaPqlmT.png)
+![圖片.png](/assets/posts/Simple Reverse - 0x26(2023 HW - Banana Donut Verifier)/H1eaPqlmT.png)
 
 Flag: `FLAG{d0_Y0u_l1k3_b4n4Na_d0Nut?}`

@@ -252,7 +252,7 @@ example : crew{abcd.com:8080}
 這一題直覺會想用netscan，畢竟從前面的題目以及找到的資訊，還有virustotal上的資訊，幾乎確定他就是一個keylogger，然後會把得到的資訊傳回去C&C server中，但奇怪的是察看netscan沒有相關的connection，不確定到底是怎麼樣，找了很久，最後是參考[siunam321](https://siunam321.github.io/ctf/CrewCTF-2023/Forensics/Attaaaaack1-13/#attaaaaack8)的writeup，他也是找了很久，結果其實virustotal都已經寫好了，
 
 ### Exploit
-![](https://hackmd.io/_uploads/S1-f44e-p.png)
+![](/assets/posts/CrewCTF - Attaaaaack 1-13/S1-f44e-p.png)
 在Behavior的地方
 
 Flag: `crew{test213.no-ip.info:1604}`
@@ -269,7 +269,7 @@ example : crew{C:\Windows\System32\abc.def}
 
 簡單來說就是他有一個參數(OFFLINEK)，如果被設定為1，則在離線的時候還是會繼續記錄，然後把結果存在local file，這也回應了前面位甚麼用netscan找不到的原因，因為作者沒有連線，所以當然不會有相關的process，而該bloger也找到了他存在local端的地方就在
 `C:\Users\{Username}\AppData\Roaming\dclogs\{timestamp}.dc`
-![](https://hackmd.io/_uploads/SyycDNx-6.png)
+![](/assets/posts/CrewCTF - Attaaaaack 1-13/SyycDNx-6.png)
 
 ### Exploit
 ```bash

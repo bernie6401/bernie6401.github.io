@@ -104,9 +104,9 @@ int main(void)
     首先，乍看之下會不知道這個洞在哪裡，不過多try幾次或是跟一下動態會發現，他做的事情會蓋到原本==n2==的數值，導致我們之後可以輸入更多的東西
     詳細來說就是:
     因為在#61的地方輸入的東西被存到local variable name，而在#63會被copy到global variable ==msg==，並且和` hachamachama`合併在一起，如果一開始我們輸入的東西是20個字元，而concatenate的` hachamachama`總共13個字元，加起來就已經是==33==個字元，但如下圖所示，msg一開始的大小就被限制在32 bytes，也就是說他會蓋到後面n2的值
-    ![圖片](https://hackmd.io/_uploads/HyUsSOTBT.png)
+    ![圖片](/assets/posts/Simple PWN - 0x37(2023 HW - HACHAMA)/HyUsSOTBT.png)
     從下圖可以看出來，因為長度超過的關係，原本`hachamachama`的最後一個字元，也就是0x61往後蓋到n2的值，這代表我們在往後的地方可以多加利用
-    ![圖片](https://hackmd.io/_uploads/SJUTP_aBT.png)
+    ![圖片](/assets/posts/Simple PWN - 0x37(2023 HW - HACHAMA)/SJUTP_aBT.png)
 
 2. 知道漏洞在哪裡之後，我們就可以利用這個洞，把stack的東西leak出來
     ```python
@@ -161,7 +161,7 @@ int main(void)
     這樣最少也需要0x78的空間，比起最大值的0x61還差蠻多的，所以昨天就想了超久怎麼解決這個問題
 3. 解決空間大小的問題
     這個要回到動態實際執行的時候是怎麼呼叫的(如下圖)，這一題有趣的地方在這邊，理論上我們是回到main+291，讓他fetch n2的值給RAX，但如果我直接跳到main+298，並且利用rop把rax變大，是不是也有一樣的效果
-    ![圖片](https://hackmd.io/_uploads/Syoe0OTHp.png)
+    ![圖片](/assets/posts/Simple PWN - 0x37(2023 HW - HACHAMA)/Syoe0OTHp.png)
     ```python
     extend_payload = flat(
         canary,
@@ -188,7 +188,7 @@ int main(void)
     因為他有開stack protection，所以一定要對好canary在stack上的位置，可以用動態去看，依照這一題的狀況，他是會在rbp+0x40的地方
 2. libc version
     這一題因為要leak libc的base address，並且利用ROP gadget達到syscall的目的，所以一定要確定remote server使用的版本是哪一個，光知道大的版本號是有可能會失敗的，因為像我local端到最後有成功，但跑在remote就爛掉了，和@david學長討論過後的結果就是libc version有問題，實際用docker去看彼此的差異就會發現，右邊是我的→22.04.3，而左邊是實際remote的docker開出來的結果→22.04.2，所以我的作法是把docker中的東西拉出來再使用，包含在local端使用以及找gadget
-    ![圖片](https://hackmd.io/_uploads/ByiMMYTHa.png)
+    ![圖片](/assets/posts/Simple PWN - 0x37(2023 HW - HACHAMA)/ByiMMYTHa.png)
     ```bash
     $ docker cp /lib/x86_64-linux-gnu/libc.so.6 /mnt/d/Downloads/
     ```

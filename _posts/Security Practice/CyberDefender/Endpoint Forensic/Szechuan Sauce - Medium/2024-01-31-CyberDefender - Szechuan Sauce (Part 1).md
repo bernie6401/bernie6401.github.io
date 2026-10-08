@@ -60,7 +60,7 @@ Flag: `2012 R2`
 這一題可以參考[Hunter - Part 1 - Q5]({{base.url}}/CyberDefender-Hunter-(Part-1)#Q5)，我可以直接把Software的registry export出來，然後用registry explorer查看`/root/Microsoft/Windows NT/CurrentVersion`就會知道Desktop的OS
 
 ### Exploit
-![圖片.png](https://hackmd.io/_uploads/SJlmnxMmT.png)
+![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 1)/SJlmnxMmT.png)
 
 Flag: `Windows 10 Enterprise Evaluation`
 
@@ -72,7 +72,7 @@ Flag: `Windows 10 Enterprise Evaluation`
 
 ### Exploit
 就是察看Server的SYSTEM中，`ControlSet001/Services/Tcpip/Parameters/Interfaces/`
-![圖片.png](https://hackmd.io/_uploads/rkCmT0Xma.png)
+![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 1)/rkCmT0Xma.png)
 
 Flag: `10.42.85.10`
 
@@ -87,7 +87,7 @@ Flag: `10.42.85.10`
 
 1. 首先，根據hint的說明，可以知道domain controller的timezone和應該是和desktop不一樣所以才會有這樣的問題
     這件事情可以從NTP(Network Time Protocol)看到，這主要是用於同步時間的protocol，所以從這些封包中可以看到他的時間是無法同步的，由此可知時間的timezone可能有問題
-    ![圖片.png](https://hackmd.io/_uploads/SJZGakVQ6.png)
+    ![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 1)/SJZGakVQ6.png)
 
     [What is NTP?](https://zh.wikipedia.org/zh-tw/%E7%B6%B2%E8%B7%AF%E6%99%82%E9%96%93%E5%8D%94%E5%AE%9A)
     > 網路時間協定（英語：Network Time Protocol，縮寫：NTP）是在資料網路潛伏時間可變的電腦系統之間通過封包交換進行時鐘同步的一個網路協定，位於OSI模型的應用層。自1985年以來，NTP是目前仍在使用的最古老的網際網路協定之一。NTP由德拉瓦大學的David L. Mills設計。 
@@ -97,7 +97,7 @@ Flag: `10.42.85.10`
         $ ./EvtxECmd.exe -f Security.evtx --csv output
         ```
     2. 找到一樣的封包和event紀錄
-        ![圖片.png](https://hackmd.io/_uploads/Hk2QskEXp.png)
+        ![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 1)/Hk2QskEXp.png)
         可以看到event log的時間是`2020-09-19 03:21:48`，而封包的時間是`2020-09-19 02:21:47`，兩者大約差了一個小時，因為當時的月份是9月也就是還在夏令時間，所以正確的時間應該是UTC-7，也就是說封包的時間是UTC-7的結果，而server上的3點是快了一小時的結果，所以應該是UTC-6就是server上設定的時間
 
 Flag: `UTC-6`
@@ -216,10 +216,10 @@ Flag: `RDP`
     ```
     這邊有簡單說明甚麼是PEB[ [edu-ctf 2023] week06 - rev2 ](https://www.youtube.com/live/uc230kDnd1A?si=aswYxVbqKIykjuRk&t=7457)
 3. 所以我們就要想有甚麼其他方法可以把這個file export出來，可以從他怎麼傳進server開始切入，如果從wireshark的export file可以dump出來
-    ![圖片.png](https://hackmd.io/_uploads/rydC5lVmT.png)
+    ![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 1)/rydC5lVmT.png)
 4. 丟到virustotal果然很有問題
     [完整分析結果](https://www.virustotal.com/gui/file/10f3b92002bb98467334161cf85d0b1730851f9256f83c27db125e9a0c1cfda6)
-    ![圖片.png](https://hackmd.io/_uploads/B15zigE7T.png)
+    ![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 1)/B15zigE7T.png)
 
 Flag: `coreupdater`
 
@@ -268,7 +268,7 @@ Flag: `spoolsv`
 直覺會想要volatility的netscan，但是結果實在是太多了，後來轉念一想直接看封包不就好了，所以我直接看原本傳送`coreupdater.exe`到server的IP
 
 ### Exploit
-![圖片.png](https://hackmd.io/_uploads/Syh-4-4Qp.png)
+![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 1)/Syh-4-4Qp.png)
 
 Flag: `194.61.24.102`
 

@@ -107,7 +107,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 1. How can you get this malware to install itself?
 
     Ans: You can get the program to install itself by providing it with the `-in` option, along with the password. Alternatively, you can patch the binary to skip the password verification check.
-    ![](https://hackmd.io/_uploads/HJvh2Xdr2.png)
+    ![](/assets/posts/A&D of Network Security - Lab 12/HJvh2Xdr2.png)
 
 2. What are the command-line options for this program? What is the password requirement?
 

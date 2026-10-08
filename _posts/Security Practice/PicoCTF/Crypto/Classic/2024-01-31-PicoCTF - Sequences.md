@@ -67,13 +67,13 @@ if __name__ == "__main__":
     $$
     {% endraw %}
     
-    ![](https://hackmd.io/_uploads/Hy6P0gvxT.png)
+    ![](/assets/posts/PicoCTF - Sequences/Hy6P0gvxT.png)
 2. 有了優化後的方程式，就可以再次利用wolframalpha的解`i=20000000`的問題，直接打:
 
     `(1612 (-21)^20000000 + 30685 2^(5 + 2 20000000) 3^20000000 - 1082829 13^20000000 + 8349 17^(1 + 20000000))/42636 mod 10^10000`
     因為看source code: `24`的地方最後會mod 10\*\*10000，所以直接加在後面就不用再多算一次
 3. 在result的地方會有more digit的button，一直按到所有digit都出來為止，然後就可以利用browser的inspector把所有digits尻出來
-    ![](https://hackmd.io/_uploads/r1ITxbPga.png)
+    ![](/assets/posts/PicoCTF - Sequences/r1ITxbPga.png)
     
     Whole Key
     ```bash

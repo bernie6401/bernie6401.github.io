@@ -410,6 +410,6 @@ public class FlagstaffHill {
 $ apktool b four -o four_new.apk
 $ java -jar ./uber-apk-signer-1.1.0.jar --apks four_new.apk
 ```
-![](https://hackmd.io/_uploads/HJQujE-la.png)
+![](/assets/posts/PicoCTF - droids4/HJQujE-la.png)
 
 Flag: `picoCTF{not.particularly.silly}`

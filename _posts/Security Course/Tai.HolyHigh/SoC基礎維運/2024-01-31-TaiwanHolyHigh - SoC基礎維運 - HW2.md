@@ -30,9 +30,9 @@ date: 2024-01-31
 1. Event ID: 8 → CreateRemoteThread
     
     首先看到23/12/17 15:1024的時候，由**NT AUTHORITY\SYSTEM**發起的新的thread，從原本的Process(ID: 820)幫另外一個Process(ID: 7464)建立，誠如MSDN上的說明這應該是惡意程式為了不要被砍掉
-    ![圖片](https://hackmd.io/_uploads/rJjOTA-wa.png)
+    ![圖片](/assets/posts/TaiwanHolyHigh - SoC基礎維運 - HW2/rJjOTA-wa.png)
     比較經典的案例是類似NTU CS助教 - @Ice1187 在Window Malware講到的[reflective dll injection](https://attack.mitre.org/techniques/T1055/001/)，也就是Mitre紀載的**T1055.001**，其本質上就是利用CreateRemoteThread在一個正常的process開一個thread，然後做一些惡意的事情，這樣的話defender也不會把它砍掉，因為從外部看，就只是一個正常的process
-    ![圖片](https://hackmd.io/_uploads/Hy9wgyfPp.png)
+    ![圖片](/assets/posts/TaiwanHolyHigh - SoC基礎維運 - HW2/Hy9wgyfPp.png)
 2. Kernel開Thread
     
     接著為了成功開一個thread，就需要kernel base的dll做一些事情，包含:

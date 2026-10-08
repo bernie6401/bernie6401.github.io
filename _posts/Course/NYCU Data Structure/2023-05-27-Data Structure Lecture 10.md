@@ -15,9 +15,9 @@ date: 2023-05-27
 
 ## Rewind
 * Stack / Queue也可以用link-list實作，所以兩者不能和array畫上等號，只能說兩者都是一種data structure，只是用不同方式implement而已
-    ![](https://hackmd.io/_uploads/HkkCaFyUn.png)
+    ![](/assets/posts/Data Structure Lecture 10/HkkCaFyUn.png)
 * 之前提到的多項式也可以用link-list實作，同樣也可以解決sparse的問題
-    ![](https://hackmd.io/_uploads/r15haYyL2.png)
+    ![](/assets/posts/Data Structure Lecture 10/r15haYyL2.png)
 * Free pool的概念就是像glibc中那樣的回收場(Fast bin/Small bin/Large bin/Unsorted bin)
 
 ### Equivalence Relations
@@ -32,7 +32,7 @@ date: 2023-05-27
     
     three equivalent classes: `{0, 2, 4, 7, 11};{1, 3, 5};{6, 8, 9,  10}`
 * How to implement?
-    ![](https://hackmd.io/_uploads/BJMpI5yIn.png)
+    ![](/assets/posts/Data Structure Lecture 10/BJMpI5yIn.png)
     * Phase 1: 先看過所有的組合然後用link-list的方式建一個表格，如上圖，就可以知道誰和誰有關係
     * Phase 2: 最後印出來，簡單來說就是從頭開始檢查，如果印出來後，專門儲存的array會把相對應的index設定成false，例如：0和11還有4有關係(print 0 and 11 and 4)，而11和0,2有關係(print 2 only)，接著2又和11有關係，此時因為11已經被設定成false，這樣的話就結束這個round，換下一個數值(4)繼續挖掘，4和7, 0有關係(print 7 only)而7又和4有關係，此時繞回來了，這樣就接著往下看, so on and so on until print all of the value or the final index.
 
@@ -110,12 +110,12 @@ date: 2023-05-27
 
 ## Note
 * Link-list也可以解決sparse matrix(用環狀的link-list)
-    ![](https://hackmd.io/_uploads/H1BTViJUn.png)
+    ![](/assets/posts/Data Structure Lecture 10/H1BTViJUn.png)
     每一個row / column都有自己的Link-list
-    ![](https://hackmd.io/_uploads/rJELBjkI2.png)
+    ![](/assets/posts/Data Structure Lecture 10/rJELBjkI2.png)
     
     黃色的head node看起來有8個但其實只有四個，只是為了表示方便所以畫起來長這樣
-    ![](https://hackmd.io/_uploads/r1UGHikL3.png)
+    ![](/assets/posts/Data Structure Lecture 10/r1UGHikL3.png)
 
 * How to implement?
     ```cpp

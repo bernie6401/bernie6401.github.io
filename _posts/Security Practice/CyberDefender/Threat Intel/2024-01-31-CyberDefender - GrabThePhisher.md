@@ -105,7 +105,7 @@ Flag: `j1j1b1s@m3r0`
 ### Exploit
 如果把檔案中提供的token/id當作TG的parameter會得到甚麼東西呢?$\to$`https://api.telegram.org/bot5457463144:AAG8t4k7e2ew3tTi0IBShcWbSia0Irvxm10/getChat?chat_id=5442785564`
 
-![](https://hackmd.io/_uploads/HkeL-lHfp.png)
+![](/assets/posts/CyberDefender - GrabThePhisher/HkeL-lHfp.png)
 
 Flag: `Marcus Aurelius`
 

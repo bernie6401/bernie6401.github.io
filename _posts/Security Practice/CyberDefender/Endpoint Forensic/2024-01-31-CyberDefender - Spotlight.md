@@ -26,7 +26,7 @@ Challenge: https://cyberdefenders.org/blueteam-ctf-challenges/34#nav-questions
 
 #### Exploit
 在`./root/System/Library/CoreServices/`中可以找到`SystemVersion.plist`
-![圖片](https://hackmd.io/_uploads/HJqsQEjQp.png)
+![圖片](/assets/posts/CyberDefender - Spotlight/HJqsQEjQp.png)
 
 Flag: `10.15`
 
@@ -63,7 +63,7 @@ Flag: `13`
 
 #### Exploit
 可以看到Title是Passwords但沒有內容，依照[^wp-1]的說明，他是覺得答案應該是視title為content的一部份
-![圖片](https://hackmd.io/_uploads/ryf4P6kVa.png)
+![圖片](/assets/posts/CyberDefender - Spotlight/ryf4P6kVa.png)
 
 Flag: `Passwords`
 
@@ -108,7 +108,7 @@ Flag: `https://futureboy.us/stegano/encode.pl`
 
 #### Exploit
 我是直接翻`./root/Users/sneaky/.Trash`就直接看到了
-![圖片](https://hackmd.io/_uploads/H1Hk-Vo7T.png)
+![圖片](/assets/posts/CyberDefender - Spotlight/H1Hk-Vo7T.png)
 
 Flag: `silenteye`
 
@@ -137,11 +137,11 @@ MAIN-INFO-Finished in time = 00:00:04
 MAIN-INFO-Review the Log file and report any ERRORs or EXCEPTIONS to the developers
 ```
 command結束會吐一個db file和一個log file，分析db file後就直接filter `Examplesteg.jpg`這張圖片
-![圖片](https://hackmd.io/_uploads/ry1oHAkEa.png)
+![圖片](/assets/posts/CyberDefender - Spotlight/ry1oHAkEa.png)
 
 此時我們可以複製該file的ID，再接續filter
 File ID: `12885043806`
-![圖片](https://hackmd.io/_uploads/SJeaBC1Ea.png)
+![圖片](/assets/posts/CyberDefender - Spotlight/SJeaBC1Ea.png)
 
 Flag: `GoodExample.jpg`
 
@@ -170,7 +170,7 @@ MAIN-INFO-Finished in time = 00:00:00
 MAIN-INFO-Review the Log file and report any ERRORs or EXCEPTIONS to the developers
 ```
 接下來就是設定filter就知道他在4/20有兩次的request
-![圖片](https://hackmd.io/_uploads/SktS5Rk4a.png)
+![圖片](/assets/posts/CyberDefender - Spotlight/SktS5Rk4a.png)
 
 Flag: `20:58`
 
@@ -186,7 +186,7 @@ Flag: `20:58`
 $ plistutil -i hansel.apricot.plist -o hansel.apricot.plist.txt
 $ vim hansel.apricot.plist.txt
 ```
-![圖片](https://hackmd.io/_uploads/B17MpgGV6.png)
+![圖片](/assets/posts/CyberDefender - Spotlight/B17MpgGV6.png)
 
 Flag: `Family Opinion`
 
@@ -198,7 +198,7 @@ Flag: `Family Opinion`
 > The mail file storing iMessages in MacOS is `chat.db`
 
 ### Exploit
-![圖片](https://hackmd.io/_uploads/HkTk4-fNa.png)
+![圖片](/assets/posts/CyberDefender - Spotlight/HkTk4-fNa.png)
 
 Flag: `7`
 
@@ -212,7 +212,7 @@ Flag: `7`
 但就算不找到這個file，應該還是有其他file是可以擷取出UID的資訊
 
 ### Exploit
-![圖片](https://hackmd.io/_uploads/S1R8U-f4a.png)
+![圖片](/assets/posts/CyberDefender - Spotlight/S1R8U-f4a.png)
 
 Flag: `213`
 
@@ -294,7 +294,7 @@ Flag: `term`
 
 ### Recon
 這一題還是參考[^wp-1]，主要是承接第10題的結果，可以在下面看到generateduid的strings
-![圖片](https://hackmd.io/_uploads/HkQyHfzV6.png)
+![圖片](/assets/posts/CyberDefender - Spotlight/HkQyHfzV6.png)
 
 Flag: `5BB00259-4F58-4FDE-BC67-C2659BA0A5A4`
 

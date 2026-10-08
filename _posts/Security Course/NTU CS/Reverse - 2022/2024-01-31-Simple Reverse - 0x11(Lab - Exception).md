@@ -53,15 +53,15 @@ LABEL_7:
     有兩種方式
     * 看PE-Bear
         * 首先我們先看IDA反組譯的psuedo code發現和原始的組語有一些出入(反黃的地方)，代表有一些地方沒有翻出來，此時我們就可以先分析一下是不是有甚麼問題，發現在`15DE`的地方有個除法，且除數是零，代表一定會發生exception
-            ![](https://hackmd.io/_uploads/BkCEpelKn.png)
+            ![](/assets/posts/Simple Reverse - 0x11(Lab - Exception)/BkCEpelKn.png)
         * 此時就可以用PE-Bear看一下相關的資訊，首先`15DE`是包含在`1590-1748`的Scope，所以要找的unwind address就是`9750`
-            ![](https://hackmd.io/_uploads/H1UfyWxtn.png)
+            ![](/assets/posts/Simple Reverse - 0x11(Lab - Exception)/H1UfyWxtn.png)
         * 實際來到`9750`就會像下圖一樣，但基本上還是需要自己create structure並且手動輸入offset
-            ![](https://hackmd.io/_uploads/ryWskWlY2.png)
+            ![](/assets/posts/Simple Reverse - 0x11(Lab - Exception)/ryWskWlY2.png)
 
     * 從xref main function去找
         * 首先在IDA中找到main function，用XRef的方式找到其他呼叫main function的地方，再跟進去，基本上後面的address跟進去就會是跟上面的地方一樣，這個方法有可能會失敗
-            ![](https://hackmd.io/_uploads/BkGYeblYh.png)
+            ![](/assets/posts/Simple Reverse - 0x11(Lab - Exception)/BkGYeblYh.png)
 
 2. 分析整體的exception handler
     
@@ -75,16 +75,16 @@ LABEL_7:
     ```
 3. 用x64dbg看一下整體的流程
     * 首先第一個exception正如我們所說，跳到**161D**，並做一些操作，這邊就要很仔細分析，明顯看到他會跳過一段不重要的code，然後在`1626-1654`的地方形成一個for-loop，主要的操作是把我們輸入的flag和一個東西做XOR，這個東西實際上去看就是`0xBE, 0xBF, 0xC0, 0xC1,...,0xE3`(共38個連續數值)。
-    ![](https://hackmd.io/_uploads/Sy_UvWgK3.png)
+    ![](/assets/posts/Simple Reverse - 0x11(Lab - Exception)/Sy_UvWgK3.png)
     * For-loop結束後就會遇到第二個exception，但實際跟上去後會發現它不是跳到我們預期的RIP而是跳到`169F`(不是很清楚為甚麼會這樣)，所以如果盲目的分析中間的第二個loop其實就是浪費時間，因為根本不會執行到，而這一段for-loop在做的事情就是把剛剛第一個exception處理完的結果和一些data相加然後取低位byte，而那些data實際跟上去會是`0xEF, 0xF0, 0xF1,...,0xFF, 0x00, 0x01,...,0x14`，這裡非常重要，因為0xFF再上去不是0x100而是一樣取低位byte，變成從零開始
-    ![](https://hackmd.io/_uploads/B1DRuWxK3.png)
+    ![](/assets/posts/Simple Reverse - 0x11(Lab - Exception)/B1DRuWxK3.png)
     * **2023/07/03更新：**
         
         經過助教的說明，已經知道為甚麼他會跳到`169F`，可以看一下上課講義中提到的`_C_specific_handler`，就在`975C`，用IDA跟進去看一下發現他在呼叫`_C_specific_handler`之前有做了一些操作，他把context的RIP改掉了，有一點hook的感覺，原本exception 2發生時要回去的地方應該是`1660`但加上`0x3F`之後就變成`169F`，和我們實際跑的結果相符合
         * 上課講義
-        ![](https://hackmd.io/_uploads/HyiTqrxYh.png)
+        ![](/assets/posts/Simple Reverse - 0x11(Lab - Exception)/HyiTqrxYh.png)
         * 額外操作
-        ![](https://hackmd.io/_uploads/ryIUoSlYn.png)
+        ![](/assets/posts/Simple Reverse - 0x11(Lab - Exception)/ryIUoSlYn.png)
     * 上述兩個exception做完之後就會直接和encrypted flag進行比對，所以我們要做的事情就是倒過來執行這些東西(encrypted flag - `0xEF,...,0x14` + `0x100`) ^ (`0xBE, 0xBF, 0xC0, 0xC1,...,0xE3`) = FLAG
 
 ## Exploit

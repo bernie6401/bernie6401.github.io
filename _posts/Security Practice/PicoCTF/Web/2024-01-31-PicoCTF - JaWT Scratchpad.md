@@ -14,7 +14,7 @@ date: 2024-01-31
 
 ## Recon
 這一題蠻有趣的，有結合其他東西當作解題的基礎，先看JWT的token，decode過後的結果表示：
-![](https://hackmd.io/_uploads/S1B-01POh.png)
+![](/assets/posts/PicoCTF - JaWT Scratchpad/S1B-01POh.png)
 
 也就是說，token只會隨著payload而變動，所以也沒有辦法用解public key的方式重新簽署文件，另外用alg=none也會出現Authentication failed，不過作者有在網頁中有給出提示，用[John](https://github.com/magnumripper/JohnTheRipper)，看起來就是用john-the-ripper解出token password
 
@@ -35,10 +35,10 @@ date: 2024-01-31
     ```
     Token Password: `ilovepico`
 2. Check password & Construct New Token
-![](https://hackmd.io/_uploads/BkjwMxDOh.png)
+![](/assets/posts/PicoCTF - JaWT Scratchpad/BkjwMxDOh.png)
 
 3. Get Flag
-![](https://hackmd.io/_uploads/SJ85fxvun.png)
+![](/assets/posts/PicoCTF - JaWT Scratchpad/SJ85fxvun.png)
 
 
 ## Reference

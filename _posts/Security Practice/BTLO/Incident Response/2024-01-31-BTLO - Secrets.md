@@ -30,7 +30,7 @@ Flag: `jwt`
 
 ### Recon
 Common Sense就是header + payload + signature
-![圖片](https://hackmd.io/_uploads/rk--WjCva.png)
+![圖片](/assets/posts/BTLO - Secrets/rk--WjCva.png)
 
 Flag: `header.payload.signature`
 
@@ -103,7 +103,7 @@ Flag: `_4_Eyes`
 * John - [Hacking JWT Tokens: Bruteforcing Weak Signing Key (JohnTheRipper)](https://blog.pentesteracademy.com/hacking-jwt-tokens-bruteforcing-weak-signing-key-johntheripper-89f0c7e6a87)
     
     這要取決於wordlist有沒有，所以我只是先以secret=1234，然後用john爆破
-    ![圖片](https://hackmd.io/_uploads/rkTfhsRDT.png)
+    ![圖片](/assets/posts/BTLO - Secrets/rkTfhsRDT.png)
     ```bash
     $ echo 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmbGFnIjoiQlRMe180X0V5ZXN9IiwiaWF0Ijo5MDAwMDAwMCwibmFtZSI6IkdyZWF0RXhwIiwiYWRtaW4iOnRydWV9.2kwB24fBrrmotFu9cdeRb1EMg1kRfGlLQPvhE1OUtp0'> jwt.txt
     $ john jwt.txt --wordlist=/usr/share/wordlists/rockyou.txt --format=HMAC-SHA256                                                                                                                 
@@ -124,7 +124,7 @@ Flag: `bT!0`
 
 ### Recon
 我們知道了secrets**=bT!0**，所以我們可以用這個secrets簽章新的payload
-![圖片](https://hackmd.io/_uploads/ByhNToRvT.png)
+![圖片](/assets/posts/BTLO - Secrets/ByhNToRvT.png)
 
 Flag: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmbGFnIjoiQlRMe180X0V5ZXN9IiwiaWF0Ijo5MDAwMDAwMCwibmFtZSI6IkdyZWF0RXhwIiwiYWRtaW4iOmZhbHNlfQ.nMXNFvttCvtDcpswOQA8u_LpURwv6ZrCJ-ftIXegtX4`
 

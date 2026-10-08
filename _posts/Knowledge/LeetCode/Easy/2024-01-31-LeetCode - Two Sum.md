@@ -61,7 +61,7 @@ class Solution:
 ```
 
 ## Result
-![](https://hackmd.io/_uploads/ryzB3YAs2.png)
+![](/assets/posts/LeetCode - Two Sum/ryzB3YAs2.png)
 看來還有很多進步的空間，不過就先這樣ㄅ
 
 ## Reference

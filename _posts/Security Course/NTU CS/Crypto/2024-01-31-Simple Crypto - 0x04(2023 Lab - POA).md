@@ -68,9 +68,9 @@ while True:
 * What we have: 我們有的東西就是密文，所以可以利用它動一些手腳
 * Our Goal 1: 目標是要取得原本和47進行XOR的數字是多少
 * Our Goal 2: 這樣才可以取得最後的明文69
-![](https://hackmd.io/_uploads/r1p3yoGlp.png)
+![](/assets/posts/Simple Crypto - 0x04(2023 Lab - POA)/r1p3yoGlp.png)
 * How to achieve: 我們可以簡單猜一個byte，從0x00開始，把密文換成猜測的byte，這樣256種組合和原本的Goal 1所求的byte進行XOR後會padding正確(也就是0x01)，此時假設我們已經猜到目前是0x2f符合padding正確的目標，代表現在的假明文是0x01，則原本和0x47進行XOR的數字就是0x01⊕0x2f，然後我們就可以回到原本解密的流程，也就是原本的密文0x47⊕剛剛得知的(0x01⊕0x2f)，就會得到想要的正確的明文0x69
-![](https://hackmd.io/_uploads/H1yKboMlp.png)
+![](/assets/posts/Simple Crypto - 0x04(2023 Lab - POA)/H1yKboMlp.png)
 
 所以套用到今天的lab意思也是一樣，如果要知道padding是否正確可以問oracle，反正只要符合明文+0x80+(0...15)\*0x00，這一題的flag長度可以從題目給的ciphertext看出來，顯然扣掉16bytes的initial vector後，flag的長度是32 bytes，也就是說我們從第二個block開始解，我們可以單獨把第一個ciphertext block當成第二個ciphertext block的initial vector，合併後再一起送出去，然後不斷變化IV的最後一個byte，如果oracle回傳`Well received :)`代表第一個bytes猜對了，我們就可以把flag的最後一個bytes求出來$\to$我們猜的byte⊕原本ciphertext的最後一個byte⊕0x80(0x80是我們判斷padding正確的依據)，當然找到真正的plaintext byte後要把我們猜測的block恢復原狀，接著繼續找下一個byte
 

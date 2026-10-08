@@ -23,18 +23,18 @@ date: 2024-01-31
         * Physical Size = Logical Size: 這個就和前一個有相關，logical size就是實際住進去房間的檔案大小，而physical size就是飯店給予我們房間的大小，所以$physical\_size\ge logical\_size$
         * 如果resident file因為駭客的攻擊(injection/trojan/backdoor...)使得檔案大小變大，而失去原本resident file的身分，則該檔案就會被搬出目前的地方，就算之後檔案大小變回來，還是無法再住回原本的地方，這就是攻擊方所遺留的攻擊痕跡
     * 如何判斷?如果檔名後面接的是`18 00 00 00 01 00`就是resident file，例如：
-        ![](https://hackmd.io/_uploads/rynQ2dFGp.png)
+        ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - $MFT Resident & Non-Resident File/rynQ2dFGp.png)
         或者是看`18 00 00 00 10 00`的前面第二個byte(就是non-resident flag)，是`00`代表不是non-resident file，反之就是
-        ![](https://hackmd.io/_uploads/HkAy6_tMa.png)
+        ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - $MFT Resident & Non-Resident File/HkAy6_tMa.png)
     * 檔案大小
         `18 00 00 00 10 00`後面接著的四個bytes就是檔案大小 → 換成10禁制就對了，另外如果此檔案是resident file，則檔案大小後面除了固定的`18 00 00 00`以外，後面還會有該檔案原本的file signature，以此為例就是`89 50 4E 47`也就是png的magical header
-        ![](https://hackmd.io/_uploads/SkwzAOtGa.png)
+        ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - $MFT Resident & Non-Resident File/SkwzAOtGa.png)
         此範例就是`02 02` → 514 bytes
 5. **non-Resident File**
     如果是non-resident file，檔名的後面一點會接的是`80 00 00 00 48 00 00 00`，再後面就是non-resident flag
-    ![](https://hackmd.io/_uploads/HJk7NFtf6.png)
+    ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - $MFT Resident & Non-Resident File/HJk7NFtf6.png)
     另外，檔案的大小會在flag往後數40個bytes的地方，以底下範例來說就是`F6 09 00 00`
-    ![](https://hackmd.io/_uploads/BJWMBtKMT.png)
+    ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - $MFT Resident & Non-Resident File/BJWMBtKMT.png)
 
 ## Lab - Resident File
 ### Lab - Offset 43208704(d)

@@ -117,7 +117,7 @@ Welcome to Shellcode as a Service!
 
 ## Exploit - seccomp-tools / syswrite
 算offset是這一題最煩的地方，以我的例子來說(記憶體區段如下)，flag是放在==0x000055e109602060==的地方，我執行shell code的地方是在==0x7fbb78c21000==，所以我先把0x00007f1d391e5000~0x00007f1d39215000的東西dump下來，發現在0x2e590的地方存的是==0x55e109400448==，和原本的0x000055e109602060差了一點，所以我先把後1.5bytes變成0(and operator)，然後加上offset(0x202060)，在依序把其他必要的register擺好就可以call function了
-![](https://hackmd.io/_uploads/r1FxFRy23.png)
+![](/assets/posts/PicoCTF - SaaS/r1FxFRy23.png)
 
 
 :::spoiler

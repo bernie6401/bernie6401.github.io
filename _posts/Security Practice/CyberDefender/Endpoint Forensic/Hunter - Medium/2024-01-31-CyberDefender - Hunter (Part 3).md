@@ -28,7 +28,7 @@ Flag: `Jetico BCWipe`
 
 ### Recon
 就只是到`/root/Windows/Prefetch/`中數有多少的.pf檔案(善用排序)
-![圖片.png](https://hackmd.io/_uploads/ByDB9sgX6.png)
+![圖片.png](/assets/posts/CyberDefender - Hunter (Part 3)/ByDB9sgX6.png)
 
 Flag: `174`
 
@@ -239,7 +239,7 @@ Flag: `Pictures.7z`
 
 ### Recon
 看一下pictures裡面的資料夾很明顯的Exfil就是我們的目標
-![圖片.png](https://hackmd.io/_uploads/SksFlnlXa.png)
+![圖片.png](/assets/posts/CyberDefender - Hunter (Part 3)/SksFlnlXa.png)
 
 Flag: `C:\Users\Hunter\Pictures\Exfil`
 
@@ -248,10 +248,10 @@ Flag: `C:\Users\Hunter\Pictures\Exfil`
 
 ### Recon
 這應該是嘗試，如果刪除檔案會直接丟到recycle bin，所以可以直接到這邊去撈，不過從recycle bin撈到的檔案貌似損毀，紙看到應該是貓貓的耳朵
-![$RP3TBNW.jpg](https://hackmd.io/_uploads/SJzGb3lmT.jpg)
+![$RP3TBNW.jpg](/assets/posts/CyberDefender - Hunter (Part 3)/SJzGb3lmT.jpg)
 
 所以可以查看一下原圖是甚麼，我是直接從Pictures裡面的private中撈檔案
-![ws_Small_cute_kitty_1920x1200.jpg](https://hackmd.io/_uploads/SkQ8ZngX6.jpg)
+![ws_Small_cute_kitty_1920x1200.jpg](/assets/posts/CyberDefender - Hunter (Part 3)/SkQ8ZngX6.jpg)
 剛好檔案大小誠如題目所述
 
 Flag: `ws_Small_cute_kitty_1920x1200.jpg`
@@ -338,7 +338,7 @@ AppID: aa28770954eaeaaa, Description: null
 ```
 
 我們到了jump list的absolute path之後就可以回去翻他在哪邊，原來是在desktop
-![圖片.png](https://hackmd.io/_uploads/rykII2gXp.png)
+![圖片.png](/assets/posts/CyberDefender - Hunter (Part 3)/rykII2gXp.png)
 
 Flag: `C:\Users\Hunter\Desktop\Tor Browser\Browser\firefox.exe`
 

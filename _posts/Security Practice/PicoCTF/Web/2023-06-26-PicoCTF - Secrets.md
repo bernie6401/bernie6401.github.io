@@ -18,10 +18,10 @@ date: 2023-06-26
 
 ## Exploit - <font color="FF0000">通靈</font>
 1. 首先看一下網頁的source code，沒什麼特別的地方，但有看到`secret/assets/index.css`，所以有一個route是secrets，試看看有甚麼東西
-![](https://hackmd.io/_uploads/HywRa08_n.png)
+![](/assets/posts/PicoCTF - Secrets/HywRa08_n.png)
 
 2. 發現這樣的想法是對的，陸續看一下source code有甚麼其他route，就繼續加在URL就對了
-![](https://hackmd.io/_uploads/HyumC0U_2.png)
+![](/assets/posts/PicoCTF - Secrets/HyumC0U_2.png)
 
 
 Payload: `view-source:http://saturn.picoctf.net:65352/secret/hidden/superhidden/`

@@ -353,7 +353,7 @@ Flag: `77.91.124.20`
 ### Exploit
 1. 因為這是一隻真正的trojan樣本，所以可以從上一題看到他傳送資訊給C2C server的IP，而我們可以把該IP透過virustotal查看
 2. 從community中，最下面有一個[RedLine的討論](https://www.virustotal.com/gui/collection/f6cb8976174a8e375963a0821b3a0a19205d9d739b4522be61e8408eaf5534d0)
-    ![](https://hackmd.io/_uploads/ByHYH6ibT.png)
+    ![](/assets/posts/CyberDefender - RedLine/ByHYH6ibT.png)
 3. 該文章說明`RedLine Stealer`是一隻怎樣的惡意程式
     > RedLine Stealer is a malware available on underground forums for sale apparently as standalone (\$100/\$150 depending on the version) or also on a subscription basis (\$100/month). This malware harvests information from browsers such as saved credentials, autocomplete data, and credit card information. A system inventory is also taken when running on a target machine, to include details such as the username, location data, hardware configuration, and information regarding installed security software. More recent versions of RedLine added the ability to steal cryptocurrency. FTP and IM clients are also apparently targeted by this family, and this malware has the ability to upload and download files, execute commands, and periodically send back information about the infected computer.
 

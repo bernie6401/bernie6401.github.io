@@ -24,7 +24,7 @@ Challenge: https://blueteamlabs.online/home/challenge/phishing-analysis-f92ef500
 
 ### Recon
 這一題可以直接用[線上工具 - EML Viewer](https://products.groupdocs.app/zh-hant/viewer/eml)把eml file轉成pdf，不過風險就是有很多的資訊會流失掉，所以比較好的方式就是直接裝Mozilla Thunderbird查看
-![圖片](https://hackmd.io/_uploads/Bk2fj8ldT.png)
+![圖片](/assets/posts/BTLO - Phishing Analysis/Bk2fj8ldT.png)
 
 Flag: `kinnar1975@yahoo.co.uk`
 
@@ -33,7 +33,7 @@ Flag: `kinnar1975@yahoo.co.uk`
 
 ### Recon
 呈上題
-![圖片](https://hackmd.io/_uploads/BJA7o8g_6.png)
+![圖片](/assets/posts/BTLO - Phishing Analysis/BJA7o8g_6.png)
 
 Flag: `Undeliverable: Website contact form submission`
 
@@ -42,7 +42,7 @@ Flag: `Undeliverable: Website contact form submission`
 
 ### Recon
 呈上題
-![圖片](https://hackmd.io/_uploads/r1NLsUgdT.png)
+![圖片](/assets/posts/BTLO - Phishing Analysis/r1NLsUgdT.png)
 
 Flag: `18 March 2021 04:14`
 
@@ -51,7 +51,7 @@ Flag: `18 March 2021 04:14`
 
 ### Recon
 這個就是要用Text Editor string search Originating就會發現這個IP
-![圖片](https://hackmd.io/_uploads/HJSG2Ul_p.png)
+![圖片](/assets/posts/BTLO - Phishing Analysis/HJSG2Ul_p.png)
 
 Flag: `103.9.171.10`
 
@@ -60,7 +60,7 @@ Flag: `103.9.171.10`
 
 ### Recon
 直接用[線上工具](https://whois.domaintools.com/)看這個IP的相關資訊
-![圖片](https://hackmd.io/_uploads/Hyr5n8gdT.png)
+![圖片](/assets/posts/BTLO - Phishing Analysis/Hyr5n8gdT.png)
 
 Flag: `c5s2-1e-syd.hosting-services.net.au`
 
@@ -69,7 +69,7 @@ Flag: `c5s2-1e-syd.hosting-services.net.au`
 
 ### Recon
 呈第一題可以發現有一個attachment
-![圖片](https://hackmd.io/_uploads/BkVh28lua.png)
+![圖片](/assets/posts/BTLO - Phishing Analysis/BkVh28lua.png)
 
 Flag: `Website contact form submission.eml`
 
@@ -78,7 +78,7 @@ Flag: `Website contact form submission.eml`
 
 ### Recon
 呈上題，點進這個附件可以看到一段URL
-![圖片](https://hackmd.io/_uploads/S1bN6Uxdp.png)
+![圖片](/assets/posts/BTLO - Phishing Analysis/S1bN6Uxdp.png)
 
 Flag: `https://35000usdperwwekpodf.blogspot.sg?p=9swghttps://35000usdperwwekpodf.blogspot.co.il?o=0hnd`
 
@@ -95,7 +95,7 @@ Flag: `blogspot`
 
 ### Recon
 這個就直接看[線上工具 - URL2PNG](https://www.url2png.com/#testdrive)
-![圖片](https://hackmd.io/_uploads/SJg6TLl_p.png)
+![圖片](/assets/posts/BTLO - Phishing Analysis/SJg6TLl_p.png)
 
 Flag: `Blog has been removed`
 

@@ -25,10 +25,10 @@ Too Much to list
 這一題在AIS3 pre-exam的時候也有看到，但當時根本沒想法，只要題目看起來一複雜我就沒辦法分析了，所以還是看了Martin大的WP才知道解法，但有時候真的很考驗耐心，先看hint發現應該是考跟JWT有關
 1. 先用user/user登入觀察整個網站
 發現書架上只有三本書，而且個別的權限都標註在上面(Free/Premium/Admin)，看起來我們的目標是把自己的權限變成admin然後查看flag這本書
-![](https://hackmd.io/_uploads/BJJYLGuO3.png)
+![](/assets/posts/PicoCTF - Java Code Analysis!!/BJJYLGuO3.png)
 2. JWT Token
 用[online tool](https://jwt.io/)查看的結果如下，首要目標是找到HS256的secret key
-![](https://hackmd.io/_uploads/SkMdvf__3.png)
+![](/assets/posts/PicoCTF - Java Code Analysis!!/SkMdvf__3.png)
 
 
 ## Exploit - JWT
@@ -86,8 +86,8 @@ Too Much to list
     
 2. Construct a Fake Token
 根據hint的說明，我們應該只要改userId和role這兩個欄位如下，切記也要改token-payload如下，就可以更改自己的權限
-![](https://hackmd.io/_uploads/HJWUqfuun.png)
-![](https://hackmd.io/_uploads/H1-LjzOdh.png)
+![](/assets/posts/PicoCTF - Java Code Analysis!!/HJWUqfuun.png)
+![](/assets/posts/PicoCTF - Java Code Analysis!!/H1-LjzOdh.png)
 
     
 Flag: `picoCTF{w34k_jwt_n0t_g00d_6e5d7df5}`

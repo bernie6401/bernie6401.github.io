@@ -60,7 +60,7 @@ usage: aureport [options]
         -x,--executable                 eXecutable name report
         If no report is given, the summary report will be displayed
 ```
-![圖片](https://hackmd.io/_uploads/B17xQgJOa.png)
+![圖片](/assets/posts/BTLO - Paranoid/B17xQgJOa.png)
 
 ## 起手式
 ```bash
@@ -199,7 +199,7 @@ Flag: `evil, 829992`
 
 ### Recon
 只要上網找這一題的題目就會出現相關的CVE
-![圖片](https://hackmd.io/_uploads/HyiwqlydT.png)
+![圖片](/assets/posts/BTLO - Paranoid/HyiwqlydT.png)
 
 Flag: `CVE-2021-3156`
 

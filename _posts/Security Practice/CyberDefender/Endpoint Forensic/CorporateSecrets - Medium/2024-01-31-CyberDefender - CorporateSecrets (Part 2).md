@@ -29,7 +29,7 @@ date: 2024-01-31
 
 ### Exploit
 直接看`SOFTWARE/Microsoft/Windows NT/CurrentVersion/ProfileList`就知道了
-![圖片.png](https://hackmd.io/_uploads/ry8fOuU7T.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 2)/ry8fOuU7T.png)
 
 Flag: `S-1-5-21-2446097003-76624807-2828106174`
 
@@ -38,7 +38,7 @@ Flag: `S-1-5-21-2446097003-76624807-2828106174`
 
 ### Recon
 直接搜索一下所有user的AppData或是program1，可以發現有五個瀏覽器(Firefox / Internet Explorer / Chrome / Edge / Tor)
-![圖片.png](https://hackmd.io/_uploads/HkKLxF8Xp.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 2)/HkKLxF8Xp.png)
 
 Flag: `5`
 
@@ -52,7 +52,7 @@ Flag: `5`
 ### Exploit
 1. 先從tim的document中看有沒有甚麼特別的file
 2. 發現secret.odt其中的內容，最後一個部分被隱藏起來了，要複製到其他editor才會發現
-    ![圖片.png](https://hackmd.io/_uploads/Sk9UStL7T.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 2)/Sk9UStL7T.png)
     ```
     Super secret CEO plans:
     •	Take over the world
@@ -81,10 +81,10 @@ Flag: `Jim Tomato`
 
 ### Exploit
 * 方法一
-    ![圖片.png](https://hackmd.io/_uploads/rkrIjYLmp.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 2)/rkrIjYLmp.png)
 * 方法二
     在`SOFTWARE/Microsoft/Windows NT/CurrentVersion/Winlogon`可以找到
-    ![圖片.png](https://hackmd.io/_uploads/SkEDG5Lm6.png)
+    ![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 2)/SkEDG5Lm6.png)
 
 Flag: `jim.tomato`
 
@@ -96,7 +96,7 @@ Flag: `jim.tomato`
 
 ### Exploit
 主要是export出他在browser上的history database file，並看他的瀏覽紀錄
-![圖片.png](https://hackmd.io/_uploads/HkLXgvvX6.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 2)/HkLXgvvX6.png)
 
 Flag: `secretary`
 
@@ -123,7 +123,7 @@ Flag: `C:\Program1`
 這個是有點新的舊觀念，先看Jim的瀏覽器是用哪一個 → Chrome，所以可以查一下Chrome的樓覽紀錄在哪邊 → `root/Users/jim.tomato/AppData/Local/Google/Chrome/UserData/Default/`中可以找到History這個database file，接著就是用db browser parse這個file
 
 ### Exploit
-![圖片.png](https://hackmd.io/_uploads/SkN2-IPQp.png)
+![圖片.png](/assets/posts/CyberDefender - CorporateSecrets (Part 2)/SkN2-IPQp.png)
 
 Flag: `https://www.youtube.com/watch?v=Y-CsIqTFEyY`
 

@@ -31,7 +31,7 @@ Challenge: https://blueteamlabs.online/home/challenge/follina-f1a3452f34
 $ sha1sum  ./sample.doc
 06727ffda60359236a8029e0b3e8a0fd11c23313  ./sample.doc
 ```
-![圖片](https://hackmd.io/_uploads/BkwsZO0vT.png)
+![圖片](/assets/posts/BTLO - Follina/BkwsZO0vT.png)
 
 Flag: `06727ffda60359236a8029e0b3e8a0fd11c23313`
 
@@ -42,7 +42,7 @@ Flag: `06727ffda60359236a8029e0b3e8a0fd11c23313`
 其實大部分的資訊都可以在virustotal上找到，包含cve, hash value, c2 ip(domain), attacked file....，所以呈上題，他就顯示在一開始的details分頁
 
 ### Exploit
-![圖片](https://hackmd.io/_uploads/B1B4MuCDa.png)
+![圖片](/assets/posts/BTLO - Follina/B1B4MuCDa.png)
 
 Flag: `office open xml document`
 
@@ -54,10 +54,10 @@ Flag: `office open xml document`
 
 ### Exploit
 * 方法一: VirusTotal
-    ![圖片](https://hackmd.io/_uploads/HJCtf_CD6.png)
+    ![圖片](/assets/posts/BTLO - Follina/HJCtf_CD6.png)
 * 方法二: Public Any.Run Task
     有了前面的公開project支援，在network flow的地方就可以看到他頻繁的和某一個domain連線，也就是此次的答案
-    ![圖片](https://hackmd.io/_uploads/B1uIruCDT.png)
+    ![圖片](/assets/posts/BTLO - Follina/B1uIruCDT.png)
 
 Flag: `https://www.xmlformats.com/office/word/2022/wordprocessingDrawing/RDF842l.html`
 
@@ -131,7 +131,7 @@ Flag: `msdt.exe`
 
 ### Recon
 這個可以直接看any run的process info，從process之間的關係可以知道msdt.exe的parent process是winword.exe，所以要設定條件的話可以從這邊下手
-![圖片](https://hackmd.io/_uploads/r1rMwq0Dp.png)
+![圖片](/assets/posts/BTLO - Follina/r1rMwq0Dp.png)
 
 Flag: `msdt.exe, WINWORD.EXE`
 
@@ -140,10 +140,10 @@ Flag: `msdt.exe, WINWORD.EXE`
 
 ### Recon
 這個也是可以直接看any run public task的cve紀錄，裡面會記錄有關mitre針對該攻擊使用的手法，如下圖
-![圖片](https://hackmd.io/_uploads/BJKG_5CPp.png)
+![圖片](/assets/posts/BTLO - Follina/BJKG_5CPp.png)
 有關Execution的手法紀錄的是T1059.003，攻擊者使用windows command shell(CMD)執行一系列的腳本或payload
-![圖片](https://hackmd.io/_uploads/B1QBu5Awa.png)
-![圖片](https://hackmd.io/_uploads/Hy-Jtc0DT.png)
+![圖片](/assets/posts/BTLO - Follina/B1QBu5Awa.png)
+![圖片](/assets/posts/BTLO - Follina/Hy-Jtc0DT.png)
 
 ### Exploit
 Flag: `T1059`
@@ -153,7 +153,7 @@ Flag: `T1059`
 
 ### Recon
 這個可以看virustotal的紀錄
-![圖片](https://hackmd.io/_uploads/H1pLt5RDT.png)
+![圖片](/assets/posts/BTLO - Follina/H1pLt5RDT.png)
 
 Flag: `CVE-2022-30190`
 

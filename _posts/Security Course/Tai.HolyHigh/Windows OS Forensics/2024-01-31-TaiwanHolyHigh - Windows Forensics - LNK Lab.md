@@ -533,7 +533,7 @@ Press any key to continue . . .
 SO代表offset，LE代表取多少個bytes
 1. 標的檔案路徑
     
-    ![](https://hackmd.io/_uploads/SJi5e37Ma.png)
+    ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - LNK Lab/SJi5e37Ma.png)
     如果有特別幫Parition取名字的話，lnk就會把partition的名字放在兩個固定byte中間，也就是`10 00 00 00`和`00`中間，可以用以下的script把big5轉成中文
     ```python
     >>> partition_name = 'B7 73 BC 57 BA CF BA D0 B0 CF'.split(' ')
@@ -542,7 +542,7 @@ SO代表offset，LE代表取多少個bytes
     ```
 2. 標的檔案路徑之磁碟序號 (Drive serial number)
     
-    ![](https://hackmd.io/_uploads/Hyrkc2Qza.png)
+    ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - LNK Lab/Hyrkc2Qza.png)
     順序是倒著看，以此為例就是`D4 21 3D DD`，如果把硬碟換掉/重灌/對partition有其他異動都會使這個serial number和原本不一樣
     
     如何知悉本電腦的磁區序號:
@@ -562,7 +562,7 @@ SO代表offset，LE代表取多少個bytes
 3. 標的檔案時間戳記(在Header欄位中，如下圖)
     
     SO = 28 / LE = 24(Timestamp開時前的四個bytes都是固定`20 00 00 00`)
-    ![](https://hackmd.io/_uploads/ry58EhXza.png)
+    ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - LNK Lab/ry58EhXza.png)
     因為我的HxD也沒有出現特別編輯器的視窗，所以就土法煉鋼的把東西轉換
     ```bash
     >>> create_time = '64 B4 1C 07 EF 09 D8 01'
@@ -593,7 +593,7 @@ SO代表offset，LE代表取多少個bytes
     
     SO = 52 / LE = 8
     順序也是倒著看
-    ![](https://hackmd.io/_uploads/BywhO2XMa.png)
+    ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - LNK Lab/BywhO2XMa.png)
     ```bash
     >>> file_size = '70 8A 30 02 00 00 00 00'
     >>> int("".join(file_size.split(' ')[::-1]), 16)
@@ -601,7 +601,7 @@ SO代表offset，LE代表取多少個bytes
     ```
 5. 標的檔案 ObjectID
     
-    ![](https://hackmd.io/_uploads/SJXfIa7fp.png)
+    ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - LNK Lab/SJXfIa7fp.png)
     有一點複雜，但從上往下看
     1. 紅色框起來的是不會變動的16 bytes
     2. 滑鼠反白起來的15 bytes代表NetBIOS name

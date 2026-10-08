@@ -25,13 +25,13 @@ Lecture Video: [2022/05/04 AD 安全1](https://youtu.be/Cv2gNQkDM8Q?si=l1na5hFGp
 ## Lab
 ### 顯示Mimikatz的明文
 1. 只要打開regedit，在`電腦\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest`可能會看到`UseLogonCredential`的名稱，只要把對應的數值改成1就可以了，當然如果沒看到的話也可以自己新增
-    ![](https://hackmd.io/_uploads/BkQAC8ERn.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x19顯示Mimikatz的明文)/BkQAC8ERn.png)
 2. 重開機
     
     重開機前可以先把之前mimikatz的結果存起來，照樣之後可以對照著看
 3. Result
     
     我挑了幾個SID一樣的結果來看
-    ![](https://hackmd.io/_uploads/HktIkvVA2.png)
-    ![](https://hackmd.io/_uploads/B1uqyDE02.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x19顯示Mimikatz的明文)/HktIkvVA2.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x19顯示Mimikatz的明文)/B1uqyDE02.png)
     左邊的是新增config之前，右邊的是重開機之後，可以看到原本(null)的地方大部分都有被顯示出來

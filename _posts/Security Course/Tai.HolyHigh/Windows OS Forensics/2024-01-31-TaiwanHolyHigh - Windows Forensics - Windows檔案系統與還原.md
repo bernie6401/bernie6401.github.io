@@ -17,12 +17,12 @@ date: 2024-01-31
     
 * File Slack
     舉例來說如果一個檔案A，大小是4個sector(2048 bytes)，現在將其刪除後又存入一個檔案B在同一位置，但其大小只有1.5個sector(768 bytes)，則後面沒有被填滿的2.5個sector事實上還殘留檔案A的一些資訊，尚未填滿的該sector(Ram Slack)+完整的兩個sector(Disk/Residual Slack)就是file slack
-    > ![](https://hackmd.io/_uploads/rk9GlEcG6.png)
+    > ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - Windows檔案系統與還原/rk9GlEcG6.png)
 
     會有一點小複雜，反正file slack就是一個完整cluster(如果按照中FAT16來格式化128MB來說就是4個sectors)沒有被填滿的部分就對了，而ran slack或是disk(residual) slack只是在區分這些沒有被填滿的區塊而已
 
 * **比較表格**
-    > ![](https://hackmd.io/_uploads/S1XGzEcfp.png)
+    > ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - Windows檔案系統與還原/S1XGzEcfp.png)
     
     稍微解釋一下為甚麼FAT16是單一cluster的sector數量比較多，因為按照他自己的定義，最大的cluster數量不能超過65526，也就是說如果硬碟的容量變大，單一cluster所除下來的sector數量就越多，舉例:
     若一張記憶卡的大小是128MB → 134217728 bytes，單一cluster最少需要4個sectors

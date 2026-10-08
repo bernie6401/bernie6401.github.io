@@ -19,7 +19,7 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=CRVWKo
     ![](https://www.tsnien.idv.tw/Security_WebBook/Security_%E6%8F%92%E5%9C%96/%E5%9C%96%2014-8.png)
     為了防止前面提到的問題，他增加了一個TGS的Server，但純控管tickets的發放，另外在驗證上面也增加了timestamp和請求方的網路位址，這樣就可以防止reply attack，而且短時間內都不需要再進行身分認證，很方便
 * Windows Kerberos架構：
-    ![](https://hackmd.io/_uploads/BkTzOxN1T.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x21AS-REP Roasting)/BkTzOxN1T.png)
 * 優點
     > * 主密鑰分配：AS 伺服器除了必須擁有客戶的主密鑰之外，還必須擁有 TGS 的主密鑰；另外，TGS 伺服器也需要擁有所有伺服器的主密鑰。這就是 Kerberos 將所有參與者都稱為 Principal 的主要原因。
     > * 客戶密碼只要輸入一次：客戶端取得通往 TGS 的門票（TicketTGS）之後，在該票的有效期限之內，都可以請求服務，而不需要再輸入密碼來索取門票。
@@ -30,9 +30,9 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=CRVWKo
 ## Lab
 ### AS-REP Roasting
 * 攻擊情境：在Win2016的Server Manager中的Tools可以找到Active Directory User and Computer
-    ![](https://hackmd.io/_uploads/H1JCrlEyT.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x21AS-REP Roasting)/H1JCrlEyT.png)
     在一般user的property中，可以看到Account/Account options最底下有一個選項**Do not require Kerberos preauthentication**，這個功能主要是前面提到的對於身分不會認證(1, 2步驟會略過，只執行3-6)，他只會認證後面的ticket
-    ![](https://hackmd.io/_uploads/BJidLxV1a.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x21AS-REP Roasting)/BJidLxV1a.png)
     雖然預設是不勾選，但有兩種情況會打勾
     1. 如果被駭客打進去到最高管理員，當然它會勾選這個功能方便搞事(所有帳號)
     2. 因為windows有分版本，如果要向下兼容各版本之間的認證，則該選項就一定要勾選(這也是為甚麼講師在前面有提到一定要升級AD的舊環境)，這在很古老的系統中常常發生

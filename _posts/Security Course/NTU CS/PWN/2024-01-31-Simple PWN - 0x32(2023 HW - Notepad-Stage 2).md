@@ -113,7 +113,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
     
     我是直接用[godbolt](https://godbolt.org/)搭配[x86-64 disassembly](https://defuse.ca/online-x86-assembler.htm#disassembly)
 
-    ![image](https://hackmd.io/_uploads/B1hxShgL6.png)
+    ![image](/assets/posts/Simple PWN - 0x32(2023 HW - Notepad-Stage 2)/B1hxShgL6.png)
 
     不過正如@cs-otaku說的
     > 寫入content是用write去寫的。所以shellcode裡面不可以出現\x00這種東西
@@ -122,7 +122,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
     
     1. Socket Config
         像是這邊我不知道`AF_INET`所代表的byte是多少就可以直接看godbolt的結果，另外syscall要用哪一個可以參考[linux x86-64 syscall](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)，並且根據calling convention把shellcode擺好，切記看完之後要看一下轉換成shellcode看有沒有\x00的byte，可以用pwntools的asm function或是直接用[x86-64 disassembly](https://defuse.ca/online-x86-assembler.htm#disassembly)都可以達到一樣的效果
-        ![image](https://hackmd.io/_uploads/HJUeP3lUp.png)
+        ![image](/assets/posts/Simple PWN - 0x32(2023 HW - Notepad-Stage 2)/HJUeP3lUp.png)
         ```python
         # int fd = socket(AF_INET, SOCK_STREAM, 0);
         socket = """
@@ -143,7 +143,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
         ```
     2. Connect
         這邊主要需要觀察protocol怎麼包，首先我們知道第一個參數是存\$rdi，也就是存上一個syscall的return value存起來的\$r8，至於\$rsi的info address，其內容應該怎麼包含甚麼呢?我們先看一下[linux x86-64 syscall](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)中的說明
-        ![image](https://hackmd.io/_uploads/BktiY2e8a.png)
+        ![image](/assets/posts/Simple PWN - 0x32(2023 HW - Notepad-Stage 2)/BktiY2e8a.png)
         他所需的是`struct sockaddr_in info;`，而實際去看看sockaddr_in會發現他的結構如下([csdn post](https://blog.csdn.net/dongyanxia1000/article/details/80683738)):
         ```
         struct sockaddr_in {

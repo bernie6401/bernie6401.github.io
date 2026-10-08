@@ -10,8 +10,8 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-![](https://hackmd.io/_uploads/Skf4o1tGp.png)
-![](https://hackmd.io/_uploads/B16No1FzT.png)
+![](/assets/posts/Simple Crypto 0x12(2023 HW - signature_revenge)/Skf4o1tGp.png)
+![](/assets/posts/Simple Crypto 0x12(2023 HW - signature_revenge)/B16No1FzT.png)
 
 ## Source code
 ```python

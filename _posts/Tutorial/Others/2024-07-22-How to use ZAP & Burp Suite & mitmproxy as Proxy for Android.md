@@ -11,24 +11,24 @@ date: 2024-07-22
 
 # How to use ZAP as Proxy?
 * 根據[^zap-turorial]我大概知道怎麼使用，我們通常會使用zap的command line形式進行操作，詳細的參數可以參考[Official Document](https://www.zaproxy.org/docs/desktop/cmdline/)，另外我看ZAP如果要當作Proxy的角色會需要用到ROOT CA憑證，所以如果單純用之前的教學文章會不知到在哪裡產生憑證，他已經移動到Network底下了
-![image](https://hackmd.io/_uploads/B11DaMnpT.png =400x)
+![image](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/B11DaMnpT.png =400x)
 
 * 目前我把Proxy架好了，看的是[這篇教學文章-OWASP ZAP操作手冊](https://hackmd.io/@ZLgd0D1pQcyasZhkkWKG4g/HyFZFPDQu)，講的非常詳細
     1. 在Firefox中搜尋憑證或是cert，直接安裝在ZAP產生的憑證檔案
     2. 在Firefox的setting中搜尋Proxy
-        ![圖片](https://hackmd.io/_uploads/HJ4NI5Aap.png =400x)
+        ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/HJ4NI5Aap.png =400x)
     2. 設定成如下
-        ![圖片](https://hackmd.io/_uploads/HJoGB9CTa.png =400x)
+        ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/HJoGB9CTa.png =400x)
     只要ZAP有打開，就可以連線出去，但如果Proxy已經setup，卻沒有打開ZAP會通不到外面喔
 
 ## 補充
 1. 如果上述的步驟已經執行完但Proxy只能攔截到GET Method的封包，就代表憑證爛掉了，和在手機上一樣，但手機會出現這個問題還有可能是SSL Pinning，網頁端只需要重新安裝ZAP Generate的新憑證就好
 2. 如果設定Firefox的Proxy時，是設定成`使用系統Proxy設定`，那就要在電腦的設定中，更改Proxy的config
-    ![圖片](https://hackmd.io/_uploads/HJ6STMP1R.png =400x)
+    ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/HJ6STMP1R.png =400x)
     這樣的話ZAP也可以正常運作，但是就不會出現ZAP特定的畫面(功能)
-    ![圖片](https://hackmd.io/_uploads/ByAxAfPyA.png =400x)
+    ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/ByAxAfPyA.png =400x)
     只有設定成`手動設定Proxy`才會出現，否則會變成連線不上的畫面
-    ![圖片](https://hackmd.io/_uploads/B1vHRzPJ0.png)
+    ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/B1vHRzPJ0.png)
 
 # How to use Burp Suite as Proxy?
 這個完全是翻譯並且按照[ Intercepting Android App Traffic with BurpSuite ](https://youtu.be/xp8ufidc514?si=4y0JhxW0kbnO1HjF)的影片教學
@@ -124,7 +124,7 @@ date: 2024-07-22
 
 ## 實際攔截前
 1. 打開的Burp Suite一定要把Bind to address改成All interfaces
-    ![圖片](https://hackmd.io/_uploads/B1HBnVVPR.png =400x)
+    ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/B1HBnVVPR.png =400x)
 2. 設定手機端的網路Proxy
     
     這一部分就跟ZAP當初設定的時候一模一樣，當然也是可以像教學影片那樣用CLI的方式處理
@@ -155,7 +155,7 @@ date: 2024-07-22
         ```
     2. 再到[github releases](https://github.com/frida/frida/releases)下載最新的server
         此時我要選的版本就是frida-server-{version number}-android-arm64.xz
-        ![圖片](https://hackmd.io/_uploads/S1S234ND0.png)
+        ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/S1S234ND0.png)
     3. 解壓縮後放到手機端上並且啟動這個frida-server
         ```bash!
         $ mv frida-server-16.2.5-android-arm64 frida-server # rename it
@@ -202,14 +202,14 @@ date: 2024-07-22
 ## 對比
 ### 沒有使用Frida的時候
 會得到以下截圖
-![Screenshot_20240523-101015](https://hackmd.io/_uploads/Bk7aFN37R.png#pic_center =200x)
+![Screenshot_20240523-101015](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/Bk7aFN37R.png#pic_center =200x)
 並且Burp Suite沒有得到任何關於instagram的封包
 
 ### 有使用Frida的時候
 例如我在前面的登入介面輸入一些東西，可以在封包紀錄中找到我輸入的Username和Password
-![Screenshot_20240523-120440](https://hackmd.io/_uploads/H1-tlBhXR.png =200x)
+![Screenshot_20240523-120440](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/H1-tlBhXR.png =200x)
 可以在傳輸的封包中找到這個json parameter body，而我輸入的Username: testqqqqqqwwwwww也的確在其中
-![圖片](https://hackmd.io/_uploads/SygolHnm0.png)
+![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/SygolHnm0.png)
 ```json
 {
   "client_input_params": {
@@ -275,27 +275,27 @@ date: 2024-07-22
 2. 下載憑證
     
     如果一開始拿到的手機就是已經Rooted，那就直接下載憑證就好，我是用電腦版下載，首先把電腦上的proxy設定起來
-    ![圖片](https://hackmd.io/_uploads/HJ5drE4wC.png =300x)
+    ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/HJ5drE4wC.png =300x)
     並且在瀏覽器上打 http://mitm.it 然後就會看到以下畫面
-    ![圖片](https://hackmd.io/_uploads/Bk-cINNP0.png =300x)
+    ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/Bk-cINNP0.png =300x)
     如果沒有先設定電腦上的proxy，他預設並不會走mitmproxy，這時候再瀏覽同一個網站就會出現以下畫面
-    ![圖片](https://hackmd.io/_uploads/H1dmI4NPC.png)
+    ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/H1dmI4NPC.png)
     這時我們們就可以直接選取android要得憑證
 3. 把憑證放到手機上並且依照[How to Root Android Phone & Install AlwaysTrustUserCert.zip Module?]({{base.url}}/How-to-Root-Android-Phone-and-Install-AlwaysTrustUserCert.zip-Module#注意事項)中最後的注意事項進行安裝，也就是先把之前所有安裝的憑證刪除→重新啟動→重新安裝"所有"的憑證→重新安裝Magisk模組→Reboot，就可以了
     此時檢查手機中的的Trusted credentials應該就會發現mitmproxy的憑證已經被信任
-    <img src='https://hackmd.io/_uploads/B1v_PE4vC.png' alt='' width=200>
+    <img src='/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/B1v_PE4vC.png' alt='' width=200>
 4. 設定手機的Proxy IP
     我是直接用電腦的hot spot來測試，所以手機就填電腦IP和8080的Port
 5. 攔截流量
     
     此時一切幾乎準備就緒，但有個小問題，如果按照前面的command，會一直出現以下問題
-    ![圖片](https://hackmd.io/_uploads/r1Huu44PA.png =400x)
+    ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/r1Huu44PA.png =400x)
     根據[Stackoverflow](https://stackoverflow.com/questions/52068746/mitmproxy-client-connection-killed-by-block-global)的說明，我們可以加上set參數
     ```bash
     $ mitmweb --set block_global=false --set view
     ```
     就可以順利攔截到流量了
-    ![圖片](https://hackmd.io/_uploads/SkYGtVEwA.png)
+    ![圖片](/assets/posts/How to use ZAP & Burp Suite & mitmproxy as Proxy for Android/SkYGtVEwA.png)
 
 # Reference
 [^zap-turorial]:[網頁安全性測試：OWASP ZAP使用入門](https://www.tpisoftware.com/tpu/articleDetails/2161)

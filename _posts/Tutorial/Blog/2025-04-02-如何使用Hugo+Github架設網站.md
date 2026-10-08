@@ -93,7 +93,7 @@ date: 2025-04-02
     Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
     Press Ctrl+C to stop
     ```
-    ![圖片](https://hackmd.io/_uploads/SkoITccp1e.png)
+    ![圖片](/assets/posts/如何使用Hugo+Github架設網站/SkoITccp1e.png)
     現在Local的deployment已經完成，剩下的就是deploy到Github Page
 
 ## 利用Github Action Deploy Hugo
@@ -150,9 +150,9 @@ date: 2025-04-02
         * Deploy就是使用`peaceiris/actions-gh-pages@v3`這個版本的script，進行deploy，不用管具體在幹麻，需要注意的是，publish_dir是在`./demo/public`，因為hugo會把我寫的所有文章rendering之後放到./demo/public這個folder，所以我設定一個條件，如果main這個branch有變化，就把./demo/public這個folder中的所有內容，透過script更新到gh-pages
 2. 設定Github的一些東西
     到自己設定的website repo首頁`https://github.com/<username>/<username>.github.io`，會看到上面有Actions和Setting兩個subpage
-    ![圖片](https://hackmd.io/_uploads/SJjgXj5pyx.png)
+    ![圖片](/assets/posts/如何使用Hugo+Github架設網站/SJjgXj5pyx.png)
     先到Setting > Pages
-    ![圖片](https://hackmd.io/_uploads/HJZ4Xicpkg.png)
+    ![圖片](/assets/posts/如何使用Hugo+Github架設網站/HJZ4Xicpkg.png)
     選擇Build and deployment中的選項為==GitHub Actions==，這個的意思是，因為Github在deploy類似Hugo這樣的靜態網頁框架時，如果選擇`Deploy from a branch`，那預設就會deploy Jekyll這個框架而不是Hugo導致deployment會失敗
     如果在VScode的`GitHub Actions` Extension發現有另外一個workflow叫做`pages build deployment`那大機率就是這個地方沒有設定好，可以參考[禁用Github pages build deployment](https://blog.361way.com/2023/10/pages-build-deployment.html)
 3. Push to repo
@@ -162,10 +162,10 @@ date: 2025-04-02
     $ git push
     ```
     丟上去到repo的時候可以透過vscode的`GitHub Actions`這個Extension查看有沒有deploy成功
-    ![圖片](https://hackmd.io/_uploads/rJNFHs5a1x.png)
+    ![圖片](/assets/posts/如何使用Hugo+Github架設網站/rJNFHs5a1x.png)
     有時候會出現像這樣deploy失敗的狀況，可以利用旁邊的View step logs查看具體哪邊出問題
 4. (最重要的地方)更改Source變成Deploy from a branch，並且把Branch改成如下圖
-    ![圖片](https://hackmd.io/_uploads/BywW0hcaJe.png)
+    ![圖片](/assets/posts/如何使用Hugo+Github架設網站/BywW0hcaJe.png)
     這邊的邏輯是: 
     1. 從 master (或 main) 分支的 Hugo 原始碼建置 (`hugo --minify`)
     2. 將建置結果 (./demo/public/) 部署到 `gh-pages` 分支

@@ -101,10 +101,10 @@ DevOps 到底在做什麼？
 * [Low Rank Decomposition 低秩矩阵分解 - Vid.](https://www.bilibili.com/video/BV15E411A7hB/?share_source=copy_web&vd_source=31529c2d248aba29c9cc1e3cbd720cb6)
 * [Lec06 深度學習的模型壓縮與加速 Low Rank Approximation (6/9)](https://youtu.be/cbFkMGQqAOA)
 簡單來說就是把原本的model做拆解，變成比較小的rank，這樣的好處是運算的速度會比較快，但缺點是運算的error會增加，畢竟是拆解，也不見得能夠一模一樣
-![](https://hackmd.io/_uploads/Syen9UjOSh.png)
+![](/assets/posts/FedML-HE - An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System - Notes/Syen9UjOSh.png)
 
 從以下實驗結果來說，左側有提到幾倍的運算效能的提升，但右邊也顯示了這樣會造成error的增加
-![](https://hackmd.io/_uploads/HyKxwjdH3.png)
+![](/assets/posts/FedML-HE - An Efficient Homomorphic-Encryption-Based Privacy-Preserving Federated Learning System - Notes/HyKxwjdH3.png)
 
 ---
 

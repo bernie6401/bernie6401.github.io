@@ -193,7 +193,7 @@ if __name__=="__main__":
         fw.write(pt_img)
 
 ```
-![](https://hackmd.io/_uploads/Hk18swavh.png)
+![](/assets/posts/PicoCTF - AES-ABC/Hk18swavh.png)
 Flag: `picoCTF{d0Nt_r0ll_yoUr_0wN_aES}`
 
 ## Reference

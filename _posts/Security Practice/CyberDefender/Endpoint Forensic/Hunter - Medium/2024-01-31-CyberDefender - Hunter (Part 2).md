@@ -23,7 +23,7 @@ date: 2024-01-31
 
 ### Exploit
 呈上題
-![](https://hackmd.io/_uploads/r1Gbf_vM6.png)
+![](/assets/posts/CyberDefender - Hunter (Part 2)/r1Gbf_vM6.png)
 
 Flag: `1000`
 
@@ -32,7 +32,7 @@ Flag: `1000`
 
 ### Exploit
 呈上題
-![](https://hackmd.io/_uploads/HJfozdDG6.png)
+![](/assets/posts/CyberDefender - Hunter (Part 2)/HJfozdDG6.png)
 
 Flag: `22,80,9929,31337`
 
@@ -41,7 +41,7 @@ Flag: `22,80,9929,31337`
 
 ### Exploit
 呈上題
-![](https://hackmd.io/_uploads/B11RMuwzT.png)
+![](/assets/posts/CyberDefender - Hunter (Part 2)/B11RMuwzT.png)
 
 Flag: `7.12`
 
@@ -50,11 +50,11 @@ Flag: `7.12`
 
 ### Recon
 直覺要先找到skype相關的文件放在哪邊，看了[^hunter-wp]的說明才知道是放在`\root\Users\Hunter\AppData\Roaming\Skype\hunterehpt`，而所有和對話、帳戶等訊息都放在`main.db`這個檔案中
-![](https://hackmd.io/_uploads/H18KDdvzp.png)
+![](/assets/posts/CyberDefender - Hunter (Part 2)/H18KDdvzp.png)
 
 ### Exploit
 又是使用新工具的時候([DB Browser for SQLlite](https://sqlitebrowser.org/dl/))，直接看Message這個table，一開始就講到了兩個名字 → `linux-rul3z`和`hunterehpt`
-![](https://hackmd.io/_uploads/rJlyRL_vG6.png)
+![](/assets/posts/CyberDefender - Hunter (Part 2)/rJlyRL_vG6.png)
 
 Flag: `linux-rul3z`
 
@@ -84,7 +84,7 @@ Flag: `ehptmsgs@gmail.com`
 
 ### Exploit
 在important的folder中可以發現一張網路架構圖，應該就是這一題的答案，回推原本在skype上的時間，兩人互相道別的時候是`2016/06/21 08:48:56`，接著就轉而用email互相通訊，包含附上network design和制訂如何洩漏檔案出去之類的事情
-![](https://hackmd.io/_uploads/SJDmuYPMT.png)
+![](/assets/posts/CyberDefender - Hunter (Part 2)/SJDmuYPMT.png)
 
 Flag: `home-network-design-networking-for-a-single-family-home-case-house-arkko-1433-x-792.jpg`
 
@@ -232,10 +232,10 @@ Flag: `Crypto Swap`
 
 ### Exploit
 在`SYSTEM/ControlSet001/Enum/USBSTOR/`中就有紀錄關於USB完整的資訊
-![圖片.png](https://hackmd.io/_uploads/B1SiVsxm6.png)
+![圖片.png](/assets/posts/CyberDefender - Hunter (Part 2)/B1SiVsxm6.png)
 
 和自己電腦中比較，不知到為甚麼居然沒有USBSTOR
-![圖片.png](https://hackmd.io/_uploads/Hy15rjgQa.png)
+![圖片.png](/assets/posts/CyberDefender - Hunter (Part 2)/Hy15rjgQa.png)
 
 Flag: `07B20C03C80830A9,AAI6UXDKZDV8E9OU`(serial number最後沒有`&0`這兩個字元)
 

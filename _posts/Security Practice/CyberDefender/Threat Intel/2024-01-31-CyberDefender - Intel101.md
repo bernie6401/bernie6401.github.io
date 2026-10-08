@@ -24,7 +24,7 @@ Tools
 
 ### Recon
 看[whois](https://www.whois.com/whois/jameskainth.com)的搜尋結果
-![圖片.png](https://hackmd.io/_uploads/rJIevf8mp.png)
+![圖片.png](/assets/posts/CyberDefender - Intel101/rJIevf8mp.png)
 
 Flag: `NameCheap`
 
@@ -33,7 +33,7 @@ Flag: `NameCheap`
 
 ### Recon
 這一題是參考[^Intel101-wp]，看[truecaller](https://www.truecaller.com/search/us/855-707-7328)的搜尋結果會發現他是Spectrum Cable的客服電話，這應該是其中一個美國電信公司，所以直接查他舊的名字就知道
-![圖片.png](https://hackmd.io/_uploads/BJ5wvfUmp.png)
+![圖片.png](/assets/posts/CyberDefender - Intel101/BJ5wvfUmp.png)
 
 Flag: `TimeWarnerCable`
 
@@ -62,12 +62,12 @@ Flag: `82.5%`
 
 ### Exploit
 1. wayback machine
-    ![圖片.png](https://hackmd.io/_uploads/HyYScQL7p.png)
+    ![圖片.png](/assets/posts/CyberDefender - Intel101/HyYScQL7p.png)
 2. Search Informations Common
-    ![圖片.png](https://hackmd.io/_uploads/rkbOqXIQT.png)
+    ![圖片.png](/assets/posts/CyberDefender - Intel101/rkbOqXIQT.png)
 3. 存檔並checksum
-    ![inside1.jpg](https://hackmd.io/_uploads/rJes9XIQT.jpg)
-    ![圖片.png](https://hackmd.io/_uploads/SynAqmUm6.png)
+    ![inside1.jpg](/assets/posts/CyberDefender - Intel101/rJes9XIQT.jpg)
+    ![圖片.png](/assets/posts/CyberDefender - Intel101/SynAqmUm6.png)
 
 Flag: `f4952b314eb15acf0eec79c954f83881c17d50d2b5922ee37e8fc5e5cd1aeac2`
 
@@ -76,15 +76,15 @@ Flag: `f4952b314eb15acf0eec79c954f83881c17d50d2b5922ee37e8fc5e5cd1aeac2`
 
 ### Exploit
 1. 可以先看[Cybersecurity - facaulty](https://www.champlain.edu/technology-degrees/computer-networking-and-information-security/faculty)的東西
-    ![圖片.png](https://hackmd.io/_uploads/r1_Jl4IXT.png)
+    ![圖片.png](/assets/posts/CyberDefender - Intel101/r1_Jl4IXT.png)
 2. 題目有提到有人是在Ohioan大學取得美術學士學位，這是個重點，他不是說在Ohio University而是Ohioan University，也就是只提到該間大學是在Ohio，所以要先知道是哪一間，parse過一下現任的員工後發現University of Toledo就在Ohio State
-    ![圖片.png](https://hackmd.io/_uploads/Hynb-NUmp.png)
+    ![圖片.png](/assets/posts/CyberDefender - Intel101/Hynb-NUmp.png)
 3. 題目問的是"其他員工"也是在該間大學就讀過，而不是"其他cybersecurity員工"，代表我們要找的對象是全校所有的員工，因此可以直接在所有員工的頁面parse有這間大學的資訊頁面，最後我找到這個人，字數和hint也和題目相同
     ```
     inurl:champlain.edu/academics/our-faculty intext:University of Toledo
     ```
-    ![圖片.png](https://hackmd.io/_uploads/H1E-zN8mp.png)
-    ![圖片.png](https://hackmd.io/_uploads/H1hbf4L7a.png)
+    ![圖片.png](/assets/posts/CyberDefender - Intel101/H1E-zN8mp.png)
+    ![圖片.png](/assets/posts/CyberDefender - Intel101/H1hbf4L7a.png)
 
 Flag: `Todd Schroeder`
 

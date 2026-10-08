@@ -18,13 +18,13 @@ date: 2023-05-30
 * snort Rule
     * Rule Screenshot
     * Format
-        ![](https://hackmd.io/_uploads/S1pKEV7Ln.png)
+        ![](/assets/posts/A&D of Network Security - Lab 14/S1pKEV7Ln.png)
     * Action
-        ![](https://hackmd.io/_uploads/HygsNEXI2.png)
+        ![](/assets/posts/A&D of Network Security - Lab 14/HygsNEXI2.png)
     * Option
-        ![](https://hackmd.io/_uploads/By83VNQUh.png)
+        ![](/assets/posts/A&D of Network Security - Lab 14/By83VNQUh.png)
     * Option - Payload
-        ![](https://hackmd.io/_uploads/rJ6p44QI2.png)
+        ![](/assets/posts/A&D of Network Security - Lab 14/rJ6p44QI2.png)
 
 ## Lab
 ### Lab 1: Packet sniffer Mode show出 sniff ICMP封包的結果
@@ -32,22 +32,22 @@ Payload:
 ```bash
 $ sudo snort -vd -i eth0 -q
 ```
-![](https://hackmd.io/_uploads/BJVrHN78h.png)
+![](/assets/posts/A&D of Network Security - Lab 14/BJVrHN78h.png)
 
 ---
 
 ### Lab 2: Attacker SSH爆破攻擊，利用 Snort偵測攻擊行為是否發生，show出偵測結果 ，並說明snort rule
 #### Threat Model
-![](https://hackmd.io/_uploads/SkDltNQU3.png)
+![](/assets/posts/A&D of Network Security - Lab 14/SkDltNQU3.png)
 * Attacker use SSH brute force attack and try to log in the victim snort
 * Need to write rule to detect attacker’s SSH brute force attack
 
 #### Lab Process
 1. Set up environment - <font color="FF0000">Host Only</font>
     * In Kali-Linux 1(Attacker) - `192.168.56.129`
-        ![](https://hackmd.io/_uploads/Hkd6FEmI3.png)
+        ![](/assets/posts/A&D of Network Security - Lab 14/Hkd6FEmI3.png)
     * In Kali-Linux 2(Victim) - `192.168.56.104`
-        ![](https://hackmd.io/_uploads/HkoYt4QU2.png)
+        ![](/assets/posts/A&D of Network Security - Lab 14/HkoYt4QU2.png)
         
 2. Write your rule and Test it in victim VM
     
@@ -98,13 +98,13 @@ $ sudo snort -vd -i eth0 -q
     $ sudo hydra -l root -P /usr/share/wordlists/rockyou.txt 192.168.56.104 -t 4 ssh
     ```
 6. Result Screenshot in Victim VM
-    ![](https://hackmd.io/_uploads/SJ0U0VmUh.png)
+    ![](/assets/posts/A&D of Network Security - Lab 14/SJ0U0VmUh.png)
 
 ---
 
 ### Lab 3-1: 使用Nmap進行攻擊並使用 Wireshark側錄封包分析可能可以成為snort的規則
 #### Threat Model
-![](https://hackmd.io/_uploads/H1LrJHQ83.png)
+![](/assets/posts/A&D of Network Security - Lab 14/H1LrJHQ83.png)
 1. Nmap to the snort machine. (Any Nmap scan command is available)
 2. Write your own Rules on the snort machine
 3. Screenshot the output alert
@@ -114,13 +114,13 @@ $ sudo snort -vd -i eth0 -q
     ```bash
     $ sudo wireshark
     ```
-    ![](https://hackmd.io/_uploads/S1WJxrmLn.png)
+    ![](/assets/posts/A&D of Network Security - Lab 14/S1WJxrmLn.png)
 
 2. Try to attack in attacker VM
     ```bash
     $ sudo nmap sS 192.168.56.129
     ```
-    ![](https://hackmd.io/_uploads/rk3cCEQIn.png)
+    ![](/assets/posts/A&D of Network Security - Lab 14/rk3cCEQIn.png)
 
 ---
 
@@ -143,4 +143,4 @@ In attacker VM:
 $ sudo nmap sS 192.168.56.104
 ```
 
-![](https://hackmd.io/_uploads/Sy8hCNQI2.png)
+![](/assets/posts/A&D of Network Security - Lab 14/Sy8hCNQI2.png)

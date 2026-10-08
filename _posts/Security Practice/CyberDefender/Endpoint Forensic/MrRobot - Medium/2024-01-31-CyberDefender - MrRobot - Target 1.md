@@ -213,7 +213,7 @@ Flag: `2996` → iexplore.exe
 
 #### Background
 [註冊表中的運行鍵是什麼？ ](https://www.enigmasoftware.com/zh-hant/what-are-run-keys-registry/)
-![](https://hackmd.io/_uploads/ryyXWrFla.png)
+![](/assets/posts/CyberDefender - MrRobot - Target 1/ryyXWrFla.png)
 
 #### Recon
 我們都知道惡意程式會在機碼設定重開機後自動執行，例如在:

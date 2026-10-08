@@ -153,7 +153,7 @@ date: 2024-01-31
 * \[Ctrl+e\]: 顯示 entry points，如果要 reverse dll 會方便很多，`_DLLMainCRTStartup→DllMain / DllEntryPoint / CRT_INIT`
     <img src="/assets/posts/Tools/Reverse - IDA Short cut - Ctrl E.png" width=300>
 * \[Numpad-\]: 如果 function 中的宣告很多，可以右鍵選擇`Collapse declarations`
-    ![](https://hackmd.io/_uploads/SkOXU4AMa.png)
+    ![](/assets/posts/Reverse Cheat Sheet/SkOXU4AMa.png)
 
 ### 改型別
 * 型別
@@ -172,10 +172,10 @@ date: 2024-01-31
 * \[r\]: 將常數顯示為 char
 * \[Alt+A\]: 將 data 轉成字串 
     1. 可以先把 bytes 的型別定義好(單獨的 bytes 變成 array)，變成 array 有兩種方法，第一種是直接用`Y`定義他的型別成`int dword_2008[32]`，前面的 int 就看每一個字元是來決定，後面`[32]`就代表有多少字元變成 array；第二種方法就是直接按`d`改變一個字元的型態變成 int，然後在`edit/Array`的地方可以叫出`Convert to array`的視窗(如果前面沒有先用`d`改變型態的話，他會以為所有字元都是一個 byte，然後總共有 128 個字元這樣換算，但其實我們是總共 32 個字元，每一個字元是 4 個 bytes，也就是 int，這一點要特別注意)
-        ![](https://hackmd.io/_uploads/HJ3yvI-Ga.png)
-        ![](https://hackmd.io/_uploads/r1A_8LWMa.png)
+        ![](/assets/posts/Reverse Cheat Sheet/HJ3yvI-Ga.png)
+        ![](/assets/posts/Reverse Cheat Sheet/r1A_8LWMa.png)
     2. 接著就是在`Option/String literals`視窗中設定用哪一個型態表示字串，這邊因為每一個字元都是 4 bytes，也就是 32 bits，所以選擇 C-style
-        ![](https://hackmd.io/_uploads/SyQBP8Zfp.png)
+        ![](/assets/posts/Reverse Cheat Sheet/SyQBP8Zfp.png)
     * 完整流程
         ```
         .rodata:0000000000002008 unk_2008 db  46h ; F                    ; DATA XREF: main+8↑o
@@ -216,27 +216,27 @@ date: 2024-01-31
 ### 比較不常用
 * \[t\]: set sizeof(XXX)；如果已經確定目前的 constant 就是某個變數的 length，那可以直接按 t 讓他變成 sizeof(那個變數)
     舉例：如果已經確定目前的`0x238`就是`PROCESSENTRY32W`的 size，就可以直接這樣用，會變得比較清楚
-    ![](https://hackmd.io/_uploads/S1nruHTza.png)
-    ![](https://hackmd.io/_uploads/rkjwuBTza.png)
+    ![](/assets/posts/Reverse Cheat Sheet/S1nruHTza.png)
+    ![](/assets/posts/Reverse Cheat Sheet/rkjwuBTza.png)
 * \[Shift+F1\]: show 出 Local Type 視窗
-    ![](https://hackmd.io/_uploads/S1ikDa5_n.png)
+    ![](/assets/posts/Reverse Cheat Sheet/S1ikDa5_n.png)
 * \[Shift+F12\]: 開啟 Strings 視窗
-    ![](https://hackmd.io/_uploads/HybvLzo_2.png)
+    ![](/assets/posts/Reverse Cheat Sheet/HybvLzo_2.png)
 * 對某一個數值按 m: ENUM 這個功能就是在替換一些常見的 windows API 參數，讓原本的純數字可以用文字表示，這樣比較好懂 API 的操作，逆向會更順暢(補充說明：IDA 有收錄很多 MSDN 上的一些 API，他每一個參數表示的文字，例如[這一篇](https://learn.microsoft.com/en-us/windows/win32/Memory/memory-protection-constants)底下有顯示很多 Constant/value 的對應，而正常情況下 IDA 會顯示的是 value，如果要把它換成 Constant 文字的表達式就可以用到 ENUM 這個功能)，又例如:
 
     目前已經知道`CreateToolhelp32Snapshot(2, 0);`中的 2 的意義是`TH32CS_SNAPPROCESS`(可以參考[MSDN](https://learn.microsoft.com/zh-tw/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot#parameters))，此時就可以直接按 m 之後再選擇`TH32CS_SNAPPROCESS`
-    ![](https://hackmd.io/_uploads/B1Rn5Q6G6.png)
+    ![](/assets/posts/Reverse Cheat Sheet/B1Rn5Q6G6.png)
 * \[Alt+M/Ctrl+M\]: 前者是註冊書籤，後者是察看並選擇標籤，可以快速跑到標示的地址
 * \[Ctrl+E\]: 如果是分析 DLL file，可能會有很多不同的 entry point，利用這個 shortcut 可以顯示目前有幾個 entry point，很方便
-    ![](https://hackmd.io/_uploads/ryJw-C6Ga.png)
+    ![](/assets/posts/Reverse Cheat Sheet/ryJw-C6Ga.png)
 
 * \[Shift+E\]: 如何快速把 bytes dump 出來
     1. 選擇要輸出的 bytes
-        ![](https://hackmd.io/_uploads/Syc9UkTM6.png)
+        ![](/assets/posts/Reverse Cheat Sheet/Syc9UkTM6.png)
     2. 按\[Shift+E\]，跳出的視窗選擇想要的格式，再直接複製即可
-        ![](https://hackmd.io/_uploads/SJ7a8ypfT.png)
+        ![](/assets/posts/Reverse Cheat Sheet/SJ7a8ypfT.png)
 * 如果函式沒有 return 東西的話，可以右鍵該函示，選擇`Remove return value`或是 Shift+Del
-    ![](https://hackmd.io/_uploads/HkRk3JpG6.png)
+    ![](/assets/posts/Reverse Cheat Sheet/HkRk3JpG6.png)
 
 ### Plugin
 * \[Alt+Shift+S\](ret-sync): 可以 sync 各種 dubbuger 和 IDA

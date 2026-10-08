@@ -443,10 +443,10 @@ r = process('./V',env={"LD_PRELOAD" : "./libc-2.27.so"})
 ## Heap Vulnerabilities
 ### Background
 * 解題關鍵
-* ![圖片](https://hackmd.io/_uploads/ByQ16zsrT.png)
-* ![圖片](https://hackmd.io/_uploads/ByCZaGiHa.png)
-* ![圖片](https://hackmd.io/_uploads/HkFM6MjHp.png)
-* ![圖片](https://hackmd.io/_uploads/rkUXpMoB6.png)
+* ![圖片](/assets/posts/PWN Cheat Sheet/ByQ16zsrT.png)
+* ![圖片](/assets/posts/PWN Cheat Sheet/ByCZaGiHa.png)
+* ![圖片](/assets/posts/PWN Cheat Sheet/HkFM6MjHp.png)
+* ![圖片](/assets/posts/PWN Cheat Sheet/rkUXpMoB6.png)
 
 ### Double Free
 ### Used After Free

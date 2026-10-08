@@ -306,7 +306,7 @@ Description:
 > We know that the website files live in /usr/share/nginx/html/ and the flag is at /flag.txt but the website is filtering absolute file paths. Can you get past the filter to read the flag?
 
 ### Exploit - Easy LFI
-![](https://hackmd.io/_uploads/HyYkIrJO2.png)
+![](/assets/posts/PicoCTF - Easy Peasy Or Bad Questions/HyYkIrJO2.png)
 * Payload: `filename=../../../../flag.txt&read=`
 * Flag: `picoCTF{7h3_p47h_70_5ucc355_e5a6fcbc}`
 
@@ -392,7 +392,7 @@ __int64 __fastcall check_key(const char *input_key)
 
 ### Exploit
 直接動態跑到最後看memory就會知道key是`picoCTF{br1ng_y0ur_0wn_k3y_19836cd8}`
-![](https://hackmd.io/_uploads/SynfX-rtn.png)
+![](/assets/posts/PicoCTF - Easy Peasy Or Bad Questions/SynfX-rtn.png)
 
 
 ---
@@ -880,11 +880,11 @@ Flag: `picoCTF{d15a5m_ftw_87e5ab1}`
 ## Challenge: droid0:-1:
 ### Recon & Prepare
 這一題簡單到不可思議，難的地方是要想辦法把他run起來，不是指用android studio而是進入android studio之後，不確定是不是版本太舊或是其他原因他會一直噴錯，再加上是第一次使用這個工具，所以也不確定要看哪邊解決問題，所以如果有人遇到模擬器開不起來的狀況，可以看一下最右邊的notification，他會告訴你缺了甚麼，要不要安裝之類的簡單排除問題
-![](https://hackmd.io/_uploads/r1N91a8Rn.png)
+![](/assets/posts/PicoCTF - Easy Peasy Or Bad Questions/r1N91a8Rn.png)
 
 ### Exploit
 在emulator上隨便打一些字，然後click button，只要查看底下的log就會看到flag了
-![](https://hackmd.io/_uploads/H1gJg6LA2.png)
+![](/assets/posts/PicoCTF - Easy Peasy Or Bad Questions/H1gJg6LA2.png)
 
 Flag: `picoCTF{a.moose.once.bit.my.sister}`
 

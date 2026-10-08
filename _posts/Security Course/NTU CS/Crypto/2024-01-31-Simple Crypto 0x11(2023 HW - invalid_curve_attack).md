@@ -159,7 +159,7 @@ INFINITY = Point(None, None, None)
 
 ## Recon
 1. 觀察source code會發現maple實作了一個沒有檢查我們傳送的點是否在一開始創的橢圓曲線上的elliptiv curve class，然後他把我們給的point當作參數，創立一個初始點，可以看一下下面裡個範例，如果是maple的實作，給予一個根本不在該Elliptic Curve的點他還是會算一個G+G的點給你，只是該點其實是在別的曲線上的2G這個點，反觀正常的sage中的實作會發現只要給予的點不在該曲線上就會直接報錯
-    ![](https://hackmd.io/_uploads/H15TTzBZa.png)
+    ![](/assets/posts/Simple Crypto 0x11(2023 HW - invalid_curve_attack)/H15TTzBZa.png)
     
     maple 實作的Elliptic Curve
     ```python

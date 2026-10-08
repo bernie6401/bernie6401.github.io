@@ -65,7 +65,7 @@ Lecture Video: [ 2022/05/11 AD 安全 2 ](https://youtu.be/ubNMQ7_dcm0?si=26g2Lz
     ```bash
     $ xfreerdp /d:kuma.org /p:1qaz@WSX3edc /v:192.168.222.129 /u:administrator
     ```
-    ![](https://hackmd.io/_uploads/By1s-2V1T.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x22遠端執行(RDP))/By1s-2V1T.png)
 
 
 Libfreerdp不知道為甚麼，安裝都會失敗，而且網路上也沒有其他教學或資源，所以先skip，反正有xfreerdp可以用

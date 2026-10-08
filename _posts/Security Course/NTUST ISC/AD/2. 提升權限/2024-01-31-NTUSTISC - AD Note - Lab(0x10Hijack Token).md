@@ -51,18 +51,18 @@ $ whoami /priv
     SeTimeZonePrivilege           變更時區           已停用
     ```
     可以看到上述的權限都沒有在這裏面，也就是說正常的使用者是不會有這兩個權限的，那誰會有這兩個權限呢?需要**impersonation(也就是講師說的切換身分)的人**，詳細的腳本可以看這邊[^iis-windows-impersonation]但今天不會用到，總之IIS就是一個需要做身分切換的角色，所以講師已經在Win10的電腦中設定好IIS，也起用了web shell的功能，我們就可以試看看，在browser中`http://127.0.0.1/cmd.aspx`，他可以直接用IIS的權限執行程式
-    ![](https://hackmd.io/_uploads/r1N1LMM03.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x10Hijack Token)/r1N1LMM03.png)
 
-    ![](https://hackmd.io/_uploads/HySuBGMC2.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x10Hijack Token)/HySuBGMC2.png)
     從結果來看，他的確具有**SeImpersonatePrivilege**的權限而且已經啟用，那我們就可以直接用PrintSpoofer.exe執行其他指令
 2. Use PrintSpoofer.exe
-    ![](https://hackmd.io/_uploads/rkqPUMGA2.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x10Hijack Token)/rkqPUMGA2.png)
     從結果來看，我們的確已經提權了，再來可以用講師的指令測試一下權限
     ```bash
     $ c:\tools\PrintSpoofer64.exe -c "c:\windows\system32\cmd.exe /c whoami > c:\inetpub\wwwroot\tmp.txt"
     ```
     這一串指令是利用PrintSpoofer執行cmd.exe再執行whoami的command並寫道tmp.txt中
-    ![](https://hackmd.io/_uploads/rk0pwGzRh.png)
+    ![](/assets/posts/NTUSTISC - AD Note - Lab(0x10Hijack Token)/rk0pwGzRh.png)
     目前權限已經從`iis apppool\defaultapppool`轉換成`nt authority\system`也就是前面說的**本地端真正的最高權限使用者**
 
 ## Reference

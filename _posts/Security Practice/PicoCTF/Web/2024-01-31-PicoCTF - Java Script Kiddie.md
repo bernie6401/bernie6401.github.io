@@ -90,11 +90,11 @@ date: 2024-01-31
 1. 首先題目的頁面剛載入的時候，會直接傳送一個bytes的矩陣，內涵720個bytes，也就是Code:`5-8`在做的事情(記得善用browser內建的debugger和觀察network封包)
 2. 接著，如果甚麼都不輸入，他會直接執行assemble_png這個function(也就是Code:`10-29`)，這個function簡單來說就是descrable這些bytes，可以想像他用封包傳送過來的是已經打亂的bytes，所以他現在要還原
 3. 具體怎麼還原可以用debugger跟一下，反正他的做法簡單來說就是他的原圖檔中每一行做輪轉，就像下圖一樣，我只有截第一行，其他以此類推，所以我們要怎麼回推回去呢?只要寫過一點Misc/修復png檔之類的題目的人應該對magic header不陌生，反正前面都長，那我們就直接回推到最一開始的狀態就好
-![](https://hackmd.io/_uploads/rJ37YsIe6.png)
+![](/assets/posts/PicoCTF - Java Script Kiddie/rJ37YsIe6.png)
 4. 而輪轉的次數介於0-9之間，所以可以像[^pico-java-script-kiddle-wp]的作法一樣，用看的，或是用[^pico-reverse-java-script-kiddle-wp-walkthru]的script(當然我有做一點修改，見註一)，而我們輸入的key長度是16，就是代表16行各自需要輪轉幾次回來，這樣我們就可以拿到一張正常的圖片
-![](https://hackmd.io/_uploads/Sk3wHi8ep.png)
+![](/assets/posts/PicoCTF - Java Script Kiddie/Sk3wHi8ep.png)
 5. 問題：如果看其他人的WP，因為圖片不一樣，所以當然scramble bytes也會不一樣，但其他人好像沒有多個候選key的問題，也就是同一行中，在`0-9`的區間有超過一個一樣的bytes，這樣到底怎麼知道要輪轉幾次才會回到一開始的地方，比方說0x08這一行，應該要是0x00，但有多達三個0x00，這樣要怎麼知道輪轉2/3/4次?我自己的做法會是直接當成一個候選的key然後都try try看，以這個例子來說，就會多達3\*4\*3=36種組合
-![](https://hackmd.io/_uploads/rk9K_sUea.png)
+![](/assets/posts/PicoCTF - Java Script Kiddie/rk9K_sUea.png)
 
 註一: 修改的地方在於前面的known_bytes，因為Walkthru的作法是前8bytes對照png前面的magic header，而後8bytes就看最後面的IEND block，但因為Code:`24-26`的while loop會把多餘的padding截掉，也就是說圖檔的bytes length不會和一開始打亂後的一樣，這樣在輪轉讓就沒辦法alignment，所以我就直接參考[^pico-java-script-kiddle-wp]的作法，也就是全部16bytes都依照第一列的16bytes當作對照，也就是`[0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0D, 0x49, 0x48, 0x44, 0x52]`，而這樣的結果就是有多達36種組合會出現，所以我才會寫一個自動填入候選key的script，這樣省了一點時間
 
@@ -178,7 +178,7 @@ for i in trange(len(pt_guess)):
 ---
 Key: `5108180345363640`
 QRCode:
-![](https://hackmd.io/_uploads/r16cCqIxT.png)
+![](/assets/posts/PicoCTF - Java Script Kiddie/r16cCqIxT.png)
 Flag: `picoCTF{066cad9e69c5c7e5d2784185c0feb30b}`
 
 ## Reference

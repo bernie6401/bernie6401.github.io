@@ -21,12 +21,12 @@ Flag: `flag{Y0u_know_hoW2L3@k_canAry}`
 
 
 比較值得注意的是，因為我是在公布解答前先自己寫，遇到了return之後拿不到shell的問題，後來經過助教的解釋才知道原來是，開shell的過程中`<do_system+115>  movaps XMMWORD PTR [rsp], xmm1`，RSP必須要是對齊的狀態，也就是最後應該要是0，但可以看下圖，如果直接跳到win function的開頭，rsp就不是0，會偏移8 bytes，所以會出現SIGSEGV
-![圖片](https://hackmd.io/_uploads/rJK-2d0ma.png)
+![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/rJK-2d0ma.png)
 
 解決方式有兩個，一個是少push一次，一個是多pop一次，這樣就可以校正RSP回到0結尾的狀態，所以我們才要在RIP的地方加上(0xf1-0xe9)的offset，讓RIP可以少push一次，這樣就可以解決問題
-![圖片](https://hackmd.io/_uploads/ByhF2OCQa.png)
+![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/ByhF2OCQa.png)
 
-![圖片](https://hackmd.io/_uploads/SyxvoO0Xa.png)
+![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/SyxvoO0Xa.png)
 
 
 ### Exploit - Leak Canary + Control RIP
@@ -121,7 +121,7 @@ Flag: `flag{Libccccccccccccccccccccccccccc}`
 
 這一題都有達成，首先題目開一個array，我們可以輸入array的index，題目會return該index的value到前端，而題目並沒有針對我的輸入進行filter或檢查，所以我可以到任意讀取，並且可以針對該index達到任意寫入(因為題目有開這樣的功能)，所以我們就可以先到處看一下輸入不同的index會吐出甚麼樣的東西
 1. 首先要知道arr在哪邊
-    ![image](https://hackmd.io/_uploads/HkdauHJEa.png)
+    ![image](/assets/posts/NTU CS 2023 HW3 Write Up/HkdauHJEa.png)
     可以看到他應該在offset 0x4048的地方
     ```bash
     gef➤  vmmap
@@ -301,7 +301,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
     
     我是直接用[godbolt](https://godbolt.org/)搭配[x86-64 disassembly](https://defuse.ca/online-x86-assembler.htm#disassembly)
     * godbolt Result
-        ![image](https://hackmd.io/_uploads/B1hxShgL6.png)
+        ![image](/assets/posts/NTU CS 2023 HW3 Write Up/B1hxShgL6.png)
 
     不過正如@cs-otaku說的
     > 寫入content是用write去寫的。所以shellcode裡面不可以出現\x00這種東西
@@ -310,7 +310,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
     
     1. Socket Config
         像是這邊我不知道`AF_INET`所代表的byte是多少就可以直接看godbolt的結果，另外syscall要用哪一個可以參考[linux x86-64 syscall](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)，並且根據calling convention把shellcode擺好，切記看完之後要看一下轉換成shellcode看有沒有\x00的byte，可以用pwntools的asm function或是直接用[x86-64 disassembly](https://defuse.ca/online-x86-assembler.htm#disassembly)都可以達到一樣的效果
-        ![image](https://hackmd.io/_uploads/HJUeP3lUp.png)
+        ![image](/assets/posts/NTU CS 2023 HW3 Write Up/HJUeP3lUp.png)
         ```python
         # int fd = socket(AF_INET, SOCK_STREAM, 0);
         socket = """
@@ -331,7 +331,7 @@ Special Thanks @cs-otaku For the most of the Inspiration of the WP
         ```
     2. Connect
         這邊主要需要觀察protocol怎麼包，首先我們知道第一個參數是存\$rdi，也就是存上一個syscall的return value存起來的\$r8，至於\$rsi的info address，其內容應該怎麼包含甚麼呢?我們先看一下[linux x86-64 syscall](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)中的說明
-        ![image](https://hackmd.io/_uploads/BktiY2e8a.png)
+        ![image](/assets/posts/NTU CS 2023 HW3 Write Up/BktiY2e8a.png)
         他所需的是`struct sockaddr_in info;`，而實際去看看sockaddr_in會發現他的結構如下([csdn post](https://blog.csdn.net/dongyanxia1000/article/details/80683738)):
         ```
         struct sockaddr_in {
@@ -868,9 +868,9 @@ Flag: `flag{https://www.youtube.com/watch?v=qbEdlmzQftE&list=PLQoA24ikdy_lqxvb6f
     首先，乍看之下會不知道這個洞在哪裡，不過多try幾次或是跟一下動態會發現，他做的事情會蓋到原本==n2==的數值，導致我們之後可以輸入更多的東西
     詳細來說就是:
     因為在#61的地方輸入的東西被存到local variable name，而在#63會被copy到global variable ==msg==，並且和` hachamachama`合併在一起，如果一開始我們輸入的東西是20個字元，而concatenate的` hachamachama`總共13個字元，加起來就已經是==33==個字元，但如下圖所示，msg一開始的大小就被限制在32 bytes，也就是說他會蓋到後面n2的值
-    ![圖片](https://hackmd.io/_uploads/HyUsSOTBT.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/HyUsSOTBT.png)
     從下圖可以看出來，因為長度超過的關係，原本`hachamachama`的最後一個字元，也就是0x61往後蓋到n2的值，這代表我們在往後的地方可以多加利用
-    ![圖片](https://hackmd.io/_uploads/SJUTP_aBT.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/SJUTP_aBT.png)
 
 2. 知道漏洞在哪裡之後，我們就可以利用這個洞，把stack的東西leak出來
     ```python
@@ -925,7 +925,7 @@ Flag: `flag{https://www.youtube.com/watch?v=qbEdlmzQftE&list=PLQoA24ikdy_lqxvb6f
     這樣最少也需要0x78的空間，比起最大值的0x61還差蠻多的，所以昨天就想了超久怎麼解決這個問題
 3. 解決空間大小的問題
     這個要回到動態實際執行的時候是怎麼呼叫的(如下圖)，這一題有趣的地方在這邊，理論上我們是回到main+291，讓他fetch n2的值給RAX，但如果我直接跳到main+298，並且利用rop把rax變大，是不是也有一樣的效果
-    ![圖片](https://hackmd.io/_uploads/Syoe0OTHp.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/Syoe0OTHp.png)
     ```python
     extend_payload = flat(
         canary,
@@ -953,7 +953,7 @@ Flag: `flag{https://www.youtube.com/watch?v=qbEdlmzQftE&list=PLQoA24ikdy_lqxvb6f
     因為他有開stack protection，所以一定要對好canary在stack上的位置，可以用動態去看，依照這一題的狀況，他是會在rbp+0x40的地方
 2. libc version
     這一題因為要leak libc的base address，並且利用ROP gadget達到syscall的目的，所以一定要確定remote server使用的版本是哪一個，光知道大的版本號是有可能會失敗的，因為像我local端到最後有成功，但跑在remote就爛掉了，和@david學長討論過後的結果就是libc version有問題，實際用docker去看彼此的差異就會發現，右邊是我的→22.04.3，而左邊是實際remote的docker開出來的結果→22.04.2，所以我的作法是把docker中的東西拉出來再使用，包含在local端使用以及找gadget
-    ![圖片](https://hackmd.io/_uploads/ByiMMYTHa.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/ByiMMYTHa.png)
     ```bash
     $ docker cp /lib/x86_64-linux-gnu/libc.so.6 /mnt/d/Downloads/
     ```
@@ -977,14 +977,14 @@ Flag: `flag{https://www.youtube.com/watch?v=CUSUhXqThjY}`
 ---
 根據background，我們要利用的漏洞就是最後一個，也就是利用相同的大小，把已經free掉的部分拿回來加已利用
 1. 先註冊兩個entity(0和1)，第0個是要利用的部分
-    ![圖片](https://hackmd.io/_uploads/ryvTkuESp.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/ryvTkuESp.png)
 2. 把`/sh\x00`寫上entity
-    ![圖片](https://hackmd.io/_uploads/S1Rmxu4Ha.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/S1Rmxu4Ha.png)
 3. 刪除entity 0
-    ![圖片](https://hackmd.io/_uploads/HkQKxuVB6.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/HkQKxuVB6.png)
 4. 設定system的function pointer
     這要特別說明，前面三個步驟都算是正常的步驟，而如果我們設定entity的name，此時系統會malloc一塊空間寫我們輸入的entity name，以這一題來說就會是entity 0(只要大小設定的一樣就好)，因此我們可以寫入包含system address和`/sh\x00`的位置，最後再以entity 0的身分trigger該function pointer就可以拿到shell了
-    ![圖片](https://hackmd.io/_uploads/rkM7Eu4r6.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/rkM7Eu4r6.png)
     ```bash
     gef➤  x/gx 0x00007f706a449d70
     0x7f706a449d70 <__libc_system>: 0x74ff8548fa1e0ff3
@@ -1003,9 +1003,9 @@ Run On Ubuntu 20.04
 
 #### 前置作業: Leak Libc Address
 關於這一點可以參考[如何用UAF leak libc address?]({{base.url}}/Simple-PWN-0x38(Lab-UAF)#%E5%A6%82%E4%BD%95%E7%94%A8UAF-leak-libc-address)，方法都一樣，首先要想辦法讓free chunk進到unsorted bin中(最簡單的方法就是設定超過0x410的空間)，接著因為malloc的時候沒有實作清空原本的資料，導致我們可以leak其中有關libc section的資訊。底下的設定意思是我們先設定三個notes，#14的意思是不要讓#13被free掉的時候被consolidate用的，接著我們把前兩個free掉，結果如下
-![image](https://hackmd.io/_uploads/r14opZfL6.png)
+![image](/assets/posts/NTU CS 2023 HW3 Write Up/r14opZfL6.png)
 會發現#12和#13被consolidate在一起了，接著我們看其中的一些資訊
-![image](https://hackmd.io/_uploads/SJwX0-GIT.png)
+![image](/assets/posts/NTU CS 2023 HW3 Write Up/SJwX0-GIT.png)
 裡面確實存著libc相關的資訊，接著只要把這一塊chunk malloc出去給隨便一個note，接著讀其中的資料就可以讀出libc address了
 ```python
 add_note(12, 0x420)
@@ -1029,7 +1029,7 @@ r.recv(0x420 - 0x8)
 
 #### 方法一: Double Fee
 有了libc address後，我們要想辦法把system address寫到`__free_hook`的位置，如果是要用double free的方法的話可以參考上課的講義:
-![image](https://hackmd.io/_uploads/SJNM1Mf8T.png)
+![image](/assets/posts/NTU CS 2023 HW3 Write Up/SJNM1Mf8T.png)
 
 最簡單的方法是，我把tcache填滿(一定要)，然後用free(a)→free(b)→free(a)的順序產生double free
 ```python
@@ -1044,19 +1044,19 @@ del_note(9)
 del_note(8)
 ```
 此時的heapinfo會變成:
-![image](https://hackmd.io/_uploads/H1GGgGM86.png)
+![image](/assets/posts/NTU CS 2023 HW3 Write Up/H1GGgGM86.png)
 
 接著我們把tcache清空後再繼續add_note就會把fastbin的free chunk搬到tcache中
 ```python
 add_note(8, 0x18)
 ```
-![image](https://hackmd.io/_uploads/B1ErzMM8T.png)
+![image](/assets/posts/NTU CS 2023 HW3 Write Up/B1ErzMM8T.png)
 
 接著我們寫free_hook address到note #8，這樣的話，tcache的順序就會變成下圖:
 ```python
 write_note(8, p64(free_hook))
 ```
-![image](https://hackmd.io/_uploads/rktIXGMIp.png)
+![image](/assets/posts/NTU CS 2023 HW3 Write Up/rktIXGMIp.png)
 
 此時我們就把free chunk變成free_hook的地址，我們只不斷的add_note，就可以把tcache的free chunk要回來進行寫入，也就是寫system address:
 ```python
@@ -1067,7 +1067,7 @@ add_note(10, 0x10)
 add_note(11, 0x10)
 write_note(11, p64(system_addr))
 ```
-![image](https://hackmd.io/_uploads/SydnNzMIa.png)
+![image](/assets/posts/NTU CS 2023 HW3 Write Up/SydnNzMIa.png)
 
 最後的結果如上圖，會發現note #11已經變成==0x7f900aa8ae48==，這個就是`__free_hook`的位址，進去看發現已經被我們寫入system address，這個時候我們只要把含有`/bin/sh\x00`的note #9 free掉，就可以開shell了
 
@@ -1075,7 +1075,7 @@ write_note(11, p64(system_addr))
 這一個方法比較方便，也和double free沒關係，反正我們只要利用UAF的特性，也可以把free chunk的fd改掉，再用像前面的方法就可以開shell
 
 下面的建構就是先開兩個note，然後free掉，此時我們就可以利用UAF的漏洞把free chunk的fd改掉，結果如下圖
-![image](https://hackmd.io/_uploads/B1ohIMz86.png)
+![image](/assets/posts/NTU CS 2023 HW3 Write Up/B1ohIMz86.png)
 ```python
 add_note(1, 0x18)
 add_note(2, 0x18)
@@ -1085,7 +1085,7 @@ write_note(1, p64(free_hook) + p64(0) * 2)
 ```
 
 接著就把`/bin/sh\x00`寫到note #2，接著就不斷add_note，把`__free_hook`的address拿到手，然後再把system address寫到`__free_hook`，最後把含有`/bin/sh\x00`的note #2 free掉，結果如下圖:
-![image](https://hackmd.io/_uploads/HkGsPGfL6.png)
+![image](/assets/posts/NTU CS 2023 HW3 Write Up/HkGsPGfL6.png)
 從上圖得知，note #4的address已經被我們換成`__free_hook` address，並且實際跟進去就是system address，最後只要free掉note #2就可以開shell了
 
 ## HW-UAF++
@@ -1109,14 +1109,14 @@ Flag: `flag{Y0u_Kn0w_H0w_T0_0veR1aP_N4me_aNd_EnT1Ty!!!}`
     trigger_event(0)
     ```
     下圖為停在delete完後的結果，因為entity 1的0x420被consolidate所以沒有被顯示出來
-    ![圖片](https://hackmd.io/_uploads/B1TitfiBT.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/B1TitfiBT.png)
     而再註冊一次的意思是要把unsorted bin的空間拿回來，又因為他沒有把空間洗掉，所以我們後面再trigger的時候他會把東西印出來給我們，從下圖可以知道entity 0的name指向==0x00005575416a52c0==，也就是一開始從unsorted bin拿到的chunk address，而裡面的數值也的確還殘留
-    ![圖片](https://hackmd.io/_uploads/BkbTszjBp.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/BkbTszjBp.png)
     如果實際trigger entity 0會如下圖一樣，print出name指向的東西
-    ![圖片](https://hackmd.io/_uploads/r1gS2MjS6.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/r1gS2MjS6.png)
 2. 既然可以leak出libc的地址，當然我們也可以寫值進去，我們的目標是開一個shell，而唯一可以執行function的就是在trigger event的地方，假設我們可以寫成如下圖一樣，是不是就可以觸發shell了
-    ![圖片](https://hackmd.io/_uploads/BkDyeXoST.png)
-    ![圖片](https://hackmd.io/_uploads/ryBggQiB6.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/BkDyeXoST.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/ryBggQiB6.png)
 3. 要達成如上的效果，我會先reset各個entity，為甚麼要設定0x20之後會用到
     ```python
     register(0, 0x20, b'a')
@@ -1133,8 +1133,8 @@ Flag: `flag{Y0u_Kn0w_H0w_T0_0veR1aP_N4me_aNd_EnT1Ty!!!}`
     trigger_event(1)
     ```
     首先把這兩個entity都free掉，這樣回收區就會如下圖一樣
-    ![圖片](https://hackmd.io/_uploads/B1fdM7iHT.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/B1fdM7iHT.png)
     接著我們註冊entity 0，又因為這一次要的空間是0x18，所以他會把前面entity 1的空間都拿回來使用，如果我們又把開shell的資訊寫進去，就會如下圖
-    ![圖片](https://hackmd.io/_uploads/Sk6GXXoS6.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/Sk6GXXoS6.png)
     此時原本被free掉的entity 1的空間就會變成entity 0的name space，此時我們只要trigger entity 1就會開shell了，如下圖
-    ![圖片](https://hackmd.io/_uploads/ByhCXQjrT.png)
+    ![圖片](/assets/posts/NTU CS 2023 HW3 Write Up/ByhCXQjrT.png)

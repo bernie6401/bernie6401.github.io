@@ -36,7 +36,7 @@ Flag: `Metasploit`
 
 ### Recon
 這個在virustotal上也有完整的資訊，只能說那個network graph真的太屌了，不只清楚也很炫泡
-![圖片.png](https://hackmd.io/_uploads/BJw07aEX6.png)
+![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 2)/BJw07aEX6.png)
 
 Flag: `203.78.103.109`
 
@@ -49,9 +49,9 @@ Flag: `203.78.103.109`
 ### Exploit
 * 方法一:
     我看最多次request的IP有點可疑
-    ![圖片.png](https://hackmd.io/_uploads/H12W_a4mT.png)
+    ![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 2)/H12W_a4mT.png)
 * 方法二:
-    ![圖片.png](https://hackmd.io/_uploads/HJ1xYpEQa.png)
+    ![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 2)/HJ1xYpEQa.png)
 
 所以根據上一題可知我們現在有兩個可疑的IP，一個是傳送payload的IP → `194.61.24.102`，而另外一個是駭客的C2 server(在泰國的那個) → `203.78.103.109`
 
@@ -66,22 +66,22 @@ Flag: `194.61.24.102`
     >
     > 也就是，這是在LAN才會出現的，例如:嘗試使用WakeOnLan的時候，故若你沒有提出此要求，而發現有此封包在攻擊你的電腦時，它肯定就是病毒啦!!
 * [Logon Type](https://learn.microsoft.com/zh-tw/windows/security/threat-protection/auditing/event-4624)
-    ![圖片.png](https://hackmd.io/_uploads/ByVq_0EXa.png)
+    ![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 2)/ByVq_0EXa.png)
 
 ### Recon
 這一題找很久，不管是從wireshark或是從timeline explorer，參考[^szechuan-sauce-wp]才知道有比較正確的方式
 
 ### Exploit
 首先，攻擊的方向變成橫向移動，這件事情從rdp的封包就看的出來(內網和內網)
-![圖片.png](https://hackmd.io/_uploads/rkj7UCE7T.png)
+![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 2)/rkj7UCE7T.png)
 
 WP中有提到兩種解析方式，一種是看network packets，另外一種是看event log
 * 方法一
     可以直接用LLMNR的protocol當作filter
-    ![圖片.png](https://hackmd.io/_uploads/r1SdBCVma.png)
+    ![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 2)/r1SdBCVma.png)
 * 方法二
     看了MSDN的logon type可以發現，如果是用RDP登入的話，要看type 10(RemoteInteractive)和3(使用者或電腦從網路登入這部電腦。)，所以橫向移動應該是logon type 3的範疇
-    ![圖片.png](https://hackmd.io/_uploads/rJ9EK0EX6.png)
+    ![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 2)/rJ9EK0EX6.png)
     
 Flag: `DESKTOP-SDN1RPT`
 
@@ -90,7 +90,7 @@ Flag: `DESKTOP-SDN1RPT`
 
 ### Recon
 這一題直覺就是延續上一題的狀況，直接看timeline explorer有登入的target
-![圖片.png](https://hackmd.io/_uploads/HyOgT0E76.png)
+![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 2)/HyOgT0E76.png)
 
 Flag: `rick sanchez`
 
@@ -199,7 +199,7 @@ Flag: `!BETHEYBOO12!`
 直覺會用volatility看filescan的結果，不過沒有甚麼收穫，看了答案的hint才知道要去撈recycle bin的東西(誰知道啊)
 
 ### Exploit
-![圖片.png](https://hackmd.io/_uploads/rysZqVH76.png)
+![圖片.png](/assets/posts/CyberDefender - Szechuan Sauce (Part 2)/rysZqVH76.png)
 
 Flag: `SECRET_beth.txt`
 

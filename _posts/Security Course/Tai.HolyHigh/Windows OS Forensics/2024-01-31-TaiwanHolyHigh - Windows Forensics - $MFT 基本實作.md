@@ -28,8 +28,8 @@ date: 2024-01-31
 以下三個練習都是Resident File
 ## Lab - Offset 43110400(d)
 * \$MFT長度一段就是1024 Bytes，我把結束的位址減掉開頭的位置就知道了，或是可以直接用HxD底下看長度(0x400)
-    ![](https://hackmd.io/_uploads/rk0s7QKza.png)
-    ![](https://hackmd.io/_uploads/rJjnQ7tfT.png)
+    ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - $MFT 基本實作/rk0s7QKza.png)
+    ![](/assets/posts/TaiwanHolyHigh - Windows Forensics - $MFT 基本實作/rJjnQ7tfT.png)
     ```python
     >>> 0x291D400-0x291D000
     1024
@@ -37,7 +37,7 @@ date: 2024-01-31
 * 從上圖也可以看到magical word就是`FILE0` → `46 49 4C 45 30`
 
 ### Overview(從上到下)
-![](https://hackmd.io/_uploads/S1l-DgEtzp.png)
+![](/assets/posts/TaiwanHolyHigh - Windows Forensics - $MFT 基本實作/S1l-DgEtzp.png)
 
 * Staus: `01 00` → File
 * `04 00 00 00`是固定的

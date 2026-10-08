@@ -10,7 +10,7 @@ date: 2024-01-31
 <!-- more -->
 
 ## Background
-![圖片](https://hackmd.io/_uploads/ByxvsvNr6.png)
+![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/ByxvsvNr6.png)
 
 ## Source code
 ```cpp
@@ -162,14 +162,14 @@ int main(void)
 ---
 根據background，我們要利用的漏洞就是最後一個，也就是利用相同的大小，把已經free掉的部分拿回來加已利用
 1. 先註冊兩個entity(0和1)，第0個是要利用的部分
-    ![圖片](https://hackmd.io/_uploads/ryvTkuESp.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/ryvTkuESp.png)
 2. 把`/sh\x00`寫上entity
-    ![圖片](https://hackmd.io/_uploads/S1Rmxu4Ha.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/S1Rmxu4Ha.png)
 3. 刪除entity 0
-    ![圖片](https://hackmd.io/_uploads/HkQKxuVB6.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/HkQKxuVB6.png)
 4. 設定system的function pointer
     這要特別說明，前面三個步驟都算是正常的步驟，而如果我們設定entity的name，此時系統會malloc一塊空間寫我們輸入的entity name，以這一題來說就會是entity 0(只要大小設定的一樣就好)，因此我們可以寫入包含system address和`/sh\x00`的位置，最後再以entity 0的身分trigger該function pointer就可以拿到shell了
-    ![圖片](https://hackmd.io/_uploads/rkM7Eu4r6.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/rkM7Eu4r6.png)
     ```bash
     gef➤  x/gx 0x00007f706a449d70
     0x7f706a449d70 <__libc_system>: 0x74ff8548fa1e0ff3
@@ -284,15 +284,15 @@ choice: $
 ```
 
 * 這一連串的command意思是他先註冊三個entity
-    ![圖片](https://hackmd.io/_uploads/S1kJGysSa.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/S1kJGysSa.png)
 * Delete 前兩個entiti的時候，第一個8 bytes是next free chunk address，第二個8 bytes是key，此時我們就可以想辦法把這個heap address leak出來，從這邊可以看得出來
-    ![圖片](https://hackmd.io/_uploads/Hky5fJira.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/Hky5fJira.png)
 * 設定entity 2的name，要加這一段的原因是它會malloc一個0x20的chunk，此時他會從tcache中找，也就是直接找到`0x55e5a806b2e0`，而他在free的時候並沒有把chunk的內容洗掉，所以裡面還是會有chunk address，所以從下面的結果來看，entity 2的name已經指向`0x000055e5a806b2e0`，而這個地址的東西沒有洗掉，所以我們可以用trigger event的printf，leak出其中的內容
-    ![圖片](https://hackmd.io/_uploads/HkYmVkjBT.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/HkYmVkjBT.png)
 * 此時我們就可以把接收到的address，和vmmap中得到的heap base address扣掉拿到offset之後做後續的利用
-    ![圖片](https://hackmd.io/_uploads/BkcoVksST.png)
-    ![圖片](https://hackmd.io/_uploads/BkKZBkoST.png)
-    ![圖片](https://hackmd.io/_uploads/SJG7rJjHT.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/BkcoVksST.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/BkKZBkoST.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/SJG7rJjHT.png)
 
 ### 如何用UAF leak libc address?
 主要的大方向是設法讓chunk進入unsorted bin中，這樣他就會儲存有關libc的資訊，之後我們再像前面的UAF方法一樣，把值leak出來
@@ -338,20 +338,20 @@ choice: $
 ```
 
 1. 首先要先構造chunks，為了要把tcache塞滿，我們要register 9個chunk，要9個的原因是之後free掉的時候最後一個會被top chunk consolidate，所以被丟到tcache的數量就不滿8個；另外為了要進到unsorted bin中，我們的大小就不能小於0x80，這樣會被丟到fastbin中，所以chunk的順序應該會是entity 0(0x20→0x90)→entity 1(0x20→0x90)...→entity 8(0x20→0x90)→top
-    ![圖片](https://hackmd.io/_uploads/By5BNboSp.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/By5BNboSp.png)
 
-    ![圖片](https://hackmd.io/_uploads/Sk1KXbirT.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/Sk1KXbirT.png)
 2. 接著就是把東西全部free掉，試圖塞滿tcache，可以從下圖看到他的確把最後一個chunk(0x90)併到top chunk，
-    ![圖片](https://hackmd.io/_uploads/ryMpBZoBa.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/ryMpBZoBa.png)
     
     從這張圖就很清楚了，entity 0~entity 6(0x20→0x5588cd8236e0 / 0x90→0x5588cd823700)，都已經放到tcache了，那entity 7呢，他剛好因為前後都要被free，所以整個entity 7就被consolidate成0xb0的大小，而且又因為大小不符合fastbin所以被分配到unsorted bin中；而沒什麼重要的entity 8呢?首先就如前面說的，entity 8的0x90被top chunk合併了，而0x20因為tcache滿了，所以放到fastbin了
-    ![圖片](https://hackmd.io/_uploads/ryIXIZjB6.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/ryIXIZjB6.png)
 
 3. 觀察一下最重要的unsorted bin放了啥，首先本質上，他的fd還是指向unsorted bin的位址，只是該位址同時也是libc中的位址，那如果我們把這個值print出來是否就可以觀察offset的關係
-    ![圖片](https://hackmd.io/_uploads/BJa5wboHT.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/BJa5wboHT.png)
 4. 現在我們要想辦法拿到unsorted bin的這個chunk，所以當然要先拿完tcache的所有東西，接著再拿一次register和set_name的時候他就會分別到fastbin拿0x20的chunk和到unsorted bin中拿0x90
     最後的結果會像這樣，可以看到entitiy的前7個都是從tcache中拿取，可以和上面的結果對照，接著也和我們預想的一樣，0x20是從fastbin拿取，而進到0x20的chunk會發現他的name指向的位址，就是unsorted bin拿到的0x90 chunk，而再進到0x90 chunk也的確像我們所說，因為他沒有清掉裡面的內容所以還有殘留libc上的info
-    ![圖片](https://hackmd.io/_uploads/Byg4FZsB6.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/Byg4FZsB6.png)
     
     實際追到要print的時候，會發現如同前面所說，他會print出這個libc address info，接著我們就可以事先算好libc offset和system offset，再做後續的利用
-    ![圖片](https://hackmd.io/_uploads/ByuQ9ZjHp.png)
+    ![圖片](/assets/posts/Simple PWN - 0x38(Lab - UAF)/ByuQ9ZjHp.png)

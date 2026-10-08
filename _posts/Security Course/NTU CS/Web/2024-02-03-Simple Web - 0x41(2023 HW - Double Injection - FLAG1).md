@@ -165,7 +165,7 @@ date: 2024-02-03
             { a: null, b: 'admin', c: 'FLAG{flag-1}' }
             ```
         第一個參數a為null是因為app.js中，我們的payload經過==JSON.stringify==，會在雙引號前加一個反斜線，這會導致query時，db不知道==$.admin.username\==是甚麼東西，只有單引號沒有這個問題，但如果第一個query data不加上雙引號就會導致閉合不全而導致結果異常(如下)
-        ![圖片](https://hackmd.io/_uploads/Hy29LmYvp.png)
+        ![圖片](/assets/posts/Simple Web - 0x41(2023 HW - Double Injection - FLAG1)/Hy29LmYvp.png)
         所以我乾脆第一個參數就算了，重新利用後兩個參數要到username和password
     3. 有了這個可以幹嘛呢?我們可以下條件，當條件符合的時候做A，否則做B，而A和B是有一些差異，可能是時間長度或是網站是否crash為基準，這樣的話我們就可以知道下的條件是否正確，POC如下:
         * 看長度
@@ -180,11 +180,11 @@ date: 2024-02-03
                 AND IIF(length(c) = 10, (SELECT randomblob(1000000000 % 10) FROM sqlite_master WHERE 1 LIMIT 1), 1); -- # 
             ```
             在local測試時，FLAG1=`FLAG{test}`，也就是只有10個字，如果條件設定不符合時，就會query出東西，因為條件不符回傳1，如下圖
-            ![圖片](https://hackmd.io/_uploads/SJxwu7Fwa.png)
+            ![圖片](/assets/posts/Simple Web - 0x41(2023 HW - Double Injection - FLAG1)/SJxwu7Fwa.png)
             
             ---
             反之，就會query不出東西，也就是crash
-            ![圖片](https://hackmd.io/_uploads/Hywt_QYvp.png)
+            ![圖片](/assets/posts/Simple Web - 0x41(2023 HW - Double Injection - FLAG1)/Hywt_QYvp.png)
         * 如果想要知道某一個字元可以substr這個function
             ```sql
             SELECT 

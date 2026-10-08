@@ -11,7 +11,7 @@ date: 2025-03-21
 Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbot2: Reusable automated model-based gui testing for android enhanced by reinforcement learning. In Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering (pp. 1-5).
 
 參考資料: https://github.com/bytedance/Fastbot_Android/blob/main/handbook-cn.md
-![image](https://hackmd.io/_uploads/SJFpdcp51x.png)
+![image](/assets/posts/Fastbot2 - Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning/SJFpdcp51x.png)
 
 ## 動機與貢獻
 現有的GUI testing都是無法重複使用之前測試的結果，但fastbot2可以(特別是event-activity transitions)。有兩個貢獻
@@ -27,12 +27,12 @@ Lv, Z., Peng, C., Zhang, Z., Su, T., Liu, K., & Yang, P. (2022, October). Fastbo
 4. b1~b6: 首先把目前的GUI畫面傳給hyper-event abstractor，這樣就會知道目前畫面有哪些event可以觸發，接著藉由機率模型以及RL agent選擇一個event，並且實際執行，最後把下一個畫面的資訊同步更新給機率模型以及historical data中，重複b1~b6的步驟直到時間結束
 
 如以下這個示意圖，當頭條這個App被initial trigger之後，按了e1這個event會跑到activity 2，而按了e2和e5這2個events，都會跑到activity 3
-![image](https://hackmd.io/_uploads/SJ4a0qa5ke.png)
+![image](/assets/posts/Fastbot2 - Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning/SJ4a0qa5ke.png)
 因此，作者就給出了下面的機率模型，觸發e2和e4，會100%的跑到activity 3和activity 1
-![image](https://hackmd.io/_uploads/S1U4ys6ckl.png)
+![image](/assets/posts/Fastbot2 - Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning/S1U4ys6ckl.png)
 
 > 具體來說，對於當前一個潛在可以交互的組件 e，Fastbot 會根據之前探索的情況讀取這個組件 e 曾經可以觸發的 Activity，並將目前本輪探索到的 Activity 與歷史數據進行對比。如果目前 Fastbot 並沒有觸發到組件 e 中曾經觸發過的部分 Activity，並且相較於當前頁面的其他組件來說，此組件 e 仍未被觸發的 Activity 數量最多，那麽此組件 e 就會被概率模型選中。如下圖所示，概率模型會計算每一個 e 的概率，E(e) 代表此組件 e 之前所觸發的 Activity 中未在本輪中被觸發的比例。
->![formula1](https://hackmd.io/_uploads/BJYcZjTqJx.png)
+>![formula1](/assets/posts/Fastbot2 - Reusable Automated Model-based GUI Testing for Android Enhanced by Reinforcement Learning/BJYcZjTqJx.png)
 > 需要說明的是，此概率模型會在 Fastbot 的過程中隨時保存，並且也會在下一次測試的時候被使用。這也是此模型被稱為概率模型的原因，因為它記錄了應用的歷史探索的情況。
 > 如果此應用從未被測試過，也並未儲存過概率模型，那麽 Fastbot 會以隨機選擇組件的方式應對冷啟動的問題。
 

@@ -59,12 +59,12 @@ LABEL_7:
 ## Recon
 這一題也蠻簡單的，只要有耐心分析一下就可以了
 1. 首先執行一下這隻程式，發現沒啥特別的，就和之前的題目一樣
-    ![](https://hackmd.io/_uploads/ryT1QMbKh.png)
+    ![](/assets/posts/Simple Reverse - 0x12(Lab - TLSCallback)/ryT1QMbKh.png)
 
 2. 用IDA看一下，可以發現也蠻單純的，就用function pointer array然後傳入我們輸入的flag進行一些事情再加上一個數值(來自某一個array)
 
 3. 仔細看一下有哪些function然後分別做了甚麼事
-    ![](https://hackmd.io/_uploads/SkDpNGbYh.png)
+    ![](/assets/posts/Simple Reverse - 0x12(Lab - TLSCallback)/SkDpNGbYh.png)
     1. xor 0x87
         ```
         void __fastcall do_xor(_BYTE *a1)
@@ -91,16 +91,16 @@ LABEL_7:
 
     如果直接分析這樣的code會做白工，因為這一題有tls callback function在搞事，這件事情IDA和x64dbg都有分析出來，或者是也可以用PE-Bear看一下，所以我們就朝這個方向分析一下，看起來兩者都沒有很複雜，tlscallback function 2就只是把剛剛前面的function pointer array的順序置換一下，而tlscallback function 1也只是用置換過後的function pointer array把key的數值做一些操作而已，如果看psuedo code看不太懂得話可以直接用x64dbg用肉眼跟一下(我就這樣XDD)，應該也是可以很直觀的猜出這些事情
     * TLS Callback function 1 & 2
-        ![](https://hackmd.io/_uploads/SJ4tvzZF2.png)
-        ![](https://hackmd.io/_uploads/BkN5wfWK3.png)
+        ![](/assets/posts/Simple Reverse - 0x12(Lab - TLSCallback)/SJ4tvzZF2.png)
+        ![](/assets/posts/Simple Reverse - 0x12(Lab - TLSCallback)/BkN5wfWK3.png)
 
 5. 用x64dbg直接動態跟code，以下的screenshot我都有加上一些comment幫助理解
     * TLSCallback相關的code
-        ![](https://hackmd.io/_uploads/S1b9FzWth.png)
+        ![](/assets/posts/Simple Reverse - 0x12(Lab - TLSCallback)/S1b9FzWth.png)
     * 三個Function pointer
-        ![](https://hackmd.io/_uploads/BkW1qGbKn.png)
+        ![](/assets/posts/Simple Reverse - 0x12(Lab - TLSCallback)/BkW1qGbKn.png)
     * main function
-        ![](https://hackmd.io/_uploads/SJwm5zbF3.png)
+        ![](/assets/posts/Simple Reverse - 0x12(Lab - TLSCallback)/SJwm5zbF3.png)
 
 6. 結論
     

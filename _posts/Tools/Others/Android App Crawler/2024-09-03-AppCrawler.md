@@ -21,9 +21,9 @@ date: 2024-09-03
 2. 設定ANDROID_HOME和JAVA_HOME
     
     到Windows環境變數設定
-    ![圖片](https://hackmd.io/_uploads/BkmODXjqR.png)
+    ![圖片](/assets/posts/AppCrawler/BkmODXjqR.png)
     然後去看appium-doctor看necessary的部分是不是都有，一般來說可能會apkanalyzer.bat會沒有，這方面就慢慢到網路上去載android studio下載tools
-    ![圖片](https://hackmd.io/_uploads/BkZsw7j9R.png)
+    ![圖片](/assets/posts/AppCrawler/BkZsw7j9R.png)
 4. AppCrawler - latest (2.7.4)
     
     就直接到github release去下載build好的jar file，不需要看其他教學是用2.4.0或是2.3.1去用stb或是maven build原本的專案
