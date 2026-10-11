@@ -289,6 +289,14 @@ $custom-sidebar-text-dim: #7d828c;
     background: #FFF6E5;
 }
 
+// Keep the header pinned to the top of the viewport while scrolling
+.header {
+    position: sticky;
+    top: 0;
+    z-index: $zindex-3;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+}
+
 // Spoiler (collapsible) title in posts: tinted badge with colored text instead of a solid background
 .post-body details > summary .spoiler {
     display: inline-block;

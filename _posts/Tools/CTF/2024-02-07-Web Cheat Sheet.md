@@ -45,7 +45,6 @@ date: 2024-02-07
   ```
 
   </details>
-
   - [Whois](https://www.whois.com/whois) or [ipwhoisinfo](https://ipwhoisinfo.com/)
   - [DNS Lookup(從 Domain Name 看 IP)](https://www.whatismyip.com/dns-lookup/)
 
@@ -508,6 +507,18 @@ fetch(`/getflag\)
 ### LFI
 
 - 前提: 在 PHP 中需要特別啟用 `allow_url_include`
+- 試著讀取 `/home/daniela/.ssh/id_rsa` 並且 ssh 登入
+  ```bash
+  # 讀取到 /home/daniela/.ssh/id_rsa 並且把讀到的資訊存成檔案
+  # 試著登入
+  $ chmod 600 id_rsa # 不能設定太寬權限，會無法登入
+  $ ssh -i id_rsa user@<target_IP>
+  ```
+  如果還要打 password 代表他有 passphrase 保護
+  ```bash
+  $ ssh2john id_rsa > hash.txt
+  $ john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
+  ```
 - 只是能讀取到 victim server 上的 file content，不見得會有價值，需要搭配其他手法，例如
   1. 寫入 webshell 之類的達到 RCE
   2. 利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 php 執行完的結果，就算查看該頁面的原始碼，也看不到當初 php 寫的東西，這時候就可以利用 php wrapper 讀到最原始的 content，<span style="background-color: yellow">PHP Wrapper 是有 LFI 弱點才能用</span>
@@ -803,7 +814,11 @@ $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 websh
 - [WpScan](https://wpscan.com/)專門檢測 WordPress 類型的網頁，有哪些漏洞，前期可以掃描出 WP 版本、安裝的 theme 或是插件有哪些、安全漏洞等等
   ```bash
   # 跑 wpscan 找外掛和使用者
-  $ wpscan --url http://alvida-eatery.local -e ap,at,u --plugins-detection aggressive # 代表 enum 出 all plugin/all theme/user
+  $ wpscan --url http://alvida-eatery.local -e ap,at,u --plugins-detection aggressive -o ./wpscan --api-token <api_token> # 代表 enum 出 all plugin/all theme/user
+  # api_token 可以從 https://wpscan.com/profile/ 申請免費的
+  # 會直接列出對應版本有哪些 CVE
+  $ cat websrv1/wpscan | grep "\[\!\] Title:" | grep -ivE "XSS|Scripting|CSRF|Disclosure|DoS|Redirect|Bypass"
+  $ grep -iE "Title:.*\b(RCE|File Upload|File Read|File Download|Deserialization|LFI|SQLi|Injection|Arbitrary File)\b" ./wpscan
   ```
 - 上傳 Webshell-Plugin
 
