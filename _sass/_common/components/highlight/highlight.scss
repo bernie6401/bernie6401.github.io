@@ -112,21 +112,31 @@ pre {
 
 pre.highlight { padding: 10px; }
 
-.code-copy-btn {
+.cmd-copy-overlay {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  pointer-events: none;
   z-index: 1;
-  padding: 4px 8px;
+}
+
+.cmd-copy-btn {
+  position: absolute;
+  right: 6px;
+  pointer-events: auto;
+  padding: 0 5px;
   border: none;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
-  font-size: 14px;
-  line-height: 1;
+  font-size: 12px;
+  line-height: $line-height-code-block * 1em;
+  height: $line-height-code-block * 1em;
   opacity: 0;
-  transition: opacity 0.2s, background 0.2s, color 0.2s;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
 
   &:hover {
     background: rgba(255, 255, 255, 0.25);
@@ -135,10 +145,11 @@ pre.highlight { padding: 10px; }
 
   &.copied {
     color: #99cc99;
+    opacity: 1;
   }
 }
 
-.highlight:hover .code-copy-btn {
+.highlight:hover .cmd-copy-btn {
   opacity: 1;
 }
 
