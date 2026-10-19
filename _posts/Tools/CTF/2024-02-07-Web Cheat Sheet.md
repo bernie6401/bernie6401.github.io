@@ -12,18 +12,12 @@ date: 2024-02-07
 
 ## 解題重點
 
-- `robots.txt`
-- 掃 port: nmap: `$ sudo apt install net-tools`[NMAP 教學](https://blog.gtwang.org/linux/nmap-command-examples-tutorials/)
-  - nmap: `$ nmap <url>`
-- 封包 headers 和 contents: Wireshark、Browser、BurpSuite
-- cookies
-
 ### Enum directory/dns
 
 - DNS Enumeration (OSCP 常考): 標準記錄列舉：查 A、AAAA、MX、NS、SOA、TXT 等記錄
 
   <details markdown="1">
-  <summary><span class="spoiler">DNS Enumeration (OSCP 常考): 標準記錄列舉：查 A、AAAA、MX、…</span></summary>
+  <summary><span class="spoiler">CMD</span></summary>
 
   ```bash
   $ dnsrecon -d <domain> -t std # std 代表 standard type scan
@@ -84,7 +78,7 @@ date: 2024-02-07
 - MSSQL
 
   <details markdown="1">
-  <summary><span class="spoiler">MSSQL</span></summary>
+  <summary><span class="spoiler">CMD</span></summary>
 
   ```bash
   $ impacket-mssqlclient <username>:<password>@<MSSQL IP> -windows-auth # 連線
@@ -115,7 +109,7 @@ date: 2024-02-07
   - 每一個欄位的 data type 都要和前一個 database 一樣
 
   <details markdown="1">
-  <summary><span class="spoiler">每一個欄位的 data type 都要和前一個 database 一樣</span></summary>
+  <summary><span class="spoiler">Cheat Sheet</span></summary>
 
   ```sql
   ' ORDER BY 1-- -
@@ -487,7 +481,6 @@ fetch(`/getflag\)
   ```
 
   ##### 常用外帶 webhook
-
   - [Beeceptor](https://beeceptor.com/) — 免費、即時查看 request
   - [Webhook.site](https://webhook.site/) — 免費、支援自訂回應
   - [Burp Collaborator](https://portswigger.net/burp/documentation/collaborator) — 整合 Burp，支援 DNS/HTTP/SMTP
