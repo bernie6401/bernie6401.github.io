@@ -115,7 +115,7 @@ pre.highlight { padding: 10px; }
 .cmd-copy-overlay {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   bottom: 0;
   width: 0;
   pointer-events: none;
@@ -124,7 +124,7 @@ pre.highlight { padding: 10px; }
 
 .cmd-copy-btn {
   position: absolute;
-  right: 6px;
+  left: 6px;
   pointer-events: auto;
   padding: 0 5px;
   border: none;

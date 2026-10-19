@@ -9,6 +9,12 @@ $(document).ready(function () {
     { regex: /^\*Evil-WinRM\*\s+PS\s+.*?>\s+(.+)/, strip: function (m) { return m[1]; } },
     // PS C:\path> command
     { regex: /^PS\s+[A-Za-z]:\\.*?>\s+(.+)/, strip: function (m) { return m[1]; } },
+    // PS> command
+    { regex: /^PS>\s+(.+)/, strip: function (m) { return m[1]; } },
+    // C:\> command
+    { regex: /^C:\\>\s+(.+)/, strip: function (m) { return m[1]; } },
+    // mimikatz # command
+    { regex: /^mimikatz\s+#\s+(.+)/, strip: function (m) { return m[1]; } },
     // SQL (context)> command
     { regex: /^SQL\s+\(.*?\)>\s+(.+)/, strip: function (m) { return m[1]; } },
     // smb: \path\> command
