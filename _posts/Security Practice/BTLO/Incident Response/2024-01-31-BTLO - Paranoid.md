@@ -147,7 +147,7 @@ Flag: `192.168.4.155`
 ### Recon
 根據[^wp1]的說明，此時要使用到`--tty`的參數列出登入進來之後下甚麼command
 ```bash
-sudo aureport -if audit.log --tty
+$ sudo aureport -if audit.log --tty
 
 TTY Report
 ===============================================

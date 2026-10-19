@@ -14,7 +14,7 @@ comments: true
 
 ## Port Scanning
 ```bash
-nmap -sC -sV -Pn 10.129.230.181
+$ nmap -sC -sV -Pn 10.129.230.181
 Starting Nmap 7.80 ( https://nmap.org ) at 2026-03-25 02:13 CST
 Nmap scan report for 10.129.230.181
 Host is up (0.20s latency).

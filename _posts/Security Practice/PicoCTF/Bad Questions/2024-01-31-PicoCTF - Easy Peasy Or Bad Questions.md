@@ -610,7 +610,7 @@ int main(int argc, char** argv) {
 
 ### Exploit - Reverse Carefully
 ```bash
-nc saturn.picoctf.net 65317
+$ nc saturn.picoctf.net 65317
 Hi, welcome to my echo chamber!
 Type '1' to enter a phrase into our database
 Type '2' to echo a phrase in our database

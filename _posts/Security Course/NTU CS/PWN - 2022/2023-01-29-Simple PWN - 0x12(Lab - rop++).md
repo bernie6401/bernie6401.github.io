@@ -30,7 +30,7 @@ int main()
 }
 ```
 ```makefile
-gcc -fno-stack-protector -static -o chal rop++.c
+$ gcc -fno-stack-protector -static -o chal rop++.c
 ```
 
 ## Analyze

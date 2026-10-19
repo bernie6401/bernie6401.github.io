@@ -38,21 +38,21 @@ Our model structure is as below:
 > Setup environment:
 
 ```bash
-pip install -U scikit-learn
-conda install -c conda-forge matplotlib
-conda install -c conda-forge argparse
-conda install -c conda-forge tqdm
-conda install -c conda-forge wandb
-conda install -c anaconda pillow
+$ pip install -U scikit-learn
+$ conda install -c conda-forge matplotlib
+$ conda install -c conda-forge argparse
+$ conda install -c conda-forge tqdm
+$ conda install -c conda-forge wandb
+$ conda install -c anaconda pillow
 ```
 
 > Demo GEMEP with 7 classes
 ```bash
-python test_leave_one_out.py -p --data_type GEMEP --num_classes 7
+$ python test_leave_one_out.py -p --data_type GEMEP --num_classes 7
 ```
 > Demo GEMEP with 12 classes
 ```bash
-python test_leave_one_out.py -p --data_type GEMEP --num_classes 12
+$ python test_leave_one_out.py -p --data_type GEMEP --num_classes 12
 ```
 
 ## Result

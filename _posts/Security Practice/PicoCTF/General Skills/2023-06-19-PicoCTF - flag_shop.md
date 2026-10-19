@@ -114,7 +114,7 @@ int main()
 
 ## Exploit - BoF
 ```bash
-nc jupiter.challenges.picoctf.org 9745
+$ nc jupiter.challenges.picoctf.org 9745
 Welcome to the flag exchange
 We sell flags
 

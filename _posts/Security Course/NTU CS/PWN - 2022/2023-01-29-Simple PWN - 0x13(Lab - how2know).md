@@ -57,7 +57,7 @@ int main()
 ```
 
 ```make
-gcc -o chal how2know.c -lseccomp
+$ gcc -o chal how2know.c -lseccomp
 ```
 ```bash
 $ checksec chal

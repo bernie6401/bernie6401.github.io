@@ -21,9 +21,9 @@ $ sudo apt install ffmpeg -y
 $ choco install yt-dlp
 
 # yt-dlp linux
-sudo add-apt-repository ppa:tomtomtom/yt-dlp    # Add ppa repo to apt
-sudo apt update                                 # Update package list
-sudo apt install yt-dlp                         # Install yt-dlp
+$ sudo add-apt-repository ppa:tomtomtom/yt-dlp    # Add ppa repo to apt
+$ sudo apt update                                 # Update package list
+$ sudo apt install yt-dlp                         # Install yt-dlp
 ```
 
 ## Step

@@ -17,8 +17,8 @@ date: 2022-11-29
 
 ## Installation
 ```bash
-pip install pyautogui
-pip install selenium
+$ pip install pyautogui
+$ pip install selenium
 ```
 
 ## Some Set-Up

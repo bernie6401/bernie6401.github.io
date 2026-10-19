@@ -102,7 +102,7 @@ username::domain:ServerChallenge:NTProofStr:blob
 ### 基本用法
 ```bash
 # 啟動 Responder 監聽（eth0 為網卡介面）
-sudo responder -I eth0 -dwv
+$ sudo responder -I eth0 -dwv
 
 # 常用參數
 # -I : 指定網卡介面
@@ -114,7 +114,7 @@ sudo responder -I eth0 -dwv
 
 抓到的 hash 會存在 Responder 的 logs 目錄中，可以直接用 Hashcat 破解：
 ```bash
-hashcat -m 5600 captured_hash.txt wordlist.txt
+$ hashcat -m 5600 captured_hash.txt wordlist.txt
 ```
 
 ### 防禦方式

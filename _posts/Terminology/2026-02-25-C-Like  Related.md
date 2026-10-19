@@ -55,9 +55,9 @@ GCC/G++ 只會處理單一或少量檔案的編譯，但對於大型專案（有
 
 ### **CMake 典型用法**
 ```sh
-mkdir build && cd build
-cmake ..       # 產生 Makefile
-make -j$(nproc)  # 使用 Make 來編譯
+$ mkdir build && cd build
+$ cmake ..       # 產生 Makefile
+$ make -j$(nproc)  # 使用 Make 來編譯
 ```
 CMake 不會直接執行 `gcc` 或 `g++`，但它會根據**專案的需求**自動選擇合適的編譯器。
 
@@ -99,7 +99,7 @@ set(CMAKE_CXX_COMPILER g++)
 ### **1. `gcc` 編譯 C 程式**
 如果你用 `gcc` 編譯 C 程式：
 ```sh
-gcc main.c -o main
+$ gcc main.c -o main
 ```
 它會使用 C 語言的編譯規則。
 
@@ -108,11 +108,11 @@ gcc main.c -o main
 ### **2. `gcc` 編譯 C++ 程式（需要手動指定標準庫）**
 如果你用 `gcc` 編譯 C++ 程式：
 ```sh
-gcc main.cpp -o main
+$ gcc main.cpp -o main
 ```
 這會產生錯誤，因為 `gcc` **不會自動連結 C++ 標準函式庫**。你必須手動加上 `-lstdc++`：
 ```sh
-gcc main.cpp -lstdc++ -o main
+$ gcc main.cpp -lstdc++ -o main
 ```
 
 ---
@@ -120,7 +120,7 @@ gcc main.cpp -lstdc++ -o main
 ### **3. `g++` 編譯 C++ 程式（推薦方式）**
 如果你用 `g++` 編譯 C++ 程式：
 ```sh
-g++ main.cpp -o main
+$ g++ main.cpp -o main
 ```
 它**自動連結 C++ 標準函式庫**，不用額外加 `-lstdc++`，是**推薦的方式**。
 
@@ -135,12 +135,12 @@ g++ main.cpp -o main
 
 用 `gcc` 來編譯（需要手動連結 C++ 標準庫）：
 ```sh
-gcc main.cpp utils.c -lstdc++ -o main
+$ gcc main.cpp utils.c -lstdc++ -o main
 ```
 
 用 `g++` 來編譯：
 ```sh
-g++ main.cpp utils.c -o main
+$ g++ main.cpp utils.c -o main
 ```
 **`g++` 會自動連結 `libstdc++`，所以更方便。**
 

