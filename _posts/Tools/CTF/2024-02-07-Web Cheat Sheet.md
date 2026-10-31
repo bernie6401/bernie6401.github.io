@@ -244,8 +244,7 @@ date: 2024-02-07
 
   </details>
 
-- 各資料庫 RCE Payload
-  <details markdown="1"><summary><span class="spoiler">Example</span></summary>
+- <details markdown="1"><summary><span class="spoiler">各資料庫 RCE Payload Example</span></summary>
     - MSSQL(`xp_cmdshell`): 條件： 需要 sa 或 sysadmin 角色
       ```sql
       -- 啟用 xp_cmdshell
@@ -288,9 +287,9 @@ date: 2024-02-07
     CREATE OR REPLACE AND RESOLVE JAVA SOURCE NAMED "cmd" AS
     import java.io.*; import java.lang.*;
     public class cmd {
-      public static String exec(String args) throws Exception {
-        // ... 執行系統命令
-      }
+    public static String exec(String args) throws Exception {
+    // ... 執行系統命令
+    }
     };
     ```
   - SQLite: 本身沒有內建 RCE 能力。唯一的方式是 load_extension()，但幾乎所有環境都預設禁用。主要用於讀資料。
