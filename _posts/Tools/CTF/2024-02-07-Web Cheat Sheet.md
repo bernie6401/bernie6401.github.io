@@ -41,11 +41,69 @@ date: 2024-02-07
   - [DNS Lookup(從 Domain Name 看 IP)](https://www.whatismyip.com/dns-lookup/)
 
 - ffuf
+
   ```bash
   $ ffuf -u https://kobold.htb -H "Host: FUZZ.kobold.htb" -w /snap/seclists/1214/Discovery/DNS/subdomains-top1million-20000.txt -k -fs <filter size> # for subdomain
   $ ffuf -u https://mcp.kobold.htb/FUZZ -w /snap/seclists/1214//Discovery/Web-Content/common.txt -k # for directory
   $ ffuf -u http://192.168.198.48/FUZZ -w /usr/share/wordlists/dirb/common.txt -e .php,.html,.txt # 會著重在特定的檔案類型
   ```
+
+- dirsearch
+  <details markdown="1">
+  <summary><span class="spoiler"></span></summary>
+
+  ```bash
+  $ dirsearch -u "http://192.168.157.249:8000" -r -w /usr/share/wordlists/dirb/common.txt --exclude-status 403,503
+  $ pip install dirsearch --break-system-packages # 安裝
+
+  # 基本掃描
+  $ dirsearch -u http://target
+
+  # 指定 wordlist
+  $ dirsearch -u http://target -w /usr/share/wordlists/dirb/common.txt
+
+  # 指定副檔名
+  $ dirsearch -u http://target -e php,asp,aspx,txt,html
+
+  # 指定 port
+  $ dirsearch -u http://target:8080
+
+  # 遞迴掃描（自動掃子目錄）
+  $ dirsearch -u http://target -r
+
+  # 排除特定狀態碼
+  $ dirsearch -u http://target --exclude-status 403,404
+
+  # 只顯示特定狀態碼
+  $ dirsearch -u http://target -i 200,301,302
+
+  # 加 cookie（需要認證的頁面）
+  $ dirsearch -u http://target --cookie "PHPSESSID=abc123"
+
+  # 加 header
+  $ dirsearch -u http://target -H "Authorization: Bearer token"
+
+  # 多執行緒（預設 25）
+  $ dirsearch -u http://target -t 50
+
+  # 輸出到檔案
+  $ dirsearch -u http://target -o result.txt
+  $ dirsearch -u http://target --format json -o result.json
+
+  # HTTPS 忽略憑證錯誤
+  $ dirsearch -u https://target --ssl-no-verify
+
+  # 指定 HTTP method
+  $ dirsearch -u http://target -m POST
+
+  # 掃多個目標
+  $ dirsearch -l targets.txt
+
+  # 加 proxy（配合 Burp）
+  $ dirsearch -u http://target --proxy http://127.0.0.1:8080
+  ```
+
+  </details>
 
 ## Information Leak
 
