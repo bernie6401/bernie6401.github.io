@@ -50,7 +50,7 @@ date: 2024-02-07
 
 - dirsearch
   <details markdown="1">
-  <summary><span class="spoiler"></span></summary>
+  <summary><span class="spoiler">CMD</span></summary>
 
   ```bash
   $ dirsearch -u "http://192.168.157.249:8000" -r -w /usr/share/wordlists/dirb/common.txt --exclude-status 403,503
