@@ -114,6 +114,11 @@ date: 2024-02-07
   $ ./scrabble <url> [directory]
   $ ./scrabble http://example.com/my-project.git/
   ```
+- git-dumper: 如果 scabble 沒辦法完整抓到所有 commit 歷史，可以用這個
+  ```bash
+  $ pipx install git-dumper
+  $ git-dumper http://192.168.157.144/ ./crystal-git
+  ```
 
 ## Injection
 
