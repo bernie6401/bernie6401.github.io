@@ -1058,11 +1058,16 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
 
 ## Upload
 
+<details markdown="1">
+<summary><span class="spoiler">基本判斷方法</span></summary>
+
 - 如果沒有任何保護: 直接 upload webshell.php(`<?php system($_GET["sh"]); ?>`)達到 RCE
 - 改 Extension: 如果有保護但只看 extension : 那就偽造 extension 後夾帶 webshell 達到 RCE (`webshell.png.php`)
 - 改 Content-Typebypass: `IMAGETYPE`(加入合法的 File Signature) + bypass file type(修改封包 header)
 - 雙重副檔名: `shell.jsp.jpg`（若 server 解析第一個副檔名）或 `shell.jpg.jsp`
 - 如果只能插入在 Image 中，通常會插在 IEND 後面，如果 response 的 Content-Type 不是 `image/png` 而是 `text/html` ，他會執行後面的 webshell payload
+
+</details>
 
 ### 利用 Upload + Directory Traversal 上傳 ssh pub key
 
