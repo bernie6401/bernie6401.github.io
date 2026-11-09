@@ -217,9 +217,16 @@ $custom-sidebar-text-dim: #7d828c;
 
 // Spoiler toggle (<details>) inside a post body — same collapsible mechanism
 // as the sidebar, but tuned for the post's light background instead of the
-// sidebar's dark one.
+// sidebar's dark one. The tinted background wraps the whole element (not
+// just the summary) so collapsed and expanded states look visibly the same
+// "spoiler block" instead of the content blending into normal body text
+// once opened.
 .post-body details {
     margin: 0.6em 0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: rgba(46, 158, 107, 0.07);
+    border-left: 3px solid rgba(46, 158, 107, 0.5);
 
     > summary {
         cursor: pointer;
@@ -229,7 +236,7 @@ $custom-sidebar-text-dim: #7d828c;
         border-radius: 4px;
         transition: background 0.15s ease;
 
-        &:hover { background-color: rgba(0, 0, 0, 0.04); }
+        &:hover { background-color: rgba(46, 158, 107, 0.12); }
 
         &::-webkit-details-marker { display: none; }
 
@@ -250,6 +257,17 @@ $custom-sidebar-text-dim: #7d828c;
     &[open] > summary::before {
         transform: translateY(-50%) rotate(90deg);
         color: $custom-sidebar-accent;
+    }
+
+    // Give the revealed content breathing room from the summary and the
+    // block's own edges, so it reads as being "inside" the tinted block.
+    > :not(summary) {
+        margin-top: 0.4em;
+        margin-bottom: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0.2em;
     }
 }
 
