@@ -1,0 +1,32 @@
+# Development overrides — used with: bundle exec jekyll serve --config _config.yml,_config_dev.yml --incremental
+# These settings disable expensive features that slow down local builds.
+
+# Override URL for local dev
+url: http://localhost:4000
+
+# Disable plugins that regenerate on every build
+plugins: []
+
+# Disable search index generation
+local_search:
+  enable: false
+
+# Disable TOC generation (saves ~68s)
+toc:
+  enable: false
+
+# Remove sidebar entirely (saves ~20s)
+sidebar:
+  display: remove
+
+# Disable analytics / third-party services
+google_site_verification:
+google_analytics:
+baidu_push: false
+disqus:
+  enable: false
+busuanzi_count:
+  enable: false
+
+# Only build recent posts for faster dev builds (705 total → 200 most recent)
+limit_posts: 200

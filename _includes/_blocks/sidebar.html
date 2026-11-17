@@ -1,3 +1,4 @@
+{% if site.sidebar.display != 'remove' %}
 {% case page.layout %}
 {% when 'index' %}
   {% assign is_post = false %}
@@ -21,3 +22,4 @@
   {% assign is_post = false %}
   {% capture sidebar %}{% include _macro/sidebar.html %}{% endcapture %}
 {% endcase %}
+{% endif %}

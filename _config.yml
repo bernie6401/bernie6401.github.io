@@ -43,6 +43,7 @@ exclude:
     "Gemfile.lock",
     "README_en.md",
     "vendor",
+    "_config_dev.yml",
   ]
 
 # Separator
