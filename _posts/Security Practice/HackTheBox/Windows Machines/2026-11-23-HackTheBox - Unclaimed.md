@@ -227,18 +227,6 @@ Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
 -ar---        11/22/2026   7:03 PM             34 user.txt
 
-
-    Directory: C:\Users\svc_sql
-
-
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
--a----        11/22/2026  11:19 PM            606 cred2.txt
--a----        11/22/2026  11:30 PM            484 lu.txt
--a----        11/22/2026  11:27 PM             48 plen.txt
--a----        11/22/2026  11:33 PM          27873 sp.txt
-
-
 PS C:\> type C:\Users\svc_sql\Desktop\user.txt
 type C:\Users\svc_sql\Desktop\user.txt
 d0574695e3f6a055a44dd4e0985629b0
